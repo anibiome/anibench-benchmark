@@ -1,0 +1,31 @@
+{
+  "title": "AniBench: reconstructive and causal capacity of human trials",
+  "description": "Open, auditable software for compiling proposed and realized human-study geometry into six non-interchangeable capacity families: intensive, extensive, longitudinal, causal, personalized/sequential, and transport. The package includes typed unknowns, source-bound external comparator facts, anti-gaming tests, deterministic receipts, and a protocol-native design optimizer. No scalar public rank or biological-validation claim is implied by software release.",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Balen, Bruno",
+      "affiliation": "ANI Biome PBC"
+    }
+  ],
+  "version": "2.0.0-rc.1",
+  "access_right": "open",
+  "license": "Apache-2.0",
+  "keywords": [
+    "human trials",
+    "biological information",
+    "causal inference",
+    "longitudinal studies",
+    "adaptive interventions",
+    "benchmark governance",
+    "reproducible research"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/anibiome/anibench",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "notes": "Release metadata only. No DOI, deposit, publication date, ORCID, grant, or public-rank claim is asserted until the corresponding external readback exists."
+}

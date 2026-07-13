@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+.venv/
+/build/
+/dist/
+/paper/build/
+*.egg-info/
+release/*.zip
+tmp/
+# Third-party response bodies are fetched and hash-verified locally. Public
+# source policy permits normalized facts, locators, URLs, and hashes—not
+# redistribution of publication text or controlled upstream bytes.
+data/source_projections/v2/sources/

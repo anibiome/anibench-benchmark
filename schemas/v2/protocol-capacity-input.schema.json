@@ -1,0 +1,357 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anibench.org/schemas/v2/protocol-capacity-input.schema.json",
+  "title": "AniBench v2 prospective protocol capacity input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "protocol_id", "claim_class", "parameter_space", "measurement_geometry", "causal_geometry"],
+  "properties": {
+    "schema_version": {"const": "anibench.protocol-capacity-input.v2"},
+    "protocol_id": {"$ref": "#/$defs/id"},
+    "claim_class": {"const": "prospective_protocol_capacity"},
+    "parameter_space": {
+      "type": "object", "additionalProperties": false,
+      "required": ["parameter_space_id", "dimension", "prior_precision", "source_object_sha256"],
+      "properties": {
+        "parameter_space_id": {"$ref": "#/$defs/id"},
+        "dimension": {"type": "integer", "minimum": 1},
+        "prior_precision": {"$ref": "#/$defs/matrix"},
+        "source_object_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "measurement_geometry": {
+      "type": "object", "additionalProperties": false,
+      "required": ["signals", "covariance_groups", "joint_covariance_authority", "measurement_modules", "joint_observation_bundles", "participant_event_schedules"],
+      "properties": {
+        "signals": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/signal"}},
+        "covariance_groups": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/covariance_group"}},
+        "joint_covariance_authority": {"$ref": "#/$defs/joint_covariance_authority"},
+        "measurement_modules": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/module"}},
+        "joint_observation_bundles": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["joint_observation_bundle_id", "canonical_event_unit_id"], "properties": {"joint_observation_bundle_id": {"$ref": "#/$defs/id"}, "canonical_event_unit_id": {"$ref": "#/$defs/id"}}}},
+        "participant_event_schedules": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/schedule"}},
+        "extensive_selection_authorities": {"type": "array", "items": {"$ref": "#/$defs/extensive_selection_authority"}},
+        "population_aggregation_authorities": {"type": "array", "items": {"$ref": "#/$defs/population_aggregation_authority"}}
+      }
+    },
+    "causal_geometry": {
+      "type": "object", "additionalProperties": false,
+      "required": ["operator_components", "policies", "decision_rule_operators", "estimands", "assignment_stages", "transport_geometry"],
+      "properties": {
+        "operator_components": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/operator_component"}},
+        "policies": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/policy"}},
+        "decision_rule_operators": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/decision_rule_operator"}},
+        "estimands": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/estimand"}},
+        "assignment_stages": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/stage"}},
+        "stage_aggregation_sets": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/stage_aggregation_set"}
+        },
+        "transport_geometry": {
+          "type": "object", "additionalProperties": false, "required": ["reference_estimand_id", "transport_axis_families", "contexts"],
+          "properties": {"reference_estimand_id": {"$ref": "#/$defs/id"}, "transport_axis_families": {"type": "array", "minItems": 1, "maxItems": 64, "items": {"$ref": "#/$defs/transport_axis_family"}}, "contexts": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/context"}}}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{1,127}$"},
+    "sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+    "matrix": {"type": "array", "minItems": 1, "items": {"type": "array", "minItems": 1, "items": {"type": "number"}}},
+    "coordinate": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["state", "value"], "properties": {"state": {"const": "exact"}, "value": {"type": "number", "minimum": 0}}},
+        {"type": "object", "additionalProperties": false, "required": ["state", "lower", "upper"], "properties": {"state": {"const": "interval"}, "lower": {"type": "number", "minimum": 0}, "upper": {"type": "number", "minimum": 0}, "nominal": {"type": "number", "minimum": 0}}},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "scenario_group_id", "scenarios"],
+          "properties": {
+            "state": {"const": "conditional"},
+            "scenario_group_id": {"$ref": "#/$defs/id"},
+            "scenarios": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["scenario_id", "value"],
+                "properties": {
+                  "scenario_id": {"$ref": "#/$defs/id"},
+                  "value": {"type": "number", "minimum": 0}
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "signal": {
+      "type": "object", "additionalProperties": false,
+      "required": ["signal_id", "canonical_feature_id", "feature_ancestry_id", "operator_row", "evidence_state", "source_object_sha256", "source_locator"],
+      "properties": {
+        "signal_id": {"$ref": "#/$defs/id"}, "canonical_feature_id": {"$ref": "#/$defs/id"}, "feature_ancestry_id": {"$ref": "#/$defs/id"},
+        "operator_row": {"type": "array", "minItems": 1, "items": {"type": "number"}},
+        "evidence_state": {"enum": ["registered_normative_reference", "protocol_committed", "source_verified", "conditional", "unknown"]},
+        "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1},
+        "inclusion_coordinate": {"$ref": "#/$defs/coordinate"}
+      },
+      "allOf": [{"if": {"properties": {"evidence_state": {"const": "conditional"}}}, "then": {"required": ["inclusion_coordinate"]}}]
+    },
+    "covariance_group": {
+      "type": "object", "additionalProperties": false, "required": ["covariance_group_id", "signal_ids", "covariance", "source_object_sha256", "source_locator"],
+      "properties": {"covariance_group_id": {"$ref": "#/$defs/id"}, "signal_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}}, "covariance": {"$ref": "#/$defs/matrix"}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}
+    },
+    "joint_covariance_authority": {
+      "oneOf": [
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["state", "signal_ids", "covariance", "source_object_sha256", "source_locator"],
+          "properties": {"state": {"const": "complete"}, "signal_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}, "covariance": {"$ref": "#/$defs/matrix"}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}
+        },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["state", "reason", "source_object_sha256", "source_locator"],
+          "properties": {"state": {"enum": ["unknown", "absent"]}, "reason": {"type": "string", "minLength": 1}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}
+        }
+      ]
+    },
+    "module": {
+      "type": "object", "additionalProperties": false, "required": ["module_id", "canonical_event_unit_id", "signal_ids", "evidence_state"],
+      "properties": {"module_id": {"$ref": "#/$defs/id"}, "canonical_event_unit_id": {"$ref": "#/$defs/id"}, "signal_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}}, "evidence_state": {"enum": ["registered_normative_reference", "protocol_committed", "source_verified", "conditional", "unknown"]}, "inclusion_coordinate": {"$ref": "#/$defs/coordinate"}},
+      "allOf": [{"if": {"properties": {"evidence_state": {"const": "conditional"}}}, "then": {"required": ["inclusion_coordinate"]}}]
+    },
+    "schedule": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schedule_id", "participant_event_lineage_id", "joint_observation_bundle_id", "canonical_event_unit_id", "participant_set_id", "trajectory_dependence_id", "retention_overlap_authority", "measurement_module_ids", "participant_count", "events_per_participant", "retention_fraction", "within_person_repetition_correlation", "schedule_semantics", "temporal_offsets", "source_object_sha256", "source_locator"],
+      "properties": {
+        "schedule_id": {"$ref": "#/$defs/id"}, "participant_event_lineage_id": {"$ref": "#/$defs/id"}, "joint_observation_bundle_id": {"$ref": "#/$defs/id"}, "canonical_event_unit_id": {"$ref": "#/$defs/id"}, "participant_set_id": {"$ref": "#/$defs/id"}, "trajectory_dependence_id": {"$ref": "#/$defs/id", "description": "Source-bound joint dependence model shared by every schedule in one participant set. The declared repetition correlations must upper-bound any within-model event pair; the compiler uses the maximum bound."}, "retention_overlap_authority": {"$ref": "#/$defs/retention_overlap_authority"},
+        "measurement_module_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}},
+        "participant_count": {"$ref": "#/$defs/coordinate"}, "events_per_participant": {"$ref": "#/$defs/coordinate"}, "retention_fraction": {"$ref": "#/$defs/coordinate"}, "within_person_repetition_correlation": {"$ref": "#/$defs/coordinate"},
+        "schedule_semantics": {"const": "exact_offsets"},
+        "temporal_offsets": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "number"}}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}
+      }
+    },
+    "retention_overlap_authority": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["state", "retained_participant_set_id", "source_object_sha256", "source_locator"], "properties": {"state": {"const": "registered_nested"}, "retained_participant_set_id": {"$ref": "#/$defs/id"}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}},
+        {"type": "object", "additionalProperties": false, "required": ["state", "reason", "source_object_sha256", "source_locator"], "properties": {"state": {"enum": ["unknown", "absent"]}, "reason": {"type": "string", "minLength": 1}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}}
+      ]
+    },
+    "extensive_selection_authority": {
+      "type": "object", "additionalProperties": false,
+      "required": ["participant_set_id", "state", "primary_extensive_bundle_id", "source_object_sha256", "source_locator"],
+      "properties": {
+        "participant_set_id": {"$ref": "#/$defs/id"},
+        "state": {"const": "registered_primary_extensive_bundle"},
+        "primary_extensive_bundle_id": {"$ref": "#/$defs/id"},
+        "source_object_sha256": {"$ref": "#/$defs/sha256"},
+        "source_locator": {"type": "string", "minLength": 1}
+      }
+    },
+    "population_aggregation_authority": {
+      "type": "object", "additionalProperties": false,
+      "required": ["aggregation_authority_id", "participant_set_ids", "aggregation_rule", "participant_relation", "source_object_sha256", "source_locator"],
+      "properties": {
+        "aggregation_authority_id": {"$ref": "#/$defs/id"},
+        "participant_set_ids": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "aggregation_rule": {"const": "sum_information_across_disjoint_participant_sets"},
+        "participant_relation": {"const": "mutually_disjoint_participant_sets"},
+        "source_object_sha256": {"$ref": "#/$defs/sha256"},
+        "source_locator": {"type": "string", "minLength": 1}
+      }
+    },
+    "operator_component": {"type": "object", "additionalProperties": false, "required": ["component_id", "canonical_operator_id", "source_object_sha256", "source_locator"], "properties": {"component_id": {"$ref": "#/$defs/id"}, "canonical_operator_id": {"$ref": "#/$defs/id"}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}},
+    "policy": {"type": "object", "additionalProperties": false, "required": ["policy_id", "operator_component_ids", "policy_rule_operator_id", "policy_rule_source_object_sha256", "policy_rule_source_locator"], "properties": {"policy_id": {"$ref": "#/$defs/id"}, "operator_component_ids": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}, "policy_rule_operator_id": {"$ref": "#/$defs/id"}, "policy_rule_source_object_sha256": {"$ref": "#/$defs/sha256"}, "policy_rule_source_locator": {"type": "string", "minLength": 1}}},
+    "decision_rule_operator": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["decision_rule_operator_id", "state", "state_feature_ids", "policy_ids", "state_to_policy_contrast_matrix", "source_object_sha256", "source_locator"], "properties": {"decision_rule_operator_id": {"$ref": "#/$defs/id"}, "state": {"const": "registered_state_dependent"}, "state_feature_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}, "policy_ids": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}, "state_to_policy_contrast_matrix": {"$ref": "#/$defs/matrix"}, "response_state_score_axis_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}, "response_state_score_matrix": {"$ref": "#/$defs/matrix"}, "policy_interaction_basis_matrix": {"$ref": "#/$defs/matrix"}, "conditional_probability_shift": {"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}},
+        {"type": "object", "additionalProperties": false, "required": ["decision_rule_operator_id", "state", "policy_ids", "reason", "source_object_sha256", "source_locator"], "properties": {"decision_rule_operator_id": {"$ref": "#/$defs/id"}, "state": {"enum": ["static", "unknown", "absent"]}, "policy_ids": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}, "reason": {"type": "string", "minLength": 1}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}}
+      ]
+    },
+    "allocation": {"type": "object", "additionalProperties": false, "required": ["policy_id", "probability"], "properties": {"policy_id": {"$ref": "#/$defs/id"}, "probability": {"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1}}},
+    "policy_coefficient": {"type": "object", "additionalProperties": false, "required": ["policy_id", "coefficient"], "properties": {"policy_id": {"$ref": "#/$defs/id"}, "coefficient": {"type": "number"}}},
+    "operator_contrast": {"type": "object", "additionalProperties": false, "required": ["contrast_id", "policy_coefficients"], "properties": {"contrast_id": {"$ref": "#/$defs/id"}, "policy_coefficients": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/policy_coefficient"}}}},
+    "estimand": {
+      "type": "object", "additionalProperties": false,
+      "required": ["estimand_id", "outcome_definition_id", "outcome_feature_ids", "operator_contrasts", "horizon_start_offset_exclusive", "horizon_end_offset_inclusive", "source_object_sha256", "source_locator"],
+      "properties": {"estimand_id": {"$ref": "#/$defs/id"}, "outcome_definition_id": {"$ref": "#/$defs/id"}, "outcome_feature_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}, "powered_outcome_direction_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}, "powered_outcome_direction_multiplicity_rule": {"const": "bonferroni_over_all_64_registered_directions_no_covariance_discount"}, "operator_contrasts": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/operator_contrast"}}, "horizon_start_offset_exclusive": {"type": "number"}, "horizon_end_offset_inclusive": {"type": "number"}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}},
+      "dependentRequired": {"powered_outcome_direction_ids": ["powered_outcome_direction_multiplicity_rule"], "powered_outcome_direction_multiplicity_rule": ["powered_outcome_direction_ids"]}
+    },
+    "proximal_outcome_link": {"type": "object", "additionalProperties": false, "required": ["schedule_id", "estimand_id"], "properties": {"schedule_id": {"$ref": "#/$defs/id"}, "estimand_id": {"$ref": "#/$defs/id"}}},
+    "decision_epoch": {
+      "type": "object", "additionalProperties": false,
+      "required": ["decision_epoch_id", "decision_time_offset", "availability_probability", "history_moderator_feature_ids", "history_measurement_schedule_ids", "policy_propensities", "proximal_outcome_links"],
+      "properties": {"decision_epoch_id": {"$ref": "#/$defs/id"}, "decision_time_offset": {"type": "number"}, "availability_probability": {"type": "number", "minimum": 0, "maximum": 1}, "history_moderator_feature_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}, "history_measurement_schedule_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}, "policy_propensities": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/allocation"}}, "proximal_outcome_links": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/proximal_outcome_link"}}}
+    },
+    "epoch_moderator_covariance": {"type": "object", "additionalProperties": false, "required": ["decision_epoch_id", "moderator_feature_ids", "population_covariance", "source_object_sha256", "source_locator"], "properties": {"decision_epoch_id": {"$ref": "#/$defs/id"}, "moderator_feature_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}, "population_covariance": {"$ref": "#/$defs/matrix"}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}},
+    "moderator_population_geometry": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["state", "population_scope", "epoch_covariances"], "properties": {"state": {"const": "registered"}, "population_scope": {"const": "uniform_loewner_lower_bound_on_standardized_moderator_covariance_within_every_exact_joint_eligible_predecision_stage_context_policy_history_population"}, "epoch_covariances": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/epoch_moderator_covariance"}}}},
+        {"type": "object", "additionalProperties": false, "required": ["state", "population_scope", "decision_epoch_process_id", "moderator_feature_ids", "population_covariance", "source_object_sha256", "source_locator"], "properties": {"state": {"const": "registered_stationary_rate_process"}, "population_scope": {"const": "uniform_loewner_lower_bound_on_standardized_moderator_covariance_within_every_exact_joint_eligible_predecision_stage_context_policy_history_population"}, "decision_epoch_process_id": {"$ref": "#/$defs/id"}, "moderator_feature_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}, "population_covariance": {"$ref": "#/$defs/matrix"}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}},
+        {"type": "object", "additionalProperties": false, "required": ["state", "reason", "source_object_sha256", "source_locator"], "properties": {"state": {"enum": ["unknown", "absent"]}, "reason": {"type": "string", "minLength": 1}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}}
+      ]
+    },
+    "regular_decision_epoch_process": {"type": "object", "additionalProperties": false, "required": ["decision_epoch_process_id", "template_decision_epoch_id", "decision_count", "start_offset", "decision_interval_days", "decisions_per_day", "duration_days", "proximal_readback_offset_days", "source_object_sha256", "source_locator"], "properties": {"decision_epoch_process_id": {"$ref": "#/$defs/id"}, "template_decision_epoch_id": {"$ref": "#/$defs/id"}, "decision_count": {"type": "integer", "minimum": 2}, "start_offset": {"type": "number"}, "decision_interval_days": {"type": "number", "exclusiveMinimum": 0}, "decisions_per_day": {"type": "integer", "minimum": 1}, "duration_days": {"type": "integer", "minimum": 1}, "proximal_readback_offset_days": {"type": "number", "exclusiveMinimum": 0}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}},
+    "response_state_predicate": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["kind", "active_score_axis_id", "direction", "ordered_axis_priority"], "properties": {"kind": {"const": "argmax_absolute_registered_linear_scores_with_ordered_tie_break"}, "active_score_axis_id": {"$ref": "#/$defs/id"}, "direction": {"enum": ["nonnegative", "negative"]}, "ordered_axis_priority": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}}},
+        {"type": "object", "additionalProperties": false, "required": ["kind", "complete_case_required"], "properties": {"kind": {"const": "unclassifiable_if_any_required_feature_missing"}, "complete_case_required": {"const": true}}}
+      ]
+    },
+    "response_state_definition": {"type": "object", "additionalProperties": false, "required": ["response_state_id", "classification_state", "transition_from_decision_epoch_id", "next_decision_epoch_id", "assessment_schedule_id", "assessment_time_offset", "state_feature_ids", "predicate", "source_object_sha256", "source_locator"], "properties": {"response_state_id": {"$ref": "#/$defs/id"}, "classification_state": {"enum": ["classified", "unclassifiable"]}, "transition_from_decision_epoch_id": {"$ref": "#/$defs/id"}, "next_decision_epoch_id": {"$ref": "#/$defs/id"}, "assessment_schedule_id": {"$ref": "#/$defs/id"}, "assessment_time_offset": {"type": "number"}, "state_feature_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}, "predicate": {"$ref": "#/$defs/response_state_predicate"}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}},
+    "conditional_policy_distribution": {"type": "object", "additionalProperties": false, "required": ["decision_epoch_id", "response_state_id", "policy_propensities", "source_object_sha256", "source_locator"], "properties": {"decision_epoch_id": {"$ref": "#/$defs/id"}, "response_state_id": {"$ref": "#/$defs/id"}, "policy_propensities": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/allocation"}}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}},
+    "response_state_probability": {"type": "object", "additionalProperties": false, "required": ["response_state_id", "probability"], "properties": {"response_state_id": {"$ref": "#/$defs/id"}, "probability": {"type": "number", "minimum": 0, "maximum": 1}}},
+    "response_state_prevalence": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["state", "state_probabilities", "source_object_sha256", "source_locator"], "properties": {"state": {"const": "registered"}, "state_probabilities": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/response_state_probability"}}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}},
+        {"type": "object", "additionalProperties": false, "required": ["state", "reason", "source_object_sha256", "source_locator"], "properties": {"state": {"const": "unknown"}, "reason": {"type": "string", "minLength": 1}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}}
+      ]
+    },
+    "smart_path": {"type": "object", "additionalProperties": false, "required": ["smart_path_id", "ordered_decision_epoch_ids", "response_state_ids", "policy_sequence_ids", "assignment_propensity_product", "probability_semantics", "source_object_sha256", "source_locator"], "properties": {"smart_path_id": {"$ref": "#/$defs/id"}, "ordered_decision_epoch_ids": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}, "response_state_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}}, "policy_sequence_ids": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/id"}}, "assignment_propensity_product": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}, "probability_semantics": {"const": "product_of_conditional_assignment_propensities_excludes_response_state_prevalence"}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}},
+    "smart_path_geometry": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["state", "response_state_definitions", "conditional_policy_distributions", "response_state_prevalence", "paths"], "properties": {"state": {"const": "registered"}, "response_state_definitions": {"type": "array", "minItems": 3, "items": {"$ref": "#/$defs/response_state_definition"}}, "conditional_policy_distributions": {"type": "array", "minItems": 3, "items": {"$ref": "#/$defs/conditional_policy_distribution"}}, "response_state_prevalence": {"$ref": "#/$defs/response_state_prevalence"}, "paths": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/smart_path"}}}},
+        {"type": "object", "additionalProperties": false, "required": ["state", "reason", "source_object_sha256", "source_locator"], "properties": {"state": {"enum": ["not_applicable", "unknown", "absent"]}, "reason": {"type": "string", "minLength": 1}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}}
+      ]
+    },
+    "conditional_moderated_eligibility_bound": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision_epoch_id", "policy_id", "minimum_conditional_availability_probability", "minimum_complete_case_outcome_moderator_retention_probability"],
+      "properties": {
+        "decision_epoch_id": {"$ref": "#/$defs/id"},
+        "policy_id": {"$ref": "#/$defs/id"},
+        "minimum_conditional_availability_probability": {"type": "number", "minimum": 0, "maximum": 1},
+        "minimum_complete_case_outcome_moderator_retention_probability": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "conditional_moderated_eligibility_authority": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "scope", "context_id", "history_scope_id", "history_scope_semantics", "bounds", "source_object_sha256", "source_locator"],
+          "properties": {
+            "state": {"const": "registered_pointwise_lower_bounds"},
+            "scope": {"const": "pointwise_by_stage_context_policy_over_every_preassignment_history_for_treatment_by_moderator_information"},
+            "context_id": {"$ref": "#/$defs/id"},
+            "history_scope_id": {"$ref": "#/$defs/id"},
+            "history_scope_semantics": {"const": "uniform_lower_bound_over_every_preassignment_history_in_stage_context"},
+            "bounds": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/conditional_moderated_eligibility_bound"}},
+            "source_object_sha256": {"$ref": "#/$defs/sha256"},
+            "source_locator": {"type": "string", "minLength": 1}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "scope", "context_id", "reason", "source_object_sha256", "source_locator"],
+          "properties": {
+            "state": {"enum": ["unknown", "absent"]},
+            "scope": {"const": "pointwise_by_stage_context_policy_over_every_preassignment_history_for_treatment_by_moderator_information"},
+            "context_id": {"$ref": "#/$defs/id"},
+            "reason": {"type": "string", "minLength": 1},
+            "source_object_sha256": {"$ref": "#/$defs/sha256"},
+            "source_locator": {"type": "string", "minLength": 1}
+          }
+        }
+      ]
+    },
+    "estimating_score_dependence_authority": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "model", "correlation", "pooled_across_decisions", "score_semantics", "source_object_sha256", "source_locator"],
+          "properties": {
+            "state": {"const": "registered"},
+            "model": {"enum": ["independent", "ar1", "exchangeable"]},
+            "correlation": {"type": "number", "exclusiveMinimum": -1, "exclusiveMaximum": 1},
+            "pooled_across_decisions": {"type": "boolean"},
+            "score_semantics": {"const": "correlation_of_centered_treatment_contrast_times_outcome_or_moderator_estimating_scores_over_ordered_decision_epochs"},
+            "source_object_sha256": {"$ref": "#/$defs/sha256"},
+            "source_locator": {"type": "string", "minLength": 1}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "reason", "source_object_sha256", "source_locator"],
+          "properties": {
+            "state": {"const": "unknown"},
+            "reason": {"type": "string", "minLength": 1},
+            "source_object_sha256": {"$ref": "#/$defs/sha256"},
+            "source_locator": {"type": "string", "minLength": 1}
+          }
+        }
+      ]
+    },
+    "stage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["stage_id", "context_id", "participant_set_id", "assignment_mechanism", "participant_count", "decisions_per_participant", "decision_time_offset", "decision_rule_operator_id", "policy_allocations", "linked_outcome_schedule_ids", "moderator_feature_ids", "moderator_measurement_schedule_ids", "sequential_assignment_probability", "decision_epochs", "moderator_population_geometry", "smart_path_geometry", "conditional_moderated_eligibility_authority", "estimating_score_dependence_authority", "source_object_sha256", "source_locator"],
+      "properties": {
+        "stage_id": {"$ref": "#/$defs/id"}, "context_id": {"$ref": "#/$defs/id"}, "participant_set_id": {"$ref": "#/$defs/id"}, "assignment_mechanism": {"enum": ["simple_randomized", "stratified_randomized", "factorial_randomized", "smart_rerandomized", "micro_randomized", "crossover_randomized", "cluster_randomized", "deterministic_policy", "observational"]},
+        "participant_count": {"$ref": "#/$defs/coordinate"}, "decisions_per_participant": {"$ref": "#/$defs/coordinate"},
+        "decision_time_offset": {"type": "number"},
+        "decision_rule_operator_id": {"$ref": "#/$defs/id"},
+        "policy_allocations": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/allocation"}},
+        "linked_outcome_schedule_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "moderator_feature_ids": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "moderator_measurement_schedule_ids": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "sequential_assignment_probability": {"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1},
+        "decision_epochs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/decision_epoch"}},
+        "regular_decision_epoch_process": {"$ref": "#/$defs/regular_decision_epoch_process"},
+        "moderator_population_geometry": {"$ref": "#/$defs/moderator_population_geometry"},
+        "smart_path_geometry": {"$ref": "#/$defs/smart_path_geometry"},
+        "conditional_moderated_eligibility_authority": {"$ref": "#/$defs/conditional_moderated_eligibility_authority"},
+        "estimating_score_dependence_authority": {"$ref": "#/$defs/estimating_score_dependence_authority"},
+        "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}
+      }
+    },
+    "stage_aggregation_set": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage_set_id", "stage_ids", "aggregation_rule", "participant_relation", "source_object_sha256", "source_locator"],
+      "properties": {
+        "stage_set_id": {"$ref": "#/$defs/id"},
+        "stage_ids": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "aggregation_rule": {"const": "sum_information_across_disjoint_participant_sets"},
+        "participant_relation": {"const": "mutually_disjoint_participant_sets"},
+        "source_object_sha256": {"$ref": "#/$defs/sha256"},
+        "source_locator": {"type": "string", "minLength": 1}
+      }
+    },
+    "transport_axis_family": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["transport_axis_family_id", "reference_estimand_id", "required_transport_axis_ids", "coordinate_scale_authority"],
+      "properties": {
+        "transport_axis_family_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_:-]{1,127}$"},
+        "reference_estimand_id": {"$ref": "#/$defs/id"},
+        "required_transport_axis_ids": {"type": "array", "minItems": 1, "maxItems": 128, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "coordinate_scale_authority": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "scope", "source_object_sha256", "source_locator"],
+          "properties": {
+            "state": {"const": "registered"},
+            "scope": {"const": "units_transforms_ranges_for_required_transport_axes"},
+            "source_object_sha256": {"$ref": "#/$defs/sha256"},
+            "source_locator": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    },
+    "context": {
+      "type": "object", "additionalProperties": false, "required": ["context_id", "participant_set_id", "participant_count", "assignment_mechanism", "assignment_time_offset", "linked_outcome_schedule_ids", "policy_allocations", "transport_coordinates", "estimand_binding", "source_object_sha256", "source_locator"],
+      "properties": {"context_id": {"$ref": "#/$defs/id"}, "participant_set_id": {"$ref": "#/$defs/id"}, "participant_count": {"$ref": "#/$defs/coordinate"}, "assignment_mechanism": {"enum": ["simple_randomized", "stratified_randomized", "factorial_randomized", "smart_rerandomized", "micro_randomized", "crossover_randomized", "cluster_randomized", "deterministic_policy", "observational"]}, "assignment_time_offset": {"type": "number"}, "linked_outcome_schedule_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}, "policy_allocations": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/allocation"}}, "transport_coordinates": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["transport_axis_id", "value"], "properties": {"transport_axis_id": {"$ref": "#/$defs/id"}, "value": {"type": "number"}}}}, "estimand_binding": {"$ref": "#/$defs/estimand_binding"}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}
+    },
+    "estimand_binding": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["state", "estimand_id"], "properties": {"state": {"const": "direct"}, "estimand_id": {"$ref": "#/$defs/id"}}},
+        {"type": "object", "additionalProperties": false, "required": ["state", "source_estimand", "target_estimand_id", "crosswalk_id", "source_object_sha256", "source_locator"], "properties": {"state": {"const": "registered_crosswalk"}, "source_estimand": {"$ref": "#/$defs/estimand"}, "target_estimand_id": {"$ref": "#/$defs/id"}, "crosswalk_id": {"$ref": "#/$defs/id"}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}},
+        {"type": "object", "additionalProperties": false, "required": ["state", "reason", "source_object_sha256", "source_locator"], "properties": {"state": {"enum": ["unknown", "absent"]}, "reason": {"type": "string", "minLength": 1}, "source_object_sha256": {"$ref": "#/$defs/sha256"}, "source_locator": {"type": "string", "minLength": 1}}}
+      ]
+    }
+  }
+}

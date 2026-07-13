@@ -1,0 +1,185 @@
+{
+  "contract": "anibench.protocol-authority-object.v1",
+  "authority_id": "anibench.level1.event-unit-registry.v1",
+  "authority_type": "event_unit_registry",
+  "status": "candidate_normative_engineering_authority_not_empirical_calibration",
+  "claim_boundary": "This object freezes benchmark mechanics and identifiers. It is not an empirical assay-performance, covariance, intervention-effect, or trial-ranking claim.",
+  "source_dependencies": [
+    {
+      "path": "spec/v2/level1/normative-target-requirements.v2.json",
+      "sha256": "sha256:79a6c624abd51eff0a80a53fd0b150fa425e47d72dea8c1c06abd73b274f83f8"
+    }
+  ],
+  "payload": {
+    "event_units": [
+      {
+        "event_unit_id": "participant-joint-state-visit",
+        "counting_boundary": "one participant at one registered visit with a declared joint-observation bundle",
+        "anti_splitting_rule": "aliquots, panels, features, and technical replicates do not create additional events"
+      },
+      {
+        "event_unit_id": "participant-functional-observation",
+        "counting_boundary": "one participant at one registered functional assessment epoch",
+        "anti_splitting_rule": "subtests and derived features do not create additional events"
+      },
+      {
+        "event_unit_id": "participant-joint-state-readback",
+        "counting_boundary": "one participant at one registered proximal joint-state readback epoch carrying the declared joint-observation bundle",
+        "anti_splitting_rule": "coordinate blocks, assays, panels, features, derived states, and technical replicates do not create additional events"
+      },
+      {
+        "event_unit_id": "participant-randomization-decision",
+        "counting_boundary": "one participant at one protocol-defined policy assignment decision",
+        "anti_splitting_rule": "component indicators within one policy assignment are not separate decisions"
+      }
+    ],
+    "sensor_rate_rule": "raw sensor frequency is not an event count",
+    "level1_reference_schedule_template": {
+      "template_id": "level1-three-module-nine-context-joint-trajectory",
+      "context_count": 9,
+      "participants_per_context": 171572,
+      "cohort_module_count": 3,
+      "module_participant_set_count": 27,
+      "module_enrollment": [
+        {
+          "family_id": "factorial_component_moderation",
+          "rounded_module_enrollment": 394200,
+          "participants_per_context": 43800,
+          "module_rounding_unit": 72,
+          "allocation_semantics": "exact_integer_count_in_each_of_nine_context_by_eight_uniform_policy_cells",
+          "exact_participants_per_context_policy_cell": 5475,
+          "state_conditional_allocation_statement": null,
+          "continuous_policy_allocation_bound": null
+        },
+        {
+          "family_id": "smart_stage_moderation",
+          "rounded_module_enrollment": 1146591,
+          "participants_per_context": 127399,
+          "module_rounding_unit": 9,
+          "allocation_semantics": "equal_integer_context_totals_with_state_conditional_expected_policy_allocations; response_state_prevalence_unknown; no_fixed_policy_cell_count",
+          "exact_participants_per_context_policy_cell": null,
+          "state_conditional_allocation_statement": {
+            "response_state_ids": [
+              "response-component-pair-12-nonnegative",
+              "response-component-pair-12-negative",
+              "response-component-pair-13-nonnegative",
+              "response-component-pair-13-negative",
+              "response-component-pair-23-nonnegative",
+              "response-component-pair-23-negative",
+              "response-unclassifiable-required-feature-missing"
+            ],
+            "conditional_policy_probability_matrix": [
+              [
+                0.1875,
+                0.0625,
+                0.0625,
+                0.1875,
+                0.1875,
+                0.0625,
+                0.0625,
+                0.1875
+              ],
+              [
+                0.0625,
+                0.1875,
+                0.1875,
+                0.0625,
+                0.0625,
+                0.1875,
+                0.1875,
+                0.0625
+              ],
+              [
+                0.1875,
+                0.0625,
+                0.1875,
+                0.0625,
+                0.0625,
+                0.1875,
+                0.0625,
+                0.1875
+              ],
+              [
+                0.0625,
+                0.1875,
+                0.0625,
+                0.1875,
+                0.1875,
+                0.0625,
+                0.1875,
+                0.0625
+              ],
+              [
+                0.1875,
+                0.1875,
+                0.0625,
+                0.0625,
+                0.0625,
+                0.0625,
+                0.1875,
+                0.1875
+              ],
+              [
+                0.0625,
+                0.0625,
+                0.1875,
+                0.1875,
+                0.1875,
+                0.1875,
+                0.0625,
+                0.0625
+              ],
+              [
+                0.125,
+                0.125,
+                0.125,
+                0.125,
+                0.125,
+                0.125,
+                0.125,
+                0.125
+              ]
+            ],
+            "response_state_count_status": "unknown",
+            "expected_allocation_identity": "E[n_{c,e,s,a}|n_{c,e,s}]=n_{c,e,s}*p(a|s)",
+            "fixed_policy_cell_count": null
+          },
+          "continuous_policy_allocation_bound": null
+        },
+        {
+          "family_id": "mrt_proximal_moderation",
+          "rounded_module_enrollment": 3357,
+          "participants_per_context": 373,
+          "module_rounding_unit": 9,
+          "allocation_semantics": "equal_integer_context_totals_with_continuous_state_conditioned_policy_probabilities; emitted_minimum_is_an_expectation_bound_per_decision_not_a_fixed_cell_count",
+          "exact_participants_per_context_policy_cell": null,
+          "state_conditional_allocation_statement": null,
+          "continuous_policy_allocation_bound": {
+            "minimum_joint_policy_probability": 0.0625,
+            "eligible_history_count_status": "design_and_history_dependent",
+            "expected_allocation_inequality": "E[assignments_{c,e,a}|eligible_histories]>=n_eligible(c,e)/16",
+            "fixed_policy_cell_count": null
+          }
+        }
+      ],
+      "retention_fraction": 0.8,
+      "retained_participant_identity_rule": "one registered nested complete-case retained participant set per stage-kind-by-context stratum shared only among schedules within that stratum",
+      "context_participant_relation": "twenty-seven mutually disjoint stage-kind-by-context allocation strata across three cohort modules",
+      "temporal_offsets_days": [
+        -56,
+        -28,
+        0,
+        30,
+        90,
+        180,
+        270,
+        365,
+        545,
+        730,
+        850
+      ],
+      "joint_profile_rule": "all_six_registered_coordinate_block_profiles_per_event",
+      "status": "abstract_normative_target_requirement_not_empirical_optimum"
+    }
+  }
+}

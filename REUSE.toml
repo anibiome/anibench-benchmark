@@ -1,0 +1,52 @@
+version = 1
+
+[[annotations]]
+path = [
+  ".gitattributes",
+  ".gitignore",
+  ".github/**",
+  "Makefile",
+  "openapi/**",
+  "pyproject.toml",
+  "REUSE.toml",
+  "scripts/**",
+  "src/**",
+  "tests/**",
+  "uv.lock",
+  "web/**/*.css",
+  "web/**/*.html",
+  "web/**/*.js",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 ANI"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = [
+  ".zenodo.json",
+  "PUBLIC_EXPORT_RECEIPT.json",
+  "*.cff",
+  "*.md",
+  "codemeta.json",
+  "corpus/**",
+  "data/**",
+  "docs/**",
+  "examples/**",
+  "figures/**",
+  "LICENSE-DATA",
+  "paper/**",
+  "packaging/**",
+  "registry/**",
+  "release/**",
+  "reviews/**",
+  "schemas/**",
+  "spec/**",
+  "tables/**",
+  "tasks/**",
+  "web/**/*.json",
+  "web/**/*.md",
+  "web/**/*.svg",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 ANI"
+SPDX-License-Identifier = "CC-BY-4.0"

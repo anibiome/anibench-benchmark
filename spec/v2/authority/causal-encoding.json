@@ -1,0 +1,139 @@
+{
+  "contract": "anibench.protocol-authority-object.v1",
+  "authority_id": "anibench.level1.causal-encoding.v1",
+  "authority_type": "causal_encoding",
+  "status": "candidate_normative_engineering_authority_not_empirical_calibration",
+  "claim_boundary": "This object freezes benchmark mechanics and identifiers. It is not an empirical assay-performance, covariance, intervention-effect, or trial-ranking claim.",
+  "source_dependencies": [
+    {
+      "path": "spec/v2/level1/normative-target-requirements.v2.json",
+      "sha256": "sha256:79a6c624abd51eff0a80a53fd0b150fa425e47d72dea8c1c06abd73b274f83f8"
+    }
+  ],
+  "payload": {
+    "operator_components": [
+      {
+        "component_id": "target-operator-slot-1",
+        "semantic_state": "unnamed_candidate_slot_requires_protocol_operator_identity"
+      },
+      {
+        "component_id": "target-operator-slot-2",
+        "semantic_state": "unnamed_candidate_slot_requires_protocol_operator_identity"
+      },
+      {
+        "component_id": "target-operator-slot-3",
+        "semantic_state": "unnamed_candidate_slot_requires_protocol_operator_identity"
+      }
+    ],
+    "policies": [
+      {
+        "policy_id": "target-factorial-cell-000",
+        "component_ids": [],
+        "rule_operator_id": "abstract-target-factorial-rule-000"
+      },
+      {
+        "policy_id": "target-factorial-cell-001",
+        "component_ids": [
+          "target-operator-slot-1"
+        ],
+        "rule_operator_id": "abstract-target-factorial-rule-001"
+      },
+      {
+        "policy_id": "target-factorial-cell-010",
+        "component_ids": [
+          "target-operator-slot-2"
+        ],
+        "rule_operator_id": "abstract-target-factorial-rule-010"
+      },
+      {
+        "policy_id": "target-factorial-cell-011",
+        "component_ids": [
+          "target-operator-slot-1",
+          "target-operator-slot-2"
+        ],
+        "rule_operator_id": "abstract-target-factorial-rule-011"
+      },
+      {
+        "policy_id": "target-factorial-cell-100",
+        "component_ids": [
+          "target-operator-slot-3"
+        ],
+        "rule_operator_id": "abstract-target-factorial-rule-100"
+      },
+      {
+        "policy_id": "target-factorial-cell-101",
+        "component_ids": [
+          "target-operator-slot-1",
+          "target-operator-slot-3"
+        ],
+        "rule_operator_id": "abstract-target-factorial-rule-101"
+      },
+      {
+        "policy_id": "target-factorial-cell-110",
+        "component_ids": [
+          "target-operator-slot-2",
+          "target-operator-slot-3"
+        ],
+        "rule_operator_id": "abstract-target-factorial-rule-110"
+      },
+      {
+        "policy_id": "target-factorial-cell-111",
+        "component_ids": [
+          "target-operator-slot-1",
+          "target-operator-slot-2",
+          "target-operator-slot-3"
+        ],
+        "rule_operator_id": "abstract-target-factorial-rule-111"
+      }
+    ],
+    "contrast_encoding": "centered_range_normalized_full_rank_contrasts",
+    "rank_rule": "derive from registered allocation and component matrices; never accept caller rank integers",
+    "positivity_rule": "all compared policies require nonzero assignment probability in every eligible context",
+    "identity_blocker": "These abstract target slots are valid only for construction of the normative target; every external protocol must source-bind named intervention and executable policy identities.",
+    "level1_assignment_template": {
+      "template_id": "level1-abstract-disjoint-factorial-smart-micro-randomized-modules",
+      "stages_per_context": [
+        {
+          "stage_kind": "factorial_randomized",
+          "decision_time_offset": 0,
+          "decisions_per_participant": 1
+        },
+        {
+          "stage_kind": "smart_rerandomized",
+          "decision_time_offset": 90,
+          "decisions_per_participant": 2
+        },
+        {
+          "stage_kind": "micro_randomized",
+          "decision_time_offset": 0,
+          "decisions_per_participant": 2190
+        }
+      ],
+      "stage_aggregation_sets": [
+        {
+          "stage_set_id": "level1-factorial_randomized-across-contexts",
+          "stage_kind": "factorial_randomized",
+          "member_context_rule": "exactly_one_stage_per_registered_level1_context",
+          "participant_relation": "mutually_disjoint_participant_sets",
+          "aggregation_rule": "sum_information_across_disjoint_participant_sets"
+        },
+        {
+          "stage_set_id": "level1-smart_rerandomized-across-contexts",
+          "stage_kind": "smart_rerandomized",
+          "member_context_rule": "exactly_one_stage_per_registered_level1_context",
+          "participant_relation": "mutually_disjoint_participant_sets",
+          "aggregation_rule": "sum_information_across_disjoint_participant_sets"
+        },
+        {
+          "stage_set_id": "level1-micro_randomized-across-contexts",
+          "stage_kind": "micro_randomized",
+          "member_context_rule": "exactly_one_stage_per_registered_level1_context",
+          "participant_relation": "mutually_disjoint_participant_sets",
+          "aggregation_rule": "sum_information_across_disjoint_participant_sets"
+        }
+      ],
+      "policy_allocation_rule": "equal_probability_across_eight_factorial_cells",
+      "semantic_boundary": "Abstract benchmark operators define the normative target; external protocols bind real operator identities. The umbrella design contains three mutually exclusive participant cohort modules: factorial, SMART, and MRT. Each module contains nine mutually disjoint context participant sets and may sum information only within its registered stage-kind-homogeneous set. No participant set or information is reused across stage kinds."
+    }
+  }
+}

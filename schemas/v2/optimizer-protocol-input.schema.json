@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anibench.org/schemas/v2/optimizer-protocol-input.schema.json",
+  "title": "AniBench v2 protocol-native optimizer input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "optimizer_id",
+    "base_protocol",
+    "objectives",
+    "resource_constraints",
+    "mutations",
+    "maximum_mutations_per_candidate",
+    "candidate_limit"
+  ],
+  "properties": {
+    "schema_version": {"const": "anibench.optimizer-protocol-input.v2"},
+    "optimizer_id": {"type": "string", "minLength": 1},
+    "base_protocol": {
+      "type": "object",
+      "$comment": "Validated independently by protocol-capacity-input.schema.json and compile_protocol_capacity."
+    },
+    "objectives": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["objective_id", "family_path", "envelope_bound", "direction"],
+        "properties": {
+          "objective_id": {"type": "string", "minLength": 1},
+          "family_path": {"type": "string", "minLength": 1},
+          "envelope_bound": {"enum": ["minimum", "maximum"]},
+          "direction": {"enum": ["maximize", "minimize"]}
+        }
+      }
+    },
+    "resource_constraints": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/resource_constraint"}
+    },
+    "mutations": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {"$ref": "#/$defs/mutation"}
+    },
+    "maximum_mutations_per_candidate": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 64,
+      "description": "Maximum mutation-set cardinality. Zero is a valid typed base-only audit: declared mutations are source/resource validated but no singleton effect is evaluated."
+    },
+    "candidate_limit": {"type": "integer", "minimum": 1, "maximum": 10000}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "resource_constraint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resource_id",
+        "unit",
+        "base_amount",
+        "maximum_amount",
+        "as_of",
+        "source_object_sha256",
+        "source_locator"
+      ],
+      "properties": {
+        "resource_id": {"type": "string", "minLength": 1},
+        "unit": {"type": "string", "minLength": 1},
+        "base_amount": {"type": "number", "minimum": 0},
+        "maximum_amount": {"type": "number", "minimum": 0},
+        "as_of": {"type": "string", "format": "date"},
+        "source_object_sha256": {"$ref": "#/$defs/sha256"},
+        "source_locator": {"type": "string", "minLength": 1}
+      }
+    },
+    "resource_delta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resource_id",
+        "unit",
+        "amount",
+        "as_of",
+        "source_object_sha256",
+        "source_locator"
+      ],
+      "properties": {
+        "resource_id": {"type": "string", "minLength": 1},
+        "unit": {"type": "string", "minLength": 1},
+        "amount": {"type": "number", "minimum": 0},
+        "as_of": {"type": "string", "format": "date"},
+        "source_object_sha256": {"$ref": "#/$defs/sha256"},
+        "source_locator": {"type": "string", "minLength": 1}
+      }
+    },
+    "operation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "path"],
+      "properties": {
+        "op": {"enum": ["add", "replace", "remove"]},
+        "path": {"type": "string", "pattern": "^/(measurement_geometry|causal_geometry)(/.*)?$"},
+        "value": {}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"op": {"enum": ["add", "replace"]}}},
+          "then": {"required": ["value"]},
+          "else": {"not": {"required": ["value"]}}
+        }
+      ]
+    },
+    "mutation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mutation_id",
+        "description",
+        "protocol_operations",
+        "resource_deltas",
+        "source_object_sha256",
+        "source_locator"
+      ],
+      "properties": {
+        "mutation_id": {"type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9._-]+$"},
+        "description": {"type": "string", "minLength": 1},
+        "protocol_operations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/operation"}
+        },
+        "resource_deltas": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/resource_delta"}
+        },
+        "incompatible_mutation_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "source_object_sha256": {"$ref": "#/$defs/sha256"},
+        "source_locator": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

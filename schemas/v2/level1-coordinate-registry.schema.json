@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anibench.org/schemas/v2/level1-coordinate-registry.schema.json",
+  "title": "AniBench Level-1 ordered biological coordinate registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "registry_version", "status", "basis_semantics", "standardization", "blocks", "ordered_coordinate_count", "forbidden_derivations"],
+  "properties": {
+    "contract": {"const": "anibench.level1-biological-coordinate-registry.v1"},
+    "registry_version": {"const": "1.0.0"},
+    "status": {"const": "candidate_normative_mesoscopic_level_1_pending_independent_attestation"},
+    "basis_semantics": {"type": "string", "minLength": 30},
+    "standardization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rule", "scale_derivation", "fallback", "sensitivity_scale_multipliers"],
+      "properties": {
+        "rule": {"type": "string"},
+        "scale_derivation": {"type": "string", "minLength": 30},
+        "fallback": {"type": "string", "minLength": 30},
+        "sensitivity_scale_multipliers": {"const": [0.5, 1.0, 2.0]}
+      }
+    },
+    "blocks": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["block_id", "symbol", "target_posterior_sd_ratio", "coordinates"],
+        "properties": {
+          "block_id": {"enum": ["state_observation", "natural_dynamics", "perturbation_response", "person_context_heterogeneity", "functional_lived_state", "population_transport"]},
+          "symbol": {"type": "string", "pattern": "^theta_[SDPHFT]$"},
+          "target_posterior_sd_ratio": {"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1},
+          "coordinates": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "array",
+              "prefixItems": [
+                {"type": "string", "pattern": "^[SDPHFT][0-9]{2}$"},
+                {"type": "string", "pattern": "^[a-z0-9_]+$"}
+              ],
+              "items": false,
+              "minItems": 2,
+              "maxItems": 2
+            }
+          }
+        }
+      }
+    },
+    "ordered_coordinate_count": {"const": 64},
+    "forbidden_derivations": {"type": "array", "minItems": 4, "items": {"type": "string", "minLength": 5}}
+  }
+}

@@ -1,0 +1,540 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anibench.org/schemas/v2/protocol-capacity-result.schema.json",
+  "title": "AniBench v2 prospective protocol capacity result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "compiler_version", "protocol_id", "protocol_sha256", "claim_class", "empirical_attainment", "public_rank_emission_permitted", "comparison_eligible", "ontology_binding_state", "source_binding_state", "overall_scalar", "scenario_count", "scenarios", "family_envelopes", "uncertainty_reuse", "anti_gaming_contract"],
+  "properties": {
+    "schema_version": {"const": "anibench.protocol-capacity-result.v2"},
+    "compiler_version": {"const": "anibench.protocol-capacity.v2-candidate9"},
+    "protocol_id": {"type": "string"},
+    "protocol_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+    "claim_class": {"const": "prospective_protocol_capacity"},
+    "empirical_attainment": {"const": false},
+    "public_rank_emission_permitted": {"const": false},
+    "comparison_eligible": {"const": false},
+    "ontology_binding_state": {"const": "custom_unverified"},
+    "source_binding_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["protocol_input", "external_objects"],
+      "properties": {
+        "protocol_input": {"const": "canonical_hash_computed_and_bound"},
+        "external_objects": {"const": "caller_declared_not_content_verified"}
+      }
+    },
+    "overall_scalar": {"type": "null"},
+    "scenario_count": {"type": "integer", "minimum": 1},
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["scenario_id", "families"],
+        "properties": {
+          "scenario_id": {"type": "string", "minLength": 1},
+          "families": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["intensive", "extensive", "longitudinal", "causal", "personalized_sequential", "transport", "measurement_audit"],
+            "properties": {
+              "intensive": {"$ref": "#/$defs/intensive"},
+              "extensive": {"$ref": "#/$defs/extensive"},
+              "longitudinal": {"$ref": "#/$defs/longitudinal"},
+              "causal": {"$ref": "#/$defs/causal"},
+              "personalized_sequential": {"$ref": "#/$defs/personalized"},
+              "transport": {"$ref": "#/$defs/transport"},
+              "measurement_audit": {"$ref": "#/$defs/measurement_audit"}
+            }
+          }
+        }
+      }
+    },
+    "family_envelopes": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "oneOf": [
+          {"type": "object", "additionalProperties": false, "required": ["minimum", "maximum"], "properties": {"minimum": {"type": "number"}, "maximum": {"type": "number"}}},
+          {"type": "object", "additionalProperties": false, "required": ["resolution_state", "minimum", "maximum", "resolved_scenario_count", "total_scenario_count"], "properties": {"resolution_state": {"const": "unresolved"}, "minimum": {"type": ["number", "null"]}, "maximum": {"type": ["number", "null"]}, "resolved_scenario_count": {"type": "integer", "minimum": 0}, "total_scenario_count": {"type": "integer", "minimum": 1}}}
+        ]
+      }
+    },
+    "uncertainty_reuse": {"$ref": "#/$defs/uncertainty_reuse"},
+    "anti_gaming_contract": {"$ref": "#/$defs/anti_gaming_contract"}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "nullable_number": {"type": ["number", "null"]},
+    "nullable_integer": {"type": ["integer", "null"], "minimum": 0},
+    "nullable_sha256": {"type": ["string", "null"], "pattern": "^sha256:[a-f0-9]{64}$"},
+    "rank_receipt": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["rule", "configured_relative_tolerance", "relative_tolerance", "spectral_scale", "absolute_threshold", "effective_rank", "minimum_eigenvalue", "maximum_eigenvalue"],
+      "properties": {
+        "rule": {"type": "string", "minLength": 1},
+        "configured_relative_tolerance": {"type": "number", "exclusiveMinimum": 0},
+        "relative_tolerance": {"type": "number", "exclusiveMinimum": 0},
+        "spectral_scale": {"type": "number", "minimum": 0},
+        "absolute_threshold": {"type": "number", "minimum": 0},
+        "effective_rank": {"type": "integer", "minimum": 0},
+        "minimum_eigenvalue": {"type": "number"},
+        "maximum_eigenvalue": {"type": "number"}
+      }
+    },
+    "rectangular_rank_receipt": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["rule", "configured_relative_tolerance", "relative_tolerance", "spectral_scale", "absolute_threshold", "effective_rank", "minimum_singular_value", "maximum_singular_value"],
+      "properties": {
+        "rule": {"type": "string", "minLength": 1},
+        "configured_relative_tolerance": {"type": "number", "exclusiveMinimum": 0},
+        "relative_tolerance": {"type": "number", "exclusiveMinimum": 0},
+        "spectral_scale": {"type": "number", "minimum": 0},
+        "absolute_threshold": {"type": "number", "minimum": 0},
+        "effective_rank": {"type": "integer", "minimum": 0},
+        "minimum_singular_value": {"type": "number", "minimum": 0},
+        "maximum_singular_value": {"type": "number", "minimum": 0}
+      }
+    },
+    "intensive_bundle_row": {
+      "type": "object", "additionalProperties": false,
+      "required": ["joint_observation_bundle_id", "canonical_event_unit_id", "participant_set_id", "schedule_ids", "temporal_offsets", "retention_overlap_state", "retained_participant_set_id", "retention_overlap_source_object_sha256", "retention_overlap_source_locator", "observer_resolution_state", "declared_covariance_group_ids", "selected_covariance_group_ids", "unresolved_feature_count", "canonical_feature_count", "effective_rank", "rank_tolerance_receipt", "per_bundle_log10_contraction", "information_matrix_sha256", "posterior_direction_information"],
+      "properties": {"joint_observation_bundle_id": {"type": "string"}, "canonical_event_unit_id": {"type": "string"}, "participant_set_id": {"type": "string"}, "schedule_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "temporal_offsets": {"type": "array", "minItems": 1, "items": {"type": "number"}}, "retention_overlap_state": {"enum": ["registered_nested", "unknown", "absent"]}, "retained_participant_set_id": {"type": ["string", "null"]}, "retention_overlap_source_object_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}, "retention_overlap_source_locator": {"type": "string"}, "observer_resolution_state": {"enum": ["resolved", "resolved_no_observer", "partial_known_lower_bound_with_unresolved_observers", "unresolved_no_known_observer"]}, "declared_covariance_group_ids": {"type": "array", "items": {"type": "string"}}, "selected_covariance_group_ids": {"type": "array", "items": {"type": "string"}}, "unresolved_feature_count": {"type": "integer", "minimum": 0}, "canonical_feature_count": {"type": "integer", "minimum": 0}, "effective_rank": {"$ref": "#/$defs/nullable_integer"}, "rank_tolerance_receipt": {"$ref": "#/$defs/rank_receipt"}, "per_bundle_log10_contraction": {"$ref": "#/$defs/nullable_number"}, "information_matrix_sha256": {"$ref": "#/$defs/nullable_sha256"}, "posterior_direction_information": {"type": ["array", "null"], "items": {"type": "number"}}}
+    },
+    "extensive_bundle_row": {
+      "type": "object", "additionalProperties": false,
+      "required": ["joint_observation_bundle_id", "canonical_event_unit_id", "participant_set_id", "schedule_ids", "temporal_offsets", "participant_count", "events_per_participant", "retention_fraction", "within_person_repetition_correlation", "retention_overlap_state", "retained_participant_set_id", "retention_overlap_source_object_sha256", "retention_overlap_source_locator", "observer_resolution_state", "declared_covariance_group_ids", "selected_covariance_group_ids", "unresolved_feature_count", "canonical_feature_count", "effective_rank", "rank_tolerance_receipt", "per_bundle_log10_contraction", "information_matrix_sha256", "posterior_direction_information", "standalone_effective_information_count_not_summed"],
+      "properties": {"joint_observation_bundle_id": {"type": "string"}, "canonical_event_unit_id": {"type": "string"}, "participant_set_id": {"type": "string"}, "schedule_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "temporal_offsets": {"type": "array", "minItems": 1, "items": {"type": "number"}}, "participant_count": {"type": "number", "minimum": 0}, "events_per_participant": {"type": "number", "minimum": 0}, "retention_fraction": {"type": "number", "minimum": 0, "maximum": 1}, "within_person_repetition_correlation": {"type": "number", "minimum": 0, "maximum": 1}, "retention_overlap_state": {"enum": ["registered_nested", "unknown", "absent"]}, "retained_participant_set_id": {"type": ["string", "null"]}, "retention_overlap_source_object_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}, "retention_overlap_source_locator": {"type": "string"}, "observer_resolution_state": {"enum": ["resolved", "resolved_no_observer", "partial_known_lower_bound_with_unresolved_observers", "unresolved_no_known_observer"]}, "declared_covariance_group_ids": {"type": "array", "items": {"type": "string"}}, "selected_covariance_group_ids": {"type": "array", "items": {"type": "string"}}, "unresolved_feature_count": {"type": "integer", "minimum": 0}, "canonical_feature_count": {"type": "integer", "minimum": 0}, "effective_rank": {"$ref": "#/$defs/nullable_integer"}, "rank_tolerance_receipt": {"$ref": "#/$defs/rank_receipt"}, "per_bundle_log10_contraction": {"$ref": "#/$defs/nullable_number"}, "information_matrix_sha256": {"$ref": "#/$defs/nullable_sha256"}, "posterior_direction_information": {"type": ["array", "null"], "items": {"type": "number"}}, "standalone_effective_information_count_not_summed": {"type": "number", "minimum": 0}}
+    },
+    "extensive_candidate_complexity_receipt": {
+      "type": "object", "additionalProperties": false,
+      "required": ["algorithm", "bundle_count", "support_threshold_stratum_count", "matrix_accumulation_count", "peak_live_information_matrix_count", "parameter_dimension", "asymptotic_time", "asymptotic_space"],
+      "properties": {
+        "algorithm": {"enum": ["single_bundle_closed_form_v1", "registered_nested_retained_support_threshold_strata_v1"]},
+        "bundle_count": {"type": "integer", "minimum": 1},
+        "support_threshold_stratum_count": {"type": "integer", "minimum": 1},
+        "matrix_accumulation_count": {"type": "integer", "minimum": 1},
+        "peak_live_information_matrix_count": {"type": "integer", "minimum": 1},
+        "parameter_dimension": {"type": "integer", "minimum": 1},
+        "asymptotic_time": {"type": "string", "minLength": 1},
+        "asymptotic_space": {"type": "string", "minLength": 1}
+      }
+    },
+    "extensive_complexity_receipt": {
+      "type": "object", "additionalProperties": false,
+      "required": ["algorithm", "bundle_count", "registered_nested_bundle_count", "unresolved_overlap_bundle_count", "nested_group_count", "support_threshold_stratum_count", "candidate_count", "matrix_accumulation_count", "peak_live_information_matrix_count", "participant_set_count", "cross_population_matrix_addition_count", "parameter_dimension", "asymptotic_time", "asymptotic_space", "subset_enumeration_performed", "psd_frontier_enumeration_performed", "numeric_frontier_cap"],
+      "properties": {
+        "algorithm": {"const": "registered_nested_threshold_strata_and_source_bound_primary_v1"},
+        "bundle_count": {"type": "integer", "minimum": 0},
+        "registered_nested_bundle_count": {"type": "integer", "minimum": 0},
+        "unresolved_overlap_bundle_count": {"type": "integer", "minimum": 0},
+        "nested_group_count": {"type": "integer", "minimum": 0},
+        "support_threshold_stratum_count": {"type": "integer", "minimum": 0},
+        "candidate_count": {"type": "integer", "minimum": 0},
+        "matrix_accumulation_count": {"type": "integer", "minimum": 0},
+        "peak_live_information_matrix_count": {"type": "integer", "minimum": 0},
+        "participant_set_count": {"type": "integer", "minimum": 0},
+        "cross_population_matrix_addition_count": {"type": "integer", "minimum": 0},
+        "parameter_dimension": {"type": "integer", "minimum": 1},
+        "asymptotic_time": {"const": "O(B log B + B d^2 + P d^2)"},
+        "asymptotic_space": {"const": "O(B + P + d^2)"},
+        "subset_enumeration_performed": {"const": false},
+        "psd_frontier_enumeration_performed": {"const": false},
+        "numeric_frontier_cap": {"type": "null"}
+      }
+    },
+    "population_aggregation_receipt": {
+      "type": "object", "additionalProperties": false,
+      "required": ["state", "aggregation_authority_id", "participant_set_ids", "source_object_sha256", "source_locator"],
+      "properties": {
+        "state": {"enum": ["no_numeric_participant_set_candidate", "single_participant_set_no_cross_population_sum", "source_bound_disjoint_population_sum"]},
+        "aggregation_authority_id": {"type": ["string", "null"]},
+        "participant_set_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "source_object_sha256": {"$ref": "#/$defs/nullable_sha256"},
+        "source_locator": {"type": ["string", "null"]}
+      }
+    },
+    "trajectory_row": {
+      "type": "object", "additionalProperties": false,
+      "required": ["trajectory_dependence_id", "participant_set_id", "schedule_ids", "joint_observation_bundle_ids", "selected_joint_observation_bundle_ids", "extensive_selected_joint_observation_bundle_ids", "optional_subset_candidate_count", "extensive_selection_state", "primary_extensive_bundle_id", "selection_authority_source_object_sha256", "selection_authority_source_locator", "ledger_only_joint_observation_bundle_ids", "support_thresholds", "extensive_complexity_receipt", "temporal_offsets", "declared_calendar_offset_count_not_follow_up", "participant_count_minimum", "participant_count_maximum", "distinct_temporal_offsets", "within_participant_span", "linked_retained_participant_support", "retained_participant_events", "trajectory_repetition_correlation", "trajectory_repetition_denominator", "trajectory_effective_information_count", "repetition_model", "retention_overlap_model"],
+      "properties": {"trajectory_dependence_id": {"type": "string"}, "participant_set_id": {"type": "string"}, "schedule_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "joint_observation_bundle_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "selected_joint_observation_bundle_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "extensive_selected_joint_observation_bundle_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "optional_subset_candidate_count": {"type": "integer", "minimum": 1}, "extensive_selection_state": {"enum": ["registered_nested_threshold_strata", "registered_nested_threshold_strata_with_unresolved_bundles_ledger_only", "single_bundle_no_selection_choice", "source_bound_primary_extensive_bundle"]}, "primary_extensive_bundle_id": {"type": ["string", "null"]}, "selection_authority_source_object_sha256": {"$ref": "#/$defs/nullable_sha256"}, "selection_authority_source_locator": {"type": ["string", "null"]}, "ledger_only_joint_observation_bundle_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}, "support_thresholds": {"type": "array", "minItems": 1, "items": {"type": "number", "minimum": 0}}, "extensive_complexity_receipt": {"$ref": "#/$defs/extensive_candidate_complexity_receipt"}, "temporal_offsets": {"type": "array", "minItems": 1, "items": {"type": "number"}}, "declared_calendar_offset_count_not_follow_up": {"type": "integer", "minimum": 1}, "participant_count_minimum": {"type": "number", "minimum": 0}, "participant_count_maximum": {"type": "number", "minimum": 0}, "distinct_temporal_offsets": {"type": "integer", "minimum": 0}, "within_participant_span": {"type": "number", "minimum": 0}, "linked_retained_participant_support": {"type": "number", "minimum": 0}, "retained_participant_events": {"type": "number", "minimum": 0}, "trajectory_repetition_correlation": {"type": "number", "minimum": 0, "maximum": 1}, "trajectory_repetition_denominator": {"type": "number", "minimum": 0}, "trajectory_effective_information_count": {"type": "number", "minimum": 0}, "repetition_model": {"type": "string"}, "retention_overlap_model": {"enum": ["source_bound_registered_nested_threshold_strata", "single_bundle_no_cross_bundle_overlap_imputed"]}}
+    },
+    "calendar_audit": {
+      "type": "object", "additionalProperties": false,
+      "required": ["not_longitudinal_follow_up", "distinct_offsets", "calendar_span"],
+      "properties": {"not_longitudinal_follow_up": {"const": true}, "distinct_offsets": {"type": "integer", "minimum": 0}, "calendar_span": {"type": "number", "minimum": 0}}
+    },
+    "registered_retained_lineage_support": {
+      "type": "object", "additionalProperties": false,
+      "required": ["retained_participant_set_id", "marginal_participant_support", "schedule_ids"],
+      "properties": {
+        "retained_participant_set_id": {"type": "string", "minLength": 1},
+        "marginal_participant_support": {"type": "number", "minimum": 0},
+        "schedule_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "retention_overlap_support_receipt": {
+      "type": "object", "additionalProperties": false,
+      "required": ["support_role", "state", "model", "rule", "cohort_population_bound", "availability_participant_support", "outcome_schedule_ids", "history_schedule_ids", "outcome_retention_overlap_states", "history_retention_overlap_states", "outcome_retained_participant_set_ids", "history_retained_participant_set_ids", "shared_outcome_history_retained_participant_set_ids", "unresolved_retention_schedule_ids", "unique_registered_retained_lineage_count", "registered_retained_lineage_supports", "joint_participant_support"],
+      "properties": {
+        "support_role": {"const": "schedule_lineage_support_for_extensive_and_causal_geometry_not_conditional_treatment_by_moderator_information"},
+        "state": {"enum": ["resolved_registered_nested", "blocked_unknown_or_absent_retention_authority", "blocked_invalid_history_or_outcome_linkage"]},
+        "model": {"enum": ["shared_registered_nested_lineage_single_frechet", "nonshared_registered_nested_lineages_generalized_frechet", "fail_closed_unknown_or_absent_retention_authority", "fail_closed_invalid_history_or_outcome_linkage"]},
+        "rule": {"const": "max(0, availability_participant_support + sum(minimum_marginal_support_per_unique_registered_retained_lineage) - unique_registered_retained_lineage_count * cohort_population_bound)"},
+        "cohort_population_bound": {"type": "number", "minimum": 0},
+        "availability_participant_support": {"type": "number", "minimum": 0},
+        "outcome_schedule_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "history_schedule_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "outcome_retention_overlap_states": {"type": "array", "uniqueItems": true, "items": {"enum": ["registered_nested", "unknown", "absent"]}},
+        "history_retention_overlap_states": {"type": "array", "uniqueItems": true, "items": {"enum": ["registered_nested", "unknown", "absent"]}},
+        "outcome_retained_participant_set_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "history_retained_participant_set_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "shared_outcome_history_retained_participant_set_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "unresolved_retention_schedule_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "unique_registered_retained_lineage_count": {"type": "integer", "minimum": 0},
+        "registered_retained_lineage_supports": {"type": "array", "items": {"$ref": "#/$defs/registered_retained_lineage_support"}},
+        "joint_participant_support": {"type": "number", "minimum": 0}
+      }
+    },
+    "conditional_moderated_eligibility_receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "scope", "context_id", "history_scope_id", "history_scope_semantics", "minimum_conditional_availability_probability", "minimum_complete_case_outcome_moderator_retention_probability", "minimum_pointwise_frechet_joint_eligible_fraction", "policy_bound_count", "policy_bounds_sha256", "reason", "source_object_sha256", "source_locator"],
+      "properties": {
+        "state": {"enum": ["resolved_registered_pointwise_lower_bounds", "blocked_unknown_pointwise_conditional_eligibility", "blocked_absent_pointwise_conditional_eligibility"]},
+        "scope": {"const": "pointwise_by_stage_context_policy_over_every_preassignment_history_for_treatment_by_moderator_information"},
+        "context_id": {"type": "string", "minLength": 1},
+        "history_scope_id": {"type": ["string", "null"]},
+        "history_scope_semantics": {"type": ["string", "null"]},
+        "minimum_conditional_availability_probability": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "minimum_complete_case_outcome_moderator_retention_probability": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "minimum_pointwise_frechet_joint_eligible_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "policy_bound_count": {"type": "integer", "minimum": 0},
+        "policy_bounds_sha256": {"$ref": "#/$defs/nullable_sha256"},
+        "reason": {"type": ["string", "null"]},
+        "source_object_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+        "source_locator": {"type": "string", "minLength": 1}
+      }
+    },
+    "decision_epoch_receipt": {
+      "type": "object", "additionalProperties": false,
+      "required": ["decision_epoch_id", "decision_epoch_representation", "decision_epoch_process_id", "decision_epoch_multiplicity", "effective_decision_information_multiplicity", "decision_time_offset", "availability_probability", "history_predecision_offset_count", "history_state_linked_predecision", "registered_rule_state_linked_predecision", "proximal_outcome_event_count", "retention_overlap_receipt", "conditional_moderated_eligibility_receipt", "eligible_outcome_participant_decision_support", "eligible_moderator_participant_decision_support"],
+      "properties": {"decision_epoch_id": {"type": "string"}, "decision_epoch_representation": {"enum": ["explicit_epoch", "regular_decision_epoch_process"]}, "decision_epoch_process_id": {"type": ["string", "null"]}, "decision_epoch_multiplicity": {"type": "integer", "minimum": 1}, "effective_decision_information_multiplicity": {"type": "number", "minimum": 0}, "decision_time_offset": {"type": "number"}, "availability_probability": {"type": "number", "minimum": 0, "maximum": 1}, "history_predecision_offset_count": {"type": "integer", "minimum": 0}, "history_state_linked_predecision": {"type": "boolean"}, "registered_rule_state_linked_predecision": {"type": "boolean"}, "proximal_outcome_event_count": {"type": "integer", "minimum": 0}, "retention_overlap_receipt": {"$ref": "#/$defs/retention_overlap_support_receipt"}, "conditional_moderated_eligibility_receipt": {"$ref": "#/$defs/conditional_moderated_eligibility_receipt"}, "eligible_outcome_participant_decision_support": {"type": "number", "minimum": 0}, "eligible_moderator_participant_decision_support": {"type": "number", "minimum": 0}}
+    },
+    "estimand_contrast_receipt": {
+      "type": "object", "additionalProperties": false,
+      "required": ["decision_epoch_id", "decision_epoch_multiplicity", "contrast_id", "canonical_policy_coefficients", "minimum_conditional_policy_probabilities", "policy_contrast", "component_contrast", "outcome_observability_factor", "outcome_observability_gram_sha256", "eligible_contrast_precision", "eligible_moderator_contrast_precision"],
+      "properties": {"decision_epoch_id": {"type": "string"}, "decision_epoch_multiplicity": {"type": "integer", "minimum": 1}, "contrast_id": {"type": "string"}, "canonical_policy_coefficients": {"type": "object", "minProperties": 2, "additionalProperties": {"type": "number"}}, "minimum_conditional_policy_probabilities": {"type": "object", "minProperties": 2, "additionalProperties": {"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1}}, "policy_contrast": {"type": "array", "minItems": 2, "items": {"type": "number"}}, "component_contrast": {"type": "array", "minItems": 1, "items": {"type": "number"}}, "outcome_observability_factor": {"type": "number", "minimum": 0, "maximum": 1}, "outcome_observability_gram_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}, "eligible_contrast_precision": {"type": "number", "minimum": 0}, "eligible_moderator_contrast_precision": {"type": "number", "minimum": 0}}
+    },
+    "epoch_support_receipt": {
+      "type": "object", "additionalProperties": false,
+      "required": ["epoch_index", "decision_time_offset", "decision_epoch_multiplicity", "effective_decision_information_multiplicity", "estimand_contrast_count", "policy_rank", "component_rank", "sequential_moderator_rank", "policy_allocation_support_factor", "component_allocation_support_factor", "sequential_moderator_allocation_support_factor", "eligible_outcome_participant_decisions", "eligible_moderator_participant_decisions", "policy_information_matrix_sha256", "component_information_matrix_sha256", "sequential_moderator_information_matrix_sha256"],
+      "properties": {"epoch_index": {"type": "integer", "minimum": 0}, "decision_time_offset": {"type": "number"}, "decision_epoch_multiplicity": {"type": "integer", "minimum": 1}, "effective_decision_information_multiplicity": {"type": "number", "minimum": 0}, "estimand_contrast_count": {"type": "integer", "minimum": 0}, "policy_rank": {"type": "integer", "minimum": 0}, "component_rank": {"type": "integer", "minimum": 0}, "sequential_moderator_rank": {"type": "integer", "minimum": 0}, "policy_allocation_support_factor": {"type": "number", "minimum": 0}, "component_allocation_support_factor": {"type": "number", "minimum": 0}, "sequential_moderator_allocation_support_factor": {"type": "number", "minimum": 0}, "eligible_outcome_participant_decisions": {"type": "number", "minimum": 0}, "eligible_moderator_participant_decisions": {"type": "number", "minimum": 0}, "policy_information_matrix_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}, "component_information_matrix_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}, "sequential_moderator_information_matrix_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}}
+    },
+    "stage_set_epoch_support": {
+      "type": "object", "additionalProperties": false,
+      "required": ["epoch_index", "decision_time_offset", "decision_epoch_multiplicity", "estimand_contrast_count", "policy_rank", "component_rank", "sequential_moderator_rank", "policy_allocation_support_factor", "component_allocation_support_factor", "sequential_moderator_allocation_support_factor", "minimum_member_component_allocation_support_factor", "minimum_member_sequential_moderator_allocation_support_factor", "minimum_member_eligible_outcome_participant_decisions", "minimum_member_eligible_moderator_participant_decisions", "policy_information_matrix_sha256", "component_information_matrix_sha256", "sequential_moderator_information_matrix_sha256"],
+      "properties": {"epoch_index": {"type": "integer", "minimum": 0}, "decision_time_offset": {"type": "number"}, "decision_epoch_multiplicity": {"type": "integer", "minimum": 1}, "estimand_contrast_count": {"type": "integer", "minimum": 0}, "policy_rank": {"type": "integer", "minimum": 0}, "component_rank": {"type": "integer", "minimum": 0}, "sequential_moderator_rank": {"type": "integer", "minimum": 0}, "policy_allocation_support_factor": {"type": "number", "minimum": 0}, "component_allocation_support_factor": {"type": "number", "minimum": 0}, "sequential_moderator_allocation_support_factor": {"type": "number", "minimum": 0}, "minimum_member_component_allocation_support_factor": {"type": "number", "minimum": 0}, "minimum_member_sequential_moderator_allocation_support_factor": {"type": "number", "minimum": 0}, "minimum_member_eligible_outcome_participant_decisions": {"type": "number", "minimum": 0}, "minimum_member_eligible_moderator_participant_decisions": {"type": "number", "minimum": 0}, "policy_information_matrix_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}, "component_information_matrix_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}, "sequential_moderator_information_matrix_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}}
+    },
+    "observability_receipt": {
+      "type": "object", "additionalProperties": false,
+      "required": ["state", "rank_receipt", "minimum_observability_factor", "gram_sha256"],
+      "properties": {
+        "state": {"enum": ["resolved_empty", "resolved_covariance_adjusted_operator_gram", "unresolved_joint_covariance_for_declared_feature_vector"]},
+        "rank_receipt": {"oneOf": [{"$ref": "#/$defs/rank_receipt"}, {"type": "null"}]},
+        "minimum_observability_factor": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "gram_sha256": {"type": ["string", "null"], "pattern": "^sha256:[a-f0-9]{64}$"}
+      }
+    },
+    "estimand_observability_receipt": {
+      "type": "object", "additionalProperties": false,
+      "required": ["estimand_geometry_sha256", "state", "rank_receipt", "minimum_observability_factor", "gram_sha256"],
+      "properties": {
+        "estimand_geometry_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+        "state": {"enum": ["resolved_empty", "resolved_covariance_adjusted_operator_gram", "unresolved_joint_covariance_for_declared_feature_vector"]},
+        "rank_receipt": {"oneOf": [{"$ref": "#/$defs/rank_receipt"}, {"type": "null"}]},
+        "minimum_observability_factor": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "gram_sha256": {"type": ["string", "null"], "pattern": "^sha256:[a-f0-9]{64}$"}
+      }
+    },
+    "stage_row": {
+      "type": "object", "additionalProperties": false,
+      "required": ["stage_id", "context_id", "participant_set_id", "assignment_mechanism", "canonical_policy_ids", "canonical_policy_allocations", "policy_rank", "component_rank", "epoch_block_policy_rank", "policy_rank_tolerance_receipt", "component_rank_tolerance_receipt", "sequential_moderator_rank", "epoch_block_sequential_moderator_rank", "moderator_rank_tolerance_receipt", "policy_allocation_support_factor", "component_allocation_support_factor", "sequential_moderator_allocation_support_factor", "declared_assignment_participants", "linked_outcome_retained_participant_support", "linked_outcome_retained_participant_events", "strictly_postdecision_outcome_offset_count", "eligible_causal_participant_support", "declared_decisions_per_participant", "eligible_decisions_per_participant", "raw_decision_information_count", "effective_decision_information_count", "estimating_score_dependence_resolution_state", "estimating_score_dependence_model", "estimating_score_dependence_correlation", "estimating_scores_pooled_across_decisions", "estimating_score_dependence_source_object_sha256", "estimating_score_dependence_source_locator", "linked_moderator_retained_participant_support", "eligible_moderator_participant_decisions", "decision_rule_operator_id", "decision_rule_geometry_state", "decision_rule_rank_tolerance_receipt", "decision_rule_uses_measured_state", "declared_sequential_assignment_probability", "allocation_assignment_variance_bound", "declared_assignment_variance_bound", "effective_assignment_variance_bound", "conditional_component_variance_bound", "outcome_geometry_sha256", "outcome_observability_receipts", "moderator_geometry_sha256", "moderator_observability_receipt", "moderator_population_geometry_state", "moderator_population_geometry_scope", "conditional_moderated_eligibility_authority_state", "conditional_moderated_eligibility_authority_scope", "conditional_moderated_eligibility_source_object_sha256", "conditional_moderated_eligibility_source_locator", "decision_epoch_ledger", "epoch_support_ledger", "estimand_contrast_ledger", "smart_path_geometry_state", "structural_personalization_eligible", "smart_structural_personalization_eligible", "smart_response_state_prevalence_state", "smart_between_state_policy_distribution_rank", "smart_minimum_conditional_policy_probability", "smart_minimum_response_state_participant_support", "smart_component_marginals_preserved", "smart_path_count", "smart_probability_semantics", "randomized_participants", "randomized_participant_decisions", "randomized_moderator_participant_decisions", "outcome_linked", "outcome_observer_resolution_state", "repeated_linked_outcome", "moderator_supported_pre_assignment", "eligible_for_causal_summary", "numeric_randomization_supported", "dependence_geometry_required", "gates"],
+      "properties": {
+        "stage_id": {"type": "string"},
+        "context_id": {"type": "string"},
+        "participant_set_id": {"type": "string"},
+        "assignment_mechanism": {"type": "string"},
+        "canonical_policy_ids": {"type": "array", "minItems": 2, "items": {"type": "string"}},
+        "canonical_policy_allocations": {"type": "object", "minProperties": 2, "additionalProperties": {"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1}},
+        "policy_rank": {"type": "integer", "minimum": 0},
+        "component_rank": {"type": "integer", "minimum": 0},
+        "epoch_block_policy_rank": {"type": "integer", "minimum": 0},
+        "policy_rank_tolerance_receipt": {"$ref": "#/$defs/rank_receipt"},
+        "component_rank_tolerance_receipt": {"$ref": "#/$defs/rank_receipt"},
+        "sequential_moderator_rank": {"type": "integer", "minimum": 0},
+        "epoch_block_sequential_moderator_rank": {"type": "integer", "minimum": 0},
+        "moderator_rank_tolerance_receipt": {"$ref": "#/$defs/rank_receipt"},
+        "policy_allocation_support_factor": {"type": "number", "minimum": 0},
+        "component_allocation_support_factor": {"type": "number", "minimum": 0},
+        "sequential_moderator_allocation_support_factor": {"type": "number", "minimum": 0},
+        "declared_assignment_participants": {"type": "number", "minimum": 0},
+        "linked_outcome_retained_participant_support": {"type": "number", "minimum": 0},
+        "linked_outcome_retained_participant_events": {"type": "number", "minimum": 0},
+        "strictly_postdecision_outcome_offset_count": {"type": "integer", "minimum": 0},
+        "eligible_causal_participant_support": {"type": "number", "minimum": 0},
+        "declared_decisions_per_participant": {"type": "number", "minimum": 0},
+        "eligible_decisions_per_participant": {"type": "number", "minimum": 0},
+        "raw_decision_information_count": {"type": "integer", "minimum": 1},
+        "effective_decision_information_count": {"type": "number", "minimum": 0},
+        "estimating_score_dependence_resolution_state": {"enum": ["resolved_registered", "blocked_unknown_repeated_estimating_score_dependence"]},
+        "estimating_score_dependence_model": {"type": ["string", "null"]},
+        "estimating_score_dependence_correlation": {"type": ["number", "null"]},
+        "estimating_scores_pooled_across_decisions": {"type": "boolean"},
+        "estimating_score_dependence_source_object_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+        "estimating_score_dependence_source_locator": {"type": "string", "minLength": 1},
+        "linked_moderator_retained_participant_support": {"type": "number", "minimum": 0},
+        "eligible_moderator_participant_decisions": {"type": "number", "minimum": 0},
+        "decision_rule_operator_id": {"type": "string"},
+        "decision_rule_geometry_state": {"enum": ["registered_state_dependent", "static", "unknown", "absent"]},
+        "decision_rule_rank_tolerance_receipt": {"$ref": "#/$defs/rectangular_rank_receipt"},
+        "decision_rule_uses_measured_state": {"type": "boolean"},
+        "declared_sequential_assignment_probability": {"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1},
+        "allocation_assignment_variance_bound": {"type": "number", "minimum": 0, "maximum": 0.25},
+        "declared_assignment_variance_bound": {"type": "number", "minimum": 0, "maximum": 0.25},
+        "effective_assignment_variance_bound": {"type": "number", "minimum": 0, "maximum": 0.25},
+        "conditional_component_variance_bound": {"type": "number", "minimum": 0, "maximum": 0.25},
+        "outcome_geometry_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+        "outcome_observability_receipts": {"type": "array", "items": {"$ref": "#/$defs/estimand_observability_receipt"}},
+        "moderator_geometry_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+        "moderator_observability_receipt": {"$ref": "#/$defs/observability_receipt"},
+        "moderator_population_geometry_state": {"enum": ["registered", "unknown", "absent"]},
+        "moderator_population_geometry_scope": {"type": ["string", "null"]},
+        "conditional_moderated_eligibility_authority_state": {"enum": ["registered_pointwise_lower_bounds", "unknown", "absent"]},
+        "conditional_moderated_eligibility_authority_scope": {"const": "pointwise_by_stage_context_policy_over_every_preassignment_history_for_treatment_by_moderator_information"},
+        "conditional_moderated_eligibility_source_object_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+        "conditional_moderated_eligibility_source_locator": {"type": "string", "minLength": 1},
+        "decision_epoch_ledger": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/decision_epoch_receipt"}},
+        "epoch_support_ledger": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/epoch_support_receipt"}},
+        "estimand_contrast_ledger": {"type": "array", "items": {"$ref": "#/$defs/estimand_contrast_receipt"}},
+        "smart_path_geometry_state": {"enum": ["registered", "not_applicable", "unknown", "absent"]},
+        "structural_personalization_eligible": {"type": "boolean"},
+        "smart_structural_personalization_eligible": {"type": "boolean"},
+        "smart_response_state_prevalence_state": {"enum": ["registered", "unknown", "not_applicable"]},
+        "smart_between_state_policy_distribution_rank": {"type": "integer", "minimum": 0},
+        "smart_minimum_conditional_policy_probability": {"$ref": "#/$defs/nullable_number"},
+        "smart_minimum_response_state_participant_support": {"$ref": "#/$defs/nullable_number"},
+        "smart_component_marginals_preserved": {"type": "boolean"},
+        "smart_path_count": {"type": "integer", "minimum": 0},
+        "smart_probability_semantics": {"type": ["string", "null"]},
+        "randomized_participants": {"type": "number", "minimum": 0},
+        "randomized_participant_decisions": {"type": "number", "minimum": 0},
+        "randomized_moderator_participant_decisions": {"type": "number", "minimum": 0},
+        "outcome_linked": {"type": "boolean"},
+        "outcome_observer_resolution_state": {"enum": ["resolved", "unresolved"]},
+        "repeated_linked_outcome": {"type": "boolean"},
+        "moderator_supported_pre_assignment": {"type": "boolean"},
+        "eligible_for_causal_summary": {"type": "boolean"},
+        "numeric_randomization_supported": {"type": "boolean"},
+        "dependence_geometry_required": {"type": "boolean"},
+        "gates": {"type": "object", "additionalProperties": false, "required": ["D_dynamic_operator", "P_personalized_policy", "H_heterogeneous_response"], "properties": {"D_dynamic_operator": {"type": "boolean"}, "P_personalized_policy": {"type": ["boolean", "null"]}, "H_heterogeneous_response": {"type": "boolean"}}}
+      }
+    },
+    "transport_context_receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["context_id", "selection_state", "declared_transport_axis_ids", "required_transport_axis_ids", "projected_transport_coordinates", "missing_required_transport_axis_ids", "ignored_extra_transport_coordinates", "selection_reason_codes", "declared_context_participants", "linked_outcome_retained_participant_support", "eligible_transport_participant_support", "strictly_postassignment_outcome_offset_count", "allocation_aware_contrast_precision", "contrast_by_context_support", "canonical_policy_allocations", "active_outcome_observer", "outcome_observer_resolution_state", "frozen_outcome_definition_observed", "estimand_binding_state", "estimand_binding_resolved", "numeric_randomization_supported", "dependence_geometry_required"],
+      "properties": {
+        "context_id": {"type": "string"},
+        "selection_state": {"enum": ["selected", "ineligible", "unresolved", "family_specific"]},
+        "declared_transport_axis_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "required_transport_axis_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "projected_transport_coordinates": {"type": "array", "items": {"$ref": "#/$defs/transport_coordinate_value"}},
+        "missing_required_transport_axis_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "ignored_extra_transport_coordinates": {"type": "array", "items": {"$ref": "#/$defs/transport_coordinate_value"}},
+        "selection_reason_codes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "declared_context_participants": {"type": "number", "minimum": 0},
+        "linked_outcome_retained_participant_support": {"type": "number", "minimum": 0},
+        "eligible_transport_participant_support": {"type": "number", "minimum": 0},
+        "strictly_postassignment_outcome_offset_count": {"type": "integer", "minimum": 0},
+        "allocation_aware_contrast_precision": {"type": "number", "minimum": 0},
+        "contrast_by_context_support": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["contrast_id", "canonical_policy_coefficients", "eligible_contrast_precision", "all_contrast_policies_randomized"],
+            "properties": {
+              "contrast_id": {"type": "string"},
+              "canonical_policy_coefficients": {"type": "object", "minProperties": 2, "additionalProperties": {"type": "number"}},
+              "eligible_contrast_precision": {"type": "number", "minimum": 0},
+              "all_contrast_policies_randomized": {"type": "boolean"}
+            }
+          }
+        },
+        "canonical_policy_allocations": {"type": "object", "minProperties": 2, "additionalProperties": {"type": "number"}},
+        "active_outcome_observer": {"type": "boolean"},
+        "outcome_observer_resolution_state": {"enum": ["resolved", "unresolved"]},
+        "frozen_outcome_definition_observed": {"type": "boolean"},
+        "estimand_binding_state": {"type": "string"},
+        "estimand_binding_resolved": {"type": "boolean"},
+        "numeric_randomization_supported": {"type": "boolean"},
+        "dependence_geometry_required": {"type": "boolean"}
+      }
+    },
+    "transport_coordinate_value": {
+      "type": "object", "additionalProperties": false,
+      "required": ["transport_axis_id", "value"],
+      "properties": {"transport_axis_id": {"type": "string"}, "value": {"type": "number"}}
+    },
+    "coordinate_scale_authority": {
+      "type": "object", "additionalProperties": false,
+      "required": ["state", "scope", "source_object_sha256", "source_locator"],
+      "properties": {"state": {"const": "registered"}, "scope": {"const": "units_transforms_ranges_for_required_transport_axes"}, "source_object_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}, "source_locator": {"type": "string", "minLength": 1}}
+    },
+    "transport_axis_family_result": {
+      "type": "object", "additionalProperties": false,
+      "required": ["transport_axis_family_id", "family_geometry_sha256", "reference_estimand_id", "required_transport_axis_ids", "coordinate_scale_authority", "resolution_state", "selection_rule", "selected_context_ids", "ineligible_context_ids", "unresolved_context_ids", "transport_rank", "rank_tolerance_receipt", "transport_allocation_support_factor", "gates", "exact_frontier_combination_count", "all_contexts_randomized_positive_outcome_linked_and_axis_complete", "context_support_ledger"],
+      "properties": {
+        "transport_axis_family_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_:-]{1,127}$"},
+        "family_geometry_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+        "reference_estimand_id": {"type": "string"},
+        "required_transport_axis_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "coordinate_scale_authority": {"$ref": "#/$defs/coordinate_scale_authority"},
+        "resolution_state": {"enum": ["resolved", "resolved_no_eligible_context_subset", "partial_known_lower_bound_with_ineligible_or_unresolved_contexts", "unresolved_no_known_context_subset"]},
+        "selection_rule": {"type": "string", "minLength": 1},
+        "selected_context_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "ineligible_context_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "unresolved_context_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "transport_rank": {"$ref": "#/$defs/nullable_integer"},
+        "rank_tolerance_receipt": {"$ref": "#/$defs/rank_receipt"},
+        "transport_allocation_support_factor": {"$ref": "#/$defs/nullable_number"},
+        "gates": {"type": "object", "additionalProperties": false, "required": ["T_transport"], "properties": {"T_transport": {"type": ["boolean", "null"]}}},
+        "exact_frontier_combination_count": {"type": "integer", "minimum": 0},
+        "all_contexts_randomized_positive_outcome_linked_and_axis_complete": {"type": "boolean"},
+        "context_support_ledger": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/transport_context_receipt"}}
+      }
+    },
+    "transport_ledger": {
+      "type": "object", "additionalProperties": false,
+      "required": ["context_count", "raw_context_contrast_rank", "common_transport_axes", "axis_family_count", "exact_frontier_combination_count", "reference_estimand_id", "reference_estimand_geometry_sha256", "reference_outcome_definition_id", "reference_operator_contrast_ids", "reference_horizon", "transport_axis_ids", "common_estimand_policy_ids", "all_contexts_randomized_positive_and_outcome_linked", "context_support_ledger"],
+      "properties": {"context_count": {"type": "integer", "minimum": 1}, "raw_context_contrast_rank": {"type": ["integer", "null"], "minimum": 0}, "common_transport_axes": {"type": ["boolean", "null"]}, "axis_family_count": {"type": "integer", "minimum": 1}, "exact_frontier_combination_count": {"type": "integer", "minimum": 0}, "reference_estimand_id": {"type": "string"}, "reference_estimand_geometry_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}, "reference_outcome_definition_id": {"type": "string"}, "reference_operator_contrast_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "reference_horizon": {"type": "object", "additionalProperties": false, "required": ["start_offset_exclusive", "end_offset_inclusive"], "properties": {"start_offset_exclusive": {"type": "number"}, "end_offset_inclusive": {"type": "number"}}}, "transport_axis_ids": {"type": "array", "items": {"type": "string"}}, "common_estimand_policy_ids": {"type": "array", "minItems": 2, "items": {"type": "string"}}, "all_contexts_randomized_positive_and_outcome_linked": {"type": ["boolean", "null"]}, "context_support_ledger": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/transport_context_receipt"}}}
+    },
+    "joint_covariance_authority": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["state", "authority_state", "source_object_sha256", "source_locator", "cross_block_independence_assumed", "canonical_feature_count", "joint_covariance_sha256"], "properties": {"state": {"const": "resolved_complete_joint_covariance_authority"}, "authority_state": {"const": "complete"}, "source_object_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}, "source_locator": {"type": "string"}, "cross_block_independence_assumed": {"const": false}, "canonical_feature_count": {"type": "integer", "minimum": 1}, "joint_covariance_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}}},
+        {"type": "object", "additionalProperties": false, "required": ["state", "authority_state", "source_object_sha256", "source_locator", "cross_block_independence_assumed"], "properties": {"state": {"const": "unresolved_unknown_joint_covariance_authority"}, "authority_state": {"enum": ["unknown", "absent"]}, "source_object_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}, "source_locator": {"type": "string"}, "cross_block_independence_assumed": {"const": false}}}
+      ]
+    },
+    "intensive": {
+      "type": "object", "additionalProperties": false,
+      "required": ["definition", "resolution_state", "selected_joint_observation_bundle_id", "effective_rank", "rank_tolerance_receipt", "maximum_joint_bundle_log10_contraction", "bundle_ledger", "information_matrix_sha256", "posterior_direction_information", "canonical_feature_count", "feature_ancestry_count"],
+      "properties": {
+        "definition": {"type": "string"}, "resolution_state": {"type": "string"}, "selected_joint_observation_bundle_id": {"type": ["string", "null"]}, "effective_rank": {"$ref": "#/$defs/nullable_integer"}, "rank_tolerance_receipt": {"$ref": "#/$defs/rank_receipt"}, "maximum_joint_bundle_log10_contraction": {"$ref": "#/$defs/nullable_number"}, "bundle_ledger": {"type": "array", "items": {"$ref": "#/$defs/intensive_bundle_row"}}, "information_matrix_sha256": {"$ref": "#/$defs/nullable_sha256"}, "posterior_direction_information": {"type": ["array", "null"], "items": {"type": "number"}}, "canonical_feature_count": {"type": "integer", "minimum": 0}, "feature_ancestry_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "extensive": {
+      "type": "object", "additionalProperties": false,
+      "required": ["definition", "resolution_state", "retained_participant_events", "effective_rank", "rank_tolerance_receipt", "retained_log10_contraction", "bundle_ledger", "information_matrix_sha256", "posterior_direction_information", "population_aggregation_receipt", "complexity_receipt"],
+      "properties": {
+        "definition": {"type": "string"}, "resolution_state": {"type": "string"}, "retained_participant_events": {"type": "number", "minimum": 0}, "effective_rank": {"$ref": "#/$defs/nullable_integer"}, "rank_tolerance_receipt": {"$ref": "#/$defs/rank_receipt"}, "retained_log10_contraction": {"$ref": "#/$defs/nullable_number"}, "bundle_ledger": {"type": "array", "items": {"$ref": "#/$defs/extensive_bundle_row"}}, "information_matrix_sha256": {"$ref": "#/$defs/nullable_sha256"}, "posterior_direction_information": {"type": ["array", "null"], "items": {"type": "number"}}, "population_aggregation_receipt": {"$ref": "#/$defs/population_aggregation_receipt"}, "complexity_receipt": {"$ref": "#/$defs/extensive_complexity_receipt"}
+      }
+    },
+    "longitudinal": {
+      "type": "object", "additionalProperties": false,
+      "required": ["definition", "resolution_state", "trajectory_ledger", "maximum_within_participant_distinct_offsets", "median_within_participant_distinct_offsets", "maximum_within_participant_span", "median_within_participant_span", "participant_weighted_median_distinct_offsets", "participant_weighted_median_span", "retained_participant_events", "global_calendar_coverage_audit"],
+      "properties": {
+        "definition": {"type": "string"}, "resolution_state": {"type": "string"}, "trajectory_ledger": {"type": "array", "items": {"$ref": "#/$defs/trajectory_row"}}, "maximum_within_participant_distinct_offsets": {"type": "integer", "minimum": 0}, "median_within_participant_distinct_offsets": {"type": "number", "minimum": 0}, "maximum_within_participant_span": {"type": "number", "minimum": 0}, "median_within_participant_span": {"type": "number", "minimum": 0}, "participant_weighted_median_distinct_offsets": {"type": "number", "minimum": 0}, "participant_weighted_median_span": {"type": "number", "minimum": 0}, "retained_participant_events": {"type": "number", "minimum": 0}, "global_calendar_coverage_audit": {"$ref": "#/$defs/calendar_audit"}
+      }
+    },
+    "stage_set_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage_set_id", "stage_ids", "aggregation_rule", "participant_relation", "aggregation_authority_sha256", "aggregation_authority_locator", "assignment_mechanism", "canonical_policy_ids", "canonical_policy_allocations", "policy_rank", "component_rank", "epoch_block_policy_rank", "sequential_moderator_rank", "epoch_block_sequential_moderator_rank", "policy_rank_tolerance_receipt", "component_rank_tolerance_receipt", "sequential_moderator_rank_tolerance_receipt", "policy_information_matrix_sha256", "component_information_matrix_sha256", "sequential_moderator_information_matrix_sha256", "outcome_geometry_sha256", "moderator_geometry_sha256", "policy_allocation_support_factor", "component_allocation_support_factor", "sequential_moderator_allocation_support_factor", "randomized_participants", "randomized_participant_decisions", "randomized_moderator_participant_decisions", "structural_personalization_eligible", "smart_structural_personalization_eligible", "smart_response_state_prevalence_state", "smart_between_state_policy_distribution_rank", "smart_minimum_conditional_policy_probability", "smart_minimum_response_state_participant_support", "smart_component_marginals_preserved", "smart_path_count", "smart_probability_semantics", "epoch_support_vector", "gates"],
+      "properties": {
+        "stage_set_id": {"type": "string"},
+        "stage_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "aggregation_rule": {"enum": ["single_stage_no_cross_stage_aggregation", "sum_information_across_disjoint_participant_sets"]},
+        "participant_relation": {"enum": ["single_participant_set", "mutually_disjoint_participant_sets"]},
+        "aggregation_authority_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+        "aggregation_authority_locator": {"type": "string", "minLength": 1},
+        "assignment_mechanism": {"type": "string"},
+        "canonical_policy_ids": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string"}},
+        "canonical_policy_allocations": {"type": "object", "minProperties": 2, "additionalProperties": {"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1}},
+        "policy_rank": {"type": "integer", "minimum": 0},
+        "component_rank": {"type": "integer", "minimum": 0},
+        "epoch_block_policy_rank": {"type": "integer", "minimum": 0},
+        "sequential_moderator_rank": {"type": "integer", "minimum": 0},
+        "epoch_block_sequential_moderator_rank": {"type": "integer", "minimum": 0},
+        "policy_rank_tolerance_receipt": {"$ref": "#/$defs/rank_receipt"},
+        "component_rank_tolerance_receipt": {"$ref": "#/$defs/rank_receipt"},
+        "sequential_moderator_rank_tolerance_receipt": {"$ref": "#/$defs/rank_receipt"},
+        "policy_information_matrix_sha256": {"$ref": "#/$defs/nullable_sha256"},
+        "component_information_matrix_sha256": {"$ref": "#/$defs/nullable_sha256"},
+        "sequential_moderator_information_matrix_sha256": {"$ref": "#/$defs/nullable_sha256"},
+        "outcome_geometry_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+        "moderator_geometry_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+        "policy_allocation_support_factor": {"type": "number", "minimum": 0},
+        "component_allocation_support_factor": {"type": "number", "minimum": 0},
+        "sequential_moderator_allocation_support_factor": {"type": "number", "minimum": 0},
+        "randomized_participants": {"type": "number", "minimum": 0},
+        "randomized_participant_decisions": {"type": "number", "minimum": 0},
+        "randomized_moderator_participant_decisions": {"type": "number", "minimum": 0},
+        "structural_personalization_eligible": {"type": "boolean"},
+        "smart_structural_personalization_eligible": {"type": "boolean"},
+        "smart_response_state_prevalence_state": {"enum": ["registered", "unknown", "not_applicable"]},
+        "smart_between_state_policy_distribution_rank": {"type": "integer", "minimum": 0},
+        "smart_minimum_conditional_policy_probability": {"$ref": "#/$defs/nullable_number"},
+        "smart_minimum_response_state_participant_support": {"$ref": "#/$defs/nullable_number"},
+        "smart_component_marginals_preserved": {"type": "boolean"},
+        "smart_path_count": {"type": "integer", "minimum": 0},
+        "smart_probability_semantics": {"type": ["string", "null"]},
+        "epoch_support_vector": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/stage_set_epoch_support"}},
+        "gates": {"type": "object", "additionalProperties": false, "required": ["D_dynamic_operator", "P_personalized_policy", "H_heterogeneous_response"], "properties": {"D_dynamic_operator": {"type": ["boolean", "null"]}, "P_personalized_policy": {"type": ["boolean", "null"]}, "H_heterogeneous_response": {"type": ["boolean", "null"]}}}
+      }
+    },
+    "causal": {
+      "type": "object", "additionalProperties": false,
+      "required": ["definition", "allocation_support_factor_definition", "resolution_state", "selection_rule", "selected_stage_set_id", "selected_stage_ids", "stage_set_frontier", "unresolved_alternative_stage_ids", "policy_rank", "component_rank", "outcome_geometry_sha256", "policy_allocation_support_factor", "component_allocation_support_factor", "eligible_randomized_participants", "eligible_randomized_participant_decisions", "gates", "stage_ledger", "canonical_policy_count", "policy_alias_count_removed"],
+      "properties": {
+        "definition": {"type": "string"}, "allocation_support_factor_definition": {"type": "string"}, "resolution_state": {"enum": ["resolved", "partial_known_lower_bound_with_unresolved_alternatives", "unresolved_no_known_candidate"]}, "selection_rule": {"type": "string"}, "selected_stage_set_id": {"type": ["string", "null"]}, "selected_stage_ids": {"type": "array", "items": {"type": "string"}}, "stage_set_frontier": {"type": "array", "items": {"$ref": "#/$defs/stage_set_summary"}}, "unresolved_alternative_stage_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}, "policy_rank": {"$ref": "#/$defs/nullable_integer"}, "component_rank": {"$ref": "#/$defs/nullable_integer"}, "outcome_geometry_sha256": {"$ref": "#/$defs/nullable_sha256"}, "policy_allocation_support_factor": {"$ref": "#/$defs/nullable_number"}, "component_allocation_support_factor": {"$ref": "#/$defs/nullable_number"}, "eligible_randomized_participants": {"type": "number", "minimum": 0}, "eligible_randomized_participant_decisions": {"type": "number", "minimum": 0}, "gates": {"type": "object", "additionalProperties": false, "required": ["D_dynamic_operator"], "properties": {"D_dynamic_operator": {"type": ["boolean", "null"]}}}, "stage_ledger": {"type": "array", "items": {"$ref": "#/$defs/stage_row"}}, "canonical_policy_count": {"type": "integer", "minimum": 0}, "policy_alias_count_removed": {"type": "integer", "minimum": 0}
+      }
+    },
+    "personalized": {
+      "type": "object", "additionalProperties": false,
+      "required": ["definition", "allocation_support_factor_definition", "resolution_state", "selection_rule", "selected_stage_set_id", "selected_stage_ids", "stage_set_frontier", "unresolved_alternative_stage_ids", "sequential_moderator_rank", "outcome_geometry_sha256", "moderator_geometry_sha256", "sequential_moderator_allocation_support_factor", "eligible_randomized_participants", "eligible_randomized_participant_decisions", "structural_personalization_eligible", "numeric_branch_support_state", "response_state_prevalence_state", "between_state_policy_distribution_rank", "minimum_conditional_policy_probability", "minimum_response_state_participant_support", "component_marginals_preserved_within_response_states", "smart_path_count", "smart_probability_semantics", "gates", "stage_ledger"],
+      "properties": {
+        "definition": {"type": "string"}, "allocation_support_factor_definition": {"type": "string"}, "resolution_state": {"enum": ["resolved", "partial_known_lower_bound_with_unresolved_alternatives", "unresolved_no_known_candidate"]}, "selection_rule": {"type": "string"}, "selected_stage_set_id": {"type": ["string", "null"]}, "selected_stage_ids": {"type": "array", "items": {"type": "string"}}, "stage_set_frontier": {"type": "array", "items": {"$ref": "#/$defs/stage_set_summary"}}, "unresolved_alternative_stage_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}, "sequential_moderator_rank": {"$ref": "#/$defs/nullable_integer"}, "outcome_geometry_sha256": {"$ref": "#/$defs/nullable_sha256"}, "moderator_geometry_sha256": {"$ref": "#/$defs/nullable_sha256"}, "sequential_moderator_allocation_support_factor": {"$ref": "#/$defs/nullable_number"}, "eligible_randomized_participants": {"type": "number", "minimum": 0}, "eligible_randomized_participant_decisions": {"type": "number", "minimum": 0}, "structural_personalization_eligible": {"type": ["boolean", "null"]}, "numeric_branch_support_state": {"type": "string"}, "response_state_prevalence_state": {"type": "string"}, "between_state_policy_distribution_rank": {"$ref": "#/$defs/nullable_integer"}, "minimum_conditional_policy_probability": {"$ref": "#/$defs/nullable_number"}, "minimum_response_state_participant_support": {"$ref": "#/$defs/nullable_number"}, "component_marginals_preserved_within_response_states": {"type": ["boolean", "null"]}, "smart_path_count": {"type": "integer", "minimum": 0}, "smart_probability_semantics": {"type": ["string", "null"]}, "gates": {"type": "object", "additionalProperties": false, "required": ["P_personalized_policy", "H_heterogeneous_response"], "properties": {"P_personalized_policy": {"type": ["boolean", "null"]}, "H_heterogeneous_response": {"type": ["boolean", "null"]}}}, "stage_ledger": {"type": "array", "items": {"$ref": "#/$defs/stage_row"}}
+      }
+    },
+    "transport": {
+      "type": "object", "additionalProperties": false,
+      "required": ["definition", "allocation_support_factor_definition", "resolution_state", "selection_rule", "scalar_alias_state", "axis_family_frontier", "selected_context_ids", "ineligible_context_ids", "unresolved_context_ids", "transport_rank", "rank_tolerance_receipt", "transport_allocation_support_factor", "gates", "transport_ledger"],
+      "properties": {
+        "definition": {"type": "string"}, "allocation_support_factor_definition": {"type": "string"}, "resolution_state": {"enum": ["resolved", "resolved_no_eligible_context_subset", "partial_known_lower_bound_with_ineligible_or_unresolved_contexts", "unresolved_no_known_context_subset", "resolved_axis_family_vector", "partial_axis_family_vector_with_unresolved_members", "unresolved_axis_family_vector"]}, "selection_rule": {"type": "string"}, "scalar_alias_state": {"enum": ["single_axis_family_alias", "multiple_axis_families_vector_only"]}, "axis_family_frontier": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/transport_axis_family_result"}}, "selected_context_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}, "ineligible_context_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}, "unresolved_context_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}, "transport_rank": {"$ref": "#/$defs/nullable_integer"}, "rank_tolerance_receipt": {"$ref": "#/$defs/rank_receipt"}, "transport_allocation_support_factor": {"$ref": "#/$defs/nullable_number"}, "gates": {"type": "object", "additionalProperties": false, "required": ["T_transport"], "properties": {"T_transport": {"type": ["boolean", "null"]}}}, "transport_ledger": {"$ref": "#/$defs/transport_ledger"}
+      }
+    },
+    "measurement_audit": {
+      "type": "object", "additionalProperties": false,
+      "required": ["resolution_state", "joint_covariance_authority", "evidence_state_counts", "module_evidence_state_counts", "excluded_primary_feature_count", "alias_count_removed", "menu_module_count", "schedule_alias_count_removed", "joint_observation_bundle_count", "trajectory_dependence_model_count"],
+      "properties": {
+        "resolution_state": {"type": "string"}, "joint_covariance_authority": {"$ref": "#/$defs/joint_covariance_authority"}, "evidence_state_counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}}, "module_evidence_state_counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}}, "excluded_primary_feature_count": {"type": "integer", "minimum": 0}, "alias_count_removed": {"type": "integer", "minimum": 0}, "menu_module_count": {"type": "integer", "minimum": 0}, "schedule_alias_count_removed": {"type": "integer", "minimum": 0}, "joint_observation_bundle_count": {"type": "integer", "minimum": 0}, "trajectory_dependence_model_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "uncertainty_reuse": {
+      "type": "object", "additionalProperties": false,
+      "required": ["definition", "coordinate_state_counts", "scenario_count", "source_object_count", "source_locator_count", "parameter_space_id", "parameter_space_source_object_sha256", "covariance_controls_required", "canonical_ancestry_controls_required"],
+      "properties": {"definition": {"type": "string"}, "coordinate_state_counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}}, "scenario_count": {"type": "integer", "minimum": 1}, "source_object_count": {"type": "integer", "minimum": 0}, "source_locator_count": {"type": "integer", "minimum": 0}, "parameter_space_id": {"type": "string"}, "parameter_space_source_object_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}, "covariance_controls_required": {"const": true}, "canonical_ancestry_controls_required": {"const": true}}
+    },
+    "anti_gaming_contract": {
+      "type": "object", "minProperties": 20,
+      "additionalProperties": {"type": "boolean"},
+      "required": ["caller_supplied_ranks_accepted", "canonical_feature_aliases_deduplicated", "module_menu_splitting_invariant", "participant_event_lineage_deduplicated", "same_event_support_requires_one_joint_bundle", "explicit_decision_epochs_required", "epoch_availability_history_propensity_and_proximal_links_required", "smart_path_geometry_required_for_smart", "transport_requires_frozen_estimand_or_registered_crosswalk", "transport_axis_families_are_coordinate_scale_authority_bound", "transport_contexts_projected_to_required_axes", "transport_extra_axes_ledgered_not_scored", "transport_missing_required_axes_are_ineligible", "transport_families_never_winner_selected", "transport_duplicate_population_frontier_exact_per_family", "joint_covariance_authority_required_without_independence_default", "unresolved_authority_preserved_as_null_not_zero", "scale_aware_rank_tolerance_receipted", "outcomes_must_be_strictly_postdecision", "causal_counts_capped_by_linked_retained_outcomes", "normative_level1_reference_bound"]
+    }
+  }
+}

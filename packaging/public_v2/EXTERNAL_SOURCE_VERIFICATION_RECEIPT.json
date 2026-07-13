@@ -1,0 +1,266 @@
+{
+  "all_verified": true,
+  "contract": "anibench.external-source-fetch-receipt.v1",
+  "ledger_path": "data/source_projections/v2/EXTERNAL_SOURCE_ACQUISITION_LEDGER.json",
+  "ledger_sha256": "dff5b53376a8e872b691b3fc0aa908349c8788d28fefa43f7b3663f012899e24",
+  "redistribution_authorized": false,
+  "source_count": 32,
+  "sources": [
+    {
+      "bytes": 3972,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/official/all-of-us-cdrv9.zendesk.json",
+      "sha256": "0979026c955f6ac3030644922bb73be462cb05d50e336616705bf9991688db5b",
+      "source_id": "aou-cdrv9-official",
+      "verified": true
+    },
+    {
+      "bytes": 44055,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT00427193.json",
+      "sha256": "d53e762b9f33f00eaac9fd9794c5bdc8065017c5d9b9dfac20a337a8cb8ab94f",
+      "source_id": "ctgov-nct00427193",
+      "verified": true
+    },
+    {
+      "bytes": 45420,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT01038583.json",
+      "sha256": "84cbc8822ea76bde3370bfda35d39b188ebeabe3ba99991b0a5c76b4e4f1702a",
+      "source_id": "ctgov-nct01038583",
+      "verified": true
+    },
+    {
+      "bytes": 114382,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT01072500.json",
+      "sha256": "c7b62f5605c9e33b20ffacbf7bef57754b179d942671ce6b61d91cea01d2d317",
+      "source_id": "ctgov-nct01072500",
+      "verified": true
+    },
+    {
+      "bytes": 29904,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT01745263.json",
+      "sha256": "54737adcfb8cdddb5505828836bed69ffabf4018ed08f07634f14665d78d7771",
+      "source_id": "ctgov-nct01745263",
+      "verified": true
+    },
+    {
+      "bytes": 21464,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT03479866.json",
+      "sha256": "8166186fbd558d4420fee056aa7d8e6135fb57e909f84de3aeb66b41094c6ef8",
+      "source_id": "ctgov-nct03479866",
+      "verified": true
+    },
+    {
+      "bytes": 28477,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT03960827.json",
+      "sha256": "0c9cd282bf942822410b110c3e51fd5e3a8031d19e92b296257b610e3a892d84",
+      "source_id": "ctgov-nct03960827",
+      "verified": true
+    },
+    {
+      "bytes": 51852,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT04313634.json",
+      "sha256": "d44c0d8f16460074ca6b8d46559c04e718b0676c4bef5bd4e40c620acab666b3",
+      "source_id": "ctgov-nct04313634",
+      "verified": true
+    },
+    {
+      "bytes": 13015,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT04488601.json",
+      "sha256": "c9bb9c452d306a51c031e0970f3da21568f16053dcea406feec9ff83209f25ce",
+      "source_id": "ctgov-nct04488601",
+      "verified": true
+    },
+    {
+      "bytes": 20296,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT05273268.json",
+      "sha256": "24561580ca5a47a8325477a01700de180690a9e0b0018012decc81049eedc45e",
+      "source_id": "ctgov-nct05273268",
+      "verified": true
+    },
+    {
+      "bytes": 7183,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT05735886.json",
+      "sha256": "f53958c6e67e0ea396bd1765298fe2991d440c509497f080dc82046f1633927a",
+      "source_id": "ctgov-nct05735886",
+      "verified": true
+    },
+    {
+      "bytes": 8551,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT06534450.json",
+      "sha256": "bdde584d746fe3f4a037f110be25abd6b2f174c367230e41f225d195afe7991d",
+      "source_id": "ctgov-nct06534450",
+      "verified": true
+    },
+    {
+      "bytes": 10230,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT07596576.json",
+      "sha256": "aa3c0fec129aa0350f500445606d62b0d0bc01f598fb63f840af6651ed5b0179",
+      "source_id": "ctgov-nct07596576",
+      "verified": true
+    },
+    {
+      "bytes": 199954,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC10148951.bioc.json",
+      "sha256": "7c73637279d5f788ed7969c6a90dbd5ff3e2cff2e75b3e8cac7b9c8cd3bfa730",
+      "source_id": "pmc10148951",
+      "verified": true
+    },
+    {
+      "bytes": 141634,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC10567551.bioc.json",
+      "sha256": "dbf50d8d006d4c26d702856890cc0a408954e2a6b873d721d5bc6ebe607e0fe9",
+      "source_id": "pmc10567551",
+      "verified": true
+    },
+    {
+      "bytes": 142206,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC11271409.bioc.json",
+      "sha256": "3a75f546c429bfc81e68ca61314969d852cc3b479aecf80de719d9045bc3f0c5",
+      "source_id": "pmc11271409",
+      "verified": true
+    },
+    {
+      "bytes": 107501,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC11370476.bioc.json",
+      "sha256": "b0a71913c9cf59406b968bdc3d407764c5a12a7bd943a03251305813ec70e30b",
+      "source_id": "pmc11370476",
+      "verified": true
+    },
+    {
+      "bytes": 249357,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC12074816.bioc.json",
+      "sha256": "18697a5ed9b6ebe7b2c59606c14157200f4c978b9d9f06345a567963fae53849",
+      "source_id": "pmc12074816",
+      "verified": true
+    },
+    {
+      "bytes": 190820,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC12341816.bioc.json",
+      "sha256": "a2ce8d6646637658363e4efae30a22c8c05bb9fd3dff648d87f3ee513b7f3c08",
+      "source_id": "pmc12341816",
+      "verified": true
+    },
+    {
+      "bytes": 121270,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC12443626.bioc.json",
+      "sha256": "72b874b6e0ab0636e360298d0850dd9189c2922e34915e99e29d82caae08bb42",
+      "source_id": "pmc12443626",
+      "verified": true
+    },
+    {
+      "bytes": 183708,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC12618261.bioc.json",
+      "sha256": "481eebba26859a9117586910745d6252e1c147c7f52f82fa1a9623e9942829ee",
+      "source_id": "pmc12618261",
+      "verified": true
+    },
+    {
+      "bytes": 390148,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC13184684.bioc.json",
+      "sha256": "3346f808b917ffc2cda58eca1a6d74b1b4a3daac370918563f2cccd774099f31",
+      "source_id": "pmc13184684",
+      "verified": true
+    },
+    {
+      "bytes": 123059,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC4266388.bioc.json",
+      "sha256": "8b9e52a1863de7c495dbdba71c86e92c32a21080291ff477c21fbb7cb44cad47",
+      "source_id": "pmc4266388",
+      "verified": true
+    },
+    {
+      "bytes": 67382,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC4380465.bioc.json",
+      "sha256": "1a72d655696c959ee5a5f76ed8099c714fba24c32da09ab669bfd9e4bf076612",
+      "source_id": "pmc4380465",
+      "verified": true
+    },
+    {
+      "bytes": 84102,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC6426126.bioc.json",
+      "sha256": "da9724a6b420234493c81edad40b9a086267765d64ccb792f7db645cabcdd207",
+      "source_id": "pmc6426126",
+      "verified": true
+    },
+    {
+      "bytes": 180237,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC6666404.bioc.json",
+      "sha256": "710919f3ff5fd4cfb1dc8bab4a76234fdc85fddd20586a5bcb005e06cf5f1a9e",
+      "source_id": "pmc6666404",
+      "verified": true
+    },
+    {
+      "bytes": 85904,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC6826138.bioc.json",
+      "sha256": "c8123080a5d5fab153c28fd07af0d96e144371700bd8d4e39dd6e3df1639f449",
+      "source_id": "pmc6826138",
+      "verified": true
+    },
+    {
+      "bytes": 131548,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC7250878.bioc.json",
+      "sha256": "28653c29252d05752660540fa1d0e487e07f45a734df137a76899ec31b27b254",
+      "source_id": "pmc7250878",
+      "verified": true
+    },
+    {
+      "bytes": 71071,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC7301912.bioc.json",
+      "sha256": "341c4b905b7807ded1660b0a5f77a8ae8611c8ddf377c519c3161864cfd1989a",
+      "source_id": "pmc7301912",
+      "verified": true
+    },
+    {
+      "bytes": 128588,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pmc/PMC8265154.bioc.json",
+      "sha256": "db59483efc24be0c34df9cd9d6e2189f2c84051a98fba16d25faf64e8c911a44",
+      "source_id": "pmc8265154",
+      "verified": true
+    },
+    {
+      "bytes": 2468,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pubmed/38956196.bioc.json",
+      "sha256": "4061ffa3c6c38aa991395bac8c73909ae2370c04dcde58986b6161c5a3224893",
+      "source_id": "pubmed38956196",
+      "verified": true
+    },
+    {
+      "bytes": 1671,
+      "disposition": "verified_existing_local_object",
+      "path": "data/source_projections/v2/sources/pubmed/39900648.bioc.json",
+      "sha256": "897f40ed18921ead5e8f8afe427f59d36e32e9ee1ecf7f5d1350bf7742ed6e19",
+      "source_id": "pubmed39900648",
+      "verified": true
+    }
+  ]
+}

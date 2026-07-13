@@ -1,0 +1,1122 @@
+{
+  "contract": "anibench.level1-role-aware-target-authority.v3",
+  "enrollment_authority": {
+    "forbidden_derivations": [
+      "inherit_v2_global_enrollment",
+      "sum_family_numbers_without_disjointness_or_covariance_authority",
+      "max_family_number_as_implicit_complete_reuse",
+      "derive_sample_size_from_coordinate_count_or_modality_count",
+      "emit_number_when_any_family_operating_characteristic_is_unknown"
+    ],
+    "global_enrollment": {
+      "blocker_code": "WITHHELD_PENDING_ALL_FAMILY_OPERATING_CHARACTERISTICS_AND_SOURCE_BOUND_JOINT_CONTEXT_SUPPORT",
+      "fact_type": "unknown",
+      "state": "unresolved",
+      "unit": "participants",
+      "value": null
+    },
+    "release_condition": {
+      "aggregation_rule_resolved": false,
+      "all_family_specific_enrollment_derivations_resolved": false,
+      "all_family_specific_operating_characteristic_targets_resolved": false,
+      "cross_family_reuse_and_covariance_resolved": false,
+      "source_bound_joint_context_support_resolved": false
+    }
+  },
+  "estimation_role_authority": {
+    "direct_event_outcome_coordinate_ids": [
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "F01",
+      "F02",
+      "F03",
+      "F04",
+      "F05",
+      "F06",
+      "F07",
+      "F08"
+    ],
+    "exposure_context_coordinate_ids": [
+      "S09"
+    ],
+    "forbidden_role_coercions": [
+      "D_P_H_or_T_coordinate_to_direct_event_outcome",
+      "D_P_H_or_T_coordinate_to_raw_moderator",
+      "D_P_H_or_T_coordinate_to_raw_context_stratum",
+      "S01_to_mutable_outcome",
+      "S09_to_transport_estimand",
+      "assay_feature_or_modality_to_coordinate_without_observation_operator"
+    ],
+    "partition_rule": "every_frozen_coordinate_has_exactly_one_estimation_role_and_roles_do_not_overlap",
+    "raw_modifier_coordinate_ids": [
+      "S01"
+    ],
+    "relational_estimand_coordinate_ids": [
+      "D01",
+      "D02",
+      "D03",
+      "D04",
+      "D05",
+      "D06",
+      "D07",
+      "D08",
+      "D09",
+      "D10",
+      "D11",
+      "D12",
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07",
+      "P08",
+      "P09",
+      "P10",
+      "P11",
+      "P12",
+      "H01",
+      "H02",
+      "H03",
+      "H04",
+      "H05",
+      "H06",
+      "H07",
+      "H08",
+      "T01",
+      "T02",
+      "T03",
+      "T04",
+      "T05",
+      "T06",
+      "T07",
+      "T08"
+    ],
+    "roles": [
+      {
+        "coordinate_ids": [
+          "S02",
+          "S03",
+          "S04",
+          "S05",
+          "S06",
+          "S07",
+          "S08",
+          "S10",
+          "S11",
+          "S12",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "F01",
+          "F02",
+          "F03",
+          "F04",
+          "F05",
+          "F06",
+          "F07",
+          "F08"
+        ],
+        "is_direct_event_outcome_role": true,
+        "is_relational_estimand_role": false,
+        "role_id": "direct_mutable_outcome_basis",
+        "semantics": "Latent mutable state or function direction permitted as an event-level outcome after a source-bound observation operator, scale, reliability model, and event linkage are verified. Coordinate presence alone is not measurement evidence."
+      },
+      {
+        "coordinate_ids": [
+          "S01"
+        ],
+        "is_direct_event_outcome_role": false,
+        "is_relational_estimand_role": false,
+        "role_id": "baseline_modifier",
+        "semantics": "Stable pre-assignment modifier direction. It may enter registered moderation models but is not a mutable event outcome or an effect estimand."
+      },
+      {
+        "coordinate_ids": [
+          "S09"
+        ],
+        "is_direct_event_outcome_role": false,
+        "is_relational_estimand_role": false,
+        "role_id": "exposure_context",
+        "semantics": "Time-indexed exposure or context direction. It may define context or adjustment variables but is not a transport estimand and is not a mutable outcome target."
+      },
+      {
+        "coordinate_ids": [
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06",
+          "D07",
+          "D08",
+          "D09",
+          "D10",
+          "D11",
+          "D12"
+        ],
+        "is_direct_event_outcome_role": false,
+        "is_relational_estimand_role": true,
+        "role_id": "longitudinal_state_space_estimand",
+        "semantics": "A relational target derived from repeated direct outcomes through an explicit state-transition, observation, process-noise, and time-index model."
+      },
+      {
+        "coordinate_ids": [
+          "P01",
+          "P02",
+          "P03",
+          "P04",
+          "P05",
+          "P06",
+          "P07",
+          "P08",
+          "P09",
+          "P10",
+          "P11",
+          "P12"
+        ],
+        "is_direct_event_outcome_role": false,
+        "is_relational_estimand_role": true,
+        "role_id": "causal_response_estimand",
+        "semantics": "A counterfactual or randomized response relation over direct outcomes and registered intervention operators; never a direct assay or event outcome."
+      },
+      {
+        "coordinate_ids": [
+          "H01",
+          "H02",
+          "H03",
+          "H04",
+          "H05",
+          "H06",
+          "H07",
+          "H08"
+        ],
+        "is_direct_event_outcome_role": false,
+        "is_relational_estimand_role": true,
+        "role_id": "heterogeneity_operating_characteristic",
+        "semantics": "An operating-characteristic target for variation, calibration, or decision-rule performance across persons or contexts; never a raw moderator coordinate."
+      },
+      {
+        "coordinate_ids": [
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T05",
+          "T06",
+          "T07",
+          "T08"
+        ],
+        "is_direct_event_outcome_role": false,
+        "is_relational_estimand_role": true,
+        "role_id": "transport_estimand",
+        "semantics": "A source-to-target population relation over direct outcomes under a registered joint context support authority; never a raw context covariate or stratum label."
+      }
+    ]
+  },
+  "family_operating_characteristic_authority": {
+    "families": [
+      {
+        "family_enrollment_requirement": {
+          "blocker_code": "MISSING_INTENSIVE_FAMILY_ENROLLMENT_DERIVATION",
+          "fact_type": "unknown",
+          "state": "unresolved",
+          "unit": "participants_or_participant_events_as_defined_by_future_authority",
+          "value": null
+        },
+        "family_id": "intensive",
+        "forbidden_substitutions": [
+          "assay_or_modality_menu_size",
+          "feature_count_without_observation_operator_and_covariance",
+          "relational_estimand_count_as_event_information"
+        ],
+        "operating_characteristic_target": {
+          "blocker_code": "MISSING_INTENSIVE_FAMILY_OPERATING_CHARACTERISTIC_TARGET",
+          "fact_type": "unknown",
+          "state": "unresolved",
+          "value": null
+        },
+        "required_gate_ids": [
+          "direct_outcome_observation_authority",
+          "intensive_operating_characteristics"
+        ],
+        "scientific_question": "How much source-bound information about the direct mutable outcome basis is resolved within a participant-event?",
+        "support_coordinate_roles": [
+          "baseline_modifier",
+          "exposure_context"
+        ],
+        "target_coordinate_roles": [
+          "direct_mutable_outcome_basis"
+        ]
+      },
+      {
+        "family_enrollment_requirement": {
+          "blocker_code": "MISSING_EXTENSIVE_FAMILY_ENROLLMENT_DERIVATION",
+          "fact_type": "unknown",
+          "state": "unresolved",
+          "unit": "participants_or_participant_events_as_defined_by_future_authority",
+          "value": null
+        },
+        "family_id": "extensive",
+        "forbidden_substitutions": [
+          "raw_modality_count",
+          "raw_feature_count",
+          "D_P_H_or_T_coordinates_as_directly_measured_dimensions"
+        ],
+        "operating_characteristic_target": {
+          "blocker_code": "MISSING_EXTENSIVE_FAMILY_OPERATING_CHARACTERISTIC_TARGET",
+          "fact_type": "unknown",
+          "state": "unresolved",
+          "value": null
+        },
+        "required_gate_ids": [
+          "direct_outcome_observation_authority",
+          "extensive_operating_characteristics"
+        ],
+        "scientific_question": "How broadly are role-eligible direct outcome and support directions identified without counting redundant observers as new biology?",
+        "support_coordinate_roles": [],
+        "target_coordinate_roles": [
+          "direct_mutable_outcome_basis",
+          "baseline_modifier",
+          "exposure_context"
+        ]
+      },
+      {
+        "family_enrollment_requirement": {
+          "blocker_code": "MISSING_LONGITUDINAL_FAMILY_ENROLLMENT_DERIVATION",
+          "fact_type": "unknown",
+          "state": "unresolved",
+          "unit": "participants_or_participant_events_as_defined_by_future_authority",
+          "value": null
+        },
+        "family_id": "longitudinal",
+        "forbidden_substitutions": [
+          "visit_count_without_time_process",
+          "D_coordinate_as_event_outcome",
+          "repeated_measurement_count_without_dependence_model"
+        ],
+        "operating_characteristic_target": {
+          "blocker_code": "MISSING_LONGITUDINAL_FAMILY_OPERATING_CHARACTERISTIC_TARGET",
+          "fact_type": "unknown",
+          "state": "unresolved",
+          "value": null
+        },
+        "required_gate_ids": [
+          "direct_outcome_observation_authority",
+          "longitudinal_state_space_operating_characteristics"
+        ],
+        "scientific_question": "Which natural state-space dynamics are identifiable from repeated direct outcomes under the registered time and noise model?",
+        "support_coordinate_roles": [
+          "direct_mutable_outcome_basis",
+          "baseline_modifier",
+          "exposure_context"
+        ],
+        "target_coordinate_roles": [
+          "longitudinal_state_space_estimand"
+        ]
+      },
+      {
+        "family_enrollment_requirement": {
+          "blocker_code": "MISSING_CAUSAL_FAMILY_ENROLLMENT_DERIVATION",
+          "fact_type": "unknown",
+          "state": "unresolved",
+          "unit": "participants_or_participant_events_as_defined_by_future_authority",
+          "value": null
+        },
+        "family_id": "causal",
+        "forbidden_substitutions": [
+          "P_coordinate_as_event_outcome",
+          "intervention_menu_size",
+          "association_without_identification_authority"
+        ],
+        "operating_characteristic_target": {
+          "blocker_code": "MISSING_CAUSAL_FAMILY_OPERATING_CHARACTERISTIC_TARGET",
+          "fact_type": "unknown",
+          "state": "unresolved",
+          "value": null
+        },
+        "required_gate_ids": [
+          "direct_outcome_observation_authority",
+          "causal_response_operating_characteristics"
+        ],
+        "scientific_question": "Which intervention-response relations are identified over direct outcomes under explicit assignment and counterfactual authority?",
+        "support_coordinate_roles": [
+          "direct_mutable_outcome_basis",
+          "baseline_modifier",
+          "exposure_context"
+        ],
+        "target_coordinate_roles": [
+          "causal_response_estimand"
+        ]
+      },
+      {
+        "family_enrollment_requirement": {
+          "blocker_code": "MISSING_PERSONALIZED_SEQUENTIAL_FAMILY_ENROLLMENT_DERIVATION",
+          "fact_type": "unknown",
+          "state": "unresolved",
+          "unit": "participants_or_participant_events_as_defined_by_future_authority",
+          "value": null
+        },
+        "family_id": "personalized_sequential",
+        "forbidden_substitutions": [
+          "H_coordinate_as_raw_moderator",
+          "subgroup_count",
+          "in_sample_policy_value_without_held_person_validation"
+        ],
+        "operating_characteristic_target": {
+          "blocker_code": "MISSING_PERSONALIZED_SEQUENTIAL_FAMILY_OPERATING_CHARACTERISTIC_TARGET",
+          "fact_type": "unknown",
+          "state": "unresolved",
+          "value": null
+        },
+        "required_gate_ids": [
+          "direct_outcome_observation_authority",
+          "causal_response_operating_characteristics",
+          "heterogeneity_operating_characteristics",
+          "personalized_sequential_operating_characteristics"
+        ],
+        "scientific_question": "How well can response heterogeneity and sequential policies be learned, calibrated, and validated across held persons?",
+        "support_coordinate_roles": [
+          "causal_response_estimand",
+          "baseline_modifier",
+          "exposure_context",
+          "direct_mutable_outcome_basis"
+        ],
+        "target_coordinate_roles": [
+          "heterogeneity_operating_characteristic"
+        ]
+      },
+      {
+        "family_enrollment_requirement": {
+          "blocker_code": "MISSING_TRANSPORT_FAMILY_ENROLLMENT_DERIVATION",
+          "fact_type": "unknown",
+          "state": "unresolved",
+          "unit": "participants_or_participant_events_as_defined_by_future_authority",
+          "value": null
+        },
+        "family_id": "transport",
+        "forbidden_substitutions": [
+          "T_coordinate_as_context_label_or_stratum",
+          "site_count_without_joint_support",
+          "marginal_context_coverage_as_joint_overlap"
+        ],
+        "operating_characteristic_target": {
+          "blocker_code": "MISSING_TRANSPORT_FAMILY_OPERATING_CHARACTERISTIC_TARGET",
+          "fact_type": "unknown",
+          "state": "unresolved",
+          "value": null
+        },
+        "required_gate_ids": [
+          "direct_outcome_observation_authority",
+          "causal_response_operating_characteristics",
+          "source_bound_joint_context_support",
+          "transport_operating_characteristics"
+        ],
+        "scientific_question": "Which source-to-target relations are identified under source-bound joint context support and explicit population-shift authority?",
+        "support_coordinate_roles": [
+          "direct_mutable_outcome_basis",
+          "baseline_modifier",
+          "exposure_context",
+          "causal_response_estimand"
+        ],
+        "target_coordinate_roles": [
+          "transport_estimand"
+        ]
+      }
+    ],
+    "family_ids": [
+      "intensive",
+      "extensive",
+      "longitudinal",
+      "causal",
+      "personalized_sequential",
+      "transport"
+    ],
+    "family_semantics": "Each family has its own estimand, unit, operating characteristics, and enrollment derivation. No family substitutes for or compensates another."
+  },
+  "noncompensatory_family_vector": {
+    "aggregation": {
+      "reason_code": "NO_OVERALL_SCALAR_OR_CROSS_FAMILY_COMPENSATION",
+      "state": "forbidden",
+      "value": null
+    },
+    "entries": [
+      {
+        "blocked_by_gate_ids": [
+          "direct_outcome_observation_authority",
+          "intensive_operating_characteristics"
+        ],
+        "blocker_code": "BLOCKED_BY_FAMILY_REQUIRED_GATES",
+        "fact_type": "unknown",
+        "family_id": "intensive",
+        "state": "unresolved",
+        "unit": "family_specific_operating_characteristic_target_attainment",
+        "value": null
+      },
+      {
+        "blocked_by_gate_ids": [
+          "direct_outcome_observation_authority",
+          "extensive_operating_characteristics"
+        ],
+        "blocker_code": "BLOCKED_BY_FAMILY_REQUIRED_GATES",
+        "fact_type": "unknown",
+        "family_id": "extensive",
+        "state": "unresolved",
+        "unit": "family_specific_operating_characteristic_target_attainment",
+        "value": null
+      },
+      {
+        "blocked_by_gate_ids": [
+          "direct_outcome_observation_authority",
+          "longitudinal_state_space_operating_characteristics"
+        ],
+        "blocker_code": "BLOCKED_BY_FAMILY_REQUIRED_GATES",
+        "fact_type": "unknown",
+        "family_id": "longitudinal",
+        "state": "unresolved",
+        "unit": "family_specific_operating_characteristic_target_attainment",
+        "value": null
+      },
+      {
+        "blocked_by_gate_ids": [
+          "direct_outcome_observation_authority",
+          "causal_response_operating_characteristics"
+        ],
+        "blocker_code": "BLOCKED_BY_FAMILY_REQUIRED_GATES",
+        "fact_type": "unknown",
+        "family_id": "causal",
+        "state": "unresolved",
+        "unit": "family_specific_operating_characteristic_target_attainment",
+        "value": null
+      },
+      {
+        "blocked_by_gate_ids": [
+          "direct_outcome_observation_authority",
+          "causal_response_operating_characteristics",
+          "heterogeneity_operating_characteristics",
+          "personalized_sequential_operating_characteristics"
+        ],
+        "blocker_code": "BLOCKED_BY_FAMILY_REQUIRED_GATES",
+        "fact_type": "unknown",
+        "family_id": "personalized_sequential",
+        "state": "unresolved",
+        "unit": "family_specific_operating_characteristic_target_attainment",
+        "value": null
+      },
+      {
+        "blocked_by_gate_ids": [
+          "direct_outcome_observation_authority",
+          "causal_response_operating_characteristics",
+          "source_bound_joint_context_support",
+          "transport_operating_characteristics"
+        ],
+        "blocker_code": "BLOCKED_BY_FAMILY_REQUIRED_GATES",
+        "fact_type": "unknown",
+        "family_id": "transport",
+        "state": "unresolved",
+        "unit": "family_specific_operating_characteristic_target_attainment",
+        "value": null
+      }
+    ],
+    "ordered_family_ids": [
+      "intensive",
+      "extensive",
+      "longitudinal",
+      "causal",
+      "personalized_sequential",
+      "transport"
+    ],
+    "rank": {
+      "reason_code": "NO_STABLE_RANK_WITH_UNRESOLVED_FAMILY_AUTHORITY",
+      "state": "forbidden",
+      "value": null
+    }
+  },
+  "raw_context_transport_boundary": {
+    "joint_support_authority": {
+      "blocker_code": "MISSING_SOURCE_BOUND_JOINT_CONTEXT_SUPPORT",
+      "fact_type": "unknown",
+      "matrix_or_bound_status": "not_provided_no_matrix_fabricated",
+      "required_gate_id": "source_bound_joint_context_support",
+      "source_bound": false,
+      "state": "unresolved",
+      "value": null
+    },
+    "raw_context_covariates": {
+      "ontology_location": "source_specific_registry_outside_the_64_coordinate_map",
+      "semantics": "Observed site, geography, age, sex, ancestry, socioeconomic, baseline health, comorbidity, medication, environment, and access variables are source-bound covariates. They do not become T coordinates by naming.",
+      "within_map_latent_context_coordinate_ids": [
+        "S09"
+      ]
+    },
+    "transport_estimands": {
+      "coordinate_ids": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05",
+        "T06",
+        "T07",
+        "T08"
+      ],
+      "semantics": "T coordinates are source-to-target relational estimands over direct outcomes and policies, conditional on an identified joint context support authority. They are not rows, labels, axes, or strata in a raw table."
+    }
+  },
+  "reference_role": "role_aware_level1_authority_not_a_trial_not_an_enrollment_target_and_not_a_rank",
+  "relation_to_v2": {
+    "inheritance_rule": "coordinate_ids_names_order_and_six_blocks_are_preserved; v2 outcome, moderator, enrollment, context, and normalization semantics are not inherited",
+    "state": "substantive_successor_candidate_not_promoted",
+    "v2_coordinate_registry": {
+      "path": "spec/v2/level1/biological-coordinate-registry.json",
+      "raw_sha256": "ccb477e1fd9dec1f9cd18152f622f31a511d52cc7418c435415ca67d25fe216b"
+    },
+    "v2_target": {
+      "path": "spec/v2/level1/normative-target-requirements.v2.json",
+      "raw_sha256": "79a6c624abd51eff0a80a53fd0b150fa425e47d72dea8c1c06abd73b274f83f8"
+    },
+    "v2_target_id": "anibench-human-trial-level1-abstract-target-v2"
+  },
+  "release_state": {
+    "global_enrollment_claim_allowed": false,
+    "promotion_allowed": false,
+    "public_rank_allowed": false,
+    "reason_code": "ROLE_AUTHORITY_FROZEN_OPERATING_CHARACTERISTICS_UNRESOLVED"
+  },
+  "scientific_map": {
+    "blocks": [
+      {
+        "block_id": "state_observation",
+        "coordinates": [
+          {
+            "coordinate_id": "S01",
+            "estimation_role": "baseline_modifier",
+            "name": "inherited_and_stable_molecular_identity"
+          },
+          {
+            "coordinate_id": "S02",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "epigenetic_regulatory_state"
+          },
+          {
+            "coordinate_id": "S03",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "transcriptional_state"
+          },
+          {
+            "coordinate_id": "S04",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "proteomic_and_signaling_state"
+          },
+          {
+            "coordinate_id": "S05",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "metabolic_and_lipid_state"
+          },
+          {
+            "coordinate_id": "S06",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "immune_cellular_state"
+          },
+          {
+            "coordinate_id": "S07",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "hematologic_and_clinical_chemistry_state"
+          },
+          {
+            "coordinate_id": "S08",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "microbiome_ecological_state"
+          },
+          {
+            "coordinate_id": "S09",
+            "estimation_role": "exposure_context",
+            "name": "internal_and_external_exposure_state"
+          },
+          {
+            "coordinate_id": "S10",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "cardiovascular_state"
+          },
+          {
+            "coordinate_id": "S11",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "pulmonary_state"
+          },
+          {
+            "coordinate_id": "S12",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "renal_and_hepatic_state"
+          },
+          {
+            "coordinate_id": "S13",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "endocrine_and_energy_regulation_state"
+          },
+          {
+            "coordinate_id": "S14",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "body_composition_and_structural_state"
+          },
+          {
+            "coordinate_id": "S15",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "neural_and_cognitive_state"
+          },
+          {
+            "coordinate_id": "S16",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "symptom_and_lived_state"
+          }
+        ],
+        "symbol": "theta_S"
+      },
+      {
+        "block_id": "natural_dynamics",
+        "coordinates": [
+          {
+            "coordinate_id": "D01",
+            "estimation_role": "longitudinal_state_space_estimand",
+            "name": "circadian_phase"
+          },
+          {
+            "coordinate_id": "D02",
+            "estimation_role": "longitudinal_state_space_estimand",
+            "name": "circadian_amplitude"
+          },
+          {
+            "coordinate_id": "D03",
+            "estimation_role": "longitudinal_state_space_estimand",
+            "name": "acute_reactivity"
+          },
+          {
+            "coordinate_id": "D04",
+            "estimation_role": "longitudinal_state_space_estimand",
+            "name": "short_horizon_recovery"
+          },
+          {
+            "coordinate_id": "D05",
+            "estimation_role": "longitudinal_state_space_estimand",
+            "name": "weekly_velocity"
+          },
+          {
+            "coordinate_id": "D06",
+            "estimation_role": "longitudinal_state_space_estimand",
+            "name": "monthly_velocity"
+          },
+          {
+            "coordinate_id": "D07",
+            "estimation_role": "longitudinal_state_space_estimand",
+            "name": "seasonal_and_annual_drift"
+          },
+          {
+            "coordinate_id": "D08",
+            "estimation_role": "longitudinal_state_space_estimand",
+            "name": "state_acceleration"
+          },
+          {
+            "coordinate_id": "D09",
+            "estimation_role": "longitudinal_state_space_estimand",
+            "name": "persistence_and_memory"
+          },
+          {
+            "coordinate_id": "D10",
+            "estimation_role": "longitudinal_state_space_estimand",
+            "name": "washout_kinetics"
+          },
+          {
+            "coordinate_id": "D11",
+            "estimation_role": "longitudinal_state_space_estimand",
+            "name": "rebound_kinetics"
+          },
+          {
+            "coordinate_id": "D12",
+            "estimation_role": "longitudinal_state_space_estimand",
+            "name": "hysteresis_and_regime_transition"
+          }
+        ],
+        "symbol": "theta_D"
+      },
+      {
+        "block_id": "perturbation_response",
+        "coordinates": [
+          {
+            "coordinate_id": "P01",
+            "estimation_role": "causal_response_estimand",
+            "name": "whole_policy_average_response"
+          },
+          {
+            "coordinate_id": "P02",
+            "estimation_role": "causal_response_estimand",
+            "name": "component_main_response"
+          },
+          {
+            "coordinate_id": "P03",
+            "estimation_role": "causal_response_estimand",
+            "name": "component_interaction_response"
+          },
+          {
+            "coordinate_id": "P04",
+            "estimation_role": "causal_response_estimand",
+            "name": "response_onset"
+          },
+          {
+            "coordinate_id": "P05",
+            "estimation_role": "causal_response_estimand",
+            "name": "response_peak_magnitude"
+          },
+          {
+            "coordinate_id": "P06",
+            "estimation_role": "causal_response_estimand",
+            "name": "dose_or_intensity_response"
+          },
+          {
+            "coordinate_id": "P07",
+            "estimation_role": "causal_response_estimand",
+            "name": "adaptation_and_tolerance"
+          },
+          {
+            "coordinate_id": "P08",
+            "estimation_role": "causal_response_estimand",
+            "name": "recovery_response"
+          },
+          {
+            "coordinate_id": "P09",
+            "estimation_role": "causal_response_estimand",
+            "name": "withdrawal_and_washout_response"
+          },
+          {
+            "coordinate_id": "P10",
+            "estimation_role": "causal_response_estimand",
+            "name": "rebound_response"
+          },
+          {
+            "coordinate_id": "P11",
+            "estimation_role": "causal_response_estimand",
+            "name": "safety_and_off_target_response"
+          },
+          {
+            "coordinate_id": "P12",
+            "estimation_role": "causal_response_estimand",
+            "name": "state_and_context_conditioned_response"
+          }
+        ],
+        "symbol": "theta_P"
+      },
+      {
+        "block_id": "person_context_heterogeneity",
+        "coordinates": [
+          {
+            "coordinate_id": "H01",
+            "estimation_role": "heterogeneity_operating_characteristic",
+            "name": "baseline_state_variance"
+          },
+          {
+            "coordinate_id": "H02",
+            "estimation_role": "heterogeneity_operating_characteristic",
+            "name": "natural_trajectory_variance"
+          },
+          {
+            "coordinate_id": "H03",
+            "estimation_role": "heterogeneity_operating_characteristic",
+            "name": "operator_response_variance"
+          },
+          {
+            "coordinate_id": "H04",
+            "estimation_role": "heterogeneity_operating_characteristic",
+            "name": "exposure_and_adherence_variance"
+          },
+          {
+            "coordinate_id": "H05",
+            "estimation_role": "heterogeneity_operating_characteristic",
+            "name": "context_moderation"
+          },
+          {
+            "coordinate_id": "H06",
+            "estimation_role": "heterogeneity_operating_characteristic",
+            "name": "cross_domain_coupling_variance"
+          },
+          {
+            "coordinate_id": "H07",
+            "estimation_role": "heterogeneity_operating_characteristic",
+            "name": "within_person_state_dependent_response"
+          },
+          {
+            "coordinate_id": "H08",
+            "estimation_role": "heterogeneity_operating_characteristic",
+            "name": "responder_manifold_geometry"
+          }
+        ],
+        "symbol": "theta_H"
+      },
+      {
+        "block_id": "functional_lived_state",
+        "coordinates": [
+          {
+            "coordinate_id": "F01",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "cognition"
+          },
+          {
+            "coordinate_id": "F02",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "mood_and_affect"
+          },
+          {
+            "coordinate_id": "F03",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "sleep"
+          },
+          {
+            "coordinate_id": "F04",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "fatigue_and_vitality"
+          },
+          {
+            "coordinate_id": "F05",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "cardiorespiratory_fitness"
+          },
+          {
+            "coordinate_id": "F06",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "strength_balance_and_mobility"
+          },
+          {
+            "coordinate_id": "F07",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "autonomic_and_metabolic_function"
+          },
+          {
+            "coordinate_id": "F08",
+            "estimation_role": "direct_mutable_outcome_basis",
+            "name": "symptoms_quality_of_life_and_tolerability"
+          }
+        ],
+        "symbol": "theta_F"
+      },
+      {
+        "block_id": "population_transport",
+        "coordinates": [
+          {
+            "coordinate_id": "T01",
+            "estimation_role": "transport_estimand",
+            "name": "site_transport"
+          },
+          {
+            "coordinate_id": "T02",
+            "estimation_role": "transport_estimand",
+            "name": "geographic_and_environmental_transport"
+          },
+          {
+            "coordinate_id": "T03",
+            "estimation_role": "transport_estimand",
+            "name": "age_transport"
+          },
+          {
+            "coordinate_id": "T04",
+            "estimation_role": "transport_estimand",
+            "name": "sex_and_reproductive_context_transport"
+          },
+          {
+            "coordinate_id": "T05",
+            "estimation_role": "transport_estimand",
+            "name": "genetic_ancestry_transport"
+          },
+          {
+            "coordinate_id": "T06",
+            "estimation_role": "transport_estimand",
+            "name": "socioeconomic_and_access_transport"
+          },
+          {
+            "coordinate_id": "T07",
+            "estimation_role": "transport_estimand",
+            "name": "baseline_health_and_disease_state_transport"
+          },
+          {
+            "coordinate_id": "T08",
+            "estimation_role": "transport_estimand",
+            "name": "comorbidity_and_medication_transport"
+          }
+        ],
+        "symbol": "theta_T"
+      }
+    ],
+    "map_contract": "anibench.level1-role-aware-coordinate-map.v3",
+    "ordered_block_count": 6,
+    "ordered_coordinate_count": 64,
+    "ordered_coordinate_identity_sha256": "9368e8e34abf9cee80c25b86c7fa5de0d486864d868d3ae3b7863bbf35d9ea04"
+  },
+  "status": "candidate_role_authority_pending_source_bound_operating_characteristics_and_independent_attestation",
+  "target_id": "anibench-human-trial-level1-role-aware-target-v3",
+  "typed_unresolved_gates": [
+    {
+      "blocker_code": "MISSING_SOURCE_BOUND_OBSERVATION_OPERATORS",
+      "fact_type": "unknown",
+      "gate_id": "direct_outcome_observation_authority",
+      "promotion_blocking": true,
+      "required_source_objects": [
+        "coordinate_to_observed_variable_operator_registry",
+        "event_linkage_receipt",
+        "scale_and_reliability_authority",
+        "missingness_and_detection_limit_model"
+      ],
+      "state": "unresolved",
+      "value": null
+    },
+    {
+      "blocker_code": "MISSING_INTENSIVE_OPERATING_CHARACTERISTICS",
+      "fact_type": "unknown",
+      "gate_id": "intensive_operating_characteristics",
+      "promotion_blocking": true,
+      "required_source_objects": [
+        "within_event_information_definition",
+        "observer_covariance_or_identified_bound",
+        "calibration_and_repeatability_receipt"
+      ],
+      "state": "unresolved",
+      "value": null
+    },
+    {
+      "blocker_code": "MISSING_EXTENSIVE_OPERATING_CHARACTERISTICS",
+      "fact_type": "unknown",
+      "gate_id": "extensive_operating_characteristics",
+      "promotion_blocking": true,
+      "required_source_objects": [
+        "role_eligible_coordinate_coverage_rule",
+        "cross_coordinate_redundancy_authority",
+        "source_bound_identifiability_receipt"
+      ],
+      "state": "unresolved",
+      "value": null
+    },
+    {
+      "blocker_code": "MISSING_LONGITUDINAL_STATE_SPACE_OPERATING_CHARACTERISTICS",
+      "fact_type": "unknown",
+      "gate_id": "longitudinal_state_space_operating_characteristics",
+      "promotion_blocking": true,
+      "required_source_objects": [
+        "state_transition_model",
+        "observation_model",
+        "process_and_measurement_noise_authority",
+        "time_grid_and_sampling_process",
+        "held_time_or_held_person_validation_plan"
+      ],
+      "state": "unresolved",
+      "value": null
+    },
+    {
+      "blocker_code": "MISSING_CAUSAL_RESPONSE_OPERATING_CHARACTERISTICS",
+      "fact_type": "unknown",
+      "gate_id": "causal_response_operating_characteristics",
+      "promotion_blocking": true,
+      "required_source_objects": [
+        "counterfactual_estimand_registry",
+        "assignment_or_identification_authority",
+        "intervention_operator_registry",
+        "multiplicity_and_error_control_plan",
+        "attrition_interference_and_adherence_models"
+      ],
+      "state": "unresolved",
+      "value": null
+    },
+    {
+      "blocker_code": "MISSING_HETEROGENEITY_OPERATING_CHARACTERISTICS",
+      "fact_type": "unknown",
+      "gate_id": "heterogeneity_operating_characteristics",
+      "promotion_blocking": true,
+      "required_source_objects": [
+        "preassignment_modifier_registry",
+        "effect_variation_estimand_registry",
+        "false_subgroup_and_calibration_operating_characteristics",
+        "held_person_validation_plan"
+      ],
+      "state": "unresolved",
+      "value": null
+    },
+    {
+      "blocker_code": "MISSING_PERSONALIZED_SEQUENTIAL_OPERATING_CHARACTERISTICS",
+      "fact_type": "unknown",
+      "gate_id": "personalized_sequential_operating_characteristics",
+      "promotion_blocking": true,
+      "required_source_objects": [
+        "decision_point_and_availability_process",
+        "sequential_assignment_authority",
+        "policy_value_regret_and_safety_estimands",
+        "off_policy_or_randomized_evaluation_plan"
+      ],
+      "state": "unresolved",
+      "value": null
+    },
+    {
+      "blocker_code": "MISSING_SOURCE_BOUND_JOINT_CONTEXT_SUPPORT",
+      "fact_type": "unknown",
+      "gate_id": "source_bound_joint_context_support",
+      "promotion_blocking": true,
+      "required_source_objects": [
+        "raw_context_covariate_registry",
+        "source_and_target_population_definitions",
+        "joint_context_support_table_or_identified_bound",
+        "sampling_and_selection_mechanism",
+        "positivity_overlap_and_weight_diagnostics"
+      ],
+      "state": "unresolved",
+      "value": null
+    },
+    {
+      "blocker_code": "MISSING_TRANSPORT_OPERATING_CHARACTERISTICS",
+      "fact_type": "unknown",
+      "gate_id": "transport_operating_characteristics",
+      "promotion_blocking": true,
+      "required_source_objects": [
+        "transport_estimand_registry",
+        "source_to_target_identification_assumptions",
+        "shift_calibration_and_failure_operating_characteristics",
+        "held_site_or_held_context_validation_plan"
+      ],
+      "state": "unresolved",
+      "value": null
+    },
+    {
+      "blocker_code": "MISSING_CROSS_FAMILY_REUSE_AND_COVARIANCE_AUTHORITY",
+      "fact_type": "unknown",
+      "gate_id": "cross_family_reuse_and_covariance_authority",
+      "promotion_blocking": true,
+      "required_source_objects": [
+        "participant_reuse_graph",
+        "shared_event_and_outcome_dependency_model",
+        "cross_family_covariance_or_conservative_bound",
+        "family_specific_rounding_and_allocation_rule"
+      ],
+      "state": "unresolved",
+      "value": null
+    },
+    {
+      "blocker_code": "MISSING_INDEPENDENT_ATTESTATION",
+      "fact_type": "unknown",
+      "gate_id": "independent_role_and_operating_characteristic_attestation",
+      "promotion_blocking": true,
+      "required_source_objects": [
+        "independent_role_ontology_review",
+        "independent_operating_characteristic_review",
+        "hostile_gaming_and_sensitivity_receipt"
+      ],
+      "state": "unresolved",
+      "value": null
+    }
+  ]
+}

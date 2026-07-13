@@ -1,0 +1,357 @@
+{
+  "contract": "anibench.protocol-authority-object.v1",
+  "authority_id": "anibench.level1.moderator-id-registry.v1",
+  "authority_type": "moderator_id_registry",
+  "status": "candidate_normative_engineering_authority_not_empirical_calibration",
+  "claim_boundary": "This object freezes benchmark mechanics and identifiers. It is not an empirical assay-performance, covariance, intervention-effect, or trial-ranking claim.",
+  "source_dependencies": [
+    {
+      "path": "spec/v2/level1/biological-coordinate-registry.json",
+      "sha256": "sha256:ccb477e1fd9dec1f9cd18152f622f31a511d52cc7418c435415ca67d25fe216b"
+    },
+    {
+      "path": "spec/v2/level1/normative-target-requirements.v2.json",
+      "sha256": "sha256:79a6c624abd51eff0a80a53fd0b150fa425e47d72dea8c1c06abd73b274f83f8"
+    }
+  ],
+  "payload": {
+    "moderator_ids": [
+      {
+        "moderator_id": "baseline-S01",
+        "coordinate_id": "S01",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-S02",
+        "coordinate_id": "S02",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-S03",
+        "coordinate_id": "S03",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-S04",
+        "coordinate_id": "S04",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-S05",
+        "coordinate_id": "S05",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-S06",
+        "coordinate_id": "S06",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-S07",
+        "coordinate_id": "S07",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-S08",
+        "coordinate_id": "S08",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-S09",
+        "coordinate_id": "S09",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-S10",
+        "coordinate_id": "S10",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-S11",
+        "coordinate_id": "S11",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-S12",
+        "coordinate_id": "S12",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-S13",
+        "coordinate_id": "S13",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-S14",
+        "coordinate_id": "S14",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-S15",
+        "coordinate_id": "S15",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-S16",
+        "coordinate_id": "S16",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-D01",
+        "coordinate_id": "D01",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-D02",
+        "coordinate_id": "D02",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-D03",
+        "coordinate_id": "D03",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-D04",
+        "coordinate_id": "D04",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-D05",
+        "coordinate_id": "D05",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-D06",
+        "coordinate_id": "D06",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-D07",
+        "coordinate_id": "D07",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-D08",
+        "coordinate_id": "D08",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-D09",
+        "coordinate_id": "D09",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-D10",
+        "coordinate_id": "D10",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-D11",
+        "coordinate_id": "D11",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-D12",
+        "coordinate_id": "D12",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-P01",
+        "coordinate_id": "P01",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-P02",
+        "coordinate_id": "P02",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-P03",
+        "coordinate_id": "P03",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-P04",
+        "coordinate_id": "P04",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-P05",
+        "coordinate_id": "P05",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-P06",
+        "coordinate_id": "P06",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-P07",
+        "coordinate_id": "P07",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-P08",
+        "coordinate_id": "P08",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-P09",
+        "coordinate_id": "P09",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-P10",
+        "coordinate_id": "P10",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-P11",
+        "coordinate_id": "P11",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-P12",
+        "coordinate_id": "P12",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-H01",
+        "coordinate_id": "H01",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-H02",
+        "coordinate_id": "H02",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-H03",
+        "coordinate_id": "H03",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-H04",
+        "coordinate_id": "H04",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-H05",
+        "coordinate_id": "H05",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-H06",
+        "coordinate_id": "H06",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-H07",
+        "coordinate_id": "H07",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-H08",
+        "coordinate_id": "H08",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-F01",
+        "coordinate_id": "F01",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-F02",
+        "coordinate_id": "F02",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-F03",
+        "coordinate_id": "F03",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-F04",
+        "coordinate_id": "F04",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-F05",
+        "coordinate_id": "F05",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-F06",
+        "coordinate_id": "F06",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-F07",
+        "coordinate_id": "F07",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-F08",
+        "coordinate_id": "F08",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-T01",
+        "coordinate_id": "T01",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-T02",
+        "coordinate_id": "T02",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-T03",
+        "coordinate_id": "T03",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-T04",
+        "coordinate_id": "T04",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-T05",
+        "coordinate_id": "T05",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-T06",
+        "coordinate_id": "T06",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-T07",
+        "coordinate_id": "T07",
+        "temporal_requirement": "measured_before_assignment_decision"
+      },
+      {
+        "moderator_id": "baseline-T08",
+        "coordinate_id": "T08",
+        "temporal_requirement": "measured_before_assignment_decision"
+      }
+    ],
+    "selection_rule": "A protocol must name moderators prospectively; a count of moderators cannot instantiate IDs.",
+    "level1_selection_state": "abstract_target_requirement_coordinates_registered",
+    "level1_reference_selection": [
+      "baseline-S01",
+      "baseline-S02",
+      "baseline-D01",
+      "baseline-D02",
+      "baseline-P01",
+      "baseline-P02",
+      "baseline-H01",
+      "baseline-H02",
+      "baseline-F01",
+      "baseline-F02",
+      "baseline-T01",
+      "baseline-T02"
+    ]
+  }
+}

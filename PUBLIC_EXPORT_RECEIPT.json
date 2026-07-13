@@ -1,0 +1,25 @@
+{
+  "benchmark_version": "2.0.0rc1",
+  "contract": "anibench.public-repository-export.v1",
+  "controlled_source_bodies_included": false,
+  "history_contract": "fresh_repository_exactly_one_root_commit",
+  "private_ani_projection_objects_included": false,
+  "private_authority_history_included": false,
+  "public_member_count": 174,
+  "public_rank_claim_allowed": false,
+  "public_tree_hash_scope": "all_public_members_except_this_receipt",
+  "public_tree_sha256": "cf229628fe654f01389ddc6f9f268b830853a468625df2eca6e45926b2531b84",
+  "release_source_eligible": true,
+  "scan_contract": "anibench.public-repository-scan.v1",
+  "source_authority_git": {
+    "clean": true,
+    "commit_sha": "bca581468b155104ebabc700c6bd13da8ad0d352",
+    "status_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tree_sha": "7a7e617ad6c9ce9e9239b43a65aa6742091a1480"
+  },
+  "source_commit_bound": true,
+  "source_copy_mode": "exact_git_objects_from_pinned_commit",
+  "source_date_epoch": 1783900800,
+  "source_object_manifest_sha256": "20bc0159e7231944c2e675f24846be44ab75b1dc6217bcc739b8c4b60222e0bf",
+  "toctou_guard": "pre_and_post_git_state_equal"
+}

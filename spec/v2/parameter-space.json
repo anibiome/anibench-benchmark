@@ -1,0 +1,227 @@
+{
+  "schema_version": "anibench.parameter-space.v2",
+  "contract_version": "2.0.0-alpha.1",
+  "parameter_space_id": "anibench-joint-biological-reconstruction-v2-draft",
+  "status": "structural_contract_no_reference_numbers",
+  "created_at": "2026-07-12T00:00:00Z",
+  "authority": {
+    "council_report": "reviews/council/MATH_COUNCIL_2026-07-12.md",
+    "evidence_class": "independent_mathematical_council",
+    "implementation_status": "contract_only"
+  },
+  "mission_object": "Joint information about human biological state, natural dynamics, perturbation response, person-context heterogeneity, functional state, and population transport contributed by participant-event data.",
+  "parameter_blocks": [
+    {
+      "block_id": "state_observation",
+      "symbol": "theta_S",
+      "estimand_role": "mapping linked molecular, cellular, anatomical, functional, and observer measurements to current human biological state",
+      "coordinate_axes": ["registered_biological_domain", "tissue_or_compartment", "state_scale"],
+      "coordinate_registry_status": "required_not_yet_frozen",
+      "event_support_roles": ["biological_anchor", "direct_function", "digital_observer", "clinical_endpoint"]
+    },
+    {
+      "block_id": "natural_dynamics",
+      "symbol": "theta_D",
+      "estimand_role": "state velocity, acceleration, regime transition, persistence, washout, rebound, and hysteresis without conflating operator assignment",
+      "coordinate_axes": ["registered_biological_domain", "registered_timescale", "state_context"],
+      "coordinate_registry_status": "required_not_yet_frozen",
+      "event_support_roles": ["baseline", "observation", "followup", "washout", "withdrawal"]
+    },
+    {
+      "block_id": "perturbation_response",
+      "symbol": "theta_P",
+      "estimand_role": "whole-policy, component, endpoint, and dynamic operator-response effects under explicit assignment geometry",
+      "coordinate_axes": ["operator_basis", "registered_biological_domain", "registered_timescale", "state_context"],
+      "coordinate_registry_status": "required_not_yet_frozen",
+      "event_support_roles": ["decision", "intervention_exposure", "outcome", "followup", "safety"]
+    },
+    {
+      "block_id": "person_context_heterogeneity",
+      "symbol": "theta_H",
+      "estimand_role": "between-person and within-person variation in state, dynamics, response, and adaptive policy value",
+      "coordinate_axes": ["state_context", "person_context", "operator_basis", "registered_timescale"],
+      "coordinate_registry_status": "required_not_yet_frozen",
+      "event_support_roles": ["baseline", "decision", "outcome", "followup"]
+    },
+    {
+      "block_id": "functional_lived_state",
+      "symbol": "theta_F",
+      "estimand_role": "direct function and biologically linked cognition, performance, symptoms, physiology, behavior, and lived phenotype",
+      "coordinate_axes": ["registered_functional_domain", "registered_biological_domain", "registered_timescale"],
+      "coordinate_registry_status": "required_not_yet_frozen",
+      "event_support_roles": ["direct_function", "digital_observer", "clinical_endpoint"]
+    },
+    {
+      "block_id": "population_transport",
+      "symbol": "theta_T",
+      "estimand_role": "transport over registered source and target biological-state, context, site, and population coordinates",
+      "coordinate_axes": ["source_state_context", "target_state_context", "site_context", "population_context"],
+      "coordinate_registry_status": "required_not_yet_frozen",
+      "event_support_roles": ["baseline", "outcome", "followup"]
+    }
+  ],
+  "nuisance_blocks": [
+    "batch",
+    "site",
+    "measurement_error",
+    "missingness",
+    "dropout",
+    "adherence",
+    "exposure_ascertainment",
+    "clustering",
+    "temporal_autocorrelation"
+  ],
+  "event_information_contract": {
+    "event_contribution": "I_e = A_e^T R_e^-1 A_e",
+    "trial_assembly": "I_trial = sum_e I_e",
+    "event_identity_source": "schemas/v2/event-manifest.schema.json",
+    "assignment_geometry_source": "schemas/v2/intervention-design.schema.json",
+    "uncertainty_source": "schemas/v2/uncertainty.schema.json",
+    "duplicate_rule": "one physical measurement lineage contributes at most once to one joint information event",
+    "jointness_rule": "pairwise flags cannot establish an undeclared multi-measurement participant-event intersection"
+  },
+  "nuisance_adjustment_contract": {
+    "required": true,
+    "method": "Schur complement of the joint target-and-nuisance information matrix",
+    "formula": "I_target_given_nuisance = I_tt - I_tn (Lambda_n + I_nn)^-1 I_nt",
+    "positive_semidefinite_required": true
+  },
+  "prior_metric_contract": {
+    "status": "required_not_yet_frozen",
+    "representation": "hash-bound positive-definite matrix in the exact frozen parameter basis",
+    "reparameterization_rule": "information and prior metric transform together under any nonsingular coordinate change",
+    "guessed_identity_metric_forbidden": true
+  },
+  "reference_level_contract": {
+    "status": "required_not_yet_frozen",
+    "reference_numbers_present": false,
+    "single_global_reference_vector_forbidden": true,
+    "required_reference_families": [
+      "intensive_resolution_reference",
+      "estimand_specific_causal_references",
+      "level_1_joint_reconstruction_reference"
+    ],
+    "later_level_rule": "later levels add finer state, tissue, timescale, perturbation, heterogeneity, functional, and transport coordinates without rewriting frozen earlier levels"
+  },
+  "output_definitions": [
+    {
+      "output_id": "absolute_log10_local_contraction",
+      "family": "extensive_biological_reconstruction_capacity",
+      "formula": "L_abs = (1 / (2 ln 10)) sum_j log(1 + lambda_j)",
+      "reference_required": false,
+      "bounded": false,
+      "interpretation": "base-10 log local hypothesis-volume contraction under the declared prior and joint information model"
+    },
+    {
+      "output_id": "level_completion",
+      "family": "extensive_biological_reconstruction_capacity",
+      "formula": "Y_level = 100 sum_j min(ell_j, ell_j_star) / sum_j ell_j_star",
+      "reference_required": true,
+      "bounded": true,
+      "interpretation": "direction-wise completion of a frozen reference level; excess information in one direction cannot buy missing directions"
+    },
+    {
+      "output_id": "level_overflow",
+      "family": "extensive_biological_reconstruction_capacity",
+      "formula": "O_level = sum_j ell_j / sum_j ell_j_star",
+      "reference_required": true,
+      "bounded": false,
+      "interpretation": "uncapped information relative to the same frozen reference matrix"
+    },
+    {
+      "output_id": "reference_coverage_curve",
+      "family": "extensive_biological_reconstruction_capacity",
+      "formula": "Q(a) = sum_j ell_j_star 1[ell_j / ell_j_star >= a] / sum_j ell_j_star",
+      "reference_required": true,
+      "bounded": true,
+      "threshold_registry_status": "required_not_yet_frozen",
+      "interpretation": "fraction of reference information directions reaching each externally versioned completion threshold"
+    }
+  ],
+  "benchmark_families": [
+    {
+      "family_id": "intensive_biological_resolution",
+      "scale_semantics": "participant-event normalized",
+      "participant_count_in_primary_output": false,
+      "primary_objects": [
+        "state_resolution_spectrum",
+        "timescale_resolution_profile",
+        "joint_multimodal_conditional_gains",
+        "direct_function_resolution",
+        "biological_function_linkage",
+        "context_exposure_resolution"
+      ]
+    },
+    {
+      "family_id": "causal_personalized_learning_architecture",
+      "scale_semantics": "structural identifiability and estimand-specific precision remain separate",
+      "participant_count_in_primary_output": "precision_only",
+      "primary_objects": [
+        "whole_policy_causal_identifiability",
+        "component_operator_identifiability",
+        "causal_endpoint_information",
+        "dynamic_operator_information",
+        "within_person_sequential_information",
+        "adaptive_policy_architecture",
+        "adaptive_policy_precision"
+      ]
+    },
+    {
+      "family_id": "extensive_biological_reconstruction_capacity",
+      "scale_semantics": "joint trial information over all valid participant-events",
+      "participant_count_in_primary_output": true,
+      "primary_objects": [
+        "absolute_log10_local_contraction",
+        "level_completion",
+        "level_overflow",
+        "reference_coverage_curve"
+      ]
+    }
+  ],
+  "evidence_lanes": [
+    {
+      "lane": "design",
+      "coordinate_authority": "protocol-committed event, assay, assignment, estimand, access-plan, and uncertainty coordinates",
+      "execution_claim": false
+    },
+    {
+      "lane": "realized",
+      "coordinate_authority": "actual retained participant-events, assignments, missingness, quality control, and covariance",
+      "execution_claim": true
+    },
+    {
+      "lane": "accessible",
+      "coordinate_authority": "realized information reachable through lawful download or verified compute-to-data",
+      "execution_claim": true
+    },
+    {
+      "lane": "demonstrated",
+      "coordinate_authority": "frozen held-out task performance, calibration, nulls, and transfer receipts",
+      "execution_claim": true
+    }
+  ],
+  "invariants": [
+    "valid positive-semidefinite event information cannot reduce absolute information",
+    "participant scale changes extensive capacity but not an unchanged intensive participant-event profile",
+    "perfect duplicates add zero conditional information",
+    "one shallow direction cannot fill unmeasured reference directions",
+    "whole-policy, component, endpoint, dynamic, and sequential estimands are not interchangeable",
+    "contrast rank is computed from explicit design matrices rather than top-level arm count",
+    "unknown, structural absence, interval uncertainty, and distributional uncertainty are distinct states",
+    "intrinsic and accessible reconstruction capacity are separate outputs",
+    "v1 scores and v2 outputs cannot share a leaderboard"
+  ],
+  "required_hash_bindings": [
+    "benchmark_suite_version",
+    "parameter_space_sha256",
+    "prior_metric_sha256",
+    "reference_level_sha256",
+    "event_manifest_sha256",
+    "intervention_design_sha256",
+    "uncertainty_model_sha256",
+    "lane",
+    "corpus_sha256",
+    "formula_implementation_sha256"
+  ],
+  "public_score_emission_permitted": false
+}

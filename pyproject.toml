@@ -1,0 +1,295 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "anibench"
+version = "2.0.0rc1"
+description = "An auditable benchmark of how much human trials can teach future superintelligence about biology and intervention response."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [{name = "Bruno Balen"}]
+dependencies = [
+  "jsonschema>=4.22",
+  "matplotlib>=3.8",
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "pypdf>=5.0",
+  "tomli>=2.0; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2",
+  "pytest>=8",
+  "pytest-cov>=5",
+  "python-docx>=1.1",
+  "ruff>=0.5",
+  "scikit-learn>=1.5",
+]
+empirical = ["scikit-learn>=1.5"]
+paper = ["python-docx>=1.1"]
+
+[project.scripts]
+anibench = "anibench.cli:main"
+
+[project.urls]
+Repository = "https://github.com/anibiome/anibench"
+Documentation = "https://github.com/anibiome/anibench#readme"
+Issues = "https://github.com/anibiome/anibench/issues"
+
+[tool.hatch.build]
+exclude = [
+  "/src/anibench/build.py",
+  "/src/anibench/contracts/models.py",
+  "/src/anibench/contracts/validation.py",
+  "/src/anibench/demonstrated.py",
+  "/src/anibench/evidence",
+  "/src/anibench/manifest.py",
+  "/src/anibench/level1_reference.py",
+  "/src/anibench/level1_assessment_v2.py",
+  "/src/anibench/level1_target_v2.py",
+  "/src/anibench/level1_target_migration.py",
+  "/src/anibench/optimizer_v2.py",
+  "/src/anibench/protocol_authority_v2.py",
+  "/src/anibench/preview_figures.py",
+  "/src/anibench/ranking_v2.py",
+  "/src/anibench/release/external_validation.py",
+  "/src/anibench/release/receipt.py",
+  "/src/anibench/release/validation_run.py",
+  "/src/anibench/release/verify.py",
+  "/src/anibench/reporting.py",
+  "/src/anibench/scenario.py",
+  "/src/anibench/scoring.py",
+  "/src/anibench/simulation.py",
+  "/src/anibench/specification",
+  "/src/anibench/suite_v2.py",
+  "/src/anibench/trial_atlas_v2.py",
+  "/src/anibench/tasks",
+  "/src/anibench/validation",
+  "/schemas/v1",
+  "/schemas/v2/optimizer-result.schema.json",
+  "/schemas/v2/optimizer-run.schema.json",
+  "/spec/v1",
+  "/tasks/v1",
+  "/tasks/v1.1",
+  "/data/registries",
+  "/data/studies",
+  "/data/source_projections/v2/ani-*.json",
+  "/data/source_projections/v2/sources",
+  "/data/source_projections/v2/suite_inputs",
+  "/data/source_projections/v2/SOURCE_PROJECTION_LEDGER.json",
+  "/tests/test_v2_optimizer.py",
+  "/web/app.js",
+  "/web/app.test.js",
+  "/web/index.html",
+  "/web/public",
+  "/figures",
+  "/tables",
+  "/paper/build",
+  "/patent",
+  "/private",
+  "/registry",
+  "/release",
+  "/reviews",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/anibench"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"schemas/v2/event-manifest.schema.json" = "anibench/schemas/v2/event-manifest.schema.json"
+"schemas/v2/design-assessment.schema.json" = "anibench/schemas/v2/design-assessment.schema.json"
+"schemas/v2/design-input.schema.json" = "anibench/schemas/v2/design-input.schema.json"
+"schemas/v2/information-run.schema.json" = "anibench/schemas/v2/information-run.schema.json"
+"schemas/v2/intervention-design.schema.json" = "anibench/schemas/v2/intervention-design.schema.json"
+"schemas/v2/level1-coordinate-registry.schema.json" = "anibench/schemas/v2/level1-coordinate-registry.schema.json"
+"schemas/v3/level1-role-aware-assessment.schema.json" = "anibench/schemas/v3/level1-role-aware-assessment.schema.json"
+"schemas/v3/level1-role-aware-target-authority.schema.json" = "anibench/schemas/v3/level1-role-aware-target-authority.schema.json"
+"schemas/v3/level1-v2-to-v3-impact-receipt.schema.json" = "anibench/schemas/v3/level1-v2-to-v3-impact-receipt.schema.json"
+"schemas/v2/optimizer-protocol-input.schema.json" = "anibench/schemas/v2/optimizer-protocol-input.schema.json"
+"schemas/v2/optimizer-protocol-result.schema.json" = "anibench/schemas/v2/optimizer-protocol-result.schema.json"
+"schemas/v2/protocol-capacity-input.schema.json" = "anibench/schemas/v2/protocol-capacity-input.schema.json"
+"schemas/v2/protocol-capacity-result.schema.json" = "anibench/schemas/v2/protocol-capacity-result.schema.json"
+"schemas/v2/reference-registry.schema.json" = "anibench/schemas/v2/reference-registry.schema.json"
+"schemas/v2/uncertainty.schema.json" = "anibench/schemas/v2/uncertainty.schema.json"
+"spec/v2/authority/causal-encoding.json" = "anibench/spec/v2/authority/causal-encoding.json"
+"spec/v2/authority/covariance-scenario-envelopes.json" = "anibench/spec/v2/authority/covariance-scenario-envelopes.json"
+"spec/v2/authority/event-unit-registry.json" = "anibench/spec/v2/authority/event-unit-registry.json"
+"spec/v2/authority/manifest.json" = "anibench/spec/v2/authority/manifest.json"
+"spec/v2/authority/measurement-operator-profiles.json" = "anibench/spec/v2/authority/measurement-operator-profiles.json"
+"spec/v2/authority/moderator-id-registry.json" = "anibench/spec/v2/authority/moderator-id-registry.json"
+"spec/v2/authority/parameter-space-prior-target.json" = "anibench/spec/v2/authority/parameter-space-prior-target.json"
+"spec/v2/authority/transport-encoding.json" = "anibench/spec/v2/authority/transport-encoding.json"
+"spec/v2/level1/biological-coordinate-registry.json" = "anibench/spec/v2/level1/biological-coordinate-registry.json"
+"spec/v3/level1/role-aware-target-requirements.v3.json" = "anibench/spec/v3/level1/role-aware-target-requirements.v3.json"
+"spec/v3/level1/migrations/v2-to-v3-substantive-impact-receipt.json" = "anibench/spec/v3/level1/migrations/v2-to-v3-substantive-impact-receipt.json"
+"spec/v2/mechanics-fixtures/illustrative-reference-2d.json" = "anibench/spec/v2/mechanics-fixtures/illustrative-reference-2d.json"
+"spec/v2/parameter-space.json" = "anibench/spec/v2/parameter-space.json"
+"spec/v2/reference-registry.json" = "anibench/spec/v2/reference-registry.json"
+"data/source_projections/v2/EXTERNAL_SOURCE_ACQUISITION_LEDGER.json" = "anibench/data/source_projections/v2/EXTERNAL_SOURCE_ACQUISITION_LEDGER.json"
+"data/source_projections/v2/all-of-us-cdrv9.json" = "anibench/data/source_projections/v2/all-of-us-cdrv9.json"
+"data/source_projections/v2/aspree.json" = "anibench/data/source_projections/v2/aspree.json"
+"data/source_projections/v2/calerie-phase-2-expanded.json" = "anibench/data/source_projections/v2/calerie-phase-2-expanded.json"
+"data/source_projections/v2/circulate-tpe-ivig.json" = "anibench/data/source_projections/v2/circulate-tpe-ivig.json"
+"data/source_projections/v2/do-health-bio-age.json" = "anibench/data/source_projections/v2/do-health-bio-age.json"
+"data/source_projections/v2/dq-senolytic-bone.json" = "anibench/data/source_projections/v2/dq-senolytic-bone.json"
+"data/source_projections/v2/life-study.json" = "anibench/data/source_projections/v2/life-study.json"
+"data/source_projections/v2/mitoimmune-urolithin-a.json" = "anibench/data/source_projections/v2/mitoimmune-urolithin-a.json"
+"data/source_projections/v2/motrpac-human-pre-suspension-expanded.json" = "anibench/data/source_projections/v2/motrpac-human-pre-suspension-expanded.json"
+"data/source_projections/v2/pearl-rapamycin.json" = "anibench/data/source_projections/v2/pearl-rapamycin.json"
+"data/source_projections/v2/predict-1.json" = "anibench/data/source_projections/v2/predict-1.json"
+"data/source_projections/v2/sheba-sharp.json" = "anibench/data/source_projections/v2/sheba-sharp.json"
+"data/source_projections/v2/snyder-ipop-ihmp-106.json" = "anibench/data/source_projections/v2/snyder-ipop-ihmp-106.json"
+"data/source_projections/v2/triim.json" = "anibench/data/source_projections/v2/triim.json"
+"data/source_projections/v2/uk-biobank.json" = "anibench/data/source_projections/v2/uk-biobank.json"
+"data/source_projections/v2/zoe-method.json" = "anibench/data/source_projections/v2/zoe-method.json"
+"packaging/public_v2/EXTERNAL_SOURCE_VERIFICATION_RECEIPT.json" = "anibench/data/source_projections/v2/EXTERNAL_SOURCE_VERIFICATION_RECEIPT.json"
+"packaging/public_v2/EXTERNAL_FIELD_PROVENANCE_RECEIPT.json" = "anibench/data/source_projections/v2/EXTERNAL_FIELD_PROVENANCE_RECEIPT.json"
+"packaging/public_v2/SOURCE_COORDINATE_TABLE.csv" = "anibench/data/source_projections/v2/SOURCE_COORDINATE_TABLE.csv"
+"openapi/anibench-v2-candidate.yaml" = "anibench/openapi/anibench-v2-candidate.yaml"
+"examples/optimizer_protocol_v2_example.py" = "anibench/examples/optimizer_protocol_v2_example.py"
+"examples/v2/illustrative-design.json" = "anibench/examples/v2/illustrative-design.json"
+"examples/v2/illustrative-protocol-source.json" = "anibench/examples/v2/illustrative-protocol-source.json"
+"web/favicon.svg" = "anibench/web/favicon.svg"
+"web/v2.css" = "anibench/web/v2.css"
+"web/v2.html" = "anibench/web/v2.html"
+"web/v2.js" = "anibench/web/v2.js"
+"web/optimizer-protocol-example.json" = "anibench/web/optimizer-protocol-example.json"
+"web/protocol-capacity-example.json" = "anibench/web/protocol-capacity-example.json"
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/src/anibench",
+  "/schemas/v2/event-manifest.schema.json",
+  "/schemas/v2/design-assessment.schema.json",
+  "/schemas/v2/design-input.schema.json",
+  "/schemas/v2/information-run.schema.json",
+  "/schemas/v2/intervention-design.schema.json",
+  "/schemas/v2/level1-coordinate-registry.schema.json",
+  "/schemas/v3/level1-role-aware-assessment.schema.json",
+  "/schemas/v3/level1-role-aware-target-authority.schema.json",
+  "/schemas/v3/level1-v2-to-v3-impact-receipt.schema.json",
+  "/schemas/v2/optimizer-protocol-input.schema.json",
+  "/schemas/v2/optimizer-protocol-result.schema.json",
+  "/schemas/v2/protocol-capacity-input.schema.json",
+  "/schemas/v2/protocol-capacity-result.schema.json",
+  "/schemas/v2/reference-registry.schema.json",
+  "/schemas/v2/uncertainty.schema.json",
+  "/spec/v2/authority",
+  "/spec/v2/level1/biological-coordinate-registry.json",
+  "/spec/v3/level1/role-aware-target-requirements.v3.json",
+  "/spec/v3/level1/migrations/v2-to-v3-substantive-impact-receipt.json",
+  "/spec/v2/mechanics-fixtures/illustrative-reference-2d.json",
+  "/spec/v2/parameter-space.json",
+  "/spec/v2/reference-registry.json",
+  "/data/source_projections/v2/EXTERNAL_SOURCE_ACQUISITION_LEDGER.json",
+  "/data/source_projections/v2/all-of-us-cdrv9.json",
+  "/data/source_projections/v2/aspree.json",
+  "/data/source_projections/v2/calerie-phase-2-expanded.json",
+  "/data/source_projections/v2/circulate-tpe-ivig.json",
+  "/data/source_projections/v2/do-health-bio-age.json",
+  "/data/source_projections/v2/dq-senolytic-bone.json",
+  "/data/source_projections/v2/life-study.json",
+  "/data/source_projections/v2/mitoimmune-urolithin-a.json",
+  "/data/source_projections/v2/motrpac-human-pre-suspension-expanded.json",
+  "/data/source_projections/v2/pearl-rapamycin.json",
+  "/data/source_projections/v2/predict-1.json",
+  "/data/source_projections/v2/sheba-sharp.json",
+  "/data/source_projections/v2/snyder-ipop-ihmp-106.json",
+  "/data/source_projections/v2/triim.json",
+  "/data/source_projections/v2/uk-biobank.json",
+  "/data/source_projections/v2/zoe-method.json",
+  "/docs/ANTI_GAMING.md",
+  "/docs/ACCESSIBILITY.md",
+  "/docs/API.md",
+  "/docs/DESIGN_STUDIO.md",
+  "/docs/DATA_GOVERNANCE.md",
+  "/docs/EVIDENCE_POLICY.md",
+  "/docs/HOW_TO_READ_ANIBENCH.md",
+  "/docs/INTAKE_AND_ADJUDICATION.md",
+  "/docs/RELEASE.md",
+  "/docs/RELEASE_CHECKLIST.md",
+  "/docs/SCIENTIFIC_FOUNDATIONS.md",
+  "/docs/V2_METHODS_CANDIDATE.md",
+  "/docs/V2_OPTIMIZER.md",
+  "/examples/optimizer_protocol_v2_example.py",
+  "/examples/v2/illustrative-design.json",
+  "/examples/v2/illustrative-protocol-source.json",
+  "/openapi/anibench-v2-candidate.yaml",
+  "/packaging/PUBLIC_PACKAGE_ALLOWLIST.md",
+  "/packaging/public_v2/EXTERNAL_SOURCE_VERIFICATION_RECEIPT.json",
+  "/packaging/public_v2/EXTERNAL_FIELD_PROVENANCE_RECEIPT.json",
+  "/packaging/public_v2/REPOSITORY_ALLOWLIST.txt",
+  "/packaging/public_v2/SOURCE_COORDINATE_TABLE.csv",
+  "/paper/v2/AniBench_v2_benchmark_protocol.md",
+  "/paper/v2/build_method_figures.py",
+  "/paper/v2/figures",
+  "/paper/v2/REPORTING_CHECKLIST.md",
+  "/scripts/__init__.py",
+  "/scripts/build_docx_package.py",
+  "/scripts/export_public_repository.py",
+  "/scripts/fetch_v2_external_sources.py",
+  "/scripts/build_level1_target_v3.py",
+  "/scripts/verify_distribution_boundary.py",
+  "/scripts/verify_external_field_receipts.py",
+  "/scripts/verify_installed_studio.py",
+  "/scripts/verify_release_metadata.py",
+  "/scripts/verify_studio_browser.mjs",
+  "/tests/test_distribution_boundary.py",
+  "/tests/test_fetch_v2_external_sources.py",
+  "/tests/test_installed_studio_e2e.py",
+  "/tests/test_level1_target_v3.py",
+  "/tests/test_level1_assessment_v3.py",
+  "/tests/test_optimizer_protocol_v2.py",
+  "/tests/test_protocol_web_examples.py",
+  "/tests/test_protocol_capacity_v2.py",
+  "/tests/test_public_v2_distribution_boundary.py",
+  "/tests/test_public_repository_export.py",
+  "/tests/test_public_runtime_quarantine.py",
+  "/tests/test_public_v2_wheel_runtime.py",
+  "/tests/test_release_metadata_v2.py",
+  "/tests/test_studio_intake.py",
+  "/tests/test_studio_product.py",
+  "/tests/test_v2_contract_semantics.py",
+  "/tests/test_v2_contracts.py",
+  "/tests/test_v2_design.py",
+  "/tests/test_v2_information_run.py",
+  "/tests/test_v2_openapi_contract.py",
+  "/tests/test_v2_paper_protocol.py",
+  "/web/favicon.svg",
+  "/web/v2.css",
+  "/web/v2.html",
+  "/web/v2.js",
+  "/web/optimizer-protocol-example.json",
+  "/web/protocol-capacity-example.json",
+  "/web/v2.test.js",
+  "/LICENSE",
+  "/CHANGELOG.md",
+  "/AGENTS.md",
+  "/CURRENT.md",
+  "/LICENSE-DATA",
+  "/LICENSES",
+  "/REUSE.toml",
+  "/ROADMAP.md",
+  "/README.md",
+  "/SECURITY.md",
+  "/CONTRIBUTING.md",
+  "/CODE_OF_CONDUCT.md",
+  "/GOVERNANCE.md",
+  "/CITATION.cff",
+  "/.zenodo.json",
+  "/codemeta.json",
+  "/pyproject.toml",
+  "/uv.lock"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+pythonpath = [".", "src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

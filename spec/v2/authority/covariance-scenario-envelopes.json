@@ -1,0 +1,39 @@
+{
+  "contract": "anibench.protocol-authority-object.v1",
+  "authority_id": "anibench.level1.covariance-scenario-envelopes.v1",
+  "authority_type": "covariance_scenario_envelopes",
+  "status": "candidate_normative_engineering_authority_not_empirical_calibration",
+  "claim_boundary": "This object freezes benchmark mechanics and identifiers. It is not an empirical assay-performance, covariance, intervention-effect, or trial-ranking claim.",
+  "source_dependencies": [
+    {
+      "path": "spec/v2/level1/biological-coordinate-registry.json",
+      "sha256": "sha256:ccb477e1fd9dec1f9cd18152f622f31a511d52cc7418c435415ca67d25fe216b"
+    }
+  ],
+  "payload": {
+    "scenario_group_id": "level1-uncalibrated-observer-and-repetition",
+    "scenarios": [
+      {
+        "scenario_id": "conservative",
+        "observer_variance": 2.0,
+        "within_person_repetition_correlation": 0.75,
+        "status": "registered_conservative_sensitivity_not_empirical_truth"
+      },
+      {
+        "scenario_id": "central",
+        "observer_variance": 1.0,
+        "within_person_repetition_correlation": 0.5,
+        "status": "candidate_normative_engineering_scenario_not_empirical_truth"
+      },
+      {
+        "scenario_id": "optimistic",
+        "observer_variance": 0.5,
+        "within_person_repetition_correlation": 0.25,
+        "status": "registered_optimistic_sensitivity_not_empirical_truth"
+      }
+    ],
+    "matrix_encoding": "profile_block_diagonal_scaled_identity",
+    "point_truth_emitted": false,
+    "replacement_gate": "Replace scenarios only with source-bound event-specific covariance and repetition estimates validated outside the scored protocol."
+  }
+}

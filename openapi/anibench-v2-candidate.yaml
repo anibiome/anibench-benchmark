@@ -1,0 +1,665 @@
+openapi: 3.1.0
+info:
+  title: AniBench v2 candidate workbench API
+  version: 2.0.0-candidate.1
+  description: >-
+    Local, nonparticipant API for replaying an explicit joint-information
+    packet. It computes mathematical objects only. Public trial ranks and
+    public ranking and promotion remain disabled until independent authority and calibration gates pass.
+servers:
+  - url: http://127.0.0.1:8765
+    description: Loopback Studio server
+paths:
+  /api/health:
+    get:
+      operationId: getCandidateHealth
+      responses:
+        "200":
+          description: Local service health
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status, service, version]
+                properties:
+                  status: {type: string, const: ok}
+                  service: {type: string, const: anibench-studio}
+                  version: {type: string}
+  /api/intake/ctgov:
+    post:
+      operationId: captureClinicalTrialsGovStudy
+      summary: Capture an exact ClinicalTrials.gov study response without scoring it
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [nct_id]
+              additionalProperties: false
+              properties:
+                nct_id: {type: string, pattern: "^NCT[0-9]{8}$"}
+      responses:
+        "200":
+          description: Immutable source snapshot requiring human review
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/IntakeSnapshot"}
+        "400":
+          description: Invalid identifier or controlled-source intake failure
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/Error"}
+  /api/intake/ctgov-search:
+    post:
+      operationId: captureClinicalTrialsGovSearchPage
+      summary: Capture one exact ClinicalTrials.gov search-result page without scoring it
+      description: >-
+        The result is a discovery snapshot only. It cannot auto-fill protocol
+        geometry, become biological evidence, or authorize a family projection.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [query]
+              additionalProperties: false
+              properties:
+                query: {type: string, minLength: 1, maxLength: 512}
+                page_size: {type: integer, minimum: 1, maximum: 1000, default: 10}
+                page_token: {type: [string, "null"], minLength: 1, maxLength: 2048}
+      responses:
+        "200":
+          description: Immutable source-result snapshot requiring human review
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/IntakeSnapshot"}
+        "400":
+          description: Invalid query or controlled-source intake failure
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/Error"}
+  /api/v2/information:
+    post:
+      operationId: scoreJointInformationCandidate
+      summary: Replay absolute v2 joint-information mechanics without a public score
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: "#/components/schemas/InformationRun"}
+      responses:
+        "200":
+          description: Candidate-only replay packet; unrecognized reference metrics are null
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/InformationResult"}
+        "400":
+          description: Invalid or incomplete packet; unknown coordinates are not inferred
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [error]
+                properties:
+                  error: {type: string}
+  /api/v2/design:
+    post:
+      operationId: compileTrialDesignCandidate
+      summary: Compile a prospective, verified-protocol, or realized trial design
+      description: >-
+        Returns typed self-declared and derived design coordinates, calculable
+        participant-module workload coordinates, open source gates, and
+        objective-grouped structural upgrades. It does not emit an ordinal or
+        composite coordinate and does not infer biological information.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: "../schemas/v2/design-input.schema.json"}
+      responses:
+        "200":
+          description: Candidate-only typed trial-design assessment
+          content:
+            application/json:
+              schema: {$ref: "../schemas/v2/design-assessment.schema.json"}
+        "400":
+          description: Invalid shape or cross-field design semantics
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [error]
+                additionalProperties: false
+                properties:
+                  error: {type: string}
+  /api/v2/protocol-capacity:
+    post:
+      operationId: compileProtocolCapacityCandidate
+      summary: Compile separate prospective protocol-capacity families
+      description: >-
+        Compiles explicit participant-event, measurement, longitudinal, policy,
+        moderator, and transport geometry. The response has no overall scalar,
+        empirical-attainment claim, or public rank. Planned status is an evidence
+        lane and does not numerically discount an otherwise identical protocol.
+        Causal, personalized, and transport allocation-support factors are
+        design-support proxies, not biological information or inferential
+        precision; their definitions enumerate excluded uncertainty terms.
+        Transport is returned as a vector over authority-bound axis families;
+        extra context axes are ledgered but ignored, missing required axes are
+        ineligible, and multi-family inputs never receive an aggregate scalar.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: "../schemas/v2/protocol-capacity-input.schema.json"}
+      responses:
+        "200":
+          description: Deterministic candidate protocol-capacity receipt
+          content:
+            application/json:
+              schema: {$ref: "../schemas/v2/protocol-capacity-result.schema.json"}
+        "400":
+          description: Invalid or internally inconsistent protocol geometry
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [error]
+                additionalProperties: false
+                properties:
+                  error: {type: string}
+  /api/v2/level1-assessment:
+    post:
+      operationId: assessProtocolAgainstLevel1Candidate
+      summary: Compile a protocol into six role-aware trial dimensions
+      description: >-
+        Compiles native, source-located design geometry for six
+        non-interchangeable families. The role-aware Level-1 authority preserves
+        the 64-coordinate scientific map while distinguishing direct outcomes
+        from relational estimands. Family target attainment remains a typed
+        unknown until source-bound operating characteristics are authorized.
+        Unknown is not zero; no overall scalar or rank exists.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: "../schemas/v2/protocol-capacity-input.schema.json"}
+      responses:
+        "200":
+          description: Deterministic family-aware Level-1 assessment receipt
+          content:
+            application/json:
+              schema: {$ref: "../schemas/v3/level1-role-aware-assessment.schema.json"}
+        "400":
+          description: Invalid protocol geometry or unverifiable installed authority
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [error]
+                additionalProperties: false
+                properties:
+                  error: {type: string}
+  /api/v2/level1-authority:
+    get:
+      operationId: getRoleAwareLevel1AuthorityCandidate
+      summary: Return the hash-bound role-aware Level-1 authority
+      description: >-
+        Returns the complete coordinate-role map, six family definitions,
+        unresolved source gates, and installed-resource readback receipt. It is
+        an evaluation authority, not a fictitious perfect trial template.
+      responses:
+        "200":
+          description: Role-aware authority and deterministic readback
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [schema_version, readback, authority, promotion_allowed]
+                additionalProperties: false
+                properties:
+                  schema_version: {type: string, const: anibench.level1-role-aware-authority-summary.v1}
+                  readback: {type: object}
+                  authority: {$ref: "../schemas/v3/level1-role-aware-target-authority.schema.json"}
+                  promotion_allowed: {type: boolean, const: false}
+        "500":
+          description: Installed authority failed deterministic replay
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [schema_version, error, promotion_allowed]
+                additionalProperties: false
+                properties:
+                  schema_version: {type: string, const: anibench.level1-authority-error.v1}
+                  error: {type: string}
+                  promotion_allowed: {type: boolean, const: false}
+  /api/v2/level1-template:
+    get:
+      operationId: getRetiredRecursiveLevel1Template
+      summary: Retired recursive v2 perfect-protocol template
+      responses:
+        "410":
+          description: Superseded by the role-aware authority
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [contract, error, route, replacement, promotion_allowed]
+                additionalProperties: false
+                properties:
+                  contract: {type: string, const: anibench.retired-route.v1}
+                  error: {type: string}
+                  route: {type: string, const: /api/v2/level1-template}
+                  replacement: {type: string, const: /api/v2/level1-authority}
+                  promotion_allowed: {type: boolean, const: false}
+  /api/v2/optimize-protocol:
+    post:
+      operationId: optimizeProtocolParetoCandidate
+      summary: Explore Pareto-efficient protocol mutations through the compiler
+      description: >-
+        Every candidate is a mutation of protocol geometry and is recompiled
+        through the same protocol-capacity implementation. Direct family-output
+        patches, hidden weights, scalar objectives, and stable rank emission are
+        prohibited.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: "../schemas/v2/optimizer-protocol-input.schema.json"}
+      responses:
+        "200":
+          description: Deterministic Pareto design sandbox result
+          content:
+            application/json:
+              schema: {$ref: "../schemas/v2/optimizer-protocol-result.schema.json"}
+        "400":
+          description: Invalid, gameable, or infeasible optimizer request
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [error]
+                additionalProperties: false
+                properties:
+                  error: {type: string}
+  /api/v2/comparator-atlas:
+    get:
+      operationId: getSourceBoundComparatorAtlas
+      summary: Read the hash-verified, score-free external comparator corpus
+      description: >-
+        Replays each coordinate-table projection hash against the exact packaged
+        public source projection before returning descriptive coordinates. Row
+        order is source order, not rank. Studies without source-complete
+        protocol-capacity geometry remain typed not_scoreable.
+      responses:
+        "200":
+          description: Source-bound descriptive comparator atlas
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/ComparatorAtlas"}
+        "500":
+          description: Packaged comparator source or hash verification failed closed
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [schema_version, error, overall_scalar, public_rank_emission_permitted]
+                additionalProperties: false
+                properties:
+                  schema_version: {type: string, const: anibench.studio-comparator-atlas-error.v1}
+                  error: {type: string}
+                  overall_scalar: {type: "null"}
+                  public_rank_emission_permitted: {type: boolean, const: false}
+components:
+  schemas:
+    Error:
+      type: object
+      required: [error]
+      additionalProperties: false
+      properties:
+        error: {type: string}
+    IntakeSnapshot:
+      type: object
+      required:
+        - schema_version
+        - intake_id
+        - source_kind
+        - source_uri
+        - retrieved_at
+        - request
+        - raw_content_sha256
+        - raw_content_bytes
+        - source_locators
+        - unresolved_fields
+        - score_eligible
+        - requires_human_review
+        - promotion_state
+        - parsed_content
+      properties:
+        schema_version: {type: string, const: anibench.intake-snapshot.v1}
+        intake_id: {type: string, pattern: "^anibench:intake-snapshot:sha256:[a-f0-9]{64}$"}
+        source_kind:
+          type: string
+          enum: [clinicaltrials_gov_v2_study, clinicaltrials_gov_v2_search]
+        source_uri: {type: string, format: uri, pattern: "^https://clinicaltrials\\.gov/"}
+        retrieved_at: {type: string, format: date-time}
+        request: {type: object}
+        raw_content_sha256: {type: string, pattern: "^[a-f0-9]{64}$"}
+        raw_content_bytes: {type: integer, minimum: 1}
+        source_locators:
+          type: array
+          minItems: 1
+          items:
+            type: object
+            required: [locator_type, locator]
+            additionalProperties: false
+            properties:
+              locator_type: {type: string, const: json_pointer}
+              locator: {type: string, minLength: 1}
+        unresolved_fields:
+          type: array
+          minItems: 1
+          items: {type: string, minLength: 1}
+        score_eligible: {type: boolean, const: false}
+        requires_human_review: {type: boolean, const: true}
+        promotion_state: {type: string, const: intake_only_unreviewed}
+        parsed_content: {type: object}
+      additionalProperties: false
+    Sha256Prefixed:
+      type: string
+      pattern: "^sha256:(?!0{64}$)[a-f0-9]{64}$"
+    SquareMatrix:
+      type: array
+      minItems: 1
+      items:
+        type: array
+        minItems: 1
+        items: {type: number}
+    SourceObject:
+      type: object
+      required: [object_id, sha256]
+      properties:
+        object_id: {type: string, minLength: 1}
+        sha256: {$ref: "#/components/schemas/Sha256Prefixed"}
+      additionalProperties: false
+    ComparatorAtlas:
+      type: object
+      required:
+        - schema_version
+        - claim_class
+        - overall_scalar
+        - public_rank_emission_permitted
+        - row_order_semantics
+        - coordinate_table
+        - field_provenance_receipt
+        - study_count
+        - comparison_eligible_study_count
+        - placement_state
+        - studies
+      properties:
+        schema_version: {type: string, const: anibench.studio-comparator-atlas.v1}
+        claim_class: {type: string, const: source_bound_descriptive_comparator_atlas}
+        overall_scalar: {type: "null"}
+        public_rank_emission_permitted: {type: boolean, const: false}
+        row_order_semantics: {type: string, const: coordinate_table_source_order_not_rank}
+        coordinate_table:
+          type: object
+          required: [path, sha256]
+          properties:
+            path: {type: string}
+            sha256: {$ref: "#/components/schemas/Sha256Prefixed"}
+          additionalProperties: false
+        field_provenance_receipt:
+          type: object
+          required:
+            - contract
+            - path
+            - sha256
+            - known_fact_count
+            - mechanically_extracted_fact_count
+            - curated_manual_fact_count
+            - downgraded_unknown_fact_count
+            - all_known_fields_machine_resolved
+            - manual_interpretations_mechanically_validated
+          properties:
+            contract:
+              type: string
+              const: anibench.external-field-provenance-receipt.v2
+            path: {type: string}
+            sha256: {$ref: "#/components/schemas/Sha256Prefixed"}
+            known_fact_count: {type: integer, minimum: 0}
+            mechanically_extracted_fact_count: {type: integer, minimum: 0}
+            curated_manual_fact_count: {type: integer, const: 0}
+            downgraded_unknown_fact_count: {type: integer, minimum: 0}
+            all_known_fields_machine_resolved:
+              type: boolean
+              const: true
+            manual_interpretations_mechanically_validated:
+              type: boolean
+              const: false
+          additionalProperties: false
+        study_count: {type: integer, minimum: 1}
+        comparison_eligible_study_count: {type: integer, minimum: 0}
+        placement_state:
+          type: string
+          const: typed_unknown_no_source_complete_comparator_geometry
+        studies:
+          type: array
+          minItems: 1
+          items:
+            type: object
+            required:
+              - study_id
+              - name
+              - projection_lane
+              - population
+              - duration
+              - family_eligibility
+              - comparison_eligible
+              - source_binding
+            properties:
+              study_id: {type: string, minLength: 1}
+              name: {type: string, minLength: 1}
+              projection_lane: {type: string, minLength: 1}
+              projection_status: {type: string}
+              population: {type: object}
+              duration: {type: object}
+              causal_architecture: {type: object}
+              measurement_module_states: {type: object}
+              open_gates: {type: array, items: {type: string}}
+              family_eligibility: {type: object}
+              comparison_eligible: {type: boolean, const: false}
+              source_binding: {type: object}
+            additionalProperties: false
+      additionalProperties: false
+    InformationRun:
+      type: object
+      description: Canonical schema is schemas/v2/information-run.schema.json
+      required:
+        - contract
+        - benchmark_suite_version
+        - lane
+        - parameter_space_hash
+        - prior_metric_hash
+        - reference_level_hash
+        - event_manifest_hash
+        - intervention_design_hash
+        - uncertainty_model_hash
+        - reference_authority_id
+        - matrix_hashes
+        - information_matrix
+        - prior_precision
+        - reference_information
+        - reference_direction_basis
+        - source_objects
+      properties:
+        contract: {type: string, const: anibench.information-run.v2-candidate1}
+        benchmark_suite_version: {type: string, minLength: 1}
+        lane: {type: string, enum: [design_preview, registered, realized, accessible, demonstrated]}
+        parameter_space_hash: {$ref: "#/components/schemas/Sha256Prefixed"}
+        prior_metric_hash: {$ref: "#/components/schemas/Sha256Prefixed"}
+        reference_level_hash: {$ref: "#/components/schemas/Sha256Prefixed"}
+        event_manifest_hash: {$ref: "#/components/schemas/Sha256Prefixed"}
+        intervention_design_hash: {$ref: "#/components/schemas/Sha256Prefixed"}
+        uncertainty_model_hash: {$ref: "#/components/schemas/Sha256Prefixed"}
+        reference_authority_id:
+          type: [string, "null"]
+          description: Caller declaration only; local recognition is derived by the server.
+        matrix_hashes:
+          type: object
+          required:
+            - information_matrix_sha256
+            - prior_precision_matrix_sha256
+            - reference_information_matrix_sha256
+            - reference_direction_basis_sha256
+          properties:
+            information_matrix_sha256: {$ref: "#/components/schemas/Sha256Prefixed"}
+            prior_precision_matrix_sha256: {$ref: "#/components/schemas/Sha256Prefixed"}
+            reference_information_matrix_sha256: {$ref: "#/components/schemas/Sha256Prefixed"}
+            reference_direction_basis_sha256: {$ref: "#/components/schemas/Sha256Prefixed"}
+          additionalProperties: false
+        information_matrix: {$ref: "#/components/schemas/SquareMatrix"}
+        prior_precision: {$ref: "#/components/schemas/SquareMatrix"}
+        reference_information: {$ref: "#/components/schemas/SquareMatrix"}
+        reference_direction_basis:
+          allOf:
+            - {$ref: "#/components/schemas/SquareMatrix"}
+          description: Column-orthonormal basis that diagonalizes the prior-whitened frozen reference.
+        source_objects:
+          type: array
+          minItems: 1
+          items: {$ref: "#/components/schemas/SourceObject"}
+      additionalProperties: false
+    InformationResult:
+      type: object
+      required:
+        - contract
+        - claim_state
+        - promotion_allowed
+        - benchmark_suite_version
+        - lane
+        - run_input_sha256
+        - caller_declared_identity
+        - identity_verification
+        - claim_permissions
+        - source_objects
+        - absolute_mechanics
+        - reference_metrics
+        - illustrative_reference_metrics
+      properties:
+        contract: {type: string, const: anibench.information-replay-packet.v2-candidate1}
+        claim_state: {type: string, const: implementation_candidate_biological_promotion_gated}
+        promotion_allowed: {type: boolean, const: false}
+        benchmark_suite_version: {type: string}
+        lane: {type: string}
+        run_input_sha256: {$ref: "#/components/schemas/Sha256Prefixed"}
+        caller_declared_identity:
+          type: object
+          required:
+            - parameter_space_hash
+            - prior_metric_hash
+            - reference_level_hash
+            - event_manifest_hash
+            - intervention_design_hash
+            - uncertainty_model_hash
+          additionalProperties: {$ref: "#/components/schemas/Sha256Prefixed"}
+        identity_verification:
+          type: object
+          description: All verification booleans and computed hashes are derived by the server.
+          required:
+            - verification_contract
+            - parameter_dimension
+            - matrix_hashes
+            - reference_direction_basis_semantics_verified
+            - local_reference_registry_sha256
+            - local_reference_registry_status
+            - caller_declared_reference_authority_id
+            - recognized_illustrative_fixture
+            - recognized_reference_authority_id
+            - promotable_level_1_reference_verified
+          properties:
+            verification_contract: {type: string}
+            parameter_dimension: {type: integer, minimum: 1}
+            matrix_hashes: {type: object}
+            reference_direction_basis_semantics_verified: {type: boolean, const: true}
+            local_reference_registry_sha256: {$ref: "#/components/schemas/Sha256Prefixed"}
+            local_reference_registry_status: {type: string, const: no_promotable_level_1_reference}
+            caller_declared_reference_authority_id: {type: [string, "null"]}
+            recognized_illustrative_fixture: {type: boolean}
+            recognized_reference_authority_id: {type: [string, "null"]}
+            promotable_level_1_reference_verified: {type: boolean, const: false}
+          additionalProperties: false
+        claim_permissions:
+          type: object
+          required:
+            - absolute_mechanics_replay_allowed
+            - illustrative_reference_metrics_allowed
+            - level_1_completion_claim_allowed
+            - public_completion_claim_allowed
+            - public_score_allowed
+            - public_rank_allowed
+          properties:
+            absolute_mechanics_replay_allowed: {type: boolean, const: true}
+            illustrative_reference_metrics_allowed: {type: boolean}
+            level_1_completion_claim_allowed: {type: boolean, const: false}
+            public_completion_claim_allowed: {type: boolean, const: false}
+            public_score_allowed: {type: boolean, const: false}
+            public_rank_allowed: {type: boolean, const: false}
+          additionalProperties: false
+        source_objects:
+          type: array
+          minItems: 1
+          items: {$ref: "#/components/schemas/SourceObject"}
+        absolute_mechanics:
+          type: object
+          required:
+            - absolute_log10_contraction
+            - generalized_eigenvalues
+            - information_matrix_sha256
+            - prior_precision_matrix_sha256
+            - parameter_dimension
+            - formula_version
+          properties:
+            absolute_log10_contraction: {type: number}
+            generalized_eigenvalues:
+              type: array
+              items: {type: number, minimum: 0}
+            information_matrix_sha256: {$ref: "#/components/schemas/Sha256Prefixed"}
+            prior_precision_matrix_sha256: {$ref: "#/components/schemas/Sha256Prefixed"}
+            parameter_dimension: {type: integer, minimum: 1}
+            formula_version: {type: string, const: anibench.joint-information.v2-candidate1}
+          additionalProperties: false
+        reference_metrics:
+          type: "null"
+          description: Null because the local registry contains no promotable Level-1 reference.
+        illustrative_reference_metrics:
+          oneOf:
+            - {type: "null"}
+            -
+              type: object
+              description: Present only for an exact locally registered mechanics fixture; never a biological reference claim.
+              required:
+                - metric_contract
+                - claim_class
+                - reference_authority_id
+                - illustrative_completion_percent
+                - illustrative_overflow
+                - illustrative_coverage_curve
+                - illustrative_reference_direction_information
+                - promotion_allowed
+                - public_completion_claim_allowed
+              properties:
+                metric_contract: {type: string, const: anibench.illustrative-reference-mechanics.v2-candidate1}
+                claim_class: {type: string, const: illustrative_mechanics_fixture_not_biological_reference}
+                reference_authority_id: {type: string}
+                illustrative_completion_percent: {type: number, minimum: 0, maximum: 100}
+                illustrative_overflow: {type: number, minimum: 0}
+                illustrative_coverage_curve: {type: object}
+                illustrative_reference_direction_information: {type: array, items: {type: number}}
+                promotion_allowed: {type: boolean, const: false}
+                public_completion_claim_allowed: {type: boolean, const: false}
+              additionalProperties: false
+      additionalProperties: false

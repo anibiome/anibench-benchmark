@@ -1,0 +1,74 @@
+{
+  "contract": "anibench.protocol-authority-manifest.v1",
+  "manifest_id": "anibench.level1.protocol-authority-manifest.v1",
+  "status": "candidate_normative_authority_pending_independent_attestation",
+  "release_state": "not_rank_or_public_release_authority",
+  "independence_rule": "Only the frozen mesoscopic coordinate ontology and abstract target requirements are builder inputs; no study identity, sponsor-specific design, scored projection, observed benchmark result, or desired ordering is read.",
+  "objects": [
+    {
+      "authority_id": "anibench.level1.parameter-space-prior-target.v1",
+      "authority_type": "parameter_space_prior_target",
+      "path": "spec/v2/authority/parameter-space-prior-target.json",
+      "sha256": "sha256:027f0ed618d6e91a271d72eb2370d4f99e3ccfcd1203661e7641dd583dfa138c",
+      "canonical_sha256": "sha256:ba875bdfa2a8663a46d81d6389574db64a56a68838ca058e2b037bc5f8c9b6d7"
+    },
+    {
+      "authority_id": "anibench.level1.measurement-operator-profiles.v1",
+      "authority_type": "measurement_operator_profiles",
+      "path": "spec/v2/authority/measurement-operator-profiles.json",
+      "sha256": "sha256:fab8c9debd7605711d5e5837b3dc793a8b7177607f4ded65283fe423acaa5e68",
+      "canonical_sha256": "sha256:557aa4fcb0df1a230b6837af48025ab0c7676a5eaace14b21c884d94baa75d33"
+    },
+    {
+      "authority_id": "anibench.level1.covariance-scenario-envelopes.v1",
+      "authority_type": "covariance_scenario_envelopes",
+      "path": "spec/v2/authority/covariance-scenario-envelopes.json",
+      "sha256": "sha256:9bc8bc73897bd9baf66e887052bf782b75a198de7b88b4489177976c3bb9ea77",
+      "canonical_sha256": "sha256:f0aefc3ac6acb1016587876ce63cde171537c843cf6becac4c433b94b484d0ae"
+    },
+    {
+      "authority_id": "anibench.level1.event-unit-registry.v1",
+      "authority_type": "event_unit_registry",
+      "path": "spec/v2/authority/event-unit-registry.json",
+      "sha256": "sha256:1b6186763b67335e2784dae09cc8d607a3990fd79a895f574b8cdce0cb70624b",
+      "canonical_sha256": "sha256:851334c56db99eae973667d53a007a2482eff14b4bafaf87211940cebe99f11f"
+    },
+    {
+      "authority_id": "anibench.level1.causal-encoding.v1",
+      "authority_type": "causal_encoding",
+      "path": "spec/v2/authority/causal-encoding.json",
+      "sha256": "sha256:866c5ec0ebac25ea94adf575b296b6920eb781dce271c485252b85b25d41fa5f",
+      "canonical_sha256": "sha256:b2b212a0dafe30976fa515babf0f280e0af26f6306ee96ce81596441da0f7d70"
+    },
+    {
+      "authority_id": "anibench.level1.moderator-id-registry.v1",
+      "authority_type": "moderator_id_registry",
+      "path": "spec/v2/authority/moderator-id-registry.json",
+      "sha256": "sha256:f8dc2b95998d0b9fbbdcf7ec19789f912d0d58b64e1089d5237a93e1468695e5",
+      "canonical_sha256": "sha256:f3097bdc4428a9ae2cddcc9c3d7e18cc197473362e592997f3db27309295c961"
+    },
+    {
+      "authority_id": "anibench.level1.transport-encoding.v1",
+      "authority_type": "transport_encoding",
+      "path": "spec/v2/authority/transport-encoding.json",
+      "sha256": "sha256:db480443d6ca7334ac814ddeaba39682cb231edb57b266d601661da0460b8e88",
+      "canonical_sha256": "sha256:285b9d9afe3072aa518b9410051a2a145ae59de169e02bf26939dab5fc0d557e"
+    }
+  ],
+  "required_authority_types": [
+    "parameter_space_prior_target",
+    "measurement_operator_profiles",
+    "covariance_scenario_envelopes",
+    "event_unit_registry",
+    "causal_encoding",
+    "moderator_id_registry",
+    "transport_encoding"
+  ],
+  "comparison_gate": {
+    "authority_hash_verification_required": true,
+    "public_facts_reference_only": true,
+    "inline_prior_operator_covariance_or_basis_forbidden": true,
+    "independent_attestation_complete": false,
+    "promotion_allowed": false
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "contract": "anibench.protocol-authority-object.v1",
+  "authority_id": "anibench.level1.measurement-operator-profiles.v1",
+  "authority_type": "measurement_operator_profiles",
+  "status": "candidate_normative_engineering_authority_not_empirical_calibration",
+  "claim_boundary": "This object freezes benchmark mechanics and identifiers. It is not an empirical assay-performance, covariance, intervention-effect, or trial-ranking claim.",
+  "source_dependencies": [
+    {
+      "path": "spec/v2/level1/biological-coordinate-registry.json",
+      "sha256": "sha256:ccb477e1fd9dec1f9cd18152f622f31a511d52cc7418c435415ca67d25fe216b"
+    }
+  ],
+  "payload": {
+    "parameter_space_authority_id": "anibench.level1.parameter-space-prior-target.v1",
+    "profiles": [
+      {
+        "profile_id": "level1-observer-state_observation",
+        "profile_semantics": "candidate_normative_coordinate_observer_not_assay_claim",
+        "operator_encoding": "prior_whitened_posterior_target_rows",
+        "coordinate_ids": [
+          "S01",
+          "S02",
+          "S03",
+          "S04",
+          "S05",
+          "S06",
+          "S07",
+          "S08",
+          "S09",
+          "S10",
+          "S11",
+          "S12",
+          "S13",
+          "S14",
+          "S15",
+          "S16"
+        ],
+        "feature_ancestry_namespace": "level1-coordinate-observer",
+        "allowed_event_unit_ids": [
+          "participant-joint-state-visit",
+          "participant-functional-observation",
+          "participant-joint-state-readback"
+        ]
+      },
+      {
+        "profile_id": "level1-observer-natural_dynamics",
+        "profile_semantics": "candidate_normative_coordinate_observer_not_assay_claim",
+        "operator_encoding": "prior_whitened_posterior_target_rows",
+        "coordinate_ids": [
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06",
+          "D07",
+          "D08",
+          "D09",
+          "D10",
+          "D11",
+          "D12"
+        ],
+        "feature_ancestry_namespace": "level1-coordinate-observer",
+        "allowed_event_unit_ids": [
+          "participant-joint-state-visit",
+          "participant-functional-observation",
+          "participant-joint-state-readback"
+        ]
+      },
+      {
+        "profile_id": "level1-observer-perturbation_response",
+        "profile_semantics": "candidate_normative_coordinate_observer_not_assay_claim",
+        "operator_encoding": "prior_whitened_posterior_target_rows",
+        "coordinate_ids": [
+          "P01",
+          "P02",
+          "P03",
+          "P04",
+          "P05",
+          "P06",
+          "P07",
+          "P08",
+          "P09",
+          "P10",
+          "P11",
+          "P12"
+        ],
+        "feature_ancestry_namespace": "level1-coordinate-observer",
+        "allowed_event_unit_ids": [
+          "participant-joint-state-visit",
+          "participant-functional-observation",
+          "participant-joint-state-readback"
+        ]
+      },
+      {
+        "profile_id": "level1-observer-person_context_heterogeneity",
+        "profile_semantics": "candidate_normative_coordinate_observer_not_assay_claim",
+        "operator_encoding": "prior_whitened_posterior_target_rows",
+        "coordinate_ids": [
+          "H01",
+          "H02",
+          "H03",
+          "H04",
+          "H05",
+          "H06",
+          "H07",
+          "H08"
+        ],
+        "feature_ancestry_namespace": "level1-coordinate-observer",
+        "allowed_event_unit_ids": [
+          "participant-joint-state-visit",
+          "participant-functional-observation",
+          "participant-joint-state-readback"
+        ]
+      },
+      {
+        "profile_id": "level1-observer-functional_lived_state",
+        "profile_semantics": "candidate_normative_coordinate_observer_not_assay_claim",
+        "operator_encoding": "prior_whitened_posterior_target_rows",
+        "coordinate_ids": [
+          "F01",
+          "F02",
+          "F03",
+          "F04",
+          "F05",
+          "F06",
+          "F07",
+          "F08"
+        ],
+        "feature_ancestry_namespace": "level1-coordinate-observer",
+        "allowed_event_unit_ids": [
+          "participant-joint-state-visit",
+          "participant-functional-observation",
+          "participant-joint-state-readback"
+        ]
+      },
+      {
+        "profile_id": "level1-observer-population_transport",
+        "profile_semantics": "candidate_normative_coordinate_observer_not_assay_claim",
+        "operator_encoding": "prior_whitened_posterior_target_rows",
+        "coordinate_ids": [
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T05",
+          "T06",
+          "T07",
+          "T08"
+        ],
+        "feature_ancestry_namespace": "level1-coordinate-observer",
+        "allowed_event_unit_ids": [
+          "participant-joint-state-visit",
+          "participant-functional-observation",
+          "participant-joint-state-readback"
+        ]
+      }
+    ],
+    "instantiation_rule": "A protocol may select a registered profile only when its protocol source binds the named measurement event to that profile; a modality label alone is insufficient.",
+    "assay_calibration_state": "unresolved_until_external_operator_validation"
+  }
+}

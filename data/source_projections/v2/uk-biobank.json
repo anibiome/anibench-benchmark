@@ -1,0 +1,760 @@
+{
+  "schema_version": "ani.source_projection.v2",
+  "projection_id": "uk-biobank.source-projection.v2",
+  "study_id": "uk-biobank",
+  "name": "UK Biobank",
+  "projection_status": "candidate_not_scored",
+  "evaluation_mode": "accessible_longitudinal_resource",
+  "lifecycle": "ongoing_population_resource",
+  "authorities": [
+    {
+      "source_id": "pmc4380465",
+      "path": "data/source_projections/v2/sources/pmc/PMC4380465.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4380465/",
+      "sha256": "1a72d655696c959ee5a5f76ed8099c714fba24c32da09ab669bfd9e4bf076612",
+      "bytes": 67382,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_resource_publication_fulltext",
+      "locators": [
+        "500,000 participants"
+      ]
+    },
+    {
+      "source_id": "pmc12443626",
+      "path": "data/source_projections/v2/sources/pmc/PMC12443626.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12443626/",
+      "sha256": "72b874b6e0ab0636e360298d0850dd9189c2922e34915e99e29d82caae08bb42",
+      "bytes": 121270,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_resource_publication_fulltext",
+      "locators": [
+        "490,640 UK Biobank participants"
+      ]
+    },
+    {
+      "source_id": "pmc7250878",
+      "path": "data/source_projections/v2/sources/pmc/PMC7250878.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7250878/",
+      "sha256": "28653c29252d05752660540fa1d0e487e07f45a734df137a76899ec31b27b254",
+      "bytes": 131548,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_resource_publication_fulltext",
+      "locators": [
+        "re-inviting 100,000 participants"
+      ]
+    },
+    {
+      "source_id": "pmc10567551",
+      "path": "data/source_projections/v2/sources/pmc/PMC10567551.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10567551/",
+      "sha256": "dbf50d8d006d4c26d702856890cc0a408954e2a6b873d721d5bc6ebe607e0fe9",
+      "bytes": 141634,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_resource_publication_fulltext",
+      "locators": [
+        "54,219 UKB participants",
+        "2,923 unique proteins"
+      ]
+    }
+  ],
+  "population": {
+    "cohort_enrollment": {
+      "source_ids": [
+        "pmc4380465"
+      ],
+      "source_locators": {
+        "pmc4380465": "passage containing '500,000 participants'"
+      },
+      "value_semantics": "reported_cohort_size",
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc4380465",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "wgs_participants": {
+      "source_ids": [
+        "pmc12443626"
+      ],
+      "source_locators": {
+        "pmc12443626": "title and abstract: '490,640 UK Biobank participants'"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc12443626",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    }
+  },
+  "timeline": {
+    "followup_duration_days": {
+      "state": "unknown",
+      "reason": "Follow-up is continuing and participant-specific; no universal duration is used.",
+      "source_ids": [
+        "pmc4380465"
+      ],
+      "source_locators": {
+        "pmc4380465": "long-term follow-up resource description"
+      }
+    }
+  },
+  "intervention_design": {
+    "policy_arms": {
+      "source_ids": [
+        "pmc4380465"
+      ],
+      "source_locators": {
+        "pmc4380465": "prospective observational resource design"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc4380465",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "randomized_policy_assignment": {
+      "source_ids": [
+        "pmc4380465"
+      ],
+      "source_locators": {
+        "pmc4380465": "prospective observational resource design"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc4380465",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "active_concurrent_comparator": {
+      "source_ids": [
+        "pmc4380465"
+      ],
+      "source_locators": {
+        "pmc4380465": "no assigned concurrent comparator"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc4380465",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "deployed_operator_families": {
+      "source_ids": [
+        "pmc4380465"
+      ],
+      "source_locators": {
+        "pmc4380465": "no trial operator assignment"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc4380465",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "causally_identifiable_policy_contrasts": {
+      "source_ids": [
+        "pmc4380465"
+      ],
+      "source_locators": {
+        "pmc4380465": "no assigned policy contrasts"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc4380465",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "adaptive_reassignment": {
+      "source_ids": [
+        "pmc4380465"
+      ],
+      "source_locators": {
+        "pmc4380465": "no intervention reassignment"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc4380465",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "within_policy_adaptation_randomized": {
+      "source_ids": [
+        "pmc4380465"
+      ],
+      "source_locators": {
+        "pmc4380465": "no intervention policy"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc4380465",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    }
+  },
+  "personalization": {
+    "individual_state_models": {
+      "source_ids": [
+        "pmc4380465"
+      ],
+      "source_locators": {
+        "pmc4380465": "resource protocol, not prospective personalized policy"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc4380465",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "adaptive_decisions": {
+      "source_ids": [
+        "pmc4380465"
+      ],
+      "source_locators": {
+        "pmc4380465": "resource protocol"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc4380465",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "randomized_component_personalization": {
+      "source_ids": [
+        "pmc4380465"
+      ],
+      "source_locators": {
+        "pmc4380465": "resource protocol"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc4380465",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "within_person_counterfactuals": {
+      "source_ids": [
+        "pmc4380465"
+      ],
+      "source_locators": {
+        "pmc4380465": "no randomized within-person operator"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc4380465",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "biological_feedback": {
+      "source_ids": [
+        "pmc4380465"
+      ],
+      "source_locators": {
+        "pmc4380465": "no prospective feedback intervention"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc4380465",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "prospective_policy_evaluation": {
+      "source_ids": [
+        "pmc4380465"
+      ],
+      "source_locators": {
+        "pmc4380465": "no prospective policy comparison"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc4380465",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    }
+  },
+  "measurements": [
+    {
+      "id": "whole_genome_sequence",
+      "evidence_lane": "realized_resource",
+      "participants": {
+        "source_ids": [
+          "pmc12443626"
+        ],
+        "source_locators": {
+          "pmc12443626": "title/abstract denominator"
+        },
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc12443626",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "observation_events": {
+        "source_ids": [
+          "pmc12443626"
+        ],
+        "source_locators": {
+          "pmc12443626": "one WGS profile per participant"
+        },
+        "unit": "per_participant_genome",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc12443626",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "targets": {
+        "source_ids": [
+          "pmc12443626"
+        ],
+        "source_locators": {
+          "pmc12443626": "whole-genome sequencing"
+        },
+        "unit": "assay_family",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc12443626",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "literal_source_bytes_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "completeness": {
+        "state": "unknown",
+        "reason": "The WGS publication denominator is not a universal completeness fraction against every UKB participant.",
+        "source_ids": [
+          "pmc12443626"
+        ],
+        "source_locators": {
+          "pmc12443626": "Cohorts section"
+        }
+      }
+    },
+    {
+      "id": "multimodal_imaging",
+      "evidence_lane": "planned_resource_target",
+      "participants": {
+        "source_ids": [
+          "pmc7250878"
+        ],
+        "source_locators": {
+          "pmc7250878": "abstract: aim of re-inviting 100,000 participants"
+        },
+        "value_semantics": "planned_target_not_realized_count",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc7250878",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "observation_events": {
+        "source_ids": [
+          "pmc7250878"
+        ],
+        "source_locators": {
+          "pmc7250878": "one baseline imaging enhancement visit"
+        },
+        "value_semantics": "planned_core_visit",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc7250878",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "targets": {
+        "source_ids": [
+          "pmc7250878"
+        ],
+        "source_locators": {
+          "pmc7250878": "brain, cardiac, abdominal MRI, DXA, carotid ultrasound"
+        },
+        "unit": "imaging_families",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc7250878",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "completeness": {
+        "state": "unknown",
+        "reason": "The source gives a target, not current realized completeness.",
+        "source_ids": [
+          "pmc7250878"
+        ],
+        "source_locators": {
+          "pmc7250878": "abstract"
+        }
+      }
+    },
+    {
+      "id": "plasma_proteome",
+      "evidence_lane": "realized_resource",
+      "participants": {
+        "source_ids": [
+          "pmc10567551"
+        ],
+        "source_locators": {
+          "pmc10567551": "abstract and Overview: 54,219 UKB participants"
+        },
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc10567551",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "observation_events": {
+        "source_ids": [
+          "pmc10567551"
+        ],
+        "source_locators": {
+          "pmc10567551": "baseline plasma profile"
+        },
+        "unit": "baseline_profile",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc10567551",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "targets": {
+        "source_ids": [
+          "pmc10567551"
+        ],
+        "source_locators": {
+          "pmc10567551": "Overview: 2,923 unique proteins"
+        },
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc10567551",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "completeness": {
+        "state": "unknown",
+        "reason": "Subcohort selection and QC prevent a universal cohort completeness claim.",
+        "source_ids": [
+          "pmc10567551"
+        ],
+        "source_locators": {
+          "pmc10567551": "Overview of UKB-PPP characteristics"
+        }
+      }
+    },
+    {
+      "id": "clinical_phenotype_and_records",
+      "evidence_lane": "resource_presence_exact_denominator_open",
+      "participants": {
+        "source_ids": [
+          "pmc4380465"
+        ],
+        "source_locators": {
+          "pmc4380465": "resource cohort size"
+        },
+        "value_semantics": "cohort_scale_not_module_complete",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc4380465",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "observation_events": {
+        "state": "unknown",
+        "reason": "Event counts and follow-up differ by participant.",
+        "source_ids": [
+          "pmc4380465"
+        ],
+        "source_locators": {
+          "pmc4380465": "data linkage and follow-up sections"
+        }
+      },
+      "targets": {
+        "state": "unknown",
+        "reason": "The field inventory is versioned in Showcase rather than frozen here.",
+        "source_ids": [
+          "pmc4380465"
+        ],
+        "source_locators": {
+          "pmc4380465": "resource description"
+        }
+      },
+      "completeness": {
+        "state": "unknown",
+        "reason": "No one module-eligible denominator is stated.",
+        "source_ids": [
+          "pmc4380465"
+        ],
+        "source_locators": {
+          "pmc4380465": "resource description"
+        }
+      }
+    }
+  ],
+  "participant_event_schedule": {
+    "state": "partially_projected",
+    "semantics": "measurement rows preserve exact public schedules; no unreported jointness is inferred"
+  },
+  "crossmodal_links": [],
+  "measurement_module_classes": {
+    "exact": [],
+    "conditional": [],
+    "unknown": [
+      "whole_genome_sequence",
+      "multimodal_imaging",
+      "plasma_proteome",
+      "clinical_phenotype_and_records"
+    ],
+    "classification_semantics": "exact=all four public module facts machine-resolved; conditional=at least one but not all machine-resolved; unknown=no machine-resolved module fact"
+  },
+  "validation": {
+    "state": "resource_specific_not_global",
+    "reason": "Individual downstream models have their own validation; the resource itself has no single model-validation state."
+  },
+  "access": {
+    "state": "approved_researcher_cloud_access",
+    "source_ids": [
+      "pmc4380465"
+    ],
+    "reason": "Access is governed by UK Biobank application and platform procedures."
+  },
+  "open_gates": [
+    "current_data_showcase_snapshot",
+    "exact_crossmodal_joint_denominators",
+    "repeat_assessment_event_export",
+    "source_bound_information_matrices"
+  ],
+  "field_provenance": {
+    "receipt_contract": "anibench.external-field-provenance-receipt.v2",
+    "known_fact_policy": "A field remains state=known only when every declared source binding is machine-resolved by a receipted executable derivation.",
+    "nonmechanical_fact_policy": "Curated, manual, unresolved, or otherwise non-executable candidate values are removed and typed unknown with reason_code=nonmechanical_source_binding_typed_unknown.",
+    "mechanical_claim_scope": "Only fields whose receipt binds an executable source extractor are mechanically extracted.",
+    "mechanically_retained_known_fact_count": 0,
+    "nonmechanical_downgraded_unknown_fact_count": 25
+  },
+  "source_coordinate_contract": {
+    "contract": "anibench.source-projection-six-family-coordinates.v1",
+    "coordinate_basis": "source_bound_projection_only",
+    "overall_scalar": null,
+    "public_rank_allowed": false,
+    "families": {
+      "intensive": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "current_data_showcase_snapshot",
+          "exact_crossmodal_joint_denominators",
+          "repeat_assessment_event_export",
+          "source_bound_information_matrices"
+        ]
+      },
+      "extensive": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "current_data_showcase_snapshot",
+          "exact_crossmodal_joint_denominators",
+          "repeat_assessment_event_export",
+          "source_bound_information_matrices"
+        ]
+      },
+      "longitudinal": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "current_data_showcase_snapshot",
+          "exact_crossmodal_joint_denominators",
+          "repeat_assessment_event_export",
+          "source_bound_information_matrices"
+        ]
+      },
+      "causal": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "current_data_showcase_snapshot",
+          "exact_crossmodal_joint_denominators",
+          "repeat_assessment_event_export",
+          "source_bound_information_matrices"
+        ]
+      },
+      "personalized_sequential": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "current_data_showcase_snapshot",
+          "exact_crossmodal_joint_denominators",
+          "repeat_assessment_event_export",
+          "source_bound_information_matrices"
+        ]
+      },
+      "transport": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "current_data_showcase_snapshot",
+          "exact_crossmodal_joint_denominators",
+          "repeat_assessment_event_export",
+          "source_bound_information_matrices"
+        ]
+      }
+    }
+  }
+}

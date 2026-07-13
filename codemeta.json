@@ -1,0 +1,30 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "AniBench: reconstructive and causal capacity of human trials",
+  "description": "An auditable benchmark of what human trials can teach future superintelligence about biological state, change, intervention response, and person-to-person variation.",
+  "codeRepository": "https://github.com/anibiome/anibench",
+  "version": "2.0.0-rc.1",
+  "license": "https://spdx.org/licenses/Apache-2.0",
+  "programmingLanguage": "Python",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Bruno",
+      "familyName": "Balen",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "ANI Biome PBC"
+      }
+    }
+  ],
+  "developmentStatus": "releaseCandidate",
+  "keywords": [
+    "human trials",
+    "biological information",
+    "causal inference",
+    "longitudinal studies",
+    "adaptive interventions",
+    "benchmark"
+  ]
+}

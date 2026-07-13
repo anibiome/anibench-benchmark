@@ -1,0 +1,30 @@
+name: New study
+description: Propose a human study for the source registry.
+title: "[Study] "
+labels: [study-intake]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Do not paste participant-level data, protected health information,
+        controlled-access source text, or proprietary source bodies. Provide
+        public locators or source-safe descriptions only.
+  - type: input
+    id: registry
+    attributes:
+      label: Primary registry ID or DOI
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Primary protocol, publication, and data sources
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Biological learning capabilities and candidate family coordinates
+      description: Describe evidence lanes and typed missingness; do not estimate an overall score or rank.
+    validations:
+      required: true

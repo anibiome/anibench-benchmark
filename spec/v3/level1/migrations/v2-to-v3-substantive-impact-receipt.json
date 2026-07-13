@@ -1,0 +1,141 @@
+{
+  "candidate_authority": {
+    "path": "spec/v3/level1/role-aware-target-requirements.v3.json",
+    "promotion_allowed": false,
+    "raw_sha256": "7ace46d78317aa5a0265f03f9eca8b92877e01f6787def028e9899132990022c",
+    "target_id": "anibench-human-trial-level1-role-aware-target-v3"
+  },
+  "contract": "anibench.level1-v2-to-v3-substantive-impact-receipt.v1",
+  "disposition": {
+    "global_enrollment_allowed": false,
+    "promotion_allowed": false,
+    "reason_code": "SUBSTANTIVE_V3_AUTHORITY_REQUIRES_SOURCE_BOUND_CLOSURE",
+    "stable_rank_allowed": false
+  },
+  "invalidated_v2_derivation_outputs_for_v3": [
+    "/population_trajectory_target/participants_per_context",
+    "/population_trajectory_target/target_total_enrollment",
+    "/population_trajectory_target/enrollment_derivation",
+    "/measurement_target/outcome_direction_multiplicity_rule",
+    "/moderator_target/coordinate_ids",
+    "/transport_target/context_coordinate_rule",
+    "/normalization/family_value_at_target_percent"
+  ],
+  "machine_proof": {
+    "D_P_H_T_excluded_from_direct_outcome_basis": true,
+    "D_P_H_T_excluded_from_raw_modifier_and_context_roles": true,
+    "contract": "anibench.level1-role-aware-target-authority-validation.v3",
+    "coordinate_role_union_equals_frozen_map": true,
+    "coordinate_roles_are_pairwise_disjoint": true,
+    "direct_mutable_outcome_count": 22,
+    "fabricated_joint_support_matrix_emitted": false,
+    "family_count": 6,
+    "global_enrollment_state": "unresolved",
+    "numeric_rank_emitted": false,
+    "ordered_block_count": 6,
+    "ordered_coordinate_count": 64,
+    "promotion_allowed": false,
+    "raw_context_covariates_separate_from_T_estimands": true,
+    "relational_estimand_count": 40,
+    "role_partition_count": 7,
+    "unresolved_gate_count": 11,
+    "v2_global_enrollment_inherited": false,
+    "valid": true
+  },
+  "migration_class": "substantive_non_numeric_role_and_estimand_ontology_change",
+  "open_gates": [
+    "direct_outcome_observation_authority",
+    "intensive_operating_characteristics",
+    "extensive_operating_characteristics",
+    "longitudinal_state_space_operating_characteristics",
+    "causal_response_operating_characteristics",
+    "heterogeneity_operating_characteristics",
+    "personalized_sequential_operating_characteristics",
+    "source_bound_joint_context_support",
+    "transport_operating_characteristics",
+    "cross_family_reuse_and_covariance_authority",
+    "independent_role_and_operating_characteristic_attestation"
+  ],
+  "preserved": {
+    "coordinate_ids_names_order_and_block_membership": true,
+    "ordered_block_count": 6,
+    "ordered_coordinate_count": 64,
+    "six_noncompensatory_family_ids": [
+      "intensive",
+      "extensive",
+      "longitudinal",
+      "causal",
+      "personalized_sequential",
+      "transport"
+    ]
+  },
+  "source_authority": {
+    "v2_coordinate_registry": {
+      "path": "spec/v2/level1/biological-coordinate-registry.json",
+      "raw_sha256": "ccb477e1fd9dec1f9cd18152f622f31a511d52cc7418c435415ca67d25fe216b"
+    },
+    "v2_target": {
+      "path": "spec/v2/level1/normative-target-requirements.v2.json",
+      "raw_sha256": "79a6c624abd51eff0a80a53fd0b150fa425e47d72dea8c1c06abd73b274f83f8",
+      "target_id": "anibench-human-trial-level1-abstract-target-v2"
+    }
+  },
+  "substantive_changes": [
+    {
+      "change_id": "direct_outcome_basis_narrowed",
+      "impact": "v2_power_and_enrollment_derivations_are_not_inherited",
+      "v2_path": "/measurement_target/powered_outcome_direction_ids",
+      "v2_semantics": "all_64_coordinates_treated_as_powered_outcome_directions",
+      "v3_semantics": "only_S02_through_S08_S10_through_S16_and_F01_through_F08_are_direct_mutable_event_outcome_basis_directions"
+    },
+    {
+      "change_id": "modifier_roles_narrowed",
+      "impact": "v2_moderator_hypothesis_universe_is_not_inherited",
+      "v2_path": "/moderator_target/coordinate_ids",
+      "v2_semantics": "mixed_S_D_P_H_F_T_coordinates_as_moderators",
+      "v3_semantics": "S01_is_baseline_modifier_and_S09_is_exposure_context; D_P_H_T_are_relational_estimands_not_raw_moderators"
+    },
+    {
+      "change_id": "longitudinal_role_corrected",
+      "impact": "requires_state_space_operating_characteristic_authority",
+      "v2_path": "/measurement_target/powered_outcome_direction_ids/D01-D12",
+      "v2_semantics": "D_coordinates_entered_direct_outcome_multiplicity",
+      "v3_semantics": "D01-D12_are_longitudinal_state_space_estimands"
+    },
+    {
+      "change_id": "causal_role_corrected",
+      "impact": "requires_family_specific_causal_operating_characteristics",
+      "v2_path": "/measurement_target/powered_outcome_direction_ids/P01-P12",
+      "v2_semantics": "P_coordinates_entered_direct_outcome_multiplicity",
+      "v3_semantics": "P01-P12_are_counterfactual_or_randomized_response_estimands"
+    },
+    {
+      "change_id": "heterogeneity_role_corrected",
+      "impact": "requires_false_subgroup_calibration_and_held_person_validation",
+      "v2_path": "/measurement_target/powered_outcome_direction_ids/H01-H08",
+      "v2_semantics": "H_coordinates_entered_direct_outcome_multiplicity",
+      "v3_semantics": "H01-H08_are_heterogeneity_operating_characteristic_targets"
+    },
+    {
+      "change_id": "transport_context_separated",
+      "impact": "no_transport_or_enrollment_number_without_source_bound_joint_support",
+      "v2_path": "/transport_target/context_coordinate_rule",
+      "v2_semantics": "abstract_context_displacements_defined_on_T_axes",
+      "v3_semantics": "raw_context_covariates_are_source_specific_and_outside_the_64_map; T01-T08_are_transport_estimands_requiring_joint_support"
+    },
+    {
+      "change_id": "global_enrollment_withheld",
+      "impact": "v2_numeric_enrollment_is_archival_v2_only_and_not_a_v3_value",
+      "v2_path": "/population_trajectory_target/target_total_enrollment",
+      "v2_semantics": "single_global_reference_enrollment_was_numeric",
+      "v3_semantics": "global_enrollment_is_typed_unknown_until_every_family_operating_characteristic_joint_support_and_reuse_covariance_authority_resolve"
+    },
+    {
+      "change_id": "family_vector_explicitly_noncompensatory",
+      "impact": "promotion_allowed_false_until_family_specific_authorities_exist",
+      "v2_path": "/normalization",
+      "v2_semantics": "family_normalization_existed_with_numeric_target_components",
+      "v3_semantics": "six_typed_family_entries_remain_unknown_and_no_scalar_or_rank_exists"
+    }
+  ]
+}

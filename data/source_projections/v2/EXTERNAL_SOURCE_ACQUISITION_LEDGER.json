@@ -1,0 +1,434 @@
+{
+  "schema_version": "ani.external_source_acquisition_ledger.v2",
+  "retrieved_date": "2026-07-12",
+  "status": "exact_local_response_body_snapshots",
+  "sources": [
+    {
+      "source_id": "aou-cdrv9-official",
+      "path": "data/source_projections/v2/sources/official/all-of-us-cdrv9.zendesk.json",
+      "url": "https://support.researchallofus.org/hc/en-us/articles/50653909888788-Our-Largest-Genomic-Dataset-Curated-Data-Repository-version-9",
+      "sha256": "0979026c955f6ac3030644922bb73be462cb05d50e336616705bf9991688db5b",
+      "bytes": 3972,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "official_release_api_object",
+      "locators": [
+        "more than 747,000 participants",
+        "more than 68,000 participants",
+        "Over 535,000 participants"
+      ]
+    },
+    {
+      "source_id": "ctgov-nct00427193",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT00427193.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT00427193",
+      "sha256": "d53e762b9f33f00eaac9fd9794c5bdc8065017c5d9b9dfac20a337a8cb8ab94f",
+      "bytes": 44055,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "registry_primary",
+      "locators": [
+        "/protocolSection/designModule",
+        "/protocolSection/armsInterventionsModule"
+      ]
+    },
+    {
+      "source_id": "ctgov-nct01038583",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT01038583.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT01038583",
+      "sha256": "84cbc8822ea76bde3370bfda35d39b188ebeabe3ba99991b0a5c76b4e4f1702a",
+      "bytes": 45420,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "registry_primary",
+      "locators": [
+        "/protocolSection/designModule/enrollmentInfo",
+        "/protocolSection/armsInterventionsModule/armGroups",
+        "/protocolSection/outcomesModule/primaryOutcomes"
+      ]
+    },
+    {
+      "source_id": "ctgov-nct01072500",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT01072500.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT01072500",
+      "sha256": "c7b62f5605c9e33b20ffacbf7bef57754b179d942671ce6b61d91cea01d2d317",
+      "bytes": 114382,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "registry_primary",
+      "locators": [
+        "/protocolSection/designModule",
+        "/protocolSection/armsInterventionsModule",
+        "/protocolSection/outcomesModule/primaryOutcomes/0/timeFrame"
+      ]
+    },
+    {
+      "source_id": "ctgov-nct01745263",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT01745263.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT01745263",
+      "sha256": "54737adcfb8cdddb5505828836bed69ffabf4018ed08f07634f14665d78d7771",
+      "bytes": 29904,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "registry_primary",
+      "locators": [
+        "/protocolSection/designModule",
+        "/protocolSection/armsInterventionsModule",
+        "/protocolSection/outcomesModule/primaryOutcomes"
+      ]
+    },
+    {
+      "source_id": "ctgov-nct03479866",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT03479866.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT03479866",
+      "sha256": "8166186fbd558d4420fee056aa7d8e6135fb57e909f84de3aeb66b41094c6ef8",
+      "bytes": 21464,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "registry_primary",
+      "locators": [
+        "/protocolSection/designModule",
+        "/protocolSection/outcomesModule/primaryOutcomes"
+      ]
+    },
+    {
+      "source_id": "ctgov-nct03960827",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT03960827.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT03960827",
+      "sha256": "0c9cd282bf942822410b110c3e51fd5e3a8031d19e92b296257b610e3a892d84",
+      "bytes": 28477,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "registry_primary",
+      "locators": [
+        "/protocolSection/designModule",
+        "/protocolSection/armsInterventionsModule"
+      ]
+    },
+    {
+      "source_id": "ctgov-nct04313634",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT04313634.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT04313634",
+      "sha256": "d44c0d8f16460074ca6b8d46559c04e718b0676c4bef5bd4e40c620acab666b3",
+      "bytes": 51852,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "registry_primary",
+      "locators": [
+        "/protocolSection/designModule",
+        "/protocolSection/armsInterventionsModule"
+      ]
+    },
+    {
+      "source_id": "ctgov-nct04488601",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT04488601.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT04488601",
+      "sha256": "c9bb9c452d306a51c031e0970f3da21568f16053dcea406feec9ff83209f25ce",
+      "bytes": 13015,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "registry_primary",
+      "locators": [
+        "/protocolSection/designModule",
+        "/protocolSection/armsInterventionsModule"
+      ]
+    },
+    {
+      "source_id": "ctgov-nct05273268",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT05273268.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT05273268",
+      "sha256": "24561580ca5a47a8325477a01700de180690a9e0b0018012decc81049eedc45e",
+      "bytes": 20296,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "registry_primary",
+      "locators": [
+        "/protocolSection/designModule",
+        "/protocolSection/armsInterventionsModule"
+      ]
+    },
+    {
+      "source_id": "ctgov-nct05735886",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT05735886.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT05735886",
+      "sha256": "f53958c6e67e0ea396bd1765298fe2991d440c509497f080dc82046f1633927a",
+      "bytes": 7183,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "registry_primary",
+      "locators": [
+        "/protocolSection/designModule",
+        "/protocolSection/armsInterventionsModule"
+      ]
+    },
+    {
+      "source_id": "ctgov-nct06534450",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT06534450.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT06534450",
+      "sha256": "bdde584d746fe3f4a037f110be25abd6b2f174c367230e41f225d195afe7991d",
+      "bytes": 8551,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "registry_primary",
+      "locators": [
+        "/protocolSection/designModule",
+        "/protocolSection/armsInterventionsModule"
+      ]
+    },
+    {
+      "source_id": "ctgov-nct07596576",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT07596576.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT07596576",
+      "sha256": "aa3c0fec129aa0350f500445606d62b0d0bc01f598fb63f840af6651ed5b0179",
+      "bytes": 10230,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "registry_primary",
+      "locators": [
+        "/protocolSection/statusModule",
+        "/protocolSection/designModule",
+        "/protocolSection/armsInterventionsModule"
+      ]
+    },
+    {
+      "source_id": "pmc10148951",
+      "path": "data/source_projections/v2/sources/pmc/PMC10148951.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10148951/",
+      "sha256": "7c73637279d5f788ed7969c6a90dbd5ff3e2cff2e75b3e8cac7b9c8cd3bfa730",
+      "bytes": 199954,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_fulltext",
+      "locators": [
+        "n = 197 participants",
+        "n = 105 (82%) CR participants and n = 59 (86%) AL participants"
+      ]
+    },
+    {
+      "source_id": "pmc10567551",
+      "path": "data/source_projections/v2/sources/pmc/PMC10567551.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10567551/",
+      "sha256": "dbf50d8d006d4c26d702856890cc0a408954e2a6b873d721d5bc6ebe607e0fe9",
+      "bytes": 141634,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_resource_publication_fulltext",
+      "locators": [
+        "54,219 UKB participants",
+        "2,923 unique proteins"
+      ]
+    },
+    {
+      "source_id": "pmc11271409",
+      "path": "data/source_projections/v2/sources/pmc/PMC11271409.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11271409/",
+      "sha256": "3a75f546c429bfc81e68ca61314969d852cc3b479aecf80de719d9045bc3f0c5",
+      "bytes": 142206,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_fulltext",
+      "locators": [
+        "Participants (n = 347)",
+        "PDP (n = 177) or control (n = 170)",
+        "baseline, week 12 and week 18"
+      ]
+    },
+    {
+      "source_id": "pmc11370476",
+      "path": "data/source_projections/v2/sources/pmc/PMC11370476.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11370476/",
+      "sha256": "b0a71913c9cf59406b968bdc3d407764c5a12a7bd943a03251305813ec70e30b",
+      "bytes": 107501,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_fulltext",
+      "locators": [
+        "n=218 participants",
+        "total sample n=2327",
+        "SNP data were available for 216 participants"
+      ]
+    },
+    {
+      "source_id": "pmc12074816",
+      "path": "data/source_projections/v2/sources/pmc/PMC12074816.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12074816/",
+      "sha256": "18697a5ed9b6ebe7b2c59606c14157200f4c978b9d9f06345a567963fae53849",
+      "bytes": 249357,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_fulltext",
+      "locators": [
+        "A total of 114 participants completed",
+        "n = 24",
+        "n = 81"
+      ]
+    },
+    {
+      "source_id": "pmc12341816",
+      "path": "data/source_projections/v2/sources/pmc/PMC12341816.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12341816/",
+      "sha256": "a2ce8d6646637658363e4efae30a22c8c05bb9fd3dff648d87f3ee513b7f3c08",
+      "bytes": 190820,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_fulltext",
+      "locators": [
+        "we enrolled 44 people",
+        "42 completed the study",
+        "longitudinally profile 30 individuals"
+      ]
+    },
+    {
+      "source_id": "pmc12443626",
+      "path": "data/source_projections/v2/sources/pmc/PMC12443626.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12443626/",
+      "sha256": "72b874b6e0ab0636e360298d0850dd9189c2922e34915e99e29d82caae08bb42",
+      "bytes": 121270,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_resource_publication_fulltext",
+      "locators": [
+        "490,640 UK Biobank participants"
+      ]
+    },
+    {
+      "source_id": "pmc12618261",
+      "path": "data/source_projections/v2/sources/pmc/PMC12618261.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12618261/",
+      "sha256": "481eebba26859a9117586910745d6252e1c147c7f52f82fa1a9623e9942829ee",
+      "bytes": 183708,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_fulltext",
+      "locators": [
+        "Fifty participants",
+        "five participants before and after both interventions",
+        "231,079 cells"
+      ]
+    },
+    {
+      "source_id": "pmc13184684",
+      "path": "data/source_projections/v2/sources/pmc/PMC13184684.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13184684/",
+      "sha256": "3346f808b917ffc2cda58eca1a6d74b1b4a3daac370918563f2cccd774099f31",
+      "bytes": 390148,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_fulltext",
+      "locators": [
+        "N=175",
+        "A total of 176 participants completed the baseline acute test",
+        "174 of 175 participants had Illumina whole genome sequencing"
+      ]
+    },
+    {
+      "source_id": "pmc4266388",
+      "path": "data/source_projections/v2/sources/pmc/PMC4266388.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4266388/",
+      "sha256": "8b9e52a1863de7c495dbdba71c86e92c32a21080291ff477c21fbb7cb44cad47",
+      "bytes": 123059,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_fulltext",
+      "locators": [
+        "1635 sedentary men and women",
+        "median follow-up of 2.6 years"
+      ]
+    },
+    {
+      "source_id": "pmc4380465",
+      "path": "data/source_projections/v2/sources/pmc/PMC4380465.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4380465/",
+      "sha256": "1a72d655696c959ee5a5f76ed8099c714fba24c32da09ab669bfd9e4bf076612",
+      "bytes": 67382,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_resource_publication_fulltext",
+      "locators": [
+        "500,000 participants"
+      ]
+    },
+    {
+      "source_id": "pmc6426126",
+      "path": "data/source_projections/v2/sources/pmc/PMC6426126.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6426126/",
+      "sha256": "da9724a6b420234493c81edad40b9a086267765d64ccb792f7db645cabcdd207",
+      "bytes": 84102,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_fulltext",
+      "locators": [
+        "19,114 persons",
+        "median of 4.7 years"
+      ]
+    },
+    {
+      "source_id": "pmc6666404",
+      "path": "data/source_projections/v2/sources/pmc/PMC6666404.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6666404/",
+      "sha256": "710919f3ff5fd4cfb1dc8bab4a76234fdc85fddd20586a5bcb005e06cf5f1a9e",
+      "bytes": 180237,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_fulltext",
+      "locators": [
+        "106 participants",
+        "1,092 time points",
+        "median of 1.6 years per participant"
+      ]
+    },
+    {
+      "source_id": "pmc6826138",
+      "path": "data/source_projections/v2/sources/pmc/PMC6826138.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6826138/",
+      "sha256": "c8123080a5d5fab153c28fd07af0d96e144371700bd8d4e39dd6e3df1639f449",
+      "bytes": 85904,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_fulltext",
+      "locators": [
+        "7 of 9 volunteers",
+        "866,836 CpG sites",
+        "months 0\u201312"
+      ]
+    },
+    {
+      "source_id": "pmc7250878",
+      "path": "data/source_projections/v2/sources/pmc/PMC7250878.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7250878/",
+      "sha256": "28653c29252d05752660540fa1d0e487e07f45a734df137a76899ec31b27b254",
+      "bytes": 131548,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_resource_publication_fulltext",
+      "locators": [
+        "re-inviting 100,000 participants"
+      ]
+    },
+    {
+      "source_id": "pmc7301912",
+      "path": "data/source_projections/v2/sources/pmc/PMC7301912.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7301912/",
+      "sha256": "341c4b905b7807ded1660b0a5f77a8ae8611c8ddf377c519c3161864cfd1989a",
+      "bytes": 71071,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_fulltext",
+      "locators": [
+        "106 healthy individuals",
+        "43 participants"
+      ]
+    },
+    {
+      "source_id": "pmc8265154",
+      "path": "data/source_projections/v2/sources/pmc/PMC8265154.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8265154/",
+      "sha256": "db59483efc24be0c34df9cd9d6e2189f2c84051a98fba16d25faf64e8c911a44",
+      "bytes": 128588,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_fulltext",
+      "locators": [
+        "1,002 generally healthy adults",
+        "100 healthy adults",
+        "subsequent 13-days at home"
+      ]
+    },
+    {
+      "source_id": "pubmed38956196",
+      "path": "data/source_projections/v2/sources/pubmed/38956196.bioc.json",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38956196/",
+      "sha256": "4061ffa3c6c38aa991395bac8c73909ae2370c04dcde58986b6161c5a3224893",
+      "bytes": 2468,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_abstract",
+      "locators": [
+        "n = 60 participants",
+        "at 20 weeks"
+      ]
+    },
+    {
+      "source_id": "pubmed39900648",
+      "path": "data/source_projections/v2/sources/pubmed/39900648.bioc.json",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39900648/",
+      "sha256": "897f40ed18921ead5e8f8afe427f59d36e32e9ee1ecf7f5d1350bf7742ed6e19",
+      "bytes": 1671,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_abstract",
+      "locators": [
+        "777 participants",
+        "over 3 years"
+      ]
+    }
+  ]
+}

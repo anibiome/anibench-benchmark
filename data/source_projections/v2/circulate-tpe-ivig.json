@@ -1,0 +1,626 @@
+{
+  "schema_version": "ani.source_projection.v2",
+  "projection_id": "circulate-tpe-ivig.source-projection.v2",
+  "study_id": "circulate-tpe-ivig",
+  "name": "CIRCULATE therapeutic plasma exchange with and without IVIG",
+  "projection_status": "candidate_not_scored",
+  "evaluation_mode": "realized_randomized_feasibility_trial",
+  "lifecycle": "completed_primary_publication_registry_followup_open",
+  "authorities": [
+    {
+      "source_id": "ctgov-nct06534450",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT06534450.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT06534450",
+      "sha256": "bdde584d746fe3f4a037f110be25abd6b2f174c367230e41f225d195afe7991d",
+      "bytes": 8551,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "registry_primary",
+      "locators": [
+        "/protocolSection/designModule",
+        "/protocolSection/armsInterventionsModule"
+      ]
+    },
+    {
+      "source_id": "pmc12341816",
+      "path": "data/source_projections/v2/sources/pmc/PMC12341816.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12341816/",
+      "sha256": "a2ce8d6646637658363e4efae30a22c8c05bb9fd3dff648d87f3ee513b7f3c08",
+      "bytes": 190820,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_fulltext",
+      "locators": [
+        "we enrolled 44 people",
+        "42 completed the study",
+        "longitudinally profile 30 individuals"
+      ]
+    }
+  ],
+  "population": {
+    "registry_enrollment": {
+      "state": "known",
+      "value": 40,
+      "is_placeholder": false,
+      "source_ids": [
+        "ctgov-nct06534450"
+      ],
+      "source_locators": {
+        "ctgov-nct06534450": "/protocolSection/designModule/enrollmentInfo/count"
+      },
+      "value_semantics": "registry_record"
+    },
+    "paper_enrolled": {
+      "source_ids": [
+        "pmc12341816"
+      ],
+      "source_locators": {
+        "pmc12341816": "Results: enrolled 44 people"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc12341816",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "paper_completed": {
+      "source_ids": [
+        "pmc12341816"
+      ],
+      "source_locators": {
+        "pmc12341816": "Results: 42 completed"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc12341816",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    }
+  },
+  "timeline": {
+    "maximum_intervention_regimen_months": {
+      "source_ids": [
+        "ctgov-nct06534450"
+      ],
+      "source_locators": {
+        "ctgov-nct06534450": "monthly arm: 6 monthly procedures"
+      },
+      "unit": "months",
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct06534450",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "intervention_duration_days": {
+      "state": "unknown",
+      "reason": "Regimen spans differ by arm and no single exact day duration is reported.",
+      "source_ids": [
+        "ctgov-nct06534450",
+        "pmc12341816"
+      ],
+      "source_locators": {
+        "ctgov-nct06534450": "/protocolSection/armsInterventionsModule/armGroups",
+        "pmc12341816": "study design"
+      }
+    }
+  },
+  "intervention_design": {
+    "policy_arms": {
+      "state": "known",
+      "value": 4,
+      "is_placeholder": false,
+      "source_ids": [
+        "ctgov-nct06534450"
+      ],
+      "source_locators": {
+        "ctgov-nct06534450": "/protocolSection/armsInterventionsModule/armGroups"
+      }
+    },
+    "randomized_policy_assignment": {
+      "state": "known",
+      "value": true,
+      "is_placeholder": false,
+      "source_ids": [
+        "ctgov-nct06534450"
+      ],
+      "source_locators": {
+        "ctgov-nct06534450": "/protocolSection/designModule/designInfo/allocation"
+      },
+      "caveat": "Publication describes entry-date/first-come scheduling; allocation integrity needs audit."
+    },
+    "active_concurrent_comparator": {
+      "source_ids": [
+        "ctgov-nct06534450"
+      ],
+      "source_locators": {
+        "ctgov-nct06534450": "sham arm"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct06534450",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "deployed_operator_families": {
+      "source_ids": [
+        "ctgov-nct06534450"
+      ],
+      "source_locators": {
+        "ctgov-nct06534450": "TPE and IVIG active operator families"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct06534450",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "causally_identifiable_policy_contrasts": {
+      "state": "unknown",
+      "reason": "The publication does not freeze one multiplicity-controlled contrast set for all four policies.",
+      "source_ids": [
+        "pmc12341816"
+      ],
+      "source_locators": {
+        "pmc12341816": "Methods and exploratory analysis"
+      }
+    },
+    "adaptive_reassignment": {
+      "source_ids": [
+        "ctgov-nct06534450"
+      ],
+      "source_locators": {
+        "ctgov-nct06534450": "parallel assignment"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct06534450",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "within_policy_adaptation_randomized": {
+      "source_ids": [
+        "ctgov-nct06534450"
+      ],
+      "source_locators": {
+        "ctgov-nct06534450": "no adaptive component randomization"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct06534450",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    }
+  },
+  "personalization": {
+    "individual_state_models": {
+      "source_ids": [
+        "pmc12341816"
+      ],
+      "source_locators": {
+        "pmc12341816": "exploratory response stratification is retrospective"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc12341816",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "adaptive_decisions": {
+      "source_ids": [
+        "ctgov-nct06534450"
+      ],
+      "source_locators": {
+        "ctgov-nct06534450": "fixed regimen"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct06534450",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "randomized_component_personalization": {
+      "source_ids": [
+        "ctgov-nct06534450"
+      ],
+      "source_locators": {
+        "ctgov-nct06534450": "fixed arms"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct06534450",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "within_person_counterfactuals": {
+      "source_ids": [
+        "ctgov-nct06534450"
+      ],
+      "source_locators": {
+        "ctgov-nct06534450": "parallel trial"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct06534450",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "biological_feedback": {
+      "source_ids": [
+        "pmc12341816"
+      ],
+      "source_locators": {
+        "pmc12341816": "no prospective feedback policy"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc12341816",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "prospective_policy_evaluation": {
+      "source_ids": [
+        "ctgov-nct06534450"
+      ],
+      "source_locators": {
+        "ctgov-nct06534450": "prospective group comparison"
+      },
+      "caveat": "allocation mechanism requires audit",
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct06534450",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    }
+  },
+  "measurements": [
+    {
+      "id": "multiomics_intervention_cohort",
+      "evidence_lane": "realized_publication",
+      "participants": {
+        "source_ids": [
+          "pmc12341816"
+        ],
+        "source_locators": {
+          "pmc12341816": "longitudinally profile 30 individuals across three TPE modalities"
+        },
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc12341816",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "observation_events": {
+        "source_ids": [
+          "pmc12341816"
+        ],
+        "source_locators": {
+          "pmc12341816": "blood before sessions 1, 4, and 6"
+        },
+        "unit": "scheduled_timepoints",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc12341816",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "targets": {
+        "source_ids": [
+          "pmc12341816"
+        ],
+        "source_locators": {
+          "pmc12341816": "epigenome, proteome, metabolome, lipidome, glycome, cytomics, immune marker families"
+        },
+        "unit": "module_families",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc12341816",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "completeness": {
+        "state": "unknown",
+        "reason": "Same-sample statement does not establish exact assay-complete joint rows across every omic.",
+        "source_ids": [
+          "pmc12341816"
+        ],
+        "source_locators": {
+          "pmc12341816": "multi-omics Methods"
+        }
+      }
+    },
+    {
+      "id": "epigenetic_clocks",
+      "evidence_lane": "realized_publication",
+      "participants": {
+        "source_ids": [
+          "pmc12341816"
+        ],
+        "source_locators": {
+          "pmc12341816": "completed cohort"
+        },
+        "value_semantics": "trial_completers_not_assay_complete_denominator",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc12341816",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "observation_events": {
+        "source_ids": [
+          "pmc12341816"
+        ],
+        "source_locators": {
+          "pmc12341816": "time points 1, 2, 3"
+        },
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc12341816",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "targets": {
+        "source_ids": [
+          "pmc12341816"
+        ],
+        "source_locators": {
+          "pmc12341816": "36 epigenetic clocks"
+        },
+        "unit": "derived_clock_outputs",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc12341816",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "literal_source_bytes_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "completeness": {
+        "state": "unknown",
+        "reason": "Assay-specific exclusions and arm-level availability must be read from source tables.",
+        "source_ids": [
+          "pmc12341816"
+        ],
+        "source_locators": {
+          "pmc12341816": "epigenetic Methods and tables"
+        }
+      }
+    }
+  ],
+  "participant_event_schedule": {
+    "state": "partially_projected",
+    "semantics": "measurement rows preserve exact public schedules; no unreported jointness is inferred"
+  },
+  "crossmodal_links": [],
+  "measurement_module_classes": {
+    "exact": [],
+    "conditional": [],
+    "unknown": [
+      "multiomics_intervention_cohort",
+      "epigenetic_clocks"
+    ],
+    "classification_semantics": "exact=all four public module facts machine-resolved; conditional=at least one but not all machine-resolved; unknown=no machine-resolved module fact"
+  },
+  "validation": {
+    "state": "exploratory_no_external_validation",
+    "reason": "Small feasibility trial; response-prediction analyses are exploratory and not held-cohort validated."
+  },
+  "access": {
+    "state": "publication_plus_proteomics_repository",
+    "source_ids": [
+      "pmc12341816"
+    ],
+    "reason": "Publication provides aggregate results and routes proteomics data; full participant matrix access is not established here."
+  },
+  "open_gates": [
+    "registry_publication_enrollment_reconciliation",
+    "allocation_integrity_audit",
+    "assay_by_event_completeness_matrix",
+    "multiplicity_controlled_estimand_set",
+    "external_validation"
+  ],
+  "field_provenance": {
+    "receipt_contract": "anibench.external-field-provenance-receipt.v2",
+    "known_fact_policy": "A field remains state=known only when every declared source binding is machine-resolved by a receipted executable derivation.",
+    "nonmechanical_fact_policy": "Curated, manual, unresolved, or otherwise non-executable candidate values are removed and typed unknown with reason_code=nonmechanical_source_binding_typed_unknown.",
+    "mechanical_claim_scope": "Only fields whose receipt binds an executable source extractor are mechanically extracted.",
+    "mechanically_retained_known_fact_count": 3,
+    "nonmechanical_downgraded_unknown_fact_count": 19
+  },
+  "source_coordinate_contract": {
+    "contract": "anibench.source-projection-six-family-coordinates.v1",
+    "coordinate_basis": "source_bound_projection_only",
+    "overall_scalar": null,
+    "public_rank_allowed": false,
+    "families": {
+      "intensive": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "registry_publication_enrollment_reconciliation",
+          "allocation_integrity_audit",
+          "assay_by_event_completeness_matrix",
+          "multiplicity_controlled_estimand_set",
+          "external_validation"
+        ]
+      },
+      "extensive": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "registry_publication_enrollment_reconciliation",
+          "allocation_integrity_audit",
+          "assay_by_event_completeness_matrix",
+          "multiplicity_controlled_estimand_set",
+          "external_validation"
+        ]
+      },
+      "longitudinal": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "registry_publication_enrollment_reconciliation",
+          "allocation_integrity_audit",
+          "assay_by_event_completeness_matrix",
+          "multiplicity_controlled_estimand_set",
+          "external_validation"
+        ]
+      },
+      "causal": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "registry_publication_enrollment_reconciliation",
+          "allocation_integrity_audit",
+          "assay_by_event_completeness_matrix",
+          "multiplicity_controlled_estimand_set",
+          "external_validation"
+        ]
+      },
+      "personalized_sequential": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "registry_publication_enrollment_reconciliation",
+          "allocation_integrity_audit",
+          "assay_by_event_completeness_matrix",
+          "multiplicity_controlled_estimand_set",
+          "external_validation"
+        ]
+      },
+      "transport": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "registry_publication_enrollment_reconciliation",
+          "allocation_integrity_audit",
+          "assay_by_event_completeness_matrix",
+          "multiplicity_controlled_estimand_set",
+          "external_validation"
+        ]
+      }
+    }
+  }
+}

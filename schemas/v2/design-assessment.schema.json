@@ -1,0 +1,337 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anibench.org/schemas/v2/design-assessment.schema.json",
+  "title": "AniBench v2 typed trial-design assessment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "claim_state",
+    "promotion_allowed",
+    "input_contract",
+    "input_sha256",
+    "study",
+    "assessment_lane",
+    "coordinates",
+    "derived_coordinates",
+    "open_gates",
+    "structural_multiobjective_design_upgrades",
+    "upgrade_ordering_semantics",
+    "emission_policy"
+  ],
+  "properties": {
+    "contract": {"const": "anibench.design-assessment.v2-candidate1"},
+    "claim_state": {"const": "implementation_candidate_biological_promotion_gated"},
+    "promotion_allowed": {"const": false},
+    "input_contract": {"const": "anibench.design-input.v2-candidate1"},
+    "input_sha256": {"$ref": "#/$defs/sha256"},
+    "study": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["study_id", "name", "source_json_pointers"],
+      "properties": {
+        "study_id": {"$ref": "#/$defs/id"},
+        "name": {"type": "string", "minLength": 1},
+        "source_json_pointers": {"$ref": "#/$defs/pointers"}
+      }
+    },
+    "assessment_lane": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "evidence_class", "source_json_pointers"],
+      "properties": {
+        "value": {"enum": ["design_preview", "registered", "realized", "accessible", "demonstrated"]},
+        "evidence_class": {"const": "self_declared"},
+        "source_json_pointers": {"$ref": "#/$defs/pointers"}
+      }
+    },
+    "coordinates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "population",
+        "duration",
+        "policy_arms",
+        "operator_families",
+        "causal_architecture",
+        "measurement_modules"
+      ],
+      "properties": {
+        "population": {"$ref": "#/$defs/numeric_coordinate"},
+        "duration": {"$ref": "#/$defs/numeric_coordinate"},
+        "policy_arms": {"$ref": "#/$defs/numeric_coordinate"},
+        "operator_families": {"$ref": "#/$defs/list_coordinate"},
+        "causal_architecture": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "randomized_policy",
+            "concurrent_control",
+            "adaptive_reassignment",
+            "within_policy_randomized"
+          ],
+          "properties": {
+            "randomized_policy": {"$ref": "#/$defs/boolean_coordinate"},
+            "concurrent_control": {"$ref": "#/$defs/boolean_coordinate"},
+            "adaptive_reassignment": {"$ref": "#/$defs/boolean_coordinate"},
+            "within_policy_randomized": {"$ref": "#/$defs/boolean_coordinate"}
+          }
+        },
+        "measurement_modules": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/measurement_module_coordinate"}
+        }
+      }
+    },
+    "derived_coordinates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "measurement_module_state_counts",
+        "participant_event_totals_by_module"
+      ],
+      "properties": {
+        "measurement_module_state_counts": {"$ref": "#/$defs/module_state_counts"},
+        "participant_event_totals_by_module": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/participant_event_total"}
+        },
+        "participant_module_observation_total": {
+          "$ref": "#/$defs/participant_module_observation_total"
+        }
+      }
+    },
+    "open_gates": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/gate"}
+    },
+    "structural_multiobjective_design_upgrades": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "causal_identifiability",
+        "temporal_resolution",
+        "measurement_observability",
+        "personalization_learning",
+        "population_precision",
+        "operator_identifiability"
+      ],
+      "properties": {
+        "causal_identifiability": {"$ref": "#/$defs/upgrade_array"},
+        "temporal_resolution": {"$ref": "#/$defs/upgrade_array"},
+        "measurement_observability": {"$ref": "#/$defs/upgrade_array"},
+        "personalization_learning": {"$ref": "#/$defs/upgrade_array"},
+        "population_precision": {"$ref": "#/$defs/upgrade_array"},
+        "operator_identifiability": {"$ref": "#/$defs/upgrade_array"}
+      }
+    },
+    "upgrade_ordering_semantics": {
+      "const": "objective_group_then_identifier_not_preference"
+    },
+    "emission_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "composite_coordinate_emitted",
+        "ordinal_position_emitted",
+        "biological_information_inference_emitted",
+        "missing_value_imputation_used"
+      ],
+      "properties": {
+        "composite_coordinate_emitted": {"const": false},
+        "ordinal_position_emitted": {"const": false},
+        "biological_information_inference_emitted": {"const": false},
+        "missing_value_imputation_used": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "pointers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "pattern": "^/"}
+    },
+    "numeric_coordinate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "state",
+        "semantics",
+        "evidence_class",
+        "source_json_pointers",
+        "unit"
+      ],
+      "properties": {
+        "value": {"type": ["integer", "number", "null"]},
+        "state": {"enum": ["exact", "conditional", "unknown"]},
+        "semantics": {"type": "string", "minLength": 1},
+        "evidence_class": {"const": "self_declared"},
+        "source_json_pointers": {"$ref": "#/$defs/pointers"},
+        "unit": {"type": "string", "minLength": 1}
+      }
+    },
+    "list_coordinate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "state", "semantics", "evidence_class", "source_json_pointers"],
+      "properties": {
+        "value": {"type": "array", "items": {"$ref": "#/$defs/id"}},
+        "state": {"const": "exact"},
+        "semantics": {"type": "string", "minLength": 1},
+        "evidence_class": {"const": "self_declared"},
+        "source_json_pointers": {"$ref": "#/$defs/pointers"}
+      }
+    },
+    "boolean_coordinate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "state", "semantics", "evidence_class", "source_json_pointers"],
+      "properties": {
+        "value": {"type": ["boolean", "null"]},
+        "state": {"enum": ["exact", "unknown"]},
+        "semantics": {"type": "string", "minLength": 1},
+        "evidence_class": {"const": "self_declared"},
+        "source_json_pointers": {"$ref": "#/$defs/pointers"}
+      }
+    },
+    "measurement_module_coordinate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "module_id",
+        "label",
+        "evidence_state",
+        "events_per_participant",
+        "evidence_class",
+        "source_json_pointers"
+      ],
+      "properties": {
+        "module_id": {"$ref": "#/$defs/id"},
+        "label": {"type": "string", "minLength": 1},
+        "evidence_state": {"enum": ["exact", "conditional", "unknown"]},
+        "events_per_participant": {"type": ["integer", "null"], "minimum": 1},
+        "evidence_class": {"const": "self_declared"},
+        "source_json_pointers": {"$ref": "#/$defs/pointers"}
+      }
+    },
+    "module_state_counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "exact",
+        "conditional",
+        "unknown",
+        "formula",
+        "source_json_pointers",
+        "evidence_class"
+      ],
+      "properties": {
+        "exact": {"type": "integer", "minimum": 0},
+        "conditional": {"type": "integer", "minimum": 0},
+        "unknown": {"type": "integer", "minimum": 0},
+        "formula": {"const": "count(measurement_modules by evidence_state)"},
+        "source_json_pointers": {"$ref": "#/$defs/pointers"},
+        "evidence_class": {"const": "derived_from_self_declared_input"}
+      }
+    },
+    "participant_event_total": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["module_id", "value", "state", "unit", "evidence_class", "formula"],
+      "properties": {
+        "module_id": {"$ref": "#/$defs/id"},
+        "value": {"type": "integer", "minimum": 1},
+        "state": {"enum": ["exact", "conditional"]},
+        "unit": {"const": "participant_events"},
+        "evidence_class": {"const": "derived_from_self_declared_input"},
+        "formula": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["expression", "operands", "state_operands"],
+          "properties": {
+            "expression": {
+              "const": "population.value * measurement_modules[i].events_per_participant"
+            },
+            "operands": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {"type": "string", "pattern": "^/"}
+            },
+            "state_operands": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {"type": "string", "pattern": "^/"}
+            }
+          }
+        }
+      }
+    },
+    "participant_module_observation_total": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "state", "unit", "semantics", "evidence_class", "formula"],
+      "properties": {
+        "value": {"type": "integer", "minimum": 1},
+        "state": {"enum": ["exact", "conditional"]},
+        "unit": {"const": "participant_module_observations"},
+        "semantics": {
+          "const": "workload_count_across_modules_not_unique_joint_events_or_information"
+        },
+        "evidence_class": {"const": "derived_from_self_declared_input"},
+        "formula": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["expression", "operands"],
+          "properties": {
+            "expression": {"const": "sum(participant_event_totals_by_module.value)"},
+            "operands": {
+              "type": "array",
+              "minItems": 2,
+              "items": {"type": "string", "pattern": "^/"}
+            }
+          }
+        }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gate_id", "objective", "source_json_pointers", "reason", "close_when"],
+      "properties": {
+        "gate_id": {"$ref": "#/$defs/id"},
+        "objective": {"$ref": "#/$defs/id"},
+        "source_json_pointers": {"$ref": "#/$defs/pointers"},
+        "reason": {"type": "string", "minLength": 1},
+        "close_when": {"type": "string", "minLength": 1}
+      }
+    },
+    "upgrade": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["upgrade_id", "objective", "source_json_pointers", "design_change", "decision_rule"],
+      "properties": {
+        "upgrade_id": {"$ref": "#/$defs/id"},
+        "objective": {"$ref": "#/$defs/id"},
+        "source_json_pointers": {"$ref": "#/$defs/pointers"},
+        "design_change": {"type": "string", "minLength": 1},
+        "decision_rule": {"type": "string", "minLength": 1}
+      }
+    },
+    "upgrade_array": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/upgrade"}
+    }
+  }
+}

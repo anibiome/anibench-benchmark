@@ -1,0 +1,635 @@
+{
+  "schema_version": "ani.source_projection.v2",
+  "projection_id": "zoe-method.source-projection.v2",
+  "study_id": "zoe-method",
+  "name": "ZOE METHOD",
+  "projection_status": "candidate_not_scored",
+  "evaluation_mode": "realized_randomized_personalized_policy_trial",
+  "lifecycle": "completed_primary_publication",
+  "authorities": [
+    {
+      "source_id": "ctgov-nct05273268",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT05273268.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT05273268",
+      "sha256": "24561580ca5a47a8325477a01700de180690a9e0b0018012decc81049eedc45e",
+      "bytes": 20296,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "registry_primary",
+      "locators": [
+        "/protocolSection/designModule",
+        "/protocolSection/armsInterventionsModule"
+      ]
+    },
+    {
+      "source_id": "pmc11271409",
+      "path": "data/source_projections/v2/sources/pmc/PMC11271409.bioc.json",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11271409/",
+      "sha256": "3a75f546c429bfc81e68ca61314969d852cc3b479aecf80de719d9045bc3f0c5",
+      "bytes": 142206,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "primary_publication_fulltext",
+      "locators": [
+        "Participants (n = 347)",
+        "PDP (n = 177) or control (n = 170)",
+        "baseline, week 12 and week 18"
+      ]
+    }
+  ],
+  "population": {
+    "randomized": {
+      "source_ids": [
+        "pmc11271409"
+      ],
+      "source_locators": {
+        "pmc11271409": "abstract n=347"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc11271409",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "personalized_arm": {
+      "source_ids": [
+        "pmc11271409"
+      ],
+      "source_locators": {
+        "pmc11271409": "abstract PDP n=177"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc11271409",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "control_arm": {
+      "source_ids": [
+        "pmc11271409"
+      ],
+      "source_locators": {
+        "pmc11271409": "abstract control n=170"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc11271409",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    }
+  },
+  "timeline": {
+    "intervention_duration_days": {
+      "source_ids": [
+        "pmc11271409"
+      ],
+      "source_locators": {
+        "pmc11271409": "18-week app-based program"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc11271409",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "literal_source_bytes_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    }
+  },
+  "intervention_design": {
+    "policy_arms": {
+      "state": "known",
+      "value": 2,
+      "is_placeholder": false,
+      "source_ids": [
+        "ctgov-nct05273268"
+      ],
+      "source_locators": {
+        "ctgov-nct05273268": "/protocolSection/armsInterventionsModule/armGroups"
+      }
+    },
+    "randomized_policy_assignment": {
+      "state": "known",
+      "value": true,
+      "is_placeholder": false,
+      "source_ids": [
+        "ctgov-nct05273268"
+      ],
+      "source_locators": {
+        "ctgov-nct05273268": "/protocolSection/designModule/designInfo/allocation"
+      }
+    },
+    "active_concurrent_comparator": {
+      "source_ids": [
+        "ctgov-nct05273268"
+      ],
+      "source_locators": {
+        "ctgov-nct05273268": "generalized nutrition concurrent comparator"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct05273268",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "deployed_operator_families": {
+      "source_ids": [
+        "ctgov-nct05273268"
+      ],
+      "source_locators": {
+        "ctgov-nct05273268": "personalized nutrition policy"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct05273268",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "causally_identifiable_policy_contrasts": {
+      "source_ids": [
+        "pmc11271409"
+      ],
+      "source_locators": {
+        "pmc11271409": "PDP versus generalized advice"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc11271409",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "adaptive_reassignment": {
+      "source_ids": [
+        "pmc11271409"
+      ],
+      "source_locators": {
+        "pmc11271409": "no randomized reassignment reported"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc11271409",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "within_policy_adaptation_randomized": {
+      "source_ids": [
+        "pmc11271409"
+      ],
+      "source_locators": {
+        "pmc11271409": "personalized food scores are not randomized components"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc11271409",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    }
+  },
+  "personalization": {
+    "individual_state_models": {
+      "source_ids": [
+        "pmc11271409"
+      ],
+      "source_locators": {
+        "pmc11271409": "food scores use individual responses, microbiome, and history"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc11271409",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "adaptive_decisions": {
+      "source_ids": [
+        "pmc11271409"
+      ],
+      "source_locators": {
+        "pmc11271409": "no sequential reassignment"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc11271409",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "randomized_component_personalization": {
+      "source_ids": [
+        "pmc11271409"
+      ],
+      "source_locators": {
+        "pmc11271409": "personalization components not independently randomized"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc11271409",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "within_person_counterfactuals": {
+      "source_ids": [
+        "pmc11271409"
+      ],
+      "source_locators": {
+        "pmc11271409": "parallel policy trial"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc11271409",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "biological_feedback": {
+      "source_ids": [
+        "pmc11271409"
+      ],
+      "source_locators": {
+        "pmc11271409": "app delivers personalized food scores"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc11271409",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "prospective_policy_evaluation": {
+      "source_ids": [
+        "pmc11271409"
+      ],
+      "source_locators": {
+        "pmc11271409": "randomized personalized versus generalized policy"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "pmc11271409",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    }
+  },
+  "measurements": [
+    {
+      "id": "cardiometabolic_endpoints",
+      "evidence_lane": "realized_itt",
+      "participants": {
+        "source_ids": [
+          "pmc11271409"
+        ],
+        "source_locators": {
+          "pmc11271409": "ITT n=347"
+        },
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc11271409",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "observation_events": {
+        "source_ids": [
+          "pmc11271409"
+        ],
+        "source_locators": {
+          "pmc11271409": "baseline and 18 weeks"
+        },
+        "unit": "primary_endpoint_timepoints",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc11271409",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "targets": {
+        "source_ids": [
+          "pmc11271409"
+        ],
+        "source_locators": {
+          "pmc11271409": "LDL cholesterol and triglycerides"
+        },
+        "unit": "primary_endpoints",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc11271409",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "completeness": {
+        "state": "unknown",
+        "reason": "Outcome-specific data availability differs.",
+        "source_ids": [
+          "pmc11271409"
+        ],
+        "source_locators": {
+          "pmc11271409": "Results"
+        }
+      }
+    },
+    {
+      "id": "gut_microbiome",
+      "evidence_lane": "realized_subset",
+      "participants": {
+        "source_ids": [
+          "pmc11271409"
+        ],
+        "source_locators": {
+          "pmc11271409": "118 control plus 112 PDP"
+        },
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc11271409",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "observation_events": {
+        "source_ids": [
+          "pmc11271409"
+        ],
+        "source_locators": {
+          "pmc11271409": "baseline, week 12, week 18"
+        },
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc11271409",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "targets": {
+        "source_ids": [
+          "pmc11271409"
+        ],
+        "source_locators": {
+          "pmc11271409": "gut microbiome assay family"
+        },
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc11271409",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "completeness": {
+        "source_ids": [
+          "pmc11271409"
+        ],
+        "source_locators": {
+          "pmc11271409": "microbiome figure denominator"
+        },
+        "value_semantics": "participants_in_reported_microbiome_analysis",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "pmc11271409",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      }
+    }
+  ],
+  "participant_event_schedule": {
+    "state": "partially_projected",
+    "semantics": "measurement rows preserve exact public schedules; no unreported jointness is inferred"
+  },
+  "crossmodal_links": [],
+  "measurement_module_classes": {
+    "exact": [],
+    "conditional": [],
+    "unknown": [
+      "cardiometabolic_endpoints",
+      "gut_microbiome"
+    ],
+    "classification_semantics": "exact=all four public module facts machine-resolved; conditional=at least one but not all machine-resolved; unknown=no machine-resolved module fact"
+  },
+  "validation": {
+    "state": "randomized_policy_evaluation",
+    "reason": "The personalized policy is prospectively compared; no held-cohort general biological reconstruction claim is made."
+  },
+  "access": {
+    "state": "controlled_on_request",
+    "source_ids": [
+      "pmc11271409"
+    ],
+    "reason": "Paper data-availability terms govern participant-level access."
+  },
+  "open_gates": [
+    "complete_outcome_denominator_table",
+    "personalization_algorithm_version",
+    "joint_microbiome_clinical_event_graph",
+    "component_identifiability",
+    "external_policy_replication"
+  ],
+  "field_provenance": {
+    "receipt_contract": "anibench.external-field-provenance-receipt.v2",
+    "known_fact_policy": "A field remains state=known only when every declared source binding is machine-resolved by a receipted executable derivation.",
+    "nonmechanical_fact_policy": "Curated, manual, unresolved, or otherwise non-executable candidate values are removed and typed unknown with reason_code=nonmechanical_source_binding_typed_unknown.",
+    "mechanical_claim_scope": "Only fields whose receipt binds an executable source extractor are mechanically extracted.",
+    "mechanically_retained_known_fact_count": 2,
+    "nonmechanical_downgraded_unknown_fact_count": 22
+  },
+  "source_coordinate_contract": {
+    "contract": "anibench.source-projection-six-family-coordinates.v1",
+    "coordinate_basis": "source_bound_projection_only",
+    "overall_scalar": null,
+    "public_rank_allowed": false,
+    "families": {
+      "intensive": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "complete_outcome_denominator_table",
+          "personalization_algorithm_version",
+          "joint_microbiome_clinical_event_graph",
+          "component_identifiability",
+          "external_policy_replication"
+        ]
+      },
+      "extensive": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "complete_outcome_denominator_table",
+          "personalization_algorithm_version",
+          "joint_microbiome_clinical_event_graph",
+          "component_identifiability",
+          "external_policy_replication"
+        ]
+      },
+      "longitudinal": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "complete_outcome_denominator_table",
+          "personalization_algorithm_version",
+          "joint_microbiome_clinical_event_graph",
+          "component_identifiability",
+          "external_policy_replication"
+        ]
+      },
+      "causal": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "complete_outcome_denominator_table",
+          "personalization_algorithm_version",
+          "joint_microbiome_clinical_event_graph",
+          "component_identifiability",
+          "external_policy_replication"
+        ]
+      },
+      "personalized_sequential": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "complete_outcome_denominator_table",
+          "personalization_algorithm_version",
+          "joint_microbiome_clinical_event_graph",
+          "component_identifiability",
+          "external_policy_replication"
+        ]
+      },
+      "transport": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "complete_outcome_denominator_table",
+          "personalization_algorithm_version",
+          "joint_microbiome_clinical_event_graph",
+          "component_identifiability",
+          "external_policy_replication"
+        ]
+      }
+    }
+  }
+}

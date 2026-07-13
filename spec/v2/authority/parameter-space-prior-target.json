@@ -1,0 +1,435 @@
+{
+  "contract": "anibench.protocol-authority-object.v1",
+  "authority_id": "anibench.level1.parameter-space-prior-target.v1",
+  "authority_type": "parameter_space_prior_target",
+  "status": "candidate_normative_engineering_authority_not_empirical_calibration",
+  "claim_boundary": "This object freezes benchmark mechanics and identifiers. It is not an empirical assay-performance, covariance, intervention-effect, or trial-ranking claim.",
+  "source_dependencies": [
+    {
+      "path": "spec/v2/level1/biological-coordinate-registry.json",
+      "sha256": "sha256:ccb477e1fd9dec1f9cd18152f622f31a511d52cc7418c435415ca67d25fe216b"
+    }
+  ],
+  "payload": {
+    "parameter_space_id": "anibench.mesoscopic-human-biology.level1.64d.v1",
+    "basis_encoding": "ordered_coordinate_registry",
+    "dimension": 64,
+    "coordinates": [
+      {
+        "coordinate_id": "S01",
+        "coordinate_name": "inherited_and_stable_molecular_identity",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "S02",
+        "coordinate_name": "epigenetic_regulatory_state",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "S03",
+        "coordinate_name": "transcriptional_state",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "S04",
+        "coordinate_name": "proteomic_and_signaling_state",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "S05",
+        "coordinate_name": "metabolic_and_lipid_state",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "S06",
+        "coordinate_name": "immune_cellular_state",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "S07",
+        "coordinate_name": "hematologic_and_clinical_chemistry_state",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "S08",
+        "coordinate_name": "microbiome_ecological_state",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "S09",
+        "coordinate_name": "internal_and_external_exposure_state",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "S10",
+        "coordinate_name": "cardiovascular_state",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "S11",
+        "coordinate_name": "pulmonary_state",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "S12",
+        "coordinate_name": "renal_and_hepatic_state",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "S13",
+        "coordinate_name": "endocrine_and_energy_regulation_state",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "S14",
+        "coordinate_name": "body_composition_and_structural_state",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "S15",
+        "coordinate_name": "neural_and_cognitive_state",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "S16",
+        "coordinate_name": "symptom_and_lived_state",
+        "block_id": "state_observation",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "D01",
+        "coordinate_name": "circadian_phase",
+        "block_id": "natural_dynamics",
+        "target_posterior_sd_ratio": 0.15
+      },
+      {
+        "coordinate_id": "D02",
+        "coordinate_name": "circadian_amplitude",
+        "block_id": "natural_dynamics",
+        "target_posterior_sd_ratio": 0.15
+      },
+      {
+        "coordinate_id": "D03",
+        "coordinate_name": "acute_reactivity",
+        "block_id": "natural_dynamics",
+        "target_posterior_sd_ratio": 0.15
+      },
+      {
+        "coordinate_id": "D04",
+        "coordinate_name": "short_horizon_recovery",
+        "block_id": "natural_dynamics",
+        "target_posterior_sd_ratio": 0.15
+      },
+      {
+        "coordinate_id": "D05",
+        "coordinate_name": "weekly_velocity",
+        "block_id": "natural_dynamics",
+        "target_posterior_sd_ratio": 0.15
+      },
+      {
+        "coordinate_id": "D06",
+        "coordinate_name": "monthly_velocity",
+        "block_id": "natural_dynamics",
+        "target_posterior_sd_ratio": 0.15
+      },
+      {
+        "coordinate_id": "D07",
+        "coordinate_name": "seasonal_and_annual_drift",
+        "block_id": "natural_dynamics",
+        "target_posterior_sd_ratio": 0.15
+      },
+      {
+        "coordinate_id": "D08",
+        "coordinate_name": "state_acceleration",
+        "block_id": "natural_dynamics",
+        "target_posterior_sd_ratio": 0.15
+      },
+      {
+        "coordinate_id": "D09",
+        "coordinate_name": "persistence_and_memory",
+        "block_id": "natural_dynamics",
+        "target_posterior_sd_ratio": 0.15
+      },
+      {
+        "coordinate_id": "D10",
+        "coordinate_name": "washout_kinetics",
+        "block_id": "natural_dynamics",
+        "target_posterior_sd_ratio": 0.15
+      },
+      {
+        "coordinate_id": "D11",
+        "coordinate_name": "rebound_kinetics",
+        "block_id": "natural_dynamics",
+        "target_posterior_sd_ratio": 0.15
+      },
+      {
+        "coordinate_id": "D12",
+        "coordinate_name": "hysteresis_and_regime_transition",
+        "block_id": "natural_dynamics",
+        "target_posterior_sd_ratio": 0.15
+      },
+      {
+        "coordinate_id": "P01",
+        "coordinate_name": "whole_policy_average_response",
+        "block_id": "perturbation_response",
+        "target_posterior_sd_ratio": 0.12
+      },
+      {
+        "coordinate_id": "P02",
+        "coordinate_name": "component_main_response",
+        "block_id": "perturbation_response",
+        "target_posterior_sd_ratio": 0.12
+      },
+      {
+        "coordinate_id": "P03",
+        "coordinate_name": "component_interaction_response",
+        "block_id": "perturbation_response",
+        "target_posterior_sd_ratio": 0.12
+      },
+      {
+        "coordinate_id": "P04",
+        "coordinate_name": "response_onset",
+        "block_id": "perturbation_response",
+        "target_posterior_sd_ratio": 0.12
+      },
+      {
+        "coordinate_id": "P05",
+        "coordinate_name": "response_peak_magnitude",
+        "block_id": "perturbation_response",
+        "target_posterior_sd_ratio": 0.12
+      },
+      {
+        "coordinate_id": "P06",
+        "coordinate_name": "dose_or_intensity_response",
+        "block_id": "perturbation_response",
+        "target_posterior_sd_ratio": 0.12
+      },
+      {
+        "coordinate_id": "P07",
+        "coordinate_name": "adaptation_and_tolerance",
+        "block_id": "perturbation_response",
+        "target_posterior_sd_ratio": 0.12
+      },
+      {
+        "coordinate_id": "P08",
+        "coordinate_name": "recovery_response",
+        "block_id": "perturbation_response",
+        "target_posterior_sd_ratio": 0.12
+      },
+      {
+        "coordinate_id": "P09",
+        "coordinate_name": "withdrawal_and_washout_response",
+        "block_id": "perturbation_response",
+        "target_posterior_sd_ratio": 0.12
+      },
+      {
+        "coordinate_id": "P10",
+        "coordinate_name": "rebound_response",
+        "block_id": "perturbation_response",
+        "target_posterior_sd_ratio": 0.12
+      },
+      {
+        "coordinate_id": "P11",
+        "coordinate_name": "safety_and_off_target_response",
+        "block_id": "perturbation_response",
+        "target_posterior_sd_ratio": 0.12
+      },
+      {
+        "coordinate_id": "P12",
+        "coordinate_name": "state_and_context_conditioned_response",
+        "block_id": "perturbation_response",
+        "target_posterior_sd_ratio": 0.12
+      },
+      {
+        "coordinate_id": "H01",
+        "coordinate_name": "baseline_state_variance",
+        "block_id": "person_context_heterogeneity",
+        "target_posterior_sd_ratio": 0.2
+      },
+      {
+        "coordinate_id": "H02",
+        "coordinate_name": "natural_trajectory_variance",
+        "block_id": "person_context_heterogeneity",
+        "target_posterior_sd_ratio": 0.2
+      },
+      {
+        "coordinate_id": "H03",
+        "coordinate_name": "operator_response_variance",
+        "block_id": "person_context_heterogeneity",
+        "target_posterior_sd_ratio": 0.2
+      },
+      {
+        "coordinate_id": "H04",
+        "coordinate_name": "exposure_and_adherence_variance",
+        "block_id": "person_context_heterogeneity",
+        "target_posterior_sd_ratio": 0.2
+      },
+      {
+        "coordinate_id": "H05",
+        "coordinate_name": "context_moderation",
+        "block_id": "person_context_heterogeneity",
+        "target_posterior_sd_ratio": 0.2
+      },
+      {
+        "coordinate_id": "H06",
+        "coordinate_name": "cross_domain_coupling_variance",
+        "block_id": "person_context_heterogeneity",
+        "target_posterior_sd_ratio": 0.2
+      },
+      {
+        "coordinate_id": "H07",
+        "coordinate_name": "within_person_state_dependent_response",
+        "block_id": "person_context_heterogeneity",
+        "target_posterior_sd_ratio": 0.2
+      },
+      {
+        "coordinate_id": "H08",
+        "coordinate_name": "responder_manifold_geometry",
+        "block_id": "person_context_heterogeneity",
+        "target_posterior_sd_ratio": 0.2
+      },
+      {
+        "coordinate_id": "F01",
+        "coordinate_name": "cognition",
+        "block_id": "functional_lived_state",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "F02",
+        "coordinate_name": "mood_and_affect",
+        "block_id": "functional_lived_state",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "F03",
+        "coordinate_name": "sleep",
+        "block_id": "functional_lived_state",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "F04",
+        "coordinate_name": "fatigue_and_vitality",
+        "block_id": "functional_lived_state",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "F05",
+        "coordinate_name": "cardiorespiratory_fitness",
+        "block_id": "functional_lived_state",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "F06",
+        "coordinate_name": "strength_balance_and_mobility",
+        "block_id": "functional_lived_state",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "F07",
+        "coordinate_name": "autonomic_and_metabolic_function",
+        "block_id": "functional_lived_state",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "F08",
+        "coordinate_name": "symptoms_quality_of_life_and_tolerability",
+        "block_id": "functional_lived_state",
+        "target_posterior_sd_ratio": 0.1
+      },
+      {
+        "coordinate_id": "T01",
+        "coordinate_name": "site_transport",
+        "block_id": "population_transport",
+        "target_posterior_sd_ratio": 0.25
+      },
+      {
+        "coordinate_id": "T02",
+        "coordinate_name": "geographic_and_environmental_transport",
+        "block_id": "population_transport",
+        "target_posterior_sd_ratio": 0.25
+      },
+      {
+        "coordinate_id": "T03",
+        "coordinate_name": "age_transport",
+        "block_id": "population_transport",
+        "target_posterior_sd_ratio": 0.25
+      },
+      {
+        "coordinate_id": "T04",
+        "coordinate_name": "sex_and_reproductive_context_transport",
+        "block_id": "population_transport",
+        "target_posterior_sd_ratio": 0.25
+      },
+      {
+        "coordinate_id": "T05",
+        "coordinate_name": "genetic_ancestry_transport",
+        "block_id": "population_transport",
+        "target_posterior_sd_ratio": 0.25
+      },
+      {
+        "coordinate_id": "T06",
+        "coordinate_name": "socioeconomic_and_access_transport",
+        "block_id": "population_transport",
+        "target_posterior_sd_ratio": 0.25
+      },
+      {
+        "coordinate_id": "T07",
+        "coordinate_name": "baseline_health_and_disease_state_transport",
+        "block_id": "population_transport",
+        "target_posterior_sd_ratio": 0.25
+      },
+      {
+        "coordinate_id": "T08",
+        "coordinate_name": "comorbidity_and_medication_transport",
+        "block_id": "population_transport",
+        "target_posterior_sd_ratio": 0.25
+      }
+    ],
+    "prior_scenarios": [
+      {
+        "scenario_id": "conservative-prior-dependence",
+        "within_block_correlation": 0.5,
+        "cross_block_correlation": 0.0,
+        "status": "registered_sensitivity_not_empirical_truth"
+      },
+      {
+        "scenario_id": "central-prior-dependence",
+        "within_block_correlation": 0.25,
+        "cross_block_correlation": 0.0,
+        "status": "candidate_normative_engineering_choice"
+      },
+      {
+        "scenario_id": "optimistic-prior-independence",
+        "within_block_correlation": 0.0,
+        "cross_block_correlation": 0.0,
+        "status": "registered_sensitivity_not_empirical_truth"
+      }
+    ],
+    "reference_information_target": {
+      "encoding": "directional_posterior_sd_ratio",
+      "formula": "target_information_j = target_posterior_sd_ratio_j^-2 - 1",
+      "empirical_optimum_claimed": false
+    },
+    "forbidden_inputs": [
+      "study_identity",
+      "desired_trial_order",
+      "assay_menu_size_as_dimension",
+      "current_leaderboard_maximum"
+    ]
+  }
+}

@@ -1,0 +1,616 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anibench.org/schemas/v3/level1-role-aware-target-authority.schema.json",
+  "title": "AniBench Level-1 role-aware target authority v3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "target_id",
+    "status",
+    "reference_role",
+    "relation_to_v2",
+    "scientific_map",
+    "estimation_role_authority",
+    "raw_context_transport_boundary",
+    "family_operating_characteristic_authority",
+    "enrollment_authority",
+    "typed_unresolved_gates",
+    "noncompensatory_family_vector",
+    "release_state"
+  ],
+  "properties": {
+    "contract": {
+      "const": "anibench.level1-role-aware-target-authority.v3"
+    },
+    "target_id": {
+      "const": "anibench-human-trial-level1-role-aware-target-v3"
+    },
+    "status": {
+      "const": "candidate_role_authority_pending_source_bound_operating_characteristics_and_independent_attestation"
+    },
+    "reference_role": {
+      "const": "role_aware_level1_authority_not_a_trial_not_an_enrollment_target_and_not_a_rank"
+    },
+    "relation_to_v2": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "v2_target_id",
+        "v2_coordinate_registry",
+        "v2_target",
+        "inheritance_rule"
+      ],
+      "properties": {
+        "state": {
+          "const": "substantive_successor_candidate_not_promoted"
+        },
+        "v2_target_id": {
+          "const": "anibench-human-trial-level1-abstract-target-v2"
+        },
+        "v2_coordinate_registry": {
+          "$ref": "#/$defs/sourceReference"
+        },
+        "v2_target": {
+          "$ref": "#/$defs/sourceReference"
+        },
+        "inheritance_rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "scientific_map": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "map_contract",
+        "ordered_coordinate_count",
+        "ordered_block_count",
+        "ordered_coordinate_identity_sha256",
+        "blocks"
+      ],
+      "properties": {
+        "map_contract": {
+          "const": "anibench.level1-role-aware-coordinate-map.v3"
+        },
+        "ordered_coordinate_count": {
+          "const": 64
+        },
+        "ordered_block_count": {
+          "const": 6
+        },
+        "ordered_coordinate_identity_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "blocks": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["block_id", "symbol", "coordinates"],
+            "properties": {
+              "block_id": {
+                "enum": [
+                  "state_observation",
+                  "natural_dynamics",
+                  "perturbation_response",
+                  "person_context_heterogeneity",
+                  "functional_lived_state",
+                  "population_transport"
+                ]
+              },
+              "symbol": {
+                "enum": ["theta_S", "theta_D", "theta_P", "theta_H", "theta_F", "theta_T"]
+              },
+              "coordinates": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["coordinate_id", "name", "estimation_role"],
+                  "properties": {
+                    "coordinate_id": {
+                      "type": "string",
+                      "pattern": "^[SDPHFT][0-9]{2}$"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "estimation_role": {
+                      "$ref": "#/$defs/estimationRoleId"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "estimation_role_authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "partition_rule",
+        "roles",
+        "direct_event_outcome_coordinate_ids",
+        "raw_modifier_coordinate_ids",
+        "exposure_context_coordinate_ids",
+        "relational_estimand_coordinate_ids",
+        "forbidden_role_coercions"
+      ],
+      "properties": {
+        "partition_rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "roles": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "role_id",
+              "coordinate_ids",
+              "semantics",
+              "is_direct_event_outcome_role",
+              "is_relational_estimand_role"
+            ],
+            "properties": {
+              "role_id": {
+                "$ref": "#/$defs/estimationRoleId"
+              },
+              "coordinate_ids": {
+                "$ref": "#/$defs/coordinateIdArray"
+              },
+              "semantics": {
+                "type": "string",
+                "minLength": 1
+              },
+              "is_direct_event_outcome_role": {
+                "type": "boolean"
+              },
+              "is_relational_estimand_role": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "direct_event_outcome_coordinate_ids": {
+          "$ref": "#/$defs/coordinateIdArray"
+        },
+        "raw_modifier_coordinate_ids": {
+          "const": ["S01"]
+        },
+        "exposure_context_coordinate_ids": {
+          "const": ["S09"]
+        },
+        "relational_estimand_coordinate_ids": {
+          "$ref": "#/$defs/coordinateIdArray"
+        },
+        "forbidden_role_coercions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "raw_context_transport_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raw_context_covariates", "transport_estimands", "joint_support_authority"],
+      "properties": {
+        "raw_context_covariates": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["ontology_location", "within_map_latent_context_coordinate_ids", "semantics"],
+          "properties": {
+            "ontology_location": {
+              "const": "source_specific_registry_outside_the_64_coordinate_map"
+            },
+            "within_map_latent_context_coordinate_ids": {
+              "const": ["S09"]
+            },
+            "semantics": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "transport_estimands": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["coordinate_ids", "semantics"],
+          "properties": {
+            "coordinate_ids": {
+              "const": ["T01", "T02", "T03", "T04", "T05", "T06", "T07", "T08"]
+            },
+            "semantics": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "joint_support_authority": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/typedUnknown"
+            },
+            {
+              "type": "object",
+              "required": [
+                "source_bound",
+                "matrix_or_bound_status",
+                "required_gate_id"
+              ],
+              "properties": {
+                "source_bound": {
+                  "const": false
+                },
+                "matrix_or_bound_status": {
+                  "const": "not_provided_no_matrix_fabricated"
+                },
+                "required_gate_id": {
+                  "const": "source_bound_joint_context_support"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "family_operating_characteristic_authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["family_ids", "family_semantics", "families"],
+      "properties": {
+        "family_ids": {
+          "$ref": "#/$defs/familyIdArray"
+        },
+        "family_semantics": {
+          "type": "string",
+          "minLength": 1
+        },
+        "families": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "family_id",
+              "scientific_question",
+              "target_coordinate_roles",
+              "support_coordinate_roles",
+              "required_gate_ids",
+              "forbidden_substitutions",
+              "operating_characteristic_target",
+              "family_enrollment_requirement"
+            ],
+            "properties": {
+              "family_id": {
+                "$ref": "#/$defs/familyId"
+              },
+              "scientific_question": {
+                "type": "string",
+                "minLength": 1
+              },
+              "target_coordinate_roles": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/estimationRoleId"
+                },
+                "uniqueItems": true
+              },
+              "support_coordinate_roles": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/estimationRoleId"
+                },
+                "uniqueItems": true
+              },
+              "required_gate_ids": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "forbidden_substitutions": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "operating_characteristic_target": {
+                "$ref": "#/$defs/typedUnknown"
+              },
+              "family_enrollment_requirement": {
+                "$ref": "#/$defs/typedUnknownWithUnit"
+              }
+            }
+          }
+        }
+      }
+    },
+    "enrollment_authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["global_enrollment", "release_condition", "forbidden_derivations"],
+      "properties": {
+        "global_enrollment": {
+          "$ref": "#/$defs/typedUnknownWithUnit"
+        },
+        "release_condition": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "all_family_specific_operating_characteristic_targets_resolved",
+            "all_family_specific_enrollment_derivations_resolved",
+            "source_bound_joint_context_support_resolved",
+            "cross_family_reuse_and_covariance_resolved",
+            "aggregation_rule_resolved"
+          ],
+          "properties": {
+            "all_family_specific_operating_characteristic_targets_resolved": {
+              "const": false
+            },
+            "all_family_specific_enrollment_derivations_resolved": {
+              "const": false
+            },
+            "source_bound_joint_context_support_resolved": {
+              "const": false
+            },
+            "cross_family_reuse_and_covariance_resolved": {
+              "const": false
+            },
+            "aggregation_rule_resolved": {
+              "const": false
+            }
+          }
+        },
+        "forbidden_derivations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "typed_unresolved_gates": {
+      "type": "array",
+      "minItems": 11,
+      "maxItems": 11,
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/typedUnknown"
+          },
+          {
+            "type": "object",
+            "required": ["gate_id", "promotion_blocking", "required_source_objects"],
+            "properties": {
+              "gate_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "promotion_blocking": {
+                "const": true
+              },
+              "required_source_objects": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "noncompensatory_family_vector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ordered_family_ids", "entries", "aggregation", "rank"],
+      "properties": {
+        "ordered_family_ids": {
+          "$ref": "#/$defs/familyIdArray"
+        },
+        "entries": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/typedUnknownWithUnit"
+              },
+              {
+                "type": "object",
+                "required": ["family_id", "blocked_by_gate_ids"],
+                "properties": {
+                  "family_id": {
+                    "$ref": "#/$defs/familyId"
+                  },
+                  "blocked_by_gate_ids": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggregation": {
+          "$ref": "#/$defs/forbiddenNumericOutput"
+        },
+        "rank": {
+          "$ref": "#/$defs/forbiddenNumericOutput"
+        }
+      }
+    },
+    "release_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "promotion_allowed",
+        "public_rank_allowed",
+        "global_enrollment_claim_allowed",
+        "reason_code"
+      ],
+      "properties": {
+        "promotion_allowed": {
+          "const": false
+        },
+        "public_rank_allowed": {
+          "const": false
+        },
+        "global_enrollment_claim_allowed": {
+          "const": false
+        },
+        "reason_code": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "sourceReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "raw_sha256"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "raw_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "estimationRoleId": {
+      "enum": [
+        "direct_mutable_outcome_basis",
+        "baseline_modifier",
+        "exposure_context",
+        "longitudinal_state_space_estimand",
+        "causal_response_estimand",
+        "heterogeneity_operating_characteristic",
+        "transport_estimand"
+      ]
+    },
+    "coordinateIdArray": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[SDPHFT][0-9]{2}$"
+      },
+      "uniqueItems": true
+    },
+    "familyId": {
+      "enum": [
+        "intensive",
+        "extensive",
+        "longitudinal",
+        "causal",
+        "personalized_sequential",
+        "transport"
+      ]
+    },
+    "familyIdArray": {
+      "const": [
+        "intensive",
+        "extensive",
+        "longitudinal",
+        "causal",
+        "personalized_sequential",
+        "transport"
+      ]
+    },
+    "typedUnknown": {
+      "type": "object",
+      "required": ["fact_type", "state", "value", "blocker_code"],
+      "properties": {
+        "fact_type": {
+          "const": "unknown"
+        },
+        "state": {
+          "const": "unresolved"
+        },
+        "value": {
+          "type": "null"
+        },
+        "blocker_code": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "typedUnknownWithUnit": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/typedUnknown"
+        },
+        {
+          "type": "object",
+          "required": ["unit"],
+          "properties": {
+            "unit": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "forbiddenNumericOutput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "value", "reason_code"],
+      "properties": {
+        "state": {
+          "const": "forbidden"
+        },
+        "value": {
+          "type": "null"
+        },
+        "reason_code": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

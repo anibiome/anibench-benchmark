@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: "AniBench: reconstructive and causal capacity of human trials"
+message: "If you use AniBench, cite this software release and every primary study source used in an assessment."
+type: software
+authors:
+  - family-names: Balen
+    given-names: Bruno
+    affiliation: ANI Biome PBC
+version: 2.0.0-rc.1
+license: Apache-2.0
+repository-code: "https://github.com/anibiome/anibench"
+abstract: >-
+  AniBench is an auditable benchmark and protocol-design instrument for the
+  intensive, extensive, longitudinal, causal, personalized/sequential, and
+  transport information that human studies can contribute to future biological
+  reconstruction and intervention learning.
+keywords:
+  - human trials
+  - biological information
+  - causal inference
+  - longitudinal studies
+  - adaptive interventions
+  - benchmark

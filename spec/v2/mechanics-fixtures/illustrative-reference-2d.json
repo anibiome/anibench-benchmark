@@ -1,0 +1,28 @@
+{
+  "contract": "anibench.information-run.v2-candidate1",
+  "benchmark_suite_version": "anibench.v2-illustrative-mechanics-candidate1",
+  "lane": "design_preview",
+  "parameter_space_hash": "sha256:6390361dfdff141a9223d632accf61242133a92d83f2a71be7233bb1cdbacca2",
+  "prior_metric_hash": "sha256:e5bade0e979cb8cf6e53303dae696c6631a5c82ce60386d7a602f85fb249fcc0",
+  "reference_level_hash": "sha256:52367a6622b19f08825e915fad80c542ad4f4c34dbcebad9f5007994b3e39208",
+  "event_manifest_hash": "sha256:862417b9e7c3720bcb3263cd873b09892d787823b6f9a0f453e42824c5a4d4b6",
+  "intervention_design_hash": "sha256:77f4c0b60ee93a5cb1e56f7a4817b8b115d2de78a4da19cb6e6243a00c17898b",
+  "uncertainty_model_hash": "sha256:9019f8058b99ac31bb7dfedda8717b003d6a9ac5b8a809f9e5e08e2349e4c4d4",
+  "reference_authority_id": "illustrative-mechanics-2d-v1",
+  "matrix_hashes": {
+    "information_matrix_sha256": "sha256:716e79aac26e68e22f33daef9fadc2af17450a7d4f8c331abf6c7a98d86e35f9",
+    "prior_precision_matrix_sha256": "sha256:9edef8c16d436d60ee71fc92b2312d7ee052657f77a487bd809d383cba012000",
+    "reference_information_matrix_sha256": "sha256:23c72720e4c8d2b5ab66350180e724b56350aff7c15e0bd4e11baebe344ba07a",
+    "reference_direction_basis_sha256": "sha256:9edef8c16d436d60ee71fc92b2312d7ee052657f77a487bd809d383cba012000"
+  },
+  "information_matrix": [[2.0, 0.0], [0.0, 1.0]],
+  "prior_precision": [[1.0, 0.0], [0.0, 1.0]],
+  "reference_information": [[4.0, 0.0], [0.0, 4.0]],
+  "reference_direction_basis": [[1.0, 0.0], [0.0, 1.0]],
+  "source_objects": [
+    {
+      "object_id": "source:fixture",
+      "sha256": "sha256:41cf6794ba4200b839c53531555f0f3998df4cbb01a4d5cb0b94e3ca5e23947d"
+    }
+  ]
+}

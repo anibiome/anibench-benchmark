@@ -1,0 +1,344 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anibench.org/schemas/v2/uncertainty.schema.json",
+  "title": "AniBench v2 uncertainty model",
+  "description": "Typed uncertainty coordinates. Unknown values cannot be silently imputed and structural absence is distinct from uncertainty.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contract_version",
+    "uncertainty_model_id",
+    "parameter_space_sha256",
+    "source_manifest_sha256",
+    "created_at",
+    "coordinates",
+    "source_receipts",
+    "public_score_emission_permitted"
+  ],
+  "properties": {
+    "schema_version": {"const": "anibench.uncertainty-model.v2"},
+    "contract_version": {"type": "string", "pattern": "^2\\.[0-9]+\\.[0-9]+(?:-[a-z0-9.-]+)?$"},
+    "uncertainty_model_id": {"$ref": "#/$defs/id"},
+    "parameter_space_sha256": {"$ref": "#/$defs/sha256"},
+    "source_manifest_sha256": {"$ref": "#/$defs/sha256"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "coordinates": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {"$ref": "#/$defs/id"},
+      "additionalProperties": {"$ref": "#/$defs/uncertain_coordinate"}
+    },
+    "source_receipts": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/source_receipt"}
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "public_score_emission_permitted": {"const": false}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{1,127}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "unit": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 96
+    },
+    "coordinate_ref": {
+      "type": "object",
+      "required": ["uncertainty_coordinate_id"],
+      "properties": {
+        "uncertainty_coordinate_id": {"$ref": "#/$defs/id"}
+      },
+      "additionalProperties": false
+    },
+    "coordinate_common": {
+      "type": "object",
+      "required": ["state", "unit", "evidence_class", "source_receipt_ids"],
+      "properties": {
+        "state": {
+          "enum": ["exact", "interval", "distribution", "absent", "unknown"]
+        },
+        "unit": {"$ref": "#/$defs/unit"},
+        "evidence_class": {
+          "enum": [
+            "self_declared",
+            "protocol_document_extracted",
+            "registry_verified",
+            "dataset_audited",
+            "independently_reproduced"
+          ]
+        },
+        "source_receipt_ids": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        },
+        "note": {"type": "string", "minLength": 1}
+      }
+    },
+    "exact_coordinate": {
+      "allOf": [
+        {"$ref": "#/$defs/coordinate_common"},
+        {
+          "type": "object",
+          "required": ["state", "unit", "evidence_class", "source_receipt_ids", "value"],
+          "properties": {
+            "state": {"const": "exact"},
+            "unit": {"$ref": "#/$defs/unit"},
+            "evidence_class": {"$ref": "#/$defs/evidence_class"},
+            "source_receipt_ids": {"$ref": "#/$defs/source_receipt_ids"},
+            "note": {"type": "string", "minLength": 1},
+            "value": {"type": "number"}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "interval_coordinate": {
+      "allOf": [
+        {"$ref": "#/$defs/coordinate_common"},
+        {
+          "type": "object",
+          "required": [
+            "state",
+            "unit",
+            "evidence_class",
+            "source_receipt_ids",
+            "lower",
+            "upper",
+            "lower_inclusive",
+            "upper_inclusive"
+          ],
+          "properties": {
+            "state": {"const": "interval"},
+            "unit": {"$ref": "#/$defs/unit"},
+            "evidence_class": {"$ref": "#/$defs/evidence_class"},
+            "source_receipt_ids": {"$ref": "#/$defs/source_receipt_ids"},
+            "note": {"type": "string", "minLength": 1},
+            "lower": {"type": "number"},
+            "upper": {"type": "number"},
+            "lower_inclusive": {"type": "boolean"},
+            "upper_inclusive": {"type": "boolean"},
+            "nominal": {"type": "number"}
+          },
+          "additionalProperties": false,
+          "x-semantic-constraints": [
+            "lower <= upper",
+            "nominal, when present, lies inside the declared interval"
+          ]
+        }
+      ]
+    },
+    "normal_distribution": {
+      "type": "object",
+      "required": ["family", "mean", "sd"],
+      "properties": {
+        "family": {"const": "normal"},
+        "mean": {"type": "number"},
+        "sd": {"type": "number", "exclusiveMinimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "lognormal_distribution": {
+      "type": "object",
+      "required": ["family", "log_mean", "log_sd"],
+      "properties": {
+        "family": {"const": "lognormal"},
+        "log_mean": {"type": "number"},
+        "log_sd": {"type": "number", "exclusiveMinimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "beta_distribution": {
+      "type": "object",
+      "required": ["family", "alpha", "beta"],
+      "properties": {
+        "family": {"const": "beta"},
+        "alpha": {"type": "number", "exclusiveMinimum": 0},
+        "beta": {"type": "number", "exclusiveMinimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "triangular_distribution": {
+      "type": "object",
+      "required": ["family", "lower", "mode", "upper"],
+      "properties": {
+        "family": {"const": "triangular"},
+        "lower": {"type": "number"},
+        "mode": {"type": "number"},
+        "upper": {"type": "number"}
+      },
+      "additionalProperties": false,
+      "x-semantic-constraints": ["lower <= mode <= upper"]
+    },
+    "empirical_discrete_distribution": {
+      "type": "object",
+      "required": ["family", "values", "probabilities"],
+      "properties": {
+        "family": {"const": "empirical_discrete"},
+        "values": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "number"}
+        },
+        "probabilities": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      },
+      "additionalProperties": false,
+      "x-semantic-constraints": [
+        "values and probabilities have equal length",
+        "probabilities sum to one within the versioned numerical tolerance"
+      ]
+    },
+    "distribution_coordinate": {
+      "allOf": [
+        {"$ref": "#/$defs/coordinate_common"},
+        {
+          "type": "object",
+          "required": [
+            "state",
+            "unit",
+            "evidence_class",
+            "source_receipt_ids",
+            "distribution",
+            "sampling_seed"
+          ],
+          "properties": {
+            "state": {"const": "distribution"},
+            "unit": {"$ref": "#/$defs/unit"},
+            "evidence_class": {"$ref": "#/$defs/evidence_class"},
+            "source_receipt_ids": {"$ref": "#/$defs/source_receipt_ids"},
+            "note": {"type": "string", "minLength": 1},
+            "distribution": {
+              "oneOf": [
+                {"$ref": "#/$defs/normal_distribution"},
+                {"$ref": "#/$defs/lognormal_distribution"},
+                {"$ref": "#/$defs/beta_distribution"},
+                {"$ref": "#/$defs/triangular_distribution"},
+                {"$ref": "#/$defs/empirical_discrete_distribution"}
+              ]
+            },
+            "support": {
+              "type": "object",
+              "required": ["lower", "upper"],
+              "properties": {
+                "lower": {"type": ["number", "null"]},
+                "upper": {"type": ["number", "null"]}
+              },
+              "additionalProperties": false
+            },
+            "sampling_seed": {"type": "integer", "minimum": 0, "maximum": 4294967295}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "absent_coordinate": {
+      "allOf": [
+        {"$ref": "#/$defs/coordinate_common"},
+        {
+          "type": "object",
+          "required": [
+            "state",
+            "unit",
+            "evidence_class",
+            "source_receipt_ids",
+            "structural_reason",
+            "score_semantics"
+          ],
+          "properties": {
+            "state": {"const": "absent"},
+            "unit": {"$ref": "#/$defs/unit"},
+            "evidence_class": {"$ref": "#/$defs/evidence_class"},
+            "source_receipt_ids": {"$ref": "#/$defs/source_receipt_ids"},
+            "note": {"type": "string", "minLength": 1},
+            "structural_reason": {"type": "string", "minLength": 1},
+            "score_semantics": {"const": "structural_zero"}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "unknown_coordinate": {
+      "allOf": [
+        {"$ref": "#/$defs/coordinate_common"},
+        {
+          "type": "object",
+          "required": [
+            "state",
+            "unit",
+            "evidence_class",
+            "source_receipt_ids",
+            "unknown_reason",
+            "score_semantics"
+          ],
+          "properties": {
+            "state": {"const": "unknown"},
+            "unit": {"$ref": "#/$defs/unit"},
+            "evidence_class": {"$ref": "#/$defs/evidence_class"},
+            "source_receipt_ids": {"$ref": "#/$defs/source_receipt_ids"},
+            "note": {"type": "string", "minLength": 1},
+            "unknown_reason": {"type": "string", "minLength": 1},
+            "admissible_lower": {"type": "number"},
+            "admissible_upper": {"type": "number"},
+            "score_semantics": {"const": "interval_only_no_point_imputation"}
+          },
+          "additionalProperties": false,
+          "x-semantic-constraints": [
+            "if both admissible bounds are present, admissible_lower <= admissible_upper"
+          ]
+        }
+      ]
+    },
+    "uncertain_coordinate": {
+      "oneOf": [
+        {"$ref": "#/$defs/exact_coordinate"},
+        {"$ref": "#/$defs/interval_coordinate"},
+        {"$ref": "#/$defs/distribution_coordinate"},
+        {"$ref": "#/$defs/absent_coordinate"},
+        {"$ref": "#/$defs/unknown_coordinate"}
+      ]
+    },
+    "evidence_class": {
+      "enum": [
+        "self_declared",
+        "protocol_document_extracted",
+        "registry_verified",
+        "dataset_audited",
+        "independently_reproduced"
+      ]
+    },
+    "source_receipt_ids": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/id"},
+      "uniqueItems": true
+    },
+    "source_receipt": {
+      "type": "object",
+      "required": ["source_receipt_id", "sha256", "locator", "authority"],
+      "properties": {
+        "source_receipt_id": {"$ref": "#/$defs/id"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "locator": {"type": "string", "minLength": 1},
+        "authority": {
+          "enum": ["protocol", "registry", "dataset", "independent_attestation"]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

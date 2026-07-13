@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anibench.org/schemas/v2/optimizer-protocol-result.schema.json",
+  "title": "AniBench v2 protocol-native optimizer result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "optimizer_version",
+    "optimizer_id",
+    "optimizer_request_sha256",
+    "claim_class",
+    "empirical_attainment",
+    "public_rank_emission_permitted",
+    "comparison_eligible",
+    "ontology_binding_state",
+    "source_binding_state",
+    "overall_scalar",
+    "candidate_count",
+    "feasible_candidate_count",
+    "objectives",
+    "pareto_frontier_candidate_ids",
+    "mutation_effects",
+    "candidates",
+    "anti_gaming_contract"
+  ],
+  "properties": {
+    "schema_version": {"const": "anibench.optimizer-protocol-result.v2"},
+    "optimizer_version": {"type": "string", "minLength": 1},
+    "optimizer_id": {"type": "string", "minLength": 1},
+    "optimizer_request_sha256": {"$ref": "#/$defs/sha256"},
+    "claim_class": {"const": "prospective_protocol_design_sandbox"},
+    "empirical_attainment": {"const": false},
+    "public_rank_emission_permitted": {"const": false},
+    "comparison_eligible": {"const": false},
+    "ontology_binding_state": {"const": "custom_unverified"},
+    "source_binding_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["protocol_geometry", "resource_constraints", "mutation_evidence"],
+      "properties": {
+        "protocol_geometry": {"const": "compiler_bound_protocol_hash"},
+        "resource_constraints": {"const": "caller_declared_not_content_verified"},
+        "mutation_evidence": {"const": "caller_declared_not_content_verified"}
+      }
+    },
+    "overall_scalar": {"type": "null"},
+    "candidate_count": {"type": "integer", "minimum": 1, "maximum": 10000},
+    "feasible_candidate_count": {"type": "integer", "minimum": 0, "maximum": 10000},
+    "objectives": {"type": "array", "minItems": 1},
+    "pareto_frontier_candidate_ids": {"type": "array", "items": {"type": "string"}},
+    "mutation_effects": {"type": "array", "items": {"type": "object"}},
+    "candidates": {"type": "array", "minItems": 1, "maxItems": 10000, "items": {"$ref": "#/$defs/candidate"}},
+    "anti_gaming_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "all_candidates_recompiled_from_protocol_geometry",
+        "direct_family_result_patch_accepted",
+        "weighted_aggregate_emitted",
+        "stable_rank_emitted",
+        "exact_decimal_resource_accumulation",
+        "nonrepresentable_positive_resource_delta_accepted",
+        "order_sensitive_sibling_list_edits_accepted",
+        "noncanonical_json_pointer_array_tokens_accepted",
+        "normalized_overlapping_mutations_accepted",
+        "reserved_base_mutation_id_accepted",
+        "custom_unverified_comparison_eligibility_propagated",
+        "candidate_cap"
+      ],
+      "properties": {
+        "all_candidates_recompiled_from_protocol_geometry": {"const": true},
+        "direct_family_result_patch_accepted": {"const": false},
+        "weighted_aggregate_emitted": {"const": false},
+        "stable_rank_emitted": {"const": false},
+        "exact_decimal_resource_accumulation": {"const": true},
+        "nonrepresentable_positive_resource_delta_accepted": {"const": false},
+        "order_sensitive_sibling_list_edits_accepted": {"const": false},
+        "noncanonical_json_pointer_array_tokens_accepted": {"const": false},
+        "normalized_overlapping_mutations_accepted": {"const": false},
+        "reserved_base_mutation_id_accepted": {"const": false},
+        "custom_unverified_comparison_eligibility_propagated": {"const": true},
+        "candidate_cap": {"const": 10000}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_id",
+        "mutation_ids",
+        "candidate_protocol_sha256",
+        "capacity_result_sha256",
+        "replay_sha256",
+        "comparison_eligible",
+        "ontology_binding_state",
+        "constraint_eligible",
+        "objective_values",
+        "resource_totals",
+        "scenario_count",
+        "family_envelopes",
+        "capacity_result"
+      ],
+      "properties": {
+        "candidate_id": {"type": "string", "minLength": 1},
+        "mutation_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "candidate_protocol_sha256": {"$ref": "#/$defs/sha256"},
+        "capacity_result_sha256": {"$ref": "#/$defs/sha256"},
+        "replay_sha256": {"$ref": "#/$defs/sha256"},
+        "comparison_eligible": {"const": false},
+        "ontology_binding_state": {"const": "custom_unverified"},
+        "constraint_eligible": {"type": "boolean"},
+        "objective_values": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+        "resource_totals": {"type": "array", "items": {"$ref": "#/$defs/resource_total"}},
+        "scenario_count": {"type": "integer", "minimum": 1},
+        "family_envelopes": {"type": "object"},
+        "capacity_result": {"type": "object"}
+      }
+    },
+    "resource_total": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resource_id",
+        "unit",
+        "total_amount",
+        "total_amount_decimal",
+        "maximum_amount",
+        "maximum_amount_decimal",
+        "within_constraint",
+        "constraint_as_of",
+        "constraint_source_object_sha256",
+        "constraint_source_locator"
+      ],
+      "properties": {
+        "resource_id": {"type": "string", "minLength": 1},
+        "unit": {"type": "string", "minLength": 1},
+        "total_amount": {"type": "number", "minimum": 0},
+        "total_amount_decimal": {
+          "type": "string",
+          "pattern": "^[0-9]+(?:\\.[0-9]+)?(?:E[+-]?[0-9]+)?$"
+        },
+        "maximum_amount": {"type": "number", "minimum": 0},
+        "maximum_amount_decimal": {
+          "type": "string",
+          "pattern": "^[0-9]+(?:\\.[0-9]+)?(?:E[+-]?[0-9]+)?$"
+        },
+        "within_constraint": {"type": "boolean"},
+        "constraint_as_of": {"type": "string", "format": "date"},
+        "constraint_source_object_sha256": {"$ref": "#/$defs/sha256"},
+        "constraint_source_locator": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

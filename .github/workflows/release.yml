@@ -1,0 +1,192 @@
+name: Tagged AniBench v2 release candidate
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+  id-token: write
+  attestations: write
+
+jobs:
+  build-test-attest:
+    name: Build, test, inspect, and attest
+    runs-on: ubuntu-latest
+    env:
+      PYTHONHASHSEED: "0"
+      TZ: UTC
+      LC_ALL: C.UTF-8
+      MPLBACKEND: Agg
+      SOURCE_DATE_EPOCH: "1783900800"
+    steps:
+      - name: Check out tagged public source
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "22"
+      - name: Bind the tag to main and one reachable history root
+        run: |
+          test "$GITHUB_SHA" = "$(git rev-parse "$GITHUB_REF^{commit}")"
+          git show-ref --verify refs/remotes/origin/main
+          git merge-base --is-ancestor "$GITHUB_SHA" refs/remotes/origin/main
+          test "$(git rev-list --max-parents=0 --all | sort -u | wc -l | tr -d ' ')" = "1"
+      - name: Install build, test, and license dependencies
+        run: |
+          python -m pip install --upgrade pip build packaging 'reuse[charset-normalizer]'
+          python -m pip install -e '.[dev]'
+      - name: Require tag and all metadata to identify the same version
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: python scripts/verify_release_metadata.py --tag "$RELEASE_TAG" --pretty
+      - name: Verify source, license, tests, and Studio
+        run: |
+          ruff check src tests scripts
+          reuse lint
+          python scripts/verify_external_field_receipts.py --pretty
+          python -m pytest -q
+          node --test web/v2.test.js
+      - name: Scan every Git tree reachable from every public ref
+        run: python scripts/export_public_repository.py --repo . --verify-public-history
+      - name: Rebuild and verify the one-root public export contract
+        run: >-
+          python scripts/export_public_repository.py
+          --output /tmp/anibench-public-replay
+          --source-date-epoch "$SOURCE_DATE_EPOCH"
+          --init-git
+      - name: Build wheel and source distribution
+        run: python -m build
+      - name: Verify unpacked public distribution boundary
+        run: python scripts/verify_distribution_boundary.py dist/*.whl dist/*.tar.gz --pretty
+      - name: Browser-test the exact installed wheel
+        run: >-
+          python scripts/verify_installed_studio.py
+          --wheel dist/*.whl
+          --receipt dist/INSTALLED_STUDIO_E2E_RECEIPT.json
+          --pretty
+      - name: Smoke-install and execute the exact wheel outside the checkout
+        run: |
+          python -m venv /tmp/anibench-wheel-smoke
+          /tmp/anibench-wheel-smoke/bin/python -m pip install --upgrade pip
+          /tmp/anibench-wheel-smoke/bin/python -m pip install dist/*.whl
+          cd /tmp
+          /tmp/anibench-wheel-smoke/bin/anibench --help
+          /tmp/anibench-wheel-smoke/bin/anibench v2-protocol-capacity \
+            "$GITHUB_WORKSPACE/web/protocol-capacity-example.json" \
+            --out /tmp/installed-protocol-capacity.json --pretty
+          /tmp/anibench-wheel-smoke/bin/python -c "import json, os, pathlib; root=pathlib.Path(os.environ['GITHUB_WORKSPACE'])/'web'; request=json.loads(root.joinpath('optimizer-protocol-example.json').read_text()); request['base_protocol']=json.loads(root.joinpath('protocol-capacity-example.json').read_text()); pathlib.Path('/tmp/installed-optimizer-request.json').write_text(json.dumps(request))"
+          /tmp/anibench-wheel-smoke/bin/anibench v2-optimize-protocol \
+            /tmp/installed-optimizer-request.json \
+            --out /tmp/installed-optimizer-result.json --pretty
+      - name: Require exactly one wheel and one source distribution
+        run: |
+          test "$(find dist -maxdepth 1 -name '*.whl' | wc -l | tr -d ' ')" = "1"
+          test "$(find dist -maxdepth 1 -name '*.tar.gz' | wc -l | tr -d ' ')" = "1"
+      - name: Write SHA-256 checksums
+        run: >-
+          cd dist && sha256sum --
+          *.whl *.tar.gz INSTALLED_STUDIO_E2E_RECEIPT.json
+          > SHA256SUMS
+      - name: Generate an SPDX JSON SBOM
+        uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610 # v0
+        with:
+          path: dist
+          format: spdx-json
+          output-file: dist/anibench.spdx.json
+          upload-artifact: false
+          upload-release-assets: false
+      - name: Attest wheel SBOM
+        uses: actions/attest-sbom@bd218ad0dbcb3e146bd073d1d9c6d78e08aa8a0b # v2
+        with:
+          subject-path: dist/*.whl
+          sbom-path: dist/anibench.spdx.json
+      - name: Attest source-distribution SBOM
+        uses: actions/attest-sbom@bd218ad0dbcb3e146bd073d1d9c6d78e08aa8a0b # v2
+        with:
+          subject-path: dist/*.tar.gz
+          sbom-path: dist/anibench.spdx.json
+      - name: Attest release artifacts
+        uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2
+        with:
+          subject-path: |
+            dist/*.whl
+            dist/*.tar.gz
+            dist/INSTALLED_STUDIO_E2E_RECEIPT.json
+            dist/SHA256SUMS
+            dist/anibench.spdx.json
+      - name: Upload the attested release-candidate bundle
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: anibench-${{ github.ref_name }}
+          path: |
+            dist/*.whl
+            dist/*.tar.gz
+            dist/INSTALLED_STUDIO_E2E_RECEIPT.json
+            dist/SHA256SUMS
+            dist/anibench.spdx.json
+          if-no-files-found: error
+          retention-days: 30
+
+  publish:
+    name: Publish only after exact external gates
+    needs: build-test-attest
+    runs-on: ubuntu-latest
+    environment:
+      name: public-release
+      url: https://pypi.org/project/anibench/
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Enforce patent, repository, and release-audit gates
+        env:
+          FIRST_PATENT_FILING_BOUND_SHA: ${{ vars.FIRST_PATENT_FILING_BOUND_SHA }}
+          FIRST_PATENT_FILING_RECEIPT_SHA256: ${{ vars.FIRST_PATENT_FILING_RECEIPT_SHA256 }}
+          PUBLIC_RELEASE_APPROVED_SHA: ${{ vars.PUBLIC_RELEASE_APPROVED_SHA }}
+          INDEPENDENT_RELEASE_AUDIT_APPROVED_SHA: ${{ vars.INDEPENDENT_RELEASE_AUDIT_APPROVED_SHA }}
+          INDEPENDENT_RELEASE_AUDIT_RECEIPT_SHA256: ${{ vars.INDEPENDENT_RELEASE_AUDIT_RECEIPT_SHA256 }}
+          PUBLIC_RANK_CLAIM_ALLOWED: ${{ vars.PUBLIC_RANK_CLAIM_ALLOWED }}
+          REPOSITORY_VISIBILITY: ${{ github.event.repository.visibility }}
+        run: |
+          test "$FIRST_PATENT_FILING_BOUND_SHA" = "$GITHUB_SHA"
+          test "$PUBLIC_RELEASE_APPROVED_SHA" = "$GITHUB_SHA"
+          test "$INDEPENDENT_RELEASE_AUDIT_APPROVED_SHA" = "$GITHUB_SHA"
+          case "$FIRST_PATENT_FILING_RECEIPT_SHA256" in (*[!0-9a-f]*|'') exit 1;; esac
+          case "$INDEPENDENT_RELEASE_AUDIT_RECEIPT_SHA256" in (*[!0-9a-f]*|'') exit 1;; esac
+          test "${#FIRST_PATENT_FILING_RECEIPT_SHA256}" = "64"
+          test "${#INDEPENDENT_RELEASE_AUDIT_RECEIPT_SHA256}" = "64"
+          test "$PUBLIC_RANK_CLAIM_ALLOWED" = "false"
+          test "$REPOSITORY_VISIBILITY" = "public"
+      - name: Download the attested package bundle
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: anibench-${{ github.ref_name }}
+          path: dist
+      - name: Recheck package checksums
+        run: cd dist && sha256sum --check SHA256SUMS
+      - name: Bind publication approval to the exact checksum manifest
+        env:
+          APPROVED_SHA256SUMS_SHA256: ${{ vars.APPROVED_SHA256SUMS_SHA256 }}
+        run: |
+          case "$APPROVED_SHA256SUMS_SHA256" in (*[!0-9a-f]*|'') exit 1;; esac
+          test "${#APPROVED_SHA256SUMS_SHA256}" = "64"
+          test "$APPROVED_SHA256SUMS_SHA256" = "$(sha256sum dist/SHA256SUMS | cut -d ' ' -f 1)"
+      - name: Isolate package-index payload
+        run: |
+          mkdir publish
+          cp dist/*.whl dist/*.tar.gz publish/
+      - name: Publish wheel and source distribution to PyPI
+        uses: pypa/gh-action-pypi-publish@cef221092ed1bacb1cc03d23a2d87d1d172e277b # release/v1
+        with:
+          packages-dir: publish/
+          attestations: true

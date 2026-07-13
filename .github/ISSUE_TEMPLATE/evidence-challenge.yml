@@ -1,0 +1,41 @@
+name: Evidence challenge
+description: Challenge a source cell, denominator, linkage, evidence state, or family coordinate.
+title: "[Evidence] "
+labels: [evidence-challenge]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Do not paste participant-level data, protected health information,
+        controlled-access source text, or proprietary source bodies. Cite a
+        public locator, or describe a controlled locator without reproducing
+        its contents.
+  - type: input
+    id: study
+    attributes:
+      label: Stable study ID
+    validations:
+      required: true
+  - type: input
+    id: cell
+    attributes:
+      label: Evidence cell or field path
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current value and why it is wrong
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Proposed value and exact source locator
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Affected family coordinates and claim boundary
+      description: Name the non-interchangeable family coordinates, typed missingness, and claim state that should change. Do not propose an overall score.

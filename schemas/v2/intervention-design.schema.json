@@ -1,0 +1,512 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anibench.org/schemas/v2/intervention-design.schema.json",
+  "title": "AniBench v2 intervention design",
+  "description": "Explicit policy, component, and sequential assignment geometry. Contrast rank comes from bound matrices, never from top-level arm count.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contract_version",
+    "intervention_design_id",
+    "study_id",
+    "event_manifest_id",
+    "event_manifest_sha256",
+    "uncertainty_model_id",
+    "uncertainty_model_sha256",
+    "source_protocol_sha256",
+    "created_at",
+    "operator_components",
+    "policies",
+    "assignment_stages",
+    "estimands",
+    "outcome_support",
+    "contrast_matrices",
+    "contrast_rank_source",
+    "source_receipts",
+    "public_score_emission_permitted"
+  ],
+  "properties": {
+    "schema_version": {"const": "anibench.intervention-design.v2"},
+    "contract_version": {"type": "string", "pattern": "^2\\.[0-9]+\\.[0-9]+(?:-[a-z0-9.-]+)?$"},
+    "intervention_design_id": {"$ref": "#/$defs/id"},
+    "study_id": {"$ref": "#/$defs/id"},
+    "event_manifest_id": {"$ref": "#/$defs/id"},
+    "event_manifest_sha256": {"$ref": "#/$defs/sha256"},
+    "uncertainty_model_id": {"$ref": "#/$defs/id"},
+    "uncertainty_model_sha256": {"$ref": "#/$defs/sha256"},
+    "source_protocol_sha256": {"$ref": "#/$defs/sha256"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "operator_components": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/operator_component"}
+    },
+    "policies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/policy"}
+    },
+    "assignment_stages": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/assignment_stage"}
+    },
+    "estimands": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/estimand"}
+    },
+    "outcome_support": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/outcome_support"}
+    },
+    "contrast_matrices": {
+      "type": "object",
+      "required": ["policy", "component", "sequential"],
+      "properties": {
+        "policy": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/policy_contrast_matrix"}
+        },
+        "component": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/component_contrast_matrix"}
+        },
+        "sequential": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/sequential_contrast_matrix"}
+        }
+      },
+      "additionalProperties": false
+    },
+    "contrast_rank_source": {"const": "explicit_matrix_not_arm_count"},
+    "source_receipts": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/source_receipt"}
+    },
+    "semantic_constraints": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "public_score_emission_permitted": {"const": false}
+  },
+  "additionalProperties": false,
+  "x-semantic-constraints": [
+    "IDs are unique within each collection",
+    "all policy, component, stage, event, measurement, estimand, and uncertainty references resolve",
+    "each matrix values array has one row per row_id and one column per column_id",
+    "reported matrix rank, when later computed, is derived from matrix values under the versioned tolerance",
+    "top-level policy count does not cap component or sequential contrast rank",
+    "assignment probabilities are bound at the decision-stage level"
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{1,127}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "coordinate_ref": {
+      "$ref": "https://anibench.org/schemas/v2/uncertainty.schema.json#/$defs/coordinate_ref"
+    },
+    "operator_component": {
+      "type": "object",
+      "required": [
+        "operator_component_id",
+        "family_id",
+        "mechanism_or_target_ids",
+        "dose_or_intensity",
+        "exposure_ascertainment",
+        "adherence_ascertainment",
+        "source_receipt_ids"
+      ],
+      "properties": {
+        "operator_component_id": {"$ref": "#/$defs/id"},
+        "family_id": {"$ref": "#/$defs/id"},
+        "mechanism_or_target_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "dose_or_intensity": {"$ref": "#/$defs/coordinate_ref"},
+        "route": {"type": ["string", "null"]},
+        "schedule_description": {"type": ["string", "null"]},
+        "washout_duration": {"$ref": "#/$defs/coordinate_ref"},
+        "exposure_ascertainment": {
+          "enum": ["direct", "device_logged", "dispensing", "self_report", "none", "unknown"]
+        },
+        "adherence_ascertainment": {
+          "enum": ["direct", "device_logged", "dispensing", "self_report", "none", "unknown"]
+        },
+        "source_receipt_ids": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "policy": {
+      "type": "object",
+      "required": [
+        "policy_id",
+        "label",
+        "comparator_role",
+        "operator_component_ids",
+        "adaptive",
+        "source_receipt_ids"
+      ],
+      "properties": {
+        "policy_id": {"$ref": "#/$defs/id"},
+        "label": {"type": "string", "minLength": 1},
+        "comparator_role": {"enum": ["active", "inactive", "usual_care", "none"]},
+        "operator_component_ids": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        },
+        "adaptive": {"type": "boolean"},
+        "policy_rule_asset_sha256": {
+          "oneOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]
+        },
+        "source_receipt_ids": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "assignment_stage": {
+      "type": "object",
+      "required": [
+        "assignment_stage_id",
+        "assignment_unit",
+        "decision_event_type_id",
+        "eligibility_participant_set_id",
+        "alternative_ids",
+        "assignment_mechanism",
+        "assignment_probability_coordinate_ids",
+        "sequential_positivity",
+        "repeated_within_person",
+        "source_receipt_ids"
+      ],
+      "properties": {
+        "assignment_stage_id": {"$ref": "#/$defs/id"},
+        "assignment_unit": {"enum": ["participant", "participant_time", "site", "cluster"]},
+        "decision_event_type_id": {"$ref": "#/$defs/id"},
+        "eligibility_participant_set_id": {"$ref": "#/$defs/id"},
+        "eligibility_rule_asset_sha256": {
+          "oneOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]
+        },
+        "alternative_ids": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        },
+        "assignment_mechanism": {
+          "enum": [
+            "simple_randomized",
+            "stratified_randomized",
+            "cluster_randomized",
+            "factorial_randomized",
+            "smart_rerandomized",
+            "micro_randomized",
+            "crossover_randomized",
+            "deterministic_policy",
+            "clinician_discretion",
+            "observational"
+          ]
+        },
+        "assignment_probability_coordinate_ids": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        },
+        "sequential_positivity": {"$ref": "#/$defs/coordinate_ref"},
+        "repeated_within_person": {"type": "boolean"},
+        "carryover_control": {"$ref": "#/$defs/coordinate_ref"},
+        "censoring_rule_asset_sha256": {
+          "oneOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]
+        },
+        "source_receipt_ids": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "estimand": {
+      "type": "object",
+      "required": [
+        "estimand_id",
+        "estimand_family",
+        "population_participant_set_id",
+        "treatment_condition_ids",
+        "outcome_support_id",
+        "summary_measure",
+        "intercurrent_event_strategy",
+        "source_receipt_ids"
+      ],
+      "properties": {
+        "estimand_id": {"$ref": "#/$defs/id"},
+        "estimand_family": {
+          "enum": [
+            "whole_policy_effect",
+            "component_effect",
+            "dynamic_operator_response",
+            "conditional_effect",
+            "sequential_policy_value",
+            "within_person_effect"
+          ]
+        },
+        "population_participant_set_id": {"$ref": "#/$defs/id"},
+        "treatment_condition_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        },
+        "outcome_support_id": {"$ref": "#/$defs/id"},
+        "summary_measure": {"type": "string", "minLength": 1},
+        "intercurrent_event_strategy": {"type": "string", "minLength": 1},
+        "multiplicity_family_id": {"type": ["string", "null"]},
+        "source_receipt_ids": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "outcome_support": {
+      "type": "object",
+      "required": [
+        "outcome_support_id",
+        "event_type_ids",
+        "measurement_module_ids",
+        "participant_set_id",
+        "missingness_coordinate_id",
+        "source_receipt_ids"
+      ],
+      "properties": {
+        "outcome_support_id": {"$ref": "#/$defs/id"},
+        "event_type_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        },
+        "measurement_module_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        },
+        "participant_set_id": {"$ref": "#/$defs/id"},
+        "missingness_coordinate_id": {"$ref": "#/$defs/id"},
+        "source_receipt_ids": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "numeric_matrix_common": {
+      "type": "object",
+      "required": [
+        "contrast_matrix_id",
+        "estimand_ids",
+        "row_ids",
+        "column_ids",
+        "values",
+        "coefficient_normalization",
+        "source_receipt_ids"
+      ],
+      "properties": {
+        "contrast_matrix_id": {"$ref": "#/$defs/id"},
+        "estimand_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        },
+        "row_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        },
+        "column_ids": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        },
+        "values": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "items": {"type": "number"}
+          }
+        },
+        "coefficient_normalization": {
+          "enum": ["sum_to_zero", "unit_l1", "unit_l2", "none"]
+        },
+        "source_receipt_ids": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        }
+      },
+      "x-semantic-constraints": [
+        "len(values) == len(row_ids)",
+        "every values row has len(column_ids) entries"
+      ]
+    },
+    "policy_contrast_matrix": {
+      "allOf": [
+        {"$ref": "#/$defs/numeric_matrix_common"},
+        {
+          "type": "object",
+          "required": [
+            "matrix_role",
+            "contrast_matrix_id",
+            "estimand_ids",
+            "policy_ids",
+            "row_ids",
+            "column_ids",
+            "values",
+            "coefficient_normalization",
+            "source_receipt_ids"
+          ],
+          "properties": {
+            "matrix_role": {"const": "whole_policy"},
+            "contrast_matrix_id": {"$ref": "#/$defs/id"},
+            "estimand_ids": {"$ref": "#/$defs/id_array_nonempty"},
+            "policy_ids": {"$ref": "#/$defs/id_array_nonempty"},
+            "row_ids": {"$ref": "#/$defs/id_array_nonempty"},
+            "column_ids": {"$ref": "#/$defs/id_array_two"},
+            "values": {"$ref": "#/$defs/numeric_matrix"},
+            "coefficient_normalization": {"$ref": "#/$defs/coefficient_normalization"},
+            "source_receipt_ids": {"$ref": "#/$defs/id_array"}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "component_contrast_matrix": {
+      "allOf": [
+        {"$ref": "#/$defs/numeric_matrix_common"},
+        {
+          "type": "object",
+          "required": [
+            "matrix_role",
+            "contrast_matrix_id",
+            "estimand_ids",
+            "operator_component_ids",
+            "assignment_stage_ids",
+            "row_ids",
+            "column_ids",
+            "values",
+            "coefficient_normalization",
+            "source_receipt_ids"
+          ],
+          "properties": {
+            "matrix_role": {"const": "component"},
+            "contrast_matrix_id": {"$ref": "#/$defs/id"},
+            "estimand_ids": {"$ref": "#/$defs/id_array_nonempty"},
+            "operator_component_ids": {"$ref": "#/$defs/id_array_nonempty"},
+            "assignment_stage_ids": {"$ref": "#/$defs/id_array_nonempty"},
+            "row_ids": {"$ref": "#/$defs/id_array_nonempty"},
+            "column_ids": {"$ref": "#/$defs/id_array_two"},
+            "values": {"$ref": "#/$defs/numeric_matrix"},
+            "coefficient_normalization": {"$ref": "#/$defs/coefficient_normalization"},
+            "source_receipt_ids": {"$ref": "#/$defs/id_array"}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "sequential_contrast_matrix": {
+      "allOf": [
+        {"$ref": "#/$defs/numeric_matrix_common"},
+        {
+          "type": "object",
+          "required": [
+            "matrix_role",
+            "contrast_matrix_id",
+            "estimand_ids",
+            "assignment_stage_ids",
+            "path_feature_ids",
+            "row_ids",
+            "column_ids",
+            "values",
+            "coefficient_normalization",
+            "source_receipt_ids"
+          ],
+          "properties": {
+            "matrix_role": {"const": "sequential"},
+            "contrast_matrix_id": {"$ref": "#/$defs/id"},
+            "estimand_ids": {"$ref": "#/$defs/id_array_nonempty"},
+            "assignment_stage_ids": {"$ref": "#/$defs/id_array_nonempty"},
+            "path_feature_ids": {"$ref": "#/$defs/id_array_nonempty"},
+            "row_ids": {"$ref": "#/$defs/id_array_nonempty"},
+            "column_ids": {"$ref": "#/$defs/id_array_two"},
+            "values": {"$ref": "#/$defs/numeric_matrix"},
+            "coefficient_normalization": {"$ref": "#/$defs/coefficient_normalization"},
+            "source_receipt_ids": {"$ref": "#/$defs/id_array"}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "id_array": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/id"},
+      "uniqueItems": true
+    },
+    "id_array_nonempty": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/id"},
+      "uniqueItems": true
+    },
+    "id_array_two": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"$ref": "#/$defs/id"},
+      "uniqueItems": true
+    },
+    "numeric_matrix": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "array",
+        "minItems": 2,
+        "items": {"type": "number"}
+      }
+    },
+    "coefficient_normalization": {
+      "enum": ["sum_to_zero", "unit_l1", "unit_l2", "none"]
+    },
+    "source_receipt": {
+      "type": "object",
+      "required": ["source_receipt_id", "sha256", "locator", "authority"],
+      "properties": {
+        "source_receipt_id": {"$ref": "#/$defs/id"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "locator": {"type": "string", "minLength": 1},
+        "authority": {
+          "enum": ["protocol", "registry", "dataset", "independent_attestation"]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

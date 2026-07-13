@@ -1,0 +1,3400 @@
+{
+  "contract": "anibench.external-field-provenance-receipt.v2",
+  "status": "machine_only_field_bindings_candidate_not_scored",
+  "projection_scope": "all_state_known_fields_and_nonmechanical_downgrades_in_16_public_external_projection_objects",
+  "fact_policy": {
+    "mechanically_extracted_source_bound": "The declared operator deterministically maps a resolved source JSON node to the projection value.",
+    "nonmechanical_source_binding_typed_unknown": "A candidate value whose bindings are curated, unresolved, or otherwise non-executable is removed and retained only as typed unknown with source identifiers, locators, and reason.",
+    "unknown_fields": "Typed unknown fields never enter displayed known-value scope."
+  },
+  "acquisition_ledger": {
+    "path": "data/source_projections/v2/EXTERNAL_SOURCE_ACQUISITION_LEDGER.json",
+    "sha256": "dff5b53376a8e872b691b3fc0aa908349c8788d28fefa43f7b3663f012899e24",
+    "source_count": 32,
+    "raw_source_bodies_redistributed": false
+  },
+  "coordinate_table": {
+    "path": "packaging/public_v2/SOURCE_COORDINATE_TABLE.csv",
+    "sha256": "b8187cdbf058d3f41e88063224d6b7ee28604db88f268b207549699a27ad46db",
+    "row_count": 16,
+    "derivation_contract": "anibench.external-coordinate-table-from-projections.v1"
+  },
+  "projection_count": 16,
+  "known_fact_count": 27,
+  "mechanically_extracted_fact_count": 27,
+  "curated_manual_fact_count": 0,
+  "downgraded_unknown_fact_count": 328,
+  "locator_resolution_counts": {
+    "json_pointer_resolved": 27
+  },
+  "all_known_fields_bound": true,
+  "all_known_fields_machine_resolved": true,
+  "raw_source_build_status": "passed_source_hashes_extractors_and_locator_resolution_recorded",
+  "raw_source_object_count_verified": 32,
+  "curated_manual_interpretations_mechanically_validated": false,
+  "public_rank_allowed": false,
+  "projections": [
+    {
+      "study_id": "all-of-us-cdrv9",
+      "projection_path": "data/source_projections/v2/all-of-us-cdrv9.json",
+      "projection_sha256": "0f3a0f8cf76f0e02fd0fb40afb35072a0f2b4dc0a6f7cf79a3d94f1981c0003c",
+      "known_fact_count": 0,
+      "downgraded_unknown_fact_count": 21,
+      "facts": [],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/population/released_participants_lower_bound",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "d0ffa2607fa43555212b4ab01f1e521e28e1a604e2a0be9eabe1f752c8eab96a"
+        },
+        {
+          "projection_pointer": "/intervention_design/policy_arms",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "f7210be7223f95bc82a56baabaa65ffcd32a2a7ef29c0f27d630ae78c5b82a7d"
+        },
+        {
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "30bdc21376d9ed0c402cea92acbad0afea5e023116eac1624bd7d33f52b09cbe"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "58f2758ad52f62488a731a16b5c8da1a1d508e9651a33dd7319235efa254f53a"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "12556e22f9764410ecdb4495ec05860026e0d953dbb9007cb34e6425ba3cc0be"
+        },
+        {
+          "projection_pointer": "/intervention_design/causally_identifiable_policy_contrasts",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "7223ce1d6ec2ac52b0b0d7b5d53fa8d9217e38e35c48db2e3a29f2defbc5202d"
+        },
+        {
+          "projection_pointer": "/intervention_design/adaptive_reassignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "f025455792e137e9888246dbfed68f96a6d051407db8c961ab6050040cab4012"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "0c16aa4da8dd22983f7fb200c6fbee1f31b57d420835b55eacbdfb3cac58c14d"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "9161b2f957d94c7c717c7ef2a40676183298f932983ab4c7d06fd8c70f82bac6"
+        },
+        {
+          "projection_pointer": "/personalization/adaptive_decisions",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "9161b2f957d94c7c717c7ef2a40676183298f932983ab4c7d06fd8c70f82bac6"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "9161b2f957d94c7c717c7ef2a40676183298f932983ab4c7d06fd8c70f82bac6"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "ce6a1d0a72cd04d94bd71accb06c8c76a619d8926f5c061d2cb2e53d1e665cc2"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "49b72f2cf3ca3e92663903cf00b9a1a273f03f83ddce24bc619b3f33e5719bc6"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "b88e420d28cd145662d387db4e5b93fcc5ecd28e1e98922589a11870b0e17440"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "1ae3f06c91ee0cef52dd6b33ae9ef1ec7fc264db55bcf4e2dcad81df9c9f0d52"
+        },
+        {
+          "projection_pointer": "/measurements/1/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "37a58598185efbdbe95a38d520d617db0e310b02e32456485015daad55d986ce"
+        },
+        {
+          "projection_pointer": "/measurements/2/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "c2eee37b7a50befb83aee2d2ce6c1d64cbcd68954f94a09cca123a966db3ab02"
+        },
+        {
+          "projection_pointer": "/measurements/3/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "4b3a6fdc8a22369db63203547a0eeb4589aff08d47a42eebdbb455bc7c38ed06"
+        },
+        {
+          "projection_pointer": "/measurements/3/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "42f25fab2304fdf5702a5c07ae0e89d29db2611be9abc6e84da55b2e157432cb"
+        },
+        {
+          "projection_pointer": "/measurements/3/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "a0fee608b5fef04ba491a9b23af79e66ed35f78fe0ecd9267c05cb4dbaacafc4"
+        },
+        {
+          "projection_pointer": "/measurements/4/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "aou-cdrv9-official"
+          ],
+          "source_locators_sha256": "e038637d64c74986192a49184beeb5a4a0c278d424fb5d4299998ac93de81ff7"
+        }
+      ]
+    },
+    {
+      "study_id": "aspree",
+      "projection_path": "data/source_projections/v2/aspree.json",
+      "projection_sha256": "779e136059481a14eb5b7cdb0aeac8c865d4e51864481ba87fa1fe5b882ab595",
+      "known_fact_count": 0,
+      "downgraded_unknown_fact_count": 18,
+      "facts": [],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/population/randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "d113a1a8226286ec936ecf15674c1d8024be5b790ecfe60b0d1c1de65e41f3a7"
+        },
+        {
+          "projection_pointer": "/timeline/median_followup_years",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "ed82a9180ba6fe4e6d01c2b767707c9be8728ae7fd6c4a7c448a9b429bf77981"
+        },
+        {
+          "projection_pointer": "/intervention_design/policy_arms",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "40e0c46b43f9562ba52b8c6dc68449434672af0fdc98dc5ccf8f5b548113eb27"
+        },
+        {
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "124addc88e55834fd8b5562b23496f95edda2de233b32ab653152a00c4489844"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "3e4c1ba24744c75e5c7c42f8962371d6684731ef3ef74364886a0c880f63e06c"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "2b02b2b979e151e15bc586ae9d57344c7d58a81cf3d2001c4f3c241d6f4e9d35"
+        },
+        {
+          "projection_pointer": "/intervention_design/causally_identifiable_policy_contrasts",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "97130c4421a37601d0a9102f93284ce8d4516aa0c0b892128bd4073f4659a7ca"
+        },
+        {
+          "projection_pointer": "/intervention_design/adaptive_reassignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "75975d33c806d31e0b0129b90d6de8a324f50513c9d5949a59231e0eb0aeb2d2"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "d3265e4eda77e4526a3d2ed3b9ee2869888bbe3150b02762700d24e79eb14e35"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "c56041d040a2da61fd1edd95b5f3abecb3a61c30b5818e9dcd09c5316d678936"
+        },
+        {
+          "projection_pointer": "/personalization/adaptive_decisions",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "5489280af9a90f6f9687bf706a6bec4f64770b2cf68f25fa5c6c040fc05af93c"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "f725aa9023c0a2f3c9cc9bb906301cf73ca51041aa5a71ad1b012577f15e9262"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "f295e00f6e9757ada434eb6ad2eba04c9d5d8d0e6b079ffed80af79a4a1161c8"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "4e6b3bbe499483808532ea0d0c295a185de564f225667712a3d06612794d338e"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "3dc4ce35ce16903d3b04b9f8d4f7668400792c00eb1c01e4a5a47ac3b75c32b4"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6426126"
+          ],
+          "source_locators_sha256": "f05b2d899d9ab90e774ff485a4471a7b48bb7d7e5bf66c36fa1826448633742f"
+        },
+        {
+          "projection_pointer": "/measurements/0/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01038583"
+          ],
+          "source_locators_sha256": "c627f4180b0e247b1a26f3f93c88629397a4478c92da13bcb5cea69e1bd3a8e4"
+        },
+        {
+          "projection_pointer": "/measurements/0/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01038583"
+          ],
+          "source_locators_sha256": "8b6b0ee5f0da5cd9bf89249cac3697a42bb8807d7f58d39db937946df35810fa"
+        }
+      ]
+    },
+    {
+      "study_id": "calerie-phase-2-expanded",
+      "projection_path": "data/source_projections/v2/calerie-phase-2-expanded.json",
+      "projection_sha256": "e0150706bd4ee9317495095122b29bf5effce6ba69793ed4333ec19dfe35f6fd",
+      "known_fact_count": 3,
+      "downgraded_unknown_fact_count": 24,
+      "facts": [
+        {
+          "fact_id": "621827f6662029cb34834ec4f4ba439c80451dc4db69987799c709da8ec5c3aa",
+          "projection_pointer": "/population/registry_enrolled",
+          "value": 238,
+          "value_sha256": "8ae4c23b80d1e7c8ff79e515fe791ebd68190bae842dda7af193db125f700452",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct00427193",
+              "source_object_sha256": "d53e762b9f33f00eaac9fd9794c5bdc8065017c5d9b9dfac20a337a8cb8ab94f",
+              "source_object_bytes": 44055,
+              "locator": "/protocolSection/designModule/enrollmentInfo/count",
+              "locator_sha256": "01f0890868be5dc2d15f8238cffb0d8ae49d62e89ca4204a293b3e19b3349686",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_identity",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "8ae4c23b80d1e7c8ff79e515fe791ebd68190bae842dda7af193db125f700452",
+              "derived_value_sha256": "8ae4c23b80d1e7c8ff79e515fe791ebd68190bae842dda7af193db125f700452"
+            }
+          ]
+        },
+        {
+          "fact_id": "133d1ab19fa1fb54db4be00d3d38d27d252e000d2efc28e9b5d371623c7e5c60",
+          "projection_pointer": "/intervention_design/policy_arms",
+          "value": 2,
+          "value_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct00427193",
+              "source_object_sha256": "d53e762b9f33f00eaac9fd9794c5bdc8065017c5d9b9dfac20a337a8cb8ab94f",
+              "source_object_bytes": 44055,
+              "locator": "/protocolSection/armsInterventionsModule/armGroups",
+              "locator_sha256": "4d5ab15516e04868df7fa1f757ae11fb00066a888b0b657b707c1b3b239f8cd0",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_array_length",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "3dce6adfd54d7a0a7bc50d76e06b7b6894f29f003046a4f94de86b98f365b75e",
+              "derived_value_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+            }
+          ]
+        },
+        {
+          "fact_id": "0b2b4107332d5f96700f9d6fb38285d45cb470eedb93615c101aaffdf6736584",
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "value": true,
+          "value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct00427193",
+              "source_object_sha256": "d53e762b9f33f00eaac9fd9794c5bdc8065017c5d9b9dfac20a337a8cb8ab94f",
+              "source_object_bytes": 44055,
+              "locator": "/protocolSection/designModule/designInfo/allocation",
+              "locator_sha256": "7ab4968a1db89a993dafe798c17ab6009a0d041ebead3f4c1c6c0836326482eb",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_casefold_equals_randomized",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "5207cfd3a6dddce8d1c59a3aff9c9198a6e0c9fa57ac9d94dcee6076b5b6b53c",
+              "derived_value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+            }
+          ]
+        }
+      ],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/population/randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "02383771521f44267dc76224ec386b3b4213c5d815491e75a5686008925e08ee"
+        },
+        {
+          "projection_pointer": "/population/genomic_resource_participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "63d9c85a7120b43e68a280855e0bc6ac39cd0486a214137aa2ac78c23c64683b"
+        },
+        {
+          "projection_pointer": "/timeline/intervention_duration_days",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "b33a8d120937417f77ad7551cd01c80366ccbd029d705b052894eef911769170"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct00427193"
+          ],
+          "source_locators_sha256": "eda0e479a276f75169b946fd626704031d56853cd7d21bb290e5dca858f35787"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct00427193"
+          ],
+          "source_locators_sha256": "679c8c06043e12b08878dcd353b8b58ef799baf7d7ba1b9adcbd0a89d7f543b0"
+        },
+        {
+          "projection_pointer": "/intervention_design/causally_identifiable_policy_contrasts",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "7a28e6f1b28fc5d0456c071ed28b90f3e9f57b78b95d6a350e10ccfe20db5b90"
+        },
+        {
+          "projection_pointer": "/intervention_design/adaptive_reassignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct00427193"
+          ],
+          "source_locators_sha256": "0b8b94e8f7eb0bbe60cf5d9fb8dfc4ed2a2656d4fec1a85a76c1a410291e8173"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct00427193"
+          ],
+          "source_locators_sha256": "7ead672afa8377228e7ae4a50eff0872ca38c7f87ab4fb99f00c88663574993e"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "5d0d26de9daba5585a41bfb7b46f6a232de7b85d4e27ac9ff6ff5ead22b48194"
+        },
+        {
+          "projection_pointer": "/personalization/adaptive_decisions",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "ebceca86bd972885a604bf9d05fc3151c474cf7578093b52cd73ee178fc9684b"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "f41cb9a8ee4200847b0803179f9b77794f5831137178119ad339140b80cd89be"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "3a240f6f7d1b7c436968edac2a1a8895a3df7f72a0797e95a32477f7be2a1f31"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "8060ea954fcc7b87c6df5aa3b2788ec33cd9a466372a8d0e3b221887d3fa2e59"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "3ca038fe9e5bae91142288b0c0ab9c8b95ca07a02dcbf3d6b10762a7fbc291fc"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc10148951"
+          ],
+          "source_locators_sha256": "d2da61dd2e2dafe1aa07dba8e0aaff79c2516fe5f0a4ed2de62c0c3dd1f37de9"
+        },
+        {
+          "projection_pointer": "/measurements/0/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc10148951"
+          ],
+          "source_locators_sha256": "487567bd7ac988b52c52a69ebc199a34b910733687bf5c071b8ce40124d581dd"
+        },
+        {
+          "projection_pointer": "/measurements/0/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc10148951"
+          ],
+          "source_locators_sha256": "41b7af0b52481e107e18e7f411cb3fe418e7b651b153397b4071b98ff0c15d0c"
+        },
+        {
+          "projection_pointer": "/measurements/0/completeness",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc10148951"
+          ],
+          "source_locators_sha256": "07453c12185b4219615b08dcd44896e6486ee0a8147408787bd6e2fe418a17b7"
+        },
+        {
+          "projection_pointer": "/measurements/1/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "68296adacd84b3ad5e39bc5a3c9beef53423e2add6062fe9256d1d357e6a6bc2"
+        },
+        {
+          "projection_pointer": "/measurements/1/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "78c60ac0f04758c039de30d3507bb76ed0a731ccc94377780d14b51160e67b41"
+        },
+        {
+          "projection_pointer": "/measurements/1/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "f9425a7734e6b87fee02911d9963b696ddee0be574f7821825010c62b3c96cf3"
+        },
+        {
+          "projection_pointer": "/measurements/2/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "0c917ed63b081800f579e065e5b555cf3a60ba0b72d22b0ca5fe6f42d68d6e06"
+        },
+        {
+          "projection_pointer": "/measurements/2/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "5eed330c4a0c405566360b0d9881ade88bc2b20ceed85d22b81d1e0fa3df0f5e"
+        },
+        {
+          "projection_pointer": "/measurements/2/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11370476"
+          ],
+          "source_locators_sha256": "2fe974fcfccbaf008532c68b2d1f3b99e9bf816731d17726dcdb51a428f633d2"
+        }
+      ]
+    },
+    {
+      "study_id": "circulate-tpe-ivig",
+      "projection_path": "data/source_projections/v2/circulate-tpe-ivig.json",
+      "projection_sha256": "e73f4334ca8a4b9c852d3ad52a22e3d4c787e8a87aefec03e69975f84b6bd1ab",
+      "known_fact_count": 3,
+      "downgraded_unknown_fact_count": 19,
+      "facts": [
+        {
+          "fact_id": "e186949de64cfebe06bd63fbbab83e0391d1d84f439c15837bfb5119b229ed90",
+          "projection_pointer": "/population/registry_enrollment",
+          "value": 40,
+          "value_sha256": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct06534450",
+              "source_object_sha256": "bdde584d746fe3f4a037f110be25abd6b2f174c367230e41f225d195afe7991d",
+              "source_object_bytes": 8551,
+              "locator": "/protocolSection/designModule/enrollmentInfo/count",
+              "locator_sha256": "01f0890868be5dc2d15f8238cffb0d8ae49d62e89ca4204a293b3e19b3349686",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_identity",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103",
+              "derived_value_sha256": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103"
+            }
+          ]
+        },
+        {
+          "fact_id": "39ebe01ea59a802e69f0237600e5c1df0ec91f26623725be743bd1bfab622eb8",
+          "projection_pointer": "/intervention_design/policy_arms",
+          "value": 4,
+          "value_sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct06534450",
+              "source_object_sha256": "bdde584d746fe3f4a037f110be25abd6b2f174c367230e41f225d195afe7991d",
+              "source_object_bytes": 8551,
+              "locator": "/protocolSection/armsInterventionsModule/armGroups",
+              "locator_sha256": "4d5ab15516e04868df7fa1f757ae11fb00066a888b0b657b707c1b3b239f8cd0",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_array_length",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "a208a9802db8587b1994e7910c2317656f85cef52c39209ce31d685f8a4f5b17",
+              "derived_value_sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a"
+            }
+          ]
+        },
+        {
+          "fact_id": "c4c2f2eeeb5e41404535b063211bf8f4516fa4750255b248ad14b59c60dffff3",
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "value": true,
+          "value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct06534450",
+              "source_object_sha256": "bdde584d746fe3f4a037f110be25abd6b2f174c367230e41f225d195afe7991d",
+              "source_object_bytes": 8551,
+              "locator": "/protocolSection/designModule/designInfo/allocation",
+              "locator_sha256": "7ab4968a1db89a993dafe798c17ab6009a0d041ebead3f4c1c6c0836326482eb",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_casefold_equals_randomized",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "5207cfd3a6dddce8d1c59a3aff9c9198a6e0c9fa57ac9d94dcee6076b5b6b53c",
+              "derived_value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+            }
+          ]
+        }
+      ],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/population/paper_enrolled",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12341816"
+          ],
+          "source_locators_sha256": "64c31277d5e7ff09e9eaea096dfa1ea5ab43661cf4f5bbf5cea89d6e0477102b"
+        },
+        {
+          "projection_pointer": "/population/paper_completed",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12341816"
+          ],
+          "source_locators_sha256": "437317b71a5961e79bfd7cb21d4aa7dee4db5c1cc6110e3de5d5950473002c39"
+        },
+        {
+          "projection_pointer": "/timeline/maximum_intervention_regimen_months",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct06534450"
+          ],
+          "source_locators_sha256": "a2cadcc7fd0c42d7ee60aa618505f34cc021ea9e2194875dfd13681b57ae06b2"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct06534450"
+          ],
+          "source_locators_sha256": "96eb36f5527431d19f31a3ddca10a243a5f31892505f9640aadfd40ca3bb2dfa"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct06534450"
+          ],
+          "source_locators_sha256": "8e690403364410590745b0a312dc4fb4a45ff79e1b5e6b7ceb80de2925077f35"
+        },
+        {
+          "projection_pointer": "/intervention_design/adaptive_reassignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct06534450"
+          ],
+          "source_locators_sha256": "6cecffe439f4cc16f9118605c60e93ab78f4bc82685365d77d25608326c09b33"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct06534450"
+          ],
+          "source_locators_sha256": "241e2838d727afba1b0a513007f6c429f86e2d40a5e05d702b75754ad54193fa"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12341816"
+          ],
+          "source_locators_sha256": "0a2d70f0871f3e40ebb64fcf4ef9a031474fc9c69de9f38f1ac7b67e5fe3d653"
+        },
+        {
+          "projection_pointer": "/personalization/adaptive_decisions",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct06534450"
+          ],
+          "source_locators_sha256": "b3bc8875b384b51bd2e4d05836abf60f49dfadea6ce70e908f21b2eacd496ad0"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct06534450"
+          ],
+          "source_locators_sha256": "382fc9f7fe48248194170fd0187d16719efc40f4e30d6ac4377c4199c0769206"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct06534450"
+          ],
+          "source_locators_sha256": "21d27c2ac3d4bebfe63a61d19e8345aa3133c96af2aa675a743331f4e092e826"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12341816"
+          ],
+          "source_locators_sha256": "9308402f9fac67436b510405c8e8be7979c65aafec1bd36b96f1715f320a27aa"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct06534450"
+          ],
+          "source_locators_sha256": "fa527f9b507b7188b6fb4159d398b55f833559e5f9be247fc2d28a54199f2a19"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12341816"
+          ],
+          "source_locators_sha256": "d8297ede193a9313e103614e1aad25d9e0373e2193a133700b92db8968f8ccd2"
+        },
+        {
+          "projection_pointer": "/measurements/0/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12341816"
+          ],
+          "source_locators_sha256": "ed8a10e0f7a7adcccea1c92d5d5ce3327303cfb42b42a70b9420333dbe91d384"
+        },
+        {
+          "projection_pointer": "/measurements/0/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12341816"
+          ],
+          "source_locators_sha256": "15702744ace572ae1e1b55ba3c5a79400a111049818d5cb05e09123f860b90ee"
+        },
+        {
+          "projection_pointer": "/measurements/1/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12341816"
+          ],
+          "source_locators_sha256": "db2c6a6ed102a93a980ab877cffd272c5e5328f0bcd8f205d487aed5d3b49ddb"
+        },
+        {
+          "projection_pointer": "/measurements/1/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12341816"
+          ],
+          "source_locators_sha256": "b473a39d3a28285f65e848751446d85f57b10f684b9056a2ce24b19d1a5a1e7c"
+        },
+        {
+          "projection_pointer": "/measurements/1/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12341816"
+          ],
+          "source_locators_sha256": "0f3a115a2f1a7d00d19ec1324b0c641cdec60a46071476cec4449bd11f6ad07a"
+        }
+      ]
+    },
+    {
+      "study_id": "do-health-bio-age",
+      "projection_path": "data/source_projections/v2/do-health-bio-age.json",
+      "projection_sha256": "f2127ed368b90e67debba5812d2385d96b210facd8fbab24ce95809d2bf786ac",
+      "known_fact_count": 3,
+      "downgraded_unknown_fact_count": 18,
+      "facts": [
+        {
+          "fact_id": "bc20ce6d9c30a7d0c1a72a59b43dc6cf92866995a2e75bb9e712ca12ba35e6f4",
+          "projection_pointer": "/population/randomized_trial",
+          "value": 2157,
+          "value_sha256": "3a6e2b22591ed55131de9ee07ffdfd443d86554bfc60c2d23e6620d4e2c794df",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct01745263",
+              "source_object_sha256": "54737adcfb8cdddb5505828836bed69ffabf4018ed08f07634f14665d78d7771",
+              "source_object_bytes": 29904,
+              "locator": "/protocolSection/designModule/enrollmentInfo/count",
+              "locator_sha256": "01f0890868be5dc2d15f8238cffb0d8ae49d62e89ca4204a293b3e19b3349686",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_identity",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "3a6e2b22591ed55131de9ee07ffdfd443d86554bfc60c2d23e6620d4e2c794df",
+              "derived_value_sha256": "3a6e2b22591ed55131de9ee07ffdfd443d86554bfc60c2d23e6620d4e2c794df"
+            }
+          ]
+        },
+        {
+          "fact_id": "c001f5fff223f4653fd28e632a061df6493179e7ac1cf2dfd54dac65288edc97",
+          "projection_pointer": "/intervention_design/policy_arms",
+          "value": 8,
+          "value_sha256": "2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct01745263",
+              "source_object_sha256": "54737adcfb8cdddb5505828836bed69ffabf4018ed08f07634f14665d78d7771",
+              "source_object_bytes": 29904,
+              "locator": "/protocolSection/armsInterventionsModule/armGroups",
+              "locator_sha256": "4d5ab15516e04868df7fa1f757ae11fb00066a888b0b657b707c1b3b239f8cd0",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_array_length",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "f729dfb3f1000ba3174e8abbdf20f2b80b7fbcd5910426706bb8f8dde2b3ef0b",
+              "derived_value_sha256": "2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3"
+            }
+          ]
+        },
+        {
+          "fact_id": "01c06b8c95f8cf3a96491ff66cbece14c0cbf8893fe2578f3febb455ca89d2ac",
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "value": true,
+          "value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct01745263",
+              "source_object_sha256": "54737adcfb8cdddb5505828836bed69ffabf4018ed08f07634f14665d78d7771",
+              "source_object_bytes": 29904,
+              "locator": "/protocolSection/designModule/designInfo/allocation",
+              "locator_sha256": "7ab4968a1db89a993dafe798c17ab6009a0d041ebead3f4c1c6c0836326482eb",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_casefold_equals_randomized",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "5207cfd3a6dddce8d1c59a3aff9c9198a6e0c9fa57ac9d94dcee6076b5b6b53c",
+              "derived_value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+            }
+          ]
+        }
+      ],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/population/paired_dnam_substudy",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pubmed39900648"
+          ],
+          "source_locators_sha256": "800bb22474496936ecca726655487855b584d986047da111ec7fe9ac8b662755"
+        },
+        {
+          "projection_pointer": "/timeline/intervention_duration_days",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01745263"
+          ],
+          "source_locators_sha256": "a584be0798783cf3a4d2c801b23a59dbf7b414f64bd9bb646ea2ce466b8008a7"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01745263"
+          ],
+          "source_locators_sha256": "1e7dcf8e3610a617175668d7dba6116adbc2b0f943cba46bd125a8dcc44376bd"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01745263"
+          ],
+          "source_locators_sha256": "61d6a391356d65db33f8ab10a426c92929d411db6cafeea1fc61487e470946c7"
+        },
+        {
+          "projection_pointer": "/intervention_design/adaptive_reassignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01745263"
+          ],
+          "source_locators_sha256": "4f6c2278f287bd521e1a6f22a90caaebf179c54a35c45dcd500256a8d1cc2e67"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01745263"
+          ],
+          "source_locators_sha256": "c4f678065045086031a8d88d8bee1f83827fa77d97ff41b09d4c7740e95c7086"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pubmed39900648"
+          ],
+          "source_locators_sha256": "3e1be67474a533a1d31266bc8cf9daed8b72125749dc07ce8dd6b8a84bbe6c95"
+        },
+        {
+          "projection_pointer": "/personalization/adaptive_decisions",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01745263"
+          ],
+          "source_locators_sha256": "467dc31ee126d5ab5520d65a60579276729ab8df95850d8b585dc32cb5750269"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01745263"
+          ],
+          "source_locators_sha256": "bf60b772516c5d6c5540f125791706f7d797ecd335b9544588acc18852ae2f37"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01745263"
+          ],
+          "source_locators_sha256": "3b9d4f6a817959b0431b3a4bd8f9bf888437ec16aba2d1c4ec96890e3627f6be"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01745263"
+          ],
+          "source_locators_sha256": "78e5ab7a0ad1c914a4b8004b4ac2f6e84c79f62840cfa21a3b75549faad28b4d"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01745263"
+          ],
+          "source_locators_sha256": "0ecead59a8245aa00a6120161d4f07196f7d7b82ed1784ba7d3fac26fff3df1a"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pubmed39900648"
+          ],
+          "source_locators_sha256": "09b66afeb991f25d8b0eaa287458cac81bf69625d3a30631fc106a3d97f24910"
+        },
+        {
+          "projection_pointer": "/measurements/0/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pubmed39900648"
+          ],
+          "source_locators_sha256": "26ec4397e969e2586c29b0923cd8211690ab7ae1549639dea7dc38978682c64e"
+        },
+        {
+          "projection_pointer": "/measurements/0/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pubmed39900648"
+          ],
+          "source_locators_sha256": "5cc9f22dc2dc365183dbd5d3602c049733e134e2c60b8b47d4666f2461ef19e2"
+        },
+        {
+          "projection_pointer": "/measurements/0/completeness",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pubmed39900648"
+          ],
+          "source_locators_sha256": "5724403f7eb9492a5e5da81dfd80abdfd09def9bf4d6fec577411dc9f4bd1eae"
+        },
+        {
+          "projection_pointer": "/measurements/1/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01745263"
+          ],
+          "source_locators_sha256": "d4370f7bc747fd6cfe68a8f4a65c9a9df70198e7e0f4e8caf086fe132b6ccd6c"
+        },
+        {
+          "projection_pointer": "/measurements/1/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01745263"
+          ],
+          "source_locators_sha256": "c089782b4ed41f16a1b9e1da772fec2f01f1538438b386a22252d895c32071cc"
+        }
+      ]
+    },
+    {
+      "study_id": "dq-senolytic-bone",
+      "projection_path": "data/source_projections/v2/dq-senolytic-bone.json",
+      "projection_sha256": "28e801a047d0751ec0ed8c0ba6ef261902b20ec86fbc9487803ae2cdc7672780",
+      "known_fact_count": 3,
+      "downgraded_unknown_fact_count": 16,
+      "facts": [
+        {
+          "fact_id": "64aef2a76a84dfaae9f238cdb1a6abce00e68ec91c2c16267bfd1f2e17f5767d",
+          "projection_pointer": "/population/registry_enrollment",
+          "value": 74,
+          "value_sha256": "eb624dbe56eb6620ae62080c10a273cab73ae8eca98ab17b731446a31c79393a",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct04313634",
+              "source_object_sha256": "d44c0d8f16460074ca6b8d46559c04e718b0676c4bef5bd4e40c620acab666b3",
+              "source_object_bytes": 51852,
+              "locator": "/protocolSection/designModule/enrollmentInfo/count",
+              "locator_sha256": "01f0890868be5dc2d15f8238cffb0d8ae49d62e89ca4204a293b3e19b3349686",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_identity",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "eb624dbe56eb6620ae62080c10a273cab73ae8eca98ab17b731446a31c79393a",
+              "derived_value_sha256": "eb624dbe56eb6620ae62080c10a273cab73ae8eca98ab17b731446a31c79393a"
+            }
+          ]
+        },
+        {
+          "fact_id": "897f7642c7f9c3c4b0261a8a5d2d2aab0d905b0742f4d25fe4978eccbe6326ce",
+          "projection_pointer": "/intervention_design/policy_arms",
+          "value": 3,
+          "value_sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct04313634",
+              "source_object_sha256": "d44c0d8f16460074ca6b8d46559c04e718b0676c4bef5bd4e40c620acab666b3",
+              "source_object_bytes": 51852,
+              "locator": "/protocolSection/armsInterventionsModule/armGroups",
+              "locator_sha256": "4d5ab15516e04868df7fa1f757ae11fb00066a888b0b657b707c1b3b239f8cd0",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_array_length",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "adb057173a9b0e15d2a8cba97e95dfb1ccd27661932bcf52fdb40dd24a452030",
+              "derived_value_sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce"
+            }
+          ]
+        },
+        {
+          "fact_id": "b9581b31a53058c5e59e2f594987d0d9b1e5346881497164a656808585f29fa4",
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "value": true,
+          "value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct04313634",
+              "source_object_sha256": "d44c0d8f16460074ca6b8d46559c04e718b0676c4bef5bd4e40c620acab666b3",
+              "source_object_bytes": 51852,
+              "locator": "/protocolSection/designModule/designInfo/allocation",
+              "locator_sha256": "7ab4968a1db89a993dafe798c17ab6009a0d041ebead3f4c1c6c0836326482eb",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_casefold_equals_randomized",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "5207cfd3a6dddce8d1c59a3aff9c9198a6e0c9fa57ac9d94dcee6076b5b6b53c",
+              "derived_value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+            }
+          ]
+        }
+      ],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/population/primary_publication_dq_comparison",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pubmed38956196"
+          ],
+          "source_locators_sha256": "b796c0a93158b85e163a24ced318cafcde2210fc2ebbd754b6f59aadc6bc1dcb"
+        },
+        {
+          "projection_pointer": "/timeline/intervention_duration_days",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04313634"
+          ],
+          "source_locators_sha256": "5c79e687b77aade12528bb0475d7f19685e96ab94dc5703dfbb80bc842f8fd19"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04313634"
+          ],
+          "source_locators_sha256": "5b67ebadb17b6ef3e42e07fc5c660e81c895a0115a1ed426e140f61cdca7e7a5"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04313634"
+          ],
+          "source_locators_sha256": "8c2849fce267076d6fe837b6512105bb1786bc7143f04f37759a0bdac26aebe8"
+        },
+        {
+          "projection_pointer": "/intervention_design/adaptive_reassignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04313634"
+          ],
+          "source_locators_sha256": "43bbc89c1c1680d52b8a5ceabdb5028ca20b91f21fb09c74decd4414648c60d7"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04313634"
+          ],
+          "source_locators_sha256": "6df1367baea8480b8eb5c755531ff86be94d148fc57eb9986bf0acad56090cc1"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pubmed38956196"
+          ],
+          "source_locators_sha256": "7e4ed1b77c8e45ff2b4beee8a6d1685baf14c268e92c1fba0e33cbee52d028d0"
+        },
+        {
+          "projection_pointer": "/personalization/adaptive_decisions",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04313634"
+          ],
+          "source_locators_sha256": "6b972fa62b52ee17b592697f94a50761a0877f8342a9f5f462f0a10be1ffff32"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04313634"
+          ],
+          "source_locators_sha256": "afb600aa4687471d33e2008d26f6df744fd9586b4a5fa570936a29d1ef8193f8"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04313634"
+          ],
+          "source_locators_sha256": "91c4c53a82920541609360e7a0a1d01434fd470b3b8b0058e612c86d4d9751ec"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pubmed38956196"
+          ],
+          "source_locators_sha256": "d0119db366daf64f8e6f4b17f81970d3c3ae9ba97f340b8fecb876d26da0ca8d"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04313634"
+          ],
+          "source_locators_sha256": "b38681d6c89105c63af1a1833842688b04e1b156b58f02761bf57237f11b957f"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pubmed38956196"
+          ],
+          "source_locators_sha256": "e9b9ff02a9f5a7bf326c8475dd870fd0375356402011fa083f59dba538b370fc"
+        },
+        {
+          "projection_pointer": "/measurements/0/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pubmed38956196"
+          ],
+          "source_locators_sha256": "b9a79cb0a3c0c8324e4ce4577a181bcba986901c1dfa49fd120232eb66f8798a"
+        },
+        {
+          "projection_pointer": "/measurements/0/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pubmed38956196"
+          ],
+          "source_locators_sha256": "06362b9671e472feab756fdae77c75d0d2a70a4ef4aa990bce490c1a52547aa4"
+        },
+        {
+          "projection_pointer": "/measurements/1/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pubmed38956196"
+          ],
+          "source_locators_sha256": "0eb8444968249c50fc02d5745829d7834336446481aaccd175b0c51475b83a66"
+        }
+      ]
+    },
+    {
+      "study_id": "life-study",
+      "projection_path": "data/source_projections/v2/life-study.json",
+      "projection_sha256": "b84c5a1920876d4abe5c8eef6f3b61837026f51373ebf9a9484b21006387f33d",
+      "known_fact_count": 3,
+      "downgraded_unknown_fact_count": 14,
+      "facts": [
+        {
+          "fact_id": "546c66e7d48a00f29ee866991cb0fec3a2564b0b22f4b17d7f56c52a7990c972",
+          "projection_pointer": "/population/randomized",
+          "value": 1635,
+          "value_sha256": "735e4a8aa7691b6d7e64836a10faa46e2246aadb16addbf59db7f7b0f45e6d19",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct01072500",
+              "source_object_sha256": "c7b62f5605c9e33b20ffacbf7bef57754b179d942671ce6b61d91cea01d2d317",
+              "source_object_bytes": 114382,
+              "locator": "/protocolSection/designModule/enrollmentInfo/count",
+              "locator_sha256": "01f0890868be5dc2d15f8238cffb0d8ae49d62e89ca4204a293b3e19b3349686",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_identity",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "735e4a8aa7691b6d7e64836a10faa46e2246aadb16addbf59db7f7b0f45e6d19",
+              "derived_value_sha256": "735e4a8aa7691b6d7e64836a10faa46e2246aadb16addbf59db7f7b0f45e6d19"
+            }
+          ]
+        },
+        {
+          "fact_id": "b80d3941fe19745adc93811cf14aabd6e7f3f291f4e91efe12b6e46b817bc0f4",
+          "projection_pointer": "/intervention_design/policy_arms",
+          "value": 2,
+          "value_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct01072500",
+              "source_object_sha256": "c7b62f5605c9e33b20ffacbf7bef57754b179d942671ce6b61d91cea01d2d317",
+              "source_object_bytes": 114382,
+              "locator": "/protocolSection/armsInterventionsModule/armGroups",
+              "locator_sha256": "4d5ab15516e04868df7fa1f757ae11fb00066a888b0b657b707c1b3b239f8cd0",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_array_length",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "23813ed4b0927463fdadde569fb72c7241bd1cf6267551e6c4d7e66e8f4ef3fb",
+              "derived_value_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+            }
+          ]
+        },
+        {
+          "fact_id": "ca6a10a69d5e328fb9246863f2357e0a98f523abac58f4ed37024e0bcb602ce1",
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "value": true,
+          "value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct01072500",
+              "source_object_sha256": "c7b62f5605c9e33b20ffacbf7bef57754b179d942671ce6b61d91cea01d2d317",
+              "source_object_bytes": 114382,
+              "locator": "/protocolSection/designModule/designInfo/allocation",
+              "locator_sha256": "7ab4968a1db89a993dafe798c17ab6009a0d041ebead3f4c1c6c0836326482eb",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_casefold_equals_randomized",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "5207cfd3a6dddce8d1c59a3aff9c9198a6e0c9fa57ac9d94dcee6076b5b6b53c",
+              "derived_value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+            }
+          ]
+        }
+      ],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/timeline/average_followup_years",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01072500"
+          ],
+          "source_locators_sha256": "863d986b76ad3742a47328d1d3224b2d2cfbcfa6b15ba02d5d1d1468334edfd8"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01072500"
+          ],
+          "source_locators_sha256": "cf807cf4ced55c5b44dfceb9f6bedef2ab5724a83f5243126e56ed941f5040b1"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01072500"
+          ],
+          "source_locators_sha256": "4931ed59f79654c0f8af86741e9e732339e67808715e10d5bcfe0811b1824f01"
+        },
+        {
+          "projection_pointer": "/intervention_design/causally_identifiable_policy_contrasts",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01072500"
+          ],
+          "source_locators_sha256": "90a36c728f29726ef1650594bce640e10ec2db796b2b5083be95812b175fe9e9"
+        },
+        {
+          "projection_pointer": "/intervention_design/adaptive_reassignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01072500"
+          ],
+          "source_locators_sha256": "fd8f81b1f68b0d00ee78578c6f217ca16e5d9d32a2be84172eaddd871ce8f2b9"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01072500"
+          ],
+          "source_locators_sha256": "35a632041f0791ec18a55778a039dc7462df4d9d3791f38e949756c9e3509aa8"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4266388"
+          ],
+          "source_locators_sha256": "028a4a89c00133db7c72eca2f7ef9f5568a75c8406fd1491821f5fb1158d7a43"
+        },
+        {
+          "projection_pointer": "/personalization/adaptive_decisions",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01072500"
+          ],
+          "source_locators_sha256": "84d7a63407febe109ffb1ec5a9865eb093e0ed25c8e360d12f073872b9d3afed"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01072500"
+          ],
+          "source_locators_sha256": "ba56c94e227968cb04660567a4d36da798da00ea44721dfc4638a6a1a5bc432c"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01072500"
+          ],
+          "source_locators_sha256": "68ff3fc2e23cfedd479032e27163781948b4935f2f6b709ca2dbe30ea753eeea"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4266388"
+          ],
+          "source_locators_sha256": "1757159ddba1f131c295cc9d1877336cdecf47ab9600338496603216e38dc28d"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01072500"
+          ],
+          "source_locators_sha256": "6a92a175433b821e77bae4a6df7a05e36699436d67c03f6ac4dcd58b563847d2"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4266388"
+          ],
+          "source_locators_sha256": "324eaae72ebe153ddeb9eab3ff4916d6747c3463db6d8807d3e0fdf577a3b003"
+        },
+        {
+          "projection_pointer": "/measurements/0/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct01072500"
+          ],
+          "source_locators_sha256": "a058ee3e1c748c013114a5da24b9d87cd0937261fbf29b27943418280edb6667"
+        }
+      ]
+    },
+    {
+      "study_id": "mitoimmune-urolithin-a",
+      "projection_path": "data/source_projections/v2/mitoimmune-urolithin-a.json",
+      "projection_sha256": "c9549a57167a6389cdd09faa9229dd1b6139920e38af201393ba9d81a934f205",
+      "known_fact_count": 2,
+      "downgraded_unknown_fact_count": 20,
+      "facts": [
+        {
+          "fact_id": "aa3a8337f3cd2e2ecade5e7012f6278ab34111135c003bf64c1b13d45f8fe23b",
+          "projection_pointer": "/intervention_design/policy_arms",
+          "value": 2,
+          "value_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct05735886",
+              "source_object_sha256": "f53958c6e67e0ea396bd1765298fe2991d440c509497f080dc82046f1633927a",
+              "source_object_bytes": 7183,
+              "locator": "/protocolSection/armsInterventionsModule/armGroups",
+              "locator_sha256": "4d5ab15516e04868df7fa1f757ae11fb00066a888b0b657b707c1b3b239f8cd0",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_array_length",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "a418be69b8780f6c7d8d75f7bc4f156cdec4fd0524537b4abc9b2c6672e5605a",
+              "derived_value_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+            }
+          ]
+        },
+        {
+          "fact_id": "210f6eedcb0f4091b6497b0a5c49647d8b93b83caa8703fb9d0f3ede64b7f302",
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "value": true,
+          "value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct05735886",
+              "source_object_sha256": "f53958c6e67e0ea396bd1765298fe2991d440c509497f080dc82046f1633927a",
+              "source_object_bytes": 7183,
+              "locator": "/protocolSection/designModule/designInfo/allocation",
+              "locator_sha256": "7ab4968a1db89a993dafe798c17ab6009a0d041ebead3f4c1c6c0836326482eb",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_casefold_equals_randomized",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "5207cfd3a6dddce8d1c59a3aff9c9198a6e0c9fa57ac9d94dcee6076b5b6b53c",
+              "derived_value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+            }
+          ]
+        }
+      ],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/population/randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12618261"
+          ],
+          "source_locators_sha256": "86a0943595d383a436d447b71811eb62d41b191c06516a3aeef8be7af0d924db"
+        },
+        {
+          "projection_pointer": "/population/high_compliance",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12618261"
+          ],
+          "source_locators_sha256": "e6a55f5b5f9b7fd4924cbccd2274a1d412a94414278162ce8e84c30bb574e8d6"
+        },
+        {
+          "projection_pointer": "/timeline/intervention_duration_days",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12618261"
+          ],
+          "source_locators_sha256": "f4465ea305180315ab12e996e63e4b773c6aa820f6a55d7903a03e5ade37a90e"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct05735886"
+          ],
+          "source_locators_sha256": "e7dfeee445eecb15176a6866e60daf1be723860dd066aa24a86a99135c647bd9"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct05735886"
+          ],
+          "source_locators_sha256": "efd4f4414499a43a192b3aadc269aa0eefff50205f64254270a4c94d5d6b319b"
+        },
+        {
+          "projection_pointer": "/intervention_design/causally_identifiable_policy_contrasts",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12618261"
+          ],
+          "source_locators_sha256": "342cd14aa68cf7486014d69de6711f6461ef654de747af6526cf58c2024f9773"
+        },
+        {
+          "projection_pointer": "/intervention_design/adaptive_reassignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct05735886"
+          ],
+          "source_locators_sha256": "af9c1b03a551fbbc3b25441b650af1df6f9a51817db9e802793c43a9bc9fa79b"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct05735886"
+          ],
+          "source_locators_sha256": "fd0a3bf518b252bb6ae63ff608e8230a1da718bec38c31ba02b57be1ae99441f"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12618261"
+          ],
+          "source_locators_sha256": "4a63583e7856d8a56962461944e2b64fc51e8370870ce54aa761cfea783b1690"
+        },
+        {
+          "projection_pointer": "/personalization/adaptive_decisions",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct05735886"
+          ],
+          "source_locators_sha256": "a2be227b90a9871a620a1f41b5094cbb9eb379c31996ed0026596be01c67c209"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct05735886"
+          ],
+          "source_locators_sha256": "d2999841319764290c624c461d7cd988d30b3d23c4b92698dbf0a40e9c84d779"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct05735886"
+          ],
+          "source_locators_sha256": "b1016e67ed48c8741aa423bdae6deee4215f5f32ae46d4e6213f561f803a19f0"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12618261"
+          ],
+          "source_locators_sha256": "55b83c34b93a9f86316b22ae242946b639220381d2b8d1507d258dab4ddf532e"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct05735886"
+          ],
+          "source_locators_sha256": "18ff62e7086c5dd6eb98812bd129157fc9f97e2cbeaa65e0de3ab4af815e7d4f"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12618261"
+          ],
+          "source_locators_sha256": "5228a93aca1ea32dedb6aa525a05871749b7afc95e4d4420af315ae8bd98e372"
+        },
+        {
+          "projection_pointer": "/measurements/0/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12618261"
+          ],
+          "source_locators_sha256": "61ea8478ffb22836c305c30f438a968ed64391e49eb1aa11e0f4d129075984c8"
+        },
+        {
+          "projection_pointer": "/measurements/0/completeness",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12618261"
+          ],
+          "source_locators_sha256": "67bf392d9e5e324fd8a2ba7ab4a27658f1a3732f50940fdc089a124163b88ded"
+        },
+        {
+          "projection_pointer": "/measurements/1/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12618261"
+          ],
+          "source_locators_sha256": "323b2ee2bbb9ec5aa840098eaba5fb08cb29c7dd0585354a544f2acfa94c87e7"
+        },
+        {
+          "projection_pointer": "/measurements/1/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12618261"
+          ],
+          "source_locators_sha256": "b3accb7793e31845d5a6d1333c97a904404f3bb5f5004b046a09432eda8ead7c"
+        },
+        {
+          "projection_pointer": "/measurements/1/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12618261"
+          ],
+          "source_locators_sha256": "167acd7c164d1db5a244a4086a603c39be47be2b42a12cede408fa7d4b63e09b"
+        }
+      ]
+    },
+    {
+      "study_id": "motrpac-human-pre-suspension-expanded",
+      "projection_path": "data/source_projections/v2/motrpac-human-pre-suspension-expanded.json",
+      "projection_sha256": "f3ce4032a08581977145db3d0715c8b54ad198aec3c7620a5711091a0c2b647d",
+      "known_fact_count": 1,
+      "downgraded_unknown_fact_count": 22,
+      "facts": [
+        {
+          "fact_id": "a3a820c1528640a40e7115ecfc3debafb8ee4b18ae174195f4e888590505f2df",
+          "projection_pointer": "/population/registry_full_program",
+          "value": 1837,
+          "value_sha256": "3e8a9277880d70c221555c905f34a64cadc4b16a37a6df3027ebb3429af51273",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct03960827",
+              "source_object_sha256": "0c9cd282bf942822410b110c3e51fd5e3a8031d19e92b296257b610e3a892d84",
+              "source_object_bytes": 28477,
+              "locator": "/protocolSection/designModule/enrollmentInfo/count",
+              "locator_sha256": "01f0890868be5dc2d15f8238cffb0d8ae49d62e89ca4204a293b3e19b3349686",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_identity",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "3e8a9277880d70c221555c905f34a64cadc4b16a37a6df3027ebb3429af51273",
+              "derived_value_sha256": "3e8a9277880d70c221555c905f34a64cadc4b16a37a6df3027ebb3429af51273"
+            }
+          ]
+        }
+      ],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/population/pre_suspension_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "9410ff79d959e4972a5bc7977deccfce03ee98ae0e5741750bc90991214e4452"
+        },
+        {
+          "projection_pointer": "/population/acute_assayed",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "fa81e9d263f4a6e4f8d896ecfcef0d6ebc48f300e97b72847b3e5e3996fd88b8"
+        },
+        {
+          "projection_pointer": "/timeline/training_duration_days",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct03960827"
+          ],
+          "source_locators_sha256": "d665d44fff5912808d669fd38149e4bfb262a9fd3a236b3ebb9fddfc96c09fdb"
+        },
+        {
+          "projection_pointer": "/timeline/acute_bout_duration_days",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "414e99d430b41408b9d329b05eebf1424892b78d58d41845b4152cd2e1075c46"
+        },
+        {
+          "projection_pointer": "/intervention_design/policy_arms",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "20908cbeb3647dde9d3dd5496dcdfac2d9053093b8bcbbfeffc826466355b720"
+        },
+        {
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "26d6a9b8c7be2e195af794d131d736dd5c1dd1876ff5aad61938793a979e3843"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "125aaeb7f5bb32096ce6518e0b01e2f396c9d270b06c4d01a4c7955bb367ee8b"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "e7ce7069e270d7f1eec43a2b5f2ab7f616bbedae273cabdad0b4074aeb732cc6"
+        },
+        {
+          "projection_pointer": "/intervention_design/causally_identifiable_policy_contrasts",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "73d42e088f7f066da19237808e78cc6305e1866b0f77fabb80150516eb7d6a64"
+        },
+        {
+          "projection_pointer": "/intervention_design/adaptive_reassignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "c56a1a72e861165c47c200ba00d19acde7a0d13681b609a55dff7f3a7d1b0a63"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "49f9a334ae4e54b46db3434216b85539da9b105c772856307d9ac7e69f4bdd87"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "c9596f954e65e1cca5b6a199930d4a3323bcdf9702a2d480aa2d75362e3226df"
+        },
+        {
+          "projection_pointer": "/personalization/adaptive_decisions",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "c56a1a72e861165c47c200ba00d19acde7a0d13681b609a55dff7f3a7d1b0a63"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "abb6d190b5ad477075b3087b50f550b707e63316e64532715709c498d141bcbf"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "79cb4f6a0030e45302ef41ada36e72b1599cea06ab3e62268373bddfb69719e0"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "8eb6fc5557496c1a6be48703985a044a14795caeb19a05570a4e6704fcfc1ed1"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "7141d54b2d70aa1dcbf30add08e74f2d9e40823cd95c41cc0938f557a9ce7969"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "a8f7a0d54aec9464864c524a0f79e9489fbeaa26a7b6c93862067ecc0d3a8b23"
+        },
+        {
+          "projection_pointer": "/measurements/0/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "636aab751da0d9b3d96639af603a434b1b781dadc1b6a4620168be02ff5cd689"
+        },
+        {
+          "projection_pointer": "/measurements/1/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "42f81d3b8dbb0d162a0ceb9df405ba6a6e3b2383148f27bc6f700ad7a48a8739"
+        },
+        {
+          "projection_pointer": "/measurements/1/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "c29730053274467ce24beda3e84da6e3c5e0e186ea0cb4840d8bd8a430d7de89"
+        },
+        {
+          "projection_pointer": "/measurements/1/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc13184684"
+          ],
+          "source_locators_sha256": "1bbcdef2a460b9387b309e0386566f6fdbee0bdb4b288bc9cc9e7f52855db62b"
+        }
+      ]
+    },
+    {
+      "study_id": "pearl-rapamycin",
+      "projection_path": "data/source_projections/v2/pearl-rapamycin.json",
+      "projection_sha256": "29f6d99fd9abd3933e74b8b2902ad97399b0267f4967eda277b3a9258dbe1238",
+      "known_fact_count": 3,
+      "downgraded_unknown_fact_count": 22,
+      "facts": [
+        {
+          "fact_id": "55be0facb92a8ae3ea30b1d9d19228b9cc702e02bd417e524648596a1697e3d0",
+          "projection_pointer": "/population/registry_enrollment",
+          "value": 129,
+          "value_sha256": "6566230e3a3ce3774c1bbc7c18b590ae0f457bbcd511e90e3e7dca2a02e7addc",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct04488601",
+              "source_object_sha256": "c9bb9c452d306a51c031e0970f3da21568f16053dcea406feec9ff83209f25ce",
+              "source_object_bytes": 13015,
+              "locator": "/protocolSection/designModule/enrollmentInfo/count",
+              "locator_sha256": "01f0890868be5dc2d15f8238cffb0d8ae49d62e89ca4204a293b3e19b3349686",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_identity",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "6566230e3a3ce3774c1bbc7c18b590ae0f457bbcd511e90e3e7dca2a02e7addc",
+              "derived_value_sha256": "6566230e3a3ce3774c1bbc7c18b590ae0f457bbcd511e90e3e7dca2a02e7addc"
+            }
+          ]
+        },
+        {
+          "fact_id": "acf5371d446903167cf557e7475a1bf476ce4ae3c8cadc58365c1653ac2d5e58",
+          "projection_pointer": "/intervention_design/policy_arms",
+          "value": 3,
+          "value_sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct04488601",
+              "source_object_sha256": "c9bb9c452d306a51c031e0970f3da21568f16053dcea406feec9ff83209f25ce",
+              "source_object_bytes": 13015,
+              "locator": "/protocolSection/armsInterventionsModule/armGroups",
+              "locator_sha256": "4d5ab15516e04868df7fa1f757ae11fb00066a888b0b657b707c1b3b239f8cd0",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_array_length",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "6444a2567b07a1f30e131eddb5f9cf7ceb1041fd649e40cce6f6854853de5aef",
+              "derived_value_sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce"
+            }
+          ]
+        },
+        {
+          "fact_id": "6bd097d6c3dfd4360a24b92ef0f707fb9fe45417661851883bd6ff8a4b56d9d9",
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "value": true,
+          "value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct04488601",
+              "source_object_sha256": "c9bb9c452d306a51c031e0970f3da21568f16053dcea406feec9ff83209f25ce",
+              "source_object_bytes": 13015,
+              "locator": "/protocolSection/designModule/designInfo/allocation",
+              "locator_sha256": "7ab4968a1db89a993dafe798c17ab6009a0d041ebead3f4c1c6c0836326482eb",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_casefold_equals_randomized",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "5207cfd3a6dddce8d1c59a3aff9c9198a6e0c9fa57ac9d94dcee6076b5b6b53c",
+              "derived_value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+            }
+          ]
+        }
+      ],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/population/completers_analyzed",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12074816"
+          ],
+          "source_locators_sha256": "189ed8137c09a5f9dd218c1643bfeee2b2766e64a60ca94e453e65a264f105e6"
+        },
+        {
+          "projection_pointer": "/timeline/intervention_duration_days",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12074816"
+          ],
+          "source_locators_sha256": "276ebe88e85b28bad8e089c0d6ecb1edcdb60306518a191a8a12104ac53244bd"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04488601"
+          ],
+          "source_locators_sha256": "3799ab5a85cf0999d0c63fffdc58cf57871a48a7b0fd4ebd8801249ec00e7c7a"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04488601"
+          ],
+          "source_locators_sha256": "5c86511485c3a169672311f75da6c2bd7f792d2c07ddfe5534d9d59b916b77bb"
+        },
+        {
+          "projection_pointer": "/intervention_design/causally_identifiable_policy_contrasts",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12074816"
+          ],
+          "source_locators_sha256": "285b29dde0cf7df3763e1a1ace9e616bb89dd0da96524ab9b3233e12618e7a44"
+        },
+        {
+          "projection_pointer": "/intervention_design/adaptive_reassignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04488601"
+          ],
+          "source_locators_sha256": "75ee2ef3742852add135b6e77b5e960df508e741c19c15acb64e19d71ff2eb42"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04488601"
+          ],
+          "source_locators_sha256": "966a0faa2c1117fc5cc49ecbf766a3aa72f49b8675ee66f581f4d007e45596f3"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12074816"
+          ],
+          "source_locators_sha256": "e3983bd34092e073cd43b25ff0be5beb5b9ffd800dff0720170a2edb22b1d913"
+        },
+        {
+          "projection_pointer": "/personalization/adaptive_decisions",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04488601"
+          ],
+          "source_locators_sha256": "e5ede4f0eac55a1fa3374ef5cf77cab08bdb1b2e5333e433b09b99ec90aa22d6"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04488601"
+          ],
+          "source_locators_sha256": "a2ae0fbea9d97ad100526f348475ca1127524e2391167095dcfee87e468fd3cb"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04488601"
+          ],
+          "source_locators_sha256": "11bf50b477d5a38b49e83d072c7f81a231d0266699cf4cf1b7624258628be93e"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12074816"
+          ],
+          "source_locators_sha256": "625dafcd7eb272bf11264c03ce4fcc6b8b48c458a9154a459c230e0ac901c880"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct04488601"
+          ],
+          "source_locators_sha256": "5c606a5d2fa8ba4c013ec84819ae4b493466e8ffea1d4771e87553974d1d06db"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12074816"
+          ],
+          "source_locators_sha256": "18401f3994c36a6f9ca0f9f7f1c365eb0cc1d21c82cc4f75cdbb0ab3c0f33139"
+        },
+        {
+          "projection_pointer": "/measurements/0/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12074816"
+          ],
+          "source_locators_sha256": "9a2bdcc8665101614562d8c9ae4797dd2ee1b985d3e03f82d25fd9fa561317ad"
+        },
+        {
+          "projection_pointer": "/measurements/0/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12074816"
+          ],
+          "source_locators_sha256": "a6ea7f1826d0b588175b87b13f2fc1e7a599d1a7e3d64b78be9dc0521af41b92"
+        },
+        {
+          "projection_pointer": "/measurements/1/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12074816"
+          ],
+          "source_locators_sha256": "0ee29b9397f0aa297373c9370f206aff53797bb3971567e0575cf6ad8502bc2e"
+        },
+        {
+          "projection_pointer": "/measurements/1/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12074816"
+          ],
+          "source_locators_sha256": "a6547901eb2a28f3346e88a0c64a3ec58493a4fd7fcebb2ffde966a84e569f94"
+        },
+        {
+          "projection_pointer": "/measurements/1/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12074816"
+          ],
+          "source_locators_sha256": "635bbc12304510d16613d2bfd0dcdd970114fd64ffa7e65676719ff1bb9b6017"
+        },
+        {
+          "projection_pointer": "/measurements/2/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12074816"
+          ],
+          "source_locators_sha256": "7e02ef23f697fcffa14167abaa522d80d1a5ce0284e8417120bfbfa2dcfae231"
+        },
+        {
+          "projection_pointer": "/measurements/2/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12074816"
+          ],
+          "source_locators_sha256": "a6547901eb2a28f3346e88a0c64a3ec58493a4fd7fcebb2ffde966a84e569f94"
+        },
+        {
+          "projection_pointer": "/measurements/2/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12074816"
+          ],
+          "source_locators_sha256": "b4130535f89c242b6272b34ded5f24d3896a0c4e68e53c9f248a60c39044f13b"
+        }
+      ]
+    },
+    {
+      "study_id": "predict-1",
+      "projection_path": "data/source_projections/v2/predict-1.json",
+      "projection_sha256": "bdd2a329ef0336136ed1355141fba10c357dbe56ab4000c8968ed0613bb7b5d4",
+      "known_fact_count": 1,
+      "downgraded_unknown_fact_count": 27,
+      "facts": [
+        {
+          "fact_id": "5c269b403dace469dcae32adc59e8084fe6775b30e8499cf541b3a70954834cc",
+          "projection_pointer": "/intervention_design/policy_arms",
+          "value": 1,
+          "value_sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct03479866",
+              "source_object_sha256": "8166186fbd558d4420fee056aa7d8e6135fb57e909f84de3aeb66b41094c6ef8",
+              "source_object_bytes": 21464,
+              "locator": "/protocolSection/armsInterventionsModule/armGroups",
+              "locator_sha256": "4d5ab15516e04868df7fa1f757ae11fb00066a888b0b657b707c1b3b239f8cd0",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_array_length",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "adfb4b7b1becd354c3975e13a24595ac6edd3a4fb4efd82a33412f61d4776815",
+              "derived_value_sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+            }
+          ]
+        }
+      ],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/population/uk_primary_cohort",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "9770d5ac9f209443555b288cdb3ec2ebaafac4b3838afe05667b0729fe91ab5f"
+        },
+        {
+          "projection_pointer": "/population/us_validation_cohort",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "dfc94d3928d92c2581e78f0399305ec7eb35c65113b382d381db9ef698531f07"
+        },
+        {
+          "projection_pointer": "/population/combined_profiled",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "c4779f1a424adc1050ffc1c2c1b1593c1926065fed4fd289b890d0fdb6def7c9"
+        },
+        {
+          "projection_pointer": "/timeline/protocol_duration_days",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "89b73c8c2b9f0ca15639e6faa1f03522e5418ed861b303382d4dcb46f0b9e730"
+        },
+        {
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct03479866"
+          ],
+          "source_locators_sha256": "3f9a5292048417f13ae3c7e7254b3a56213e759c65e9b2bd387580dac8c627c0"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct03479866"
+          ],
+          "source_locators_sha256": "29b4da2a51b411e0ac7789b3c81bf54dd5561f8ccc2907ded2af2654a3afc7b1"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct03479866"
+          ],
+          "source_locators_sha256": "963bb9af353f9341800825ff1f22f90eefc0cecc86cc4d93ae86291b09b7f168"
+        },
+        {
+          "projection_pointer": "/intervention_design/causally_identifiable_policy_contrasts",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct03479866"
+          ],
+          "source_locators_sha256": "ac1081cc7ee426fe2edad5cbb788b303bf48d4f43b443d1a227c968635fc931b"
+        },
+        {
+          "projection_pointer": "/intervention_design/adaptive_reassignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct03479866"
+          ],
+          "source_locators_sha256": "c738f8018c1dee33d79612dcd76174fdf2d346953487e5744b4837923757b65d"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct03479866"
+          ],
+          "source_locators_sha256": "d79b94bc2a2251d5649607ecae00707fd0df917cbd4760385e98aad0609048f5"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "10409394aea76e3479f852c8be71ec08c99d5e22c9d0dc0cdcf5a1fdcac1e28a"
+        },
+        {
+          "projection_pointer": "/personalization/adaptive_decisions",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "367ddcb61a3eeed62eabfd22ba6e5bee8d4955b167c82cfa1d207aaf94c991aa"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct03479866"
+          ],
+          "source_locators_sha256": "af09f266cc49f69a74cf3699b28e8c7fce83e958609209f2f41cbd875d424c8e"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "1ccdfef1b50efa87c1ba5873a7b19814adcf3be4af713f5e9c2d48cb312b7767"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "969d6fad7ac8a5b18b4b8c43ea7f765a968561fbbf7b8be9a92069f6fc37a192"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "743ac84e90c8712b0437eb6fda0ee9a59d741b2d7807c29be7f8d69acee320f7"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "62c76af4de776977780ba761e98e0c93023fdf63bef4dc00529ded39985a49a6"
+        },
+        {
+          "projection_pointer": "/measurements/0/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "78b621e21af942ef079ab010ccf07e5ad7701b1653c60f306921241c5ca3c433"
+        },
+        {
+          "projection_pointer": "/measurements/0/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "8e864e48cb4a18f2a8945bc4275f497fdc96c0fe038850e6dbaa4c29e5403a86"
+        },
+        {
+          "projection_pointer": "/measurements/1/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "d9d2dddfe3c26f9c6c94136af3ba4b0a40a3656e140d22f9156dd3f6e07c742a"
+        },
+        {
+          "projection_pointer": "/measurements/1/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "7c4a09864081f418cabf9eb5f34bef09ffc0f200956f29e07ef238509adf6ca9"
+        },
+        {
+          "projection_pointer": "/measurements/1/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "c25ac42c8a0d44261d4da9015f84b9cbd1e815a932355f47ba14340d0048fed0"
+        },
+        {
+          "projection_pointer": "/measurements/2/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "52ed6b803c684f2a51266348945ebb809193f32dc90ebb4397b88501935d341a"
+        },
+        {
+          "projection_pointer": "/measurements/2/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "bbf2782be8276cf23d704a74aa87b337a6d4a9e5d79965f69bb2b1f08dc951fa"
+        },
+        {
+          "projection_pointer": "/measurements/3/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "6b946b9104eb37e2ca48229bc87726b42e0dae4a0a88526d8c461cdaf3ade825"
+        },
+        {
+          "projection_pointer": "/measurements/3/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "90fe18464532825fe9ba459ac1e93787ddca9797f2db0bd98f066258f0c53242"
+        },
+        {
+          "projection_pointer": "/measurements/3/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc8265154"
+          ],
+          "source_locators_sha256": "8058efc6253271c92b2b15b1f41b58dd4fc20b99d9c4a77f3ac2c1ecbadd836d"
+        }
+      ]
+    },
+    {
+      "study_id": "sheba-sharp",
+      "projection_path": "data/source_projections/v2/sheba-sharp.json",
+      "projection_sha256": "3937ee3264897521644ee9e3cca8ddd286124c6443f4a3ba633ab4beafb6842b",
+      "known_fact_count": 3,
+      "downgraded_unknown_fact_count": 15,
+      "facts": [
+        {
+          "fact_id": "de9532b0e5360d7b54a3cdda215f5807f5009065529d92d1d6524315c98baa46",
+          "projection_pointer": "/population/planned_enrollment",
+          "value": 1500,
+          "value_sha256": "9f69998560dcfd8016442e0a32e959191df095817a164ce844c64ec5a8b0cc1b",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct07596576",
+              "source_object_sha256": "aa3c0fec129aa0350f500445606d62b0d0bc01f598fb63f840af6651ed5b0179",
+              "source_object_bytes": 10230,
+              "locator": "/protocolSection/designModule/enrollmentInfo",
+              "locator_sha256": "084f37118b4e6dd754b0fb663528f94efb14c8dbd5006d7511d5fe6d1fa528da",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_object_count",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "c038b04af432a7df74507693b54987dfb3b6343a795d82e75b85a1c7909b0d2c",
+              "derived_value_sha256": "9f69998560dcfd8016442e0a32e959191df095817a164ce844c64ec5a8b0cc1b"
+            }
+          ]
+        },
+        {
+          "fact_id": "e96d3100c0b7591502cc70fbb14d0061afa68bbee9ac616362ab855b493218b5",
+          "projection_pointer": "/intervention_design/policy_arms",
+          "value": 2,
+          "value_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct07596576",
+              "source_object_sha256": "aa3c0fec129aa0350f500445606d62b0d0bc01f598fb63f840af6651ed5b0179",
+              "source_object_bytes": 10230,
+              "locator": "/protocolSection/armsInterventionsModule/armGroups",
+              "locator_sha256": "4d5ab15516e04868df7fa1f757ae11fb00066a888b0b657b707c1b3b239f8cd0",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_array_length",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "8435237a9ddfcc43c1afde11d86bd1e90f1568c9f6ce3d1b4430a0045bb7ab07",
+              "derived_value_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+            }
+          ]
+        },
+        {
+          "fact_id": "5f8190c72538a4ec358c2966f67db849bd504cbde430a623982d6e540f13a06f",
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "value": true,
+          "value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct07596576",
+              "source_object_sha256": "aa3c0fec129aa0350f500445606d62b0d0bc01f598fb63f840af6651ed5b0179",
+              "source_object_bytes": 10230,
+              "locator": "/protocolSection/designModule/designInfo/allocation",
+              "locator_sha256": "7ab4968a1db89a993dafe798c17ab6009a0d041ebead3f4c1c6c0836326482eb",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_casefold_equals_randomized",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "5207cfd3a6dddce8d1c59a3aff9c9198a6e0c9fa57ac9d94dcee6076b5b6b53c",
+              "derived_value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+            }
+          ]
+        }
+      ],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/timeline/planned_primary_endpoint_days",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct07596576"
+          ],
+          "source_locators_sha256": "ade8548b276cb66b925ca826874b1954d0b08332ab860660ed8e45c37dc80c84"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct07596576"
+          ],
+          "source_locators_sha256": "3034bbacfaba3f69605d61f831d5bae543cdd2ce8206d80fca77461f09fefdf2"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct07596576"
+          ],
+          "source_locators_sha256": "6fb742e390a0861a1f73b08a976e6b336eacd6d4405cd305ceab11832e634815"
+        },
+        {
+          "projection_pointer": "/intervention_design/causally_identifiable_policy_contrasts",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct07596576"
+          ],
+          "source_locators_sha256": "2c082909beb5fed97a2fbb1e6e73d8623ede5fa8b23b69ebc9e9101d3ac5ae38"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct07596576"
+          ],
+          "source_locators_sha256": "2df24cab1f4c600b6df90d3a87b7a328b2d22cfeefbbfee30b2176a6cb52aa02"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct07596576"
+          ],
+          "source_locators_sha256": "ec0bc738dfd6415109b5792215643911929cc4d265bb101d8c567d6f46ed14d4"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct07596576"
+          ],
+          "source_locators_sha256": "446b1b2b87992aff863131cd785739188b823b70bc4392aa085e8479e7d1e361"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct07596576"
+          ],
+          "source_locators_sha256": "6d5c88122cc5da0a67d46ca474c17d777f501ac5e2adf22a9a1e45e08104b521"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct07596576"
+          ],
+          "source_locators_sha256": "43c694613628bf34d5122ff3065297ba1b1ca7026b4c7563f736bbe31cd72f2d"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct07596576"
+          ],
+          "source_locators_sha256": "6f3120a879341fbfc17622c60ee4d4b1c5de162dd3d516687750e3dc8aa36c9b"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct07596576"
+          ],
+          "source_locators_sha256": "fda9669b8d473a67ac77c3aec9d363c0f7b7922f59f2f49c698cd127cfa32bb6"
+        },
+        {
+          "projection_pointer": "/measurements/0/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct07596576"
+          ],
+          "source_locators_sha256": "55a90d65d67a1fdd4645c0e95ca1da3da2b292e678d8c60ee73ff2ef9f90ac53"
+        },
+        {
+          "projection_pointer": "/measurements/0/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct07596576"
+          ],
+          "source_locators_sha256": "fc8e9ecdf6c0314bfdf3019739db4ae5487178ef97b0c7c71cc469bd9a0b1b92"
+        },
+        {
+          "projection_pointer": "/measurements/1/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct07596576"
+          ],
+          "source_locators_sha256": "fda9669b8d473a67ac77c3aec9d363c0f7b7922f59f2f49c698cd127cfa32bb6"
+        },
+        {
+          "projection_pointer": "/measurements/1/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct07596576"
+          ],
+          "source_locators_sha256": "0b1c76c85e853d425011c9bb81af3248bf56744f4d34ad3f07ba4f1cff3833d2"
+        }
+      ]
+    },
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "projection_path": "data/source_projections/v2/snyder-ipop-ihmp-106.json",
+      "projection_sha256": "46f652bb241a5a8b60b64584a82523de5edc466abf5a3084f7cf97a21d63bd69",
+      "known_fact_count": 0,
+      "downgraded_unknown_fact_count": 22,
+      "facts": [],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/population/profiled_participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "899eb42681cff16a25de71465b25547119d6ad54a6928389298efa95dcde0b67"
+        },
+        {
+          "projection_pointer": "/timeline/median_observation_span_days",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "10603aa3f51dd84c2c4b85bbccb030268875dc1b0e211028a01f2b9898fc122b"
+        },
+        {
+          "projection_pointer": "/intervention_design/policy_arms",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "630c38af73e46af1c527643328f2d0b6ae98daf6e309f31b3c860dcac722e748"
+        },
+        {
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "8f56632294af6095754350f606559c87dc224cefb89517dbc24f5bc731674b91"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "ea88ca0fc7ffd499998f552d347fc55c638bddfd74f737171afc4f84023b138c"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "fa6d8a0010f797c8ae3c618e3c767f69b2c8d0f4dcde8c6d27b508854c9864d1"
+        },
+        {
+          "projection_pointer": "/intervention_design/causally_identifiable_policy_contrasts",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "2ff0f0c7b48d945371057e3e4d7dc1fc34a02ef3449180e0821130c2070d26a1"
+        },
+        {
+          "projection_pointer": "/intervention_design/adaptive_reassignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "5d14ba1c632877731d09ab4675c2fb4625dd5754024fbac227ccf7f71ddf25bb"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "b55a89de6723dd006c0c407711ecd97a3c0e62695aa5b68015e1427aef105fe4"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc7301912"
+          ],
+          "source_locators_sha256": "1952f3a573f7082cc2c5defc6863b106ae426eed8c6e9f55910512758c4a78e8"
+        },
+        {
+          "projection_pointer": "/personalization/adaptive_decisions",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc7301912"
+          ],
+          "source_locators_sha256": "fff2b71b92ff643fb7115dcd29548d0871d67f927bbce1449eb30b9b2a9d7044"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "e111f000658f5d570af89b12cdefa560d67e9864130518dc9b5b25780653cd17"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "930d6b7b98309655cada21ebe3d8499caed5bfd7b067849fbc0611c76afa920f"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "19853c39b3db8c24ed78d86092ee7d838541eb53ed9f3177781899bac8461d5d"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "aecdf7ea0cba3c7462bb60ff1e689ed7786d0f104fd6f1cc8e61b3607f449152"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "9fa0909fa9974fd170849758fb3960a51c24b6ce8425542e0416be4f8d58aab3"
+        },
+        {
+          "projection_pointer": "/measurements/0/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "2766c919dc4a38ee6e408ccee7db5af7b06e10684eb60af76164b4f1f1421f32"
+        },
+        {
+          "projection_pointer": "/measurements/0/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "7ad3687b9e5f3de22a018c956e545c26c8dc8299cecad3a8fc136da3db64db2e"
+        },
+        {
+          "projection_pointer": "/measurements/1/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "8e15439ff16fa6c45e8e84fb919983a809d3c29479b2cf317e1a2d8edd39fb6f"
+        },
+        {
+          "projection_pointer": "/measurements/1/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "45bc518bccb829a3783e1b9737475d9cd07a8709b34c574ea104f329dfeec0f9"
+        },
+        {
+          "projection_pointer": "/measurements/2/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "9f920c0cfb387a3bb701ca9dde2d87552cc668aacbaed2b6bc25758e009c4a89"
+        },
+        {
+          "projection_pointer": "/measurements/2/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6666404"
+          ],
+          "source_locators_sha256": "0504087be000cf213b48cbace531b8d8bbf49ffa173f686f2a5ca39d6b6014bc"
+        }
+      ]
+    },
+    {
+      "study_id": "triim",
+      "projection_path": "data/source_projections/v2/triim.json",
+      "projection_sha256": "b3b888ecb1246a713dfc01b276ff5b11c5f79e3af6463cf4472662f5e55d88a1",
+      "known_fact_count": 0,
+      "downgraded_unknown_fact_count": 23,
+      "facts": [],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/population/enrolled",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "0973a4c8653c33d2829775e1aa897d1cebab2dfc41925608f71e396a6a9223bd"
+        },
+        {
+          "projection_pointer": "/population/analyzed",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "20556ac52b6266012f5bd9d429f0dc29e4534319f29ed180f710b2bb4b759b39"
+        },
+        {
+          "projection_pointer": "/timeline/intervention_duration_days",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "1f8383dd414b103fed5e8d3f8f7d43eba292f21688565833b521836523b60d47"
+        },
+        {
+          "projection_pointer": "/timeline/post_intervention_followup_days",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "50838f921e3bdbb6c0ce10f97c57a297c8b65cf990f68f0291c7b7de450fbadb"
+        },
+        {
+          "projection_pointer": "/intervention_design/policy_arms",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "63acddb9a0f6a75232222400d5dbb848c10c5ef6a6226a1ea1e716db6616d929"
+        },
+        {
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "a34e92edc75cb53ab6216791ed41e9fba9c2429dec929c1357ecbf0c7d81641a"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "47ae0eba76e638c8114940970bc2b070944fb4a5d538342475d3efe952de1c48"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "4dce92de1f233b42be201b1dcfd878fd5d30ba8093086dc4b7a90c728f193757"
+        },
+        {
+          "projection_pointer": "/intervention_design/causally_identifiable_policy_contrasts",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "e31895cd1f76ba45a746d4be5443f52e9ed2d55cf05fb1272ec58a6410f26f3b"
+        },
+        {
+          "projection_pointer": "/intervention_design/adaptive_reassignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "d3f75069e915c07a6d431ebf554c61621313d75b11220a2f1dbca3d50bdba104"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "71232bf0b92fb2e010b91566c656f84065c17e6bcbbdb65cae7e9963fa98a8ea"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "0fbd610ed378a4127b030137241151d330b360a7adb2e9a2f32c33af6e053e6d"
+        },
+        {
+          "projection_pointer": "/personalization/adaptive_decisions",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "62613a8bfa416159e50b2e28c762e61f1d040f6278e8391816881c701b987d80"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "119353d250dd1797069a5ebb55b7b1035d8e8dcfaa9456573f0938883923fb92"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "225c669efba11f6cf58a0aad9f8297ae49e92d5a41940f8292ac9a553568da1d"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "0a3f94a599daf32a19c549e2eafc5f8312f815fe18caa3c3fb26d02d50d77263"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "b49d6ee06ee019ddaf3b68edf2952eb038c55017b93cc64bd3486a7cd210c570"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "f62c2bd747109443d94d14bbd4580a902a0730b8815f48f1f0b60ab7c62fc22c"
+        },
+        {
+          "projection_pointer": "/measurements/0/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "196dbb3abcd0de21753e5c7f82b4c111624412fb65c9c00ee95dc31a063becd6"
+        },
+        {
+          "projection_pointer": "/measurements/0/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "81e019ff4024c36fe2ad9e7c0218faa66473bd69ec937e0d0b4110cb4f9144c1"
+        },
+        {
+          "projection_pointer": "/measurements/1/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "f62c2bd747109443d94d14bbd4580a902a0730b8815f48f1f0b60ab7c62fc22c"
+        },
+        {
+          "projection_pointer": "/measurements/1/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "ab5871384e6c9b037c2617637eaa0bf07ed8dd753e7aab39c2b04c9c7b1bbc06"
+        },
+        {
+          "projection_pointer": "/measurements/1/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc6826138"
+          ],
+          "source_locators_sha256": "1345eaa5b34c91ba8f03cf8cd28615d48275d142a631ef53d952a68567be7f14"
+        }
+      ]
+    },
+    {
+      "study_id": "uk-biobank",
+      "projection_path": "data/source_projections/v2/uk-biobank.json",
+      "projection_sha256": "a690e9f7115a78fb2f00ee0803b84bf06b497bb6dd9c2758d3c417de3e303a4e",
+      "known_fact_count": 0,
+      "downgraded_unknown_fact_count": 25,
+      "facts": [],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/population/cohort_enrollment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4380465"
+          ],
+          "source_locators_sha256": "7e23541012c024e7c6ed269fd47d0577399091f27569131d8c2479e3bd1246b7"
+        },
+        {
+          "projection_pointer": "/population/wgs_participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12443626"
+          ],
+          "source_locators_sha256": "6503e4d9e2140d8350ea2b47db6d0af5f5dad42987922e093d75ae6695c9cf2b"
+        },
+        {
+          "projection_pointer": "/intervention_design/policy_arms",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4380465"
+          ],
+          "source_locators_sha256": "e01d0d808ed2234c2e07eea06a4a60a2d9ad43f6faf832c74ffbc3249d0d5bc7"
+        },
+        {
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4380465"
+          ],
+          "source_locators_sha256": "e01d0d808ed2234c2e07eea06a4a60a2d9ad43f6faf832c74ffbc3249d0d5bc7"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4380465"
+          ],
+          "source_locators_sha256": "7dab815caa0008978f991992a3a21018fe71dc86a3bd1bbbe67b33aaec83432a"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4380465"
+          ],
+          "source_locators_sha256": "09e2dd61762e0e0d20ca65affb08c2df735ad143e9b0cc1390d4bf38cfbca336"
+        },
+        {
+          "projection_pointer": "/intervention_design/causally_identifiable_policy_contrasts",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4380465"
+          ],
+          "source_locators_sha256": "df1f9d43ac143fbe499bfc14d0e3077add4f7a27232537b91b22cbb508e8062c"
+        },
+        {
+          "projection_pointer": "/intervention_design/adaptive_reassignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4380465"
+          ],
+          "source_locators_sha256": "3952738502b879a5be83c163e16d61421983991e207d10bd7f950375ba5f6806"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4380465"
+          ],
+          "source_locators_sha256": "d53ceb7ef62b977275a7ad9b9fe7fb3138128d7acc5f52d5ab82d0c5181014e1"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4380465"
+          ],
+          "source_locators_sha256": "5075aa7392a6930e01526ccd69ac57b5eccec82356bb6d1a2405773a9b54087e"
+        },
+        {
+          "projection_pointer": "/personalization/adaptive_decisions",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4380465"
+          ],
+          "source_locators_sha256": "39e4cde4962c6cdc897e018ff4157002943d01701dd583a17946049ba0441686"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4380465"
+          ],
+          "source_locators_sha256": "39e4cde4962c6cdc897e018ff4157002943d01701dd583a17946049ba0441686"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4380465"
+          ],
+          "source_locators_sha256": "7c7dfafaefbd49a3f2cb2bed473d89dba825e959756db751070f9f52331e8488"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4380465"
+          ],
+          "source_locators_sha256": "4351fdd439fbda647b99cf8ac6ff758b960173eab7f4a78739584d24a16f89ee"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4380465"
+          ],
+          "source_locators_sha256": "1740da09654ebaa539bc12e0e825d0681bc726ecf144aa16051bd8a59872cbe5"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12443626"
+          ],
+          "source_locators_sha256": "1f75b51fe086735e5873828983a31e6bb2638c494c47fde1d899e41312a00bac"
+        },
+        {
+          "projection_pointer": "/measurements/0/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12443626"
+          ],
+          "source_locators_sha256": "129e68896a06e6598c5cbce3983fd9c5ef6513d0e0fbf0dd166cb692d3d653c1"
+        },
+        {
+          "projection_pointer": "/measurements/0/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc12443626"
+          ],
+          "source_locators_sha256": "0b930d82b85ddf490fab7992e0416d7f466e1113fd691ae0d30f2b4375abb8a5"
+        },
+        {
+          "projection_pointer": "/measurements/1/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc7250878"
+          ],
+          "source_locators_sha256": "3ee2887e2fb6366a3d70d8276ca76283d340a50c4bed613bdb06b6da7c9deb74"
+        },
+        {
+          "projection_pointer": "/measurements/1/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc7250878"
+          ],
+          "source_locators_sha256": "c59599bde85d64af6ba7e379c169754eee44330415cd0aa7bc5cdc807172cadc"
+        },
+        {
+          "projection_pointer": "/measurements/1/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc7250878"
+          ],
+          "source_locators_sha256": "461a8b820e5d3554e2c08cffb7bcf0aa8e74ea4c82519e333f3208b7db16507a"
+        },
+        {
+          "projection_pointer": "/measurements/2/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc10567551"
+          ],
+          "source_locators_sha256": "32ba69e5f95cbc1b51d8ee105bea1e110ce76635762d089737c08584281947ca"
+        },
+        {
+          "projection_pointer": "/measurements/2/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc10567551"
+          ],
+          "source_locators_sha256": "3bb1c086a90dc05fd035f27253fb5e4c14273881b007866d053959a6b8f4c808"
+        },
+        {
+          "projection_pointer": "/measurements/2/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc10567551"
+          ],
+          "source_locators_sha256": "d5f9e56208e234076995e6468f1b14da9f1c066d19b72c35a0763bdaa116490c"
+        },
+        {
+          "projection_pointer": "/measurements/3/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc4380465"
+          ],
+          "source_locators_sha256": "35fbde97404c8222fb8de54983e4409888c4e59463ca8840ee63cea154832810"
+        }
+      ]
+    },
+    {
+      "study_id": "zoe-method",
+      "projection_path": "data/source_projections/v2/zoe-method.json",
+      "projection_sha256": "a245f823a50ec0a56af7d5bcbca3783def49d222cc239f5c9ee3f4c1bbe2dcd5",
+      "known_fact_count": 2,
+      "downgraded_unknown_fact_count": 22,
+      "facts": [
+        {
+          "fact_id": "d2ced6e63f2e0f3685de7e1de7a9e480bb8f4b4e558c5fa8a21e4ee481b26e42",
+          "projection_pointer": "/intervention_design/policy_arms",
+          "value": 2,
+          "value_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct05273268",
+              "source_object_sha256": "24561580ca5a47a8325477a01700de180690a9e0b0018012decc81049eedc45e",
+              "source_object_bytes": 20296,
+              "locator": "/protocolSection/armsInterventionsModule/armGroups",
+              "locator_sha256": "4d5ab15516e04868df7fa1f757ae11fb00066a888b0b657b707c1b3b239f8cd0",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_array_length",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "b3f347980597b5f82a2aedb85846096d34aecda13f71cf2f91c1ddfdaedddaff",
+              "derived_value_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+            }
+          ]
+        },
+        {
+          "fact_id": "52235a2eae6f83eb036e3429ba766d1bcfe7a29cba1beec553a39b50a03dab8f",
+          "projection_pointer": "/intervention_design/randomized_policy_assignment",
+          "value": true,
+          "value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+          "provenance_mode": "mechanically_extracted_source_bound",
+          "source_bindings": [
+            {
+              "source_id": "ctgov-nct05273268",
+              "source_object_sha256": "24561580ca5a47a8325477a01700de180690a9e0b0018012decc81049eedc45e",
+              "source_object_bytes": 20296,
+              "locator": "/protocolSection/designModule/designInfo/allocation",
+              "locator_sha256": "7ab4968a1db89a993dafe798c17ab6009a0d041ebead3f4c1c6c0836326482eb",
+              "binding_mode": "mechanically_extracted_source_bound",
+              "operator": "json_pointer_casefold_equals_randomized",
+              "locator_resolution": "json_pointer_resolved",
+              "source_value_sha256": "5207cfd3a6dddce8d1c59a3aff9c9198a6e0c9fa57ac9d94dcee6076b5b6b53c",
+              "derived_value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+            }
+          ]
+        }
+      ],
+      "downgraded_unknowns": [
+        {
+          "projection_pointer": "/population/randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "0dc197e7e557d0f86c6184ce3f94bb638570624f03f71167c6cafc0102d5f542"
+        },
+        {
+          "projection_pointer": "/population/personalized_arm",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "7464101caba4aa7b563fac080e5e35db204e06f04e3a40a095bf4b20e28e68d8"
+        },
+        {
+          "projection_pointer": "/population/control_arm",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "0fafeb3dfa34dae1d00524488436b959d448a0660676c76843ece5f965e9abe3"
+        },
+        {
+          "projection_pointer": "/timeline/intervention_duration_days",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "c9f87abb5b6c5bd737d4a974dbc40c40279dd1948b1e0e617527ad0c9dd6706d"
+        },
+        {
+          "projection_pointer": "/intervention_design/active_concurrent_comparator",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct05273268"
+          ],
+          "source_locators_sha256": "97c89e4b8d1c1bd8c7ed1c90eb468f5eae0ddf1f3cac4ff1e031161c14de3fea"
+        },
+        {
+          "projection_pointer": "/intervention_design/deployed_operator_families",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "ctgov-nct05273268"
+          ],
+          "source_locators_sha256": "4d4ca750eee4bed78f4b223c53ac05b9aca8dc86a06afe8a7e17d626f4571b48"
+        },
+        {
+          "projection_pointer": "/intervention_design/causally_identifiable_policy_contrasts",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "5685af884ef0d4d0250f43e6688279d95fa2586b127b58ae884fab04962333ed"
+        },
+        {
+          "projection_pointer": "/intervention_design/adaptive_reassignment",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "766f87c89d25baa2819f3536dcec27a35e9472d73bed5acb50ec4c36229c6d71"
+        },
+        {
+          "projection_pointer": "/intervention_design/within_policy_adaptation_randomized",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "482928ec35a54125a809f9cc90651076a5566865e76616f6cdc3fbec95fed8c1"
+        },
+        {
+          "projection_pointer": "/personalization/individual_state_models",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "08447ec9b8c68b3cb6f98560f14f12208840d4bf74abee88f261a868baac1f9c"
+        },
+        {
+          "projection_pointer": "/personalization/adaptive_decisions",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "759217386f7862a30e4a1ef03e9d54abb3f849d31bdfc2ebc28fd52b98ea0bbb"
+        },
+        {
+          "projection_pointer": "/personalization/randomized_component_personalization",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "8b360cdd2c29b21593cc64a22773c6f13e7d630952c77e4917d5294b06085609"
+        },
+        {
+          "projection_pointer": "/personalization/within_person_counterfactuals",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "7e61d04eec201948c45c89f4dc7099d3bed5cb3a45974844bd526c89b36438ed"
+        },
+        {
+          "projection_pointer": "/personalization/biological_feedback",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "8125cf256351aafa6e2c438d9c3d19a82f31e7d30680bf68ebe9e6f5a3e499c6"
+        },
+        {
+          "projection_pointer": "/personalization/prospective_policy_evaluation",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "54f106bb48a9cec4d9dd94de5f2a17171dc0ef905fd6aed84f31f8060a60986b"
+        },
+        {
+          "projection_pointer": "/measurements/0/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "231184ce86894e6a667a35ceea1bf7fa47c6862cae64fd03244d2e4c265d83f8"
+        },
+        {
+          "projection_pointer": "/measurements/0/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "d4521557ccb99420ec283831e2a3445408eaab2cdf7c3cc39dc59254668e183e"
+        },
+        {
+          "projection_pointer": "/measurements/0/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "32116e2b399d6de66ad234f992efe26fb2708e182756b5f676914baa37a8af43"
+        },
+        {
+          "projection_pointer": "/measurements/1/participants",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "d455454af5f016c4d3ca1c1a86eb0d991de39489ffc839ba33724745227daed6"
+        },
+        {
+          "projection_pointer": "/measurements/1/observation_events",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "2ee3d14ff512eff3c916bf5ee232e30ae30e3cdeb83400774e171407e1a39dac"
+        },
+        {
+          "projection_pointer": "/measurements/1/targets",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "e2a68c5725f4a592573ab4aac48087018c4e12ca2d12fe107a5023830e49b5f7"
+        },
+        {
+          "projection_pointer": "/measurements/1/completeness",
+          "reason_code": "nonmechanical_source_binding_typed_unknown",
+          "source_ids": [
+            "pmc11271409"
+          ],
+          "source_locators_sha256": "cc1ce5473884a183ffbfbae66833a24196734cb7ce4fbef3f0d1a8ea0ca8dc4b"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,612 @@
+{
+  "contract": "anibench.illustrative-protocol-source.v1",
+  "claim_class": "synthetic_mechanics_fixture_not_empirical_trial",
+  "description": "Exact synthetic declarations underlying the bundled protocol-capacity example. This object is an executable teaching fixture, not a realized or planned human study and not empirical evidence.",
+  "protocol_geometry_without_provenance_fields": {
+    "schema_version": "anibench.protocol-capacity-input.v2",
+    "protocol_id": "illustrative-protocol-not-a-trial",
+    "claim_class": "prospective_protocol_capacity",
+    "parameter_space": {
+      "parameter_space_id": "illustrative-two-direction-space",
+      "dimension": 2,
+      "prior_precision": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "measurement_geometry": {
+      "signals": [
+        {
+          "signal_id": "signal-a",
+          "canonical_feature_id": "feature-a",
+          "feature_ancestry_id": "ancestry-a",
+          "operator_row": [
+            1,
+            0
+          ],
+          "evidence_state": "protocol_committed"
+        }
+      ],
+      "covariance_groups": [
+        {
+          "covariance_group_id": "covariance-a",
+          "signal_ids": [
+            "signal-a"
+          ],
+          "covariance": [
+            [
+              1
+            ]
+          ]
+        }
+      ],
+      "joint_covariance_authority": {
+        "state": "complete",
+        "signal_ids": [
+          "signal-a"
+        ],
+        "covariance": [
+          [
+            1
+          ]
+        ]
+      },
+      "measurement_modules": [
+        {
+          "module_id": "module-a",
+          "canonical_event_unit_id": "participant-state-visit",
+          "signal_ids": [
+            "signal-a"
+          ],
+          "evidence_state": "protocol_committed"
+        }
+      ],
+      "joint_observation_bundles": [
+        {
+          "joint_observation_bundle_id": "bundle-baseline",
+          "canonical_event_unit_id": "participant-state-visit"
+        },
+        {
+          "joint_observation_bundle_id": "bundle-outcome",
+          "canonical_event_unit_id": "participant-state-visit"
+        },
+        {
+          "joint_observation_bundle_id": "bundle-site-a",
+          "canonical_event_unit_id": "participant-state-visit"
+        },
+        {
+          "joint_observation_bundle_id": "bundle-site-b",
+          "canonical_event_unit_id": "participant-state-visit"
+        }
+      ],
+      "population_aggregation_authorities": [
+        {
+          "aggregation_authority_id": "illustrative-disjoint-populations",
+          "participant_set_ids": [
+            "all-participants",
+            "site-a-participants",
+            "site-b-participants"
+          ],
+          "aggregation_rule": "sum_information_across_disjoint_participant_sets",
+          "participant_relation": "mutually_disjoint_participant_sets"
+        }
+      ],
+      "participant_event_schedules": [
+        {
+          "schedule_id": "schedule-baseline",
+          "participant_event_lineage_id": "lineage-baseline",
+          "joint_observation_bundle_id": "bundle-baseline",
+          "canonical_event_unit_id": "participant-state-visit",
+          "participant_set_id": "all-participants",
+          "trajectory_dependence_id": "dependence-all-participants",
+          "retention_overlap_authority": {
+            "state": "registered_nested",
+            "retained_participant_set_id": "retained-all-participants"
+          },
+          "measurement_module_ids": [
+            "module-a"
+          ],
+          "participant_count": {
+            "state": "exact",
+            "value": 100
+          },
+          "events_per_participant": {
+            "state": "exact",
+            "value": 1
+          },
+          "retention_fraction": {
+            "state": "exact",
+            "value": 1
+          },
+          "within_person_repetition_correlation": {
+            "state": "exact",
+            "value": 0
+          },
+          "schedule_semantics": "exact_offsets",
+          "temporal_offsets": [
+            -1
+          ]
+        },
+        {
+          "schedule_id": "schedule-outcome",
+          "participant_event_lineage_id": "lineage-outcome",
+          "joint_observation_bundle_id": "bundle-outcome",
+          "canonical_event_unit_id": "participant-state-visit",
+          "participant_set_id": "all-participants",
+          "trajectory_dependence_id": "dependence-all-participants",
+          "retention_overlap_authority": {
+            "state": "registered_nested",
+            "retained_participant_set_id": "retained-all-participants"
+          },
+          "measurement_module_ids": [
+            "module-a"
+          ],
+          "participant_count": {
+            "state": "exact",
+            "value": 100
+          },
+          "events_per_participant": {
+            "state": "exact",
+            "value": 4
+          },
+          "retention_fraction": {
+            "state": "exact",
+            "value": 0.9
+          },
+          "within_person_repetition_correlation": {
+            "state": "exact",
+            "value": 0.25
+          },
+          "schedule_semantics": "exact_offsets",
+          "temporal_offsets": [
+            0,
+            30,
+            60,
+            90
+          ]
+        },
+        {
+          "schedule_id": "schedule-site-a",
+          "participant_event_lineage_id": "lineage-site-a",
+          "joint_observation_bundle_id": "bundle-site-a",
+          "canonical_event_unit_id": "participant-state-visit",
+          "participant_set_id": "site-a-participants",
+          "trajectory_dependence_id": "dependence-site-a-participants",
+          "retention_overlap_authority": {
+            "state": "registered_nested",
+            "retained_participant_set_id": "retained-site-a-participants"
+          },
+          "measurement_module_ids": [
+            "module-a"
+          ],
+          "participant_count": {
+            "state": "exact",
+            "value": 50
+          },
+          "events_per_participant": {
+            "state": "exact",
+            "value": 4
+          },
+          "retention_fraction": {
+            "state": "exact",
+            "value": 0.9
+          },
+          "within_person_repetition_correlation": {
+            "state": "exact",
+            "value": 0.25
+          },
+          "schedule_semantics": "exact_offsets",
+          "temporal_offsets": [
+            0,
+            30,
+            60,
+            90
+          ]
+        },
+        {
+          "schedule_id": "schedule-site-b",
+          "participant_event_lineage_id": "lineage-site-b",
+          "joint_observation_bundle_id": "bundle-site-b",
+          "canonical_event_unit_id": "participant-state-visit",
+          "participant_set_id": "site-b-participants",
+          "trajectory_dependence_id": "dependence-site-b-participants",
+          "retention_overlap_authority": {
+            "state": "registered_nested",
+            "retained_participant_set_id": "retained-site-b-participants"
+          },
+          "measurement_module_ids": [
+            "module-a"
+          ],
+          "participant_count": {
+            "state": "exact",
+            "value": 50
+          },
+          "events_per_participant": {
+            "state": "exact",
+            "value": 4
+          },
+          "retention_fraction": {
+            "state": "exact",
+            "value": 0.9
+          },
+          "within_person_repetition_correlation": {
+            "state": "exact",
+            "value": 0.25
+          },
+          "schedule_semantics": "exact_offsets",
+          "temporal_offsets": [
+            0,
+            30,
+            60,
+            90
+          ]
+        }
+      ]
+    },
+    "causal_geometry": {
+      "operator_components": [
+        {
+          "component_id": "component-a",
+          "canonical_operator_id": "canonical-component-a"
+        }
+      ],
+      "policies": [
+        {
+          "policy_id": "control",
+          "operator_component_ids": [],
+          "policy_rule_operator_id": "fixed-control-rule"
+        },
+        {
+          "policy_id": "active",
+          "operator_component_ids": [
+            "component-a"
+          ],
+          "policy_rule_operator_id": "fixed-active-rule"
+        }
+      ],
+      "decision_rule_operators": [
+        {
+          "decision_rule_operator_id": "static-equal-randomization-rule",
+          "state": "static",
+          "policy_ids": [
+            "control",
+            "active"
+          ],
+          "reason": "Each decision epoch randomizes equally between control and active without state-dependent assignment."
+        }
+      ],
+      "estimands": [
+        {
+          "estimand_id": "proximal-feature-a",
+          "outcome_definition_id": "feature-a-level",
+          "outcome_feature_ids": [
+            "feature-a"
+          ],
+          "operator_contrasts": [
+            {
+              "contrast_id": "active-minus-control",
+              "policy_coefficients": [
+                {
+                  "policy_id": "active",
+                  "coefficient": 1
+                },
+                {
+                  "policy_id": "control",
+                  "coefficient": -1
+                }
+              ]
+            }
+          ],
+          "horizon_start_offset_exclusive": 0,
+          "horizon_end_offset_inclusive": 30
+        }
+      ],
+      "assignment_stages": [
+        {
+          "stage_id": "baseline-randomization",
+          "context_id": "all-context",
+          "participant_set_id": "all-participants",
+          "assignment_mechanism": "micro_randomized",
+          "participant_count": {
+            "state": "exact",
+            "value": 100
+          },
+          "decisions_per_participant": {
+            "state": "exact",
+            "value": 3
+          },
+          "decision_time_offset": 0,
+          "decision_rule_operator_id": "static-equal-randomization-rule",
+          "policy_allocations": [
+            {
+              "policy_id": "control",
+              "probability": 0.5
+            },
+            {
+              "policy_id": "active",
+              "probability": 0.5
+            }
+          ],
+          "linked_outcome_schedule_ids": [
+            "schedule-outcome"
+          ],
+          "moderator_feature_ids": [
+            "feature-a"
+          ],
+          "moderator_measurement_schedule_ids": [
+            "schedule-baseline"
+          ],
+          "sequential_assignment_probability": 0.5,
+          "decision_epochs": [
+            {
+              "decision_epoch_id": "decision-0",
+              "decision_time_offset": 0,
+              "availability_probability": 1,
+              "history_moderator_feature_ids": [
+                "feature-a"
+              ],
+              "history_measurement_schedule_ids": [
+                "schedule-baseline"
+              ],
+              "policy_propensities": [
+                {
+                  "policy_id": "control",
+                  "probability": 0.5
+                },
+                {
+                  "policy_id": "active",
+                  "probability": 0.5
+                }
+              ],
+              "proximal_outcome_links": [
+                {
+                  "schedule_id": "schedule-outcome",
+                  "estimand_id": "proximal-feature-a"
+                }
+              ]
+            },
+            {
+              "decision_epoch_id": "decision-30",
+              "decision_time_offset": 30,
+              "availability_probability": 1,
+              "history_moderator_feature_ids": [
+                "feature-a"
+              ],
+              "history_measurement_schedule_ids": [
+                "schedule-baseline"
+              ],
+              "policy_propensities": [
+                {
+                  "policy_id": "control",
+                  "probability": 0.5
+                },
+                {
+                  "policy_id": "active",
+                  "probability": 0.5
+                }
+              ],
+              "proximal_outcome_links": [
+                {
+                  "schedule_id": "schedule-outcome",
+                  "estimand_id": "proximal-feature-a"
+                }
+              ]
+            },
+            {
+              "decision_epoch_id": "decision-60",
+              "decision_time_offset": 60,
+              "availability_probability": 1,
+              "history_moderator_feature_ids": [
+                "feature-a"
+              ],
+              "history_measurement_schedule_ids": [
+                "schedule-baseline"
+              ],
+              "policy_propensities": [
+                {
+                  "policy_id": "control",
+                  "probability": 0.5
+                },
+                {
+                  "policy_id": "active",
+                  "probability": 0.5
+                }
+              ],
+              "proximal_outcome_links": [
+                {
+                  "schedule_id": "schedule-outcome",
+                  "estimand_id": "proximal-feature-a"
+                }
+              ]
+            }
+          ],
+          "moderator_population_geometry": {
+            "state": "registered",
+            "population_scope": "uniform_loewner_lower_bound_on_standardized_moderator_covariance_within_every_exact_joint_eligible_predecision_stage_context_policy_history_population",
+            "epoch_covariances": [
+              {
+                "decision_epoch_id": "decision-0",
+                "moderator_feature_ids": [
+                  "feature-a"
+                ],
+                "population_covariance": [
+                  [
+                    1
+                  ]
+                ]
+              },
+              {
+                "decision_epoch_id": "decision-30",
+                "moderator_feature_ids": [
+                  "feature-a"
+                ],
+                "population_covariance": [
+                  [
+                    1
+                  ]
+                ]
+              },
+              {
+                "decision_epoch_id": "decision-60",
+                "moderator_feature_ids": [
+                  "feature-a"
+                ],
+                "population_covariance": [
+                  [
+                    1
+                  ]
+                ]
+              }
+            ]
+          },
+          "smart_path_geometry": {
+            "state": "not_applicable",
+            "reason": "micro-randomized example"
+          },
+          "conditional_moderated_eligibility_authority": {
+            "state": "registered_pointwise_lower_bounds",
+            "scope": "pointwise_by_stage_context_policy_over_every_preassignment_history_for_treatment_by_moderator_information",
+            "context_id": "all-context",
+            "history_scope_id": "all-preassignment-histories",
+            "history_scope_semantics": "uniform_lower_bound_over_every_preassignment_history_in_stage_context",
+            "bounds": [
+              {
+                "decision_epoch_id": "decision-0",
+                "policy_id": "control",
+                "minimum_conditional_availability_probability": 1,
+                "minimum_complete_case_outcome_moderator_retention_probability": 0.9
+              },
+              {
+                "decision_epoch_id": "decision-0",
+                "policy_id": "active",
+                "minimum_conditional_availability_probability": 1,
+                "minimum_complete_case_outcome_moderator_retention_probability": 0.9
+              },
+              {
+                "decision_epoch_id": "decision-30",
+                "policy_id": "control",
+                "minimum_conditional_availability_probability": 1,
+                "minimum_complete_case_outcome_moderator_retention_probability": 0.9
+              },
+              {
+                "decision_epoch_id": "decision-30",
+                "policy_id": "active",
+                "minimum_conditional_availability_probability": 1,
+                "minimum_complete_case_outcome_moderator_retention_probability": 0.9
+              },
+              {
+                "decision_epoch_id": "decision-60",
+                "policy_id": "control",
+                "minimum_conditional_availability_probability": 1,
+                "minimum_complete_case_outcome_moderator_retention_probability": 0.9
+              },
+              {
+                "decision_epoch_id": "decision-60",
+                "policy_id": "active",
+                "minimum_conditional_availability_probability": 1,
+                "minimum_complete_case_outcome_moderator_retention_probability": 0.9
+              }
+            ]
+          },
+          "estimating_score_dependence_authority": {
+            "state": "registered",
+            "model": "independent",
+            "correlation": 0,
+            "pooled_across_decisions": true,
+            "score_semantics": "correlation_of_centered_treatment_contrast_times_outcome_or_moderator_estimating_scores_over_ordered_decision_epochs"
+          }
+        }
+      ],
+      "transport_geometry": {
+        "reference_estimand_id": "proximal-feature-a",
+        "transport_axis_families": [
+          {
+            "transport_axis_family_id": "site-transport",
+            "reference_estimand_id": "proximal-feature-a",
+            "required_transport_axis_ids": [
+              "site-context"
+            ],
+            "coordinate_scale_authority": {
+              "state": "registered",
+              "scope": "units_transforms_ranges_for_required_transport_axes"
+            }
+          }
+        ],
+        "contexts": [
+          {
+            "context_id": "site-a",
+            "participant_set_id": "site-a-participants",
+            "participant_count": {
+              "state": "exact",
+              "value": 50
+            },
+            "assignment_mechanism": "simple_randomized",
+            "assignment_time_offset": 0,
+            "linked_outcome_schedule_ids": [
+              "schedule-site-a"
+            ],
+            "policy_allocations": [
+              {
+                "policy_id": "control",
+                "probability": 0.5
+              },
+              {
+                "policy_id": "active",
+                "probability": 0.5
+              }
+            ],
+            "transport_coordinates": [
+              {
+                "transport_axis_id": "site-context",
+                "value": 0
+              }
+            ],
+            "estimand_binding": {
+              "state": "direct",
+              "estimand_id": "proximal-feature-a"
+            }
+          },
+          {
+            "context_id": "site-b",
+            "participant_set_id": "site-b-participants",
+            "participant_count": {
+              "state": "exact",
+              "value": 50
+            },
+            "assignment_mechanism": "simple_randomized",
+            "assignment_time_offset": 0,
+            "linked_outcome_schedule_ids": [
+              "schedule-site-b"
+            ],
+            "policy_allocations": [
+              {
+                "policy_id": "control",
+                "probability": 0.5
+              },
+              {
+                "policy_id": "active",
+                "probability": 0.5
+              }
+            ],
+            "transport_coordinates": [
+              {
+                "transport_axis_id": "site-context",
+                "value": 1
+              }
+            ],
+            "estimand_binding": {
+              "state": "direct",
+              "estimand_id": "proximal-feature-a"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

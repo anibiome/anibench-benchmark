@@ -1,0 +1,10 @@
+# Verified repository collaborator responsible for default review routing.
+* @genius-bb
+
+# Public-release and governance surfaces require the same explicit review.
+/.github/ @genius-bb
+/LICENSES/ @genius-bb
+/REUSE.toml @genius-bb
+/.zenodo.json @genius-bb
+/docs/ @genius-bb
+

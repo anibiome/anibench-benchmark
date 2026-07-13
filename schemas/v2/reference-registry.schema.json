@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anibench.org/schemas/v2/reference-registry.schema.json",
+  "title": "AniBench v2 local reference authority registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "registry_version",
+    "status",
+    "promotable_level_1_reference",
+    "public_completion_claim_allowed",
+    "illustrative_mechanics_fixtures"
+  ],
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^sha256:(?!0{64}$)[0-9a-f]{64}$"},
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{1,127}$"}
+  },
+  "properties": {
+    "contract": {"const": "anibench.local-reference-registry.v2-candidate1"},
+    "registry_version": {"type": "string", "minLength": 1},
+    "status": {"const": "no_promotable_level_1_reference"},
+    "promotable_level_1_reference": {"type": "null"},
+    "public_completion_claim_allowed": {"const": false},
+    "illustrative_mechanics_fixtures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "reference_authority_id",
+          "fixture_path",
+          "fixture_raw_sha256",
+          "fixture_payload_sha256",
+          "reference_level_hash",
+          "matrix_hashes",
+          "claim_class",
+          "promotion_allowed",
+          "public_completion_claim_allowed"
+        ],
+        "properties": {
+          "reference_authority_id": {"$ref": "#/$defs/id"},
+          "fixture_path": {"type": "string", "pattern": "^spec/v2/mechanics-fixtures/[A-Za-z0-9._/-]+\\.json$"},
+          "fixture_raw_sha256": {"$ref": "#/$defs/sha256"},
+          "fixture_payload_sha256": {"$ref": "#/$defs/sha256"},
+          "reference_level_hash": {"$ref": "#/$defs/sha256"},
+          "matrix_hashes": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "information_matrix_sha256",
+              "prior_precision_matrix_sha256",
+              "reference_information_matrix_sha256",
+              "reference_direction_basis_sha256"
+            ],
+            "properties": {
+              "information_matrix_sha256": {"$ref": "#/$defs/sha256"},
+              "prior_precision_matrix_sha256": {"$ref": "#/$defs/sha256"},
+              "reference_information_matrix_sha256": {"$ref": "#/$defs/sha256"},
+              "reference_direction_basis_sha256": {"$ref": "#/$defs/sha256"}
+            }
+          },
+          "claim_class": {"const": "illustrative_mechanics_fixture_not_biological_reference"},
+          "promotion_allowed": {"const": false},
+          "public_completion_claim_allowed": {"const": false}
+        }
+      }
+    }
+  }
+}

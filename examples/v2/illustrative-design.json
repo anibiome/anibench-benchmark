@@ -1,0 +1,39 @@
+{
+  "contract": "anibench.design-input.v2-candidate1",
+  "assessment_lane": "design_preview",
+  "study_id": "illustrative-trial-not-a-benchmark",
+  "name": "Illustrative trial form",
+  "population": {
+    "value": 120,
+    "state": "conditional",
+    "semantics": "planned_enrollment"
+  },
+  "duration": {
+    "value": 180,
+    "state": "conditional",
+    "semantics": "intervention_duration_days"
+  },
+  "policy_arms": 3,
+  "randomized_policy": true,
+  "concurrent_control": true,
+  "adaptive_reassignment": null,
+  "within_policy_randomized": null,
+  "operator_families": [
+    "operator-a",
+    "operator-b"
+  ],
+  "measurement_modules": [
+    {
+      "module_id": "molecular-panel",
+      "label": "Molecular panel",
+      "evidence_state": "conditional",
+      "events_per_participant": 3
+    },
+    {
+      "module_id": "direct-function",
+      "label": "Direct functional testing",
+      "evidence_state": "conditional",
+      "events_per_participant": 4
+    }
+  ]
+}

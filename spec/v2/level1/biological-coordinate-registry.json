@@ -1,0 +1,127 @@
+{
+  "contract": "anibench.level1-biological-coordinate-registry.v1",
+  "registry_version": "1.0.0",
+  "status": "candidate_normative_mesoscopic_level_1_pending_independent_attestation",
+  "basis_semantics": "Each coordinate is a preregistered mesoscopic latent biological or causal direction. Platform feature counts are observers of coordinates, never coordinates by arithmetic addition.",
+  "standardization": {
+    "rule": "phi_j = theta_j / s_j",
+    "scale_derivation": "In a non-ANI external calibration corpus, s_j is the maximum of 1.4826 times baseline MAD, a reliability-adjusted measurement-error floor, and a registered minimum meaningful-change scale when one exists.",
+    "fallback": "If no external calibration corpus exists, s_j remains unknown and empirical trial scoring is prohibited; the normative reference geometry remains defined in standardized units.",
+    "sensitivity_scale_multipliers": [0.5, 1.0, 2.0]
+  },
+  "blocks": [
+    {
+      "block_id": "state_observation",
+      "symbol": "theta_S",
+      "target_posterior_sd_ratio": 0.1,
+      "coordinates": [
+        ["S01", "inherited_and_stable_molecular_identity"],
+        ["S02", "epigenetic_regulatory_state"],
+        ["S03", "transcriptional_state"],
+        ["S04", "proteomic_and_signaling_state"],
+        ["S05", "metabolic_and_lipid_state"],
+        ["S06", "immune_cellular_state"],
+        ["S07", "hematologic_and_clinical_chemistry_state"],
+        ["S08", "microbiome_ecological_state"],
+        ["S09", "internal_and_external_exposure_state"],
+        ["S10", "cardiovascular_state"],
+        ["S11", "pulmonary_state"],
+        ["S12", "renal_and_hepatic_state"],
+        ["S13", "endocrine_and_energy_regulation_state"],
+        ["S14", "body_composition_and_structural_state"],
+        ["S15", "neural_and_cognitive_state"],
+        ["S16", "symptom_and_lived_state" ]
+      ]
+    },
+    {
+      "block_id": "natural_dynamics",
+      "symbol": "theta_D",
+      "target_posterior_sd_ratio": 0.15,
+      "coordinates": [
+        ["D01", "circadian_phase"],
+        ["D02", "circadian_amplitude"],
+        ["D03", "acute_reactivity"],
+        ["D04", "short_horizon_recovery"],
+        ["D05", "weekly_velocity"],
+        ["D06", "monthly_velocity"],
+        ["D07", "seasonal_and_annual_drift"],
+        ["D08", "state_acceleration"],
+        ["D09", "persistence_and_memory"],
+        ["D10", "washout_kinetics"],
+        ["D11", "rebound_kinetics"],
+        ["D12", "hysteresis_and_regime_transition"]
+      ]
+    },
+    {
+      "block_id": "perturbation_response",
+      "symbol": "theta_P",
+      "target_posterior_sd_ratio": 0.12,
+      "coordinates": [
+        ["P01", "whole_policy_average_response"],
+        ["P02", "component_main_response"],
+        ["P03", "component_interaction_response"],
+        ["P04", "response_onset"],
+        ["P05", "response_peak_magnitude"],
+        ["P06", "dose_or_intensity_response"],
+        ["P07", "adaptation_and_tolerance"],
+        ["P08", "recovery_response"],
+        ["P09", "withdrawal_and_washout_response"],
+        ["P10", "rebound_response"],
+        ["P11", "safety_and_off_target_response"],
+        ["P12", "state_and_context_conditioned_response"]
+      ]
+    },
+    {
+      "block_id": "person_context_heterogeneity",
+      "symbol": "theta_H",
+      "target_posterior_sd_ratio": 0.2,
+      "coordinates": [
+        ["H01", "baseline_state_variance"],
+        ["H02", "natural_trajectory_variance"],
+        ["H03", "operator_response_variance"],
+        ["H04", "exposure_and_adherence_variance"],
+        ["H05", "context_moderation"],
+        ["H06", "cross_domain_coupling_variance"],
+        ["H07", "within_person_state_dependent_response"],
+        ["H08", "responder_manifold_geometry"]
+      ]
+    },
+    {
+      "block_id": "functional_lived_state",
+      "symbol": "theta_F",
+      "target_posterior_sd_ratio": 0.1,
+      "coordinates": [
+        ["F01", "cognition"],
+        ["F02", "mood_and_affect"],
+        ["F03", "sleep"],
+        ["F04", "fatigue_and_vitality"],
+        ["F05", "cardiorespiratory_fitness"],
+        ["F06", "strength_balance_and_mobility"],
+        ["F07", "autonomic_and_metabolic_function"],
+        ["F08", "symptoms_quality_of_life_and_tolerability"]
+      ]
+    },
+    {
+      "block_id": "population_transport",
+      "symbol": "theta_T",
+      "target_posterior_sd_ratio": 0.25,
+      "coordinates": [
+        ["T01", "site_transport"],
+        ["T02", "geographic_and_environmental_transport"],
+        ["T03", "age_transport"],
+        ["T04", "sex_and_reproductive_context_transport"],
+        ["T05", "genetic_ancestry_transport"],
+        ["T06", "socioeconomic_and_access_transport"],
+        ["T07", "baseline_health_and_disease_state_transport"],
+        ["T08", "comorbidity_and_medication_transport"]
+      ]
+    }
+  ],
+  "ordered_coordinate_count": 64,
+  "forbidden_derivations": [
+    "study identity or desired study ordering",
+    "raw assay menu size as independent information dimension",
+    "current leaderboard maximum",
+    "unregistered imputation of unknown coordinates"
+  ]
+}

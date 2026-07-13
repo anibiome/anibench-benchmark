@@ -1,0 +1,25 @@
+{
+  "contract": "anibench.local-reference-registry.v2-candidate1",
+  "registry_version": "anibench.local-reference-registry.v2-candidate1",
+  "status": "no_promotable_level_1_reference",
+  "promotable_level_1_reference": null,
+  "public_completion_claim_allowed": false,
+  "illustrative_mechanics_fixtures": [
+    {
+      "reference_authority_id": "illustrative-mechanics-2d-v1",
+      "fixture_path": "spec/v2/mechanics-fixtures/illustrative-reference-2d.json",
+      "fixture_raw_sha256": "sha256:b7d6fe0ce54ed9029751dce859644b4dddbcfead142f1a8bee9aeefbf2e14227",
+      "fixture_payload_sha256": "sha256:4cb4dcefad87d5bd051b50fa0f7bec7b328817377e8e836b95bce0bfdecbf0fb",
+      "reference_level_hash": "sha256:52367a6622b19f08825e915fad80c542ad4f4c34dbcebad9f5007994b3e39208",
+      "matrix_hashes": {
+        "information_matrix_sha256": "sha256:716e79aac26e68e22f33daef9fadc2af17450a7d4f8c331abf6c7a98d86e35f9",
+        "prior_precision_matrix_sha256": "sha256:9edef8c16d436d60ee71fc92b2312d7ee052657f77a487bd809d383cba012000",
+        "reference_information_matrix_sha256": "sha256:23c72720e4c8d2b5ab66350180e724b56350aff7c15e0bd4e11baebe344ba07a",
+        "reference_direction_basis_sha256": "sha256:9edef8c16d436d60ee71fc92b2312d7ee052657f77a487bd809d383cba012000"
+      },
+      "claim_class": "illustrative_mechanics_fixture_not_biological_reference",
+      "promotion_allowed": false,
+      "public_completion_claim_allowed": false
+    }
+  ]
+}

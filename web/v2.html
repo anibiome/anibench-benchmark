@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AniBench v2 candidate trial design compiler">
+  <title>AniBench v2 · Trial Designer</title>
+  <link rel="stylesheet" href="v2.css">
+</head>
+<body>
+  <a class="skip" href="#designer">Skip to Trial Designer</a>
+  <header>
+    <a class="mark" href="/">ANI<span>BENCH</span></a>
+    <div class="status"><i></i><span>V2 CANDIDATE · NO PUBLIC RANKS</span></div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <p class="kicker">TRIAL LEARNING ARCHITECTURE</p>
+      <h1 id="page-title">Make the design explicit.</h1>
+      <p class="lede">Describe a prospective or completed human trial in ordinary study terms. AniBench preserves evidence states, compiles the experiment into separate biological-learning families, exposes what remains unknown, and shows which protocol changes open new information.</p>
+      <div class="family-grid" aria-label="AniBench benchmark families">
+        <article><span>01</span><h2>Biological resolution</h2><p>What one explicitly linked participant-state event can resolve.</p></article>
+        <article><span>02</span><h2>Total reconstruction</h2><p>How retained people and events accumulate joint information.</p></article>
+        <article><span>03</span><h2>Longitudinal resolution</h2><p>How densely and how long the same people are measured.</p></article>
+        <article><span>04</span><h2>Causal architecture</h2><p>Which whole-policy and component effects the assignment geometry identifies.</p></article>
+        <article><span>05</span><h2>Personalized learning</h2><p>Which prospective moderators and repeated decisions support adaptive policies.</p></article>
+        <article><span>06</span><h2>Population transport</h2><p>Where common policies and measured context contrasts support transfer.</p></article>
+      </div>
+    </section>
+
+    <section id="designer" class="product-section" aria-labelledby="designer-title">
+      <div class="section-head">
+        <div>
+          <p class="kicker">PRIMARY WORKFLOW</p>
+          <h2 id="designer-title">Trial Designer</h2>
+        </div>
+        <p>Use exact values when they are committed or observed, conditional values for planning assumptions, and unknown when the evidence is not available. Unknown never becomes zero.</p>
+      </div>
+
+      <div class="candidate-note" role="note">
+        <strong>Design-capacity engine</strong>
+        <span>This workflow creates a typed design receipt and improvement plan. Family outputs remain separate; public ranks unlock only after the reference, source, calibration, and independent-review gates are bound to the release.</span>
+      </div>
+
+      <section class="source-intake" aria-labelledby="source-intake-title">
+        <div class="source-intake-head">
+          <div>
+            <p class="kicker">SOURCE-BOUND DISCOVERY</p>
+            <h3 id="source-intake-title">Find a registered trial or lock an exact NCT record</h3>
+          </div>
+          <p>ClinicalTrials.gov responses are captured as immutable, hash-addressed intake snapshots. They never auto-fill biological geometry, become evidence, or receive a score before field-level human review.</p>
+        </div>
+        <div class="source-intake-grid">
+          <form id="ctgov-search-form" class="source-intake-panel">
+            <label for="ctgov-query">Search ClinicalTrials.gov</label>
+            <input id="ctgov-query" name="query" type="search" maxlength="512" required placeholder="healthy aging AND proteomics" autocomplete="off">
+            <div class="form-grid two compact-fields">
+              <div class="field">
+                <label for="ctgov-page-size">Results</label>
+                <input id="ctgov-page-size" name="page_size" type="number" min="1" max="100" step="1" value="10" inputmode="numeric">
+              </div>
+              <div class="field">
+                <label for="ctgov-page-token">Page token</label>
+                <input id="ctgov-page-token" name="page_token" maxlength="2048" autocomplete="off" aria-describedby="ctgov-token-help">
+                <small id="ctgov-token-help">Optional token from a prior snapshot.</small>
+              </div>
+            </div>
+            <div class="actions">
+              <button type="submit">Capture search page</button>
+              <button id="download-ctgov-search" type="button" class="secondary" hidden>Download search snapshot</button>
+            </div>
+            <p id="ctgov-search-status" role="status">Ready to capture one source page.</p>
+          </form>
+          <form id="ctgov-intake-form" class="source-intake-panel">
+            <label for="ctgov-nct-id">Exact NCT identifier</label>
+            <input id="ctgov-nct-id" name="nct_id" required pattern="NCT[0-9]{8}" placeholder="NCT01234567" autocomplete="off">
+            <p class="source-boundary">This locks the exact registry response and its JSON-pointer inventory. It does not infer assays, participant-event linkage, intervention geometry, or realized execution.</p>
+            <div class="actions">
+              <button type="submit">Lock registry snapshot</button>
+              <button id="download-ctgov-study" type="button" class="secondary" hidden>Download study snapshot</button>
+            </div>
+            <p id="ctgov-intake-status" role="status">Ready for an exact NCT record.</p>
+          </form>
+        </div>
+        <section id="ctgov-result" class="registry-result" aria-live="polite">
+          <p class="kicker">INTAKE RECEIPT</p>
+          <h4>No registry snapshot captured yet.</h4>
+          <p>Search results and exact source hashes appear here. Selecting a result only carries its NCT identifier into the exact-intake form.</p>
+        </section>
+      </section>
+
+      <div class="designer-grid">
+        <form id="design-form" class="designer-form">
+          <fieldset>
+            <legend>1. Study identity</legend>
+            <div class="form-grid two">
+              <div class="field">
+                <label for="study-id">Study ID</label>
+                <input id="study-id" name="study_id" required placeholder="trial-id" pattern="[A-Za-z0-9][A-Za-z0-9._:-]{0,127}" autocomplete="off" aria-describedby="study-id-help">
+                <small id="study-id-help">A stable internal, registry, or protocol identifier.</small>
+              </div>
+              <div class="field">
+                <label for="study-name">Study name</label>
+                <input id="study-name" name="name" required placeholder="Trial name" autocomplete="off">
+              </div>
+              <div class="field span-two">
+                <label for="assessment-lane">Evidence lane</label>
+                <select id="assessment-lane" name="assessment_lane">
+                  <option value="design_preview">Design Preview · planned study</option>
+                  <option value="registered">Registered Protocol · frozen source</option>
+                  <option value="realized">Realized · completed or active execution</option>
+                  <option value="accessible">Accessible · independently executable data</option>
+                  <option value="demonstrated">Demonstrated · held-out learning receipts</option>
+                </select>
+                <small>The lane states what the receipt is allowed to claim; it is not a quality grade.</small>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>2. People and time</legend>
+            <div class="typed-pair">
+              <div class="typed-title">
+                <h3>Participant population</h3>
+                <p>Choose the denominator the number actually represents.</p>
+              </div>
+              <div class="form-grid three">
+                <div class="field">
+                  <label for="population-value">People</label>
+                  <input id="population-value" name="population_value" type="number" min="1" step="1" inputmode="numeric">
+                </div>
+                <div class="field">
+                  <label for="population-state">Evidence state</label>
+                  <select id="population-state" name="population_state" data-controls="population-value">
+                    <option value="unknown">Unknown</option>
+                    <option value="exact">Exact</option>
+                    <option value="conditional">Conditional assumption</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="population-semantics">Meaning</label>
+                  <select id="population-semantics" name="population_semantics">
+                    <option value="planned_enrollment">Planned enrollment</option>
+                    <option value="randomized">Randomized</option>
+                    <option value="started">Started intervention</option>
+                    <option value="itt_population">ITT population</option>
+                    <option value="completers">Completers</option>
+                    <option value="assay_union">Assay union</option>
+                    <option value="complete_pair">Complete paired set</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="typed-pair">
+              <div class="typed-title">
+                <h3>Study duration</h3>
+                <p>Enter days and state whether this is committed, assumed, or unknown.</p>
+              </div>
+              <div class="form-grid three">
+                <div class="field">
+                  <label for="duration-value">Days</label>
+                  <input id="duration-value" name="duration_value" type="number" min="1" step="1" inputmode="numeric">
+                </div>
+                <div class="field">
+                  <label for="duration-state">Evidence state</label>
+                  <select id="duration-state" name="duration_state" data-controls="duration-value">
+                    <option value="unknown">Unknown</option>
+                    <option value="exact">Exact</option>
+                    <option value="conditional">Conditional assumption</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="duration-semantics">Meaning</label>
+                  <select id="duration-semantics" name="duration_semantics">
+                    <option value="intervention_duration_days">Intervention duration</option>
+                    <option value="observation_duration_days">Observation duration</option>
+                    <option value="follow_up_duration_days">Follow-up duration</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>3. Intervention and causal structure</legend>
+            <div class="form-grid three">
+              <div class="field">
+                <label for="policy-arms">Policy arms</label>
+                <input id="policy-arms" name="policy_arms" type="number" min="1" step="1" inputmode="numeric">
+              </div>
+              <div class="field span-two">
+                <label for="operator-families">Operator families</label>
+                <input id="operator-families" name="operator_families" aria-describedby="operator-help">
+                <small id="operator-help">Comma-separated intervention families; for example nutrition, exercise, sleep.</small>
+              </div>
+              <div class="field">
+                <label for="randomized-policy">Policy randomized?</label>
+                <select id="randomized-policy" name="randomized_policy">
+                  <option value="unknown">Unknown</option><option value="true">Yes</option><option value="false">No</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="concurrent-control">Concurrent control?</label>
+                <select id="concurrent-control" name="concurrent_control">
+                  <option value="unknown">Unknown</option><option value="true">Yes</option><option value="false">No</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="adaptive-reassignment">Adaptive reassignment?</label>
+                <select id="adaptive-reassignment" name="adaptive_reassignment">
+                  <option value="unknown">Unknown</option><option value="true">Yes</option><option value="false">No</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="within-policy-randomized">Within-policy randomized?</label>
+                <select id="within-policy-randomized" name="within_policy_randomized">
+                  <option value="unknown">Unknown</option><option value="true">Yes</option><option value="false">No</option>
+                </select>
+                <small>Randomization among components or decisions inside a policy.</small>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>4. Measurement modules</legend>
+            <p class="fieldset-help">Add each biological, functional, digital, contextual, or clinical module separately. Events mean measurements per participant under the selected evidence state.</p>
+            <div id="measurement-modules" class="module-list"></div>
+            <button id="add-module" type="button" class="secondary add-button">Add measurement module</button>
+          </fieldset>
+
+          <div class="form-submit">
+            <button type="submit">Compile trial design</button>
+            <button id="load-design-example" type="button" class="secondary">Load illustrative form example</button>
+            <p id="design-status" role="status">Ready to compile a typed design receipt.</p>
+          </div>
+        </form>
+
+        <section class="designer-result" aria-live="polite" aria-labelledby="design-result-title">
+          <div id="design-result-empty" class="empty-state">
+            <p class="kicker">COMPILED RECEIPT</p>
+            <h2 id="design-result-title">Your evidence map appears here.</h2>
+            <p>The compiler will return typed coordinates, unresolved gates, and structural upgrades. No overall score or rank is produced.</p>
+          </div>
+          <div id="design-result-content" tabindex="-1" hidden>
+            <div class="result-heading">
+              <div><p class="kicker">COMPILED RECEIPT</p><h2>Design structure</h2></div>
+              <span id="design-claim-badge" class="badge">Candidate</span>
+            </div>
+            <p id="design-boundary" class="boundary-copy"></p>
+            <dl id="design-receipt" class="receipt-grid"></dl>
+
+            <section class="result-block" aria-labelledby="coordinate-title">
+              <div class="block-title"><h3 id="coordinate-title">Typed coordinates</h3><span id="coordinate-count"></span></div>
+              <div id="design-coordinates" class="coordinate-list"></div>
+            </section>
+
+            <section class="result-block" aria-labelledby="gates-title">
+              <div class="block-title"><h3 id="gates-title">Open gates</h3><span id="gate-count"></span></div>
+              <ol id="design-gates" class="advice-list gates"></ol>
+            </section>
+
+            <section class="result-block" aria-labelledby="upgrades-title">
+              <div class="block-title"><h3 id="upgrades-title">Structural upgrades</h3><span id="upgrade-count"></span></div>
+              <div id="design-upgrades" class="upgrade-groups"></div>
+            </section>
+
+            <section class="result-block workflow-handoff" aria-labelledby="handoff-title">
+              <div class="block-title"><h3 id="handoff-title">Continue to executable geometry</h3><span>six families</span></div>
+              <p>The ordinary form never invents observation operators, covariance, participant-event linkage, assignment, moderators, or transport geometry. The next stage binds those exact objects and compiles the family map.</p>
+              <div id="design-family-readiness" class="family-readiness-grid"></div>
+              <button id="open-capacity-lab" type="button">Continue to protocol compiler</button>
+            </section>
+
+            <button id="download-design" type="button" class="secondary">Download design handoff receipt</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="expert-section protocol-lab" aria-labelledby="capacity-lab-title">
+      <details open>
+        <summary>
+          <span><small>ADVANCED · EXECUTABLE DESIGN LAB</small><strong id="capacity-lab-title">Compile capacity and explore better protocols</strong></span>
+          <span aria-hidden="true">Open</span>
+        </summary>
+        <div class="expert-intro">
+          <p>The capacity compiler keeps per-event biological resolution, retained scale, longitudinal density, causal identifiability, sequential personalization, and transport separate. Planned protocols are evaluated on their committed geometry; their preview evidence badge is not a numerical penalty.</p>
+        </div>
+        <div class="lab-grid">
+          <form id="capacity-form" class="lab-panel">
+            <p class="kicker">PROTOCOL COMPILER</p>
+            <h3>Explicit protocol geometry</h3>
+            <div class="geometry-guide" aria-label="Protocol geometry checklist">
+              <strong>What the compiler needs</strong>
+              <ol>
+                <li>Registered biological parameter basis, prior precision, and exact source hash.</li>
+                <li>Joint participant-event bundles with observation operators, ancestry, and covariance.</li>
+                <li>Within-person schedules, retention, offsets, and repetition dependence.</li>
+                <li>Assignment stages, policies, post-decision outcomes, moderators, and transport contexts when claimed.</li>
+              </ol>
+              <p>Anything missing stays unresolved. The Studio does not infer a matrix from assay names or arm counts.</p>
+            </div>
+            <label for="capacity-input">Exact protocol-capacity object</label>
+            <textarea id="capacity-input" rows="22" spellcheck="false"></textarea>
+            <div class="actions">
+              <button type="submit">Compile capacity families</button>
+              <button id="assess-level1" type="button">Assess six trial dimensions</button>
+              <button id="view-level1-authority" type="button" class="secondary">View Level-1 definition</button>
+              <button id="load-capacity-example" type="button" class="secondary">Load example</button>
+            </div>
+            <p id="capacity-status" role="status">Ready for an explicit protocol.</p>
+          </form>
+          <section id="capacity-result" class="lab-result" aria-live="polite">
+            <p class="kicker">FAMILY RECEIPT</p>
+            <h3>No protocol compiled yet.</h3>
+            <p class="block-explainer">Results appear as a six-family map, exact scenario envelopes, and a source-bound comparator placement receipt. No overall score is created.</p>
+          </section>
+        </div>
+        <div class="lab-grid optimizer-lab-grid">
+          <form id="protocol-optimizer-form" class="lab-panel">
+            <p class="kicker">PARETO DESIGN SANDBOX</p>
+            <h3>Change the protocol, not the score</h3>
+            <label for="protocol-optimizer-input">Optimizer JSON</label>
+            <textarea id="protocol-optimizer-input" rows="22" spellcheck="false"></textarea>
+            <div class="actions">
+              <button type="submit">Explore protocol mutations</button>
+              <button id="load-optimizer-example" type="button" class="secondary">Load example</button>
+            </div>
+            <p id="optimizer-status" role="status">Ready for protocol-native mutations and resource bounds.</p>
+          </form>
+          <section id="protocol-optimizer-result" class="lab-result" aria-live="polite">
+            <p class="kicker">PARETO RECEIPT</p>
+            <h3>No design search yet.</h3>
+            <p class="block-explainer">Every candidate is recompiled from protocol geometry. Hidden weights, patched family outputs, and stable ranks are forbidden.</p>
+          </section>
+        </div>
+      </details>
+    </section>
+
+    <section class="expert-section" aria-labelledby="expert-title">
+      <details>
+        <summary>
+          <span><small>SECONDARY · EXPERT REPLAY</small><strong id="expert-title">Inspect joint-information mechanics</strong></span>
+          <span aria-hidden="true">Open</span>
+        </summary>
+        <div class="expert-intro">
+          <p>This replay accepts an explicit matrix packet for mathematical inspection. It does not compile a trial, establish a biological reference, emit a Level 1 completion claim, or create a public score or rank.</p>
+        </div>
+        <div class="workspace expert-workspace">
+          <form id="v2-form">
+            <label for="v2-input">Information-replay JSON</label>
+            <textarea id="v2-input" rows="24" spellcheck="false" aria-describedby="input-help"></textarea>
+            <p id="input-help">Matrix identities are verified by the server. Reference values appear only for the exact registered illustrative mechanics fixture.</p>
+            <div class="actions">
+              <button type="submit">Run mechanics replay</button>
+              <button id="load-mechanics" type="button" class="secondary">Load illustrative fixture</button>
+            </div>
+            <p id="v2-status" role="status">Ready for an explicit replay packet.</p>
+          </form>
+          <section class="result" aria-live="polite">
+            <div id="result-empty" class="empty-state">
+              <p class="kicker">REPLAY RESULT</p>
+              <h2>No matrix replay yet.</h2>
+              <p>The expert workbench is illustrative and separate from trial assessment.</p>
+            </div>
+            <div id="result-content" hidden>
+              <div class="metric-grid absolute-grid">
+                <article><strong id="metric-absolute">—</strong><span>model-local log₁₀ contraction</span></article>
+                <article><strong id="metric-dimension">—</strong><span>parameter dimensions</span></article>
+              </div>
+              <section id="illustrative-reference" class="illustrative-box" hidden>
+                <p class="kicker">ILLUSTRATIVE FIXTURE · NOT LEVEL 1</p>
+                <div class="metric-grid">
+                  <article><strong id="metric-illustrative-completion">—</strong><span>fixture completion</span></article>
+                  <article><strong id="metric-illustrative-overflow">—</strong><span>fixture overflow</span></article>
+                </div>
+                <h3>Illustrative reference-weight coverage</h3>
+                <div id="coverage"></div>
+              </section>
+              <dl id="receipt" class="receipt-grid"></dl>
+              <button id="download-result" type="button" class="secondary">Download replay packet</button>
+            </div>
+          </section>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <template id="module-template">
+    <article class="module-card">
+      <div class="module-head"><h3>Measurement module</h3><button type="button" class="text-button remove-module">Remove</button></div>
+      <div class="form-grid four">
+        <div class="field">
+          <label>Module ID<input data-module-field="module_id" required pattern="[A-Za-z0-9][A-Za-z0-9._:-]{0,127}" autocomplete="off"></label>
+        </div>
+        <div class="field">
+          <label>Human label<input data-module-field="label" required autocomplete="off"></label>
+        </div>
+        <div class="field">
+          <label>Evidence state<select data-module-field="evidence_state" data-module-state><option value="exact">Exact</option><option value="conditional">Conditional assumption</option><option value="unknown">Unknown</option></select></label>
+        </div>
+        <div class="field">
+          <label>Events per person<input data-module-field="events_per_participant" type="number" min="1" step="1" value="1" inputmode="numeric"></label>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <footer><span>AniBench Trials</span><span>Design compiler candidate · promotion gated</span></footer>
+  <script src="v2.js" defer></script>
+</body>
+</html>

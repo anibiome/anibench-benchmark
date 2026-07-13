@@ -1,0 +1,277 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anibench.org/schemas/v3/level1-v2-to-v3-impact-receipt.schema.json",
+  "title": "AniBench Level-1 v2 to v3 substantive impact receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "migration_class",
+    "source_authority",
+    "candidate_authority",
+    "preserved",
+    "substantive_changes",
+    "invalidated_v2_derivation_outputs_for_v3",
+    "machine_proof",
+    "open_gates",
+    "disposition"
+  ],
+  "properties": {
+    "contract": {
+      "const": "anibench.level1-v2-to-v3-substantive-impact-receipt.v1"
+    },
+    "migration_class": {
+      "const": "substantive_non_numeric_role_and_estimand_ontology_change"
+    },
+    "source_authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["v2_coordinate_registry", "v2_target"],
+      "properties": {
+        "v2_coordinate_registry": {
+          "$ref": "#/$defs/sourceReference"
+        },
+        "v2_target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "target_id", "raw_sha256"],
+          "properties": {
+            "path": {
+              "const": "spec/v2/level1/normative-target-requirements.v2.json"
+            },
+            "target_id": {
+              "const": "anibench-human-trial-level1-abstract-target-v2"
+            },
+            "raw_sha256": {
+              "const": "79a6c624abd51eff0a80a53fd0b150fa425e47d72dea8c1c06abd73b274f83f8"
+            }
+          }
+        }
+      }
+    },
+    "candidate_authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "target_id", "raw_sha256", "promotion_allowed"],
+      "properties": {
+        "path": {
+          "const": "spec/v3/level1/role-aware-target-requirements.v3.json"
+        },
+        "target_id": {
+          "const": "anibench-human-trial-level1-role-aware-target-v3"
+        },
+        "raw_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "promotion_allowed": {
+          "const": false
+        }
+      }
+    },
+    "preserved": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ordered_block_count",
+        "ordered_coordinate_count",
+        "coordinate_ids_names_order_and_block_membership",
+        "six_noncompensatory_family_ids"
+      ],
+      "properties": {
+        "ordered_block_count": {
+          "const": 6
+        },
+        "ordered_coordinate_count": {
+          "const": 64
+        },
+        "coordinate_ids_names_order_and_block_membership": {
+          "const": true
+        },
+        "six_noncompensatory_family_ids": {
+          "const": [
+            "intensive",
+            "extensive",
+            "longitudinal",
+            "causal",
+            "personalized_sequential",
+            "transport"
+          ]
+        }
+      }
+    },
+    "substantive_changes": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["change_id", "v2_path", "v2_semantics", "v3_semantics", "impact"],
+        "properties": {
+          "change_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "v2_path": {
+            "type": "string",
+            "pattern": "^/"
+          },
+          "v2_semantics": {
+            "type": "string",
+            "minLength": 1
+          },
+          "v3_semantics": {
+            "type": "string",
+            "minLength": 1
+          },
+          "impact": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "invalidated_v2_derivation_outputs_for_v3": {
+      "type": "array",
+      "minItems": 7,
+      "items": {
+        "type": "string",
+        "pattern": "^/"
+      },
+      "uniqueItems": true
+    },
+    "machine_proof": {
+      "type": "object",
+      "required": [
+        "valid",
+        "ordered_block_count",
+        "ordered_coordinate_count",
+        "role_partition_count",
+        "direct_mutable_outcome_count",
+        "relational_estimand_count",
+        "family_count",
+        "unresolved_gate_count",
+        "global_enrollment_state",
+        "promotion_allowed",
+        "coordinate_roles_are_pairwise_disjoint",
+        "coordinate_role_union_equals_frozen_map",
+        "D_P_H_T_excluded_from_direct_outcome_basis",
+        "D_P_H_T_excluded_from_raw_modifier_and_context_roles",
+        "raw_context_covariates_separate_from_T_estimands",
+        "v2_global_enrollment_inherited",
+        "numeric_rank_emitted",
+        "fabricated_joint_support_matrix_emitted"
+      ],
+      "properties": {
+        "valid": {
+          "const": true
+        },
+        "ordered_block_count": {
+          "const": 6
+        },
+        "ordered_coordinate_count": {
+          "const": 64
+        },
+        "role_partition_count": {
+          "const": 7
+        },
+        "direct_mutable_outcome_count": {
+          "const": 22
+        },
+        "relational_estimand_count": {
+          "const": 40
+        },
+        "family_count": {
+          "const": 6
+        },
+        "unresolved_gate_count": {
+          "const": 11
+        },
+        "global_enrollment_state": {
+          "const": "unresolved"
+        },
+        "promotion_allowed": {
+          "const": false
+        },
+        "coordinate_roles_are_pairwise_disjoint": {
+          "const": true
+        },
+        "coordinate_role_union_equals_frozen_map": {
+          "const": true
+        },
+        "D_P_H_T_excluded_from_direct_outcome_basis": {
+          "const": true
+        },
+        "D_P_H_T_excluded_from_raw_modifier_and_context_roles": {
+          "const": true
+        },
+        "raw_context_covariates_separate_from_T_estimands": {
+          "const": true
+        },
+        "v2_global_enrollment_inherited": {
+          "const": false
+        },
+        "numeric_rank_emitted": {
+          "const": false
+        },
+        "fabricated_joint_support_matrix_emitted": {
+          "const": false
+        }
+      }
+    },
+    "open_gates": {
+      "type": "array",
+      "minItems": 11,
+      "maxItems": 11,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "disposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "promotion_allowed",
+        "stable_rank_allowed",
+        "global_enrollment_allowed",
+        "reason_code"
+      ],
+      "properties": {
+        "promotion_allowed": {
+          "const": false
+        },
+        "stable_rank_allowed": {
+          "const": false
+        },
+        "global_enrollment_allowed": {
+          "const": false
+        },
+        "reason_code": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "sourceReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "raw_sha256"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "raw_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    }
+  }
+}

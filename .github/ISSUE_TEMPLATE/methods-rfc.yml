@@ -1,0 +1,36 @@
+name: Methods RFC
+description: Propose a construct, formula, reference, task, or evidence-state change.
+title: "[RFC] "
+labels: [methods-rfc]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Do not paste participant-level data, protected health information,
+        controlled-access source text, or proprietary source bodies. Use a
+        public source locator or a source-safe description.
+  - type: textarea
+    id: construct
+    attributes:
+      label: Biological construct and failure mode
+    validations:
+      required: true
+  - type: textarea
+    id: formula
+    attributes:
+      label: Mathematical expression, units, gates, and missingness
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Falsifiers, sensitivity, affected family coordinates, and claim boundary
+      description: Keep the six families non-interchangeable and state how unresolved evidence remains typed missingness.
+    validations:
+      required: true
+  - type: textarea
+    id: coi
+    attributes:
+      label: Conflicts of interest and abstentions
+    validations:
+      required: true

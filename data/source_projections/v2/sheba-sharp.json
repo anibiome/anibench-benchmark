@@ -1,0 +1,546 @@
+{
+  "schema_version": "ani.source_projection.v2",
+  "projection_id": "sheba-sharp.source-projection.v2",
+  "study_id": "sheba-sharp",
+  "name": "Sheba Healthspan Research Population trial",
+  "projection_status": "candidate_not_scored",
+  "evaluation_mode": "registered_protocol_design",
+  "lifecycle": "recruiting_planned_not_realized",
+  "authorities": [
+    {
+      "source_id": "ctgov-nct07596576",
+      "path": "data/source_projections/v2/sources/clinicaltrials/NCT07596576.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT07596576",
+      "sha256": "aa3c0fec129aa0350f500445606d62b0d0bc01f598fb63f840af6651ed5b0179",
+      "bytes": 10230,
+      "hash_scope": "exact_local_response_body_snapshot",
+      "evidence_class": "registry_primary",
+      "locators": [
+        "/protocolSection/statusModule",
+        "/protocolSection/designModule",
+        "/protocolSection/armsInterventionsModule"
+      ]
+    }
+  ],
+  "population": {
+    "planned_enrollment": {
+      "state": "known",
+      "value": 1500,
+      "is_placeholder": false,
+      "source_ids": [
+        "ctgov-nct07596576"
+      ],
+      "source_locators": {
+        "ctgov-nct07596576": "/protocolSection/designModule/enrollmentInfo"
+      },
+      "value_semantics": "estimated"
+    }
+  },
+  "timeline": {
+    "planned_primary_endpoint_days": {
+      "source_ids": [
+        "ctgov-nct07596576"
+      ],
+      "source_locators": {
+        "ctgov-nct07596576": "primary outcome timeFrame 12 months"
+      },
+      "value_semantics": "protocol_year_converted_to_days",
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct07596576",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    }
+  },
+  "intervention_design": {
+    "policy_arms": {
+      "state": "known",
+      "value": 2,
+      "is_placeholder": false,
+      "source_ids": [
+        "ctgov-nct07596576"
+      ],
+      "source_locators": {
+        "ctgov-nct07596576": "/protocolSection/armsInterventionsModule/armGroups"
+      }
+    },
+    "randomized_policy_assignment": {
+      "state": "known",
+      "value": true,
+      "is_placeholder": false,
+      "source_ids": [
+        "ctgov-nct07596576"
+      ],
+      "source_locators": {
+        "ctgov-nct07596576": "/protocolSection/designModule/designInfo/allocation"
+      }
+    },
+    "active_concurrent_comparator": {
+      "source_ids": [
+        "ctgov-nct07596576"
+      ],
+      "source_locators": {
+        "ctgov-nct07596576": "control group"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct07596576",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "literal_source_bytes_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "deployed_operator_families": {
+      "source_ids": [
+        "ctgov-nct07596576"
+      ],
+      "source_locators": {
+        "ctgov-nct07596576": "personalized healthspan protocol policy"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct07596576",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "causally_identifiable_policy_contrasts": {
+      "source_ids": [
+        "ctgov-nct07596576"
+      ],
+      "source_locators": {
+        "ctgov-nct07596576": "personalized protocol versus control"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct07596576",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "adaptive_reassignment": {
+      "state": "unknown",
+      "reason": "The registry states personalized recommendations but not a frozen adaptive reassignment rule.",
+      "source_ids": [
+        "ctgov-nct07596576"
+      ],
+      "source_locators": {
+        "ctgov-nct07596576": "/protocolSection/armsInterventionsModule"
+      }
+    },
+    "within_policy_adaptation_randomized": {
+      "source_ids": [
+        "ctgov-nct07596576"
+      ],
+      "source_locators": {
+        "ctgov-nct07596576": "no randomized within-policy components in registry"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct07596576",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    }
+  },
+  "personalization": {
+    "individual_state_models": {
+      "source_ids": [
+        "ctgov-nct07596576"
+      ],
+      "source_locators": {
+        "ctgov-nct07596576": "personalized recommendation program"
+      },
+      "evidence_scope": "planned_protocol",
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct07596576",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "literal_source_bytes_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "adaptive_decisions": {
+      "state": "unknown",
+      "reason": "Recommendation updating rule is not specified.",
+      "source_ids": [
+        "ctgov-nct07596576"
+      ],
+      "source_locators": {
+        "ctgov-nct07596576": "/protocolSection/armsInterventionsModule/armGroups/0/description"
+      }
+    },
+    "randomized_component_personalization": {
+      "source_ids": [
+        "ctgov-nct07596576"
+      ],
+      "source_locators": {
+        "ctgov-nct07596576": "personalized components not independently randomized"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct07596576",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "within_person_counterfactuals": {
+      "source_ids": [
+        "ctgov-nct07596576"
+      ],
+      "source_locators": {
+        "ctgov-nct07596576": "group/crossover design is not randomized N-of-1"
+      },
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct07596576",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "biological_feedback": {
+      "source_ids": [
+        "ctgov-nct07596576"
+      ],
+      "source_locators": {
+        "ctgov-nct07596576": "recommendations based on assessment results"
+      },
+      "evidence_scope": "planned_protocol",
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct07596576",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    },
+    "prospective_policy_evaluation": {
+      "source_ids": [
+        "ctgov-nct07596576"
+      ],
+      "source_locators": {
+        "ctgov-nct07596576": "randomized personalized-policy comparison"
+      },
+      "evidence_scope": "planned_protocol",
+      "state": "unknown",
+      "reason_code": "nonmechanical_source_binding_typed_unknown",
+      "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+      "source_binding_resolution": [
+        {
+          "source_id": "ctgov-nct07596576",
+          "binding_mode": "curated_manual_source_bound",
+          "locator_resolution": "curator_declared_locator_not_machine_resolved",
+          "operator": "manual_curatorial_interpretation"
+        }
+      ]
+    }
+  },
+  "measurements": [
+    {
+      "id": "epigenetic_age",
+      "evidence_lane": "planned_registry",
+      "participants": {
+        "source_ids": [
+          "ctgov-nct07596576"
+        ],
+        "source_locators": {
+          "ctgov-nct07596576": "planned cohort"
+        },
+        "value_semantics": "planned_maximum_not_assay_denominator",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "ctgov-nct07596576",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "observation_events": {
+        "source_ids": [
+          "ctgov-nct07596576"
+        ],
+        "source_locators": {
+          "ctgov-nct07596576": "baseline and 12 months"
+        },
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "ctgov-nct07596576",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "literal_source_bytes_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "targets": {
+        "source_ids": [
+          "ctgov-nct07596576"
+        ],
+        "source_locators": {
+          "ctgov-nct07596576": "DNA methylation aging clocks"
+        },
+        "unit": "module_family",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "ctgov-nct07596576",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "completeness": {
+        "state": "unknown",
+        "reason": "Planned maximum is not expected or realized completeness.",
+        "source_ids": [
+          "ctgov-nct07596576"
+        ],
+        "source_locators": {
+          "ctgov-nct07596576": "/protocolSection/outcomesModule/primaryOutcomes"
+        }
+      }
+    },
+    {
+      "id": "healthspan_assessment_battery",
+      "evidence_lane": "planned_registry",
+      "participants": {
+        "source_ids": [
+          "ctgov-nct07596576"
+        ],
+        "source_locators": {
+          "ctgov-nct07596576": "planned cohort"
+        },
+        "value_semantics": "planned_maximum",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "ctgov-nct07596576",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "observation_events": {
+        "state": "unknown",
+        "reason": "Exact assessment schedule is not frozen in the registry extract.",
+        "source_ids": [
+          "ctgov-nct07596576"
+        ],
+        "source_locators": {
+          "ctgov-nct07596576": "/protocolSection/outcomesModule"
+        }
+      },
+      "targets": {
+        "source_ids": [
+          "ctgov-nct07596576"
+        ],
+        "source_locators": {
+          "ctgov-nct07596576": "ten named assessment domains"
+        },
+        "unit": "domains",
+        "state": "unknown",
+        "reason_code": "nonmechanical_source_binding_typed_unknown",
+        "reason": "The candidate value is not exposed because at least one declared source binding lacks a machine-resolved executable derivation.",
+        "source_binding_resolution": [
+          {
+            "source_id": "ctgov-nct07596576",
+            "binding_mode": "curated_manual_source_bound",
+            "locator_resolution": "curator_declared_locator_not_machine_resolved",
+            "operator": "manual_curatorial_interpretation"
+          }
+        ]
+      },
+      "completeness": {
+        "state": "unknown",
+        "reason": "Planned battery is not realized completeness.",
+        "source_ids": [
+          "ctgov-nct07596576"
+        ],
+        "source_locators": {
+          "ctgov-nct07596576": "/protocolSection/armsInterventionsModule/armGroups/0/description"
+        }
+      }
+    }
+  ],
+  "participant_event_schedule": {
+    "state": "partially_projected",
+    "semantics": "measurement rows preserve exact public schedules; no unreported jointness is inferred"
+  },
+  "crossmodal_links": [],
+  "measurement_module_classes": {
+    "exact": [],
+    "conditional": [],
+    "unknown": [
+      "epigenetic_age",
+      "healthspan_assessment_battery"
+    ],
+    "classification_semantics": "exact=all four public module facts machine-resolved; conditional=at least one but not all machine-resolved; unknown=no machine-resolved module fact"
+  },
+  "validation": {
+    "state": "not_yet_eligible",
+    "reason": "Registered design has no realized held-out evidence."
+  },
+  "access": {
+    "state": "registry_only",
+    "source_ids": [
+      "ctgov-nct07596576"
+    ],
+    "reason": "No realized participant-level dataset is asserted."
+  },
+  "open_gates": [
+    "final_protocol_and_sap",
+    "adaptive_policy_specification",
+    "realized_denominators",
+    "assay_platform_inventory",
+    "participant_event_graph"
+  ],
+  "field_provenance": {
+    "receipt_contract": "anibench.external-field-provenance-receipt.v2",
+    "known_fact_policy": "A field remains state=known only when every declared source binding is machine-resolved by a receipted executable derivation.",
+    "nonmechanical_fact_policy": "Curated, manual, unresolved, or otherwise non-executable candidate values are removed and typed unknown with reason_code=nonmechanical_source_binding_typed_unknown.",
+    "mechanical_claim_scope": "Only fields whose receipt binds an executable source extractor are mechanically extracted.",
+    "mechanically_retained_known_fact_count": 3,
+    "nonmechanical_downgraded_unknown_fact_count": 15
+  },
+  "source_coordinate_contract": {
+    "contract": "anibench.source-projection-six-family-coordinates.v1",
+    "coordinate_basis": "source_bound_projection_only",
+    "overall_scalar": null,
+    "public_rank_allowed": false,
+    "families": {
+      "intensive": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "final_protocol_and_sap",
+          "adaptive_policy_specification",
+          "realized_denominators",
+          "assay_platform_inventory",
+          "participant_event_graph"
+        ]
+      },
+      "extensive": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "final_protocol_and_sap",
+          "adaptive_policy_specification",
+          "realized_denominators",
+          "assay_platform_inventory",
+          "participant_event_graph"
+        ]
+      },
+      "longitudinal": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "final_protocol_and_sap",
+          "adaptive_policy_specification",
+          "realized_denominators",
+          "assay_platform_inventory",
+          "participant_event_graph"
+        ]
+      },
+      "causal": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "final_protocol_and_sap",
+          "adaptive_policy_specification",
+          "realized_denominators",
+          "assay_platform_inventory",
+          "participant_event_graph"
+        ]
+      },
+      "personalized_sequential": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "final_protocol_and_sap",
+          "adaptive_policy_specification",
+          "realized_denominators",
+          "assay_platform_inventory",
+          "participant_event_graph"
+        ]
+      },
+      "transport": {
+        "evidence_state": "unknown",
+        "coordinate_state": "not_scoreable",
+        "coordinates": null,
+        "reason": "source_complete_protocol_capacity_geometry_not_available",
+        "open_gate_ids": [
+          "final_protocol_and_sap",
+          "adaptive_policy_specification",
+          "realized_denominators",
+          "assay_platform_inventory",
+          "participant_event_graph"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+study_id,projection_lane,population_value,population_semantics,population_state,duration_days,duration_semantics,duration_state,policy_arms,randomized_policy,concurrent_control,deployed_operator_families,identifiable_policy_contrasts,adaptive_reassignment,within_policy_randomized,known_projected_measurement_modules,conditional_measurement_modules,unknown_measurement_modules,open_gate_count,source_projection_sha256
+all-of-us-cdrv9,official_dataset_release,,released_participants_lower_bound,unknown,,followup_duration_days,unknown,,,,,,,,0,0,5,4,0f3a0f8cf76f0e02fd0fb40afb35072a0f2b4dc0a6f7cf79a3d94f1981c0003c
+aspree,realized_randomized_trial,,randomized,unknown,,median_followup_years,unknown,,,,,,,,0,0,2,4,779e136059481a14eb5b7cdb0aeac8c865d4e51864481ba87fa1fe5b882ab595
+calerie-phase-2-expanded,realized_randomized_multiomic_resource,,randomized,unknown,,intervention_duration_days,unknown,2,true,,,,,,0,0,3,4,e0150706bd4ee9317495095122b29bf5effce6ba69793ed4333ec19dfe35f6fd
+circulate-tpe-ivig,realized_randomized_feasibility_trial,40,registry_enrollment,known,,intervention_duration_days,unknown,4,true,,,,,,0,0,2,5,e73f4334ca8a4b9c852d3ad52a22e3d4c787e8a87aefec03e69975f84b6bd1ab
+do-health-bio-age,realized_factorial_randomized_trial_substudy,2157,randomized_trial,known,,intervention_duration_days,unknown,8,true,,,,,,0,0,2,4,f2127ed368b90e67debba5812d2385d96b210facd8fbab24ce95809d2bf786ac
+dq-senolytic-bone,realized_randomized_trial_publication_subset,74,registry_enrollment,known,,intervention_duration_days,unknown,3,true,,,,,,0,0,2,5,28e801a047d0751ec0ed8c0ba6ef261902b20ec86fbc9487803ae2cdc7672780
+life-study,realized_randomized_trial,1635,randomized,known,,average_followup_years,unknown,2,true,,,,,,0,0,1,4,b84c5a1920876d4abe5c8eef6f3b61837026f51373ebf9a9484b21006387f33d
+mitoimmune-urolithin-a,realized_randomized_mechanistic_trial,,randomized,unknown,,intervention_duration_days,unknown,2,true,,,,,,0,0,2,4,c9549a57167a6389cdd09faa9229dd1b6139920e38af201393ba9d81a934f205
+motrpac-human-pre-suspension-expanded,realized_randomized_acute_multiomic_trial,1837,registry_full_program,known,,training_duration_days,unknown,,,,,,,,0,0,2,4,f3ce4032a08581977145db3d0715c8b54ad198aec3c7620a5711091a0c2b647d
+pearl-rapamycin,realized_randomized_trial,129,registry_enrollment,known,,intervention_duration_days,unknown,3,true,,,,,,0,0,3,5,29f6d99fd9abd3933e74b8b2902ad97399b0267f4967eda277b3a9258dbe1238
+predict-1,realized_perturbational_cohort,,combined_profiled,unknown,,protocol_duration_days,unknown,1,,,,,,,0,0,4,4,bdd2a329ef0336136ed1355141fba10c357dbe56ab4000c8968ed0613bb7b5d4
+sheba-sharp,registered_protocol_design,1500,planned_enrollment,known,,planned_primary_endpoint_days,unknown,2,true,,,,,,0,0,2,5,3937ee3264897521644ee9e3cca8ddd286124c6443f4a3ba633ab4beafb6842b
+snyder-ipop-ihmp-106,realized_longitudinal_cohort,,profiled_participants,unknown,,median_observation_span_days,unknown,,,,,,,,0,0,3,4,46f652bb241a5a8b60b64584a82523de5edc466abf5a3084f7cf97a21d63bd69
+triim,realized_single_arm_pilot,,enrolled,unknown,,intervention_duration_days,unknown,,,,,,,,0,0,2,5,b3b888ecb1246a713dfc01b276ff5b11c5f79e3af6463cf4472662f5e55d88a1
+uk-biobank,accessible_longitudinal_resource,,cohort_enrollment,unknown,,followup_duration_days,unknown,,,,,,,,0,0,4,4,a690e9f7115a78fb2f00ee0803b84bf06b497bb6dd9c2758d3c417de3e303a4e
+zoe-method,realized_randomized_personalized_policy_trial,,randomized,unknown,,intervention_duration_days,unknown,2,true,,,,,,0,0,2,5,a245f823a50ec0a56af7d5bcbca3783def49d222cc239f5c9ee3f4c1bbe2dcd5
