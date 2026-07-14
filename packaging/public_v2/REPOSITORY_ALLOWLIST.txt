@@ -46,16 +46,19 @@ data/source_projections/v2/zoe-method.json
 docs/ACCESSIBILITY.md
 docs/ANTI_GAMING.md
 docs/API.md
+docs/CTGOV_50_TRIAL_STRESS_TEST.md
 docs/DATA_GOVERNANCE.md
 docs/DESIGN_STUDIO.md
 docs/EVIDENCE_POLICY.md
 docs/HOW_TO_READ_ANIBENCH.md
 docs/INTAKE_AND_ADJUDICATION.md
+docs/PRODUCT_ACCEPTANCE_MATRIX.md
 docs/RELEASE.md
 docs/RELEASE_CHECKLIST.md
 docs/SCIENTIFIC_FOUNDATIONS.md
 docs/V2_METHODS_CANDIDATE.md
 docs/V2_OPTIMIZER.md
+docs/audits/CTGOV_50_TRIAL_STRESS_TEST_2026-07-14.json
 examples/optimizer_protocol_v2_example.py
 examples/v2/illustrative-design.json
 examples/v2/illustrative-protocol-source.json
@@ -99,6 +102,7 @@ scripts/build_level1_target_v3.py
 scripts/build_v2_external_corpus.py
 scripts/export_public_repository.py
 scripts/fetch_v2_external_sources.py
+scripts/run_ctgov_50_stress_test.py
 scripts/validate_code_red_release.py
 scripts/verify_distribution_boundary.py
 scripts/verify_external_field_receipts.py
@@ -141,6 +145,7 @@ src/anibench/studio.py
 src/anibench/studio_product.py
 src/anibench/uncertainty_v2.py
 src/anibench/v2.py
+tests/test_ctgov_50_stress_test.py
 tests/test_distribution_boundary.py
 tests/test_fetch_v2_external_sources.py
 tests/test_installed_studio_e2e.py

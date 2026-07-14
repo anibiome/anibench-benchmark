@@ -7,6 +7,7 @@ from scripts.verify_release_metadata import verify_release_metadata
 
 
 ROOT = Path(__file__).resolve().parents[1]
+PUBLIC_REPOSITORY_URL = "https://github.com/anibiome/anibench-benchmark"
 
 
 def test_current_release_metadata_versions_are_consistent() -> None:
@@ -14,6 +15,14 @@ def test_current_release_metadata_versions_are_consistent() -> None:
     assert report["passed"] is True, json.dumps(report, indent=2)
     assert set(report["normalized_versions"].values()) == {"2.0.0rc1"}
     assert report["versions"]["src/anibench/__init__.py"] == "2.0.0rc1"
+    assert report["repository_urls"] == {
+        "pyproject.toml:Repository": PUBLIC_REPOSITORY_URL,
+        "pyproject.toml:Documentation": f"{PUBLIC_REPOSITORY_URL}#readme",
+        "pyproject.toml:Issues": f"{PUBLIC_REPOSITORY_URL}/issues",
+        "CITATION.cff:repository-code": PUBLIC_REPOSITORY_URL,
+        "codemeta.json:codeRepository": PUBLIC_REPOSITORY_URL,
+        ".zenodo.json:related_identifiers": PUBLIC_REPOSITORY_URL,
+    }
 
 
 def test_release_metadata_rejects_wrong_tag() -> None:

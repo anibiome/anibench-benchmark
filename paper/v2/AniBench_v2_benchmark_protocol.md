@@ -1167,7 +1167,7 @@ AniBench use is non-human-subjects research.
 
 ### 20.5 Code, data, and materials availability
 
-The intended source repository is `https://github.com/anibiome/anibench`. Public
+The intended source repository is `https://github.com/anibiome/anibench-benchmark`. Public
 availability, license state, release tag, archive DOI, exact commit, distribution
 hashes, clean-install receipt, and browser roundtrip must be inserted only after the
 release bytes are frozen and independently read back. The source atlas contains

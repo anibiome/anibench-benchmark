@@ -22,7 +22,7 @@
   ],
   "related_identifiers": [
     {
-      "identifier": "https://github.com/anibiome/anibench",
+      "identifier": "https://github.com/anibiome/anibench-benchmark",
       "relation": "isSupplementTo",
       "scheme": "url"
     }

@@ -35,9 +35,9 @@ paper = ["python-docx>=1.1"]
 anibench = "anibench.cli:main"
 
 [project.urls]
-Repository = "https://github.com/anibiome/anibench"
-Documentation = "https://github.com/anibiome/anibench#readme"
-Issues = "https://github.com/anibiome/anibench/issues"
+Repository = "https://github.com/anibiome/anibench-benchmark"
+Documentation = "https://github.com/anibiome/anibench-benchmark#readme"
+Issues = "https://github.com/anibiome/anibench-benchmark/issues"
 
 [tool.hatch.build]
 exclude = [

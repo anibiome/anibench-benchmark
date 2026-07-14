@@ -8,7 +8,7 @@ authors:
     affiliation: ANI Biome PBC
 version: 2.0.0-rc.1
 license: Apache-2.0
-repository-code: "https://github.com/anibiome/anibench"
+repository-code: "https://github.com/anibiome/anibench-benchmark"
 abstract: >-
   AniBench is an auditable benchmark and protocol-design instrument for the
   intensive, extensive, longitudinal, causal, personalized/sequential, and

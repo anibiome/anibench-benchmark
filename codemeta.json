@@ -3,7 +3,7 @@
   "@type": "SoftwareSourceCode",
   "name": "AniBench: reconstructive and causal capacity of human trials",
   "description": "An auditable benchmark of what human trials can teach future superintelligence about biological state, change, intervention response, and person-to-person variation.",
-  "codeRepository": "https://github.com/anibiome/anibench",
+  "codeRepository": "https://github.com/anibiome/anibench-benchmark",
   "version": "2.0.0-rc.1",
   "license": "https://spdx.org/licenses/Apache-2.0",
   "programmingLanguage": "Python",

@@ -2,7 +2,7 @@ PYTHON ?= python
 SOURCE_DATE_EPOCH ?= 1783900800
 export SOURCE_DATE_EPOCH
 
-.PHONY: test lint metadata level1-authority web-test protocol-smoke verify-corpus-fields package studio-e2e \
+.PHONY: test lint metadata level1-authority web-test protocol-smoke verify-corpus-fields ctgov-50-audit package studio-e2e \
 	verify-distributions verify public-export release-candidate paper serve-studio clean
 
 test:
@@ -29,6 +29,9 @@ protocol-smoke:
 
 verify-corpus-fields:
 	$(PYTHON) scripts/verify_external_field_receipts.py --pretty
+
+ctgov-50-audit:
+	PYTHONPATH=src $(PYTHON) scripts/run_ctgov_50_stress_test.py --pretty
 
 package:
 	rm -rf build dist

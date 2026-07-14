@@ -16,6 +16,9 @@ except ModuleNotFoundError:  # pragma: no cover - exercised in the Python 3.10 C
 from packaging.version import InvalidVersion, Version
 
 
+PUBLIC_REPOSITORY_URL = "https://github.com/anibiome/anibench-benchmark"
+
+
 def _cff_version(path: Path) -> str:
     match = re.search(r"(?m)^version:\s*[\"']?([^\s\"']+)[\"']?\s*$", path.read_text())
     if match is None:
@@ -36,12 +39,15 @@ def _runtime_version(path: Path) -> str:
 def verify_release_metadata(root: Path, *, tag: str | None = None) -> dict[str, object]:
     root = root.resolve()
     project = tomllib.loads((root / "pyproject.toml").read_text(encoding="utf-8"))["project"]
+    citation_body = (root / "CITATION.cff").read_text(encoding="utf-8")
+    zenodo = json.loads((root / ".zenodo.json").read_text(encoding="utf-8"))
+    codemeta = json.loads((root / "codemeta.json").read_text(encoding="utf-8"))
     versions = {
         "pyproject.toml": str(project["version"]),
         "src/anibench/__init__.py": _runtime_version(root / "src/anibench/__init__.py"),
         "CITATION.cff": _cff_version(root / "CITATION.cff"),
-        ".zenodo.json": str(json.loads((root / ".zenodo.json").read_text())["version"]),
-        "codemeta.json": str(json.loads((root / "codemeta.json").read_text())["version"]),
+        ".zenodo.json": str(zenodo["version"]),
+        "codemeta.json": str(codemeta["version"]),
     }
     normalized: dict[str, str] = {}
     findings: list[str] = []
@@ -68,10 +74,43 @@ def verify_release_metadata(root: Path, *, tag: str | None = None) -> dict[str, 
                     findings.append("tag_version_mismatch")
             except InvalidVersion:
                 findings.append("invalid_tag_version")
+    project_urls = project.get("urls", {})
+    repository_urls = {
+        "pyproject.toml:Repository": project_urls.get("Repository"),
+        "pyproject.toml:Documentation": project_urls.get("Documentation"),
+        "pyproject.toml:Issues": project_urls.get("Issues"),
+        "CITATION.cff:repository-code": (
+            re.search(r'(?m)^repository-code:\s*["\']?([^\s"\']+)', citation_body).group(1)
+            if re.search(r'(?m)^repository-code:\s*["\']?([^\s"\']+)', citation_body)
+            else None
+        ),
+        "codemeta.json:codeRepository": codemeta.get("codeRepository"),
+        ".zenodo.json:related_identifiers": next(
+            (
+                item.get("identifier")
+                for item in zenodo.get("related_identifiers", [])
+                if item.get("relation") == "isSupplementTo"
+            ),
+            None,
+        ),
+    }
+    expected_urls = {
+        "pyproject.toml:Repository": PUBLIC_REPOSITORY_URL,
+        "pyproject.toml:Documentation": f"{PUBLIC_REPOSITORY_URL}#readme",
+        "pyproject.toml:Issues": f"{PUBLIC_REPOSITORY_URL}/issues",
+        "CITATION.cff:repository-code": PUBLIC_REPOSITORY_URL,
+        "codemeta.json:codeRepository": PUBLIC_REPOSITORY_URL,
+        ".zenodo.json:related_identifiers": PUBLIC_REPOSITORY_URL,
+    }
+    for name, expected in expected_urls.items():
+        if repository_urls[name] != expected:
+            findings.append(f"public_repository_url_mismatch:{name}")
     return {
         "contract": "anibench.release-metadata-consistency.v1",
         "versions": versions,
         "normalized_versions": normalized,
+        "repository_urls": repository_urls,
+        "expected_repository_urls": expected_urls,
         "tag": tag,
         "findings": findings,
         "passed": not findings,

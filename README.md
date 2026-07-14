@@ -117,6 +117,23 @@ hash-addressed intake snapshot. Registry intake is discovery and source
 preservation only: it remains `score_eligible: false`, requires field-level
 human review, and never auto-fills biological operators or trial execution.
 
+The release also includes a repeatable live stress test over 50 distinct
+interventional records spanning ten heterogeneous trial-design strata. It
+verifies exact NCT identity, source hashes and locators, typed enrollment,
+sparse design compilation, and the absence of registry-to-score inference:
+
+```bash
+PYTHONPATH=src python scripts/run_ctgov_50_stress_test.py --pretty
+```
+
+See `docs/CTGOV_50_TRIAL_STRESS_TEST.md` and the frozen source-bound receipt in
+`docs/audits/CTGOV_50_TRIAL_STRESS_TEST_2026-07-14.json`.
+
+The complete requirement-to-artifact map is in
+`docs/PRODUCT_ACCEPTANCE_MATRIX.md`. It records which behaviors are executable,
+which claims remain source-gated, and why an absent comparator geometry never
+becomes a flattering rank.
+
 ```bash
 anibench v2-protocol-capacity \
   web/protocol-capacity-example.json \
