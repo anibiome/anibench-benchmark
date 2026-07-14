@@ -81,6 +81,17 @@ async function waitForJson(url, timeoutMs = 20000) {
   throw new Error(`Timed out waiting for ${url}: ${lastError?.message || "unknown error"}`);
 }
 
+async function waitForExit(child, timeoutMs = 3000) {
+  if (child.exitCode !== null) return true;
+  return await new Promise(resolve => {
+    const timeout = setTimeout(() => resolve(false), timeoutMs);
+    child.once("exit", () => {
+      clearTimeout(timeout);
+      resolve(true);
+    });
+  });
+}
+
 class CdpClient {
   constructor(socket) {
     this.socket = socket;
@@ -731,12 +742,17 @@ async function main() {
   } finally {
     if (socket) socket.close();
     browser.kill("SIGTERM");
-    await new Promise(resolve => {
-      const timeout = setTimeout(resolve, 3000);
-      browser.once("exit", () => { clearTimeout(timeout); resolve(); });
+    await waitForExit(browser);
+    if (browser.exitCode === null) {
+      browser.kill("SIGKILL");
+      await waitForExit(browser);
+    }
+    fs.rmSync(profile, {
+      recursive: true,
+      force: true,
+      maxRetries: 10,
+      retryDelay: 100
     });
-    if (browser.exitCode === null) browser.kill("SIGKILL");
-    fs.rmSync(profile, {recursive: true, force: true});
   }
 }
 
