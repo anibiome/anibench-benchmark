@@ -8,18 +8,18 @@
   "public_member_count": 179,
   "public_rank_claim_allowed": false,
   "public_tree_hash_scope": "all_public_members_except_this_receipt",
-  "public_tree_sha256": "ec51043e154b024b8e12f8c36879dc6509b0cf89458a195e4deb49b3956f32c5",
+  "public_tree_sha256": "f94527e91cfc26ab884477687dade31fa561a4b30988888bf21870783f381333",
   "release_source_eligible": true,
   "scan_contract": "anibench.public-repository-scan.v1",
   "source_authority_git": {
     "clean": true,
-    "commit_sha": "e15bfad1968e1d5f26db4fb8e6a48ee2f7b094c4",
+    "commit_sha": "9c851d45aaeebe8fcf32df8414ea65e1583eb4c6",
     "status_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "tree_sha": "f99c291d8ae9529c45d1ec058657603f6162243f"
+    "tree_sha": "7df0cae95a74db98e37fafb1e6dcc579ca8cc1bc"
   },
   "source_commit_bound": true,
   "source_copy_mode": "exact_git_objects_from_pinned_commit",
-  "source_date_epoch": 1783900800,
-  "source_object_manifest_sha256": "94dbbf634deee0c2997edd817f10ce6a1d3c920188ce6c62b0024e3f5e9a7dea",
+  "source_date_epoch": 1784012400,
+  "source_object_manifest_sha256": "de0239ed34cf71f0b96b188a19e9f6466137d7ace220ec79e15f016b6cd15f6e",
   "toctou_guard": "pre_and_post_git_state_equal"
 }

@@ -3,6 +3,13 @@
 This checklist distinguishes open-source software readiness from biological
 validation and public ranking authority.
 
+The fresh-history public source RC is live at
+`https://github.com/anibiome/anibench-benchmark`. Its first fully audited public
+product commit is `edef1989417d0981cb1a1cb4e2c46f92775593d0`. Unchecked items below
+govern a protected stable tag, package-index/DOI publication, independent
+biological validation, or public ranking; they do not mean the source RC is
+private or absent.
+
 ## A. Freeze source and claims
 
 - [ ] Run `python scripts/fetch_v2_external_sources.py --verify-only` against

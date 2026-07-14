@@ -366,7 +366,9 @@ def test_v2_protocol_uses_protocol_language_for_empirical_hypotheses() -> None:
     assert "The following are hypotheses, not findings." in text
     assert "Empirical validation state: `not_run`" in text
     assert "Trial-ranking results: absent" in text
-    assert "Public release decision: absent" in text
+    assert "Public source release: published" in text
+    assert "first fully audited public\nproduct commit" in text
+    assert "Stable tag, package-index release, archive DOI, and public ranking: absent" in text
     assert "not yet registered" in text
     assert "[AUTHOR LIST AND ORDER REQUIRE CONTRIBUTOR CONFIRMATION]" in text
     assert "[AFFILIATIONS REQUIRE AUTHOR CONFIRMATION]" in text

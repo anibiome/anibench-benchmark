@@ -21,7 +21,11 @@ Empirical validation state: `not_run`
 
 Trial-ranking results: absent
 
-Public release decision: absent
+Public source release: published at
+`https://github.com/anibiome/anibench-benchmark`; first fully audited public
+product commit `edef1989417d0981cb1a1cb4e2c46f92775593d0`
+
+Stable tag, package-index release, archive DOI, and public ranking: absent
 
 **Public trial ranking state:** withheld until reference, source, calibration, and
 independent-review gates are complete
@@ -1065,9 +1069,11 @@ envelopes, protocol-native optimization, a source atlas, a command-line interfac
 local API, and an interactive Trial Designer. Candidate chart builders emit CSV or
 JSON plot data and a build receipt; candidate packaging rules exclude legacy
 scalar/ranking surfaces and private patent material. Clean-install, wheel-content,
-browser-roundtrip, and artifact-hash receipts remain separate release gates and must
-bind the exact release commit before these components are described as a public
-working release.
+browser-roundtrip, and artifact-hash receipts are bound to authority commit
+`e15bfad1968e1d5f26db4fb8e6a48ee2f7b094c4` and the first fully audited public
+product commit `edef1989417d0981cb1a1cb4e2c46f92775593d0`. Those receipts establish
+the public source-release implementation layer; they do not establish biological
+calibration or a cross-trial rank.
 
 Prospective protocol-capacity compilation is distinct from cross-study public
 comparison and from role-aware Level-1 attainment. The installed v3 authority
@@ -1167,10 +1173,12 @@ AniBench use is non-human-subjects research.
 
 ### 20.5 Code, data, and materials availability
 
-The intended source repository is `https://github.com/anibiome/anibench-benchmark`. Public
-availability, license state, release tag, archive DOI, exact commit, distribution
-hashes, clean-install receipt, and browser roundtrip must be inserted only after the
-release bytes are frozen and independently read back. The source atlas contains
+The public source repository is
+`https://github.com/anibiome/anibench-benchmark`. The first fully audited public
+product commit is `edef1989417d0981cb1a1cb4e2c46f92775593d0`; its verification and
+CodeQL workflows passed, and its anonymous-clone build, clean install, distribution
+scan, and browser roundtrip were replayed. No stable tag, package-index publication,
+or archive DOI is asserted here. The source atlas contains
 hash-bound public evidence objects and typed missing fields; it is not a substitute
 for source-complete trial matrices or participant-level data. No private patent
 packet, unpublished protocol, absolute workstation path, credential, or participant-

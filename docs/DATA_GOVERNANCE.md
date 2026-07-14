@@ -42,7 +42,7 @@ not authorize copying the source value into a release.
 
 ## Release controls
 
-Before public release:
+Before every public release or update:
 
 - scan tracked files, generated artifacts, nested archives, document metadata,
   images, SVG content, PDFs, and Git history for forbidden classes;
@@ -51,8 +51,9 @@ Before public release:
 - require `private_values_exported=false`, empty leak-file lists, and explicit
   outward-identifier policy in privacy receipts;
 - require license provenance for every third-party input;
-- require patent filing clearance before changing visibility or publishing any
-  package or deposit.
+- require the applicable patent/disclosure decision before expanding the public
+  scope, creating a protected release tag, or publishing to a package index or
+  archive deposit.
 
 ## Retention and correction
 
@@ -73,4 +74,3 @@ If a released artifact contains restricted data or an incorrect rights claim:
 
 This document defines repository controls. It does not assert that any specific
 external legal, ethics, or institutional review regime has approved a dataset.
-
