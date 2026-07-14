@@ -212,6 +212,20 @@ def _canonical_sha256(value: Any) -> str:
     return "sha256:" + hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
+def _stable_support(value: float) -> float:
+    """Canonicalize support arithmetic across supported Python/NumPy builds.
+
+    Equivalent explicit and compact protocol representations can accumulate the
+    same decimal support through a sum or a multiplication.  Both operations
+    are mathematically identical but can differ by one binary floating-point
+    ulp across Python versions.  Support values are protocol-scale counts, so a
+    fixed 12-decimal serialization boundary removes that implementation detail
+    without changing any meaningful trial geometry.
+    """
+
+    return round(float(value), 12)
+
+
 def _retention_overlap_support_receipt(
     *,
     outcome_schedules: Iterable[Mapping[str, Any]],
@@ -3291,19 +3305,23 @@ def _causal_family(
             support * epoch_multiplicity[epoch["decision_epoch_id"]]
             for support, epoch in zip(linked_epoch_outcome_support, decision_epochs, strict=True)
         )
-        eligible_participant_decisions = min(
-            participants * decisions,
-            participants * expected_available_epochs,
-            linked_outcome_participant_events,
+        eligible_participant_decisions = _stable_support(
+            min(
+                participants * decisions,
+                participants * expected_available_epochs,
+                linked_outcome_participant_events,
+            )
         )
-        eligible_moderator_participant_decisions = min(
-            eligible_participant_decisions,
-            sum(
-                support * epoch_multiplicity[epoch["decision_epoch_id"]]
-                for support, epoch in zip(
-                    linked_epoch_moderator_support, decision_epochs, strict=True
-                )
-            ),
+        eligible_moderator_participant_decisions = _stable_support(
+            min(
+                eligible_participant_decisions,
+                sum(
+                    support * epoch_multiplicity[epoch["decision_epoch_id"]]
+                    for support, epoch in zip(
+                        linked_epoch_moderator_support, decision_epochs, strict=True
+                    )
+                ),
+            )
         )
         eligible_decisions_per_participant = (
             eligible_participant_decisions / participants if participants > 0 else 0.0

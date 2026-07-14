@@ -3,7 +3,6 @@
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
 import fs from "node:fs";
-import net from "node:net";
 import os from "node:os";
 import path from "node:path";
 import process from "node:process";
@@ -43,17 +42,27 @@ function findBrowser(explicit) {
   );
 }
 
-async function freePort() {
-  const server = net.createServer();
-  await new Promise((resolve, reject) => {
-    server.once("error", reject);
-    server.listen(0, "127.0.0.1", resolve);
-  });
-  const address = server.address();
-  assert.equal(typeof address, "object");
-  const port = address.port;
-  await new Promise((resolve, reject) => server.close(error => error ? reject(error) : resolve()));
-  return port;
+async function waitForDevToolsPort(profile, browser, timeoutMs = 20000) {
+  const activePortFile = path.join(profile, "DevToolsActivePort");
+  const deadline = Date.now() + timeoutMs;
+  let lastError;
+  while (Date.now() < deadline) {
+    if (browser.exitCode !== null) {
+      throw new Error(`Chrome exited before opening DevTools (exit ${browser.exitCode})`);
+    }
+    try {
+      const [portText] = fs.readFileSync(activePortFile, "utf8").trim().split(/\r?\n/);
+      const port = Number(portText);
+      if (Number.isInteger(port) && port > 0 && port <= 65535) return port;
+      lastError = new Error(`invalid DevToolsActivePort value ${JSON.stringify(portText)}`);
+    } catch (error) {
+      lastError = error;
+    }
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+  throw new Error(
+    `Timed out waiting for ${activePortFile}: ${lastError?.message || "unknown error"}`
+  );
 }
 
 async function waitForJson(url, timeoutMs = 20000) {
@@ -191,12 +200,12 @@ async function main() {
     throw new Error("Node.js 22 or newer is required for the dependency-free CDP browser gate");
   }
   const browserBinary = findBrowser(args.browserBinary);
-  const debugPort = await freePort();
   const profile = fs.mkdtempSync(path.join(os.tmpdir(), "anibench-chrome-"));
   fs.mkdirSync(args.downloadsDir, {recursive: true});
   const browser = spawn(browserBinary, [
     "--headless=new",
-    `--remote-debugging-port=${debugPort}`,
+    "--remote-debugging-address=127.0.0.1",
+    "--remote-debugging-port=0",
     `--user-data-dir=${profile}`,
     "--no-first-run",
     "--no-default-browser-check",
@@ -213,10 +222,13 @@ async function main() {
     "--no-sandbox",
     "about:blank"
   ], {stdio: ["ignore", "pipe", "pipe"]});
+  let browserStdout = "";
   let browserStderr = "";
+  browser.stdout.on("data", chunk => { browserStdout += chunk.toString(); });
   browser.stderr.on("data", chunk => { browserStderr += chunk.toString(); });
   let socket;
   try {
+    const debugPort = await waitForDevToolsPort(profile, browser);
     const version = await waitForJson(`http://127.0.0.1:${debugPort}/json/version`);
     const create = await fetch(
       `http://127.0.0.1:${debugPort}/json/new?${encodeURIComponent("about:blank")}`,
@@ -710,7 +722,11 @@ async function main() {
     };
     process.stdout.write(`${JSON.stringify(receipt)}\n`);
   } catch (error) {
-    const suffix = browserStderr.trim() ? `\nChrome stderr:\n${browserStderr.slice(-4000)}` : "";
+    const diagnostics = [
+      browserStdout.trim() ? `Chrome stdout:\n${browserStdout.slice(-4000)}` : "",
+      browserStderr.trim() ? `Chrome stderr:\n${browserStderr.slice(-4000)}` : ""
+    ].filter(Boolean).join("\n");
+    const suffix = diagnostics ? `\n${diagnostics}` : "";
     throw new Error(`${error.stack || error.message}${suffix}`);
   } finally {
     if (socket) socket.close();
