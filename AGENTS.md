@@ -5,6 +5,10 @@ beta artifacts are archival pointers, not facts to inherit.
 
 When changing AniBench:
 
+- preserve `anibench eval` as the canonical public benchmark entry point and
+  keep it byte-identical to the role-aware six-family assessment authority;
+- preserve `anibench compare` as a strict hash-valid same-basis Pareto operation;
+  never turn it into a weighted scalar, cross-basis comparison, or ordinal rank;
 - preserve the six non-interchangeable families: intensive, extensive,
   longitudinal, causal, personalized/sequential, and transport;
 - keep evidence lane separate from capacity mathematics;

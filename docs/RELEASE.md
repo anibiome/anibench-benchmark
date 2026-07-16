@@ -3,12 +3,11 @@
 ## Current public source RC
 
 The public source repository is
-`https://github.com/anibiome/anibench-benchmark`. The first fully audited public
-product commit is `edef1989417d0981cb1a1cb4e2c46f92775593d0`; its GitHub
-verification and CodeQL workflows passed, and a separate anonymous clone replayed
-the complete build, clean install, artifact scan, and installed-Studio browser
-roundtrip. Later documentation-only descendants must be identified by their own
-Git commit and CI readback. A protected stable tag, PyPI release, archive DOI,
+`https://github.com/anibiome/anibench-benchmark`. Each evaluated public commit,
+GitHub verification/CodeQL run, anonymous-clone build, clean install, artifact
+scan, and installed-Studio browser roundtrip is bound in its release/readback
+receipt. Documentation descendants require their own commit and CI readback. A
+protected stable tag, PyPI release, archive DOI,
 empirical V8 result, and stable public biological rank remain separate gates.
 
 AniBench has two repositories in the release model:

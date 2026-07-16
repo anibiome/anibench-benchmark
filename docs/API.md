@@ -56,8 +56,9 @@ It requires:
   those axes' units, transforms, and ranges.
 
 Assignment and context counts are capped by linked retained outcome support. Cluster
-and crossover designs remain numerically ineligible until their dependence geometry
-is supplied. Participant measurement schedules use exact offsets. High-frequency
+and crossover designs are typed unresolved—never zero capacity—until the input
+contract can express their ICC/cluster or period/sequence/carryover geometry.
+Participant measurement schedules use exact offsets. High-frequency
 decision processes use the compact registered regular-process contract so runtime
 and payload size do not scale by materializing every repeated epoch.
 
@@ -80,6 +81,12 @@ no averaged, maximum, or winner-selected transport scalar.
 The result always exposes `overall_scalar: null`. Custom caller geometry remains
 `comparison_eligible: false`; a comparison requires the installed hash-pinned
 authority resolver.
+
+The non-HTTP Python/CLI comparator is
+`anibench.compare_trial_eval_receipts(receipts)` / `anibench compare`. It accepts
+only hash-valid canonical eval receipts on one exact implementation, Level-1,
+geometry, and parameter-space basis, then returns family-wise Pareto relations.
+It never returns an overall scalar or ordinal rank.
 
 Evidence lane is not a numeric multiplier. Identical declared geometry in Design
 Preview and Realized lanes has identical design capacity; the lane changes claim
@@ -113,14 +120,19 @@ source-object SHA-256, compiler locator, and derivation. Target attainment under
 `level1_target_attainment` is currently typed `unknown/unresolved/null` for all
 six families. The receipt keeps `overall_scalar: null` and emits no rank.
 
-The same path handles prospective and realized protocols; the evidence lane
+The canonical CLI entry point is `anibench eval`. The same path handles the
+design-capacity view of prospective and realized protocols; the evidence lane
 changes claim permissions, not design geometry:
 
 ```bash
 anibench v2-level1-authority --out level1-authority.json --pretty
-anibench v2-level1-assessment web/protocol-capacity-example.json \
+anibench eval web/protocol-capacity-example.json \
   --out planned-level1-receipt.json --pretty
 ```
+
+`v2-level1-assessment` remains a byte-identical compatibility alias. The eval
+card and complete task semantics are in `evals/level1/eval-card.json` and
+`docs/EVALUATION.md`.
 
 Or use the loopback API:
 

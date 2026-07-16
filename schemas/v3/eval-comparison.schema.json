@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anibench.org/schemas/v3/eval-comparison.schema.json",
+  "title": "AniBench strict same-basis Pareto comparison",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "comparison_implementation_sha256",
+    "comparison_class",
+    "interpretation",
+    "shared_basis",
+    "protocol_ids",
+    "source_assessment_receipt_sha256s",
+    "families",
+    "comparison_eligible",
+    "overall_scalar",
+    "overall_rank",
+    "public_rank_emission_permitted",
+    "promotion_allowed",
+    "comparison_receipt_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "anibench.eval-comparison.v1"},
+    "comparison_implementation_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "comparison_class": {
+      "enum": ["caller_declared_geometry_pareto_sandbox", "content_verified_geometry_pareto"]
+    },
+    "interpretation": {"type": "string", "minLength": 1},
+    "shared_basis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assessment_schema_version", "implementation_source_bundle_sha256", "level1_authority_raw_sha256", "level1_target_id", "geometry_authority_state", "parameter_space_id", "parameter_space_source_object_sha256"],
+      "properties": {
+        "assessment_schema_version": {"const": "anibench.level1-role-aware-assessment.v3-candidate2"},
+        "implementation_source_bundle_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "level1_authority_raw_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "level1_target_id": {"type": "string", "minLength": 1},
+        "geometry_authority_state": {"enum": ["custom_unverified", "level1_content_verified"]},
+        "parameter_space_id": {"type": "string", "minLength": 1},
+        "parameter_space_source_object_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      }
+    },
+    "protocol_ids": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "source_assessment_receipt_sha256s": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+    },
+    "families": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["family_id", "comparison_eligible", "blocker_codes", "objective_contract", "protocol_vectors", "pairwise_dominance", "pareto_front_protocol_ids", "ordinal_rank"],
+        "properties": {
+          "family_id": {"enum": ["intensive", "extensive", "longitudinal", "causal", "personalized_sequential", "transport"]},
+          "comparison_eligible": {"type": "boolean"},
+          "blocker_codes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "objective_contract": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["objective_id", "metric_id", "unit", "ordering"],
+              "properties": {
+                "objective_id": {"type": "string", "minLength": 1},
+                "metric_id": {"type": "string", "minLength": 1},
+                "unit": {"type": "string", "minLength": 1},
+                "ordering": {"enum": ["maximize", "true_dominates_false"]}
+              }
+            }
+          },
+          "protocol_vectors": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["protocol_id", "claim_class", "scenario_id", "assessment_receipt_sha256", "objectives", "non_ordering_boolean_metrics"],
+              "properties": {
+                "protocol_id": {"type": "string", "minLength": 1},
+                "claim_class": {"enum": ["prospective_protocol_capacity", "realized_dataset_geometry_capacity"]},
+                "scenario_id": {"type": "string", "minLength": 1},
+                "assessment_receipt_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+                "objectives": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["objective_id", "metric_id", "unit", "ordering", "value"],
+                    "properties": {
+                      "objective_id": {"type": "string", "minLength": 1},
+                      "metric_id": {"type": "string", "minLength": 1},
+                      "unit": {"type": "string", "minLength": 1},
+                      "ordering": {"enum": ["maximize", "true_dominates_false"]},
+                      "value": {"type": ["number", "boolean"]}
+                    }
+                  }
+                },
+                "non_ordering_boolean_metrics": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["metric_id", "value"],
+                    "properties": {
+                      "metric_id": {"type": "string", "minLength": 1},
+                      "value": {"type": "boolean"}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "pairwise_dominance": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["dominant_protocol_id", "dominated_protocol_id"],
+              "properties": {
+                "dominant_protocol_id": {"type": "string", "minLength": 1},
+                "dominated_protocol_id": {"type": "string", "minLength": 1}
+              }
+            }
+          },
+          "pareto_front_protocol_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "ordinal_rank": {"type": "null"}
+        }
+      }
+    },
+    "comparison_eligible": {"type": "boolean"},
+    "overall_scalar": {"type": "null"},
+    "overall_rank": {"type": "null"},
+    "public_rank_emission_permitted": {"const": false},
+    "promotion_allowed": {"const": false},
+    "comparison_receipt_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  }
+}

@@ -13,8 +13,66 @@ not mean predicting one endpoint from a large but biologically shallow table.
 
 AniBench evaluates the experiment and its resulting data—not the sponsor,
 journal, institution, or popularity of the intervention. It works on proposed
-protocols as well as registered, realized, accessible, and empirically
-demonstrated studies.
+protocols and on source-verified realized geometry from completed studies.
+Registration, accessibility, and demonstrated predictive yield are separate
+evidence receipts; lifecycle maturity never becomes a score multiplier.
+
+## Run the eval
+
+AniBench has one canonical benchmark command:
+
+```bash
+python -m pip install -e '.[dev]'
+anibench eval web/protocol-capacity-example.json \
+  --out build/anibench-eval.json --pretty
+```
+
+The eval returns six tasks—intensive, extensive, longitudinal, causal,
+personalized/sequential, and transport—with native metrics, exact source
+locators, the installed Level-1 authority hash, and a deterministic assessment
+receipt. It never emits an overall quality score. The legacy descriptive name
+`v2-level1-assessment` is retained as a byte-identical compatibility alias.
+
+Use the same eval for a proposed protocol or for the design-capacity view of a
+completed study. For a completed study, set `claim_class` to
+`realized_dataset_geometry_capacity` and replace scheduled support with the
+source-verified retained participant-event geometry; evidence that the study was
+registered, realized, accessible, or empirically demonstrated remains a separate
+receipt and never acts as a numerical bonus or penalty. See
+[`docs/EVALUATION.md`](docs/EVALUATION.md) and the machine-readable
+[`eval card`](evals/level1/eval-card.json).
+
+The central output is deliberately ordinary benchmark JSON:
+
+```json
+{
+  "schema_version": "anibench.level1-role-aware-assessment.v3-candidate2",
+  "geometry_authority_state": "custom_unverified",
+  "scenarios": [{
+    "families": [
+      {"family_id": "intensive", "native_metrics": ["..."]},
+      {"family_id": "extensive", "native_metrics": ["..."]},
+      {"family_id": "longitudinal", "native_metrics": ["..."]},
+      {"family_id": "causal", "native_metrics": ["..."]},
+      {"family_id": "personalized_sequential", "native_metrics": ["..."]},
+      {"family_id": "transport", "metric_groups": ["..."]}
+    ],
+    "overall_scalar": null,
+    "public_rank": null
+  }]
+}
+```
+
+Compare two or more completed eval receipts on their exact shared basis:
+
+```bash
+anibench compare build/design-a.eval.json build/design-b.eval.json \
+  --out build/design-comparison.json --pretty
+```
+
+This emits family-wise Pareto fronts and pairwise dominance, never a hidden
+weighted total. Caller-declared geometry is labeled a sandbox; mismatched code,
+Level-1 authority, geometry authority, or parameter-space source fails closed.
 
 ## What makes AniBench different
 
@@ -50,20 +108,20 @@ does not receive a winner-selected or averaged transport scalar.
 AniBench does not award points for adding modality names. For event type (e),
 the candidate mathematical model is
 
-\[
+$$
 \mathcal I_e=n_e A_e^\top R_e^{-1}A_e,
 \qquad
 \mathcal I_{\mathrm{trial}}=\sum_e\mathcal I_e.
-\]
+$$
 
-Here (A_e) is a registered observation or design operator, (R_e) is its
-nuisance-aware covariance, and (n_e) is valid retained support. After prior
+Here $A_e$ is a registered observation or design operator, $R_e$ is its
+nuisance-aware covariance, and $n_e$ is valid retained support. After prior
 whitening and nuisance adjustment, information is reported as local posterior
 hypothesis-volume contraction:
 
-\[
+$$
 L_{\mathrm{abs}}=\frac{1}{2\ln 10}\log\det(I+G).
-\]
+$$
 
 Independent biological directions multiply the remaining-volume reduction.
 Redundant measurements saturate. A synchronized molecular, functional,
@@ -84,6 +142,10 @@ mathematics of the promised design.
 | Realized | Information actually acquired after retention, linkage, and QC |
 | Accessible | Realized information another evaluator can lawfully compute against |
 | Demonstrated | Held-out learning with calibration, nulls, and transfer receipts |
+
+`claim_class` distinguishes scheduled prospective geometry from retained
+realized-dataset geometry. It is not evidence that realization or accessibility
+has been independently verified; that proof remains a separate hash-bound receipt.
 
 Unknown, absent, conditional, interval, and exact facts remain distinct.
 Unknown never becomes zero, and a protocol maximum never becomes realized
@@ -134,11 +196,9 @@ The complete requirement-to-artifact map is in
 which claims remain source-gated, and why an absent comparator geometry never
 becomes a flattering rank.
 
-```bash
-anibench v2-protocol-capacity \
-  web/protocol-capacity-example.json \
-  --out build/protocol-capacity.json --pretty
-```
+The lower-level compiler remains available as `anibench v2-protocol-capacity`.
+The public benchmark entry point is `anibench eval`, which adds the role-aware
+Level-1 task map and hash-bound evaluation receipt.
 
 Transport-family results appear at
 `transport.axis_families.<family-id>.transport_rank` and
@@ -244,7 +304,10 @@ being mistaken for biological validation.
 ```text
 src/anibench/       compiler, information, causal, optimizer, API and CLI
 schemas/v2/         strict machine-readable input and result contracts
-spec/v2/            parameter, reference, authority and mechanics objects
+schemas/v3/         canonical eval and comparison result contracts
+spec/v2/            mechanics and source-operator authority objects
+spec/v3/            role-aware Level-1 target authority and migration receipt
+evals/               machine-readable benchmark task card
 data/               source projections and public comparator facts
 web/                interactive Trial Designer and protocol design lab
 paper/v2/            methods manuscript and reporting checklist

@@ -40,6 +40,13 @@ from anibench.studio_product import build_studio_comparator_atlas
 
 root = resources.files("anibench")
 protocol = json.loads(root.joinpath("web/protocol-capacity-example.json").read_text())
+evaluation = anibench.run_trial_eval(protocol)
+assert len(evaluation["scenarios"][0]["families"]) == 6
+assert evaluation["overall_scalar"] is None
+peer_protocol = dict(protocol)
+peer_protocol["protocol_id"] = "installed-wheel-comparison-peer"
+peer_evaluation = anibench.run_trial_eval(peer_protocol)
+comparison = anibench.compare_trial_eval_receipts([evaluation, peer_evaluation])
 illustrative_source = root.joinpath("examples/v2/illustrative-protocol-source.json")
 illustrative_source_sha256 = "sha256:" + hashlib.sha256(illustrative_source.read_bytes()).hexdigest()
 request = json.loads(root.joinpath("web/optimizer-protocol-example.json").read_text())
@@ -81,6 +88,10 @@ result = {
     "level1_comparison_eligible": level1["comparison_eligible"],
     "level1_scalar": level1["overall_scalar"],
     "level1_family_count": len(level1["scenarios"][0]["families"]),
+    "comparison_contract": comparison["schema_version"],
+    "comparison_class": comparison["comparison_class"],
+    "comparison_scalar": comparison["overall_scalar"],
+    "comparison_rank": comparison["overall_rank"],
     "level1_target_states": [row["level1_target_attainment"]["state"] for row in level1["scenarios"][0]["families"]],
     "superseded_assets": [
         name for name in (
@@ -129,9 +140,13 @@ print(json.dumps(result, sort_keys=True))
     assert result["atlas_downgraded_unknown_count"] == 328
     assert result["atlas_all_known_machine_resolved"] is True
     assert result["atlas_manual_validated"] is False
-    assert result["level1_contract"] == "anibench.level1-role-aware-assessment.v3-candidate1"
+    assert result["level1_contract"] == "anibench.level1-role-aware-assessment.v3-candidate2"
     assert result["level1_comparison_eligible"] is False
     assert result["level1_scalar"] is None
     assert result["level1_family_count"] == 6
+    assert result["comparison_contract"] == "anibench.eval-comparison.v1"
+    assert result["comparison_class"] == "caller_declared_geometry_pareto_sandbox"
+    assert result["comparison_scalar"] is None
+    assert result["comparison_rank"] is None
     assert result["level1_target_states"] == ["unresolved"] * 6
     assert result["superseded_assets"] == []

@@ -57,6 +57,8 @@ def test_pyproject_force_includes_only_named_public_runtime_assets() -> None:
     ) in wheel_boundary
     assert '"web/v2.html"' in wheel_boundary
     assert '"web/protocol-capacity-example.json"' in wheel_boundary
+    assert '"evals/level1/eval-card.json"' in wheel_boundary
+    assert '"schemas/v3/eval-comparison.schema.json"' in wheel_boundary
     assert '"web/optimizer-protocol-example.json"' in wheel_boundary
     assert "/ani-" not in wheel_boundary
     assert "/sources/" not in wheel_boundary

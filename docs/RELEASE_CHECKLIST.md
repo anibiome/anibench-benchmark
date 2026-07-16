@@ -4,8 +4,9 @@ This checklist distinguishes open-source software readiness from biological
 validation and public ranking authority.
 
 The fresh-history public source RC is live at
-`https://github.com/anibiome/anibench-benchmark`. Its first fully audited public
-product commit is `edef1989417d0981cb1a1cb4e2c46f92775593d0`. Unchecked items below
+`https://github.com/anibiome/anibench-benchmark`. Each audited revision records
+its exact commit in the release/readback receipt rather than recursively in the
+source tree. Unchecked items below
 govern a protected stable tag, package-index/DOI publication, independent
 biological validation, or public ranking; they do not mean the source RC is
 private or absent.
@@ -90,6 +91,8 @@ python scripts/verify_installed_studio.py \
 
 - [ ] Clean wheel install succeeds outside the checkout.
 - [ ] Installed `anibench --help` succeeds.
+- [ ] Installed `anibench eval` executes the packaged protocol example, emits
+  exactly six task families, and reproduces the source/API assessment receipt.
 - [ ] Installed protocol-capacity compiler executes the packaged example.
 - [ ] Installed protocol-native optimizer executes the packaged example.
 - [ ] Exact unpacked-wheel Studio passes health, static-asset, source-atlas,

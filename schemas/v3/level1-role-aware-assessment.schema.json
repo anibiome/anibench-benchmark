@@ -11,6 +11,9 @@
     "empirical_attainment",
     "protocol_sha256",
     "protocol_capacity_result_sha256",
+    "implementation_receipt",
+    "geometry_authority_state",
+    "source_binding_state",
     "level1_authority",
     "interpretation",
     "scenarios",
@@ -22,12 +25,52 @@
     "assessment_receipt_sha256"
   ],
   "properties": {
-    "schema_version": {"const": "anibench.level1-role-aware-assessment.v3-candidate1"},
+    "schema_version": {"const": "anibench.level1-role-aware-assessment.v3-candidate2"},
     "protocol_id": {"type": "string", "minLength": 1},
     "claim_class": {"type": "string", "minLength": 1},
     "empirical_attainment": {"type": "boolean"},
     "protocol_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
     "protocol_capacity_result_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "implementation_receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["package_name", "package_version", "source_modules", "source_bundle_sha256", "runtime_environment"],
+      "properties": {
+        "package_name": {"const": "anibench"},
+        "package_version": {"type": "string", "minLength": 1},
+        "source_modules": {
+          "type": "array",
+          "minItems": 5,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["module", "sha256"],
+            "properties": {
+              "module": {"type": "string", "minLength": 1},
+              "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+            }
+          }
+        },
+        "source_bundle_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "runtime_environment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["python_version", "python_implementation", "numpy_version", "jsonschema_version", "system", "machine", "linear_algebra", "supported_environment_contract"],
+          "properties": {
+            "python_version": {"type": "string", "minLength": 1},
+            "python_implementation": {"type": "string", "minLength": 1},
+            "numpy_version": {"type": "string", "minLength": 1},
+            "jsonschema_version": {"type": "string", "minLength": 1},
+            "system": {"type": "string", "minLength": 1},
+            "machine": {"type": "string", "minLength": 1},
+            "linear_algebra": {"type": "object"},
+            "supported_environment_contract": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    },
+    "geometry_authority_state": {"enum": ["custom_unverified", "level1_content_verified"]},
+    "source_binding_state": {"type": "object"},
     "level1_authority": {"type": "object"},
     "interpretation": {"type": "string", "minLength": 1},
     "scenarios": {
@@ -50,7 +93,9 @@
                 "family_id",
                 "label",
                 "design_resolution_state",
+                "blocker_codes",
                 "native_metrics",
+                "metric_groups",
                 "level1_target_attainment",
                 "level1_enrollment_requirement"
               ],
@@ -58,22 +103,78 @@
                 "family_id": {"enum": ["intensive", "extensive", "longitudinal", "causal", "personalized_sequential", "transport"]},
                 "label": {"type": "string", "minLength": 1},
                 "design_resolution_state": {"type": "string", "minLength": 1},
+                "blocker_codes": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "enum": ["DEPENDENT_RANDOMIZATION_GEOMETRY_UNSUPPORTED"]
+                  }
+                },
                 "native_metrics": {
                   "type": "array",
                   "minItems": 1,
                   "items": {
                     "type": "object",
                     "additionalProperties": false,
-                    "required": ["metric_id", "label", "value", "unit", "state", "source_object_sha256", "source_locator", "derivation"],
+                    "required": ["metric_id", "label", "value", "unit", "state", "geometry_authority_state", "source_object_sha256", "source_locator", "derivation"],
                     "properties": {
                       "metric_id": {"type": "string", "minLength": 1},
                       "label": {"type": "string", "minLength": 1},
                       "value": {"type": ["number", "boolean", "null"]},
                       "unit": {"type": "string", "minLength": 1},
-                      "state": {"enum": ["resolved", "unresolved"]},
+                      "state": {"enum": ["resolved", "unresolved", "computed_unverified_geometry"]},
+                      "geometry_authority_state": {"enum": ["custom_unverified", "level1_content_verified"]},
                       "source_object_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
                       "source_locator": {"type": "string", "pattern": "^/scenarios/"},
                       "derivation": {"type": "string", "minLength": 1}
+                    }
+                  }
+                },
+                "metric_groups": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "group_type",
+                      "group_id",
+                      "reference_estimand_id",
+                      "required_dimension_ids",
+                      "design_resolution_state",
+                      "native_metrics"
+                    ],
+                    "properties": {
+                      "group_type": {"const": "transport_axis_family"},
+                      "group_id": {"type": "string", "minLength": 1},
+                      "reference_estimand_id": {"type": "string", "minLength": 1},
+                      "required_dimension_ids": {
+                        "type": "array",
+                        "minItems": 1,
+                        "uniqueItems": true,
+                        "items": {"type": "string", "minLength": 1}
+                      },
+                      "design_resolution_state": {"type": "string", "minLength": 1},
+                      "native_metrics": {
+                        "type": "array",
+                        "minItems": 2,
+                        "maxItems": 2,
+                        "items": {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "required": ["metric_id", "label", "value", "unit", "state", "geometry_authority_state", "source_object_sha256", "source_locator", "derivation"],
+                          "properties": {
+                            "metric_id": {"type": "string", "minLength": 1},
+                            "label": {"type": "string", "minLength": 1},
+                            "value": {"type": ["number", "boolean", "null"]},
+                            "unit": {"type": "string", "minLength": 1},
+                            "state": {"enum": ["resolved", "unresolved", "computed_unverified_geometry"]},
+                            "geometry_authority_state": {"enum": ["custom_unverified", "level1_content_verified"]},
+                            "source_object_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+                            "source_locator": {"type": "string", "pattern": "^/scenarios/"},
+                            "derivation": {"type": "string", "minLength": 1}
+                          }
+                        }
+                      }
                     }
                   }
                 },

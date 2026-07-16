@@ -3,9 +3,12 @@ info:
   title: AniBench v2 candidate workbench API
   version: 2.0.0-candidate.1
   description: >-
-    Local, nonparticipant API for replaying an explicit joint-information
-    packet. It computes mathematical objects only. Public trial ranks and
-    public ranking and promotion remain disabled until independent authority and calibration gates pass.
+    Local, nonparticipant API for trial-design intake, six-family protocol
+    capacity and Level-1 evaluation, source-atlas inspection, protocol-native
+    Pareto optimization, and explicit joint-information replay. It computes
+    mathematical design objects only. Public ranking and promotion remain
+    disabled until source-complete comparator, independent authority, and
+    calibration gates pass.
 servers:
   - url: http://127.0.0.1:8765
     description: Loopback Studio server

@@ -1,6 +1,6 @@
 # AniBench current authority
 
-Effective: 2026-07-14
+Effective: 2026-07-15
 
 The current product and scientific authority is AniBench v2. Do not reconstruct
 the benchmark by averaging older repository documents.
@@ -9,20 +9,22 @@ Read in this order:
 
 1. `README.md` — product question, six-family model, evidence lanes, and runnable
    workflows;
-2. `paper/v2/AniBench_v2_benchmark_protocol.md` — normative mathematical and
+2. `docs/EVALUATION.md` and `evals/level1/eval-card.json` — the canonical
+   `anibench eval` entry point and exact six-task evaluation surface;
+3. `paper/v2/AniBench_v2_benchmark_protocol.md` — normative mathematical and
    validation protocol;
-3. `spec/v3/level1/role-aware-target-requirements.v3.json` and
+4. `spec/v3/level1/role-aware-target-requirements.v3.json` and
    `spec/v3/level1/migrations/v2-to-v3-substantive-impact-receipt.json` — the
    exact role-aware Level-1 authority and its hash-pinned correction receipt;
-4. `schemas/v2/` and `schemas/v3/` — executable contracts;
-5. `docs/API.md`, `docs/DESIGN_STUDIO.md`, `docs/V2_OPTIMIZER.md`,
+5. `schemas/v2/` and `schemas/v3/` — executable contracts;
+6. `docs/API.md`, `docs/DESIGN_STUDIO.md`, `docs/V2_OPTIMIZER.md`,
    `docs/EVIDENCE_POLICY.md`, `docs/ANTI_GAMING.md`, the
    `data/source_projections/v2/EXTERNAL_SOURCE_ACQUISITION_LEDGER.json` and
    `SOURCE_COORDINATE_TABLE.csv`, plus the source-verification and field-provenance
    receipts under `packaging/public_v2/` — current
    operating documentation and public source state. The receipt distinguishes
    mechanically extracted fields from manual source-bound curation; and
-6. generated v2 candidates and receipts, when present, only when their bound
+7. generated v2 candidates and receipts, when present, only when their bound
    commit and promotion state are explicit. Generated release directories are
    intentionally absent from the fresh-history public source export.
 
@@ -58,3 +60,10 @@ longitudinal, causal, heterogeneity, and transport families. It emits six native
 source-located design vectors. Family operating-characteristic targets and
 enrollment requirements remain typed unknown, so no target percentage, global
 enrollment, scalar, or stable rank is emitted.
+
+The canonical benchmark front door is `anibench eval`. It is a direct alias of
+the role-aware assessment authority, not a separate formula layer. The historical
+descriptive command `v2-level1-assessment` is retained only for compatibility.
+`anibench compare` verifies canonical eval hashes and one exact implementation,
+Level-1, geometry-authority, and parameter-space basis before emitting
+within-family Pareto relations. It never emits a weighted total or ordinal rank.

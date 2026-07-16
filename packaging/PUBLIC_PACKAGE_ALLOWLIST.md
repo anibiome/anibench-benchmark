@@ -32,6 +32,11 @@ manifest digest; a development dirty-tree export is permanently non-release.
 - the role-aware Level-1 v3 assessment module, schema, headless CLI, and Studio
   endpoint; all six design families expose native metrics with exact receipt
   locators while unresolved targets remain typed unknown
+- the canonical `anibench eval` command, public `run_trial_eval` API,
+  `evals/level1/eval-card.json`, evaluation guide, and CLI/API parity regression
+- the strict `anibench compare` / `compare_trial_eval_receipts` same-basis
+  comparator and schema; it verifies source eval hashes and emits only
+  within-family Pareto relations with no scalar or ordinal rank
 - the seven explicit candidate authority objects and their manifest
 - the explicit Level-1 v3 coordinate, role, family, and target-gate authority,
   excluding the quarantined v2 reference-target and assessment artifacts
@@ -60,6 +65,11 @@ manifest digest; a development dirty-tree export is permanently non-release.
 - focused v2 protocol-capacity, protocol-native optimizer, information, and
   mathematical-invariant tests, including hostile Level-1 basis, covariance,
   dependence, typed-unknown, overflow, and anti-gaming regressions
+- the canonical eval command regression, including six-task identity,
+  deterministic receipt parity, schema validity, name blindness, and permanent
+  null overall score/rank
+- strict comparison regressions for hash tampering, authority-basis mismatch,
+  family-wise Pareto output, and null ordinal rank
 - v2 methods and evidence-governance documents named by the assembler
 - the candidate benchmark protocol source and reporting checklist
 - the four deterministic, study-free methods figures referenced by the

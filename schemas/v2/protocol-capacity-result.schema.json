@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://anibench.org/schemas/v2/protocol-capacity-result.schema.json",
-  "title": "AniBench v2 prospective protocol capacity result",
+  "title": "AniBench v2 proposed or realized trial-geometry capacity result",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema_version", "compiler_version", "protocol_id", "protocol_sha256", "claim_class", "empirical_attainment", "public_rank_emission_permitted", "comparison_eligible", "ontology_binding_state", "source_binding_state", "overall_scalar", "scenario_count", "scenarios", "family_envelopes", "uncertainty_reuse", "anti_gaming_contract"],
@@ -10,7 +10,7 @@
     "compiler_version": {"const": "anibench.protocol-capacity.v2-candidate9"},
     "protocol_id": {"type": "string"},
     "protocol_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
-    "claim_class": {"const": "prospective_protocol_capacity"},
+    "claim_class": {"enum": ["prospective_protocol_capacity", "realized_dataset_geometry_capacity"]},
     "empirical_attainment": {"const": false},
     "public_rank_emission_permitted": {"const": false},
     "comparison_eligible": {"const": false},

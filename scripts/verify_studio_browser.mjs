@@ -552,7 +552,7 @@ async function main() {
     assert.equal(level1Ui.downloadButtons, 1);
     await evaluate(client, `document.querySelector('#capacity-result .receipt-action').click()`);
     const level1Download = await waitForDownload(args.downloadsDir, "anibench-v2-level1-assessment-");
-    assert.equal(level1Download.payload.schema_version, "anibench.level1-role-aware-assessment.v3-candidate1");
+    assert.equal(level1Download.payload.schema_version, "anibench.level1-role-aware-assessment.v3-candidate2");
     assert.equal(level1Download.payload.comparison_eligible, false);
     assert.equal(level1Download.payload.promotion_allowed, false);
     assert.equal(level1Download.payload.overall_scalar, null);

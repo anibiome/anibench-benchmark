@@ -22,8 +22,8 @@ Empirical validation state: `not_run`
 Trial-ranking results: absent
 
 Public source release: published at
-`https://github.com/anibiome/anibench-benchmark`; first fully audited public
-product commit `edef1989417d0981cb1a1cb4e2c46f92775593d0`
+`https://github.com/anibiome/anibench-benchmark`; the exact evaluated commit is
+recorded in the release/readback receipt rather than recursively embedded here
 
 Stable tag, package-index release, archive DOI, and public ranking: absent
 
@@ -177,7 +177,9 @@ leaving its components unidentified. Factorial, SMART, and micro-randomized desi
 may identify additional operator directions when the source geometry supports them.
 The current compiler treats cluster-randomized and crossover labels as insufficient:
 both fail closed until their cluster, period, sequence, carryover, and covariance
-dependence geometry is registered rather than inferred from the design name.
+dependence geometry is registered rather than inferred from the design name. The
+eval represents this state with null native metrics and an explicit blocker code,
+never with numerical zero capacity.
 
 Repeated randomization in micro-randomized trials can identify proximal component
 effects and time-varying moderation when the trial records eligible decisions,
@@ -265,21 +267,21 @@ computed.](figures/figure_02_six_family_map.png)
 
 ## 4. Biological state and operator space
 
-For participant \(i\), latent biological state \(z_{it}\), context \(c_{it}\),
-intervention decision \(u_{it}\), and measurement module \(m\), the working local
+For participant $i$, latent biological state $z_{it}$, context $c_{it}$,
+intervention decision $u_{it}$, and measurement module $m$, the working local
 model is
 
-\[
+$$
 z_{i,t+1}=f_\theta(z_{it},u_{it},c_{it})+w_{it},
 \qquad
 x^{(m)}_{it}=h^{(m)}_\theta(z_{it})+v^{(m)}_{it}.
-\]
+$$
 
 Level 1 freezes a mesoscopic target vector
 
-\[
+$$
 \theta=(\theta_S,\theta_D,\theta_P,\theta_H,\theta_F,\theta_T),
-\]
+$$
 
 with blocks for biological state, endogenous dynamics, perturbation response,
 person-context heterogeneity, functional or lived state, and population transport.
@@ -310,16 +312,16 @@ or exposure lineage, target coordinates, nuisance coordinates, evidence state, a
 source object. Pairwise linkage does not imply an undeclared higher-order
 intersection.
 
-For event type \(e\),
+For event type $e$,
 
-\[
+$$
 \mathcal I_e=n_eA_e^\mathsf{T}R_e^{-1}A_e,
 \qquad
 \mathcal I_{\mathrm{trial}}=\sum_{e\in\mathcal E}\mathcal I_e.
-\]
+$$
 
-The operator \(A_e\) describes local sensitivity to the frozen parameter basis;
-\(R_e\) is a positive-definite nuisance-aware covariance; and \(n_e\) is retained
+The operator $A_e$ describes local sensitivity to the frozen parameter basis;
+$R_e$ is a positive-definite nuisance-aware covariance; and $n_e$ is retained
 effective support. One physical measurement lineage contributes at most once to one
 joint event. Perfect duplicates add zero conditional information. Correlated repeats
 use a joint covariance or a declared conservative envelope rather than independent
@@ -336,26 +338,26 @@ bundles fail closed.](figures/figure_03_same_event_antigaming.png)
 
 ### 5.2 Nuisance adjustment
 
-Partition the information matrix into target parameters \(\theta\) and nuisance
-parameters \(\eta\):
+Partition the information matrix into target parameters $\theta$ and nuisance
+parameters $\eta$:
 
-\[
+$$
 \mathcal I=
 \begin{bmatrix}
 \mathcal I_{\theta\theta} & \mathcal I_{\theta\eta}\\
 \mathcal I_{\eta\theta} & \mathcal I_{\eta\eta}
 \end{bmatrix}.
-\]
+$$
 
-With nuisance prior precision \(\Lambda_\eta\), conditional target information is
+With nuisance prior precision $\Lambda_\eta$, conditional target information is
 
-\[
+$$
 \mathcal I_{\theta\mid\eta}=
 \mathcal I_{\theta\theta}-
 \mathcal I_{\theta\eta}
 (\Lambda_\eta+\mathcal I_{\eta\eta})^{-1}
 \mathcal I_{\eta\theta}.
-\]
+$$
 
 This discounts batch, site, missingness, or ascertainment directions that are
 explicitly included in a correctly specified joint model. Omitted or misspecified
@@ -364,19 +366,19 @@ analysis; the Schur complement cannot protect against structure the model never 
 
 ### 5.3 Prior whitening and absolute contraction
 
-For frozen positive-definite prior precision \(\Lambda_0\), define
+For frozen positive-definite prior precision $\Lambda_0$, define
 
-\[
+$$
 G=\Lambda_0^{-1/2}\mathcal I_{\theta\mid\eta}\Lambda_0^{-1/2}.
-\]
+$$
 
 The base-10 local posterior-volume contraction is
 
-\[
+$$
 L_{\mathrm{abs}}
 =\frac{1}{2\ln 10}\log\det(I+G)
 =\frac{1}{2\ln 10}\sum_j\log(1+\lambda_j(G)).
-\]
+$$
 
 Independent directions multiply remaining-volume reduction; repeated information in
 an already precise direction has diminishing marginal value. This is a local
@@ -389,7 +391,7 @@ hypotheses.
 An eigenvalue list alone does not preserve *which* biological directions are
 resolved: a rotated rank-one operator can have an impressive eigenvalue while leaving
 most registered coordinates uncertain. A resolved family authority would therefore
-evaluate reference attainment in a frozen prior-whitened direction basis \(b_j\). The basis matrix is
+evaluate reference attainment in a frozen prior-whitened direction basis $b_j$. The basis matrix is
 required to be column-orthonormal and to diagonalize the frozen prior-whitened
 reference information. Biological coordinate identity independently freezes the
 canonical basis. Diagonalization validates that authority but does not identify a
@@ -399,33 +401,33 @@ authority.
 
 Let
 
-\[
+$$
 \Sigma=(I+G)^{-1},
 \qquad
 q_j=b_j^\mathsf{T}\Sigma b_j,
 \qquad
 \ell_j^{\mathrm{eff}}=q_j^{-1}-1.
-\]
+$$
 
 If a future family-specific operating-characteristic authority freezes a reference
-requirement \(\ell_j^*\), direction-capped family attainment can be defined as
+requirement $\ell_j^*$, direction-capped family attainment can be defined as
 
-\[
+$$
 Y_f=100\frac{\sum_j
 \min\{\log(1+\ell_j^{\mathrm{eff}}),\log(1+\ell_j^*)\}}
 {\sum_j\log(1+\ell_j^*)}.
-\]
+$$
 
 Uncapped overflow can be reported separately:
 
-\[
+$$
 O_f=\frac{\sum_j\log(1+\ell_j^{\mathrm{eff}})}
 {\sum_j\log(1+\ell_j^*)}.
-\]
+$$
 
 These would be paired outputs for the same frozen family direction set. An unresolved
 authority object remains typed null rather than being converted to zero. The
-role-aware Level-1 candidate intentionally supplies no current \(\ell_j^*\), no
+role-aware Level-1 candidate intentionally supplies no current $\ell_j^*$, no
 family percentage, and no target-attainment claim: every family operating
 characteristic is unresolved pending source-bound authority.
 
@@ -436,18 +438,18 @@ family target. Direction basis, target vector, prior scenario, formula version, 
 source authority must be content hashed.
 
 For a future resolved family authority, a coordinate target may be expressed as a
-posterior standard-deviation ratio \(r_j\) in a frozen prior-whitened basis. The
+posterior standard-deviation ratio $r_j$ in a frozen prior-whitened basis. The
 corresponding target information would be
 
-\[
+$$
 \ell_j^*=r_j^{-2}-1.
-\]
+$$
 
-For prior precision \(\Lambda_0\), the abstract target rows are constructed as
+For prior precision $\Lambda_0$, the abstract target rows are constructed as
 
-\[
+$$
 A^*=\operatorname{diag}(\sqrt{\ell^*})\,\Lambda_0^{1/2}.
-\]
+$$
 
 This is a candidate normalization construction, not an assertion that a named assay
 attains those rows and not a current Level-1 value. Any activated family authority
@@ -477,58 +479,58 @@ count model can convert the process to auditable participant-events.
 
 Extensive information multiplies a bundle by
 
-\[
+$$
 n_e^{\mathrm{eff}}=N_er_e
 \frac{k_e}{1+(k_e-1)\rho_e},
-\]
+$$
 
-where \(N_e\) is participant support, \(r_e\) is retention, \(k_e\) is repeated
-events per participant, and \(\rho_e\) is the declared within-person repetition
-correlation. Raw event support \(N_er_ek_e\) is also retained for audit. The
+where $N_e$ is participant support, $r_e$ is retention, $k_e$ is repeated
+events per participant, and $\rho_e$ is the declared within-person repetition
+correlation. Raw event support $N_er_ek_e$ is also retained for audit. The
 correlation adjustment is a scenario parameter until event-specific covariance is
 measured.
 
 When several bundles are registered as nested retained subsets of the same
-participant-set lineage, AniBench does not enumerate bundle subsets. Let \(s_e\) be
-retained participant support, \(t_h\) the distinct supports in descending order,
-\(\Delta s_h=t_h-t_{h+1}\), and \(E_h=\{e:s_e\ge t_h\}\). For bundle event count
-\(k_e\), per-event information \(I_e\), canonical positive-semidefinite root
-\(B_e=I_e^{1/2}\), and frozen compound-symmetric envelope
-\(0\le\rho_g<1\), define
+participant-set lineage, AniBench does not enumerate bundle subsets. Let $s_e$ be
+retained participant support, $t_h$ the distinct supports in descending order,
+$\Delta s_h=t_h-t_{h+1}$, and $E_h=\{e:s_e\ge t_h\}$. For bundle event count
+$k_e$, per-event information $I_e$, canonical positive-semidefinite root
+$B_e=I_e^{1/2}$, and frozen compound-symmetric envelope
+$0\le\rho_g<1$, define
 
-\[
+$$
 K_h=\sum_{e\in E_h}k_e,\qquad
 Q_h=\sum_{e\in E_h}k_eI_e,\qquad
 S_h=\sum_{e\in E_h}k_eB_e,
-\]
+$$
 
-\[
+$$
 J_h=
 \frac{Q_h-
 \frac{\rho_g}{1+(K_h-1)\rho_g}S_h^\mathsf{T}S_h}
 {1-\rho_g},
 \qquad
 I_{\mathrm{set}}=\sum_h\Delta s_hJ_h.
-\]
+$$
 
-For \(\rho_g=0\), \(J_h=Q_h\). This is the exact registered-nesting result under
+For $\rho_g=0$, $J_h=Q_h$. This is the exact registered-nesting result under
 the declared compound-symmetric model and runs in
-\(O(B\log B+Bd^2)\), rather than an exponential subset or Pareto-frontier search.
+$O(B\log B+Bd^2)$, rather than an exponential subset or Pareto-frontier search.
 If cross-bundle overlap is not source-resolved as nested, the compiler requires an
 explicit source-bound primary bundle or keeps the alternatives ledger-only. Matrices
 from different participant sets are summed only under explicit exact-disjointness
 authority.
 
 Longitudinal trajectories are assembled only inside the same participant-set
-lineage. For trajectory \(g\), AniBench records distinct offsets \(d_g\), span
-\(s_g\), retained participant support \(w_g\), and retained participant-events.
+lineage. For trajectory $g$, AniBench records distinct offsets $d_g$, span
+$s_g$, retained participant support $w_g$, and retained participant-events.
 Primary study summaries are weighted medians
 
-\[
+$$
 \widetilde d=\operatorname{wmed}\{(d_g,w_g)\},
 \qquad
 \widetilde s=\operatorname{wmed}\{(s_g,w_g)\}.
-\]
+$$
 
 Maximum duration and global calendar coverage remain explicit audits and are never
 relabeled as within-person follow-up.
@@ -537,13 +539,13 @@ relabeled as within-person follow-up.
 
 ### 7.1 Policy and component allocation support
 
-For contrast-coded design matrix \(X_k\) and registered allocation-linked support
-weighting \(W_k\),
+For contrast-coded design matrix $X_k$ and registered allocation-linked support
+weighting $W_k$,
 
-\[
+$$
 \mathcal S_k=X_k^\mathsf{T}W_kX_k,
 \qquad k\in\{\mathrm{policy},\mathrm{component}\}.
-\]
+$$
 
 Columns are centered under the declared allocation and normalized to an invariant
 contrast range. Translation or arbitrary contrast-code rescaling therefore cannot
@@ -573,50 +575,50 @@ with blocker provenance; unknown is never silently treated as inactive.
 
 ### 7.2 Decision-epoch sequential allocation support
 
-For decision epoch \(e\), let \(p_e(a)>0\) be the registered propensity for policy
-\(a\), and let \(c_{ek}\) be frozen estimand contrast \(k\) over the supported
+For decision epoch $e$, let $p_e(a)>0$ be the registered propensity for policy
+$a$, and let $c_{ek}$ be frozen estimand contrast $k$ over the supported
 policies. The eligible linked-outcome and moderator supports are
 
-\[
+$$
 n_{e}^{Y}=\min\{N_s q_e,\,n_{e,\mathrm{retained}}^{Y}\},
 \qquad
 n_{e}^{M}=\min\{n_e^Y,\,n_{e,\mathrm{retained}}^{M}\},
-\]
+$$
 
-where \(N_s\) is stage enrollment, \(q_e\) is epoch availability, linked outcomes
+where $N_s$ is stage enrollment, $q_e$ is epoch availability, linked outcomes
 must fall within the frozen estimand horizon, and moderator features must be measured
 in the pre-decision history. For a longitudinal schedule that also contains future
 events, the compiler slices the schedule at the decision time and receipts the count
 of strictly pre-decision offsets; future rows are never used as history. The contrast allocation-support term and
 moderator-supported allocation term are
 
-\[
+$$
 \omega_{ek}=
 \left\{\sum_a\frac{c_{ek,a}^{2}}{n_e^Yp_e(a)}\right\}^{-1},
 \qquad
 \widetilde\omega_{ek}=\omega_{ek}\frac{n_e^M}{n_e^Y}.
-\]
+$$
 
-Both support terms are defined as zero when \(n_e^Y=0\); an epoch with no eligible
+Both support terms are defined as zero when $n_e^Y=0$; an epoch with no eligible
 linked-outcome support therefore cannot create structural support through an undefined
 division.
 
-Let \(Z\) be the canonical policy-by-component incidence matrix and
-\(g_{ek}=c_{ek}^{\mathsf T}Z\). With the source-bound population covariance
-\(\Sigma_{M,e}\) embedded in a frozen moderator basis, the candidate compiler's
+Let $Z$ be the canonical policy-by-component incidence matrix and
+$g_{ek}=c_{ek}^{\mathsf T}Z$. With the source-bound population covariance
+$\Sigma_{M,e}$ embedded in a frozen moderator basis, the candidate compiler's
 treatment-by-moderator support operator is
 
-\[
+$$
 J_e=\sum_k\widetilde\omega_{ek}g_{ek}g_{ek}^{\mathsf T},
 \qquad
 \mathcal S_{\mathrm{seq},s}=
 \begin{cases}
 \displaystyle\bigoplus_e\left(J_e\otimes\Sigma_{M,e}\right),
-& \text{SMART epoch-specific estimands},\\[4pt]
+& \text{SMART epoch-specific estimands},\\
 \displaystyle\sum_e J_e\otimes\Sigma_{M,e},
 & \text{pooled micro-randomized estimand}.
 \end{cases}
-\]
+$$
 
 Semantic duplicate contrasts within an epoch are removed before summation. Rank and
 the moderator allocation-support factor are computed from the resulting spectral
@@ -646,18 +648,18 @@ coordinate-scale authority with source hash and locator. A context is projected 
 exactly those required axes. Extra declared coordinates are ignored numerically and
 retained in the audit ledger; a missing required axis makes that context ineligible
 for that family rather than changing the family definition. For estimand contrast
-\(k\) in context \(c\), eligible support is capped by retained linked-outcome support
+$k$ in context $c$, eligible support is capped by retained linked-outcome support
 and the allocation-aware support term is
 
-\[
+$$
 \omega_{ck}=\left\{\sum_a
 \frac{c_{k,a}^{2}}{N_c^{\mathrm{eligible}}p_c(a)}\right\}^{-1},
 \qquad w_c=\min_k\omega_{ck}.
-\]
+$$
 
 For each family independently, the compiler centers and range-normalizes only its
 required coordinates and calculates the weighted context-support matrix using
-\(w_c\). Mutually exclusive alternatives over one participant population are
+$w_c$. Mutually exclusive alternatives over one participant population are
 resolved by the exact Cartesian/Loewner frontier before distinct-population contexts
 are combined. Ranks use the same scale-aware spectral receipt as the other causal
 families. With one axis family the top-level transport fields are explicit aliases;
@@ -876,13 +878,13 @@ changing protocol geometry and running the compiler again. Direct score patches,
 family weights, overall objectives, opposing duplicate objectives, and unsourced
 resource changes are rejected.
 
-For candidate protocol \(d\), the optimizer returns a vector
+For candidate protocol $d$, the optimizer returns a vector
 
-\[
+$$
 f(d)=(f_1(d),\ldots,f_K(d),-c_1(d),\ldots,-c_R(d)),
-\]
+$$
 
-where \(f_k\) are declared family metrics and \(c_r\) are sourced resource totals.
+where $f_k$ are declared family metrics and $c_r$ are sourced resource totals.
 Dominance is componentwise under declared maximize or minimize directions. The
 output is a Pareto set, not a hidden utility function.
 
@@ -1069,11 +1071,17 @@ envelopes, protocol-native optimization, a source atlas, a command-line interfac
 local API, and an interactive Trial Designer. Candidate chart builders emit CSV or
 JSON plot data and a build receipt; candidate packaging rules exclude legacy
 scalar/ranking surfaces and private patent material. Clean-install, wheel-content,
-browser-roundtrip, and artifact-hash receipts are bound to authority commit
-`e15bfad1968e1d5f26db4fb8e6a48ee2f7b094c4` and the first fully audited public
-product commit `edef1989417d0981cb1a1cb4e2c46f92775593d0`. Those receipts establish
+browser-roundtrip, and artifact-hash receipts are bound to the exact private
+authority and public product commits named in the release/readback receipt. Those receipts establish
 the public source-release implementation layer; they do not establish biological
 calibration or a cross-trial rank.
+
+The canonical executable benchmark front door is `anibench eval`; it emits the six
+noncompensatory families and a hash-bound assessment receipt. `anibench compare`
+accepts two or more hash-valid eval receipts only when implementation, Level-1,
+geometry-authority, and parameter-space source objects match. It emits within-family
+Pareto relations and no scalar or ordinal rank. Caller-declared geometry remains
+explicitly labeled as a comparison sandbox rather than a public leaderboard.
 
 Prospective protocol-capacity compilation is distinct from cross-study public
 comparison and from role-aware Level-1 attainment. The installed v3 authority
@@ -1174,10 +1182,10 @@ AniBench use is non-human-subjects research.
 ### 20.5 Code, data, and materials availability
 
 The public source repository is
-`https://github.com/anibiome/anibench-benchmark`. The first fully audited public
-product commit is `edef1989417d0981cb1a1cb4e2c46f92775593d0`; its verification and
-CodeQL workflows passed, and its anonymous-clone build, clean install, distribution
-scan, and browser roundtrip were replayed. No stable tag, package-index publication,
+`https://github.com/anibiome/anibench-benchmark`. The exact evaluated public
+commit, verification runs, anonymous-clone build, clean-install, distribution-scan,
+and browser-roundtrip receipts are recorded together in the release readback; the
+manuscript does not recursively embed its own release commit. No stable tag, package-index publication,
 or archive DOI is asserted here. The source atlas contains
 hash-bound public evidence objects and typed missing fields; it is not a substitute
 for source-complete trial matrices or participant-level data. No private patent

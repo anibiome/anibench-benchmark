@@ -40,9 +40,9 @@ jobs:
       - run: python scripts/verify_external_field_receipts.py --pretty
       - run: python -m pytest -q
       - run: >-
-          python -m anibench.cli v2-protocol-capacity
+          python -m anibench.cli eval
           web/protocol-capacity-example.json
-          --out /tmp/anibench-protocol-capacity.json --pretty
+          --out /tmp/anibench-eval.json --pretty
       - run: >-
           python -c "import json, pathlib; root=pathlib.Path('web'); request=json.loads(root.joinpath('optimizer-protocol-example.json').read_text()); request['base_protocol']=json.loads(root.joinpath('protocol-capacity-example.json').read_text()); pathlib.Path('/tmp/anibench-optimizer-request.json').write_text(json.dumps(request))"
       - run: >-
@@ -127,9 +127,9 @@ jobs:
           /tmp/anibench-wheel-smoke/bin/python -m pip install dist/*.whl
           cd /tmp
           /tmp/anibench-wheel-smoke/bin/anibench --help
-          /tmp/anibench-wheel-smoke/bin/anibench v2-protocol-capacity \
+          /tmp/anibench-wheel-smoke/bin/anibench eval \
             /tmp/anibench-public/web/protocol-capacity-example.json \
-            --out /tmp/installed-protocol-capacity.json --pretty
+            --out /tmp/installed-eval.json --pretty
           /tmp/anibench-wheel-smoke/bin/python -c "import json, pathlib; root=pathlib.Path('/tmp/anibench-public/web'); request=json.loads(root.joinpath('optimizer-protocol-example.json').read_text()); request['base_protocol']=json.loads(root.joinpath('protocol-capacity-example.json').read_text()); pathlib.Path('/tmp/installed-optimizer-request.json').write_text(json.dumps(request))"
           /tmp/anibench-wheel-smoke/bin/anibench v2-optimize-protocol \
             /tmp/installed-optimizer-request.json \

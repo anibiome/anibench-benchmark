@@ -7,17 +7,21 @@ are not imported or distributed by the public v2 package.
 
 from .api import (
     assess_protocol_level1_v2,
+    compare_trial_eval_receipts,
     compile_protocol_capacity_v2,
     compile_trial_design_v2,
     optimize_protocol_design_v2,
+    run_trial_eval,
     score_joint_information_v2,
 )
 
 __all__ = [
     "assess_protocol_level1_v2",
+    "compare_trial_eval_receipts",
     "compile_protocol_capacity_v2",
     "compile_trial_design_v2",
     "optimize_protocol_design_v2",
+    "run_trial_eval",
     "score_joint_information_v2",
 ]
 __version__ = "2.0.0rc1"

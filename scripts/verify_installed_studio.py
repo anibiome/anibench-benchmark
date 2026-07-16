@@ -333,7 +333,7 @@ def _verify_http(base_url: str) -> dict[str, Any]:
         or replay_status != 200
         or level1_body != replay_body
         or level1.get("schema_version")
-        != "anibench.level1-role-aware-assessment.v3-candidate1"
+        != "anibench.level1-role-aware-assessment.v3-candidate2"
         or level1.get("comparison_eligible") is not False
         or level1.get("promotion_allowed") is not False
         or level1.get("overall_scalar") is not None

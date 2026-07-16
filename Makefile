@@ -2,7 +2,7 @@ PYTHON ?= python
 SOURCE_DATE_EPOCH ?= 1783900800
 export SOURCE_DATE_EPOCH
 
-.PHONY: test lint metadata level1-authority web-test protocol-smoke verify-corpus-fields ctgov-50-audit package studio-e2e \
+.PHONY: test lint metadata level1-authority web-test eval compare-smoke protocol-smoke verify-corpus-fields ctgov-50-audit package studio-e2e \
 	verify-distributions verify public-export release-candidate paper serve-studio clean
 
 test:
@@ -19,6 +19,16 @@ level1-authority:
 
 web-test:
 	node --test web/v2.test.js
+
+eval:
+	PYTHONPATH=src $(PYTHON) -m anibench.cli eval \
+		web/protocol-capacity-example.json --out /tmp/anibench-eval.json --pretty
+
+compare-smoke:
+	PYTHONPATH=src $(PYTHON) -c "import json, pathlib; from anibench import run_trial_eval; p=json.loads(pathlib.Path('web/protocol-capacity-example.json').read_text()); pathlib.Path('/tmp/anibench-eval-a.json').write_text(json.dumps(run_trial_eval(p))); p['protocol_id']='illustrative-comparison-peer'; pathlib.Path('/tmp/anibench-eval-b.json').write_text(json.dumps(run_trial_eval(p)))"
+	PYTHONPATH=src $(PYTHON) -m anibench.cli compare \
+		/tmp/anibench-eval-a.json /tmp/anibench-eval-b.json \
+		--out /tmp/anibench-comparison.json --pretty
 
 protocol-smoke:
 	PYTHONPATH=src $(PYTHON) -m anibench.cli v2-protocol-capacity \
@@ -46,7 +56,7 @@ verify-distributions:
 	@test -n "$(DISTRIBUTIONS)" || (echo "Set DISTRIBUTIONS to wheel/sdist paths" && exit 2)
 	$(PYTHON) scripts/verify_distribution_boundary.py $(DISTRIBUTIONS) --pretty
 
-verify: lint metadata level1-authority test web-test protocol-smoke verify-corpus-fields studio-e2e
+verify: lint metadata level1-authority test web-test eval compare-smoke protocol-smoke verify-corpus-fields studio-e2e
 
 public-export:
 	@test -n "$(OUTPUT)" || (echo "Set OUTPUT to a new directory outside this repository" && exit 2)

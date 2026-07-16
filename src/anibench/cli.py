@@ -21,6 +21,20 @@ def _parser() -> argparse.ArgumentParser:
     studio.add_argument("--port", type=int, default=8765)
     studio.add_argument("--unsafe-nonloopback", action="store_true")
 
+    evaluation = sub.add_parser(
+        "eval", help="Run the canonical six-task AniBench trial evaluation"
+    )
+    evaluation.add_argument("input", metavar="PROTOCOL_JSON", type=Path)
+    evaluation.add_argument("--out", type=Path)
+    evaluation.add_argument("--pretty", action="store_true")
+
+    comparison = sub.add_parser(
+        "compare", help="Compare canonical eval receipts on a strict shared Pareto basis"
+    )
+    comparison.add_argument("inputs", metavar="EVAL_JSON", nargs="+", type=Path)
+    comparison.add_argument("--out", type=Path)
+    comparison.add_argument("--pretty", action="store_true")
+
     for name, help_text in (
         ("v2-information", "Replay fail-closed v2 absolute information mechanics"),
         ("v2-design", "Compile a typed trial-design receipt"),
@@ -162,7 +176,28 @@ def main(argv: list[str] | None = None) -> int:
                 },
             )
             return 0
-        if args.command == "v2-level1-assessment":
+        if args.command == "compare":
+            from .comparison_v1 import compare_trial_evals
+
+            result = compare_trial_evals(
+                [
+                    _load_object(path, label=f"eval receipt {index}")
+                    for index, path in enumerate(args.inputs)
+                ]
+            )
+            _emit(
+                result,
+                out=args.out,
+                pretty=args.pretty,
+                receipt={
+                    "comparison_receipt_sha256": result["comparison_receipt_sha256"],
+                    "comparison_class": result["comparison_class"],
+                    "comparison_eligible": result["comparison_eligible"],
+                    "protocol_count": len(result["protocol_ids"]),
+                },
+            )
+            return 0
+        if args.command in {"eval", "v2-level1-assessment"}:
             from .level1_assessment_v3 import assess_protocol_capacity_role_aware
 
             result = assess_protocol_capacity_role_aware(
@@ -173,8 +208,10 @@ def main(argv: list[str] | None = None) -> int:
                 out=args.out,
                 pretty=args.pretty,
                 receipt={
+                    "eval_command": "eval",
                     "assessment_receipt_sha256": result["assessment_receipt_sha256"],
                     "comparison_eligible": result["comparison_eligible"],
+                    "task_count": len(result["scenarios"][0]["families"]),
                 },
             )
             return 0

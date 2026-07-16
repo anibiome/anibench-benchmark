@@ -106,6 +106,7 @@ packages = ["src/anibench"]
 "schemas/v2/intervention-design.schema.json" = "anibench/schemas/v2/intervention-design.schema.json"
 "schemas/v2/level1-coordinate-registry.schema.json" = "anibench/schemas/v2/level1-coordinate-registry.schema.json"
 "schemas/v3/level1-role-aware-assessment.schema.json" = "anibench/schemas/v3/level1-role-aware-assessment.schema.json"
+"schemas/v3/eval-comparison.schema.json" = "anibench/schemas/v3/eval-comparison.schema.json"
 "schemas/v3/level1-role-aware-target-authority.schema.json" = "anibench/schemas/v3/level1-role-aware-target-authority.schema.json"
 "schemas/v3/level1-v2-to-v3-impact-receipt.schema.json" = "anibench/schemas/v3/level1-v2-to-v3-impact-receipt.schema.json"
 "schemas/v2/optimizer-protocol-input.schema.json" = "anibench/schemas/v2/optimizer-protocol-input.schema.json"
@@ -152,6 +153,7 @@ packages = ["src/anibench"]
 "examples/optimizer_protocol_v2_example.py" = "anibench/examples/optimizer_protocol_v2_example.py"
 "examples/v2/illustrative-design.json" = "anibench/examples/v2/illustrative-design.json"
 "examples/v2/illustrative-protocol-source.json" = "anibench/examples/v2/illustrative-protocol-source.json"
+"evals/level1/eval-card.json" = "anibench/evals/level1/eval-card.json"
 "web/favicon.svg" = "anibench/web/favicon.svg"
 "web/v2.css" = "anibench/web/v2.css"
 "web/v2.html" = "anibench/web/v2.html"
@@ -169,6 +171,7 @@ include = [
   "/schemas/v2/intervention-design.schema.json",
   "/schemas/v2/level1-coordinate-registry.schema.json",
   "/schemas/v3/level1-role-aware-assessment.schema.json",
+  "/schemas/v3/eval-comparison.schema.json",
   "/schemas/v3/level1-role-aware-target-authority.schema.json",
   "/schemas/v3/level1-v2-to-v3-impact-receipt.schema.json",
   "/schemas/v2/optimizer-protocol-input.schema.json",
@@ -205,6 +208,7 @@ include = [
   "/docs/ACCESSIBILITY.md",
   "/docs/API.md",
   "/docs/DESIGN_STUDIO.md",
+  "/docs/EVALUATION.md",
   "/docs/DATA_GOVERNANCE.md",
   "/docs/EVIDENCE_POLICY.md",
   "/docs/HOW_TO_READ_ANIBENCH.md",
@@ -217,6 +221,7 @@ include = [
   "/examples/optimizer_protocol_v2_example.py",
   "/examples/v2/illustrative-design.json",
   "/examples/v2/illustrative-protocol-source.json",
+  "/evals/level1/eval-card.json",
   "/openapi/anibench-v2-candidate.yaml",
   "/packaging/PUBLIC_PACKAGE_ALLOWLIST.md",
   "/packaging/public_v2/EXTERNAL_SOURCE_VERIFICATION_RECEIPT.json",
@@ -238,6 +243,8 @@ include = [
   "/scripts/verify_release_metadata.py",
   "/scripts/verify_studio_browser.mjs",
   "/tests/test_distribution_boundary.py",
+  "/tests/test_eval_cli.py",
+  "/tests/test_eval_comparison.py",
   "/tests/test_fetch_v2_external_sources.py",
   "/tests/test_installed_studio_e2e.py",
   "/tests/test_level1_target_v3.py",

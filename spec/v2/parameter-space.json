@@ -138,46 +138,19 @@
       "interpretation": "fraction of reference information directions reaching each externally versioned completion threshold"
     }
   ],
-  "benchmark_families": [
-    {
-      "family_id": "intensive_biological_resolution",
-      "scale_semantics": "participant-event normalized",
-      "participant_count_in_primary_output": false,
-      "primary_objects": [
-        "state_resolution_spectrum",
-        "timescale_resolution_profile",
-        "joint_multimodal_conditional_gains",
-        "direct_function_resolution",
-        "biological_function_linkage",
-        "context_exposure_resolution"
-      ]
-    },
-    {
-      "family_id": "causal_personalized_learning_architecture",
-      "scale_semantics": "structural identifiability and estimand-specific precision remain separate",
-      "participant_count_in_primary_output": "precision_only",
-      "primary_objects": [
-        "whole_policy_causal_identifiability",
-        "component_operator_identifiability",
-        "causal_endpoint_information",
-        "dynamic_operator_information",
-        "within_person_sequential_information",
-        "adaptive_policy_architecture",
-        "adaptive_policy_precision"
-      ]
-    },
-    {
-      "family_id": "extensive_biological_reconstruction_capacity",
-      "scale_semantics": "joint trial information over all valid participant-events",
-      "participant_count_in_primary_output": true,
-      "primary_objects": [
-        "absolute_log10_local_contraction",
-        "level_completion",
-        "level_overflow",
-        "reference_coverage_curve"
-      ]
-    }
-  ],
+  "current_eval_family_authority": {
+    "status": "superseded_by_role_aware_v3",
+    "authority_path": "spec/v3/level1/role-aware-target-requirements.v3.json",
+    "family_ids": [
+      "intensive",
+      "extensive",
+      "longitudinal",
+      "causal",
+      "personalized_sequential",
+      "transport"
+    ],
+    "rule": "this v2 structural parameter object cannot redefine, aggregate, or rank the six current eval families"
+  },
   "evidence_lanes": [
     {
       "lane": "design",

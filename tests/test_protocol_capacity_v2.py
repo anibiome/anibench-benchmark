@@ -1734,6 +1734,20 @@ def test_dependent_randomization_requires_explicit_dependence_geometry(mechanism
     assert all(row["dependence_geometry_required"] for row in families["causal"]["stage_ledger"])
 
 
+def test_realized_geometry_uses_same_capacity_math_without_maturity_bonus() -> None:
+    prospective = _protocol("prospective-geometry")
+    realized = copy.deepcopy(prospective)
+    realized["protocol_id"] = "realized-geometry"
+    realized["claim_class"] = "realized_dataset_geometry_capacity"
+    proposed_result = compile_protocol_capacity(prospective)
+    realized_result = compile_protocol_capacity(realized)
+    assert realized_result["claim_class"] == "realized_dataset_geometry_capacity"
+    assert realized_result["empirical_attainment"] is False
+    assert realized_result["scenarios"][0]["families"] == (
+        proposed_result["scenarios"][0]["families"]
+    )
+
+
 def test_rate_process_without_window_and_rate_model_is_rejected() -> None:
     protocol = _protocol("unsupported-rate-process")
     protocol["measurement_geometry"]["participant_event_schedules"][0]["schedule_semantics"] = (

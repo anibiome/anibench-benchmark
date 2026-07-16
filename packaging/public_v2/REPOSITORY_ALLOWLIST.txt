@@ -49,6 +49,7 @@ docs/API.md
 docs/CTGOV_50_TRIAL_STRESS_TEST.md
 docs/DATA_GOVERNANCE.md
 docs/DESIGN_STUDIO.md
+docs/EVALUATION.md
 docs/EVIDENCE_POLICY.md
 docs/HOW_TO_READ_ANIBENCH.md
 docs/INTAKE_AND_ADJUDICATION.md
@@ -59,6 +60,7 @@ docs/SCIENTIFIC_FOUNDATIONS.md
 docs/V2_METHODS_CANDIDATE.md
 docs/V2_OPTIMIZER.md
 docs/audits/CTGOV_50_TRIAL_STRESS_TEST_2026-07-14.json
+evals/level1/eval-card.json
 examples/optimizer_protocol_v2_example.py
 examples/v2/illustrative-design.json
 examples/v2/illustrative-protocol-source.json
@@ -92,6 +94,7 @@ schemas/v2/protocol-capacity-input.schema.json
 schemas/v2/protocol-capacity-result.schema.json
 schemas/v2/reference-registry.schema.json
 schemas/v2/uncertainty.schema.json
+schemas/v3/eval-comparison.schema.json
 schemas/v3/level1-role-aware-assessment.schema.json
 schemas/v3/level1-role-aware-target-authority.schema.json
 schemas/v3/level1-v2-to-v3-impact-receipt.schema.json
@@ -127,6 +130,7 @@ src/anibench/__init__.py
 src/anibench/api.py
 src/anibench/causal_v2.py
 src/anibench/cli.py
+src/anibench/comparison_v1.py
 src/anibench/contracts/__init__.py
 src/anibench/contracts/identifiers.py
 src/anibench/contracts_v2.py
@@ -147,6 +151,8 @@ src/anibench/uncertainty_v2.py
 src/anibench/v2.py
 tests/test_ctgov_50_stress_test.py
 tests/test_distribution_boundary.py
+tests/test_eval_cli.py
+tests/test_eval_comparison.py
 tests/test_fetch_v2_external_sources.py
 tests/test_installed_studio_e2e.py
 tests/test_level1_assessment_v3.py

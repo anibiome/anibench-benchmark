@@ -1,14 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://anibench.org/schemas/v2/protocol-capacity-input.schema.json",
-  "title": "AniBench v2 prospective protocol capacity input",
+  "title": "AniBench v2 proposed or realized trial-geometry capacity input",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema_version", "protocol_id", "claim_class", "parameter_space", "measurement_geometry", "causal_geometry"],
   "properties": {
     "schema_version": {"const": "anibench.protocol-capacity-input.v2"},
     "protocol_id": {"$ref": "#/$defs/id"},
-    "claim_class": {"const": "prospective_protocol_capacity"},
+    "claim_class": {"enum": ["prospective_protocol_capacity", "realized_dataset_geometry_capacity"]},
     "parameter_space": {
       "type": "object", "additionalProperties": false,
       "required": ["parameter_space_id", "dimension", "prior_precision", "source_object_sha256"],

@@ -4,6 +4,18 @@ All notable changes are recorded here. AniBench uses semantic versioning for the
 
 ## 2.0.0-rc.1 - 2026-07-13
 
+- Added the canonical `anibench eval` command, public `run_trial_eval` API,
+  machine-readable six-task eval card, evaluation guide, installed-wheel smoke,
+  and parity regressions. The former `v2-level1-assessment` name remains a
+  byte-identical compatibility alias rather than a second evaluator.
+- Added `anibench compare` and `compare_trial_eval_receipts`: a hash-verifying,
+  exact-basis, within-family Pareto comparator with null scalar and ordinal rank.
+- Preserved every transport axis family, replaced longitudinal maxima with
+  participant-weighted primary summaries, exposed allocation support and
+  extensive effective rank, and made unsupported cluster/crossover dependence
+  geometry a typed unknown rather than numerical zero.
+- Bound eval receipts to the five transitive formula modules and the numerical
+  runtime environment; caller geometry remains `computed_unverified_geometry`.
 - Replaced the legacy mixed-axis score and leaderboard authority with six
   non-interchangeable capacity families: intensive, extensive, longitudinal,
   causal, personalized/sequential, and transport.

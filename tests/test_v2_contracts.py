@@ -488,6 +488,15 @@ def test_parameter_space_is_structural_and_contains_no_reference_numbers() -> No
         "functional_lived_state",
         "population_transport",
     ]
+    assert parameter_space["current_eval_family_authority"]["family_ids"] == [
+        "intensive",
+        "extensive",
+        "longitudinal",
+        "causal",
+        "personalized_sequential",
+        "transport",
+    ]
+    assert "benchmark_families" not in parameter_space
 
 
 def test_local_reference_registry_has_no_promotable_level_1_authority() -> None:

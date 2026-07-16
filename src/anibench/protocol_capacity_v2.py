@@ -5300,7 +5300,7 @@ def compile_protocol_capacity(protocol: Mapping[str, Any]) -> dict[str, Any]:
         "compiler_version": PROTOCOL_CAPACITY_VERSION,
         "protocol_id": protocol["protocol_id"],
         "protocol_sha256": _canonical_sha256(protocol),
-        "claim_class": "prospective_protocol_capacity",
+        "claim_class": protocol["claim_class"],
         "empirical_attainment": False,
         "public_rank_emission_permitted": False,
         "comparison_eligible": False,

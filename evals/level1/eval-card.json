@@ -1,0 +1,74 @@
+{
+  "schema_version": "anibench.eval-card.v1",
+  "eval_id": "anibench-human-trial-level1-role-aware-v3",
+  "evaluated_object": "human_trial_protocol_or_source_verified_realized_geometry",
+  "question": "How much biological state, movement, intervention response, individual variation, function, and population transfer does this human study make learnable?",
+  "command": "anibench eval <protocol-capacity-input.json> --out <assessment.json> --pretty",
+  "comparison_command": "anibench compare <assessment-a.json> <assessment-b.json> [more assessments] --out <comparison.json> --pretty",
+  "python_api": "anibench.run_trial_eval",
+  "comparison_python_api": "anibench.compare_trial_eval_receipts",
+  "input_schema": "schemas/v2/protocol-capacity-input.schema.json",
+  "accepted_geometry_claim_classes": ["prospective_protocol_capacity", "realized_dataset_geometry_capacity"],
+  "result_schema": "schemas/v3/level1-role-aware-assessment.schema.json",
+  "task_aggregation": "none_noncompensatory_vector",
+  "overall_scalar": null,
+  "tasks": [
+    {
+      "task_id": "intensive",
+      "label": "Depth per participant-event",
+      "native_metric_ids": ["effective_rank", "maximum_joint_bundle_log10_contraction"]
+    },
+    {
+      "task_id": "extensive",
+      "label": "Breadth and population reach",
+      "native_metric_ids": ["effective_rank", "retained_participant_events", "retained_log10_contraction"]
+    },
+    {
+      "task_id": "longitudinal",
+      "label": "Repeated-state resolution",
+      "native_metric_ids": ["participant_weighted_median_distinct_offsets", "participant_weighted_median_span", "retained_participant_events"]
+    },
+    {
+      "task_id": "causal",
+      "label": "Intervention identifiability",
+      "native_metric_ids": ["policy_rank", "policy_allocation_support_factor", "component_rank", "component_allocation_support_factor", "eligible_randomized_participants", "eligible_randomized_participant_decisions"]
+    },
+    {
+      "task_id": "personalized_sequential",
+      "label": "Personalization and adaptive policy",
+      "native_metric_ids": ["sequential_moderator_rank", "sequential_moderator_allocation_support_factor", "eligible_randomized_participants", "eligible_randomized_participant_decisions", "structural_personalization_eligible"]
+    },
+    {
+      "task_id": "transport",
+      "label": "Generalization across contexts",
+      "native_metric_ids": ["transport_rank", "transport_allocation_support_factor"],
+      "metric_group_contract": {
+        "group_type": "transport_axis_family",
+        "group_id_field": "transport_axis_family_id",
+        "native_metric_ids": ["transport_rank", "transport_allocation_support_factor"],
+        "rule": "emit_every_registered_axis_family_without_selection_or_collapse"
+      }
+    }
+  ],
+  "evidence_view_contract": {
+    "capacity_lane": "design_geometry",
+    "recognized_claim_lanes": ["design_preview", "registered", "realized", "accessible", "demonstrated"],
+    "evidence_lane_encoded_in_eval_receipt": false,
+    "external_receipt_required": true,
+    "rule": "evidence maturity changes claim permissions, never the design-capacity mathematics"
+  },
+  "invariants": [
+    "same_geometry_same_capacity_across_evidence_lanes",
+    "unknown_is_not_zero",
+    "study_identity_cannot_change_native_metrics",
+    "sample_size_cannot_create_unmeasured_biological_directions",
+    "modality_names_cannot_replace_observation_operators",
+    "arm_count_cannot_replace_randomized_contrast_geometry",
+    "outlier_schedule_cannot_replace_participant_weighted_longitudinal_primary",
+    "custom_geometry_is_computed_but_never_labeled_level1_verified",
+    "dependent_randomization_without_dependence_geometry_is_unknown_not_zero",
+    "comparison_requires_hash_valid_receipts_on_one_exact_basis",
+    "no_overall_scalar",
+    "no_public_rank_without_source_complete_shared_basis"
+  ]
+}
