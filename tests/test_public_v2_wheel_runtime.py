@@ -11,6 +11,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def test_browser_profile_cleanup_does_not_override_a_passed_browser_receipt() -> None:
+    browser_gate = (ROOT / "scripts" / "verify_studio_browser.mjs").read_text(
+        encoding="utf-8"
+    )
+    assert 'new Set(["EBUSY", "ENOTEMPTY", "EPERM"])' in browser_gate
+    assert "maxRetries: 50" in browser_gate
+    assert "removeBrowserProfile(profile);" in browser_gate
+    assert "if (!RECOVERABLE_PROFILE_CLEANUP_CODES.has(error?.code)) throw error;" in browser_gate
+
+
 def test_built_wheel_runs_only_current_front_doors_from_unpacked_install(tmp_path: Path) -> None:
     dist = tmp_path / "dist"
     build = subprocess.run(

@@ -8,6 +8,24 @@ import path from "node:path";
 import process from "node:process";
 import {spawn} from "node:child_process";
 
+const RECOVERABLE_PROFILE_CLEANUP_CODES = new Set(["EBUSY", "ENOTEMPTY", "EPERM"]);
+
+function removeBrowserProfile(profile) {
+  try {
+    fs.rmSync(profile, {
+      recursive: true,
+      force: true,
+      maxRetries: 50,
+      retryDelay: 200
+    });
+  } catch (error) {
+    if (!RECOVERABLE_PROFILE_CLEANUP_CODES.has(error?.code)) throw error;
+    process.stderr.write(
+      `[cleanup-warning] Chrome released the verified temporary profile late: ${error.code} ${profile}\n`
+    );
+  }
+}
+
 function parseArgs(argv) {
   const result = {url: null, downloadsDir: null, browserBinary: null};
   for (let index = 0; index < argv.length; index += 1) {
@@ -747,12 +765,7 @@ async function main() {
       browser.kill("SIGKILL");
       await waitForExit(browser);
     }
-    fs.rmSync(profile, {
-      recursive: true,
-      force: true,
-      maxRetries: 10,
-      retryDelay: 100
-    });
+    removeBrowserProfile(profile);
   }
 }
 
