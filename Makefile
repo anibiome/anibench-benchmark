@@ -2,7 +2,7 @@ PYTHON ?= python
 SOURCE_DATE_EPOCH ?= 1783900800
 export SOURCE_DATE_EPOCH
 
-.PHONY: test lint metadata level1-authority web-test eval compare-smoke protocol-smoke verify-corpus-fields ctgov-50-audit package studio-e2e \
+.PHONY: test lint license metadata level1-authority web-test eval compare-smoke protocol-smoke verify-corpus-fields ctgov-50-audit package studio-e2e \
 	verify-distributions verify public-export release-candidate paper serve-studio clean
 
 test:
@@ -10,6 +10,9 @@ test:
 
 lint:
 	PYTHONPATH=src $(PYTHON) -m ruff check src tests scripts
+
+license:
+	$(PYTHON) -m reuse lint
 
 metadata:
 	$(PYTHON) scripts/verify_release_metadata.py --pretty
@@ -56,7 +59,7 @@ verify-distributions:
 	@test -n "$(DISTRIBUTIONS)" || (echo "Set DISTRIBUTIONS to wheel/sdist paths" && exit 2)
 	$(PYTHON) scripts/verify_distribution_boundary.py $(DISTRIBUTIONS) --pretty
 
-verify: lint metadata level1-authority test web-test eval compare-smoke protocol-smoke verify-corpus-fields studio-e2e
+verify: lint license metadata level1-authority test web-test eval compare-smoke protocol-smoke verify-corpus-fields studio-e2e
 
 public-export:
 	@test -n "$(OUTPUT)" || (echo "Set OUTPUT to a new directory outside this repository" && exit 2)
