@@ -104,13 +104,67 @@ test("population chart omits unknown and nonfinite values, preserving lower boun
   assert.equal(view.populationRows(rows)[0].lowerBound, true);
 });
 
-test("registry and paper denominators remain separate", () => {
+test("paper population is foregrounded while the frozen registry remains available", () => {
   const row = study({
-    population: { state: "known", value: 40 },
+    population: { state: "known", value: 40, unit: "participants" },
     publication_facts: [{ state: "reported", value: 42, unit: "participants" }],
   });
-  assert.equal(view.displayPopulation(row).value, 40);
+  assert.equal(view.displayPopulation(row).value, 42);
+  assert.equal(row.population.value, 40);
   assert.equal(row.publication_facts[0].value, 42);
+  assert.deepEqual(
+    view.coordinateRows([row], "participants").map((r) => r.value),
+    [42, 40],
+  );
+});
+
+test("source plots keep units, bounds, denominators and follow-up summaries distinct", () => {
+  const row = study({
+    publication_facts: [
+      {
+        state: "reported",
+        value: 2.6,
+        unit: "years",
+        semantics: "mean_followup",
+      },
+      {
+        state: "reported",
+        value: 2.7,
+        unit: "years",
+        semantics: "median_followup",
+      },
+      { state: "reported", value: 8, unit: "weeks", semantics: "intervention" },
+      { state: "reported", value: 200, unit: "proteins" },
+      {
+        state: "reported",
+        value: 500000,
+        unit: "participants",
+        precision: "lower_bound",
+      },
+      { state: "unknown", value: 1000, unit: "participants" },
+      { state: "reported", value: Infinity, unit: "participants" },
+      { state: "reported", value: 231079, unit: "cells" },
+    ],
+  });
+  const durations = view.coordinateRows([row], "duration");
+  assert.deepEqual(
+    durations.map((r) => r.value),
+    [2.6 * 365.25, 2.7 * 365.25, 56],
+  );
+  assert.match(durations[0].label, /2.6 years/);
+  assert.equal(durations[0].semantics, "mean_followup");
+  assert.equal(durations[1].semantics, "median_followup");
+  const people = view.coordinateRows([row], "participants");
+  assert.equal(people.length, 1);
+  assert.match(people[0].label, /^>500,000 participants/);
+  assert.deepEqual(
+    view.coordinateRows([row], "proteins").map((r) => r.value),
+    [200],
+  );
+  assert.deepEqual(
+    view.coordinateRows([row], "cells").map((r) => r.value),
+    [231079],
+  );
 });
 
 test("transport families are preserved rather than averaged", () => {

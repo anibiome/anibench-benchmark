@@ -190,7 +190,9 @@ correlated-repeat effective information, unbounded independent-sample growth,
 noise and nuisance penalties, and the elapsed-time counterexample. It also
 rejects non-finite and empty model geometry. The existing compiler tests add
 event deduplication, source linkage, assignment support, and temporal-order
-checks. These tests establish mathematical properties of declared models;
+checks. Nuisance projections reject repeated, fractional, and boolean coordinate
+indices so a malformed projection cannot manufacture dimensions. These tests
+establish mathematical properties of declared models;
 biological calibration still requires real held-out evidence.
 
 Before replacing any existing formula, publish its estimand, derivation,

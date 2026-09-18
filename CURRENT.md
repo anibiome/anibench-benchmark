@@ -1,6 +1,15 @@
 # AniBench current authority
 
-Effective: 2026-07-15
+Versioned evaluator authority: 2026-07-15. Scientific reassessment and explorer
+candidate: 2026-09-17.
+
+The six-family evaluator below remains the executable compatibility contract.
+Its family definitions and target coordinates are scientific proposals, open to
+revision with an explicit derivation and migration. The current reassessment is
+`docs/FIRST_PRINCIPLES.md`; the runnable source explorer is documented in
+`docs/STUDY_EXPLORER.md`. Source facts, conditional model information, and
+demonstrated biological utility remain distinct. Passing the mathematical and
+software checks does not validate a universal study ranking.
 
 The current product and scientific authority is AniBench v2. Do not reconstruct
 the benchmark by averaging older repository documents.

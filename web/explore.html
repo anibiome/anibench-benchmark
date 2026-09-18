@@ -121,13 +121,19 @@
           </div>
           <aside class="plot-panel">
             <p class="eyebrow">SOURCE COORDINATES</p>
-            <h3>People in the record</h3>
-            <p>
-              Reported counts on a logarithmic axis. Enrollment, randomized
-              populations, and profiled subsets retain their own denominators;
-              bar length is not a quality rank. A > marker denotes a lower
-              bound.
-            </p>
+            <label for="source-coordinate"
+              >Plot a source coordinate
+              <select id="source-coordinate">
+                <option value="participants">People & denominators</option>
+                <option value="duration">Duration & follow-up</option>
+                <option value="proteins">Protein targets</option>
+                <option value="metabolites">Metabolite targets</option>
+                <option value="transcripts">Transcript targets</option>
+                <option value="cells">Profiled cells</option>
+              </select>
+            </label>
+            <h3 id="coordinate-title">People in the record</h3>
+            <p id="coordinate-description"></p>
             <div id="population-chart"></div>
             <p id="population-caption" class="caption"></p>
           </aside>

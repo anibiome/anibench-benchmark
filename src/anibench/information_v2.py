@@ -161,8 +161,20 @@ def nuisance_adjusted_information(
     nuisance_prior_precision: Sequence[Sequence[float]] | np.ndarray,
 ) -> np.ndarray:
     full = _psd(_array(full_information, name="full_information"), name="full_information")
-    target = tuple(int(index) for index in target_indices)
-    nuisance = tuple(int(index) for index in nuisance_indices)
+
+    def indices(values: Sequence[int], name: str) -> tuple[int, ...]:
+        if any(
+            isinstance(index, (bool, np.bool_)) or not isinstance(index, (int, np.integer))
+            for index in values
+        ):
+            raise InformationV2Error(f"{name} must contain integer indices")
+        result = tuple(int(index) for index in values)
+        if len(set(result)) != len(result):
+            raise InformationV2Error(f"{name} must not repeat an index")
+        return result
+
+    target = indices(target_indices, "target_indices")
+    nuisance = indices(nuisance_indices, "nuisance_indices")
     if not target or set(target) & set(nuisance):
         raise InformationV2Error("target indices must be nonempty and disjoint from nuisance")
     if min((*target, *nuisance), default=0) < 0 or max((*target, *nuisance)) >= full.shape[0]:
@@ -301,9 +313,7 @@ def reconstruction_metrics(
     if info.shape != reference.shape or info.shape != prior.shape:
         raise InformationV2Error("information, reference, and prior dimensions differ")
     whitened = prior_whitened_information(info, prior)
-    geometry = validate_reference_geometry(
-        reference, prior, reference_direction_basis
-    )
+    geometry = validate_reference_geometry(reference, prior, reference_direction_basis)
     reference_vectors = np.asarray(geometry.reference_direction_basis, dtype=float)
     reference_values = np.asarray(geometry.reference_values, dtype=float)
     # Direction completion is evaluated from posterior marginal precision in
@@ -318,9 +328,7 @@ def reconstruction_metrics(
         np.eye(whitened.shape[0], dtype=float),
     )
     posterior_covariance = 0.5 * (posterior_covariance + posterior_covariance.T)
-    direction_variances = np.diag(
-        reference_vectors.T @ posterior_covariance @ reference_vectors
-    )
+    direction_variances = np.diag(reference_vectors.T @ posterior_covariance @ reference_vectors)
     if np.any(direction_variances <= 0.0):
         raise InformationV2Error("posterior directional variances must be positive")
     trial_direction_values = np.maximum(1.0 / direction_variances - 1.0, 0.0)

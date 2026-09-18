@@ -3,11 +3,22 @@
 Run `anibench studio` and open `http://127.0.0.1:8765/explore.html`.
 The existing Trial Designer remains at `/` and `/v2.html`.
 
-The explorer provides a searchable 16-study source atlas, a population plot,
+The explorer provides a searchable 16-study source atlas, selectable source plots,
 selection of up to four studies for a source comparison, canonical protocol
 evaluation, and comparison of 2–20 canonical assessment receipts. All six
 families are shown in native units. Download buttons preserve the exact inputs,
 assessments, and comparison packet.
+
+Source plots show every available denominator separately, including publication
+enrollment, completers, assay subsets, and the frozen registry record. Study
+cards foreground the first reported publication population; the original record
+is retained in the comparison and the plot. This is a declared presentation
+choice, not an adjudication that one denominator supersedes another. Duration
+plots retain mean, median, intervention, and scheduled-endpoint meanings. They
+use 365.25 days per year and one twelfth of that per month solely for the display
+axis; original units remain attached. Protein, metabolite, transcript, and cell
+counts each have a separate plot. Counts are never added across assays or
+interpreted as independent biological dimensions or people.
 
 Original JSON text is retained for upload and download, including numeric
 serialization. The full workspace archive stores `receipt_documents`,

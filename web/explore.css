@@ -465,6 +465,27 @@ h3 {
   font-weight: 450;
   margin: 0;
 }
+
+.plot-panel label {
+  display: grid;
+  gap: 8px;
+  font-size: 0.8rem;
+  margin-bottom: 24px;
+}
+
+.plot-panel select {
+  width: 100%;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+}
+
+#population-chart {
+  max-height: 730px;
+  overflow-y: auto;
+}
 .plot-panel svg {
   display: block;
   width: 100%;

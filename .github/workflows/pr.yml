@@ -106,7 +106,7 @@ jobs:
           python -m pip install -e '.[dev]'
           reuse lint
           python -m pytest -q
-          node --test web/v2.test.js
+          node --test web/v2.test.js web/explore.test.js
       - name: Build and inspect public distributions
         working-directory: /tmp/anibench-public
         run: |

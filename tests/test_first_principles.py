@@ -92,3 +92,16 @@ def test_empty_models_have_no_meaningful_information_geometry():
         information(np.zeros((1, 0)), [[1.0]])
     with pytest.raises(InformationV2Error, match="nonempty"):
         absolute_log10_contraction(np.zeros((0, 0)), np.zeros((0, 0)))
+
+
+@pytest.mark.parametrize(
+    "target,nuisance", [([0, 0], [1]), ([0], [1, 1]), ([0.5], [1]), ([False], [1]), ([0], [True])]
+)
+def test_nuisance_projection_cannot_duplicate_or_coerce_dimensions(target, nuisance):
+    with pytest.raises(InformationV2Error, match="integer|repeat"):
+        nuisance_adjusted_information(
+            [[2, 1], [1, 2]],
+            target_indices=target,
+            nuisance_indices=nuisance,
+            nuisance_prior_precision=np.eye(len(nuisance)),
+        )

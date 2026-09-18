@@ -60,20 +60,97 @@ function factLabel(fact) {
 }
 
 function displayPopulation(study) {
-  if (knownNumber(study.population) !== null) return study.population;
   return (
-    study.publication_facts?.find((fact) => fact.unit === "participants") ||
-    study.population
+    study.publication_facts?.find(
+      (fact) => fact.unit === "participants" && reportedNumber(fact) !== null,
+    ) || study.population
   );
 }
 
 function displayDuration(study) {
-  if (knownNumber(study.duration) !== null) return study.duration;
   return (
-    study.publication_facts?.find((fact) =>
-      ["years", "days", "months", "weeks"].includes(fact.unit),
+    study.publication_facts?.find(
+      (fact) =>
+        ["years", "days", "months", "weeks"].includes(fact.unit) &&
+        reportedNumber(fact) !== null,
     ) || study.duration
   );
+}
+
+function reportedNumber(fact) {
+  return fact?.state === "reported" &&
+    typeof fact.value === "number" &&
+    Number.isFinite(fact.value)
+    ? fact.value
+    : knownNumber(fact);
+}
+
+const TIME_TO_DAYS = { days: 1, weeks: 7, months: 365.25 / 12, years: 365.25 };
+const COORDINATES = {
+  participants: {
+    title: "People in the record",
+    unit: "participants",
+    note: "Each reported denominator is shown separately. Registry enrollment, analyzed subsets, and completers are not interchangeable and are never added together.",
+  },
+  duration: {
+    title: "Time in the record",
+    unit: "days",
+    note: "Intervention periods, mean and median follow-up, and scheduled endpoints retain their own meanings. For plotting only, a year is 365.25 days and a month is one twelfth of a year. Original units remain on every row.",
+  },
+  proteins: {
+    title: "Reported protein targets",
+    unit: "proteins",
+    note: "Assay target counts do not establish independent biological dimensions, assay accuracy, or complete measurements for every person.",
+  },
+  metabolites: {
+    title: "Reported metabolite targets",
+    unit: "metabolites",
+    note: "Reported metabolite counts retain their assay definitions. Correlation, coverage, noise, and person-event completeness require separate evidence.",
+  },
+  transcripts: {
+    title: "Reported transcript targets",
+    unit: "transcripts",
+    note: "Transcript counts are assay descriptors. They are not directly comparable to protein or metabolite counts and are never summed into a depth score.",
+  },
+  cells: {
+    title: "Profiled cells",
+    unit: "cells",
+    note: "Cells are nested within people. Their count is not a participant count or an independent sample size.",
+  },
+};
+
+function coordinateRows(studies, coordinate) {
+  const rows = [];
+  for (const study of studies) {
+    const base =
+      coordinate === "participants"
+        ? study.population
+        : coordinate === "duration"
+          ? study.duration
+          : null;
+    const candidates = [...(study.publication_facts || [])];
+    if (base && knownNumber(base) !== null)
+      candidates.push({ ...base, label: "Frozen source record" });
+    for (const fact of candidates) {
+      const value = reportedNumber(fact);
+      const multiplier =
+        coordinate === "duration"
+          ? TIME_TO_DAYS[fact.unit]
+          : fact.unit === coordinate
+            ? 1
+            : null;
+      if (value === null || value <= 0 || multiplier == null) continue;
+      rows.push({
+        id: study.study_id,
+        name: study.name,
+        value: value * multiplier,
+        label: `${factLabel(fact)} ${fact.unit} · ${fact.label || human(fact.semantics)}`,
+        semantics: fact.semantics,
+        fact,
+      });
+    }
+  }
+  return rows;
 }
 
 function safeSourceURL(value) {
@@ -210,12 +287,20 @@ function factDetails(name, fact) {
 function renderPopulation(studies) {
   const target = document.getElementById("population-chart");
   target.replaceChildren();
-  const rows = populationRows(studies);
+  const coordinate = document.getElementById("source-coordinate").value;
+  const settings = COORDINATES[coordinate];
+  const rows = coordinateRows(studies, coordinate);
+  document.getElementById("coordinate-title").textContent = settings.title;
+  document.getElementById("coordinate-description").textContent = settings.note;
   const caption = document.getElementById("population-caption");
-  caption.textContent = `${rows.length} of ${studies.length} displayed studies have a source-bound population figure. A > marker is a reported lower bound. Unresolved counts are omitted, not plotted at zero. Order follows the source catalogue.`;
+  caption.textContent = `${rows.length} source figures from ${new Set(rows.map((row) => row.id)).size} of ${studies.length} displayed studies. Logarithmic axis in ${settings.unit}; > means a reported lower bound. Missing values are omitted. Order follows the source catalogue, not a rank.`;
   if (!rows.length) {
     target.append(
-      el("p", "No exact population count in this selection.", "caption"),
+      el(
+        "p",
+        "No source-bound values for this coordinate in this selection.",
+        "caption",
+      ),
     );
     return;
   }
@@ -225,17 +310,22 @@ function renderPopulation(studies) {
     1,
     Math.ceil(Math.log10(Math.max(...rows.map((row) => row.value)))),
   );
-  const x = (value) => 5 + (Math.log10(value) / maxExponent) * 350;
+  const minExponent = Math.min(
+    0,
+    Math.floor(Math.log10(Math.min(...rows.map((row) => row.value)))),
+  );
+  const x = (value) =>
+    5 + ((Math.log10(value) - minExponent) / (maxExponent - minExponent)) * 350;
   const svg = svgEl("svg", {
     viewBox: `0 0 ${width} ${height}`,
     role: "img",
-    "aria-label": "Reported study population on a log scale",
+    "aria-label": `${settings.title} on a logarithmic axis in ${settings.unit}`,
   });
   svg.append(
     svgEl(
       "title",
       {},
-      "Reported population counts and lower bounds, with distinct denominators",
+      `${settings.title}; all source denominators and meanings remain separate`,
     ),
   );
   rows.forEach((row, index) => {
@@ -252,22 +342,18 @@ function renderPopulation(studies) {
       fill: "#28716a",
     });
     bar.append(
-      svgEl(
-        "title",
-        {},
-        `${row.name}: ${row.lowerBound ? ">" : ""}${numberLabel(row.value)} · ${human(row.semantics)}`,
-      ),
+      svgEl("title", {}, `${row.name}: ${row.label} · ${human(row.semantics)}`),
     );
     svg.append(bar);
     svg.append(
       svgEl(
         "text",
         { x: 5, y: y + 34, fill: "#5b6a69", "font-size": 9 },
-        `${row.lowerBound ? ">" : ""}${numberLabel(row.value)} · ${human(row.semantics)}`,
+        row.label.length > 66 ? `${row.label.slice(0, 64)}…` : row.label,
       ),
     );
   });
-  for (let exponent = 0; exponent <= maxExponent; exponent += 1) {
+  for (let exponent = minExponent; exponent <= maxExponent; exponent += 1) {
     const position = x(10 ** exponent);
     svg.append(
       svgEl("line", {
@@ -284,7 +370,12 @@ function renderPopulation(studies) {
         {
           x: position,
           y: height - 9,
-          "text-anchor": exponent === 0 ? "start" : "middle",
+          "text-anchor":
+            exponent === minExponent
+              ? "start"
+              : exponent === maxExponent
+                ? "end"
+                : "middle",
           fill: "#5b6a69",
           "font-size": 9,
         },
@@ -816,7 +907,14 @@ async function startExplorer() {
         );
         stats.append(block);
       }
-      card.append(stats);
+      card.append(
+        stats,
+        el(
+          "p",
+          `${population.label || "Frozen source record"} · ${human(population.semantics)}`,
+          "caption",
+        ),
+      );
       const tail = el("div", null, "card-tail");
       tail.append(
         el(
@@ -870,6 +968,9 @@ async function startExplorer() {
     renderStudies();
     query.addEventListener("input", renderStudies);
     filter.addEventListener("change", renderStudies);
+    document
+      .getElementById("source-coordinate")
+      .addEventListener("change", renderStudies);
     const downloadAtlas = document.getElementById("download-atlas");
     downloadAtlas.disabled = false;
     downloadAtlas.addEventListener("click", () =>
@@ -972,6 +1073,7 @@ if (typeof module !== "undefined")
     safeSourceURL,
     filterStudies,
     populationRows,
+    coordinateRows,
     metricGroups,
     displayPopulation,
     displayDuration,
