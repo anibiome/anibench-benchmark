@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from test_v2_contracts import event_fixture, intervention_fixture, uncertainty_fixture
 
 from anibench.cli import main
 from anibench.contracts_v2 import (
@@ -13,7 +14,6 @@ from anibench.contracts_v2 import (
     validate_contract_bundle,
     validate_contract_bundle_strict,
 )
-from test_v2_contracts import event_fixture, intervention_fixture, uncertainty_fixture
 
 
 def _report(

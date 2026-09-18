@@ -14,15 +14,15 @@ import hashlib
 import itertools
 import json
 import math
+from collections.abc import Iterable, Mapping, Sequence
 from pathlib import Path
-from typing import Any, Iterable, Mapping, Sequence
+from typing import Any
 
 import numpy as np
 from jsonschema import Draft202012Validator
 
 from .causal_v2 import contrast_information
 from .information_v2 import absolute_mechanics, prior_whitened_information
-
 
 PROTOCOL_CAPACITY_VERSION = "anibench.protocol-capacity.v2-candidate9"
 CONDITIONAL_MODERATED_ELIGIBILITY_SCOPE = (

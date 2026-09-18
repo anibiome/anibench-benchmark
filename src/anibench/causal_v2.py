@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 import math
+from collections.abc import Sequence
 from dataclasses import asdict, dataclass
-from typing import Any, Sequence
+from typing import Any
 
 import numpy as np
 
 from .information_v2 import InformationV2Error
-
 
 V2_CAUSAL_VERSION = "anibench.causal-design.v2-candidate2"
 
@@ -49,7 +49,7 @@ def _summarize(matrix: np.ndarray, *, tolerance: float = 1e-10) -> DesignInforma
     if float(np.min(values, initial=0.0)) < -threshold:
         raise InformationV2Error("design information is materially non-PSD")
     positive = values[values > threshold]
-    rank = int(len(positive))
+    rank = len(positive)
     smallest = float(np.min(positive)) if rank else 0.0
     geometric = float(math.exp(np.mean(np.log(positive)))) if rank else 0.0
     return DesignInformation(

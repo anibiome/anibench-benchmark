@@ -18,7 +18,6 @@ from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
-
 ROOT = Path(__file__).resolve().parents[1]
 BROWSER_SCRIPT = ROOT / "scripts" / "verify_studio_browser.mjs"
 SECURITY_HEADERS = {

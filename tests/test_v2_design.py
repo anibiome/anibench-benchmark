@@ -2,10 +2,11 @@ from __future__ import annotations
 
 import json
 import threading
+from collections.abc import Iterator
 from copy import deepcopy
 from http.server import ThreadingHTTPServer
 from pathlib import Path
-from typing import Any, Iterator
+from typing import Any
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
@@ -16,7 +17,6 @@ from anibench import compile_trial_design_v2
 from anibench.cli import main
 from anibench.design_v2 import DesignInputError, compile_design, validate_design_input
 from anibench.studio import StudioHandler
-
 
 ROOT = Path(__file__).resolve().parents[1]
 COORDINATE_TABLE = ROOT / "data" / "source_projections" / "v2" / "SOURCE_COORDINATE_TABLE.csv"

@@ -3,11 +3,11 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+from collections.abc import Iterable, Sequence
 from dataclasses import asdict, dataclass
-from typing import Any, Iterable, Sequence
+from typing import Any
 
 import numpy as np
-
 
 V2_INFORMATION_VERSION = "anibench.joint-information.v2-candidate1"
 PSD_TOLERANCE = 1e-10

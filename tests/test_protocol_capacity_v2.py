@@ -6,6 +6,7 @@ import json
 import math
 import threading
 import time
+from http.server import ThreadingHTTPServer
 from pathlib import Path
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
@@ -14,16 +15,14 @@ import pytest
 from jsonschema import Draft202012Validator
 
 import anibench.protocol_capacity_v2 as protocol_capacity_module
+from anibench import compile_protocol_capacity_v2
+from anibench.cli import main
 from anibench.protocol_capacity_v2 import (
     PROTOCOL_CAPACITY_VERSION,
     ProtocolCapacityError,
     compile_protocol_capacity,
 )
-from anibench import compile_protocol_capacity_v2
-from anibench.cli import main
 from anibench.studio import StudioHandler
-from http.server import ThreadingHTTPServer
-
 
 ROOT = Path(__file__).resolve().parents[1]
 SHA = "sha256:" + "0" * 64

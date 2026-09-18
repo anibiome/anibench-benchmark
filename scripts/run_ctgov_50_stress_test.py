@@ -26,7 +26,6 @@ from anibench.intake import (
     snapshot_clinicaltrials_study,
 )
 
-
 CONTRACT = "anibench.ctgov-heterogeneous-trial-stress-test.v1"
 CTGOV_VERSION_URL = "https://clinicaltrials.gov/api/v2/version"
 DEFAULT_OUTPUT = Path("docs/audits/CTGOV_50_TRIAL_STRESS_TEST_2026-07-14.json")

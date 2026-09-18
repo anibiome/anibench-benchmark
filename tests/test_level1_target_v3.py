@@ -21,8 +21,8 @@ from anibench.level1_target_v3 import (
     LONGITUDINAL_ESTIMAND_IDS,
     RELATIONAL_ESTIMAND_ROLES,
     TRANSPORT_ESTIMAND_IDS,
-    V2_COORDINATE_REGISTRY_RAW_SHA256,
     V2_COORDINATE_IDENTITY_SHA256,
+    V2_COORDINATE_REGISTRY_RAW_SHA256,
     V2_TARGET_PATH,
     V2_TARGET_RAW_SHA256,
     Level1V3AuthorityError,
@@ -32,7 +32,6 @@ from anibench.level1_target_v3 import (
     validate_role_aware_authority,
     write_artifacts,
 )
-
 
 ROOT = Path(__file__).resolve().parents[1]
 AUTHORITY_PATH = ROOT / "spec/v3/level1/role-aware-target-requirements.v3.json"

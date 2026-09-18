@@ -97,7 +97,8 @@ def _parser() -> argparse.ArgumentParser:
 def _load_object(path: Path, *, label: str) -> dict[str, Any]:
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
-        raise ValueError(f"{label} must be one JSON object")
+        # Malformed file content is a value error in the public CLI contract.
+        raise ValueError(f"{label} must be one JSON object")  # noqa: TRY004
     return payload
 
 

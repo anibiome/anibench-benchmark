@@ -13,7 +13,6 @@ from pathlib import Path, PurePosixPath
 from typing import Any, BinaryIO
 from urllib.parse import urlsplit
 
-
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_LEDGER = Path("data/source_projections/v2/EXTERNAL_SOURCE_ACQUISITION_LEDGER.json")
 SOURCE_OBJECT_ROOT = PurePosixPath("data/source_projections/v2/sources")
@@ -26,7 +25,7 @@ class ExternalSourceFetchError(ValueError):
 
 
 class _HttpsOnlyRedirectHandler(urllib.request.HTTPRedirectHandler):
-    def redirect_request(self, req, fp, code, msg, headers, newurl):  # noqa: ANN001, ANN201
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
         _validate_https_url(newurl)
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
@@ -62,7 +61,7 @@ def _validate_https_url(value: Any) -> str:
     url = value
     parsed = urlsplit(url)
     try:
-        parsed.port
+        _ = parsed.port  # Access validates the parsed port and can raise ValueError.
     except ValueError as exc:
         raise ExternalSourceFetchError(
             f"credential-free HTTPS source URL has an invalid port: {url!r}"
@@ -168,7 +167,7 @@ def _fetch_to_temporary(
     target.parent.mkdir(parents=True, exist_ok=True)
     temporary_path: Path | None = None
     try:
-        with opener.open(request, timeout=60) as response:  # noqa: S310
+        with opener.open(request, timeout=60) as response:
             final_url = response.geturl()
             _validate_https_url(final_url)
             content_length = response.headers.get("Content-Length")

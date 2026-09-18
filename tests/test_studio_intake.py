@@ -8,9 +8,8 @@ from types import SimpleNamespace
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
-import anibench.studio as studio
+from anibench import studio
 from anibench.studio import StudioHandler
-
 
 ROOT = Path(__file__).resolve().parents[1]
 

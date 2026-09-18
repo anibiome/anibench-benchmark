@@ -11,7 +11,6 @@ from anibench import compare_trial_eval_receipts, run_trial_eval
 from anibench.cli import main
 from anibench.comparison_v1 import EvalComparisonError
 
-
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "web" / "protocol-capacity-example.json"
 

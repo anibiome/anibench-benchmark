@@ -8,7 +8,6 @@ from jsonschema import Draft202012Validator
 
 from anibench.level1_assessment_v3 import assess_protocol_capacity_role_aware
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 

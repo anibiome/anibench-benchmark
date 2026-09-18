@@ -8,7 +8,6 @@ from pathlib import Path
 
 from anibench.reported_facts import load_reported_facts, replay_reported_facts
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--raw-source-dir", type=Path)

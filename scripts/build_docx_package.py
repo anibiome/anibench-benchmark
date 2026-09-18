@@ -4,9 +4,7 @@
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timezone
 import hashlib
-from importlib import metadata
 import json
 import os
 import platform
@@ -15,6 +13,8 @@ import shutil
 import subprocess
 import tempfile
 import zipfile
+from datetime import datetime, timezone
+from importlib import metadata
 from pathlib import Path
 
 from docx import Document
@@ -26,7 +26,6 @@ from docx.oxml.ns import qn
 from docx.shared import Inches, Pt, RGBColor
 from lxml import etree
 from pypdf import PdfReader, PdfWriter
-
 
 BLACK = RGBColor(0, 0, 0)
 MUTED = RGBColor(90, 90, 90)

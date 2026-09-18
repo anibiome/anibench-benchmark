@@ -11,16 +11,16 @@ import hashlib
 import json
 import math
 import re
+from collections.abc import Callable, Iterator, Mapping, Sequence
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from io import BytesIO
 from types import MappingProxyType
-from typing import Any, BinaryIO, Callable, Iterator, Mapping, Sequence
+from typing import Any, BinaryIO
 from urllib.parse import urlencode, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
 from pypdf import PdfReader
-
 
 NCT_ID_PATTERN = re.compile(r"^NCT[0-9]{8}$")
 CLINICALTRIALS_GOV_HOST = "clinicaltrials.gov"
@@ -70,7 +70,7 @@ def validate_nct_id(nct_id: str) -> str:
     return nct_id
 
 
-def _validate_positive_number(value: int | float, label: str) -> None:
+def _validate_positive_number(value: float, label: str) -> None:
     if (
         isinstance(value, bool)
         or not isinstance(value, (int, float))
@@ -671,14 +671,14 @@ __all__ = [
     "DEFAULT_PDF_MAX_PAGE_TEXT_CHARS",
     "DEFAULT_PDF_MAX_TEXT_CHARS",
     "DEFAULT_UNRESOLVED_FIELDS",
+    "NCT_ID_PATTERN",
+    "PROTOCOL_PDF_HOSTS",
     "ExtractedPage",
     "IntakeError",
     "IntakeFetchError",
     "IntakeLimitError",
     "IntakeSnapshot",
     "IntakeValidationError",
-    "NCT_ID_PATTERN",
-    "PROTOCOL_PDF_HOSTS",
     "SourceLocator",
     "clinicaltrials_search_url",
     "clinicaltrials_study_url",

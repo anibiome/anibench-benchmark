@@ -8,7 +8,6 @@ import re
 import unicodedata
 from typing import Any
 
-
 _KIND_PATTERN = re.compile(r"^[a-z][a-z0-9-]{1,63}$")
 _COMPONENT_PATTERN = re.compile(r"^[a-z0-9][a-z0-9._-]{0,127}$")
 _STABLE_ID_PATTERN = re.compile(

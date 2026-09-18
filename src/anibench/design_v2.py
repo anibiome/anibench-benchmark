@@ -5,11 +5,11 @@ from __future__ import annotations
 import hashlib
 import json
 from collections import Counter
+from collections.abc import Mapping
 from pathlib import Path
-from typing import Any, Mapping
+from typing import Any
 
 from jsonschema import Draft202012Validator
-
 
 INPUT_CONTRACT = "anibench.design-input.v2-candidate1"
 OUTPUT_CONTRACT = "anibench.design-assessment.v2-candidate1"

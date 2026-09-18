@@ -6,7 +6,6 @@ from pathlib import Path
 
 from scripts.verify_distribution_boundary import inspect_distribution
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import json
 import ipaddress
+import json
 import mimetypes
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -9,8 +9,10 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import unquote, urlparse
 
-from .paths import repo_root
+from . import __version__
+from .api import compare_trial_eval_receipts, run_trial_eval
 from .design_v2 import compile_design
+from .explorer import build_explorer_demo
 from .intake import snapshot_clinicaltrials_search, snapshot_clinicaltrials_study
 from .level1_assessment_v3 import (
     Level1RoleAwareAssessmentError,
@@ -18,12 +20,10 @@ from .level1_assessment_v3 import (
     level1_role_aware_authority_summary,
 )
 from .optimizer_protocol_v2 import ProtocolOptimizerError, optimize_protocol
+from .paths import repo_root
 from .protocol_capacity_v2 import ProtocolCapacityError, compile_protocol_capacity
 from .studio_product import StudioAtlasError, build_studio_comparator_atlas
 from .v2 import V2RunError, score_information_run
-from . import __version__
-from .api import run_trial_eval, compare_trial_eval_receipts
-from .explorer import build_explorer_demo
 
 
 class StudioInputError(ValueError):
@@ -95,7 +95,7 @@ class StudioHandler(BaseHTTPRequestHandler):
         self.send_header("Referrer-Policy", "no-referrer")
         self.send_header("X-Frame-Options", "DENY")
 
-    def do_POST(self) -> None:  # noqa: N802
+    def do_POST(self) -> None:
         try:
             retired_routes = {
                 "/api/preview": ("legacy scalar and rank route retired", "/v2.html"),
@@ -199,7 +199,7 @@ class StudioHandler(BaseHTTPRequestHandler):
         ) as exc:
             self._json(HTTPStatus.BAD_REQUEST, {"error": str(exc)})
 
-    def do_GET(self) -> None:  # noqa: N802
+    def do_GET(self) -> None:
         parsed = urlparse(self.path)
         if parsed.path == "/api/v3/explorer-demo":
             self._json(HTTPStatus.OK, build_explorer_demo(self.root))

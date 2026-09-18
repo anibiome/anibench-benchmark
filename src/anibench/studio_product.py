@@ -18,7 +18,6 @@ from typing import Any
 
 from .reported_facts import RELATIVE_PATH, load_reported_facts
 
-
 ATLAS_CONTRACT = "anibench.studio-comparator-atlas.v1"
 FIELD_RECEIPT_CONTRACT = "anibench.external-field-provenance-receipt.v2"
 SOURCE_COORDINATE_CONTRACT = "anibench.source-projection-six-family-coordinates.v1"

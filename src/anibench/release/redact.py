@@ -9,12 +9,12 @@ import json
 import re
 import struct
 import zlib
+from collections.abc import Iterable, Mapping
 from dataclasses import asdict, dataclass
 from html import unescape
 from pathlib import Path
-from typing import Any, Iterable, Mapping
+from typing import Any
 from xml.etree import ElementTree
-
 
 MAX_TEXT_SCAN_BYTES = 5_000_000
 MAX_PDF_SCAN_BYTES = 50_000_000
@@ -251,8 +251,7 @@ def _structured_findings(path: str, text: str, suffix: str) -> list[ScanFinding]
             is_json_schema = isinstance(obj, Mapping) and "$schema" in obj and "$id" in obj
             is_v8_matrix_manifest = (
                 isinstance(obj, Mapping)
-                and obj.get("schema_version")
-                == "anibench.v8.reference-matrix-manifest.v1.1"
+                and obj.get("schema_version") == "anibench.v8.reference-matrix-manifest.v1.1"
             )
             for pointer, value in _walk_json(obj):
                 key = pointer.rsplit("/", 1)[-1].lower()
@@ -272,10 +271,7 @@ def _structured_findings(path: str, text: str, suffix: str) -> list[ScanFinding]
                         "redacted",
                     )
                     and not is_schema_identifier_declaration
-                    and not (
-                        is_v8_matrix_manifest
-                        and pointer == "/id_columns/participant_id"
-                    )
+                    and not (is_v8_matrix_manifest and pointer == "/id_columns/participant_id")
                 ):
                     findings.append(
                         ScanFinding(path, "phi_like_identifier", "participant_id_field")
@@ -330,12 +326,16 @@ def _decode_text(path: str, raw: bytes) -> tuple[str | None, list[ScanFinding]]:
             except UnicodeDecodeError:
                 continue
             if "\x00" not in decoded:
-                printable = sum(character.isprintable() or character.isspace() for character in decoded)
+                printable = sum(
+                    character.isprintable() or character.isspace() for character in decoded
+                )
                 if decoded and printable / len(decoded) >= 0.85:
                     candidates.append(decoded)
         if not candidates:
             return None, [ScanFinding(path, "scan_coverage", "nul_text_not_inspected")]
-        return max(candidates, key=lambda value: sum(character.isprintable() for character in value)), findings
+        return max(
+            candidates, key=lambda value: sum(character.isprintable() for character in value)
+        ), findings
     try:
         return raw.decode("utf-8"), findings
     except UnicodeDecodeError:
@@ -447,7 +447,7 @@ def _image_findings_bytes(raw: bytes, relative: str, expected: str) -> list[Scan
                 else:
                     decoded = str(value)
                 findings.extend(_rule_findings(relative, f"{key}={decoded}"))
-    except Exception:
+    except Exception:  # noqa: BLE001 -- All image decoder failures are blocking findings.
         return [ScanFinding(relative, "scan_coverage", "unparseable_image")]
     return findings
 
@@ -473,9 +473,7 @@ def _svg_findings(relative: str, text: str) -> list[ScanFinding]:
             value = unescape(str(raw_value)).strip()
             if local_attribute.startswith("on") or value.lower().startswith("javascript:"):
                 findings.append(ScanFinding(relative, "svg_active_content", "svg_event_or_script"))
-            if re.search(
-                r"url\s*\(\s*(?:data:|https?:|file:)", value, re.IGNORECASE
-            ):
+            if re.search(r"url\s*\(\s*(?:data:|https?:|file:)", value, re.IGNORECASE):
                 findings.append(ScanFinding(relative, "svg_active_content", "svg_style_payload"))
             if attribute not in SVG_HREF_ATTRIBUTES and local_attribute != "href":
                 continue
@@ -515,7 +513,9 @@ def _pdf_findings(path: Path, relative: str) -> tuple[list[ScanFinding], int]:
         root = reader.trailer.get("/Root", {})
         names = root.get("/Names", {}) if hasattr(root, "get") else {}
         if hasattr(names, "get") and names.get("/EmbeddedFiles") is not None:
-            findings.append(ScanFinding(relative, "pdf_active_content", "embedded_files_not_allowed"))
+            findings.append(
+                ScanFinding(relative, "pdf_active_content", "embedded_files_not_allowed")
+            )
         if hasattr(names, "get") and names.get("/JavaScript") is not None:
             findings.append(ScanFinding(relative, "pdf_active_content", "javascript_not_allowed"))
         if hasattr(root, "get") and root.get("/OpenAction") is not None:
@@ -529,7 +529,7 @@ def _pdf_findings(path: Path, relative: str) -> tuple[list[ScanFinding], int]:
         text = "\n".join(text_parts)
         findings.extend(_rule_findings(relative, text))
         return findings, len(text.encode("utf-8"))
-    except Exception:
+    except Exception:  # noqa: BLE001 -- All PDF decoder failures are blocking findings.
         return [ScanFinding(relative, "scan_coverage", "unparseable_pdf")], 0
 
 

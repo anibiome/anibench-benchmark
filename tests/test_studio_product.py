@@ -19,7 +19,6 @@ from anibench.studio_product import (
     build_studio_comparator_atlas,
 )
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 

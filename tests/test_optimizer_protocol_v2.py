@@ -12,19 +12,18 @@ from urllib.request import Request, urlopen
 
 import pytest
 from jsonschema import Draft202012Validator
+from test_protocol_capacity_v2 import _exact, _protocol
 
+from anibench import optimize_protocol_design_v2
+from anibench.cli import main
 from anibench.optimizer_protocol_v2 import (
     MAX_CANDIDATES,
     ProtocolOptimizerError,
     _objective_value,
     optimize_protocol,
 )
-from anibench import optimize_protocol_design_v2
-from anibench.cli import main
 from anibench.protocol_capacity_v2 import compile_protocol_capacity
 from anibench.studio import StudioHandler
-from test_protocol_capacity_v2 import _exact, _protocol
-
 
 ROOT = Path(__file__).resolve().parents[1]
 SHA = "sha256:" + "1" * 64

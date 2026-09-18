@@ -13,7 +13,6 @@ import re
 from pathlib import Path
 from typing import Any
 
-
 CONTRACT = "anibench.literal-publication-facts.v1"
 RELATIVE_PATH = Path("data/reported_facts/v1/literature.json")
 NUMBER_WORDS = {"ten": 10}

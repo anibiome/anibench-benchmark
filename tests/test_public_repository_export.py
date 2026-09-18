@@ -18,7 +18,6 @@ from scripts.export_public_repository import (
     inspect_public_repository,
 )
 
-
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_DATE_EPOCH = 1_784_268_800
 

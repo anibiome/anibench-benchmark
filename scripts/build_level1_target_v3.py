@@ -14,7 +14,6 @@ from anibench.level1_target_v3 import (
     write_artifacts,
 )
 
-
 AUTHORITY_PATH = "spec/v3/level1/role-aware-target-requirements.v3.json"
 IMPACT_PATH = "spec/v3/level1/migrations/v2-to-v3-substantive-impact-receipt.json"
 

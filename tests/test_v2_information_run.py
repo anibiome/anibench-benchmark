@@ -11,7 +11,6 @@ from anibench.api import score_joint_information_v2
 from anibench.information_v2 import canonical_matrix_sha256
 from anibench.v2 import V2RunError, score_information_run
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 

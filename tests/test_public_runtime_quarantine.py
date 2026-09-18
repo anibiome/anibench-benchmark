@@ -8,9 +8,7 @@ from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
 import anibench
-
 from anibench.studio import StudioHandler
-
 
 ROOT = Path(__file__).resolve().parents[1]
 WITHDRAWN_OPTIMIZER_MARKERS = (

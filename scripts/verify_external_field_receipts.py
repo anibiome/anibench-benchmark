@@ -24,20 +24,16 @@ import csv
 import hashlib
 import io
 import json
+from collections.abc import Iterable, Iterator, Mapping, Sequence
 from pathlib import Path
-from typing import Any, Iterable, Iterator, Mapping, Sequence
-
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ACQUISITION_LEDGER = Path(
     "data/source_projections/v2/EXTERNAL_SOURCE_ACQUISITION_LEDGER.json"
 )
-DEFAULT_COORDINATE_TABLE = Path(
-    "packaging/public_v2/SOURCE_COORDINATE_TABLE.csv"
-)
-DEFAULT_RECEIPT = Path(
-    "packaging/public_v2/EXTERNAL_FIELD_PROVENANCE_RECEIPT.json"
-)
+DEFAULT_COORDINATE_TABLE = Path("packaging/public_v2/SOURCE_COORDINATE_TABLE.csv")
+DEFAULT_RECEIPT = Path("packaging/public_v2/EXTERNAL_FIELD_PROVENANCE_RECEIPT.json")
 RECEIPT_CONTRACT = "anibench.external-field-provenance-receipt.v2"
 MECHANICAL = "mechanically_extracted_source_bound"
 CURATED = "curated_manual_source_bound"
@@ -58,14 +54,28 @@ CURATED_LOCATOR_RESOLUTIONS = frozenset(
     }
 )
 
-COORDINATE_COLUMNS = (
-    "study_id,projection_lane,population_value,population_semantics,population_state,"
-    "duration_days,duration_semantics,duration_state,policy_arms,randomized_policy,"
-    "concurrent_control,deployed_operator_families,identifiable_policy_contrasts,"
-    "adaptive_reassignment,within_policy_randomized,known_projected_measurement_modules,"
-    "conditional_measurement_modules,unknown_measurement_modules,open_gate_count,"
-    "source_projection_sha256"
-).split(",")
+COORDINATE_COLUMNS = [
+    "study_id",
+    "projection_lane",
+    "population_value",
+    "population_semantics",
+    "population_state",
+    "duration_days",
+    "duration_semantics",
+    "duration_state",
+    "policy_arms",
+    "randomized_policy",
+    "concurrent_control",
+    "deployed_operator_families",
+    "identifiable_policy_contrasts",
+    "adaptive_reassignment",
+    "within_policy_randomized",
+    "known_projected_measurement_modules",
+    "conditional_measurement_modules",
+    "unknown_measurement_modules",
+    "open_gate_count",
+    "source_projection_sha256",
+]
 
 
 class FieldProvenanceError(ValueError):
@@ -120,10 +130,7 @@ def _walk_downgraded_unknowns(
     pointer: str = "",
 ) -> Iterator[tuple[str, dict[str, Any]]]:
     if isinstance(value, dict):
-        if (
-            value.get("state") == "unknown"
-            and value.get("reason_code") == DOWNGRADE_REASON_CODE
-        ):
+        if value.get("state") == "unknown" and value.get("reason_code") == DOWNGRADE_REASON_CODE:
             yield pointer, value
         for key, child in value.items():
             yield from _walk_downgraded_unknowns(
@@ -155,9 +162,12 @@ def _json_pointer_get(value: Any, pointer: str) -> Any:
 def _mechanical_extraction(source_value: Any, fact_value: Any) -> tuple[str, Any] | None:
     if type(source_value) is type(fact_value) and source_value == fact_value:
         return "json_pointer_identity", source_value
-    if isinstance(source_value, list) and not isinstance(fact_value, bool):
-        if len(source_value) == fact_value:
-            return "json_pointer_array_length", len(source_value)
+    if (
+        isinstance(source_value, list)
+        and not isinstance(fact_value, bool)
+        and len(source_value) == fact_value
+    ):
+        return "json_pointer_array_length", len(source_value)
     if isinstance(source_value, dict) and "count" in source_value:
         count = source_value["count"]
         if type(count) is type(fact_value) and count == fact_value:
@@ -434,16 +444,12 @@ def external_coordinate_row(
         "policy_arms": _fact_value(design["policy_arms"]),
         "randomized_policy": _fact_value(design["randomized_policy_assignment"]),
         "concurrent_control": _fact_value(design["active_concurrent_comparator"]),
-        "deployed_operator_families": _fact_value(
-            design["deployed_operator_families"]
-        ),
+        "deployed_operator_families": _fact_value(design["deployed_operator_families"]),
         "identifiable_policy_contrasts": _fact_value(
             design["causally_identifiable_policy_contrasts"]
         ),
         "adaptive_reassignment": _fact_value(design["adaptive_reassignment"]),
-        "within_policy_randomized": _fact_value(
-            design["within_policy_adaptation_randomized"]
-        ),
+        "within_policy_randomized": _fact_value(design["within_policy_adaptation_randomized"]),
         "known_projected_measurement_modules": str(len(classes["exact"])),
         "conditional_measurement_modules": str(len(classes["conditional"])),
         "unknown_measurement_modules": str(len(classes["unknown"])),
@@ -472,10 +478,7 @@ def build_field_provenance_receipt(
     raw_source_cache: dict[str, bytes] = {}
     for source_id, source in source_index.items():
         source_body = (root / source["path"]).read_bytes()
-        if (
-            len(source_body) != source["bytes"]
-            or _sha256_bytes(source_body) != source["sha256"]
-        ):
+        if len(source_body) != source["bytes"] or _sha256_bytes(source_body) != source["sha256"]:
             raise FieldProvenanceError(
                 f"raw source object drifted before receipt build: {source_id}"
             )
@@ -532,7 +535,7 @@ def build_field_provenance_receipt(
             mechanical_count += fact_mode == MECHANICAL
             curated_count += fact_mode == CURATED
             fact = {
-                "fact_id": _sha256_bytes(f"{study_id}\0{pointer}".encode("utf-8")),
+                "fact_id": _sha256_bytes(f"{study_id}\0{pointer}".encode()),
                 "projection_pointer": pointer,
                 "value": node["value"],
                 "value_sha256": _value_sha256(node["value"]),
@@ -554,9 +557,11 @@ def build_field_provenance_receipt(
                     f"downgraded source ids and locators differ for {study_id}{pointer}"
                 )
             resolution = node.get("source_binding_resolution")
-            if not isinstance(resolution, list) or [
-                row.get("source_id") for row in resolution if isinstance(row, dict)
-            ] != source_ids:
+            if (
+                not isinstance(resolution, list)
+                or [row.get("source_id") for row in resolution if isinstance(row, dict)]
+                != source_ids
+            ):
                 raise FieldProvenanceError(
                     f"downgraded source-resolution summary drifted for {study_id}{pointer}"
                 )
@@ -711,7 +716,9 @@ def verify_field_provenance_receipt(
         projection = json.loads(projection_path.read_text(encoding="utf-8"))
         observed = list(_walk_known_facts(projection))
         expected = projection_receipt["facts"]
-        if len(observed) != projection_receipt["known_fact_count"] or len(observed) != len(expected):
+        if len(observed) != projection_receipt["known_fact_count"] or len(observed) != len(
+            expected
+        ):
             raise FieldProvenanceError(f"known fact count drifted: {study_id}")
         for (pointer, node), fact in zip(observed, expected, strict=True):
             if pointer != fact["projection_pointer"]:
@@ -720,7 +727,7 @@ def verify_field_provenance_receipt(
                 raise FieldProvenanceError(f"fact value drifted: {study_id}{pointer}")
             if _value_sha256(node["value"]) != fact["value_sha256"]:
                 raise FieldProvenanceError(f"fact value digest drifted: {study_id}{pointer}")
-            expected_id = _sha256_bytes(f"{study_id}\0{pointer}".encode("utf-8"))
+            expected_id = _sha256_bytes(f"{study_id}\0{pointer}".encode())
             if fact["fact_id"] != expected_id:
                 raise FieldProvenanceError(f"fact identity drifted: {study_id}{pointer}")
             bindings = fact["source_bindings"]
@@ -782,8 +789,7 @@ def verify_field_provenance_receipt(
         expected_downgrades = projection_receipt.get("downgraded_unknowns")
         if (
             not isinstance(expected_downgrades, list)
-            or len(observed_downgrades)
-            != projection_receipt.get("downgraded_unknown_fact_count")
+            or len(observed_downgrades) != projection_receipt.get("downgraded_unknown_fact_count")
             or len(observed_downgrades) != len(expected_downgrades)
         ):
             raise FieldProvenanceError(f"downgraded unknown count drifted: {study_id}")
@@ -802,16 +808,17 @@ def verify_field_provenance_receipt(
                 pointer != downgrade.get("projection_pointer")
                 or downgrade.get("reason_code") != DOWNGRADE_REASON_CODE
                 or source_ids != downgrade.get("source_ids")
-                or _value_sha256(source_locators)
-                != downgrade.get("source_locators_sha256")
+                or _value_sha256(source_locators) != downgrade.get("source_locators_sha256")
             ):
                 raise FieldProvenanceError(
                     f"downgraded unknown receipt drifted: {study_id}{pointer}"
                 )
             resolution = node.get("source_binding_resolution")
-            if not isinstance(resolution, list) or [
-                row.get("source_id") for row in resolution if isinstance(row, dict)
-            ] != source_ids:
+            if (
+                not isinstance(resolution, list)
+                or [row.get("source_id") for row in resolution if isinstance(row, dict)]
+                != source_ids
+            ):
                 raise FieldProvenanceError(
                     f"downgraded source-resolution summary drifted: {study_id}{pointer}"
                 )

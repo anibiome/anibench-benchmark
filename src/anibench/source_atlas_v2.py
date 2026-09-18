@@ -13,27 +13,20 @@ import csv
 import hashlib
 import json
 import shutil
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Any, Sequence
+from typing import Any
 
 import matplotlib
 
 matplotlib.use("Agg")
 matplotlib.rcParams["svg.hashsalt"] = "anibench-source-atlas-v2"
-import matplotlib.pyplot as plt  # noqa: E402
-import numpy as np  # noqa: E402
-
+import matplotlib.pyplot as plt
+import numpy as np
 
 ATLAS_VERSION = "ani.source_atlas.v2.candidate"
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-EXPECTED_COLUMNS = (
-    "study_id,projection_lane,population_value,population_semantics,"
-    "population_state,duration_days,duration_semantics,duration_state,"
-    "policy_arms,randomized_policy,concurrent_control,deployed_operator_families,"
-    "identifiable_policy_contrasts,adaptive_reassignment,within_policy_randomized,"
-    "known_projected_measurement_modules,conditional_measurement_modules,"
-    "unknown_measurement_modules,open_gate_count,source_projection_sha256"
-).split(",")
+EXPECTED_COLUMNS = ["study_id", "projection_lane", "population_value", "population_semantics", "population_state", "duration_days", "duration_semantics", "duration_state", "policy_arms", "randomized_policy", "concurrent_control", "deployed_operator_families", "identifiable_policy_contrasts", "adaptive_reassignment", "within_policy_randomized", "known_projected_measurement_modules", "conditional_measurement_modules", "unknown_measurement_modules", "open_gate_count", "source_projection_sha256"]
 FIGURES = (
     "01_evidence_module_states",
     "02_population_duration_coordinates",

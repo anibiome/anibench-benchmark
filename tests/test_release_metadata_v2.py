@@ -5,7 +5,6 @@ from pathlib import Path
 
 from scripts.verify_release_metadata import verify_release_metadata
 
-
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_REPOSITORY_URL = "https://github.com/anibiome/anibench-benchmark"
 

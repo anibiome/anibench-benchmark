@@ -13,8 +13,9 @@ import shutil
 import subprocess
 import tarfile
 import tempfile
+from collections.abc import Mapping
 from pathlib import Path
-from typing import Any, Mapping
+from typing import Any
 
 from anibench.release import (
     VALIDATION_LAYER_NAMES,
@@ -498,10 +499,12 @@ def _tar_filter(epoch: int):
 
 def _archive(bundle: Path, archive: Path, epoch: int) -> str:
     archive.parent.mkdir(parents=True, exist_ok=True)
-    with archive.open("wb") as raw:
-        with gzip.GzipFile(filename="", mode="wb", fileobj=raw, mtime=epoch) as compressed:
-            with tarfile.open(fileobj=compressed, mode="w", format=tarfile.PAX_FORMAT) as tar:
-                tar.add(bundle, arcname=bundle.name, recursive=True, filter=_tar_filter(epoch))
+    with (
+        archive.open("wb") as raw,
+        gzip.GzipFile(filename="", mode="wb", fileobj=raw, mtime=epoch) as compressed,
+        tarfile.open(fileobj=compressed, mode="w", format=tarfile.PAX_FORMAT) as tar,
+    ):
+        tar.add(bundle, arcname=bundle.name, recursive=True, filter=_tar_filter(epoch))
     return hashlib.sha256(archive.read_bytes()).hexdigest()
 
 

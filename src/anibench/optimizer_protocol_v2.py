@@ -13,15 +13,15 @@ import itertools
 import json
 import math
 import re
+from collections.abc import Mapping, Sequence
 from datetime import date
 from decimal import Decimal, InvalidOperation, localcontext
 from pathlib import Path
-from typing import Any, Mapping, Sequence
+from typing import Any
 
 from jsonschema import Draft202012Validator
 
 from .protocol_capacity_v2 import ProtocolCapacityError, compile_protocol_capacity
-
 
 OPTIMIZER_PROTOCOL_VERSION = "anibench.optimizer-protocol.v2-candidate4"
 MAX_CANDIDATES = 10_000

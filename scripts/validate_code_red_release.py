@@ -17,9 +17,9 @@ import json
 import re
 import subprocess
 from collections import Counter
+from collections.abc import Iterable, Mapping
 from pathlib import Path
-from typing import Any, Iterable, Mapping
-
+from typing import Any
 
 DEFAULT_LEDGER = Path("release/code-red/ANIBENCH_CODE_RED_REVALIDATION_2026-07-12.json")
 EXPECTED_LEDGER_CONTRACT = "ani.code_red.acceptance.v1"
@@ -247,28 +247,26 @@ def forbidden_maturity_claims(
     for pointer, key, value in _iter_json(receipt):
         normalized_key = key.casefold() if key is not None else None
         if normalized_key in FORBIDDEN_TRUE_FIELDS and value is True:
-            findings.append(
-                {"pointer": pointer, "rule_id": "forbidden_true_maturity_field"}
-            )
-        if normalized_key in FORBIDDEN_STRING_VALUES and isinstance(value, str):
-            if value.casefold() in FORBIDDEN_STRING_VALUES[normalized_key]:
-                findings.append(
-                    {"pointer": pointer, "rule_id": "forbidden_maturity_value"}
-                )
+            findings.append({"pointer": pointer, "rule_id": "forbidden_true_maturity_field"})
         if (
-            pointer.endswith("/validation_layers/V8/status")
-            or pointer.endswith("/validation_layers/V9/status")
-        ) and isinstance(value, str) and value.startswith("passed"):
-            findings.append(
-                {"pointer": pointer, "rule_id": "forbidden_code_red_validation_pass"}
-            )
+            normalized_key in FORBIDDEN_STRING_VALUES
+            and isinstance(value, str)
+            and value.casefold() in FORBIDDEN_STRING_VALUES[normalized_key]
+        ):
+            findings.append({"pointer": pointer, "rule_id": "forbidden_maturity_value"})
+        if (
+            (pointer.endswith(("/validation_layers/V8/status", "/validation_layers/V9/status")))
+            and isinstance(value, str)
+            and value.startswith("passed")
+        ):
+            findings.append({"pointer": pointer, "rule_id": "forbidden_code_red_validation_pass"})
         if normalized_key in CLAIM_CONTAINER_FIELDS:
-            candidates = [value] if isinstance(value, str) else value if isinstance(value, list) else []
+            candidates = (
+                [value] if isinstance(value, str) else value if isinstance(value, list) else []
+            )
             for candidate in candidates:
                 if isinstance(candidate, str) and candidate.casefold().strip() in withdrawn:
-                    findings.append(
-                        {"pointer": pointer, "rule_id": "withdrawn_claim_reasserted"}
-                    )
+                    findings.append({"pointer": pointer, "rule_id": "withdrawn_claim_reasserted"})
                     break
     return sorted(findings, key=lambda row: (row["pointer"], row["rule_id"]))
 
@@ -441,11 +439,7 @@ def validate_code_red_release(
         receipt = _load_json(receipt_file)
         maturity_findings = forbidden_maturity_claims(
             receipt,
-            (
-                claim
-                for claim in ledger.get("withdrawn_claims", [])
-                if isinstance(claim, str)
-            ),
+            (claim for claim in ledger.get("withdrawn_claims", []) if isinstance(claim, str)),
         )
         checks.append(
             _check(
@@ -546,8 +540,7 @@ def main(argv: list[str] | None = None) -> int:
         }
     result["require_promotion"] = args.require_promotion
     result["require_promotion_satisfied"] = bool(
-        result["validation_passed"]
-        and (result["promotion_allowed"] or not args.require_promotion)
+        result["validation_passed"] and (result["promotion_allowed"] or not args.require_promotion)
     )
     print(json.dumps(result, indent=2 if args.pretty else None, sort_keys=True))
     return 0 if result["require_promotion_satisfied"] else 1

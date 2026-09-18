@@ -87,11 +87,11 @@ def build_explorer_demo(root: Path) -> dict[str, Any]:
         digest = _hash(source_object)
         source_objects.append({"source_object_sha256": digest, "object": source_object})
 
-        def rebind(value: Any) -> None:
+        def rebind(value: Any, source_digest: str = digest) -> None:
             if isinstance(value, dict):
                 for key, child in value.items():
                     if key.endswith("source_object_sha256"):
-                        value[key] = digest
+                        value[key] = source_digest
                     else:
                         rebind(child)
             elif isinstance(value, list):

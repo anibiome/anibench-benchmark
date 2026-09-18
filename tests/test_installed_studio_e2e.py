@@ -6,7 +6,6 @@ from pathlib import Path
 
 from scripts.verify_installed_studio import verify_installed_studio
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 

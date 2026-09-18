@@ -17,18 +17,19 @@ import hashlib
 import importlib.metadata
 import json
 import platform
+from collections.abc import Mapping
 from pathlib import Path
-from typing import Any, Mapping
+from typing import Any
 
 import numpy as np
 
+from .causal_v2 import contrast_information
+from .information_v2 import absolute_mechanics
 from .level1_target_v3 import (
     FAMILY_IDS,
     load_role_aware_authority,
     readback_role_aware_authority,
 )
-from .causal_v2 import contrast_information
-from .information_v2 import absolute_mechanics
 from .protocol_capacity_v2 import compile_protocol_capacity
 
 

@@ -8,7 +8,6 @@ from jsonschema import Draft202012Validator
 from anibench.information_v2 import canonical_matrix_sha256
 from anibench.v2 import score_information_run
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 

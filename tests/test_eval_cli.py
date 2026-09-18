@@ -9,7 +9,6 @@ from jsonschema import Draft202012Validator
 from anibench import assess_protocol_level1_v2, run_trial_eval
 from anibench.cli import main
 
-
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "web" / "protocol-capacity-example.json"
 EVAL_CARD = ROOT / "evals" / "level1" / "eval-card.json"

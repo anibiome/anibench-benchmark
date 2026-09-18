@@ -14,7 +14,6 @@ from pathlib import Path
 from anibench.explorer import build_explorer_demo
 from anibench.studio_product import build_studio_comparator_atlas
 
-
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ("explore.html", "explore.css", "explore.js", "favicon.svg")
 

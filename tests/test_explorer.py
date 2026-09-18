@@ -16,10 +16,8 @@ from anibench.comparison_v1 import EvalComparisonError, _canonical_sha256, compa
 from anibench.explorer import build_explorer_demo
 from anibench.reported_facts import extract_number, load_reported_facts, replay_reported_facts
 from anibench.studio import StudioHandler
-from anibench.studio_product import _number, build_studio_comparator_atlas
-from anibench.studio_product import StudioAtlasError
+from anibench.studio_product import StudioAtlasError, _number, build_studio_comparator_atlas
 from scripts.build_explorer import build_explorer
-
 
 ROOT = Path(__file__).resolve().parents[1]
 

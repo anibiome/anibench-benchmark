@@ -19,8 +19,9 @@ import os
 import shutil
 import subprocess
 import tempfile
+from collections.abc import Iterable, Mapping
 from pathlib import Path
-from typing import Any, Iterable, Mapping
+from typing import Any
 
 try:
     import tomllib
@@ -28,7 +29,6 @@ except ModuleNotFoundError:  # pragma: no cover - exercised in the Python 3.10 C
     import tomli as tomllib
 
 from anibench.release.redact import scan_public_bundle
-
 
 PUBLIC_EXPORT_RECEIPT = "PUBLIC_EXPORT_RECEIPT.json"
 PUBLIC_ALLOWLIST_PATH = "packaging/public_v2/REPOSITORY_ALLOWLIST.txt"
@@ -53,7 +53,7 @@ EXTERNAL_SOURCE_ATLAS_STUDY_IDS = (
 CONTROLLED_VALUE_MARKERS = (
     "/Users/",
     "controlled-source://",
-    "evidence_class\": \"private_protocol",
+    'evidence_class": "private_protocol',
 )
 FORBIDDEN_PUBLIC_PREFIXES = (
     "data/source_projections/v2/ani-",
@@ -81,13 +81,12 @@ def _validate_public_member_path(member: str) -> Path:
         not member
         or "\\" in member
         or "\x00" in member
-        or member.startswith("./")
+        or member.startswith(("./", ".git/"))
         or "//" in member
         or path_value.is_absolute()
         or ".." in path_value.parts
         or path_value.as_posix() != member
         or member == ".git"
-        or member.startswith(".git/")
     ):
         raise ValueError(f"Unsafe public allowlist member: {member!r}")
     return path_value
@@ -111,9 +110,7 @@ def _parse_public_allowlist(raw: str) -> tuple[str, ...]:
 
 
 def _load_public_allowlist(root: Path) -> tuple[str, ...]:
-    return _parse_public_allowlist(
-        (root / PUBLIC_ALLOWLIST_PATH).read_text(encoding="utf-8")
-    )
+    return _parse_public_allowlist((root / PUBLIC_ALLOWLIST_PATH).read_text(encoding="utf-8"))
 
 
 def _excluded(path: Path) -> bool:
@@ -165,7 +162,9 @@ def _git_member_entries(
         mode, kind, object_id = header.decode("ascii").split(" ")
         path = encoded_path.decode("utf-8", errors="strict")
         if kind != "blob" or mode not in {"100644", "100755"}:
-            raise ValueError(f"Non-regular Git object is not a public member: {path} ({mode} {kind})")
+            raise ValueError(
+                f"Non-regular Git object is not a public member: {path} ({mode} {kind})"
+            )
         rows.append((mode, object_id, path))
     if not rows:
         raise FileNotFoundError(
@@ -378,9 +377,13 @@ def _structured_source_findings(root: Path) -> list[dict[str, str]]:
     }
     actual_json = {path.name for path in atlas.glob("*.json")}
     for name in sorted(actual_json - expected_json):
-        findings.append({"path": f"data/source_projections/v2/{name}", "rule_id": "unexpected_projection"})
+        findings.append(
+            {"path": f"data/source_projections/v2/{name}", "rule_id": "unexpected_projection"}
+        )
     for name in sorted(expected_json - actual_json):
-        findings.append({"path": f"data/source_projections/v2/{name}", "rule_id": "missing_projection"})
+        findings.append(
+            {"path": f"data/source_projections/v2/{name}", "rule_id": "missing_projection"}
+        )
 
     for path in sorted(atlas.glob("*.json")):
         relative = path.relative_to(root).as_posix()
@@ -392,9 +395,12 @@ def _structured_source_findings(root: Path) -> list[dict[str, str]]:
         for pointer, value in _walk(payload):
             if isinstance(value, str) and value.startswith("ani-"):
                 findings.append({"path": relative, "rule_id": "internal_ani_study_id"})
-            if pointer.endswith("/path") and isinstance(value, str):
-                if value.startswith(("/", "~", "file://")):
-                    findings.append({"path": relative, "rule_id": "absolute_source_path"})
+            if (
+                pointer.endswith("/path")
+                and isinstance(value, str)
+                and value.startswith(("/", "~", "file://"))
+            ):
+                findings.append({"path": relative, "rule_id": "absolute_source_path"})
 
     table = atlas / "SOURCE_COORDINATE_TABLE.csv"
     if table.is_file():
@@ -429,9 +435,7 @@ def inspect_public_repository(root: Path) -> dict[str, Any]:
     findings: list[dict[str, str]] = [
         {"path": path, "rule_id": "forbidden_public_path"} for path in boundary
     ]
-    findings.extend(
-        {"path": finding.path, "rule_id": finding.rule_id} for finding in scan.findings
-    )
+    findings.extend({"path": finding.path, "rule_id": finding.rule_id} for finding in scan.findings)
     findings.extend(structured)
     expected = {
         *_load_public_allowlist(root),
@@ -562,9 +566,7 @@ def inspect_public_git_history(repo: Path) -> dict[str, Any]:
     repo = repo.resolve()
     commits = tuple(line for line in _git(repo, "rev-list", "--all").splitlines() if line)
     roots = tuple(
-        line
-        for line in _git(repo, "rev-list", "--max-parents=0", "--all").splitlines()
-        if line
+        line for line in _git(repo, "rev-list", "--max-parents=0", "--all").splitlines() if line
     )
     findings: list[dict[str, Any]] = []
     if len(roots) != 1:
@@ -585,7 +587,7 @@ def inspect_public_git_history(repo: Path) -> dict[str, Any]:
             try:
                 scanned_files += _materialize_commit_tree(repo, commit_sha, tree)
                 report = inspect_public_repository(tree)
-            except Exception as exc:
+            except Exception as exc:  # noqa: BLE001 -- Any scanner failure blocks publication.
                 findings.append(
                     {
                         "commit": commit_sha,
@@ -595,10 +597,7 @@ def inspect_public_git_history(repo: Path) -> dict[str, Any]:
                     }
                 )
             else:
-                findings.extend(
-                    {"commit": commit_sha, **finding}
-                    for finding in report["findings"]
-                )
+                findings.extend({"commit": commit_sha, **finding} for finding in report["findings"])
             finally:
                 shutil.rmtree(tree, ignore_errors=True)
     return {

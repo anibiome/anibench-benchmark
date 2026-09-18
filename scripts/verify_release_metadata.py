@@ -15,7 +15,6 @@ except ModuleNotFoundError:  # pragma: no cover - exercised in the Python 3.10 C
 
 from packaging.version import InvalidVersion, Version
 
-
 PUBLIC_REPOSITORY_URL = "https://github.com/anibiome/anibench-benchmark"
 
 

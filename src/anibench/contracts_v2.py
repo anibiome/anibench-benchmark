@@ -3,14 +3,14 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Iterable, Mapping
+from typing import Any
 
 import numpy as np
 from jsonschema import Draft202012Validator, FormatChecker
 from referencing import Registry, Resource
-
 
 VALIDATION_CONTRACT = "anibench.contract-validation.v2-candidate1"
 RANDOMIZED_MECHANISMS = {

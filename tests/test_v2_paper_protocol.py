@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
 import hashlib
 import json
 import re
@@ -8,6 +7,7 @@ import shutil
 import subprocess
 import sys
 import zipfile
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pytest
@@ -16,7 +16,6 @@ from lxml import etree
 from pypdf import PdfReader
 
 from scripts.build_docx_package import scrub_docx_package, table_geometry
-
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / "paper" / "v2" / "AniBench_v2_benchmark_protocol.md"

@@ -8,7 +8,6 @@ from typing import Any
 from anibench.optimizer_protocol_v2 import optimize_protocol
 from anibench.protocol_capacity_v2 import compile_protocol_capacity
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -29,8 +28,7 @@ def _without_provenance(value: Any) -> Any:
             key: _without_provenance(child)
             for key, child in value.items()
             if not (
-                key.endswith("source_object_sha256")
-                or key.endswith("source_locator")
+                key.endswith(("source_object_sha256", "source_locator"))
             )
         }
     if isinstance(value, list):

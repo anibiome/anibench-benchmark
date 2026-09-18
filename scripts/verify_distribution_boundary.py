@@ -20,7 +20,6 @@ except ModuleNotFoundError:  # pragma: no cover - Python 3.10
 
 from anibench.release.redact import scan_public_bundle
 
-
 ROOT = Path(__file__).resolve().parents[1]
 MAX_MEMBER_BYTES = 100_000_000
 MAX_ARCHIVE_BYTES = 500_000_000
