@@ -1,5 +1,9 @@
 # Study explorer
 
+The [public static explorer](https://anibench.ani-ai-is-alive.chatgpt.site)
+provides the source atlas, reported-fact comparisons, and synthetic evaluator
+demonstration without installation. Use the local Studio for custom inputs.
+
 Run `anibench studio` and open `http://127.0.0.1:8765/explore.html`.
 The existing Trial Designer remains at `/` and `/v2.html`.
 

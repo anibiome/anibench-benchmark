@@ -19,6 +19,12 @@ evidence receipts; lifecycle maturity never becomes a score multiplier.
 
 ## Explore and compare
 
+Open the [published study explorer](https://anibench.ani-ai-is-alive.chatgpt.site)
+to browse the source atlas, compare reported study facts, and run through the
+synthetic evaluation example. Custom protocol evaluation runs in the local
+Studio described below. This is a research candidate, not a validated ranking
+of the named studies.
+
 The [first-principles foundation](docs/FIRST_PRINCIPLES.md) explains the
 biological question, information model, dynamical and causal assumptions,
 empirical validation tasks, and an open-ended benchmark ladder. It distinguishes
