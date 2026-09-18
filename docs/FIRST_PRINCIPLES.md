@@ -46,7 +46,13 @@ pathway label is not a conservation law.
 
 ## Separate what was collected from what was learned
 
-Three outputs answer different questions:
+The main benchmark evaluates a study's biological learning capacity. It does
+not require a beneficial intervention, a positive endpoint, a trained model, or
+publication of the underlying participant data. A precise null treatment
+effect can be informative; a dramatic reported improvement does not by itself
+establish a deep biological record.
+
+Four outputs answer different questions:
 
 1. **Study evidence profile.** People and their denominators, duration, sampling
    times, assay-level target counts, tissue/context coverage, assignment,
@@ -59,6 +65,24 @@ Three outputs answer different questions:
    perturbation, personalization, and transfer tasks with explicit baselines.
    This depends on both the dataset and the learning procedure; it is not an
    intrinsic data quality score.
+4. **Intervention outcomes.** Effect sizes, responder fractions, durability,
+   functional change, harms, or specified aging-marker changes. These require
+   their own endpoint, comparator, denominator, horizon, and uncertainty. They
+   are optional outcome benchmarks, not multipliers of the capacity benchmark.
+
+The first two are the main AniBench product. The last two are separate,
+optional evaluations. Empirical calibration can test the capacity model's
+scientific usefulness without making a trial's favorable results an admission
+requirement. An observed biological response used to estimate noise or dynamics
+is distinct from awarding points for the direction or size of that response.
+
+"Information compressible into intelligence" names the ambition: a linked
+record from which increasingly capable models can learn reusable biological
+structure. File compression ratio, raw byte count, and a list of assays do not
+measure that capacity. Noise, duplicate signals, measurement error, incomplete
+linkage, and unobserved biological directions must be distinguished. The
+conditional information model below makes one explicit approximation to this
+question; it is not a universal conversion from bytes to intelligence.
 
 The current explorer implements the source profile and the existing conditional
 six-family evaluator. Its two design examples are synthetic. It does not yet

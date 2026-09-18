@@ -6,6 +6,19 @@ context geometry. The question is how much biological state, movement, causal
 response, person-specific response, and population transfer that geometry makes
 learnable.
 
+This is a **study-capacity evaluation**, not an intervention-success score.
+Treatment effect size, statistical significance, responder fraction,
+rejuvenation, and predictive-model accuracy are not inputs to the main result.
+In this contract, an `outcome` link identifies a measurement after an assignment;
+it does not assert that the measurement improved. Identical study geometry has
+identical capacity whether the intervention helps, harms, or has no effect,
+holding the declared observation and noise model fixed. Real differences in
+retention, measurement quality, noise, or linkage can change realized capacity.
+
+Optional outcome and demonstrated-learning benchmarks can accompany the main
+profile, with separate metrics and assumptions. They are not prerequisites for
+running it. Their full execution workflows are not implemented by `anibench eval`.
+
 ## One command
 
 ```bash
@@ -84,6 +97,46 @@ eval receipt. It does not
 promote a proposed schedule into realized data or a realized dataset into
 demonstrated biological learning. Those evidence claims travel in separate
 source and execution receipts.
+
+## Run on private study data
+
+The public repository is the evaluator, specification, and public examples.
+Your private workspace holds your study's measurements, manifests, adapters,
+and evaluation outputs. A public source-atlas entry is not required to run a
+study, and study identity does not affect the calculation.
+
+1. Inventory the actual participant, specimen, device, assay, and event records
+   locally. Preserve distinct enrollment, follow-up, assay-QC, and joint-modality
+   denominators. Record when observations can be linked to the same person and
+   biological time; repeated or derived records are not new independent signals.
+2. Map those records to the existing protocol-capacity input contract. For
+   completed studies, use `claim_class: realized_dataset_geometry_capacity` and
+   actual retained schedules, linked measurement bundles, exposure and assignment
+   support. Include the observation operators, target basis, and noise assumptions
+   with their provenance. Biological variation in a raw matrix is not, by itself,
+   an estimate of measurement-error covariance.
+3. Run the same local evaluator used for a public or proposed study:
+
+   ```bash
+   anibench eval /private/elite/realized-geometry.json \
+     --out /private/elite/capacity.json --pretty
+   ```
+
+4. Inspect the six families and their unresolved fields. Compare compatible
+   evaluations locally with `anibench compare`, or open `anibench studio` and
+   use `http://127.0.0.1:8765/explore.html`. Publication is a separate choice.
+
+These paths illustrate a private workspace; no Elite participant data ship with
+the package. The hosted static website does not accept private uploads. Local
+Studio processes the structured inputs in the loopback service on your machine.
+
+**Current adapter boundary:** `anibench eval` accepts geometry JSON. It does not
+yet discover arbitrary assay spreadsheets, sequencing files, images, voice
+recordings, or wearable streams and compile their geometry automatically.
+Study-specific adapters must perform that conversion and retain the source
+lineage locally. Full raw-data ingestion is unfinished; an atlas profile or
+manuscript summary is not a substitute for that integration. Unknown information
+geometry remains unresolved, while known collection facts remain reportable.
 
 ## Results and comparison
 

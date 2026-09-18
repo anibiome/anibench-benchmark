@@ -17,6 +17,21 @@ protocols and on source-verified realized geometry from completed studies.
 Registration, accessibility, and demonstrated predictive yield are separate
 evidence receipts; lifecycle maturity never becomes a score multiplier.
 
+The main benchmark concerns **what a trial makes learnable**, not whether its
+treatment succeeded. It evaluates biological depth per participant, linked
+measurements, change over time, perturbation structure, and population support.
+A well-measured trial with no treatment benefit can still be highly informative.
+Treatment response, responder fractions, and rejuvenation outcomes belong in
+optional, separately named outcome benchmarks; they do not change the main
+capacity result. Demonstrated AI learning is another optional evaluation of a
+particular dataset and learning procedure.
+
+Open code does not require open participant data. Anyone can run the evaluator
+locally against their own study's private inputs. All studies use the same
+contract, whether their data are public or private. The current input is a
+structured account of measurement and study geometry, not an automatic reader
+for arbitrary raw assay files. See the [private-run workflow](docs/EVALUATION.md#run-on-private-study-data).
+
 ## Explore and compare
 
 Open the [published study explorer](https://anibench.ani-ai-is-alive.chatgpt.site)

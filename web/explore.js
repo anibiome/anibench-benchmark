@@ -546,10 +546,17 @@ function renderEvidenceComparison(studies) {
         ),
       );
   });
-  addRow("Evidence needed", (cell, study) => {
+  addRow("Source review notes", (cell, study) => {
     const list = el("ul");
     study.open_gates.forEach((gate) => list.append(el("li", human(gate))));
     cell.append(list);
+    cell.append(
+      el(
+        "p",
+        "These source notes span design, data, and optional outcome or learning claims. They are not all requirements for the main capacity evaluation.",
+        "caption",
+      ),
+    );
   });
   addRow("Original sources", (cell, study) => cell.append(sourceLinks(study)));
   addRow("Projection fingerprint", (cell, study) =>

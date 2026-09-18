@@ -11,6 +11,13 @@ revision with an explicit derivation and migration. The current reassessment is
 demonstrated biological utility remain distinct. Passing the mathematical and
 software checks does not validate a universal study ranking.
 
+Product clarification, 2026-09-17: the main benchmark evaluates study-design
+and collected-record capacity, independently of treatment benefit. Outcome
+benchmarks and demonstrated AI learning are optional, separate evaluations.
+Public code can evaluate private inputs; publication of participant data is not
+an admission requirement. `docs/EVALUATION.md` documents the current structured
+input workflow and unfinished raw-data adapter boundary.
+
 The current product and scientific authority is AniBench v2. Do not reconstruct
 the benchmark by averaging older repository documents.
 
