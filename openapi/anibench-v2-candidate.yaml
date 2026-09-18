@@ -13,6 +13,84 @@ servers:
   - url: http://127.0.0.1:8765
     description: Loopback Studio server
 paths:
+  /api/v3/eval:
+    post:
+      operationId: runCanonicalTrialEval
+      summary: Run the same six-family evaluation as anibench eval
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: "../schemas/v2/protocol-capacity-input.schema.json"}
+      responses:
+        "200":
+          description: Canonical role-aware assessment
+          content:
+            application/json:
+              schema: {$ref: "../schemas/v3/level1-role-aware-assessment.schema.json"}
+        "400":
+          description: Invalid protocol
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/Error"}
+  /api/v3/compare:
+    post:
+      operationId: compareCanonicalTrialEvals
+      summary: Validate receipts and compare native metrics on one shared basis
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              oneOf:
+                - required: [receipts]
+                - required: [receipt_documents]
+              properties:
+                receipt_documents:
+                  type: array
+                  minItems: 2
+                  maxItems: 20
+                  description: Original JSON documents as strings, preserving numeric serialization and receipt hashes.
+                  items: {type: string}
+                receipts:
+                  type: array
+                  minItems: 2
+                  maxItems: 20
+                  items: {$ref: "../schemas/v3/level1-role-aware-assessment.schema.json"}
+      responses:
+        "200":
+          description: Family-wise Pareto comparison without an overall rank
+          content:
+            application/json:
+              schema: {$ref: "../schemas/v3/eval-comparison.schema.json"}
+        "400":
+          description: Invalid, hash-mismatched, or incompatible receipts
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/Error"}
+  /api/v3/explorer-demo:
+    get:
+      operationId: getSyntheticExplorerComparison
+      summary: Reproduce two synthetic designs through the canonical evaluator
+      responses:
+        "200":
+          description: Illustrative inputs, source recipes, assessments and comparison
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [schema_version, illustrative, protocols, receipts, comparison, protocol_documents, receipt_documents, comparison_document]
+                properties:
+                  schema_version: {const: anibench.explorer-demo.v1}
+                  illustrative: {const: true}
+                  protocols: {type: array}
+                  receipts: {type: array}
+                  protocol_documents: {type: array, items: {type: string}}
+                  receipt_documents: {type: array, items: {type: string}}
+                  comparison_document: {type: string}
+                  comparison: {$ref: "../schemas/v3/eval-comparison.schema.json"}
   /api/health:
     get:
       operationId: getCandidateHealth

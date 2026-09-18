@@ -161,8 +161,25 @@ packages = ["src/anibench"]
 "web/optimizer-protocol-example.json" = "anibench/web/optimizer-protocol-example.json"
 "web/protocol-capacity-example.json" = "anibench/web/protocol-capacity-example.json"
 
+"web/explore.html" = "anibench/web/explore.html"
+"web/explore.css" = "anibench/web/explore.css"
+"web/explore.js" = "anibench/web/explore.js"
+"data/reported_facts/v1/literature.json" = "anibench/data/reported_facts/v1/literature.json"
+
 [tool.hatch.build.targets.sdist]
 include = [
+  "/web/explore.html",
+  "/web/explore.css",
+  "/web/explore.js",
+  "/data/reported_facts/v1/literature.json",
+  "/web/explore.test.js",
+  "/scripts/build_explorer.py",
+  "/scripts/verify_reported_facts.py",
+  "/tests/test_explorer.py",
+  "/docs/STUDY_EXPLORER.md",
+  "/docs/FIRST_PRINCIPLES.md",
+  "/tests/test_first_principles.py",
+
   "/src/anibench",
   "/schemas/v2/event-manifest.schema.json",
   "/schemas/v2/design-assessment.schema.json",

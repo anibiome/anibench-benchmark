@@ -26,6 +26,7 @@ REUSE.toml
 ROADMAP.md
 SECURITY.md
 codemeta.json
+data/reported_facts/v1/literature.json
 data/source_projections/v2/EXTERNAL_SOURCE_ACQUISITION_LEDGER.json
 data/source_projections/v2/all-of-us-cdrv9.json
 data/source_projections/v2/aspree.json
@@ -51,12 +52,14 @@ docs/DATA_GOVERNANCE.md
 docs/DESIGN_STUDIO.md
 docs/EVALUATION.md
 docs/EVIDENCE_POLICY.md
+docs/FIRST_PRINCIPLES.md
 docs/HOW_TO_READ_ANIBENCH.md
 docs/INTAKE_AND_ADJUDICATION.md
 docs/PRODUCT_ACCEPTANCE_MATRIX.md
 docs/RELEASE.md
 docs/RELEASE_CHECKLIST.md
 docs/SCIENTIFIC_FOUNDATIONS.md
+docs/STUDY_EXPLORER.md
 docs/V2_METHODS_CANDIDATE.md
 docs/V2_OPTIMIZER.md
 docs/audits/CTGOV_50_TRIAL_STRESS_TEST_2026-07-14.json
@@ -101,6 +104,7 @@ schemas/v3/level1-v2-to-v3-impact-receipt.schema.json
 scripts/__init__.py
 scripts/assemble_release_candidate.py
 scripts/build_docx_package.py
+scripts/build_explorer.py
 scripts/build_level1_target_v3.py
 scripts/build_v2_external_corpus.py
 scripts/export_public_repository.py
@@ -111,6 +115,7 @@ scripts/verify_distribution_boundary.py
 scripts/verify_external_field_receipts.py
 scripts/verify_installed_studio.py
 scripts/verify_release_metadata.py
+scripts/verify_reported_facts.py
 scripts/verify_studio_browser.mjs
 spec/v2/authority/causal-encoding.json
 spec/v2/authority/covariance-scenario-envelopes.json
@@ -135,6 +140,7 @@ src/anibench/contracts/__init__.py
 src/anibench/contracts/identifiers.py
 src/anibench/contracts_v2.py
 src/anibench/design_v2.py
+src/anibench/explorer.py
 src/anibench/information_v2.py
 src/anibench/intake.py
 src/anibench/level1_assessment_v3.py
@@ -144,6 +150,7 @@ src/anibench/paths.py
 src/anibench/protocol_capacity_v2.py
 src/anibench/release/__init__.py
 src/anibench/release/redact.py
+src/anibench/reported_facts.py
 src/anibench/source_atlas_v2.py
 src/anibench/studio.py
 src/anibench/studio_product.py
@@ -153,7 +160,9 @@ tests/test_ctgov_50_stress_test.py
 tests/test_distribution_boundary.py
 tests/test_eval_cli.py
 tests/test_eval_comparison.py
+tests/test_explorer.py
 tests/test_fetch_v2_external_sources.py
+tests/test_first_principles.py
 tests/test_installed_studio_e2e.py
 tests/test_level1_assessment_v3.py
 tests/test_level1_target_v3.py
@@ -174,6 +183,10 @@ tests/test_v2_information_run.py
 tests/test_v2_openapi_contract.py
 tests/test_v2_paper_protocol.py
 uv.lock
+web/explore.css
+web/explore.html
+web/explore.js
+web/explore.test.js
 web/favicon.svg
 web/optimizer-protocol-example.json
 web/protocol-capacity-example.json

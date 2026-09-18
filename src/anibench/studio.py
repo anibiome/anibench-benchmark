@@ -22,6 +22,8 @@ from .protocol_capacity_v2 import ProtocolCapacityError, compile_protocol_capaci
 from .studio_product import StudioAtlasError, build_studio_comparator_atlas
 from .v2 import V2RunError, score_information_run
 from . import __version__
+from .api import run_trial_eval, compare_trial_eval_receipts
+from .explorer import build_explorer_demo
 
 
 class StudioInputError(ValueError):
@@ -125,6 +127,31 @@ class StudioHandler(BaseHTTPRequestHandler):
                 )
                 return
             payload = self._read_json()
+            if self.path == "/api/v3/eval":
+                self._json(HTTPStatus.OK, run_trial_eval(payload))
+                return
+            if self.path == "/api/v3/compare":
+                if set(payload) == {"receipt_documents"}:
+                    documents = payload["receipt_documents"]
+                    if (
+                        not isinstance(documents, list)
+                        or not 2 <= len(documents) <= 20
+                        or not all(isinstance(document, str) for document in documents)
+                    ):
+                        raise StudioInputError("Supply 2 to 20 raw JSON receipt documents")
+                    receipts = [json.loads(document) for document in documents]
+                elif set(payload) == {"receipts"}:
+                    receipts = payload["receipts"]
+                else:
+                    raise StudioInputError("Supply receipts or receipt_documents, not both")
+                if (
+                    not isinstance(receipts, list)
+                    or not 2 <= len(receipts) <= 20
+                    or not all(isinstance(receipt, dict) for receipt in receipts)
+                ):
+                    raise StudioInputError("Supply 2 to 20 eval receipts in a receipts array")
+                self._json(HTTPStatus.OK, compare_trial_eval_receipts(receipts))
+                return
             if self.path == "/api/intake/ctgov":
                 nct_id = payload.get("nct_id")
                 if not isinstance(nct_id, str):
@@ -174,6 +201,9 @@ class StudioHandler(BaseHTTPRequestHandler):
 
     def do_GET(self) -> None:  # noqa: N802
         parsed = urlparse(self.path)
+        if parsed.path == "/api/v3/explorer-demo":
+            self._json(HTTPStatus.OK, build_explorer_demo(self.root))
+            return
         if parsed.path == "/api/health":
             self._json(
                 HTTPStatus.OK,

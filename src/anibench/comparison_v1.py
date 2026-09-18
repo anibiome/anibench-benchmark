@@ -14,6 +14,10 @@ import math
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from jsonschema import Draft202012Validator
+
+from .paths import schema_path
+
 
 class EvalComparisonError(ValueError):
     """Raised when eval receipts do not share a defensible comparison basis."""
@@ -119,21 +123,33 @@ def compare_trial_evals(receipts: Sequence[Mapping[str, Any]]) -> dict[str, Any]
     if len(receipts) < 2:
         raise EvalComparisonError("at least two eval receipts are required")
     copied = [dict(receipt) for receipt in receipts]
+    schema = json.loads(
+        schema_path("v3/level1-role-aware-assessment.schema.json").read_text(encoding="utf-8")
+    )
+    validator = Draft202012Validator(schema)
     for index, receipt in enumerate(copied):
         if receipt.get("schema_version") != (
             "anibench.level1-role-aware-assessment.v3-candidate2"
         ):
             raise EvalComparisonError(f"receipt {index} is not a canonical AniBench eval")
-        if len(receipt.get("scenarios", [])) != 1:
+        scenarios = receipt.get("scenarios")
+        if not isinstance(scenarios, list) or len(scenarios) != 1:
             raise EvalComparisonError(
                 f"receipt {index} must contain exactly one scenario for comparison"
             )
         _verify_assessment_receipt(receipt, index=index)
+        error = next(validator.iter_errors(receipt), None)
+        if error:
+            location = "/".join(str(part) for part in error.absolute_path) or "/"
+            raise EvalComparisonError(f"receipt {index} schema violation at {location}")
 
     protocol_ids = [receipt["protocol_id"] for receipt in copied]
     if len(protocol_ids) != len(set(protocol_ids)):
         raise EvalComparisonError("protocol_id values must be unique")
-    bases = [_shared_basis(receipt) for receipt in copied]
+    try:
+        bases = [_shared_basis(receipt) for receipt in copied]
+    except (KeyError, TypeError) as exc:
+        raise EvalComparisonError("eval receipt lacks a complete comparison basis") from exc
     if any(basis != bases[0] for basis in bases[1:]):
         raise EvalComparisonError(
             "eval receipts do not share the same implementation, Level-1 authority, "

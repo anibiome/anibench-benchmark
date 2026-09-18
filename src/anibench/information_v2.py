@@ -67,8 +67,8 @@ class ReconstructionMetrics:
 
 def _array(value: Sequence[Sequence[float]] | np.ndarray, *, name: str) -> np.ndarray:
     result = np.asarray(value, dtype=float)
-    if result.ndim != 2 or result.shape[0] != result.shape[1]:
-        raise InformationV2Error(f"{name} must be a square matrix")
+    if result.ndim != 2 or result.shape[0] != result.shape[1] or result.shape[0] == 0:
+        raise InformationV2Error(f"{name} must be a nonempty square matrix")
     if not np.all(np.isfinite(result)):
         raise InformationV2Error(f"{name} contains non-finite values")
     return result
@@ -94,6 +94,7 @@ def _psd(value: np.ndarray, *, name: str, tolerance: float = PSD_TOLERANCE) -> n
 
 
 def _positive_definite(value: np.ndarray, *, name: str) -> np.ndarray:
+    value = _array(value, name=name)
     symmetric = _symmetric(value, name=name)
     eigenvalues = np.linalg.eigvalsh(symmetric)
     if float(np.min(eigenvalues)) <= 0.0:
@@ -121,6 +122,8 @@ def event_information(contribution: EventContribution) -> np.ndarray:
     covariance = np.asarray(contribution.noise_covariance, dtype=float)
     if operator.ndim != 2:
         raise InformationV2Error("design_operator must be a matrix")
+    if min(operator.shape) == 0 or not np.all(np.isfinite(operator)):
+        raise InformationV2Error("design_operator must be nonempty and finite")
     if covariance.shape != (operator.shape[0], operator.shape[0]):
         raise InformationV2Error("noise_covariance must match design_operator rows")
     covariance = _positive_definite(covariance, name="noise_covariance")

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Explore the evidence behind human studies and compare six distinct dimensions of biological learning with AniBench."
+    />
+    <title>AniBench · Human studies, in perspective</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="explore.css" />
+    <script src="explore.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#atlas">Skip to studies</a>
+    <header class="site-header">
+      <a class="wordmark" href="explore.html"
+        >ani<span>bench</span><sup>β</sup></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#atlas">Study atlas</a><a href="#workspace">Run a comparison</a
+        ><a href="#method">Method</a><a href="v2.html">Trial Designer ↗</a>
+      </nav>
+      <a class="github" href="https://github.com/anibiome/anibench-benchmark"
+        >Open source ↗</a
+      >
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">AN OPEN BENCHMARK FOR HUMAN STUDIES</p>
+          <h1>How much can<br />a study teach us?</h1>
+          <p class="intro">
+            A million people. A thousand molecular signals. A decade of
+            follow-up. Each reveals something different about human biology.
+          </p>
+          <p class="intro secondary">
+            AniBench makes those strengths visible—and the missing evidence
+            explicit.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#atlas"
+              >Explore the evidence <span>↓</span></a
+            ><a href="#workspace">Compare your study →</a>
+          </div>
+        </div>
+        <div
+          class="hero-diagram"
+          aria-label="Six separate benchmark families, with no overall score"
+        >
+          <div class="diagram-center">
+            <span>HUMAN</span><strong>learning</strong><span>CAPACITY</span>
+          </div>
+          <ol>
+            <li><b>01</b>Biological depth</li>
+            <li><b>02</b>Population information</li>
+            <li><b>03</b>Time & trajectories</li>
+            <li><b>04</b>Perturbation & causality</li>
+            <li><b>05</b>Personalized learning</li>
+            <li><b>06</b>Transfer across contexts</li>
+          </ol>
+          <p>Six complementary views. No hidden total.</p>
+        </div>
+      </section>
+      <section class="principles" aria-label="Benchmark principles">
+        <p>
+          <b>Depth ≠ scale</b
+          ><span>More people cannot replace unmeasured biology.</span>
+        </p>
+        <p>
+          <b>Unknown ≠ absent</b
+          ><span>Missing evidence is visible, never scored as zero.</span>
+        </p>
+        <p>
+          <b>An open horizon</b
+          ><span>Native metrics grow; today's leader is not 100%.</span>
+        </p>
+      </section>
+
+      <section id="atlas" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 / THE STUDY ATLAS</p>
+            <h2>Different designs.<br />Different strengths.</h2>
+          </div>
+          <p>
+            Inspect the frozen public source records. Select studies to compare
+            their evidence side by side. These descriptive facts are separate
+            from modeled learning capacity.
+          </p>
+        </div>
+        <div id="atlas-status" class="notice" role="status">
+          Loading verified study records…
+        </div>
+        <div class="toolbar">
+          <label class="search-label" for="search"
+            >Find a study<input
+              id="search"
+              type="search"
+              placeholder="Search studies, measurements, or sources…" /></label
+          ><label for="study-filter"
+            >Assignment evidence<select id="study-filter">
+              <option value="all">All studies</option>
+              <option value="randomized">Randomized: source verified</option>
+              <option value="unknown">Assignment unresolved</option>
+            </select></label
+          ><button id="download-atlas" class="quiet" disabled>
+            Download source atlas ↓
+          </button>
+        </div>
+        <div class="atlas-layout">
+          <div>
+            <div class="results-meta">
+              <p id="study-count"></p>
+              <button id="clear-selection" class="text-button">
+                Clear selection
+              </button>
+            </div>
+            <div id="study-list" class="study-list"></div>
+          </div>
+          <aside class="plot-panel">
+            <p class="eyebrow">SOURCE COORDINATES</p>
+            <h3>People in the record</h3>
+            <p>
+              Reported counts on a logarithmic axis. Enrollment, randomized
+              populations, and profiled subsets retain their own denominators;
+              bar length is not a quality rank. A > marker denotes a lower
+              bound.
+            </p>
+            <div id="population-chart"></div>
+            <p id="population-caption" class="caption"></p>
+          </aside>
+        </div>
+        <section
+          id="evidence-comparison"
+          class="comparison-panel"
+          aria-label="Selected study evidence"
+          aria-live="polite"
+        ></section>
+      </section>
+
+      <section id="workspace" class="section workspace">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 / THE BENCHMARK WORKSPACE</p>
+            <h2>Show the trade-offs.</h2>
+          </div>
+          <p>
+            Run the same open evaluator used by the command line. Compare
+            compatible assessment receipts across all six families, with native
+            units and a downloadable audit trail.
+          </p>
+        </div>
+        <div class="workspace-controls">
+          <div>
+            <h3>Start with the mechanics</h3>
+            <p>
+              Two explicitly synthetic designs show the difference between
+              observing another biological direction and following people for
+              longer.
+            </p>
+            <button id="load-demo">Explore illustrative designs →</button>
+          </div>
+          <div>
+            <h3>Use your own study</h3>
+            <p>
+              Evaluate a protocol JSON file or compare 2–20 canonical eval
+              receipts. Local Studio processes files on this machine.
+            </p>
+            <label class="file-button" for="protocol-file"
+              >Evaluate protocol JSON<input
+                id="protocol-file"
+                type="file"
+                accept=".json,application/json" /></label
+            ><label class="file-button" for="receipt-files"
+              >Compare eval receipts<input
+                id="receipt-files"
+                type="file"
+                accept=".json,application/json"
+                multiple
+            /></label>
+            <p id="runtime-note" class="caption"></p>
+          </div>
+        </div>
+        <p id="workspace-status" role="status">
+          Choose illustrative designs or load your own study files.
+        </p>
+        <div id="workspace-result" aria-live="polite"></div>
+      </section>
+
+      <section id="method" class="section method">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">03 / A REPRODUCIBLE STANDARD</p>
+            <h2>Inspect the reasoning.<br />Change the experiment.</h2>
+          </div>
+          <p>
+            AniBench is a proposed benchmark and an open implementation.
+            Software verification, source review, and biological validation are
+            separate milestones.
+          </p>
+        </div>
+        <div class="method-grid">
+          <article>
+            <span>01</span>
+            <h3>Specify the observation</h3>
+            <p>
+              Who was measured, when, with which assays, and how accurately?
+              Linked participant-events, observation operators, and covariance
+              describe what the study can resolve. Modality names alone earn no
+              points.
+            </p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Keep learning distinct</h3>
+            <p>
+              Depth, total information, trajectories, causal contrasts, adaptive
+              decisions, and transport remain separate. Planned and realized
+              geometry retain their claim classes. Neither gets a maturity
+              bonus.
+            </p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Make progress measurable</h3>
+            <p>
+              Compare each native metric on an identical basis. A Pareto
+              frontier contains designs for which no compared alternative is at
+              least as good on every objective and strictly better on one.
+              Future levels increase resolution without rescaling previous
+              results.
+            </p>
+          </article>
+        </div>
+        <details class="math-note">
+          <summary>The information model and its limits</summary>
+          <p>
+            For a declared local observation model, information is F = Σ n
+            AᵀR⁻¹A across independent event groups. Prior-whitened information G
+            gives local log-volume contraction L = ½ log₁₀ det(I + G). This is a
+            model-dependent capacity measure, not a measured quantity of
+            biological understanding. Correlation, redundancy, noise,
+            missingness, and linkage matter. Nonlinear biology and empirical
+            predictive utility require separate validation.
+          </p>
+          <p>
+            Movement requires a dynamical model: sampling frequency and elapsed
+            time alone do not prove that biological trajectories can be
+            predicted. Perturbation requires an identifiable intervention
+            contrast. Personalization requires evidence that learning an
+            individual improves a prediction or decision.
+          </p>
+          <p>
+            Native metrics have no winner-normalized ceiling. Capacity
+            comparisons require common code, authority, parameter-space, and
+            metric definitions. A hash binds bytes; it does not establish
+            scientific truth or independent review.
+          </p>
+        </details>
+        <div class="method-links">
+          <a
+            href="https://github.com/anibiome/anibench-benchmark/blob/main/paper/v2/AniBench_v2_benchmark_protocol.md"
+            >Read the methods ↗</a
+          ><a
+            href="https://github.com/anibiome/anibench-benchmark/blob/main/docs/EVALUATION.md"
+            >Run the evaluator ↗</a
+          ><a
+            href="https://github.com/anibiome/anibench-benchmark/blob/main/CONTRIBUTING.md"
+            >Contribute a study ↗</a
+          >
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a class="wordmark" href="explore.html">ani<span>bench</span></a>
+      <p>Open methods. Inspectable evidence. Room to go deeper.</p>
+      <p>Apache-2.0 code · CC-BY-4.0 metadata</p>
+    </footer>
+    <noscript
+      ><p class="notice">
+        Enable JavaScript for interactive charts, or use the open Python CLI
+        linked above.
+      </p></noscript
+    >
+  </body>
+</html>

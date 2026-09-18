@@ -17,6 +17,9 @@ The normative machine contract is
 | Method and route | Input | Output | Claim boundary |
 |---|---|---|---|
 | `GET /api/health` | none | service/version status | runtime only |
+| `POST /api/v3/eval` | explicit protocol geometry | canonical `anibench eval` receipt | same mathematical authority as the CLI |
+| `POST /api/v3/compare` | `{ "receipt_documents": ["original JSON", ...] }` or `{ "receipts": [...] }`, 2–20 receipts | canonical family-wise Pareto comparison | validates hashes, schema, and shared basis; no overall rank |
+| `GET /api/v3/explorer-demo` | none | synthetic protocol inputs, source recipes, evals, comparison | illustrative mechanics only; no human-study result |
 | `GET /api/v2/comparator-atlas` | none | hash-verified public source ledger and typed family eligibility | descriptive source corpus; source order is not rank |
 | `POST /api/v2/design` | compact human-facing design | typed coordinates, gates, upgrades | no biological capacity |
 | `POST /api/v2/protocol-capacity` | explicit protocol geometry | six separate capacity families plus audit metadata | candidate capacity; no overall scalar |
@@ -33,6 +36,13 @@ such as `1` and `1.0` are mathematically equivalent even though the submitted
 input hash preserves their different serializations. Booleans never alias
 numbers, non-finite values fail closed, and genuinely different numeric values
 remain basis mismatches.
+
+Browser clients must retain original receipt documents as strings. JavaScript
+parsing and reserializing can change `1.0` into `1` or round large integers,
+invalidating a receipt's canonical hash. `receipt_documents` lets the server
+parse those original bytes. Eval and comparison downloads likewise retain the
+original server response text. The synthetic example supplies both parsed
+values for display and serialized documents for replay.
 
 Legacy scalar/rank previews, the superseded three-family suite, and the
 unversioned shadow-capacity simulation return HTTP `410 Gone`.
@@ -82,7 +92,7 @@ The result always exposes `overall_scalar: null`. Custom caller geometry remains
 `comparison_eligible: false`; a comparison requires the installed hash-pinned
 authority resolver.
 
-The non-HTTP Python/CLI comparator is
+The Python/CLI comparator underlying the HTTP route is
 `anibench.compare_trial_eval_receipts(receipts)` / `anibench compare`. It accepts
 only hash-valid canonical eval receipts on one exact implementation, Level-1,
 geometry, and parameter-space basis, then returns family-wise Pareto relations.

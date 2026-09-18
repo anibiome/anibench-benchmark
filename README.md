@@ -17,6 +17,26 @@ protocols and on source-verified realized geometry from completed studies.
 Registration, accessibility, and demonstrated predictive yield are separate
 evidence receipts; lifecycle maturity never becomes a score multiplier.
 
+## Explore and compare
+
+The [first-principles foundation](docs/FIRST_PRINCIPLES.md) explains the
+biological question, information model, dynamical and causal assumptions,
+empirical validation tasks, and an open-ended benchmark ladder. It distinguishes
+implemented mechanics from research questions still requiring evidence.
+
+Run `anibench studio` and open **http://127.0.0.1:8765/explore.html** for the
+study atlas and benchmark workspace. Search source records, inspect publication
+facts and their exact provenance, select studies side by side, evaluate a
+protocol, or compare canonical eval receipts with charts in native units.
+The existing Trial Designer remains at the root URL.
+
+The atlas contains 16 study records; their complete capacity geometry is still
+unresolved. Its descriptive source plots are not a biological leaderboard.
+An explicitly synthetic example demonstrates different strengths in depth and
+follow-up using the same evaluator as the command line. See
+[`docs/STUDY_EXPLORER.md`](docs/STUDY_EXPLORER.md) for source replay and a
+portable static build.
+
 ## Run the eval
 
 AniBench has one canonical benchmark command:

@@ -21,7 +21,7 @@ level1-authority:
 	PYTHONPATH=src $(PYTHON) scripts/build_level1_target_v3.py --check
 
 web-test:
-	node --test web/v2.test.js
+	node --test web/v2.test.js web/explore.test.js
 
 eval:
 	PYTHONPATH=src $(PYTHON) -m anibench.cli eval \

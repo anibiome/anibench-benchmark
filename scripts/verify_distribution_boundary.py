@@ -131,6 +131,10 @@ ALLOWED_WEB_FILENAMES = frozenset(
         "v2.html",
         "v2.js",
         "v2.test.js",
+        "explore.html",
+        "explore.css",
+        "explore.js",
+        "explore.test.js",
     }
 )
 

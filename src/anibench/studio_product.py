@@ -11,9 +11,12 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import math
 import re
 from pathlib import Path
 from typing import Any
+
+from .reported_facts import RELATIVE_PATH, load_reported_facts
 
 
 ATLAS_CONTRACT = "anibench.studio-comparator-atlas.v1"
@@ -111,6 +114,8 @@ def _number(value: str) -> int | float | None:
         number = float(value)
     except ValueError as exc:
         raise StudioAtlasError(f"invalid numeric coordinate {value!r}") from exc
+    if not math.isfinite(number):
+        raise StudioAtlasError(f"nonfinite numeric coordinate {value!r}")
     return int(number) if number.is_integer() else number
 
 
@@ -186,6 +191,9 @@ def build_studio_comparator_atlas(root: str | Path) -> dict[str, Any]:
         raise StudioAtlasError("public comparator coordinate table is empty")
 
     studies: list[dict[str, Any]] = []
+    publication_packet = (
+        load_reported_facts(root_path) if (root_path / RELATIVE_PATH).exists() else None
+    )
     seen_ids: set[str] = set()
     for row_index, row in enumerate(rows, start=2):
         study_id = row["study_id"]
@@ -361,19 +369,42 @@ def build_studio_comparator_atlas(root: str | Path) -> dict[str, Any]:
                     "source_id": source_id,
                     "sha256": source_sha256,
                     "evidence_class": authority.get("evidence_class", "not_declared"),
+                    "url": authority.get("url"),
+                    "locators": authority.get("locators", []),
                 }
             )
+
+        publication_facts = []
+        if publication_packet:
+            authority_hashes = {binding["sha256"] for binding in authority_bindings}
+            for fact in publication_packet["facts"]:
+                if fact["study_id"] != study_id:
+                    continue
+                source = publication_packet["sources"][fact["source_id"]]
+                refreshed_source = any(
+                    source.get("refresh_of_sha256") == authority["sha256"]
+                    and source["url"] == authority["url"]
+                    for authority in authority_bindings
+                )
+                if source["sha256"] not in authority_hashes and not refreshed_source:
+                    raise StudioAtlasError(
+                        f"publication fact for {study_id} is not bound to its source authority"
+                    )
+                publication_facts.append({
+                    **fact, "source": source,
+                    "packet_sha256": publication_packet["packet_sha256"],
+                })
 
         source_binding = {
             "source_projection_sha256": f"sha256:{actual_hash}",
             "source_projection_path": _relative(projection_path, root_path),
             "coordinate_table_row": row_index,
             "authority_objects": authority_bindings,
-                "field_provenance": {
+            "field_provenance": {
                 "receipt_sha256": f"sha256:{_sha256(field_receipt_path)}",
-                    "known_fact_count": len(fact_rows),
-                    "downgraded_unknown_fact_count": downgraded_unknown_count,
-                    **provenance_counts,
+                "known_fact_count": len(fact_rows),
+                "downgraded_unknown_fact_count": downgraded_unknown_count,
+                **provenance_counts,
             },
         }
         studies.append(
@@ -411,6 +442,15 @@ def build_studio_comparator_atlas(root: str | Path) -> dict[str, Any]:
                 "open_gates": list(open_gates),
                 "family_eligibility": family_eligibility,
                 "comparison_eligible": False,
+                "publication_facts": publication_facts,
+                "reported_evidence": {
+                    "population": projection.get("population", {}),
+                    "timeline": projection.get("timeline", {}),
+                    "design": projection.get("intervention_design", {}),
+                    "measurements": projection.get("measurements", []),
+                    "personalization": projection.get("personalization", {}),
+                    "access": projection.get("access", {}),
+                },
                 "source_binding": source_binding,
             }
         )
