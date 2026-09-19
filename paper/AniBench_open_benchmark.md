@@ -761,7 +761,7 @@ calibration and independent review remain necessary for stronger public claims.
 
 ## Appendix: comparison charts
 
-![Figure 3. Source-specific populations and subsets. Approximate and strict lower- bound values remain qualified; overlapping groups are not summed.](../examples/paper_charts/01-population.png)
+![Figure 3. Source-specific populations and subsets. Approximate and strict lower-bound values remain qualified; overlapping groups are not summed.](../examples/paper_charts/01-population.png)
 
 ![Figure 4. Documented observation classes. Official description, reported presence and unreported evidence remain distinct; presence is not complete collection.](../examples/paper_charts/02-coverage.png)
 

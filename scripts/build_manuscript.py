@@ -277,8 +277,8 @@ def _build(out: Path) -> dict:
         "01-population": (
             "examples/paper_charts/01-population.png",
             (
-                'Figure 3. Source-specific populations and subsets. Approximate and strict lower- '
-                'bound values remain qualified; overlapping groups are not summed.'
+                'Figure 3. Source-specific populations and subsets. Approximate and strict '
+                'lower-bound values remain qualified; overlapping groups are not summed.'
             ),
         ),
         "02-coverage": (
