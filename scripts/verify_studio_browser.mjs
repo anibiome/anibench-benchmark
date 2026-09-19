@@ -377,7 +377,9 @@ async function main() {
     assert.equal(loaded.health.body.status, "ok");
     assert.equal(loaded.atlas.status, 200);
     assert.equal(loaded.atlas.body.schema_version, "anibench.studio-comparator-atlas.v1");
-    assert.equal(loaded.atlas.body.study_count, 16);
+    assert.equal(loaded.atlas.body.study_count, loaded.atlas.body.studies.length);
+    assert.equal(loaded.atlas.body.public_protocol_cards.count, 1);
+    assert.ok(loaded.atlas.body.studies.some(study => study.study_id === "wur-oh-my-gut"));
     assert.equal(loaded.atlas.body.overall_scalar, null);
     assert.equal(loaded.atlas.body.public_rank_emission_permitted, false);
     assert.equal(loaded.protocolExample.status, 200);
