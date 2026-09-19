@@ -9,6 +9,12 @@ constitutes complete human biology. Software versions and task levels are
 separate: changing AniBench's implementation does not establish a biological
 level's adequacy.
 
+The [candidate task scopes](CANDIDATE_LEVELS.md) make this proposal concrete for
+metabolic, immune, functional, daily-rhythm, neural and population questions.
+They include a machine-readable discussion specification and an actual-evaluator
+depth-versus-population example. Native biological precision limits remain
+uncalibrated; these candidate scopes do not replace the current evaluator.
+
 ## Three independently reported lanes
 
 | Lane | What can be concluded | Required evidence |

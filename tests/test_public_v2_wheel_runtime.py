@@ -144,7 +144,7 @@ print(json.dumps(result, sort_keys=True))
     assert result["authority_contract"] == "anibench.level1-role-aware-target-installed-readback.v1"
     assert result["authority_promotion"] is False
     assert result["authority_global_enrollment_state"] == "unresolved"
-    assert result["atlas_study_count"] == 16
+    assert result["atlas_study_count"] == 17
     assert result["atlas_field_fact_count"] == 27
     assert result["atlas_downgraded_unknown_count"] == 328
     assert result["atlas_all_known_machine_resolved"] is True

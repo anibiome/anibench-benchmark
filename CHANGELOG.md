@@ -4,6 +4,16 @@ All notable changes are recorded here. AniBench uses semantic versioning for the
 
 ## Unreleased
 
+- Add the public Oh My Gut! protocol card with four replayable PDF facts,
+  separately curated observations, a visible timing discrepancy and explicit
+  unknowns. The explorer now contains 17 source records; planned counts remain
+  distinct from retained counts and capacity evaluations.
+- Reject internally inconsistent collection comparison receipts even after
+  rehashing: observed targets must fit the target registry, and repeated people
+  must be a subset of measured people and the roster.
+- Publish concrete candidate biological task scopes, an optional cortical
+  perturbation extension, and 13 actual-evaluator synthetic runs with 34 checks
+  for depth/population tradeoffs, missing support and cost invariance.
 - Add `anibench finite-task` for frozen, unit-aware precision requirements under
   declared Gaussian geometry. Required domain roles use noncompensatory
   true/false/unknown support; prior precision is reported separately from acquired

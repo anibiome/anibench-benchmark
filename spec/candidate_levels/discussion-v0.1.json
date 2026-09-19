@@ -1,0 +1,687 @@
+{
+  "schema_version": "anibench.candidate-target-suite.v0.1",
+  "status": "public_discussion_proposal_not_calibrated_or_normative",
+  "created": "2026-09-19",
+  "title": "Candidate linked biological task scopes and optional extensions",
+  "source_scope": "Public primary research only; no participant records downloaded",
+  "not_current_ANI_axes": true,
+  "policy_scope": {
+    "AB1_population": "Named ambulatory adult 18-65 catchment with explicit task eligibility; age limits are policy",
+    "AB1_temporal_block": "14 days, policy starting point requiring precision validation",
+    "AB2_longitudinal_blocks": "baseline, 3 months, 12 months, policy horizons not proof of lifetime dynamics",
+    "AB1_membership": [
+      "AB1-M",
+      "AB1-I",
+      "AB1-F",
+      "AB1-D",
+      "AB1-N",
+      "AB1-P"
+    ],
+    "AB2_membership": [
+      "AB2-M",
+      "AB2-I",
+      "AB2-F",
+      "AB2-D",
+      "AB2-N",
+      "AB2-P"
+    ],
+    "AB2_ordering": "AB1 attainment retained; common targets must meet h_AB2=h_AB1/2 plus all declared extension targets. This policy tightening divides variance limits by four.",
+    "suite_rule": "Conjunction of required task/domain/role targets; unknown remains unknown; no global scalar or device bonus",
+    "narrow_study_rule": "A study may lead or pass a named task without passing the suite; no blanket small-N penalty",
+    "observation_vs_intervention": "controlled stimuli, ex-vivo perturbations and in-vivo randomized interventions remain different role/evidence classes",
+    "optional_extensions": [
+      "AB2-NP"
+    ],
+    "optional_extension_rule": "AB2-NP is separately named and does not gate core AB2. Its explicit claim still requires every declared target and role."
+  },
+  "claim_lanes": {
+    "conditional_design": "Registered planned geometry and explicit assumptions; no treatment success or held-out model utility",
+    "realized_record": "Same target mechanics plus verified retained support/QC/linkage",
+    "empirical_learning_plateau": "Optional separate claim requiring held-out performance and equivalence; never a gate on planned capacity"
+  },
+  "precision_authority": {
+    "all_numeric_biological_variance_limits": null,
+    "numeric_thresholds_calibrated": false,
+    "target_scale_rule": "Native units; no per-competitor SD normalization. Use independently frozen biological resolution delta_star, policy h=delta_star/2, or retain unresolved.",
+    "coverage_policy_candidate": 0.95,
+    "coverage_policy_is_not_empirical_fact": true,
+    "prior_rule": "Freeze an external prior; always expose prior-only attainment and acquired variance reduction. Population-learning claims additionally report likelihood-only precision or identifiability; do not fabricate information from a strong prior.",
+    "functionals_vs_joint": "Only registered functionals are covered. All-direction claims require a separately frozen covariance target and existing Loewner diagnostic."
+  },
+  "tasks": [
+    {
+      "task_id": "AB1-M",
+      "title": "Metabolic response shape",
+      "level": "AB1_candidate",
+      "biological_question": "Can the record resolve a persons glucose and C-peptide response to a standardized meal, and variation in those responses across people?",
+      "estimands": [
+        {
+          "id": "M_g",
+          "definition": "Signed baseline-subtracted glucose AUC over 0-120 minutes, with baseline modeled jointly",
+          "unit": "mmol/L * min"
+        },
+        {
+          "id": "M_c",
+          "definition": "Signed baseline-subtracted C-peptide AUC over 0-120 minutes",
+          "unit": "nmol/L * min"
+        }
+      ],
+      "scope": {
+        "time": "0-120 minutes after a registered meal; two repeat occasions within the candidate 14-day block",
+        "space": "venous circulating concentrations; interstitial glucose substitutes only with calibrated lag/bias operator",
+        "population": "declared adults 18-65 catchment; population inference uses independent people, not meal repeats"
+      },
+      "required_roles": [
+        {
+          "domain": "molecular_metabolic",
+          "role": "observation"
+        },
+        {
+          "domain": "meal_exposure",
+          "role": "controlled_challenge_not_randomized_treatment_contrast"
+        }
+      ],
+      "reconstruction_relevance": "Trajectory response adds a state-transition measurement beyond fasting concentrations; it does not identify insulin sensitivity or secretion rates without additional validated model information.",
+      "target": {
+        "status": "parameterized_not_calibrated",
+        "per_person_halfwidth": "h_j_individual",
+        "population_mean_halfwidth": "h_j_population",
+        "variance_limit": "(h_j/z_j)^2",
+        "numeric_value": null,
+        "choice_rule": "h_j = delta_star_j/2 is a candidate resolution policy; delta_star_j must be independently justified and frozen. If no justified resolution exists, target remains unresolved.",
+        "multiplicity": "Freeze familywise interval coverage and task/functionals before evaluation; proposed 95% familywise is policy, not biological evidence."
+      },
+      "missing_calibration": [
+        "Assay total-error covariance and limits of quantification",
+        "Baseline/post-meal covariance and time alignment",
+        "Within-person day variance versus between-person variance",
+        "Interpolation error at the actual schedule",
+        "Meal adherence, circadian phase, medication and prior-exercise effects"
+      ],
+      "concrete_calibration_protocol": [
+        "Use external repeated-meal calibration with split aliquots and dense reference sampling",
+        "Fit assay + day + donor variance components without using candidate-study outcome benefits",
+        "Validate downsampled AUC against dense integration and estimate interpolation bias",
+        "Freeze the matrix of integration weights and joint covariance, including baseline subtraction, then solve required repeats and N"
+      ],
+      "primary_sources": [
+        "S01"
+      ],
+      "AB2_extension": {
+        "id": "AB2-M",
+        "retained_targets": "Retain AB1-M with h_AB2=h_AB1/2",
+        "new_estimands": "Within-person difference in the two AUCs between two preregistered meal compositions under randomized crossover, with period/carryover adjustment",
+        "new_scope": "Both meal conditions at repeated blocks at baseline, 3 months and 12 months (policy windows); no universal annual completeness claim",
+        "required_roles": [
+          "randomized_meal_perturbation",
+          "joint_metabolic_observation"
+        ],
+        "missing": "Exact contrast protocol, washout validity, carryover covariance and between-person response heterogeneity; no universal arm count beyond the named contrast"
+      },
+      "main_objection": "Two metabolites under one meal are not a full metabolic model. AUC can hide timing; include prespecified early/late contrasts in a later task revision if calibration shows material aliasing.",
+      "mechanics_status": "Can compile linear summaries once actual schedule/operator/covariance/prior and target authority exist; do not fabricate geometry from titles or assay counts."
+    },
+    {
+      "task_id": "AB1-I",
+      "title": "Peripheral immune responsiveness",
+      "level": "AB1_candidate",
+      "biological_question": "Can an accessible blood sample resolve specified molecular immune responses while separating donor biology from handling and cell mixture?",
+      "estimands": [
+        {
+          "id": "I_tnf",
+          "definition": "Paired stimulated-minus-control TNF concentration at the frozen endpoint of a validated whole-blood assay",
+          "unit": "pg/mL"
+        },
+        {
+          "id": "I_il6",
+          "definition": "Paired stimulated-minus-control IL-6 concentration at the same endpoint",
+          "unit": "pg/mL"
+        },
+        {
+          "id": "I_cells",
+          "definition": "Absolute monocyte and lymphocyte abundance in the input specimen as separate adjustment observables",
+          "unit": "cells per microliter"
+        }
+      ],
+      "scope": {
+        "time": "One registered ex-vivo endpoint t_immune, to be selected from validated assay protocol; repeat draw at matched clock phase within 14-day block",
+        "space": "whole blood only; not brain, liver, gut or lung immune states",
+        "population": "same named adult catchment; donors are independent units"
+      },
+      "required_roles": [
+        {
+          "domain": "immune_molecular",
+          "role": "observation"
+        },
+        {
+          "domain": "blood_cell_composition",
+          "role": "observation"
+        },
+        {
+          "domain": "ex_vivo_stimulus",
+          "role": "specimen_perturbation_not_in_vivo_human_treatment"
+        }
+      ],
+      "reconstruction_relevance": "Perturbed immune output distinguishes resting abundance from responsiveness; matched cell composition helps detect a mixture explanation for molecular change.",
+      "target": {
+        "status": "parameterized_not_calibrated",
+        "per_person_halfwidth": "h_j_individual",
+        "population_mean_halfwidth": "h_j_population",
+        "variance_limit": "(h_j/z_j)^2",
+        "numeric_value": null,
+        "choice_rule": "h_j = delta_star_j/2 is a candidate resolution policy; delta_star_j must be independently justified and frozen. If no justified resolution exists, target remains unresolved.",
+        "multiplicity": "Freeze familywise interval coverage and task/functionals before evaluation; proposed 95% familywise is policy, not biological evidence."
+      },
+      "missing_calibration": [
+        "Preanalytic delay/storage/lot effects",
+        "Stimulus/control paired covariance and batch interaction",
+        "Censoring and heteroscedastic cytokine errors",
+        "Donor-by-day and donor-by-stimulus variability",
+        "Cell-count error and composition-response sensitivity"
+      ],
+      "concrete_calibration_protocol": [
+        "Run reference-lab split-sample and repeat-draw calibration across donor and handling blocks",
+        "Use validated safe assay authority; this candidate specifies no stimulus dose or procedure",
+        "Fit composition-adjusted response model while retaining unadjusted response",
+        "Freeze endpoint, two cytokines and limits before examining competitor designs"
+      ],
+      "primary_sources": [
+        "S02",
+        "S06",
+        "S07"
+      ],
+      "AB2_extension": {
+        "id": "AB2-I",
+        "retained_targets": "Retain AB1-I and tighten h by factor 2",
+        "new_estimands": "Within prespecified monocyte and T-cell compartments, a frozen small transcript-response set under one validated matched specimen challenge; separate cell abundance from within-cell response",
+        "new_scope": "Cell-type resolution in blood; repeat at baseline, 3 and 12 months",
+        "required_roles": [
+          "cell_type_resolved_observation",
+          "paired_specimen_perturbation"
+        ],
+        "missing": "Cell-assignment confusion, capture bias, transcript count/noise model, donor covariance and protein/transcript relation; no assumption that single-cell RNA measures protein function"
+      },
+      "main_objection": "Selected cytokines and cell classes privilege peripheral immunity; the assay cannot certify immune competence or whole-body tissue coverage.",
+      "mechanics_status": "Can compile linear summaries once actual schedule/operator/covariance/prior and target authority exist; do not fabricate geometry from titles or assay counts."
+    },
+    {
+      "task_id": "AB1-F",
+      "title": "Functional exertion and recovery",
+      "level": "AB1_candidate",
+      "biological_question": "Can the record resolve physiological response to a fixed registered workload and the early recovery trajectory?",
+      "estimands": [
+        {
+          "id": "F_hr",
+          "definition": "Peak-to-one-minute heart-rate decrease under a frozen exercise and recovery posture/procedure",
+          "unit": "beats/min"
+        },
+        {
+          "id": "F_vo2",
+          "definition": "Integrated oxygen uptake above pre-exercise baseline over first 5 recovery minutes",
+          "unit": "mL O2/kg"
+        }
+      ],
+      "scope": {
+        "time": "During registered exertion and 0-5 minutes recovery; repeat occasion after validated recovery",
+        "space": "cardiorespiratory functional outputs, not every organ or autonomic mechanism",
+        "population": "eligible subset of the named catchment; exclusions and support limit must be explicit"
+      },
+      "required_roles": [
+        {
+          "domain": "functional_exercise",
+          "role": "controlled_challenge"
+        },
+        {
+          "domain": "cardiorespiratory_response",
+          "role": "observation"
+        }
+      ],
+      "reconstruction_relevance": "A fixed input and recovery response constrain physiological transitions and functional reserve that static molecular counts alone do not measure.",
+      "target": {
+        "status": "parameterized_not_calibrated",
+        "per_person_halfwidth": "h_j_individual",
+        "population_mean_halfwidth": "h_j_population",
+        "variance_limit": "(h_j/z_j)^2",
+        "numeric_value": null,
+        "choice_rule": "h_j = delta_star_j/2 is a candidate resolution policy; delta_star_j must be independently justified and frozen. If no justified resolution exists, target remains unresolved.",
+        "multiplicity": "Freeze familywise interval coverage and task/functionals before evaluation; proposed 95% familywise is policy, not biological evidence."
+      },
+      "missing_calibration": [
+        "Workload and posture repeatability",
+        "Heart-rate/sensor latency and breath-by-breath VO2 covariance",
+        "Day-to-day and between-person response variance",
+        "Peak selection and temporal interpolation uncertainty",
+        "Eligibility-related population selection"
+      ],
+      "concrete_calibration_protocol": [
+        "Calibrate sensor outputs against criterion instruments and repeated challenge records",
+        "Freeze workload parameterization and recovery conditions; assess peak-selection bias",
+        "Use known time-integration weights where valid and propagate correlated error",
+        "Do not import a mortality-risk threshold as an estimation tolerance"
+      ],
+      "primary_sources": [
+        "S03"
+      ],
+      "AB2_extension": {
+        "id": "AB2-F",
+        "retained_targets": "Retain AB1-F and tighten h by factor 2",
+        "new_estimands": "Response slope across two registered workload conditions and between-block change in that slope",
+        "new_scope": "At baseline, 3 and 12 months; fixed functional eligibility population",
+        "required_roles": [
+          "assigned_workload_contrast",
+          "recovery_observation"
+        ],
+        "missing": "Dose-response linearity/locality, order/fatigue covariance, selection and temporal stationarity"
+      },
+      "main_objection": "The one-minute HR measure is protocol-sensitive and the source clinical population does not establish normative values for all adults.",
+      "mechanics_status": "Can compile linear summaries once actual schedule/operator/covariance/prior and target authority exist; do not fabricate geometry from titles or assay counts."
+    },
+    {
+      "task_id": "AB1-D",
+      "title": "Daily physiological rhythm and behavior linkage",
+      "level": "AB1_candidate",
+      "biological_question": "Can linked digital observations separate a persons daily physiological rhythm from movement and sleep timing?",
+      "estimands": [
+        {
+          "id": "D_cos",
+          "definition": "Cosine coefficient in a preregistered 24-hour HR rhythm model adjusted for activity and measured context",
+          "unit": "beats/min"
+        },
+        {
+          "id": "D_sin",
+          "definition": "Sine coefficient in the same model",
+          "unit": "beats/min"
+        },
+        {
+          "id": "D_sleep",
+          "definition": "Person-level mean sleep midpoint under a registered sleep-detection definition",
+          "unit": "hours relative to local reference time"
+        }
+      ],
+      "scope": {
+        "time": "Candidate 14-day observation block; timestamps, time zone and valid-wear support preserved; duration is policy not universal sufficiency",
+        "space": "peripheral cardiovascular rhythm and behavioral sleep, not a direct central circadian clock measurement",
+        "population": "named catchment; shift-work status and missingness declared"
+      },
+      "required_roles": [
+        {
+          "domain": "digital_activity_sleep",
+          "role": "observation"
+        },
+        {
+          "domain": "physiological_rhythm",
+          "role": "observation"
+        }
+      ],
+      "reconstruction_relevance": "Links temporal context to physiological state and prevents a daytime snapshot from being treated as a universal baseline. Sine/cosine coefficients avoid unstable phase estimates when amplitude approaches zero.",
+      "target": {
+        "status": "parameterized_not_calibrated",
+        "per_person_halfwidth": "h_j_individual",
+        "population_mean_halfwidth": "h_j_population",
+        "variance_limit": "(h_j/z_j)^2",
+        "numeric_value": null,
+        "choice_rule": "h_j = delta_star_j/2 is a candidate resolution policy; delta_star_j must be independently justified and frozen. If no justified resolution exists, target remains unresolved.",
+        "multiplicity": "Freeze familywise interval coverage and task/functionals before evaluation; proposed 95% familywise is policy, not biological evidence."
+      },
+      "missing_calibration": [
+        "Wearable/device bias versus ECG and sleep reference",
+        "Wear-time dependent missingness",
+        "Autocorrelation and activity-rhythm confounding",
+        "Day-level drift and person variance",
+        "Clock/time-zone changes and sleep-label reliability"
+      ],
+      "concrete_calibration_protocol": [
+        "Obtain independent simultaneous device/reference recordings across rest/activity/skin-tone/context coverage",
+        "Estimate autocorrelation and missingness model from repeated complete days",
+        "Use DLMO or a justified central-clock reference only if a later task claims central circadian phase",
+        "Freeze design columns and reference time; derive cadence/day support from coefficient precision and conditioning"
+      ],
+      "primary_sources": [
+        "S04"
+      ],
+      "AB2_extension": {
+        "id": "AB2-D",
+        "retained_targets": "Retain AB1-D and tighten h by factor 2",
+        "new_estimands": "Change in sine/cosine coefficients under a registered within-person schedule/context contrast plus stability across repeated blocks",
+        "new_scope": "Baseline, 3 and 12-month blocks; prespecified schedule groups",
+        "required_roles": [
+          "digital_observation",
+          "context_assignment_if_causal_change_claimed"
+        ],
+        "missing": "Phase-response nonlinearity, schedule assignment/overlap, light exposure, confounding and drift"
+      },
+      "main_objection": "Behavior-adjusted rhythm remains model-dependent; wearable sleep midpoint cannot be relabeled melatonin phase or neural sleep architecture.",
+      "mechanics_status": "Can compile linear summaries once actual schedule/operator/covariance/prior and target authority exist; do not fabricate geometry from titles or assay counts."
+    },
+    {
+      "task_id": "AB1-N",
+      "title": "Time-resolved neural response",
+      "level": "AB1_candidate",
+      "biological_question": "Can the record resolve a prespecified event-related neural contrast together with task behavior?",
+      "estimands": [
+        {
+          "id": "N_erp",
+          "definition": "Mean deviant-minus-standard ERP voltage over a fixed task-specific time window and registered sensor cluster, selected before study scoring",
+          "unit": "microvolt"
+        },
+        {
+          "id": "N_rt",
+          "definition": "Mean correct-trial reaction time under the fixed paradigm, with error rate retained as a separate observable",
+          "unit": "milliseconds"
+        }
+      ],
+      "scope": {
+        "time": "Stimulus-locked millisecond timing; window and trial counts selected by independent reference-paradigm calibration; two sessions in candidate 14-day block",
+        "space": "registered scalp observation field only; no unvalidated cortical-source localization",
+        "population": "named adult catchment with sensory/task eligibility declared"
+      },
+      "required_roles": [
+        {
+          "domain": "neural_electrophysiology",
+          "role": "observation"
+        },
+        {
+          "domain": "task_behavior",
+          "role": "observation"
+        },
+        {
+          "domain": "sensory_task_input",
+          "role": "controlled_probe_not_therapeutic_neurostimulation"
+        }
+      ],
+      "reconstruction_relevance": "Provides an actual neural temporal response linked to behavior, rather than assuming peripheral biomarkers or questionnaires observe neural function.",
+      "target": {
+        "status": "parameterized_not_calibrated",
+        "per_person_halfwidth": "h_j_individual",
+        "population_mean_halfwidth": "h_j_population",
+        "variance_limit": "(h_j/z_j)^2",
+        "numeric_value": null,
+        "choice_rule": "h_j = delta_star_j/2 is a candidate resolution policy; delta_star_j must be independently justified and frozen. If no justified resolution exists, target remains unresolved.",
+        "multiplicity": "Freeze familywise interval coverage and task/functionals before evaluation; proposed 95% familywise is policy, not biological evidence."
+      },
+      "missing_calibration": [
+        "Trial noise/autocorrelation and retained artifact-free trial support",
+        "Session-to-session reliability",
+        "Electrode/reference/filter operator effects",
+        "Stimulus timestamp jitter",
+        "Amplitude dependence on task performance and sensory input",
+        "Cross-person covariance and age effects"
+      ],
+      "concrete_calibration_protocol": [
+        "Use a frozen ERP CORE-style paradigm and reference preprocessing, then calibrate repeat sessions independently",
+        "Prefer a preregistered window-average linear contrast over winner-picked peak amplitude",
+        "Estimate trial/session/person variance and artifact-related selection",
+        "Derive trial counts and people separately; no universal EEG channel count or MRI requirement"
+      ],
+      "primary_sources": [
+        "S05",
+        "S11"
+      ],
+      "AB2_extension": {
+        "id": "AB2-N",
+        "retained_targets": "Retain AB1-N and tighten h by factor 2",
+        "new_estimands": "Add a preregistered left/right cortical-region hemodynamic task contrast with linked electrophysiological measurements, plus between-block change",
+        "new_scope": "Two named cortical ROIs and frozen hemodynamic model; baseline, 3 and 12-month blocks",
+        "required_roles": [
+          "spatial_neural_observation",
+          "temporal_neural_observation",
+          "joint_participant_task_linkage"
+        ],
+        "missing": "Spatial sensitivity/registration, HRF uncertainty, physiological confounds, cross-modal residual covariance and motion bias; fMRI earns no credit outside this spatial task"
+      },
+      "main_objection": "ERP is an accessible neural probe, not comprehensive cognition; the spatial extension may make this candidate unnecessarily expensive and should be separately ratified.",
+      "mechanics_status": "Can compile linear summaries once actual schedule/operator/covariance/prior and target authority exist; do not fabricate geometry from titles or assay counts."
+    },
+    {
+      "task_id": "AB1-P",
+      "title": "Linked population variation",
+      "level": "AB1_candidate",
+      "biological_question": "Can the study estimate population means and specified cross-domain associations without confusing repeated measurements with independent people?",
+      "estimands": [
+        {
+          "id": "P_means",
+          "definition": "Population means of each prespecified AB1-M/I/F/D/N scalar target under declared sampling/selection weights",
+          "unit": "each target native unit"
+        },
+        {
+          "id": "P_links",
+          "definition": "Three prespecified descriptive correlations: meal glucose AUC with HR recovery; immune TNF response with daily HR cosine coefficient; neural ERP mean with task reaction time",
+          "unit": "Fisher-z scale for precision calculation; report native correlations too"
+        }
+      ],
+      "scope": {
+        "time": "Cross-domain records within same 14-day state block; exact timing/ordering accounted for",
+        "space": "person-linked outputs from five tasks; unrelated participants cannot supply cross-domain covariance",
+        "population": "fixed adult catchment, eligibility and sampling weights; not all humanity"
+      },
+      "required_roles": [
+        {
+          "domain": "cross_domain_participant_linkage",
+          "role": "observation"
+        },
+        {
+          "domain": "population_sampling_support",
+          "role": "observation"
+        }
+      ],
+      "reconstruction_relevance": "Population reconstruction requires between-person structure; this task prevents unlimited data on two people from masquerading as population breadth. Correlations are descriptive, not causal biology.",
+      "target": {
+        "status": "parameterized_not_calibrated",
+        "per_person_halfwidth": "h_j_individual",
+        "population_mean_halfwidth": "h_j_population",
+        "variance_limit": "(h_j/z_j)^2",
+        "numeric_value": null,
+        "choice_rule": "h_j = delta_star_j/2 is a candidate resolution policy; delta_star_j must be independently justified and frozen. If no justified resolution exists, target remains unresolved.",
+        "multiplicity": "Freeze familywise interval coverage and task/functionals before evaluation; proposed 95% familywise is policy, not biological evidence."
+      },
+      "missing_calibration": [
+        "Between-person variance after measurement-error correction",
+        "Cross-domain covariance and common nuisance structure",
+        "Inclusion/sampling weights and missing joint modules",
+        "Family/household dependence",
+        "Age/sex/context support and weight instability"
+      ],
+      "concrete_calibration_protocol": [
+        "Use independent donors with all required linked modules, stratified to the declared population",
+        "Fit multilevel measurement-error model with repeat occasions separating within-person noise from between-person variability",
+        "Freeze only these descriptive edges before scoring; validate delta-method/Fisher-z coverage by simulation under actual sampling",
+        "If Gaussian linearization fails, retain this task unresolved rather than supply invented F"
+      ],
+      "primary_sources": [
+        "S01",
+        "S04",
+        "S06",
+        "S11"
+      ],
+      "AB2_extension": {
+        "id": "AB2-P",
+        "retained_targets": "Retain AB1-P and tighten h by factor 2",
+        "new_estimands": "Fixed site-A versus site-B difference in the same means/associations, plus change across baseline, 3 and 12-month blocks",
+        "new_scope": "Two named settings with overlap; optional age extension to 18-80 must be separately specified and is not automatically covered",
+        "required_roles": [
+          "joint_population_support_in_each_named_setting",
+          "repeat_person_linkage"
+        ],
+        "missing": "Selection overlap, site measurement invariance, attrition, site-by-person response covariance; two sites do not establish universal random-site transport"
+      },
+      "main_objection": "The selected correlations are arbitrary but falsifiable cross-domain probes; evidence has not established these particular edges as privileged biological coordinates. Their inclusion is a policy choice.",
+      "mechanics_status": "Can compile linear summaries once actual schedule/operator/covariance/prior and target authority exist; do not fabricate geometry from titles or assay counts."
+    }
+  ],
+  "extra_AB2_task": {
+    "task_id": "AB2-NP",
+    "level": "optional_AB2_cortical_perturbation_candidate",
+    "title": "Identifiable cortical perturbation response",
+    "biological_question": "Can the experiment distinguish a registered direct cortical perturbation response from sensory coactivation and sham?",
+    "estimands": [
+      {
+        "id": "NP_delta",
+        "definition": "Within-person active-minus-sensory-matched-sham mean evoked electrophysiological response in a preregistered post-artifact window and sensor/source region, conditional on verified assignment and target engagement",
+        "unit": "microvolt or frozen source-current unit, never mixed"
+      }
+    ],
+    "required_roles": [
+      {
+        "domain": "neural_perturbation",
+        "role": "randomized_assigned_intervention"
+      },
+      {
+        "domain": "sham_and_sensory_control",
+        "role": "matched_control"
+      },
+      {
+        "domain": "neural_response",
+        "role": "observation"
+      }
+    ],
+    "scope": {
+      "time": "Stimulation-locked response plus repeat-session reliability; exact artifact-free window selected only after independent calibration",
+      "space": "one registered cortical target and bounded response region",
+      "population": "eligible consenting research population with explicit exclusions"
+    },
+    "target": {
+      "numeric_value": null,
+      "variance_limit": "(h_NP/z_NP)^2",
+      "status": "unresolved_until_protocol_and_calibration_authority"
+    },
+    "missing_calibration": [
+      "Exact target/site and intervention protocol authority",
+      "Sham sensory equivalence and masking",
+      "Stimulation/EEG artifact operator and residual covariance",
+      "Verified target engagement and assignment adherence",
+      "Within-person period/session dependence and between-person heterogeneity"
+    ],
+    "concrete_calibration_protocol": [
+      "Require a validated independently reviewed research protocol; no stimulation parameters are prescribed here",
+      "Perform independent sham/sensory and device-artifact calibration before defining the response window",
+      "Freeze contrast operator and correlated repeated-trial variance, then derive participant/session requirements"
+    ],
+    "primary_sources": [
+      "S09",
+      "S10"
+    ],
+    "main_objection": "High burden and sensory confounding; a separate optional extension, never inferred from diagnostic EEG/fMRI or a sensory task. Membership and protocol need independent review.",
+    "gates_core_AB2": false
+  },
+  "calibration_program": [
+    {
+      "step": "C1",
+      "deliverable": "Ratified task definitions and native-unit meaningful-resolution dossier; blinded task relevance/measurement review before comparing studies",
+      "missing_now": true
+    },
+    {
+      "step": "C2",
+      "deliverable": "Independent crossed donor x occasion x batch x device reference data, with paired technical replicates and dense time/reference measurements as appropriate",
+      "missing_now": true
+    },
+    {
+      "step": "C3",
+      "deliverable": "Estimated operator H, residual R, between-person B, nuisance blocks and uncertainty envelope; effective independent units explicit",
+      "missing_now": true
+    },
+    {
+      "step": "C4",
+      "deliverable": "Precision-target derivation using H^T R^-1 H, random effects and frozen c_j; choose cadence/repeats/N jointly, not a universal N",
+      "missing_now": true
+    },
+    {
+      "step": "C5",
+      "deliverable": "Operating-characteristic simulations at lower/upper plausible calibration bounds, including censoring/missingness/nonlinearity and nuisance sensitivity",
+      "missing_now": true
+    },
+    {
+      "step": "C6",
+      "deliverable": "Source-bound authority and machine input only after h_j,H,R,P definitions are available; biology utility evaluation remains separate",
+      "missing_now": true
+    }
+  ],
+  "sources": [
+    {
+      "id": "S01",
+      "title": "Berry et al. 2020, Human postprandial responses to food and potential for precision nutrition",
+      "url": "https://www.nature.com/articles/s41591-020-0934-0",
+      "supports": "Human meal-response heterogeneity supports measuring dynamic metabolic responses; does not validate our task thresholds.",
+      "access_scope": "Primary publisher abstract and PMC-indexed methods excerpt reviewed."
+    },
+    {
+      "id": "S02",
+      "title": "Duffy et al. 2014, Functional analysis via standardized whole-blood stimulation systems",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24656047/",
+      "supports": "Standardized induced immune-response measurements can characterize donor variation; our stimulus/time/target subset is a policy proposal.",
+      "access_scope": "Primary research abstract reviewed."
+    },
+    {
+      "id": "S03",
+      "title": "Cole et al. 1999, Heart-rate recovery immediately after exercise",
+      "url": "https://www.nejm.org/doi/full/10.1056/NEJM199910283411804",
+      "supports": "One-minute post-exercise heart-rate drop is an established measurable recovery quantity; prognostic cutoffs are not adopted as precision targets.",
+      "access_scope": "Primary publisher abstract and methods summary reviewed."
+    },
+    {
+      "id": "S04",
+      "title": "Bowman et al. 2021, A method for characterizing daily physiology from widely used wearables",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34568865/",
+      "supports": "Wearable HR and activity support model-based daily-rhythm estimation; behavior and physiological phase are distinct.",
+      "access_scope": "Primary research abstract and indexed full-text excerpt reviewed."
+    },
+    {
+      "id": "S05",
+      "title": "Kappenman et al. 2021, ERP CORE",
+      "url": "https://escholarship.org/uc/item/9cf2f1xw",
+      "supports": "Standardized ERP paradigms and prespecified processing support bounded neural response measurements; source sample size is not benchmark saturation.",
+      "access_scope": "Author repository abstract and primary author PDF excerpt reviewed."
+    },
+    {
+      "id": "S06",
+      "title": "Squair et al. 2021, Confronting false discoveries in single-cell differential expression",
+      "url": "https://www.nature.com/articles/s41467-021-25960-2",
+      "supports": "Independent biological replication must not be replaced by pseudo-replicated cells.",
+      "access_scope": "Primary full-text sections reviewed in earlier council audit."
+    },
+    {
+      "id": "S07",
+      "title": "Dissecting human population variation in single-cell responses to SARS-CoV-2, 2023",
+      "url": "https://www.nature.com/articles/s41586-023-06422-9",
+      "supports": "Cell-type-resolved donor responses and tissue limits are empirically demonstrated; blood does not become lung or brain.",
+      "access_scope": "Primary publisher abstract and tissue-limitation passage reviewed; no viral experiment proposed."
+    },
+    {
+      "id": "S08",
+      "title": "An open-access dataset of naturalistic viewing using simultaneous EEG-fMRI, 2023",
+      "url": "https://www.nature.com/articles/s41597-023-02458-8",
+      "supports": "Linked EEG/fMRI observations are feasible; no complete neural reconstruction claim follows.",
+      "access_scope": "Primary indexed abstract/PDF summary reviewed; HTML fetch failed."
+    },
+    {
+      "id": "S09",
+      "title": "Ilmoniemi et al. 1997, Neuronal responses to magnetic stimulation reveal cortical reactivity and connectivity",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9427322/",
+      "supports": "Human stimulation with electrophysiological observation motivates a distinct cortical perturbation task.",
+      "access_scope": "Primary abstract reviewed."
+    },
+    {
+      "id": "S10",
+      "title": "Isolating sensory artifacts in the suprathreshold TMS-EEG signal over DLPFC, 2023",
+      "url": "https://www.nature.com/articles/s41598-023-29920-2",
+      "supports": "Auditory/somatosensory coactivation can confound direct cortical interpretations; sham and artifact calibration are essential.",
+      "access_scope": "Primary indexed full-text passages reviewed."
+    },
+    {
+      "id": "S11",
+      "title": "Marek et al. 2022, Reproducible brain-wide association studies require thousands of individuals",
+      "url": "https://www.nature.com/articles/s41586-022-04492-9",
+      "supports": "Small population associations require appropriate independent-person support; this is not a universal N minimum for within-person tasks.",
+      "access_scope": "Primary full-text abstract/methods reviewed in earlier council audit."
+    }
+  ],
+  "objections": [
+    "This panel covers accessible state/response tasks, not complete whole-body biological reconstruction.",
+    "Blood-centric immune and metabolic tasks omit many tissues and pathological states.",
+    "Four modality domains do not imply coverage of all causal mechanisms or six ANI axes.",
+    "Spatial neural resolution adds burden and remains a proposed scope. Cortical perturbation is an optional named extension, not a universal requirement.",
+    "Correlation target choices and h/2 strictness are policy, not discoveries from cited papers.",
+    "Several nonlinear population/correlation and cell-type models cannot yet be submitted as exact linear-Gaussian tasks without a justified local approximation.",
+    "Two named contexts support a fixed-context comparison, not general transport."
+  ],
+  "canonical_evaluator_changed": false
+}

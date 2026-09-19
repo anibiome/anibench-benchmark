@@ -51,6 +51,17 @@ test("source links reject scripts, credentials and non-HTTPS origins", () => {
   );
 });
 
+test("curated planned randomization stays filterable without acquiring geometry", () => {
+  const planned = study({ reported_randomization: { value: true,
+    provenance_mode: "curated_public_protocol" } });
+  assert.equal(view.filterStudies([planned], "", "randomized").length, 1);
+  assert.equal(view.filterStudies([planned], "", "unknown").length, 0);
+  assert.equal(planned.causal_architecture.randomized_policy, null);
+  assert.equal(view.reportedRandomization(planned), true);
+  assert.equal(view.factLabel({ state: "reported", value: 6,
+    precision: "source_approximate" }), "≈ 6");
+});
+
 function study(overrides = {}) {
   return {
     study_id: "study-a",

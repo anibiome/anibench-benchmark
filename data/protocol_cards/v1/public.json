@@ -1,0 +1,288 @@
+{
+  "schema_version": "anibench.public-protocol-cards.v1",
+  "claim_scope": "reported_planned_design_not_capacity",
+  "public_rank_allowed": false,
+  "cards": [
+    {
+      "study_id": "wur-oh-my-gut",
+      "name": "Oh My Gut! (Wageningen)",
+      "source": {
+        "source_id": "wur-omg-brochure-2025-v2",
+        "url": "https://backend.wur.nl/sites/default/files/2025-11/E1.E2.Proefpersonen.informatiebrochure.OMG_.versie2.dd16062025_Clean%20(1).pdf",
+        "sha256": "24bfc80ff119bab92a745b1e17f1bb2fdffd4179ce7ff815123e94fb16113ed8",
+        "hash_scope": "complete_original_pdf_bytes",
+        "document_version": "Version 2, June 2025",
+        "document_type": "public_participant_information",
+        "page_count": 17,
+        "checked_date": "2026-09-19",
+        "extraction": {
+          "library": "pypdf",
+          "version": "6.14.2",
+          "normalization": "unicode_nfc_whitespace_collapse_strip_utf8_v1",
+          "page_text_hashes": [
+            {
+              "page": 1,
+              "sha256": "fa515b34fb1d4bd60d8839e79937c7155315d5118b3a5a8090c0ea3c6e008032"
+            },
+            {
+              "page": 2,
+              "sha256": "5baa46b8d5b4653103fc2beb1a6ba29487a2074f73cf49c102400cb78329e0d8"
+            },
+            {
+              "page": 3,
+              "sha256": "a319c8088cb3149d1416658cccbeeba0779c1dfb4dda6852bddeae6e5ccd27d8"
+            },
+            {
+              "page": 4,
+              "sha256": "9b9f8b528468c81949279d3139c4866868f9b207e0d6911a8665d5e31881d758"
+            },
+            {
+              "page": 5,
+              "sha256": "b5068bb698607a08958545ecc5eea8eb7f3488a51df33324cdd507919389e6c7"
+            },
+            {
+              "page": 6,
+              "sha256": "6d8bccbbd4c271f3792ad75c22bdc09dfbca4c4ff688c9acf62382ae263e9b77"
+            },
+            {
+              "page": 7,
+              "sha256": "ccceb43003bae00435a7c36369132786d28360f425071e58b6d7bca2c7d7c157"
+            },
+            {
+              "page": 8,
+              "sha256": "8054d8fc2c50c304c36279f37a899623343c51863f82da0fbcc5b4988add486d"
+            },
+            {
+              "page": 9,
+              "sha256": "0f9434c4713a75a2fe90f8116693657ff6381180ccfe9f16581f93ffdc6afe1e"
+            },
+            {
+              "page": 10,
+              "sha256": "36134a08eb62fd2b3152e4a9b796967980c5ec85df7609dd51f532b2b1ecedca"
+            },
+            {
+              "page": 11,
+              "sha256": "4d1b9be3f767cf542263ad74bc3378700087d3419ad2ac438633d9c949221d2c"
+            },
+            {
+              "page": 12,
+              "sha256": "6f289468ae13842fcca160eb6b086ffdd35b93151c00fa1216750b39061fbe57"
+            },
+            {
+              "page": 13,
+              "sha256": "c46266ddc2bd9f77560fb4e2b10ca7912e6b738705f1d06bf944602be0da1e9a"
+            },
+            {
+              "page": 14,
+              "sha256": "4f7f4063f7104c9dc8ec4e95ef158fff6c8bfaff4117a68e27f34c676fd68888"
+            },
+            {
+              "page": 15,
+              "sha256": "8ae7eb8fb4364381563feeadaadc142f884aa07bffa29a5bad93e94996acb7b2"
+            },
+            {
+              "page": 16,
+              "sha256": "2b3e46c8caacaf2770563d3a308af441d298871914c88288100bd1ac8f940c37"
+            },
+            {
+              "page": 17,
+              "sha256": "1b0d3221b9ad0d287d4813c8b14311addf31d8bb0e89807705a84a6b378afaeb"
+            }
+          ]
+        }
+      },
+      "numeric_facts": [
+        {
+          "fact_id": "wur-oh-my-gut:planned-population",
+          "study_id": "wur-oh-my-gut",
+          "label": "Planned recruitment",
+          "state": "reported",
+          "source_id": "wur-omg-brochure-2025-v2",
+          "excerpt": "222 gezonde proefpersonen",
+          "numeric_token": "222",
+          "value": 222,
+          "unit": "participants",
+          "semantics": "planned_recruitment_not_actual_randomized_or_retained",
+          "precision": "reported_integer",
+          "pdf_page": 2,
+          "claim_lane": "planned_design",
+          "curation": "numeric_token_replay_with_curated_semantics"
+        },
+        {
+          "fact_id": "wur-oh-my-gut:planned-arms",
+          "study_id": "wur-oh-my-gut",
+          "label": "Planned groups",
+          "state": "reported",
+          "source_id": "wur-omg-brochure-2025-v2",
+          "excerpt": "6 groepen",
+          "numeric_token": "6",
+          "value": 6,
+          "unit": "arms",
+          "semantics": "planned_parallel_supplement_groups_including_placebo",
+          "precision": "reported_integer",
+          "pdf_page": 5,
+          "claim_lane": "planned_design",
+          "curation": "numeric_token_replay_with_curated_semantics"
+        },
+        {
+          "fact_id": "wur-oh-my-gut:intervention-duration",
+          "study_id": "wur-oh-my-gut",
+          "label": "Planned supplement exposure",
+          "state": "reported",
+          "source_id": "wur-omg-brochure-2025-v2",
+          "excerpt": "6 weken",
+          "numeric_token": "6",
+          "value": 6,
+          "unit": "weeks",
+          "semantics": "approximately_six_weeks_supplement_exposure_not_total_followup",
+          "precision": "source_approximate",
+          "pdf_page": 4,
+          "claim_lane": "planned_design",
+          "curation": "numeric_token_replay_with_curated_semantics"
+        },
+        {
+          "fact_id": "wur-oh-my-gut:inperson-visits",
+          "study_id": "wur-oh-my-gut",
+          "label": "Planned in-person visits",
+          "state": "reported",
+          "source_id": "wur-omg-brochure-2025-v2",
+          "excerpt": "2 keer naar",
+          "numeric_token": "2",
+          "value": 2,
+          "unit": "visits",
+          "semantics": "planned_beginning_and_end_inperson_visits_not_complete_case_count",
+          "precision": "reported_integer",
+          "pdf_page": 5,
+          "claim_lane": "planned_design",
+          "curation": "numeric_token_replay_with_curated_semantics"
+        }
+      ],
+      "observations": [
+        {
+          "id": "assignment",
+          "label": "Assignment",
+          "value": "Randomized, placebo-controlled; participant and researcher masked.",
+          "state": "reported",
+          "pages": [
+            5
+          ],
+          "locator": "Group list and following paragraph",
+          "note": "Sequence generation and operational masking details unresolved.",
+          "curation": "text_interpretation"
+        },
+        {
+          "id": "digital",
+          "label": "Digital observation",
+          "value": "Wearable heart rate and movement.",
+          "state": "reported",
+          "pages": [
+            5
+          ],
+          "locator": "Wristband paragraph",
+          "note": "Sampling rate, valid wear and retained coverage unresolved.",
+          "curation": "text_interpretation"
+        },
+        {
+          "id": "functional",
+          "label": "Functional observation",
+          "value": "Computer tasks before and after a cold-water challenge.",
+          "state": "reported",
+          "pages": [
+            5,
+            15
+          ],
+          "locator": "Measurement paragraph; figure 2",
+          "note": "Task identities and scoring unresolved.",
+          "curation": "visual_interpretation"
+        },
+        {
+          "id": "perturbation",
+          "label": "Perturbation roles",
+          "value": "Supplement assignment and an acute cold-water challenge.",
+          "state": "reported",
+          "pages": [
+            5,
+            15
+          ],
+          "locator": "Groups and challenge; figure 2",
+          "note": "Distinct perturbations; independent causal dimensions are not inferred.",
+          "curation": "text_interpretation"
+        },
+        {
+          "id": "specimens",
+          "label": "Molecular sampling",
+          "value": "Stool, blood drops, tongue scrapings and saliva planned.",
+          "state": "reported",
+          "pages": [
+            5
+          ],
+          "locator": "Sample collection descriptions",
+          "note": "Specimen labels do not specify molecular targets or information depth.",
+          "curation": "text_interpretation"
+        },
+        {
+          "id": "timing",
+          "label": "Timing discrepancy",
+          "value": "Prose: about 7–8 weeks participation. Figure: follow-up at week 10.",
+          "state": "conflicting",
+          "pages": [
+            3,
+            15
+          ],
+          "locator": "Section 4; figure 1",
+          "note": "Overall follow-up remains unresolved.",
+          "curation": "visual_interpretation"
+        },
+        {
+          "id": "neural",
+          "label": "Direct neural recording",
+          "value": null,
+          "state": "unknown",
+          "pages": [
+            5,
+            15
+          ],
+          "locator": "Measurement descriptions; figures",
+          "note": "Direct neural acquisition is not established by these descriptions.",
+          "curation": "unresolved_source_scope"
+        },
+        {
+          "id": "geometry",
+          "label": "Assays and dependence",
+          "value": null,
+          "state": "unknown",
+          "pages": [
+            5
+          ],
+          "locator": "Sample and measurement descriptions",
+          "note": "Assay targets, noise and covariance unresolved.",
+          "curation": "unresolved_source_scope"
+        },
+        {
+          "id": "retention",
+          "label": "Actual retention and linkage",
+          "value": null,
+          "state": "unknown",
+          "pages": [
+            2,
+            5
+          ],
+          "locator": "Recruitment and scheduled visits",
+          "note": "Planned collection does not establish retained participants or linked records.",
+          "curation": "unresolved_source_scope"
+        }
+      ],
+      "open_gates": [
+        "latest_approved_full_protocol_unverified",
+        "participation_and_followup_timing_unreconciled",
+        "source_complete_capacity_geometry_unavailable",
+        "actual_retention_and_linkage_unverified"
+      ],
+      "reported_randomization": {
+        "value": true,
+        "observation_id": "assignment"
+      }
+    }
+  ],
+  "packet_sha256": "62e37d16d5cbfe63ab91d22433dcb955f430283a262c833850824cdf30b237ba"
+}

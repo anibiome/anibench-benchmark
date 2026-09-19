@@ -26,11 +26,11 @@ def test_studio_comparator_atlas_is_hash_verified_external_corpus_not_rank() -> 
     atlas = build_studio_comparator_atlas(ROOT)
     assert atlas == build_studio_comparator_atlas(ROOT)
     assert atlas["schema_version"] == "anibench.studio-comparator-atlas.v1"
-    assert atlas["study_count"] == 16
+    assert atlas["study_count"] == 17
     assert atlas["comparison_eligible_study_count"] == 0
     assert atlas["overall_scalar"] is None
     assert atlas["public_rank_emission_permitted"] is False
-    assert atlas["row_order_semantics"] == "coordinate_table_source_order_not_rank"
+    assert atlas["row_order_semantics"] == "source_record_order_not_rank"
     assert atlas["source_coordinate_contract"] == SOURCE_COORDINATE_CONTRACT
     assert atlas["coordinate_table"]["path"] == ("packaging/public_v2/SOURCE_COORDINATE_TABLE.csv")
     assert atlas["field_provenance_receipt"]["known_fact_count"] == 27
@@ -63,16 +63,17 @@ def test_studio_comparator_atlas_is_hash_verified_external_corpus_not_rank() -> 
             "mechanically_extracted_source_bound"
         ]
         == study["source_binding"]["field_provenance"]["known_fact_count"]
-        for study in atlas["studies"]
+        for study in atlas["studies"] if study["record_kind"] == "mechanical_source_projection"
     )
     assert sum(
         study["source_binding"]["field_provenance"][
             "downgraded_unknown_fact_count"
         ]
-        for study in atlas["studies"]
+        for study in atlas["studies"] if study["record_kind"] == "mechanical_source_projection"
     ) == 328
     assert all(
-        study["source_binding"]["source_projection_sha256"].startswith("sha256:")
+        (study["source_binding"].get("source_projection_sha256") or
+         study["source_binding"]["source_record_sha256"]).startswith("sha256:")
         and study["source_binding"]["authority_objects"]
         for study in atlas["studies"]
     )
@@ -213,7 +214,7 @@ def test_studio_get_comparator_atlas_returns_verified_contract() -> None:
             payload = json.loads(response.read())
         assert response.status == 200
         assert payload["schema_version"] == "anibench.studio-comparator-atlas.v1"
-        assert payload["study_count"] == 16
+        assert payload["study_count"] == 17
         assert payload["comparison_eligible_study_count"] == 0
     finally:
         server.shutdown()

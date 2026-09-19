@@ -351,7 +351,15 @@ const AniBenchPage = (() => {
     return facts;
   }
   function factText(fact) {
-    return `${fact.precision === "lower_bound" ? "> " : ""}${number(fact.value)}`;
+    const prefix = fact.precision === "lower_bound" ? "> " :
+      fact.precision === "source_approximate" ? "≈ " : "";
+    return `${prefix}${number(fact.value)}`;
+  }
+  function protocolDetails(study) {
+    const observations = study.protocol_observations || [];
+    if (!observations.length) return "";
+    const source = study.source_binding?.authority_objects?.[0];
+    return `<section class="protocol-description"><h3>Planned protocol</h3><p class="intro-note">${escape(source?.document_version || "Public source")}. These descriptions are curated from the cited pages. Unknowns and conflicting statements remain visible.</p>${observations.map((item) => `<div class="detail-fact"><div><strong>${escape(item.label)}</strong><span class="fact-unit">${escape(human(item.state))}</span></div><div><p>${escape(item.value ?? "Unknown")}</p><p>${escape(item.note)}</p><details><summary>Source & interpretation</summary><p>PDF ${item.pages.length > 1 ? "pages" : "page"} ${escape(item.pages.join(", "))} · ${escape(item.locator)}</p><p>${escape(human(item.curation))}; this interpretation is not machine-verified.</p></details></div></div>`).join("")}</section>`;
   }
   function route() {
     const selected = ["studies", "method", "run"].includes(
@@ -474,6 +482,7 @@ const AniBenchPage = (() => {
         .join(
           "",
         )}<a href="explore.html#atlas">Full evidence workspace ↗</a></div>`;
+    document.getElementById("detail-content").insertAdjacentHTML("beforeend", protocolDetails(study));
     document.getElementById("study-detail").showModal();
   }
   async function start() {
@@ -632,6 +641,7 @@ const AniBenchPage = (() => {
     demoMetrics,
     syntheticPlot,
     evidencePanel,
+    protocolDetails,
   };
 })();
 if (typeof document !== "undefined") AniBenchPage.start();

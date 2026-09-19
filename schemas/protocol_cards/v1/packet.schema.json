@@ -1,0 +1,324 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:anibench:public-protocol-cards:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "claim_scope",
+    "public_rank_allowed",
+    "cards",
+    "packet_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "anibench.public-protocol-cards.v1"
+    },
+    "claim_scope": {
+      "const": "reported_planned_design_not_capacity"
+    },
+    "public_rank_allowed": {
+      "const": false
+    },
+    "cards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "study_id",
+          "name",
+          "source",
+          "numeric_facts",
+          "observations",
+          "reported_randomization",
+          "open_gates"
+        ],
+        "properties": {
+          "study_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,127}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source_id",
+              "url",
+              "sha256",
+              "hash_scope",
+              "document_version",
+              "document_type",
+              "page_count",
+              "checked_date",
+              "extraction"
+            ],
+            "properties": {
+              "source_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9-]{0,127}$"
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "hash_scope": {
+                "const": "complete_original_pdf_bytes"
+              },
+              "document_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "document_type": {
+                "const": "public_participant_information"
+              },
+              "page_count": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "checked_date": {
+                "type": "string",
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+              },
+              "extraction": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "library",
+                  "version",
+                  "normalization",
+                  "page_text_hashes"
+                ],
+                "properties": {
+                  "library": {
+                    "const": "pypdf"
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "normalization": {
+                    "const": "unicode_nfc_whitespace_collapse_strip_utf8_v1"
+                  },
+                  "page_text_hashes": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "page",
+                        "sha256"
+                      ],
+                      "properties": {
+                        "page": {
+                          "type": "integer",
+                          "minimum": 1
+                        },
+                        "sha256": {
+                          "type": "string",
+                          "pattern": "^[a-f0-9]{64}$"
+                        }
+                      }
+                    },
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          },
+          "numeric_facts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "fact_id",
+                "study_id",
+                "label",
+                "state",
+                "source_id",
+                "excerpt",
+                "numeric_token",
+                "value",
+                "unit",
+                "semantics",
+                "precision",
+                "pdf_page",
+                "claim_lane",
+                "curation"
+              ],
+              "properties": {
+                "fact_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "study_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9-]{0,127}$"
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "state": {
+                  "const": "reported"
+                },
+                "source_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9-]{0,127}$"
+                },
+                "excerpt": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "numeric_token": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "value": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "unit": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "semantics": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "precision": {
+                  "enum": [
+                    "reported_integer",
+                    "source_approximate"
+                  ]
+                },
+                "pdf_page": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "claim_lane": {
+                  "const": "planned_design"
+                },
+                "curation": {
+                  "const": "numeric_token_replay_with_curated_semantics"
+                }
+              }
+            },
+            "minItems": 1
+          },
+          "observations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "label",
+                "value",
+                "state",
+                "pages",
+                "locator",
+                "note",
+                "curation"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9-]{0,127}$"
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "state": {
+                  "enum": [
+                    "reported",
+                    "unknown",
+                    "conflicting"
+                  ]
+                },
+                "pages": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "note": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "curation": {
+                  "enum": [
+                    "text_interpretation",
+                    "visual_interpretation",
+                    "unresolved_source_scope"
+                  ]
+                }
+              }
+            },
+            "minItems": 0
+          },
+          "reported_randomization": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "value",
+              "observation_id"
+            ],
+            "properties": {
+              "value": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "observation_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "open_gates": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "packet_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

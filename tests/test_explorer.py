@@ -136,7 +136,7 @@ def test_source_replay_rejects_hash_drift(tmp_path):
 def test_static_build_is_create_only_and_binds_every_asset(tmp_path):
     output = tmp_path / "site"
     manifest = build_explorer(output)
-    assert manifest["study_count"] == 16
+    assert manifest["study_count"] == 17
     assert manifest["capacity_comparison_complete_studies"] == 0
     for name, digest in manifest["files"].items():
         assert hashlib.sha256((output / name).read_bytes()).hexdigest() == digest

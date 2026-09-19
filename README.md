@@ -40,6 +40,13 @@ mathematical derivation, limitations, source examples and reproducible figures.
 Build its PDF with `python -m pip install -e '.[paper]'` followed by
 `python scripts/build_manuscript.py --out output/pdf/AniBench_open_benchmark.pdf`.
 
+Current source also includes [candidate AniBench 1/2 task scopes](docs/CANDIDATE_LEVELS.md),
+a [public protocol-card workflow](docs/PUBLIC_PROTOCOL_CARDS.md), and a runnable
+adversarial example: `python scripts/audit_depth_population_tradeoff.py`.
+The biological task scopes are discussion proposals with unresolved precision
+calibration; the example uses explicitly invented models. These additions are
+after the immutable RC3 release.
+
 Compare native collection metrics with `anibench compare-records`. Its
 [metric cards and submission rules](docs/COLLECTION_COMPARISONS.md) retain the
 roster, units, source hashes and uncertainty bounds. Missing geometry does not

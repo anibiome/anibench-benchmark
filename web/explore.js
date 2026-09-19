@@ -56,6 +56,7 @@ function factLabel(fact) {
         : "No"
       : numberLabel(fact.value);
   if (fact.precision === "lower_bound") return `>${value}`;
+  if (fact.precision === "source_approximate") return `≈ ${value}`;
   return fact.state === "conditional" ? `${value} (conditional)` : value;
 }
 
@@ -164,10 +165,14 @@ function safeSourceURL(value) {
   }
 }
 
+function reportedRandomization(study) {
+  return study.reported_randomization?.value ?? study.causal_architecture.randomized_policy;
+}
+
 function filterStudies(studies, query, filter) {
   const term = query.trim().toLocaleLowerCase();
   return studies.filter((study) => {
-    const assignment = study.causal_architecture.randomized_policy;
+    const assignment = reportedRandomization(study);
     const matchesFilter =
       filter === "all" ||
       (filter === "randomized" && assignment === true) ||
@@ -493,19 +498,27 @@ function renderEvidenceComparison(studies) {
         ),
       );
   });
-  addRow("Randomized assignment", (cell, study) =>
+  addRow("Reported randomized assignment", (cell, study) =>
     cell.append(
       el(
         "span",
-        study.causal_architecture.randomized_policy === null
+        reportedRandomization(study) === null
           ? "Unknown"
-          : study.causal_architecture.randomized_policy
-            ? "Yes"
+          : reportedRandomization(study)
+            ? study.reported_randomization ? "Yes · curated public source" : "Yes"
             : "No",
       ),
     ),
   );
   addRow("Reported source fields", (cell, study) => {
+    for (const item of study.protocol_observations || []) {
+      const details = el("details");
+      details.append(el("summary", `${item.label}: ${item.value ?? "Unknown"}`),
+        el("p", item.note),
+        el("p", `PDF pages ${item.pages.join(", ")} · ${item.locator}`, "caption"),
+        el("p", `${human(item.curation)}; not machine-verified.`, "caption"));
+      cell.append(details);
+    }
     for (const group of ["population", "timeline", "design"]) {
       for (const [name, fact] of Object.entries(
         study.reported_evidence?.[group] || {},
@@ -560,7 +573,8 @@ function renderEvidenceComparison(studies) {
   });
   addRow("Original sources", (cell, study) => cell.append(sourceLinks(study)));
   addRow("Projection fingerprint", (cell, study) =>
-    cell.append(el("code", study.source_binding.source_projection_sha256)),
+    cell.append(el("code", study.source_binding.source_projection_sha256 ||
+      study.source_binding.source_record_sha256)),
   );
   table.append(body);
   wrapper.append(table);
@@ -901,7 +915,7 @@ async function startExplorer() {
       const duration = displayDuration(study);
       for (const [label, fact] of [
         ["People · source denominator", population],
-        [`Span · ${duration.unit}`, duration],
+        [`${duration.label || "Span"} · ${duration.unit}`, duration],
       ]) {
         const block = el("div");
         block.append(
@@ -1079,6 +1093,7 @@ if (typeof module !== "undefined")
     factLabel,
     safeSourceURL,
     filterStudies,
+    reportedRandomization,
     populationRows,
     coordinateRows,
     metricGroups,

@@ -99,6 +99,8 @@ exclude = [
 packages = ["src/anibench"]
 
 [tool.hatch.build.targets.wheel.force-include]
+"schemas/protocol_cards/v1/packet.schema.json" = "anibench/schemas/protocol_cards/v1/packet.schema.json"
+"data/protocol_cards/v1/public.json" = "anibench/data/protocol_cards/v1/public.json"
 "schemas/finite_precision/v1/evaluation-input.schema.json" = "anibench/schemas/finite_precision/v1/evaluation-input.schema.json"
 "schemas/finite_precision/v1/evaluation-result.schema.json" = "anibench/schemas/finite_precision/v1/evaluation-result.schema.json"
 "docs/FINITE_TASK_PRECISION_V1.md" = "anibench/docs/FINITE_TASK_PRECISION_V1.md"
@@ -184,6 +186,18 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/schemas/protocol_cards/v1/packet.schema.json",
+  "/spec/candidate_levels/discussion-v0.1.json",
+  "/docs/CANDIDATE_LEVELS.md",
+  "/scripts/audit_depth_population_tradeoff.py",
+  "/tests/test_depth_population_tradeoff.py",
+  "/data/depth_population_audit/synthetic-provenance.json",
+  "/data/depth_population_audit/actual-api-receipts.json",
+
+  "/data/protocol_cards/v1/public.json",
+  "/scripts/verify_protocol_cards.py",
+  "/tests/test_protocol_cards.py",
+  "/docs/PUBLIC_PROTOCOL_CARDS.md",
   "/schemas/finite_precision/v1/evaluation-input.schema.json",
   "/schemas/finite_precision/v1/evaluation-result.schema.json",
   "/docs/FINITE_TASK_PRECISION_V1.md",

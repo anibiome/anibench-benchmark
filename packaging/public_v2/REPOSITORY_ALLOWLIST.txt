@@ -27,6 +27,9 @@ REUSE.toml
 ROADMAP.md
 SECURITY.md
 codemeta.json
+data/depth_population_audit/actual-api-receipts.json
+data/depth_population_audit/synthetic-provenance.json
+data/protocol_cards/v1/public.json
 data/registry_stress_240/SHA256SUMS
 data/registry_stress_240/baseline.json
 data/registry_stress_240/manifest.json
@@ -56,6 +59,7 @@ data/synthetic_geometry_audit/actual_geometry_results.json
 docs/ACCESSIBILITY.md
 docs/ANTI_GAMING.md
 docs/API.md
+docs/CANDIDATE_LEVELS.md
 docs/COLLECTION_COMPARISONS.md
 docs/COLLECTION_PROFILE.md
 docs/CONDITIONAL_POSTERIOR_REFERENCE.md
@@ -70,6 +74,7 @@ docs/HOW_TO_READ_ANIBENCH.md
 docs/INTAKE_AND_ADJUDICATION.md
 docs/LEVELS_AND_SATURATION.md
 docs/PRODUCT_ACCEPTANCE_MATRIX.md
+docs/PUBLIC_PROTOCOL_CARDS.md
 docs/REGISTRY_STRESS_240.md
 docs/RELEASE.md
 docs/RELEASE_CHECKLIST.md
@@ -112,6 +117,7 @@ schemas/collection/record.schema.json
 schemas/collection/table-map.schema.json
 schemas/finite_precision/v1/evaluation-input.schema.json
 schemas/finite_precision/v1/evaluation-result.schema.json
+schemas/protocol_cards/v1/packet.schema.json
 schemas/v2/conditional-posterior-reference.schema.json
 schemas/v2/design-assessment.schema.json
 schemas/v2/design-input.schema.json
@@ -131,6 +137,7 @@ schemas/v3/level1-role-aware-target-authority.schema.json
 schemas/v3/level1-v2-to-v3-impact-receipt.schema.json
 scripts/__init__.py
 scripts/assemble_release_candidate.py
+scripts/audit_depth_population_tradeoff.py
 scripts/audit_synthetic_geometry.py
 scripts/build_docx_package.py
 scripts/build_explorer.py
@@ -146,9 +153,11 @@ scripts/validate_code_red_release.py
 scripts/verify_distribution_boundary.py
 scripts/verify_external_field_receipts.py
 scripts/verify_installed_studio.py
+scripts/verify_protocol_cards.py
 scripts/verify_release_metadata.py
 scripts/verify_reported_facts.py
 scripts/verify_studio_browser.mjs
+spec/candidate_levels/discussion-v0.1.json
 spec/v2/authority/causal-encoding.json
 spec/v2/authority/covariance-scenario-envelopes.json
 spec/v2/authority/event-unit-registry.json
@@ -184,6 +193,7 @@ src/anibench/level1_target_v3.py
 src/anibench/optimizer_protocol_v2.py
 src/anibench/paths.py
 src/anibench/protocol_capacity_v2.py
+src/anibench/protocol_cards.py
 src/anibench/release/__init__.py
 src/anibench/release/redact.py
 src/anibench/reported_facts.py
@@ -197,6 +207,7 @@ tests/test_collection_ingest.py
 tests/test_collection_v1.py
 tests/test_council_protocol_adversaries.py
 tests/test_ctgov_50_stress_test.py
+tests/test_depth_population_tradeoff.py
 tests/test_distribution_boundary.py
 tests/test_eval_cli.py
 tests/test_eval_comparison.py
@@ -212,6 +223,7 @@ tests/test_manuscript_build.py
 tests/test_optimizer_protocol_v2.py
 tests/test_posterior_reference_diagnostic.py
 tests/test_protocol_capacity_v2.py
+tests/test_protocol_cards.py
 tests/test_protocol_web_examples.py
 tests/test_public_repository_export.py
 tests/test_public_runtime_quarantine.py

@@ -233,7 +233,7 @@ def _verify_http(base_url: str) -> dict[str, Any]:
     if (
         status != 200
         or atlas.get("schema_version") != "anibench.studio-comparator-atlas.v1"
-        or atlas.get("study_count") != 16
+        or atlas.get("study_count") != 17
         or atlas.get("comparison_eligible_study_count") != 0
         or atlas.get("overall_scalar") is not None
         or atlas.get("public_rank_emission_permitted") is not False

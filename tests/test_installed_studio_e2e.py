@@ -58,7 +58,7 @@ def test_exact_unpacked_wheel_serves_complete_studio_http_contract(tmp_path: Pat
         receipt["http"]["planned_design_input_sha256"]
         != receipt["http"]["realized_design_input_sha256"]
     )
-    assert receipt["http"]["comparator_study_count"] == 16
+    assert receipt["http"]["comparator_study_count"] == 17
     assert receipt["http"]["level1_family_count"] == 6
     assert receipt["http"]["level1_target_state"] == "unresolved"
     assert receipt["http"]["level1_overall_scalar"] is None

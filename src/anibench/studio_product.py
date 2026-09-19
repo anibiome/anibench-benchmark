@@ -16,6 +16,7 @@ import re
 from pathlib import Path
 from typing import Any
 
+from .protocol_cards import card_studies, load_protocol_cards
 from .reported_facts import RELATIVE_PATH, load_reported_facts
 
 ATLAS_CONTRACT = "anibench.studio-comparator-atlas.v1"
@@ -409,6 +410,7 @@ def build_studio_comparator_atlas(root: str | Path) -> dict[str, Any]:
         studies.append(
             {
                 "study_id": study_id,
+                "record_kind": "mechanical_source_projection",
                 "name": projection.get("name", study_id),
                 "projection_lane": row["projection_lane"],
                 "projection_status": projection.get("projection_status", "unknown"),
@@ -479,18 +481,26 @@ def build_studio_comparator_atlas(root: str | Path) -> dict[str, Any]:
     ):
         raise StudioAtlasError("field provenance aggregate counts drifted")
 
+    protocol_packet = load_protocol_cards(root_path)
+    if protocol_packet:
+        additional_studies = card_studies(protocol_packet, FAMILY_IDS)
+        if seen_ids.intersection(study["study_id"] for study in additional_studies):
+            raise StudioAtlasError("protocol card duplicates an existing study identity")
+        studies.extend(additional_studies)
+
     return {
         "schema_version": ATLAS_CONTRACT,
         "claim_class": "source_bound_descriptive_comparator_atlas",
         "overall_scalar": None,
         "public_rank_emission_permitted": False,
-        "row_order_semantics": "coordinate_table_source_order_not_rank",
+        "row_order_semantics": "source_record_order_not_rank",
         "source_coordinate_contract": SOURCE_COORDINATE_CONTRACT,
         "coordinate_table": {
             "path": _relative(table_path, root_path),
             "sha256": f"sha256:{_sha256(table_path)}",
         },
         "field_provenance_receipt": {
+            "scope": "mechanical_coordinate_table_projections_only",
             "contract": FIELD_RECEIPT_CONTRACT,
             "path": _relative(field_receipt_path, root_path),
             "sha256": f"sha256:{_sha256(field_receipt_path)}",
@@ -504,6 +514,11 @@ def build_studio_comparator_atlas(root: str | Path) -> dict[str, Any]:
             ],
             "all_known_fields_machine_resolved": True,
             "manual_interpretations_mechanically_validated": False,
+        },
+        "public_protocol_cards": {
+            "count": len(protocol_packet["cards"]) if protocol_packet else 0,
+            "packet_sha256": protocol_packet["packet_sha256"] if protocol_packet else None,
+            "curated_semantics_machine_verified": False,
         },
         "study_count": len(studies),
         "comparison_eligible_study_count": sum(

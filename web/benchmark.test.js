@@ -3,6 +3,23 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const { factsFor, factText, safeURL, studyFacts } = require("./benchmark.js");
 
+test("approximate protocol duration is never presented as exact", () => {
+  assert.equal(factText({ value: 6, precision: "source_approximate" }), "≈ 6");
+});
+
+test("protocol description retains uncertainty and escapes curated source text", () => {
+  const { protocolDetails } = require("./benchmark.js");
+  const html = protocolDetails({ protocol_observations: [{
+    id: "neural", label: "Neural", state: "unknown", value: null,
+    note: "<script>unsafe()</script>", pages: [5, 15], locator: "Figures",
+    curation: "unresolved_source_scope",
+  }] });
+  assert.ok(html.includes("Unknown"));
+  assert.ok(html.includes("5, 15"));
+  assert.ok(html.includes("not machine-verified"));
+  assert.ok(!html.includes("<script>"));
+});
+
 test("unknown population is never displayed as zero or enrollment", () => {
   assert.deepEqual(
     factsFor({ population: { state: "unknown", value: null } }, "participants"),
