@@ -4,6 +4,18 @@ The [public static explorer](https://anibench.ani-ai-is-alive.chatgpt.site)
 provides the source atlas, reported-fact comparisons, and synthetic evaluator
 demonstration without installation. Use the local Studio for custom inputs.
 
+The public entry page is `web/benchmark.html` (the static build's `index.html`).
+It separates Studies, Method, and Run AniBench into focused views. Study search,
+native-unit fact categories, and expandable provenance provide a compact first
+view; the full explorer below remains the advanced workspace. Locally, the same
+entry page is available at `http://127.0.0.1:8765/benchmark.html`.
+
+The study-size bars use log10(1 + count), with native counts displayed alongside.
+This is a display transform, not a benchmark score. The primary table shows the
+first publication fact for the chosen unit category, falling back to a bound
+registry population when available. Additional denominators remain in study
+details. There is no ordering by performance or conversion of unknowns to zero.
+
 Run `anibench studio` and open `http://127.0.0.1:8765/explore.html`.
 The existing Trial Designer remains at `/` and `/v2.html`.
 

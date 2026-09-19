@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="AniBench is an open benchmark for the depth, scale, and structure of human studies. Compare evidence, inspect the method, and evaluate private study data locally."
+    />
+    <title>AniBench — Benchmark the study. Expand what we can learn.</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="benchmark.css" />
+    <script src="benchmark.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="header">
+      <a class="brand" href="benchmark.html" aria-label="AniBench home"
+        ><img src="favicon.svg" alt="" width="28" height="28" />AniBench<span
+          >Open research</span
+        ></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#studies" aria-current="page">Studies</a
+        ><a href="#method">Method</a><a href="#run">Run AniBench</a>
+      </nav>
+      <a
+        class="source-link"
+        href="https://github.com/anibiome/anibench-benchmark"
+        >GitHub <span aria-hidden="true">↗</span></a
+      >
+    </header>
+    <main id="main">
+      <section id="studies" class="view">
+        <div class="page-intro">
+          <p class="eyebrow">THE HUMAN STUDY BENCHMARK</p>
+          <h1>How much can a study teach us?</h1>
+          <p class="lead">
+            Compare the depth, scale, and structure of human studies.<br
+              class="desktop-break"
+            />
+            Measure the biological record—and the learning it can support.
+          </p>
+        </div>
+        <div class="context-line">
+          <span class="status-dot" aria-hidden="true"></span
+          ><span>Research release</span><span class="context-separator">/</span
+          ><span>Source-backed study facts</span
+          ><a href="#method"
+            >How comparisons work <span aria-hidden="true">→</span></a
+          >
+        </div>
+        <section class="study-surface" aria-labelledby="study-heading">
+          <div class="surface-heading">
+            <div>
+              <p class="eyebrow">EXPLORE THE EVIDENCE</p>
+              <h2 id="study-heading">
+                Different studies. Different strengths.
+              </h2>
+            </div>
+            <p id="study-count" class="muted" role="status">
+              Loading study records…
+            </p>
+          </div>
+          <div class="controls">
+            <label class="search-control"
+              ><span class="sr-only">Search studies</span
+              ><input
+                id="search"
+                type="search"
+                placeholder="Find a study…"
+                autocomplete="off" /></label
+            ><label class="metric-control"
+              >Compare
+              <select id="metric">
+                <option value="participants">Study size</option>
+                <option value="duration">Time &amp; follow-up</option>
+                <option value="targets">Molecular targets</option>
+              </select></label
+            ><a class="text-link" href="explore.html#workspace"
+              >Advanced workspace ↗</a
+            >
+          </div>
+          <p id="metric-note" class="table-note"></p>
+          <div id="load-error" class="error" role="alert" hidden></div>
+          <div class="table-scroll">
+            <table>
+              <caption class="sr-only">
+                Reported study facts. Each row preserves its source definition.
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Study</th>
+                  <th scope="col" id="value-heading">Reported participants</th>
+                  <th scope="col">What the number describes</th>
+                  <th scope="col"><span class="sr-only">Details</span></th>
+                </tr>
+              </thead>
+              <tbody id="study-rows"></tbody>
+            </table>
+          </div>
+          <p id="empty-state" class="empty" hidden>
+            No studies match. Try a shorter name.
+          </p>
+          <div class="surface-footer">
+            <p>
+              Alphabetical order. A reported fact is not an overall quality
+              score.
+            </p>
+            <a href="explorer-atlas.json" download
+              >Download the source records ↓</a
+            >
+          </div>
+        </section>
+        <section class="question-band">
+          <div>
+            <p class="eyebrow">BEYOND BIGGER DATASETS</p>
+            <h2>
+              Depth, time, and perturbation<br />answer different questions.
+            </h2>
+          </div>
+          <div>
+            <p>
+              A large cohort reveals population variation. Repeated, linked
+              measurements reveal change within a person. Randomized
+              perturbations help identify responses to an intervention.
+            </p>
+            <a class="text-link" href="#method"
+              >Explore the six benchmark families →</a
+            >
+          </div>
+        </section>
+      </section>
+      <section id="method" class="view" hidden>
+        <div class="page-intro">
+          <p class="eyebrow">THE METHOD</p>
+          <h1>Measure what makes a study informative.</h1>
+          <p class="lead">
+            Study capacity is the main benchmark. Treatment benefit and
+            demonstrated model performance are separate questions.
+          </p>
+        </div>
+        <div class="method-intro">
+          <div>
+            <h2>Begin with the biological record.</h2>
+            <p>
+              Who was measured? What was collected? How often? Which
+              observations belong to the same person and time? These questions
+              establish the record that future models can learn from.
+            </p>
+          </div>
+          <div>
+            <h2>Make information claims explicit.</h2>
+            <p>
+              A thousand correlated measurements are not a thousand independent
+              directions. Information estimates depend on the biological target,
+              observation operator, noise, and experimental design.
+            </p>
+          </div>
+        </div>
+        <section class="family-section" aria-labelledby="families-title">
+          <p class="eyebrow">SIX COMPLEMENTARY FAMILIES</p>
+          <h2 id="families-title">A profile of strengths.</h2>
+          <dl class="family-list">
+            <div>
+              <dt><span>01</span>Biological depth</dt>
+              <dd>
+                What can one linked measurement event resolve?<small
+                  >Intensive capacity · independent directions and information
+                  within an event</small
+                >
+              </dd>
+            </div>
+            <div>
+              <dt><span>02</span>Population information</dt>
+              <dd>
+                How much information does the retained population
+                contribute?<small
+                  >Extensive capacity · population support on a declared target
+                  space</small
+                >
+              </dd>
+            </div>
+            <div>
+              <dt><span>03</span>Time &amp; trajectories</dt>
+              <dd>
+                Which changes and timescales can repeated observations
+                distinguish?<small
+                  >Longitudinal capacity · temporal support, span, and repeated
+                  observations</small
+                >
+              </dd>
+            </div>
+            <div>
+              <dt><span>04</span>Perturbation &amp; causality</dt>
+              <dd>
+                Which intervention contrasts can the design identify?<small
+                  >Causal capacity · assignment, controls, and linked response
+                  windows</small
+                >
+              </dd>
+            </div>
+            <div>
+              <dt><span>05</span>Personalized learning</dt>
+              <dd>
+                Can responses be distinguished across people, contexts, and
+                sequences?<small
+                  >Personalized and sequential capacity · modifiers and decision
+                  histories</small
+                >
+              </dd>
+            </div>
+            <div>
+              <dt><span>06</span>Transfer across contexts</dt>
+              <dd>
+                Where does the design support learning beyond one setting?<small
+                  >Transport capacity · overlap and support across declared
+                  contexts</small
+                >
+              </dd>
+            </div>
+          </dl>
+        </section>
+        <div class="method-intro">
+          <div>
+            <h2>How a comparison earns its claim</h2>
+            <p>
+              Name the metric, preserve its units and denominator, and bind it
+              to the source and implementation version. Compare information
+              estimates only on the same biological target and model basis.
+              Leave unavailable quantities unresolved.
+            </p>
+            <p>
+              Reported literature facts are useful even when a complete
+              information model is unavailable. Their definitions stay visible
+              in the study table.
+            </p>
+          </div>
+          <div>
+            <h2>An open-ended benchmark</h2>
+            <p>
+              Native measures can keep growing with deeper observations, longer
+              follow-up, stronger experiments, and broader populations. There is
+              no universal “100% of human biology.” New benchmark levels need
+              explicit tasks and validation criteria.
+            </p>
+            <p>
+              Treatment outcomes and held-out AI performance can accompany a
+              study profile. They do not determine the core collection or design
+              score.
+            </p>
+          </div>
+        </div>
+        <section class="paper-band">
+          <div>
+            <p class="eyebrow">READ THE SCIENCE</p>
+            <h2>A method you can inspect.</h2>
+            <p>
+              The methods manuscript describes the information model, six
+              families, assumptions, and validation plan. This research release
+              is not yet a biologically calibrated leaderboard.
+            </p>
+          </div>
+          <div>
+            <a
+              class="primary-link"
+              href="https://github.com/anibiome/anibench-benchmark/blob/main/paper/v2/AniBench_v2_benchmark_protocol.md"
+              >Methods manuscript ↗</a
+            ><a
+              class="text-link"
+              href="https://github.com/anibiome/anibench-benchmark/blob/main/docs/FIRST_PRINCIPLES.md"
+              >First-principles rationale ↗</a
+            ><a class="text-link" href="explore.html#workspace"
+              >Reproduce the geometry example ↗</a
+            >
+          </div>
+        </section>
+      </section>
+      <section id="run" class="view" hidden>
+        <div class="page-intro">
+          <p class="eyebrow">RUN ANIBENCH</p>
+          <h1>Your data. The same open benchmark.</h1>
+          <p class="lead">
+            Run locally, inspect the code, and keep participant records private.
+          </p>
+        </div>
+        <div class="run-layout">
+          <div class="run-main">
+            <section class="run-step">
+              <p class="eyebrow">01 / INSTALL</p>
+              <h2>Start with the source package.</h2>
+              <p>Use Python 3.10 or newer in a virtual environment.</p>
+              <pre><code>git clone https://github.com/anibiome/anibench-benchmark.git
+cd anibench-benchmark
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -e .</code></pre>
+              <details>
+                <summary>Windows activation</summary>
+                <p>
+                  In PowerShell, use
+                  <code>.venv\Scripts\Activate.ps1</code> instead of the
+                  <code>source</code> line.
+                </p>
+              </details>
+            </section>
+            <section class="run-step">
+              <p class="eyebrow">02 / PROFILE THE COLLECTION</p>
+              <h2>See what the record contains.</h2>
+              <p>
+                Run the included synthetic CSV example, then map your own local
+                tables. The mapping names the roster, target columns, event
+                times, and QC rules.
+              </p>
+              <pre><code>anibench profile-tables examples/collection/table-map.json \
+  --out build/collection.json --pretty</code></pre>
+              <div class="example-readout">
+                <p class="eyebrow">EXPECTED OUTPUT · SYNTHETIC DATA</p>
+                <dl>
+                  <div>
+                    <dt>Roster</dt>
+                    <dd>3 people</dd>
+                  </div>
+                  <div>
+                    <dt>Accepted protein data</dt>
+                    <dd>2 of 3 people</dd>
+                  </div>
+                  <div>
+                    <dt>Target observations</dt>
+                    <dd>6</dd>
+                  </div>
+                  <div>
+                    <dt>Repeat observations</dt>
+                    <dd>1 person · 28 days</dd>
+                  </div>
+                </dl>
+                <p>
+                  The person with no accepted data stays in the denominator.
+                  Pending QC is recorded, not credited as a successful
+                  measurement.
+                </p>
+              </div>
+              <a
+                class="text-link"
+                href="https://github.com/anibiome/anibench-benchmark/blob/main/docs/COLLECTION_PROFILE.md"
+                >Collection mapping guide ↗</a
+              >
+            </section>
+            <section class="run-step">
+              <p class="eyebrow">03 / EVALUATE THE DESIGN</p>
+              <h2>Inspect all six capacity families.</h2>
+              <p>
+                Start with a declared geometry example. To evaluate your study,
+                supply its retained or planned observations, assignment
+                structure, and explicit information-model assumptions.
+              </p>
+              <pre><code>anibench eval web/protocol-capacity-example.json \
+  --out build/design.json --pretty</code></pre>
+              <p>
+                For a local interface, run <code>anibench studio</code> and open
+                <code>http://127.0.0.1:8765/explore.html</code>.
+              </p>
+              <a
+                class="text-link"
+                href="https://github.com/anibiome/anibench-benchmark/blob/main/docs/EVALUATION.md"
+                >Geometry and comparison guide ↗</a
+              >
+            </section>
+            <section class="run-step">
+              <p class="eyebrow">04 / COMPARE &amp; CONTRIBUTE</p>
+              <h2>Make the result reproducible.</h2>
+              <p>
+                Compare evaluation receipts on a shared basis. The evaluator
+                checks hashes and model compatibility before calculating
+                within-family Pareto relations.
+              </p>
+              <pre><code>anibench compare study-a.eval.json study-b.eval.json \
+  --out comparison.json --pretty</code></pre>
+              <p>
+                For a public contribution, submit the protocol, source
+                references, definitions, and reviewed aggregate receipt. Keep
+                participant records and clinical values in your governed
+                workspace.
+              </p>
+              <a
+                class="text-link"
+                href="https://github.com/anibiome/anibench-benchmark/blob/main/CONTRIBUTING.md"
+                >Contribution and review process ↗</a
+              >
+            </section>
+          </div>
+          <aside class="run-aside">
+            <p class="eyebrow">CHOOSE YOUR STARTING POINT</p>
+            <h3>Collection tables</h3>
+            <p>
+              Participant coverage, targets, repeat measurements, linkage, and
+              declared quality.
+            </p>
+            <h3>Study geometry</h3>
+            <p>
+              Six capacity families under explicit biological and statistical
+              assumptions.
+            </p>
+            <h3>Private inputs</h3>
+            <p>
+              The code runs locally. This website has no participant-data
+              upload.
+            </p>
+            <a class="text-link" href="explore.html#workspace"
+              >Open the advanced example ↗</a
+            >
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <a class="footer-brand" href="benchmark.html">AniBench</a>
+      <p>An open benchmark for biological learning.</p>
+      <a
+        href="https://github.com/anibiome/anibench-benchmark/blob/main/CONTRIBUTING.md"
+        >Contribute</a
+      ><a
+        href="https://github.com/anibiome/anibench-benchmark/blob/main/CITATION.cff"
+        >Cite</a
+      ><a
+        href="https://github.com/anibiome/anibench-benchmark/blob/main/LICENSE"
+        >Apache 2.0</a
+      >
+    </footer>
+    <dialog id="study-detail" aria-labelledby="detail-title">
+      <div class="dialog-top">
+        <p class="eyebrow">STUDY EVIDENCE</p>
+        <button id="close-detail" aria-label="Close study details">×</button>
+      </div>
+      <div id="detail-content"></div>
+    </dialog>
+  </body>
+</html>

@@ -28,6 +28,21 @@ def _parser() -> argparse.ArgumentParser:
     evaluation.add_argument("--out", type=Path)
     evaluation.add_argument("--pretty", action="store_true")
 
+    profile = sub.add_parser(
+        "profile", help="Summarize private study collection, linkage, QC, and follow-up"
+    )
+    profile.add_argument("input", metavar="COLLECTION_JSON", type=Path)
+    profile.add_argument("--out", type=Path, required=True)
+    profile.add_argument("--pretty", action="store_true")
+
+    tables = sub.add_parser(
+        "profile-tables", help="Profile explicitly mapped local CSV or CSV.gz study tables"
+    )
+    tables.add_argument("input", metavar="TABLE_MAP_JSON", type=Path)
+    tables.add_argument("--out", type=Path, required=True)
+    tables.add_argument("--manifest-out", type=Path, help="Optional private participant-linked intermediate")
+    tables.add_argument("--pretty", action="store_true")
+
     comparison = sub.add_parser(
         "compare", help="Compare canonical eval receipts on a strict shared Pareto basis"
     )
@@ -131,6 +146,18 @@ def _write_snapshot(snapshot: Any, out: Path) -> None:
     )
 
 
+def _protect_collection_inputs(inputs: list[Path], outputs: list[Path]) -> None:
+    """Do not let a result path overwrite its private source or other output."""
+    protected = list(inputs)
+    for output in outputs:
+        for source in protected:
+            if output.resolve() == source.resolve() or (
+                output.exists() and source.exists() and output.samefile(source)
+            ):
+                raise ValueError("Collection outputs must be distinct from inputs and each other")
+        protected.append(output)
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     try:
@@ -138,6 +165,37 @@ def main(argv: list[str] | None = None) -> int:
             from .studio import serve_studio
 
             serve_studio(args.host, args.port, unsafe_nonloopback=args.unsafe_nonloopback)
+            return 0
+        if args.command == "profile":
+            from .collection_v1 import profile_collection
+
+            _protect_collection_inputs([args.input], [args.out])
+            result = profile_collection(_load_object(args.input, label="collection record"))
+            _emit(
+                result, out=args.out, pretty=args.pretty,
+                receipt={"profile_sha256": result["profile_sha256"]},
+            )
+            return 0
+        if args.command == "profile-tables":
+            from .collection_ingest import import_collection_tables
+            from .collection_v1 import profile_collection
+
+            mapping = _load_object(args.input, label="table mapping")
+            base = args.input.resolve().parent
+            manifest, audit = import_collection_tables(mapping, base=base)
+            _protect_collection_inputs(
+                [args.input] + [base / source["path"] for source in mapping["sources"]],
+                [args.out] + ([args.manifest_out] if args.manifest_out is not None else []),
+            )
+            profile = profile_collection(manifest)
+            if args.manifest_out is not None:
+                _emit(manifest, out=args.manifest_out, pretty=args.pretty)
+            _emit(
+                {"schema_version": "anibench.collection-table-evaluation.v1",
+                 "profile": profile, "import_audit": audit},
+                out=args.out, pretty=args.pretty,
+                receipt={"profile_sha256": profile["profile_sha256"]},
+            )
             return 0
         if args.command == "v2-information":
             from .v2 import load_information_run, score_information_run

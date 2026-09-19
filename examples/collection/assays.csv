@@ -1,0 +1,5 @@
+person,visit,day,qc,protein-a,protein-b
+synthetic-a,v1,2026-01-01,ok,0,4
+synthetic-a,v2,2026-01-29,ok,3,5
+synthetic-b,v1,2026-01-02,ok,7,8
+synthetic-b,v2,2026-01-30,pending,8,9

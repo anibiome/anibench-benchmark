@@ -1,0 +1,20 @@
+{
+  "schema_version": "anibench.collection-table-map.v1",
+  "study_id": "synthetic-collection-example",
+  "record_basis": "collected",
+  "inventory_status": "partial",
+  "time_resolution_days": 1,
+  "participant_ids": ["synthetic-a", "synthetic-b", "synthetic-c"],
+  "outside_roster": "error",
+  "modules": [
+    {"module_id": "proteomics", "domain": "molecular", "target_unit": "proteins",
+     "target_definition_id": "synthetic-protein-targets-v1"}
+  ],
+  "sources": [
+    {"path": "assays.csv", "format": "wide", "participant_column": "person",
+     "event_column": "visit", "time_column": "day", "time_format": "iso_date",
+     "module_id": "proteomics", "quality_column": "qc",
+     "quality_map": {"ok": "pass", "bad": "fail", "pending": "unknown"},
+     "feature_columns": ["protein-a", "protein-b"], "value_kind": "numeric"}
+  ]
+}

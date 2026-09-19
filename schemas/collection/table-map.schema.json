@@ -1,0 +1,339 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anibench.org/schemas/collection/table-map.schema.json",
+  "title": "AniBench explicit local table mapping",
+  "type": "object",
+  "properties": {
+    "study_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "record_basis": {
+      "enum": [
+        "planned",
+        "collected"
+      ]
+    },
+    "inventory_status": {
+      "enum": [
+        "complete",
+        "partial"
+      ]
+    },
+    "time_resolution_days": {
+      "type": "number",
+      "minimum": 0
+    },
+    "participant_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 160
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "schema_version": {
+      "const": "anibench.collection-table-map.v1"
+    },
+    "modules": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "items": {
+        "type": "object",
+        "properties": {
+          "module_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "domain": {
+            "enum": [
+              "molecular",
+              "microbial",
+              "physiological",
+              "functional",
+              "cognitive",
+              "psychological",
+              "digital",
+              "exposure_context"
+            ]
+          },
+          "target_unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "target_definition_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          }
+        },
+        "required": [
+          "module_id",
+          "domain",
+          "target_unit",
+          "target_definition_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "outside_roster": {
+      "enum": [
+        "error",
+        "exclude"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "format": {
+            "enum": [
+              "long",
+              "wide"
+            ]
+          },
+          "participant_column": {
+            "type": "string",
+            "minLength": 1
+          },
+          "event_column": {
+            "type": "string",
+            "minLength": 1
+          },
+          "time_column": {
+            "type": "string",
+            "minLength": 1
+          },
+          "time_format": {
+            "enum": [
+              "elapsed_days",
+              "iso_date",
+              "iso_timestamp"
+            ]
+          },
+          "module_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "module_column": {
+            "type": "string",
+            "minLength": 1
+          },
+          "quality_status": {
+            "enum": [
+              "pass",
+              "fail",
+              "unknown",
+              "planned"
+            ]
+          },
+          "quality_column": {
+            "type": "string",
+            "minLength": 1
+          },
+          "quality_map": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": {
+              "enum": [
+                "pass",
+                "fail",
+                "unknown",
+                "planned"
+              ]
+            }
+          },
+          "feature_column": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value_column": {
+            "type": "string",
+            "minLength": 1
+          },
+          "feature_columns": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "value_kind": {
+            "enum": [
+              "numeric",
+              "nonempty"
+            ]
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "column": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "values": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "column",
+                "values"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "path",
+          "format",
+          "participant_column",
+          "event_column",
+          "time_column",
+          "time_format",
+          "value_kind"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "oneOf": [
+              {
+                "required": [
+                  "module_id"
+                ],
+                "not": {
+                  "required": [
+                    "module_column"
+                  ]
+                }
+              },
+              {
+                "required": [
+                  "module_column"
+                ],
+                "not": {
+                  "required": [
+                    "module_id"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "oneOf": [
+              {
+                "required": [
+                  "quality_status"
+                ],
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "quality_column"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "quality_map"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "required": [
+                  "quality_column",
+                  "quality_map"
+                ],
+                "not": {
+                  "required": [
+                    "quality_status"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "if": {
+              "properties": {
+                "format": {
+                  "const": "long"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "feature_column",
+                "value_column"
+              ],
+              "not": {
+                "required": [
+                  "feature_columns"
+                ]
+              }
+            },
+            "else": {
+              "required": [
+                "feature_columns"
+              ],
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "feature_column"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "value_column"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "study_id",
+    "record_basis",
+    "inventory_status",
+    "time_resolution_days",
+    "participant_ids",
+    "schema_version",
+    "modules",
+    "outside_roster",
+    "sources"
+  ],
+  "additionalProperties": false
+}

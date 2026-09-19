@@ -47,6 +47,7 @@ data/source_projections/v2/zoe-method.json
 docs/ACCESSIBILITY.md
 docs/ANTI_GAMING.md
 docs/API.md
+docs/COLLECTION_PROFILE.md
 docs/CTGOV_50_TRIAL_STRESS_TEST.md
 docs/DATA_GOVERNANCE.md
 docs/DESIGN_STUDIO.md
@@ -64,6 +65,9 @@ docs/V2_METHODS_CANDIDATE.md
 docs/V2_OPTIMIZER.md
 docs/audits/CTGOV_50_TRIAL_STRESS_TEST_2026-07-14.json
 evals/level1/eval-card.json
+examples/collection/assays.csv
+examples/collection/synthetic-record.json
+examples/collection/table-map.json
 examples/optimizer_protocol_v2_example.py
 examples/v2/illustrative-design.json
 examples/v2/illustrative-protocol-source.json
@@ -85,6 +89,8 @@ paper/v2/figures/figure_03_same_event_antigaming.svg
 paper/v2/figures/figure_04_evidence_lanes.png
 paper/v2/figures/figure_04_evidence_lanes.svg
 pyproject.toml
+schemas/collection/record.schema.json
+schemas/collection/table-map.schema.json
 schemas/v2/design-assessment.schema.json
 schemas/v2/design-input.schema.json
 schemas/v2/event-manifest.schema.json
@@ -135,6 +141,8 @@ src/anibench/__init__.py
 src/anibench/api.py
 src/anibench/causal_v2.py
 src/anibench/cli.py
+src/anibench/collection_ingest.py
+src/anibench/collection_v1.py
 src/anibench/comparison_v1.py
 src/anibench/contracts/__init__.py
 src/anibench/contracts/identifiers.py
@@ -156,6 +164,8 @@ src/anibench/studio.py
 src/anibench/studio_product.py
 src/anibench/uncertainty_v2.py
 src/anibench/v2.py
+tests/test_collection_ingest.py
+tests/test_collection_v1.py
 tests/test_ctgov_50_stress_test.py
 tests/test_distribution_boundary.py
 tests/test_eval_cli.py
@@ -183,6 +193,10 @@ tests/test_v2_information_run.py
 tests/test_v2_openapi_contract.py
 tests/test_v2_paper_protocol.py
 uv.lock
+web/benchmark.css
+web/benchmark.html
+web/benchmark.js
+web/benchmark.test.js
 web/explore.css
 web/explore.html
 web/explore.js

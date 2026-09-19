@@ -28,9 +28,12 @@ particular dataset and learning procedure.
 
 Open code does not require open participant data. Anyone can run the evaluator
 locally against their own study's private inputs. All studies use the same
-contract, whether their data are public or private. The current input is a
-structured account of measurement and study geometry, not an automatic reader
-for arbitrary raw assay files. See the [private-run workflow](docs/EVALUATION.md#run-on-private-study-data).
+contract, whether their data are public or private. The geometry evaluator takes
+a structured account of measurement and study design. The
+[collection profiler](docs/COLLECTION_PROFILE.md) also reads explicitly mapped
+local CSV or CSV.gz tables to measure coverage, QC, linkage, and repeat observation.
+It does not guess assay semantics or infer independent information from column counts.
+See the [private-run workflow](docs/EVALUATION.md#run-on-private-study-data).
 
 ## Explore and compare
 

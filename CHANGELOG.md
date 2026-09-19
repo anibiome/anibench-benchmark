@@ -2,6 +2,20 @@
 
 All notable changes are recorded here. AniBench uses semantic versioning for the benchmark contract, not only the Python package.
 
+## Unreleased
+
+- Add local collection-record and CSV/CSV.gz profiling with a fixed participant
+  roster, explicit quality rules, target/event deduplication, joint measurement
+  coverage, and conditional follow-up summaries. Treatment results are not inputs.
+- Support reusable target sets for wide assays without changing counts. Bind
+  aggregate receipts to source, manifest, schema, and implementation hashes;
+  participant identities and measurement values remain outside aggregate output.
+- Add synthetic runnable examples, mapping documentation, and regression tests
+  for missingness, aliases, quality, privacy boundaries, and compact encodings.
+- Introduce a simpler website with study comparisons, expandable source evidence,
+  a six-family method guide, and local installation and evaluation workflows.
+  Keep the detailed explorer and Trial Designer available.
+
 ## 2.0.0-rc.1 - 2026-07-13
 
 - Added the canonical `anibench eval` command, public `run_trial_eval` API,

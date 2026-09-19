@@ -15,8 +15,13 @@ Product clarification, 2026-09-17: the main benchmark evaluates study-design
 and collected-record capacity, independently of treatment benefit. Outcome
 benchmarks and demonstrated AI learning are optional, separate evaluations.
 Public code can evaluate private inputs; publication of participant data is not
-an admission requirement. `docs/EVALUATION.md` documents the current structured
-input workflow and unfinished raw-data adapter boundary.
+an admission requirement. `docs/EVALUATION.md` documents the structured input
+workflow. The September 18 collection layer adds `anibench profile` and
+`anibench profile-tables` for coverage, declared quality, dates, and linkage from
+local records or explicitly mapped CSV/CSV.gz tables. See
+`docs/COLLECTION_PROFILE.md`. It does not estimate an information or noise model.
+The website front door is `web/benchmark.html`; the detailed explorer and
+canonical evaluator remain available without changing their contracts.
 
 The current product and scientific authority is AniBench v2. Do not reconstruct
 the benchmark by averaging older repository documents.

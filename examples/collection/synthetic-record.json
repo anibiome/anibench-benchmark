@@ -1,0 +1,165 @@
+{
+  "schema_version": "anibench.collection-record.v1",
+  "study_id": "synthetic-collection-example",
+  "record_basis": "collected",
+  "inventory_status": "partial",
+  "participant_ids": [
+    "synthetic-person-1",
+    "synthetic-person-2",
+    "synthetic-person-3",
+    "synthetic-person-4"
+  ],
+  "modules": [
+    {
+      "module_id": "proteomics",
+      "domain": "molecular",
+      "target_unit": "proteins",
+      "target_definition_id": "synthetic-proteomics-v1",
+      "target_ids": [
+        "protein-a",
+        "protein-b",
+        "protein-c"
+      ]
+    },
+    {
+      "module_id": "function",
+      "domain": "functional",
+      "target_unit": "functional_measures",
+      "target_definition_id": "synthetic-function-v1",
+      "target_ids": [
+        "grip",
+        "walk"
+      ]
+    },
+    {
+      "module_id": "digital",
+      "domain": "digital",
+      "target_unit": "digital_channels",
+      "target_definition_id": "synthetic-digital-v1",
+      "target_ids": [
+        "voice",
+        "image"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "participant_id": "synthetic-person-1",
+      "event_id": "visit-1",
+      "time_days": 0
+    },
+    {
+      "participant_id": "synthetic-person-1",
+      "event_id": "visit-2",
+      "time_days": 28
+    },
+    {
+      "participant_id": "synthetic-person-2",
+      "event_id": "visit-1",
+      "time_days": 0
+    },
+    {
+      "participant_id": "synthetic-person-2",
+      "event_id": "visit-2",
+      "time_days": 28
+    },
+    {
+      "participant_id": "synthetic-person-3",
+      "event_id": "visit-1",
+      "time_days": 0
+    },
+    {
+      "participant_id": "synthetic-person-3",
+      "event_id": "visit-2",
+      "time_days": 28
+    }
+  ],
+  "acquisitions": [
+    {
+      "acquisition_id": "synthetic-record-0",
+      "participant_id": "synthetic-person-1",
+      "event_id": "visit-1",
+      "module_id": "proteomics",
+      "target_ids": [
+        "protein-a",
+        "protein-b",
+        "protein-c"
+      ],
+      "quality_status": "pass",
+      "source_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "acquisition_id": "synthetic-record-1",
+      "participant_id": "synthetic-person-1",
+      "event_id": "visit-2",
+      "module_id": "proteomics",
+      "target_ids": [
+        "protein-a",
+        "protein-b",
+        "protein-c"
+      ],
+      "quality_status": "pass",
+      "source_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "acquisition_id": "synthetic-record-2",
+      "participant_id": "synthetic-person-2",
+      "event_id": "visit-1",
+      "module_id": "proteomics",
+      "target_ids": [
+        "protein-a",
+        "protein-b"
+      ],
+      "quality_status": "fail",
+      "source_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "acquisition_id": "synthetic-record-3",
+      "participant_id": "synthetic-person-2",
+      "event_id": "visit-2",
+      "module_id": "proteomics",
+      "target_ids": [
+        "protein-a",
+        "protein-b"
+      ],
+      "quality_status": "unknown",
+      "source_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "acquisition_id": "synthetic-record-4",
+      "participant_id": "synthetic-person-1",
+      "event_id": "visit-1",
+      "module_id": "function",
+      "target_ids": [
+        "grip",
+        "walk"
+      ],
+      "quality_status": "pass",
+      "source_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "acquisition_id": "synthetic-record-5",
+      "participant_id": "synthetic-person-2",
+      "event_id": "visit-1",
+      "module_id": "function",
+      "target_ids": [
+        "grip"
+      ],
+      "quality_status": "pass",
+      "source_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "acquisition_id": "synthetic-record-6",
+      "participant_id": "synthetic-person-3",
+      "event_id": "visit-1",
+      "module_id": "digital",
+      "target_ids": [
+        "voice",
+        "image"
+      ],
+      "quality_status": "pass",
+      "source_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ],
+  "time_resolution_days": 1
+}

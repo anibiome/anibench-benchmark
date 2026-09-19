@@ -214,7 +214,7 @@ class StudioHandler(BaseHTTPRequestHandler):
                 },
             )
             return
-        if parsed.path == "/api/v2/comparator-atlas":
+        if parsed.path in {"/api/v2/comparator-atlas", "/explorer-atlas.json"}:
             try:
                 self._json(HTTPStatus.OK, build_studio_comparator_atlas(self.root))
             except StudioAtlasError as exc:

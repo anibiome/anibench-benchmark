@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import base64
 import csv
+import hashlib
 import io
 import json
 import re
@@ -238,6 +239,13 @@ def _walk_json(value: Any, path: str = "") -> Iterable[tuple[str, Any]]:
 
 def _structured_findings(path: str, text: str, suffix: str) -> list[ScanFinding]:
     findings: list[ScanFinding] = []
+    # Reviewed, hand-authored fixture only. A renamed or edited file receives no
+    # exception, and every other scan rule still runs. Never allow by ID prefix.
+    synthetic_collection_fixture = (
+        path.endswith("examples/collection/synthetic-record.json")
+        and hashlib.sha256(text.encode("utf-8")).hexdigest()
+        == "54c0c842b0e32670159692fb945fe11555d22ac21ff9d3aa5549c241b5576a22"
+    )
     if suffix in {".json", ".jsonl"}:
         objects: list[Any] = []
         try:
@@ -271,6 +279,7 @@ def _structured_findings(path: str, text: str, suffix: str) -> list[ScanFinding]
                         "redacted",
                     )
                     and not is_schema_identifier_declaration
+                    and not synthetic_collection_fixture
                     and not (is_v8_matrix_manifest and pointer == "/id_columns/participant_id")
                 ):
                     findings.append(

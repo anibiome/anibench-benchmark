@@ -109,7 +109,11 @@ study, and study identity does not affect the calculation.
    locally. Preserve distinct enrollment, follow-up, assay-QC, and joint-modality
    denominators. Record when observations can be linked to the same person and
    biological time; repeated or derived records are not new independent signals.
-2. Map those records to the existing protocol-capacity input contract. For
+2. Use `anibench profile-tables` to profile explicitly mapped CSV or CSV.gz
+   records before constructing an information model. The
+   [collection guide](COLLECTION_PROFILE.md) provides a runnable example and
+   exact definitions for coverage, quality, dates, and linkage. Then map the
+   design to the existing protocol-capacity input contract. For
    completed studies, use `claim_class: realized_dataset_geometry_capacity` and
    actual retained schedules, linked measurement bundles, exposure and assignment
    support. Include the observation operators, target basis, and noise assumptions
@@ -130,13 +134,13 @@ These paths illustrate a private workspace; no Elite participant data ship with
 the package. The hosted static website does not accept private uploads. Local
 Studio processes the structured inputs in the loopback service on your machine.
 
-**Current adapter boundary:** `anibench eval` accepts geometry JSON. It does not
-yet discover arbitrary assay spreadsheets, sequencing files, images, voice
-recordings, or wearable streams and compile their geometry automatically.
-Study-specific adapters must perform that conversion and retain the source
-lineage locally. Full raw-data ingestion is unfinished; an atlas profile or
-manuscript summary is not a substitute for that integration. Unknown information
-geometry remains unresolved, while known collection facts remain reportable.
+**Current adapter boundary:** `anibench profile-tables` imports explicitly mapped
+CSV and CSV.gz tables into a collection profile. `anibench eval` accepts geometry
+JSON. Neither command automatically discovers arbitrary assay semantics, reads
+sequencing or image bytes, or estimates measurement-error covariance from raw
+biological variation. Study-specific adapters must establish those additional
+semantics and retain their source lineage locally. Unknown information geometry
+remains unresolved while known collection facts remain reportable.
 
 ## Results and comparison
 

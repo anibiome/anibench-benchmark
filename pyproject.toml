@@ -99,6 +99,11 @@ exclude = [
 packages = ["src/anibench"]
 
 [tool.hatch.build.targets.wheel.force-include]
+"web/benchmark.html" = "anibench/web/benchmark.html"
+"web/benchmark.css" = "anibench/web/benchmark.css"
+"web/benchmark.js" = "anibench/web/benchmark.js"
+"schemas/collection/record.schema.json" = "anibench/schemas/collection/record.schema.json"
+"schemas/collection/table-map.schema.json" = "anibench/schemas/collection/table-map.schema.json"
 "schemas/v2/event-manifest.schema.json" = "anibench/schemas/v2/event-manifest.schema.json"
 "schemas/v2/design-assessment.schema.json" = "anibench/schemas/v2/design-assessment.schema.json"
 "schemas/v2/design-input.schema.json" = "anibench/schemas/v2/design-input.schema.json"
@@ -168,6 +173,18 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/web/benchmark.html",
+  "/web/benchmark.css",
+  "/web/benchmark.js",
+  "/web/benchmark.test.js",
+  "/schemas/collection/record.schema.json",
+  "/schemas/collection/table-map.schema.json",
+  "/examples/collection/synthetic-record.json",
+  "/examples/collection/table-map.json",
+  "/examples/collection/assays.csv",
+  "/tests/test_collection_v1.py",
+  "/tests/test_collection_ingest.py",
+  "/docs/COLLECTION_PROFILE.md",
   "/web/explore.html",
   "/web/explore.css",
   "/web/explore.js",
