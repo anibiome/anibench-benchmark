@@ -1,4 +1,4 @@
-# AniBench v2.0.0-rc.2 release checklist
+# AniBench v2.0.0-rc.4 release checklist
 
 This checklist distinguishes open-source software readiness from biological
 validation and public ranking authority.
@@ -31,7 +31,7 @@ private or absent.
 - [ ] Pre/post HEAD, tree, and clean-status identity passed; no mutable
   working-tree byte was used as release authority.
 - [ ] `pyproject.toml`, `uv.lock`, `CITATION.cff`, `.zenodo.json`,
-  `codemeta.json`, `CHANGELOG.md`, and proposed tag identify v2.0.0-rc.2.
+  `codemeta.json`, `CHANGELOG.md`, and proposed tag identify v2.0.0-rc.4.
 - [ ] Six family outputs remain non-interchangeable; no hidden overall scalar or rank.
 - [ ] Native category comparisons preserve metric definitions, evidence bounds, denominators, exact ties and the bound comparison corpus.
 - [ ] Planned-design capacity has no lifecycle maturity penalty.
@@ -78,7 +78,7 @@ private or absent.
 python -m pip install -e '.[dev]'
 python -m pip install build packaging 'reuse[charset-normalizer]'
 ruff check src tests scripts
-python scripts/verify_release_metadata.py --tag v2.0.0-rc.2 --pretty
+python scripts/verify_release_metadata.py --tag v2.0.0-rc.4 --pretty
 python scripts/verify_external_field_receipts.py --pretty
 reuse lint
 python -m pytest -q
@@ -86,7 +86,7 @@ node --test web/v2.test.js web/explore.test.js web/benchmark.test.js web/collect
 python -m build
 python scripts/verify_distribution_boundary.py dist/*.whl dist/*.tar.gz --pretty
 python scripts/verify_installed_studio.py \
-  --wheel dist/anibench-2.0.0rc2-py3-none-any.whl \
+  --wheel dist/anibench-2.0.0rc4-py3-none-any.whl \
   --receipt dist/INSTALLED_STUDIO_E2E_RECEIPT.json --pretty
 ```
 

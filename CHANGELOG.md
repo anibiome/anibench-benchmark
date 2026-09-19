@@ -4,6 +4,8 @@ All notable changes are recorded here. AniBench uses semantic versioning for the
 
 ## Unreleased
 
+## 2.0.0-rc.4 - 2026-09-19
+
 - Add a conditional ERP design planner with exact shared-parameter feasibility,
   explicit unknown targets and bounded resource frontiers. Individually possible
   precision targets cannot pass when their shared assumptions contradict.

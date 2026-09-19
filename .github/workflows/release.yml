@@ -84,6 +84,9 @@ jobs:
           /tmp/anibench-wheel-smoke/bin/anibench eval \
             "$GITHUB_WORKSPACE/web/protocol-capacity-example.json" \
             --out /tmp/installed-eval.json --pretty
+          /tmp/anibench-wheel-smoke/bin/anibench finite-task \
+            "$GITHUB_WORKSPACE/examples/finite_tasks/synthetic-request.json" \
+            --out /tmp/installed-finite-task.json --pretty
           /tmp/anibench-wheel-smoke/bin/python -c "import json, os, pathlib; root=pathlib.Path(os.environ['GITHUB_WORKSPACE'])/'web'; request=json.loads(root.joinpath('optimizer-protocol-example.json').read_text()); request['base_protocol']=json.loads(root.joinpath('protocol-capacity-example.json').read_text()); pathlib.Path('/tmp/installed-optimizer-request.json').write_text(json.dumps(request))"
           /tmp/anibench-wheel-smoke/bin/anibench v2-optimize-protocol \
             /tmp/installed-optimizer-request.json \
@@ -97,11 +100,6 @@ jobs:
           python scripts/build_manuscript.py --out dist/paper/AniBench.pdf
           cp dist/paper/AniBench.pdf dist/AniBench.pdf
           python -c "import shutil; shutil.make_archive('dist/anibench-paper-replay', 'zip', 'dist', 'paper')"
-      - name: Write SHA-256 checksums
-        run: >-
-          cd dist && sha256sum --
-          *.whl *.tar.gz INSTALLED_STUDIO_E2E_RECEIPT.json AniBench.pdf anibench-paper-replay.zip
-          > SHA256SUMS
       - name: Inventory the installed wheel and its resolved runtime dependencies
         uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610 # v0
         with:
@@ -113,6 +111,11 @@ jobs:
       - name: Reject an empty or unrelated runtime inventory
         run: >-
           python -c "import json; d=json.load(open('dist/anibench.spdx.json')); names={p['name'].lower() for p in d['packages']}; assert {'anibench','numpy','jsonschema'} <= names, names"
+      - name: Write SHA-256 checksums including runtime inventory
+        run: >-
+          cd dist && sha256sum --
+          *.whl *.tar.gz INSTALLED_STUDIO_E2E_RECEIPT.json AniBench.pdf
+          anibench-paper-replay.zip anibench.spdx.json > SHA256SUMS
       - name: Attest wheel SBOM
         uses: actions/attest-sbom@bd218ad0dbcb3e146bd073d1d9c6d78e08aa8a0b # v2
         with:

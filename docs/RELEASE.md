@@ -21,12 +21,15 @@ public Git object database, deleting it in a later commit would not remove it
 from history. The public repository therefore starts from one root commit made
 by `scripts/export_public_repository.py`.
 
-## Research release 2.0.0-rc.2
+## Research release 2.0.0-rc.4
 
-This release adds private collection profiling, native metric comparisons, a
-local browser receipt viewer, a simpler study explorer, and the research
-manuscript. Clinical effects do not enter collection scores. The source atlas
-contains 16 studies with reported facts and explicit unresolved quantities.
+This release packages the frozen finite-task precision runner, the public
+Oh My Gut! protocol card, candidate biological task scopes, aggregate ERP
+calibration and a conditional design planner alongside the collection profiler,
+native metric comparisons, study explorer and research manuscript.
+Clinical effects do not enter collection scores. The source atlas contains
+17 studies with reported facts and explicit unresolved quantities. Illustrative
+precision ceilings do not constitute calibrated AniBench 1/2 requirements.
 No Elite participant records or private study receipts ship with the release.
 
 The release candidate is runnable software with research-stage biological
@@ -122,7 +125,7 @@ node --test web/v2.test.js web/explore.test.js web/benchmark.test.js web/collect
 python -m build
 python scripts/verify_distribution_boundary.py dist/*.whl dist/*.tar.gz --pretty
 python scripts/verify_installed_studio.py \
-  --wheel dist/anibench-2.0.0rc2-py3-none-any.whl \
+  --wheel dist/anibench-2.0.0rc4-py3-none-any.whl \
   --receipt dist/INSTALLED_STUDIO_E2E_RECEIPT.json --pretty
 ```
 
@@ -182,7 +185,7 @@ The tag must resolve to `github.sha`, that commit must be contained in
 `origin/main`, all reachable refs must have exactly one history root, and every
 reachable commit tree must pass the same public-member and byte scanner. The
 repository must also be public. `PUBLIC_RANK_CLAIM_ALLOWED=false` is
-intentional for v2.0.0-rc.2: open software and a stable cross-trial biological
+intentional for v2.0.0-rc.4: open software and a stable cross-trial biological
 ranking are different release objects.
 
 ## 5. Immutable readback

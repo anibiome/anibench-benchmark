@@ -6,7 +6,7 @@ authors:
   - family-names: Balen
     given-names: Bruno
     affiliation: ANI Biome PBC
-version: 2.0.0-rc.3
+version: 2.0.0-rc.4
 license: Apache-2.0
 repository-code: "https://github.com/anibiome/anibench-benchmark"
 abstract: >-

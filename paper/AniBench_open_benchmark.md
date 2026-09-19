@@ -17,7 +17,9 @@ observation operator, and noise model. Six complementary families describe
 intensive, extensive, longitudinal, causal, personalized/sequential, and transport
 capacity. The implementation includes a local collection profiler, explicit
 CSV/CSV.gz adapters, a geometry evaluator, a comparator for compatible evaluation
-receipts, and a public study explorer. Collection metrics preserve the complete
+receipts, a finite-task conditional precision runner, and a public study explorer.
+A separate design planner checks whether shared model assumptions can satisfy
+several declared precision constraints together. Collection metrics preserve the complete
 declared participant roster, distinguish quality states, deduplicate target-event
 coverage, and report joint measurement and follow-up distributions. We derive
 the connection between linear Gaussian information gain and posterior-volume
@@ -329,6 +331,28 @@ changing old results. A fixed target may saturate, while harder targets introduc
 new biological compartments, timescales, interventions, or external populations.
 No finite present-day target is a universal denominator for all human biology.
 
+### 5.1 Finite-task conditional precision
+
+The implemented `anibench finite-task` runner evaluates a declared finite set of
+linear functionals under a shared Gaussian model. For coefficients c, prior
+precision P and likelihood information F, it computes c^T(P+F)^(-1)c and checks
+a declared variance ceiling in squared output units. The frozen task binds the
+population, estimand, horizon, parameter units, prior, functionals, required
+acquisition roles and source/model identities. Receipts additionally bind the
+evaluator, schemas and numerical runtime. They report prior-only attainment
+and acquired variance reduction separately.
+
+Required domain/role support is noncompensatory: a failed required neural
+observation cannot be replaced by precise molecular measurements. An unknown
+requirement remains unknown, and diagnostic observation does not establish
+perturbation support. The planned-design lane does not require treatment success
+or held-out predictive utility; the realized-record lane additionally requires
+collection verification. These are caller-supported conditional evaluations,
+not independent protocol audits. Passing the specified functionals establishes
+neither all-direction covariance attainment nor an empirical learning plateau.
+The mechanism is executable, but a biologically calibrated AniBench 1 or 2 task
+registry is not supplied. See the [finite-task contract](../docs/FINITE_TASK_PRECISION_V1.md).
+
 ## 6. Reproducible results
 
 ### 6.1 A synthetic collected record
@@ -381,8 +405,9 @@ synthetic model, not a validated estimate of real-study biological information.
 
 ### 6.3 Real literature illustrates the denominator problem
 
-The public explorer contains 16 study records and 37 separately extracted
-publication/official-source facts. It includes UK Biobank, the Snyder iPOP/iHMP
+The public explorer's mechanical source projections cover 16 study records
+and 37 separately extracted publication/official-source facts. A further OMG
+protocol card is described in Section 6.7. The projections include UK Biobank, the Snyder iPOP/iHMP
 cohort, CIRCULATE therapeutic plasma exchange, and other observational and
 interventional studies. Each displayed fact retains its source and definition.
 
@@ -477,6 +502,51 @@ and source hashes. The portable runner supports an external raw-source cache;
 changed upstream bytes fail the frozen replay rather than silently replacing
 its evidence. See `docs/REGISTRY_STRESS_240.md` for reproduction and sampling limits.
 
+### 6.7 Source cards and planned protocol facts
+
+The public explorer presents 17 source-backed cards: 16 mechanical source
+projections and one separately represented protocol card for Oh My Gut!
+(Wageningen; OMG). The latter is bound to a public participant-information
+brochure, version 2, June 2025, rather than a fabricated registry accession or
+an asserted latest investigator protocol. Planned quantities retain their
+source status. Conflicting duration anchors remain visible instead of being
+collapsed into a favorable scalar.
+
+These cards expose reviewable collection and protocol facts; they do not supply
+complete information geometry or establish a comparable ranking of 17 studies.
+Numeric-excerpt replay checks source bytes and page text, while biological
+interpretations remain curated claims requiring review. This small explorer
+collection is also distinct from the registry-intake stress corpus in Section
+6.6. See the [protocol-card evidence contract](../docs/PUBLIC_PROTOCOL_CARDS.md).
+
+### 6.8 An empirical measurement example and conditional planning
+
+A public [ERP calibration recipe and report](../examples/calibration/erp_core/REPORT.md)
+uses existing derived summaries to examine within-session precision for a
+specified P3b voltage contrast. The local runner checks pinned source hashes,
+workbook mappings and independent aggregate controls, and exports aggregate
+results with implementation provenance. The report distinguishes analytic
+measurement variance from bootstrap SME and documents the finite-sample
+resampling distinction. Its source-derived numerical results and figures remain
+in that separately licensed package rather than being reproduced here.
+
+The accompanying [design planner](../examples/calibration/erp_core/DESIGN_PLANNER.md)
+searches a declared grid of people, visits and measurement depth under user-declared
+precision ceilings. Current-session, persistent-person and population-mean
+estimands have different error terms. Because the calibration cannot separate
+persistent-person from session variation, every candidate must satisfy its
+constraints using the same admissible variance decomposition. Favorable but
+mutually inconsistent assumptions for separate tasks cannot establish joint
+feasibility. The planner reports robust, assumption-sensitive, infeasible or
+unresolved cases and componentwise resource frontiers within the supplied grid.
+
+Here, robust means only robust to the retained decomposition at fixed estimated
+variances. It does not cover calibration uncertainty, dependence misspecification
+or population transfer. The example's ceilings are illustrative, depth scales
+the source measurement schedule, and hypothetical visits are not observed
+retests. Neither frontier certifies an optimal biological study or normative
+AniBench attainment.
+
 ## 7. Validation and limitations
 
 The implementation is tested for mathematical/representation invariants,
@@ -503,6 +573,14 @@ Transport assumptions may fail outside observed support. Cluster and crossover
 assignment require dependence structures that the current canonical evaluator
 does not fully express; those unsupported families remain unresolved.
 
+The finite-task runner does not validate a supplied prior, observation operator,
+variance ceiling or support declaration. The empirical measurement example also
+leaves repeat-session variation and independent operator validation unresolved.
+Genuine repeated recordings with defensible linkage and independently specified
+measurement rules are needed before a persistent-person/session decomposition can
+be treated as calibrated. Diagnostic precision alone does not establish causal
+perturbation coverage or a sufficient set of biological reconstruction tasks.
+
 Raw data volume and compression ratio are not validated proxies for biological
 information. Random noise can be difficult to compress; repeated measurements
 can be highly compressible and scientifically useful. The motivating phrase
@@ -519,7 +597,10 @@ necessary responses. They do not eliminate that conflict by themselves.
 The source package, schemas, examples, contribution process, and citation metadata
 are available at [the AniBench repository](https://github.com/anibiome/anibench-benchmark).
 Code uses Apache 2.0; documentation and curated data artifacts use their declared
-CC BY 4.0 terms. Primary study sources retain their own rights and access rules.
+CC BY 4.0 terms, except where an explicit file or REUSE declaration specifies
+otherwise. The ERP source-derived reports, manifests, aggregate results and
+figures use CC BY-SA 4.0; their original analysis code uses Apache 2.0. Primary
+study sources retain their own rights and access rules.
 
 Reproduce the collection example with:
 

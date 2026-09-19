@@ -233,7 +233,7 @@ coverage.
 Run the Studio from an installed wheel:
 
 ```bash
-python -m pip install /path/to/anibench-2.0.0rc2-py3-none-any.whl
+python -m pip install /path/to/anibench-2.0.0rc4-py3-none-any.whl
 anibench studio
 # http://127.0.0.1:8765/
 ```
@@ -405,7 +405,7 @@ ruff check .
 python scripts/export_public_repository.py --help
 python -m build
 python scripts/verify_installed_studio.py \
-  --wheel dist/anibench-2.0.0rc2-py3-none-any.whl --pretty
+  --wheel dist/anibench-2.0.0rc4-py3-none-any.whl --pretty
 ```
 
 Every result binds the protocol hash, formula version, source state, scenario

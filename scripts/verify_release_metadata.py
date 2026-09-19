@@ -41,12 +41,17 @@ def verify_release_metadata(root: Path, *, tag: str | None = None) -> dict[str, 
     citation_body = (root / "CITATION.cff").read_text(encoding="utf-8")
     zenodo = json.loads((root / ".zenodo.json").read_text(encoding="utf-8"))
     codemeta = json.loads((root / "codemeta.json").read_text(encoding="utf-8"))
+    lock = tomllib.loads((root / "uv.lock").read_text(encoding="utf-8"))
+    locked_project = [entry for entry in lock.get("package", []) if entry.get("name") == "anibench"]
+    if len(locked_project) != 1:
+        raise ValueError("uv.lock must contain exactly one AniBench package")
     versions = {
         "pyproject.toml": str(project["version"]),
         "src/anibench/__init__.py": _runtime_version(root / "src/anibench/__init__.py"),
         "CITATION.cff": _cff_version(root / "CITATION.cff"),
         ".zenodo.json": str(zenodo["version"]),
         "codemeta.json": str(codemeta["version"]),
+        "uv.lock": str(locked_project[0]["version"]),
     }
     normalized: dict[str, str] = {}
     findings: list[str] = []
@@ -71,6 +76,10 @@ def verify_release_metadata(root: Path, *, tag: str | None = None) -> dict[str, 
             try:
                 if Version(tag[1:]) != project_version:
                     findings.append("tag_version_mismatch")
+                elif tag != f"v{changelog_version}":
+                    # The workflow distinguishes prerelease tags using '-rc.'.
+                    # A PEP 440 equivalent spelling must not select another lane.
+                    findings.append("noncanonical_release_tag")
             except InvalidVersion:
                 findings.append("invalid_tag_version")
     project_urls = project.get("urls", {})
