@@ -345,8 +345,8 @@ def _build(out: Path) -> dict:
             i += 1
             continue
         if line.startswith("![Figure "):
-            match = re.fullmatch(r"!\[Figure (\d+)\]\(../examples/paper_charts/([\w-]+)\.png\)", line)
-            if not match or match[2] not in plates:
+            match = re.fullmatch(r"!\[(Figure \d+\..+?)\]\(../examples/paper_charts/([\w-]+)\.png\)", line)
+            if not match or match[2] not in plates or match[1] != plates[match[2]][1]:
                 raise ValueError("Unknown manuscript plate")
             add_plate(match[2])
             i += 1

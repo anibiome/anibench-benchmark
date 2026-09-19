@@ -761,14 +761,14 @@ calibration and independent review remain necessary for stronger public claims.
 
 ## Appendix: comparison charts
 
-![Figure 3](../examples/paper_charts/01-population.png)
+![Figure 3. Source-specific populations and subsets. Approximate and strict lower- bound values remain qualified; overlapping groups are not summed.](../examples/paper_charts/01-population.png)
 
-![Figure 4](../examples/paper_charts/02-coverage.png)
+![Figure 4. Documented observation classes. Official description, reported presence and unreported evidence remain distinct; presence is not complete collection.](../examples/paper_charts/02-coverage.png)
 
-![Figure 5](../examples/paper_charts/03-molecular.png)
+![Figure 5. Source-wide molecular inventories on separate entity axes. Counts do not establish independent biological information or person-level completeness.](../examples/paper_charts/03-molecular.png)
 
-![Figure 6](../examples/paper_charts/04-timing.png)
+![Figure 6. Source statements in native units. Median span, median visits, typical sampling, treatment sessions and sensor wear retain their different meanings.](../examples/paper_charts/04-timing.png)
 
-![Figure 7](../examples/paper_charts/05-reference-examples.png)
+![Figure 7. Executed conditional reference-workload outcomes. Every category requires all its registered targets; unknown does not pass. These are synthetic designs, not named-study scores.](../examples/paper_charts/05-reference-examples.png)
 
-![Figure 8](../examples/paper_charts/06-reference-sensitivity.png)
+![Figure 8. The same example designs under alternative noise and correlation assumptions. These are different frozen models, not empirically calibrated biological levels.](../examples/paper_charts/06-reference-sensitivity.png)
