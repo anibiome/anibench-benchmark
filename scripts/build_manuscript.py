@@ -198,7 +198,7 @@ def styles():
     s.add(ParagraphStyle("Cell", fontName="Sans", fontSize=8.2, leading=11, textColor=colors.HexColor(INK)))
     s.add(ParagraphStyle("CodeBlock", fontName="Mono", fontSize=8, leading=11,
                          backColor=colors.HexColor("#F2F5F8"), borderPadding=10, spaceBefore=6, spaceAfter=12))
-    s.add(ParagraphStyle("Reference", parent=s["PaperBody"], fontSize=8.5, leading=11.8, spaceAfter=8))
+    s.add(ParagraphStyle("Reference", parent=s["PaperBody"], fontSize=8.5, leading=11.5, spaceAfter=4))
     return s
 
 
