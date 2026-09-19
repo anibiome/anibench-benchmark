@@ -85,6 +85,35 @@ const AniBenchPage = (() => {
       note: "Transport requires declared target contexts and supported overlap. A large sample from one setting does not establish transfer to another.",
     },
   };
+  const chartCatalog = [
+    {section:"Real study properties", id:"population", target:"figure-population", fallback:"observed", question:"How many people?", evidence:"Reported source facts", inference:"Compare named populations, not assay-complete people or overall quality."},
+    {section:"Real study properties", id:"time", target:"figure-time", fallback:"observed", question:"How much time?", evidence:"Reported source facts", inference:"Compare labeled follow-up and treatment windows; cadence remains separate."},
+    {section:"Real study properties", id:"proteins", target:"figure-proteins", fallback:"observed", question:"How broad is a protein panel?", evidence:"Reported source facts", inference:"Compare assay targets, not independent biological dimensions."},
+    {section:"Temporal design: CALERIE", id:"calerie-change", target:"figure-calerie-change", fallback:"temporal-design", question:"How precisely can we estimate 24-month change?", evidence:"Published counts + assumed noise model", inference:"Compare two analyses of one study under the same declared model."},
+    {section:"Temporal design: CALERIE", id:"calerie-curvature", target:"figure-calerie-curvature", fallback:"temporal-design", question:"Can a midpoint identify trajectory curvature?", evidence:"Published counts + assumed noise model", inference:"See an identifiable question versus missing midpoint support; not treatment benefit."},
+    {section:"Synthetic design stress tests", id:"individual", target:"figure-individual", fallback:"tradeoffs", question:"How precisely can we resolve one person?", evidence:"Executed synthetic scalar model", inference:"Independent repeated readings reduce that person's measurement uncertainty."},
+    {section:"Synthetic design stress tests", id:"population-precision", target:"figure-population-precision", fallback:"tradeoffs", question:"How precisely can we resolve a population mean?", evidence:"Executed synthetic scalar model", inference:"Independent people and repeated readings support different questions."},
+    {section:"Synthetic design stress tests", id:"neural-support", target:"tradeoffs", selector:".gate-row", fallback:"tradeoffs", question:"Does the design include a required neural observation?", evidence:"Synthetic support audit", inference:"Missing, unknown and supported requirements differ; scalar precision alone is insufficient."},
+    {section:"Conditional EEG planning", id:"erp", target:"figure-erp", fallback:"design-lab", question:"What do people, visits and recording depth change?", evidence:"Measured EEG noise + hypothetical design", inference:"Inspect uncertainty for three questions with an unresolved person/session split."},
+    {section:"Conditional EEG planning", id:"planner", target:"planner-grid", fallback:"design-lab", question:"Which designs satisfy three chosen tolerances together?", evidence:"Conditional model; invented tolerances", inference:"Inspect joint feasibility on the declared grid, not AniBench level attainment."},
+    {section:"Your local collection", id:"collection", target:"receipt-heading", fallback:"run", view:"run", question:"Who has accepted measurements and linked observations?", evidence:"Local aggregate receipt or synthetic example", inference:"Open an existing receipt or choose the synthetic example; no data is uploaded and no profile is invented."},
+  ];
+  function catalogHTML(packet) {
+    const sections = [...new Set(chartCatalog.map(item => item.section))];
+    return sections.map(section => `<section class="chart-index-family"><h3>${escape(section)}</h3>${chartCatalog.filter(item => item.section === section).map(item => `<button type="button" data-catalog-id="${item.id}"><strong>${escape(item.question)}</strong><small>${escape(item.evidence)}</small><span>${escape(item.inference)}</span></button>`).join("")}</section>`).join("") +
+      '<h3>Research workbench · six families</h3><p>Reported descriptors and evidence requirements remain separate from synthetic geometry. Select a metric to inspect its own units and assumptions.</p>' +
+      Object.entries(families).map(([id, item]) => `<section class="chart-index-family"><h3>${escape(item.label)}</h3><p>${escape(item.question)} ${escape(item.note)}</p><button type="button" data-chart-family="${id}" data-chart-mode="reported">Reported facts · ${escape(item.metric === "design" ? "Evidence requirements — no inferred capacity" : {participants:"People & populations",targets:"Molecular targets",duration:"Time & follow-up"}[item.metric])}</button>${demoMetrics(packet,id).map(metric => `<button type="button" data-chart-family="${id}" data-chart-mode="synthetic" data-chart-metric="${escape(metric.id)}">Synthetic model · ${escape(metric.label)}</button>`).join("")}</section>`).join("");
+  }
+  function navigateCatalog(id, environment = window) {
+    const entry = chartCatalog.find(item => item.id === id);
+    if (!entry) return false;
+    document.getElementById("chart-index").close();
+    environment.location.hash = entry.target;
+    route();
+    const target = (entry.selector ? document.querySelector(entry.selector) : document.getElementById(entry.target)) || document.getElementById(entry.fallback);
+    if (target) { target.setAttribute("tabindex", "-1"); target.focus({preventScroll:true}); target.scrollIntoView({block:"start"}); }
+    return true;
+  }
   let selectedStudies = new Set();
   let selectedDemos = new Set();
   let family = "extensive";
@@ -369,7 +398,8 @@ const AniBenchPage = (() => {
     return `<section class="protocol-description"><h3>Planned protocol</h3><p class="intro-note">${escape(source?.document_version || "Public source")}. These descriptions are curated from the cited pages. Unknowns and conflicting statements remain visible.</p>${observations.map((item) => `<div class="detail-fact"><div><strong>${escape(item.label)}</strong><span class="fact-unit">${escape(human(item.state))}</span></div><div><p>${escape(item.value ?? "Unknown")}</p><p>${escape(item.note)}</p><details><summary>Source & interpretation</summary><p>PDF ${item.pages.length > 1 ? "pages" : "page"} ${escape(item.pages.join(", "))} · ${escape(item.locator)}</p><p>${escape(human(item.curation))}; this interpretation is not machine-verified.</p></details></div></div>`).join("")}</section>`;
   }
   function route() {
-    const selected = ["results", "studies", "method", "run"].includes(
+    const catalogEntry = chartCatalog.find(item => item.target === location.hash.slice(1));
+    const selected = catalogEntry ? (catalogEntry.view || "results") : ["results", "studies", "method", "run"].includes(
       location.hash.slice(1),
     )
       ? location.hash.slice(1)
@@ -500,6 +530,24 @@ const AniBenchPage = (() => {
       .addEventListener("click", () =>
         document.getElementById("study-detail").close(),
       );
+    document.querySelectorAll("[data-open-catalog], #all-charts").forEach(button => button.addEventListener("click", () => {
+      document.getElementById("chart-index-content").innerHTML = catalogHTML(demo);
+      document.getElementById("chart-index").showModal();
+    }));
+    document.getElementById("close-chart-index").addEventListener("click", () => document.getElementById("chart-index").close());
+    document.getElementById("chart-index-content").addEventListener("click", event => {
+      const entry = event.target.closest("[data-catalog-id]");
+      if (entry) { navigateCatalog(entry.dataset.catalogId); return; }
+      const button = event.target.closest("[data-chart-family]");
+      if (button) {
+        document.getElementById("chart-index").close();
+        location.hash = "studies";
+        route();
+        if (atlasStudies.length) chooseFamily(button.dataset.chartFamily, button.dataset.chartMode, button.dataset.chartMetric);
+        const target = document.getElementById("comparison-chart");
+        target.setAttribute("tabindex", "-1"); target.focus({preventScroll:true}); target.scrollIntoView({block:"start"});
+      }
+    });
     try {
       const response = await fetch("explorer-atlas.json");
       if (!response.ok) throw new Error("source records unavailable");
@@ -534,42 +582,6 @@ const AniBenchPage = (() => {
         .addEventListener("click", (event) => {
           const button = event.target.closest("[data-mode]");
           if (button) chooseFamily(family, button.dataset.mode);
-        });
-      document.getElementById("all-charts").addEventListener("click", () => {
-        document.getElementById("chart-index-content").innerHTML =
-          Object.entries(families)
-            .map(
-              ([id, item]) =>
-                `<section class="chart-index-family"><h3>${escape(item.label)}</h3><button type="button" data-chart-family="${id}" data-chart-mode="reported">Real studies · ${escape(item.metric === "design" ? "Evidence requirements" : { participants: "People & populations", targets: "Molecular targets", duration: "Time & follow-up" }[item.metric])}</button>${demoMetrics(
-                  demo,
-                  id,
-                )
-                  .map(
-                    (metric) =>
-                      `<button type="button" data-chart-family="${id}" data-chart-mode="synthetic" data-chart-metric="${escape(metric.id)}">Synthetic · ${escape(metric.label)}</button>`,
-                  )
-                  .join("")}</section>`,
-            )
-            .join("");
-        document.getElementById("chart-index").showModal();
-      });
-      document
-        .getElementById("close-chart-index")
-        .addEventListener("click", () =>
-          document.getElementById("chart-index").close(),
-        );
-      document
-        .getElementById("chart-index-content")
-        .addEventListener("click", (event) => {
-          const button = event.target.closest("[data-chart-family]");
-          if (button) {
-            chooseFamily(
-              button.dataset.chartFamily,
-              button.dataset.chartMode,
-              button.dataset.chartMetric,
-            );
-            document.getElementById("chart-index").close();
-          }
         });
       document
         .getElementById("study-selection")
@@ -635,6 +647,9 @@ const AniBenchPage = (() => {
     }
   }
   return {
+    chartCatalog,
+    catalogHTML,
+    navigateCatalog,
     start,
     factsFor,
     factText,

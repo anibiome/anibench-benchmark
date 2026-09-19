@@ -99,6 +99,17 @@ exclude = [
 packages = ["src/anibench"]
 
 [tool.hatch.build.targets.wheel.force-include]
+"examples/calibration/erp_core/README.md" = "anibench/examples/calibration/erp_core/README.md"
+"examples/finite_suites/replay_erp.py" = "anibench/examples/finite_suites/replay_erp.py"
+"examples/finite_suites/README.md" = "anibench/examples/finite_suites/README.md"
+"examples/calibration/erp_core/aggregate_results.json" = "anibench/examples/calibration/erp_core/aggregate_results.json"
+"examples/calibration/erp_core/source_manifest.json" = "anibench/examples/calibration/erp_core/source_manifest.json"
+"docs/FINITE_SUITES_V1.md" = "anibench/docs/FINITE_SUITES_V1.md"
+"schemas/finite_suites/v1/input.schema.json" = "anibench/schemas/finite_suites/v1/input.schema.json"
+"schemas/finite_suites/v1/result.schema.json" = "anibench/schemas/finite_suites/v1/result.schema.json"
+"spec/finite_suites/v1/erp-p3b-resolution.json" = "anibench/spec/finite_suites/v1/erp-p3b-resolution.json"
+"web/calerie-design.svg" = "anibench/web/calerie-design.svg"
+"web/calerie-design.json" = "anibench/web/calerie-design.json"
 "schemas/protocol_cards/v1/packet.schema.json" = "anibench/schemas/protocol_cards/v1/packet.schema.json"
 "data/protocol_cards/v1/public.json" = "anibench/data/protocol_cards/v1/public.json"
 "schemas/finite_precision/v1/evaluation-input.schema.json" = "anibench/schemas/finite_precision/v1/evaluation-input.schema.json"
@@ -196,6 +207,29 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/examples/finite_suites/replay_erp.py",
+  "/examples/finite_suites/README.md",
+  "/tests/test_finite_suite_example.py",
+
+  "/docs/FINITE_SUITES_V1.md",
+  "/schemas/finite_suites/v1/input.schema.json",
+  "/schemas/finite_suites/v1/result.schema.json",
+  "/spec/finite_suites/v1/erp-p3b-resolution.json",
+  "/tests/test_finite_suites_v1.py",
+  "/tests/test_finite_suite_cli.py",
+
+  "/examples/design_geometry/calerie/comparison.svg",
+  "/examples/design_geometry/calerie/plot.py",
+  "/examples/design_geometry/calerie/source_manifest.json",
+  "/examples/design_geometry/calerie/comparison.png",
+  "/examples/design_geometry/calerie/figure-metadata.json",
+  "/examples/design_geometry/calerie/README.md",
+  "/examples/design_geometry/calerie/replay.py",
+  "/examples/design_geometry/calerie/chart-results.json",
+  "/tests/test_calerie_design_geometry.py",
+  "/web/calerie-design.svg",
+  "/web/calerie-design.json",
+
   "/examples/calibration/erp_core/sensitivity.png",
   "/examples/calibration/erp_core/aggregate_results.json",
   "/examples/calibration/erp_core/design_sensitivity.py",

@@ -278,3 +278,54 @@ test("different follow-up semantics are separated even within the same unit", ()
     2,
   );
 });
+
+test("unified catalog names only implemented destinations and preserves all family actions", () => {
+  const { chartCatalog, catalogHTML } = require("./benchmark.js");
+  const fs = require("node:fs"), path = require("node:path");
+  const page = fs.readFileSync(path.join(__dirname,"benchmark.html"),"utf8");
+  const release = fs.readFileSync(path.join(__dirname,"release-charts.js"),"utf8");
+  assert.equal(new Set(chartCatalog.map(item=>item.id)).size, chartCatalog.length);
+  for(const item of chartCatalog){
+    assert.ok(item.question && item.evidence && item.inference);
+    assert.ok(page.includes(`id="${item.target}"`) || release.includes(`"${item.target}"`), item.target);
+    assert.ok(page.includes(`id="${item.fallback}"`), item.fallback);
+  }
+  const families=["intensive","extensive","longitudinal","causal","personalized_sequential","transport"];
+  const demo={receipts:[{scenarios:[{families:families.map(family_id=>({family_id,native_metrics:[{metric_id:"test",label:"Synthetic <metric>"}]}))}]}]};
+  const html=catalogHTML(demo);
+  for(const id of families){
+    assert.ok(html.includes(`data-chart-family="${id}" data-chart-mode="reported"`));
+    assert.ok(html.includes(`data-chart-family="${id}" data-chart-mode="synthetic" data-chart-metric="native:test"`));
+  }
+  assert.ok(html.includes("Synthetic &lt;metric&gt;"));
+  assert.match(html,/no profile is invented/);
+  assert.match(html,/not AniBench level attainment/);
+  assert.match(page,/data-open-catalog/);
+});
+
+test("catalog navigation closes dialog, reveals correct view and focuses actual target or loading fallback", () => {
+  const {chartCatalog,navigateCatalog}=require("./benchmark.js");
+  const saved={document:global.document,location:global.location};
+  const views=["results","studies","method","run"].map(id=>({id,hidden:true}));
+  let focused, scrolled, closed=0;
+  const target=id=>({setAttribute(){},focus(){focused=id;},scrollIntoView(){scrolled=id;}});
+  const elements=Object.fromEntries(chartCatalog.flatMap(item=>[item.target,item.fallback]).map(id=>[id,target(id)]));
+  elements["chart-index"]={close(){closed++;}};
+  global.location={hash:"#studies"};
+  global.document={getElementById:id=>elements[id],querySelector:()=>target("neural-gates"),querySelectorAll:selector=>selector==="main > .view"?views:[]};
+  try{
+    for(const entry of chartCatalog){
+      assert.equal(navigateCatalog(entry.id,{location:{set hash(value){global.location.hash="#"+value;}}}),true);
+      assert.equal(global.location.hash,"#"+entry.target);
+      assert.equal(views.find(v=>!v.hidden).id,entry.view||"results");
+      assert.equal(focused,entry.selector?"neural-gates":entry.target);
+      assert.equal(scrolled,focused);
+    }
+    delete elements["figure-erp"];
+    navigateCatalog("erp",{location:{set hash(value){global.location.hash="#"+value;}}});
+    assert.equal(focused,"design-lab");
+    const prior=closed;
+    assert.equal(navigateCatalog("invented-chart",{location:global.location}),false);
+    assert.equal(closed,prior);
+  }finally{global.document=saved.document;global.location=saved.location;}
+});

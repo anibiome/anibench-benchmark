@@ -1,0 +1,42 @@
+{
+  "schema_version": "anibench.calerie-design-source.v1",
+  "source": {
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10148951/",
+    "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC10148951/unicode",
+    "sha256": "7c73637279d5f788ed7969c6a90dbd5ff3e2cff2e75b3e8cac7b9c8cd3bfa730",
+    "size_bytes": 199954,
+    "locator": "/0/documents/0/passages/5/text",
+    "passage_utf8_sha256": "7a5187fe0b7fef33769ee1e9cc3645c82479afd650f5be23a9c7d9b048c1e091",
+    "checked_date": "2026-09-19",
+    "attribution": "Waziry et al., Nature Aging (2023), DOI:10.1038/s43587-022-00357-y"
+  },
+  "reported_facts": {
+    "baseline_and_at_least_one_followup_people": 197,
+    "nominal_months": [
+      0,
+      12,
+      24
+    ],
+    "12mo_change_people": {
+      "CR": 125,
+      "AL": 66
+    },
+    "24mo_change_people": {
+      "CR": 117,
+      "AL": 68
+    }
+  },
+  "model_scenarios": {
+    "residual_variances": [
+      0.25,
+      1.0,
+      4.0
+    ],
+    "yearly_correlations": [
+      0.0,
+      0.5,
+      0.9
+    ]
+  },
+  "scope": "Public literal aggregate facts; hypothetical common scalar/noise model is not a calibrated published DNAm clock."
+}

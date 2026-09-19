@@ -53,6 +53,13 @@ It includes aggregate results, source mappings and an executable analysis.
 The one-session source cannot identify visit-to-visit variability or establish
 an AniBench biological precision cutoff.
 
+The [CALERIE temporal-design example](examples/design_geometry/calerie/README.md)
+uses published follow-up counts to test what an additional visit can resolve.
+Its reproducible chart separates source facts, uncertain complete-case overlap
+and hypothetical noise assumptions. A midpoint can identify curvature while a
+complete-case requirement reduces endpoint precision; more visits need not make
+every analysis stronger.
+
 Compare native collection metrics with `anibench compare-records`. Its
 [metric cards and submission rules](docs/COLLECTION_COMPARISONS.md) retain the
 roster, units, source hashes and uncertainty bounds. Missing geometry does not
@@ -81,8 +88,9 @@ The **Run AniBench** page at `/benchmark.html#run` opens aggregate collection
 profiles and native-metric comparison receipts as charts. File contents remain
 in the browser; this viewer does not upload, persist, or certify them.
 
-The atlas contains 16 study records; their complete capacity geometry is still
-unresolved. Its descriptive source plots are not a biological leaderboard.
+The atlas contains 16 registry projection records plus the public Oh My Gut!
+protocol card. Complete capacity geometry remains unresolved for these 17 records;
+the descriptive source plots are not a biological leaderboard.
 An explicitly synthetic example demonstrates different strengths in depth and
 follow-up using the same evaluator as the command line. See
 [`docs/STUDY_EXPLORER.md`](docs/STUDY_EXPLORER.md) for source replay and a

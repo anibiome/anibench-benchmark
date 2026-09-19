@@ -81,7 +81,7 @@
           "contract": "anibench.finite-task-implementation.v1",
           "sha256": {
             "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
-            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0",
             "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
             "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
           },
@@ -202,7 +202,7 @@
           "contract": "anibench.finite-task-implementation.v1",
           "sha256": {
             "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
-            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0",
             "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
             "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
           },
@@ -323,7 +323,7 @@
           "contract": "anibench.finite-task-implementation.v1",
           "sha256": {
             "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
-            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0",
             "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
             "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
           },
@@ -444,7 +444,7 @@
           "contract": "anibench.finite-task-implementation.v1",
           "sha256": {
             "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
-            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0",
             "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
             "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
           },
@@ -565,7 +565,7 @@
           "contract": "anibench.finite-task-implementation.v1",
           "sha256": {
             "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
-            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0",
             "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
             "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
           },
@@ -686,7 +686,7 @@
           "contract": "anibench.finite-task-implementation.v1",
           "sha256": {
             "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
-            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0",
             "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
             "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
           },
@@ -807,7 +807,7 @@
           "contract": "anibench.finite-task-implementation.v1",
           "sha256": {
             "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
-            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0",
             "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
             "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
           },
@@ -928,7 +928,7 @@
           "contract": "anibench.finite-task-implementation.v1",
           "sha256": {
             "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
-            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0",
             "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
             "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
           },
@@ -1049,7 +1049,7 @@
           "contract": "anibench.finite-task-implementation.v1",
           "sha256": {
             "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
-            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0",
             "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
             "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
           },
@@ -1170,7 +1170,7 @@
           "contract": "anibench.finite-task-implementation.v1",
           "sha256": {
             "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
-            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0",
             "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
             "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
           },
@@ -1296,7 +1296,7 @@
           "contract": "anibench.finite-task-implementation.v1",
           "sha256": {
             "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
-            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0",
             "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
             "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
           },
@@ -1423,7 +1423,7 @@
           "contract": "anibench.finite-task-implementation.v1",
           "sha256": {
             "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
-            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0",
             "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
             "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
           },
@@ -1550,7 +1550,7 @@
           "contract": "anibench.finite-task-implementation.v1",
           "sha256": {
             "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
-            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0",
             "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
             "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
           },

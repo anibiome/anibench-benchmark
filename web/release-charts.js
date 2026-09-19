@@ -536,10 +536,50 @@ const AniBenchCharts = (() => {
       '</tbody></table></div><div class="heatmap-legend"><span class="cell-robust">✓ All allowed splits</span><span class="cell-assumption_sensitive">~ Some splits</span><span class="cell-infeasible">× None</span></div>'
     );
   }
+  function bindURLControls(specs, render, environment = window) {
+    const controls = specs.map(([id, key, fallback]) => ({
+      element: document.getElementById(id), key, fallback,
+    }));
+    const restore = () => {
+      const params = new URL(environment.location.href).searchParams;
+      for (const { element, key, fallback } of controls) {
+        const requested = params.get(key);
+        element.value = [...element.options].some(o => o.value === requested)
+          ? requested : fallback;
+      }
+      render();
+    };
+    const changed = () => {
+      const url = new URL(environment.location.href);
+      for (const { element, key, fallback } of controls) {
+        if (element.value === fallback) url.searchParams.delete(key);
+        else url.searchParams.set(key, element.value);
+      }
+      environment.history.pushState(null, "", url);
+      render();
+    };
+    for (const { element } of controls) element.addEventListener("change", changed);
+    environment.addEventListener("popstate", restore);
+    restore();
+    return { restore, changed };
+  }
+  function erpTable(packet, N, k, d) {
+    const row = packet.rows.find(r => r.N === N && r.k === k && r.d === d);
+    if (!row) throw Error("Scenario unavailable");
+    const rows = [
+      ["This person's signal in this visit", row.current_session_root_variance, row.current_session_root_variance],
+      ["This person's average across visits", row.persistent_root_variance_lower, row.persistent_root_variance_upper],
+      ["The population's average signal", row.population_root_variance_lower, row.population_root_variance_upper],
+    ];
+    return `<div class="table-scroll"><table><caption>Current design: ${num(N)} people, ${k} ${k === 1 ? "visit" : "visits"}, ${num(d)}× recording depth. Estimation uncertainty in µV; smaller means more precise under this model.</caption><thead><tr><th scope="col">Question</th><th scope="col">Lower value (µV)</th><th scope="col">Upper value (µV)</th></tr></thead><tbody>${rows.map(([label, low, high]) => `<tr><th scope="row">${esc(label)}</th><td>${esc(num(low))}</td><td>${esc(num(high))}</td></tr>`).join("")}</tbody></table><p>Ranges reflect an unresolved person/session variance split at fixed noise estimates, not confidence intervals. Equal endpoints denote a fixed model value.</p></div>`;
+  }
+  function loadSection(load, success, failure) {
+    return Promise.resolve().then(load).then(success).catch(failure);
+  }
   function renderERP(sensitivity, plan) {
     const area = document.getElementById("erp-design-lab");
     area.innerHTML =
-      '<div class="design-controls"><label>Participants<select id="erp-people"><option value="2">2 people</option><option value="40" selected>40 people</option><option value="2000">2,000 people</option></select></label><label>Repeat visits<select id="erp-visits"><option value="1">1 visit</option><option value="4">4 visits</option><option value="12">12 visits</option></select></label><label>Recording depth<select id="erp-depth"><option value="1">1× source recording</option><option value="4">4× source recording</option><option value="1000000">1,000,000× stress test</option></select></label></div><div class="chart-grid"><div id="erp-figure-slot" aria-live="polite"></div><div class="release-figure"><h3>What these intervals mean</h3><p>The source measured 40 people in one session. Measurement noise is calibrated to that recording. Additional visits and deeper recordings are hypothetical.</p><p>The source cannot separate persistent differences between people from variation between sessions. The blue ranges show that unresolved split, holding the measured noise estimates fixed.</p><p><strong>These are identification ranges, not confidence intervals.</strong> Their endpoints are not necessarily jointly attainable. The planner below enforces one shared variance split across all targets.</p><p>Neural observation answers a measurement question here. It does not imply neurostimulation, a causal brain model or whole-person biological depth.</p><a class="export-data" href="erp-design-sensitivity.json" download>Download all 27 scenarios ↓</a></div></div><details class="model-note"><summary>Calibration, equations and limits</summary><p>P3 rare-minus-frequent voltage, Pz, 300–600 ms, ERP CORE. A = ' +
+      '<div class="design-controls"><label>Participants<select id="erp-people"><option value="2">2 people</option><option value="40" selected>40 people</option><option value="2000">2,000 people</option></select></label><label>Repeat visits<select id="erp-visits"><option value="1">1 visit</option><option value="4">4 visits</option><option value="12">12 visits</option></select></label><label>Recording depth<select id="erp-depth"><option value="1">1× source recording</option><option value="4">4× source recording</option><option value="1000000">1,000,000× stress test</option></select></label></div><div class="chart-grid"><div id="erp-figure-slot" aria-live="polite"></div><div class="release-figure"><h3>What these intervals mean</h3><p>Current-session state means this person’s signal in this visit. Persistent person mean means their average across visits. Population mean means the population’s average signal. Smaller uncertainty in µV means a more precise estimate under this model.</p><p>The source measured 40 people in one session. Measurement noise is calibrated to that recording. Additional visits and deeper recordings are hypothetical.</p><p>The source cannot separate persistent differences between people from variation between sessions. The blue ranges show that unresolved split, holding the measured noise estimates fixed.</p><p><strong>These are identification ranges, not confidence intervals.</strong> Their endpoints are not necessarily jointly attainable. The planner below enforces one shared variance split across all targets.</p><p>Neural observation answers a measurement question here. It does not imply neurostimulation, a causal brain model or whole-person biological depth.</p><a class="export-data" href="erp-design-sensitivity.json" download>Download all 27 scenarios ↓</a></div></div><details class="model-note"><summary>Calibration, equations and limits</summary><p>P3 rare-minus-frequent voltage, Pz, 300–600 ms, ERP CORE. A = ' +
       num(sensitivity.A_uV2) +
       " µV² (combined person/session variance); v = " +
       num(sensitivity.v_uV2) +
@@ -557,23 +597,18 @@ const AniBenchCharts = (() => {
         '<details class="figure-sources"><summary>Data & attribution</summary><p>ERP CORE contributors; Zhang and Luck (2023), https://doi.org/10.1111/psyp.14264. AniBench analysis. CC BY-SA 4.0.</p><p class="source-scroll">Aggregate SHA-256 ' +
           esc(sensitivity.aggregate_sha256) +
           "</p></details>",
-      );
+      ) + erpTable(sensitivity, N, k, d);
     };
-    for (const id of ["erp-people", "erp-visits", "erp-depth"])
-      document.getElementById(id).addEventListener("change", update);
-    document
-      .getElementById("planner-depth")
-      .addEventListener(
-        "change",
-        () =>
-          (document.getElementById("planner-grid").innerHTML = heatmap(
-            plan,
-            Number(document.getElementById("planner-depth").value),
-          )),
-      );
-    update();
-    document.getElementById("planner-grid").innerHTML = heatmap(plan, 4);
+    bindURLControls([
+      ["erp-people", "erp_n", "40"], ["erp-visits", "erp_k", "1"],
+      ["erp-depth", "erp_d", "1"], ["planner-depth", "planner_d", "4"],
+    ], () => {
+      update();
+      document.getElementById("planner-grid").innerHTML = heatmap(
+        plan, Number(document.getElementById("planner-depth").value));
+    });
   }
+
   function wrap(value, limit = 62) {
     const lines = [];
     let line = "";
@@ -654,6 +689,59 @@ const AniBenchCharts = (() => {
         "",
       )}</tbody></table></div><a class="export-data" href="study-status-cards.json" download>Download source-bound publication and ethics records</a></details>`;
   }
+  function caleriePlot(packet, estimand) {
+    const designs = [["endpoint_pair", "Baseline + 24 months"], ["three_timepoints", "All three visits"]];
+    const left = 14, right = 426, maximum = 0.3;
+    const scale = value => left + value / maximum * (right - left);
+    let body = [0, 0.1, 0.2, 0.3].map(value =>
+      text(scale(value), 24, num(value), {"font-size": 18,
+        "text-anchor": value === 0 ? "start" : value === maximum ? "end" : "middle"})
+    ).join("");
+    designs.forEach(([id, label], index) => {
+      const matches = packet.rows.filter(row => row.design_id === id && row.estimand_id === estimand);
+      if (matches.length !== 1) throw Error("Temporal chart requires one row per design and question");
+      const row = matches[0], y = 66 + index * 105;
+      body += text(left, y, label, {"font-size": 20, "font-weight": 600});
+      if (row.state === "unidentifiable" && row.variance_interval === null) {
+        body += text(left, y + 34, "Not identifiable · midpoint missing", {"font-size": 18});
+        return;
+      }
+      const interval = row.variance_interval;
+      if (row.state !== "conditional_model" || row.variance_unit !== "standardized_scalar_unit_squared" ||
+          !Array.isArray(interval) || interval.length !== 2 ||
+          !interval.every(v => Number.isFinite(v) && v > 0) || interval[0] > interval[1])
+        throw Error("Invalid temporal chart interval or state");
+      const [low, high] = interval.map(Math.sqrt);
+      if (high > maximum) throw Error("Temporal interval exceeds reviewed display domain");
+      const a = scale(low), b = scale(high);
+      body += `<line x1="${left}" x2="${right}" y1="${y + 28}" y2="${y + 28}" stroke="#dde4e4"/>`;
+      body += `<line x1="${a}" x2="${b}" y1="${y + 28}" y2="${y + 28}" stroke="#147a87" stroke-width="7"/>`;
+      body += `<circle cx="${a}" cy="${y + 28}" r="4" fill="#147a87"/>`;
+      if (low !== high) body += `<circle cx="${b}" cy="${y + 28}" r="4" fill="#147a87"/>`;
+      body += text(left, y + 62, low === high ? num(low) : `${num(low)}–${num(high)}`, {"font-size": 20});
+    });
+    body += text(left, 287, "Standard error · standardized units", {"font-size": 18});
+    body += text(left, 312, "Same question: smaller is more precise", {"font-size": 18});
+    return svgShell(`CALERIE conditional ${estimand.endsWith("curvature") ? "midpoint curvature" : "24-month change"}; fixed standard-error axis 0 to 0.3`, body, 332, 440);
+  }
+  function calerieExample(packet) {
+    const model = packet.model;
+    if (packet.version !== "anibench.calerie-figure.v1" || model.residual_variance !== 1 || model.yearly_correlation !== 0 || packet.rows.length !== 4)
+      throw Error("Unsupported temporal example; review its source/model mapping");
+    const rows = packet.rows.map(row => {
+      const design = {endpoint_pair: "Baseline + 24 months", three_timepoints: "All three visits"}[row.design_id];
+      const question = {CR_minus_AL_24mo_endpoint_change: "24-month change", CR_minus_AL_24mo_curvature: "Midpoint curvature"}[row.estimand_id];
+      if (!design || !question) throw Error("Unknown temporal comparison frame");
+      const interval = row.variance_interval;
+      if (interval && (interval.length !== 2 || !interval.every(v => Number.isFinite(v) && v > 0) || interval[0] > interval[1])) throw Error("Invalid temporal uncertainty range");
+      const value = interval ? interval.map(v => num(Math.sqrt(v))).filter((v, i, a) => i === 0 || v !== a[0]).join("–") : "Not identifiable";
+      return `<tr><td>${esc(design)}</td><td>${esc(question)}</td><td>${esc(value)}</td></tr>`;
+    }).join("");
+    const provenance = `<details class="figure-sources"><summary>Source and model provenance</summary><a href="https://doi.org/10.1038/s43587-022-00357-y">Waziry et al., Nature Aging (2023)</a><p>Source SHA-256: ${esc(packet.source_sha256)}</p><p>Chart results SHA-256: ${esc(packet.chart_results_sha256)}</p><a href="calerie-design.json">Exact rows, request hashes and noise assumptions</a></details>`;
+    const caption = "<strong>Conditional model, not measured clock precision.</strong> Assumed scalar variance 1 and yearly correlation 0. Ranges reflect feasible follow-up overlap, not confidence intervals. Compare designs within the same question; no overall ranking.";
+    const charts = `<div class="chart-grid">${figure("figure-calerie-change", "How precisely can we estimate change?", "Restriction minus control · baseline to 24 months", caleriePlot(packet, "CR_minus_AL_24mo_endpoint_change"), caption, provenance)}${figure("figure-calerie-curvature", "Can we identify a bend in the trajectory?", "Restriction minus control · midpoint curvature", caleriePlot(packet, "CR_minus_AL_24mo_curvature"), caption, provenance)}</div>`;
+    return `${charts}<div class="release-figure"><p>Published collection counts determine participant support. The displayed uncertainty uses an <strong>assumed standardized scalar variance of 1 and yearly correlation of 0</strong>. Bands reflect possible overlap between follow-up samples, not confidence intervals. These are two analyses of one study; no treatment-effect or overall-quality ranking is shown.</p><details class="figure-sources"><summary>Values, assumptions and reproducible source</summary><p>Standard error measures model-predicted uncertainty in the difference between restriction and control arms; smaller is more precise for the same question. Standardized units here do not establish actual DNAm-clock noise.</p><div class="table-scroll"><table><caption>Conditional standard errors, standardized scalar units</caption><thead><tr><th>Analysis design</th><th>Question</th><th>Standard error</th></tr></thead><tbody>${rows}</tbody></table></div><p>The two-visit analysis includes 185 people. Under the conservative source interpretation, 179–183 can support both follow-ups. If the 197-person parent is exactly their union, complete support is 179. Retained groups are assumed exchangeable; this source does not verify that assumption.</p><p><a href="https://doi.org/10.1038/s43587-022-00357-y">Waziry et al., Nature Aging (2023)</a> · <a href="https://github.com/anibiome/anibench-benchmark/tree/main/examples/design_geometry/calerie">Source locators, nine noise scenarios and replay code</a></p><p class="source-scroll">Source SHA-256: ${esc(packet.source_sha256)}</p></details><div class="figure-actions"><a href="calerie-design.svg" download>Download figure ↓</a><a href="calerie-design.json" download>Download values and provenance ↓</a></div></div>`;
+  }
   async function start() {
     const area = document.getElementById("reported-chart-grid");
     if (!area) return;
@@ -661,15 +749,24 @@ const AniBenchCharts = (() => {
       const button = event.target.closest("[data-export]");
       if (button) download(button.dataset.export);
     });
+    loadSection(() => jsonFile("calerie-design.json"), packet => {
+      document.getElementById("calerie-design").innerHTML = calerieExample(packet);
+    }, () => { document.getElementById("calerie-design").innerHTML =
+      '<p class="chart-message">The temporal-design example could not load. <a href="calerie-design.svg">Open the figure</a> or reload to retry.</p>'; });
+    loadSection(() => jsonFile("release-results.json"), packet => {
+      const target = document.getElementById("tradeoff-charts");
+      target.innerHTML = tradeoffs(packet);
+      target.insertAdjacentHTML("afterend", gates(packet));
+    }, () => { document.getElementById("tradeoff-charts").innerHTML =
+      '<p class="chart-message">Model results are unavailable. Reload to retry.</p>'; });
+    loadSection(() => Promise.all([jsonFile("erp-design-sensitivity.json"), jsonFile("erp-design-plan.json")]),
+      packets => renderERP(...packets), () => { document.getElementById("erp-design-lab").innerHTML =
+        '<p class="chart-message">Design results are unavailable. Reload to retry.</p>'; });
+    const statusRequest = jsonFile("study-status-cards.json").catch(() => null);
+    const eliteRequest = jsonFile("elite-public-card.json").catch(() => null);
     try {
       const atlas = await jsonFile("explorer-atlas.json");
-      const extras = await Promise.allSettled([
-        jsonFile("study-status-cards.json"),
-        jsonFile("elite-public-card.json"),
-      ]);
-      const statuses =
-        extras[0].status === "fulfilled" ? extras[0].value : null;
-      const elite = extras[1].status === "fulfilled" ? extras[1].value : null;
+      let statuses = null, elite = null, statusPending = true;
       const controls = document.getElementById("evidence-filters");
       controls.innerHTML =
         '<label>Comparison set<select id="chart-scope"><option value="featured">Featured comparisons</option><option value="all">Expanded comparisons</option></select></label><label>Publication source<select id="publication-filter"><option value="all">All sources</option><option value="peer_reviewed_article">Peer-reviewed only</option><option value="preprint">Preprints only</option><option value="public_participant_protocol">Protocols only</option><option value="registry_record">Registry records only</option><option value="first_party_resource_release">Official data releases</option><option value="first_party_self_report">First-party reports</option><option value="unpublished">Unpublished only</option><option value="unknown">Unknown status</option></select></label><label>Ethics / IRB status<select id="ethics-filter"><option value="all">All approval states</option><option value="approval_reported">Approval reported</option><option value="explicitly_not_approved">Explicitly not approved</option><option value="exempt_reported">Exemption reported</option><option value="unknown">Unknown status</option></select></label><button type="button" id="reset-evidence-filters">Reset filters</button>';
@@ -706,65 +803,35 @@ const AniBenchCharts = (() => {
         document.getElementById("filter-details").textContent =
           `Hidden by publication only: ${counts.publicationOnly}; ethics only: ${counts.ethicsOnly}; both: ${counts.both}. In this comparison set, publication is unknown for ${counts.unknownPublication} source facts and ethics for ${counts.unknownEthics}.`;
         document.getElementById("filter-summary").textContent =
-          `${shown.length} of ${plotted.length} selected source facts shown. Filters change inclusion, not the values. ${statuses ? "Unknown approval stays distinct from explicitly no approval." : "Status records unavailable: classification is unknown."}`;
+          `${shown.length} of ${plotted.length} selected source facts shown. Filters change inclusion, not the values. ${statuses ? "Unknown approval stays distinct from explicitly no approval." : statusPending ? "Evidence status is still loading; pending classification is not evidence of no approval." : "Status records unavailable: classification is unknown."}`;
         document.getElementById("status-roster").innerHTML = statuses
           ? statusRoster(statuses, filters)
           : "";
-        const url = new URL(location.href);
-        for (const [k, v] of Object.entries(filters)) {
-          if (k === "scope" ? v === "featured" : v === "all")
-            url.searchParams.delete(k);
-          else url.searchParams.set(k, v);
-        }
-        history.replaceState(null, "", url);
       };
-      const params = new URLSearchParams(location.search);
-      for (const kind of ["publication", "ethics"]) {
-        const select = document.getElementById(kind + "-filter");
-        if ([...select.options].some((o) => o.value === params.get(kind)))
-          select.value = params.get(kind);
-        select.addEventListener("change", update);
-      }
-      const chartScope = document.getElementById("chart-scope");
-      if (["featured", "all"].includes(params.get("scope")))
-        chartScope.value = params.get("scope");
-      chartScope.addEventListener("change", update);
-      document
-        .getElementById("reset-evidence-filters")
-        .addEventListener("click", () => {
-          document.getElementById("chart-scope").value = "featured";
-          document.getElementById("publication-filter").value = "all";
-          document.getElementById("ethics-filter").value = "all";
-          update();
-        });
-      update();
+      const navigation = bindURLControls([
+        ["publication-filter", "publication", "all"],
+        ["ethics-filter", "ethics", "all"], ["chart-scope", "scope", "featured"],
+      ], update);
+      document.getElementById("reset-evidence-filters").addEventListener("click", () => {
+        document.getElementById("chart-scope").value = "featured";
+        document.getElementById("publication-filter").value = "all";
+        document.getElementById("ethics-filter").value = "all";
+        navigation.changed();
+      });
+      statusRequest.then(packet => { statuses = packet; statusPending = false; update(); }).catch(() => { statuses = null; statusPending = false; update(); });
+      eliteRequest.then(packet => { elite = packet; update(); }).catch(() => { elite = null; update(); });
     } catch {
       area.innerHTML =
         '<p class="chart-message">The source records could not be loaded. <a href="explorer-atlas.json">Open the data</a> or reload to retry.</p>';
     }
-    const tasks = await Promise.allSettled([
-      jsonFile("release-results.json"),
-      Promise.all([
-        jsonFile("erp-design-sensitivity.json"),
-        jsonFile("erp-design-plan.json"),
-      ]),
-    ]);
-    if (tasks[0].status === "fulfilled") {
-      document.getElementById("tradeoff-charts").innerHTML = tradeoffs(
-        tasks[0].value,
-      );
-      document
-        .getElementById("tradeoff-charts")
-        .insertAdjacentHTML("afterend", gates(tasks[0].value));
-    } else
-      document.getElementById("tradeoff-charts").innerHTML =
-        '<p class="chart-message">Model results are unavailable. <a href="release-results.json">Open the result packet</a> or reload to retry.</p>';
-    if (tasks[1].status === "fulfilled") renderERP(...tasks[1].value);
-    else
-      document.getElementById("erp-design-lab").innerHTML =
-        '<p class="chart-message">Design results are unavailable. <a href="erp-design-sensitivity.json">Open the calibration data</a> or reload to retry.</p>';
   }
+
   return {
+    calerieExample,
+    caleriePlot,
+    bindURLControls,
+    erpTable,
+    loadSection,
     allFactSets,
     matchesStatus,
     filterCounts,

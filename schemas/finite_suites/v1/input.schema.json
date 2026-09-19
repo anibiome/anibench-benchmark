@@ -1,0 +1,607 @@
+{
+  "type": "object",
+  "properties": {
+    "contract": {
+      "const": "anibench.finite-suite-request.v1"
+    },
+    "profile_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "scenario_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "canonical_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "known_absent": {
+                  "type": "boolean"
+                },
+                "request": {
+                  "anyOf": [
+                    {
+                      "$schema": "https://json-schema.org/draft/2020-12/schema",
+                      "$id": "https://anibench.org/schemas/finite_precision/v1/evaluation-input.schema.json",
+                      "title": "Finite-task conditional precision input v1",
+                      "$comment": "SPDX-FileCopyrightText: 2026 ANI; SPDX-License-Identifier: CC-BY-4.0; finite JSON required in addition to schema validation.",
+                      "type": "object",
+                      "required": [
+                        "contract",
+                        "task",
+                        "task_sha256",
+                        "evidence",
+                        "geometry"
+                      ],
+                      "properties": {
+                        "contract": {
+                          "const": "anibench.finite-task-request.v1"
+                        },
+                        "task": {
+                          "type": "object",
+                          "required": [
+                            "contract",
+                            "task_id",
+                            "task_version",
+                            "source_sha256",
+                            "model_sha256",
+                            "target_population",
+                            "estimand",
+                            "horizon",
+                            "claim_lane",
+                            "comparison_scope",
+                            "parameter_units",
+                            "prior_precision",
+                            "required_support",
+                            "functionals"
+                          ],
+                          "properties": {
+                            "contract": {
+                              "const": "anibench.finite-task-definition.v1"
+                            },
+                            "task_id": {
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": ".*\\S.*"
+                            },
+                            "task_version": {
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": ".*\\S.*"
+                            },
+                            "source_sha256": {
+                              "type": "string",
+                              "pattern": "^sha256:[0-9a-f]{64}$"
+                            },
+                            "model_sha256": {
+                              "type": "string",
+                              "pattern": "^sha256:[0-9a-f]{64}$"
+                            },
+                            "target_population": {
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": ".*\\S.*"
+                            },
+                            "estimand": {
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": ".*\\S.*"
+                            },
+                            "horizon": {
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": ".*\\S.*"
+                            },
+                            "claim_lane": {
+                              "enum": [
+                                "conditional_design",
+                                "realized_record"
+                              ]
+                            },
+                            "comparison_scope": {
+                              "const": "finite_functionals_only"
+                            },
+                            "parameter_units": {
+                              "type": "array",
+                              "minItems": 1,
+                              "items": {
+                                "type": "string",
+                                "minLength": 1,
+                                "pattern": ".*\\S.*"
+                              }
+                            },
+                            "prior_precision": {
+                              "type": "array",
+                              "minItems": 1,
+                              "items": {
+                                "type": "array",
+                                "minItems": 1,
+                                "items": {
+                                  "type": "number"
+                                }
+                              }
+                            },
+                            "required_support": {
+                              "type": "array",
+                              "minItems": 1,
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "domain_id",
+                                  "role"
+                                ],
+                                "properties": {
+                                  "domain_id": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "pattern": ".*\\S.*"
+                                  },
+                                  "role": {
+                                    "enum": [
+                                      "observation",
+                                      "perturbation"
+                                    ]
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "functionals": {
+                              "type": "array",
+                              "minItems": 1,
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "functional_id",
+                                  "coefficients",
+                                  "unit",
+                                  "variance_limit"
+                                ],
+                                "properties": {
+                                  "functional_id": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "pattern": ".*\\S.*"
+                                  },
+                                  "coefficients": {
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "items": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "unit": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "pattern": ".*\\S.*"
+                                  },
+                                  "variance_limit": {
+                                    "type": "number",
+                                    "exclusiveMinimum": 0
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        "task_sha256": {
+                          "type": "string",
+                          "pattern": "^sha256:[0-9a-f]{64}$"
+                        },
+                        "evidence": {
+                          "type": "object",
+                          "required": [
+                            "identifiability",
+                            "collection_verified",
+                            "support"
+                          ],
+                          "properties": {
+                            "identifiability": {
+                              "type": [
+                                "boolean",
+                                "null"
+                              ]
+                            },
+                            "collection_verified": {
+                              "type": [
+                                "boolean",
+                                "null"
+                              ]
+                            },
+                            "support": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "domain_id",
+                                  "role",
+                                  "supported"
+                                ],
+                                "properties": {
+                                  "domain_id": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "pattern": ".*\\S.*"
+                                  },
+                                  "role": {
+                                    "enum": [
+                                      "observation",
+                                      "perturbation"
+                                    ]
+                                  },
+                                  "supported": {
+                                    "type": [
+                                      "boolean",
+                                      "null"
+                                    ]
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        "geometry": {
+                          "oneOf": [
+                            {
+                              "type": "null"
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "model_sha256",
+                                "information_matrix"
+                              ],
+                              "properties": {
+                                "model_sha256": {
+                                  "type": "string",
+                                  "pattern": "^sha256:[0-9a-f]{64}$"
+                                },
+                                "information_matrix": {
+                                  "type": "array",
+                                  "minItems": 1,
+                                  "items": {
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "items": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          ]
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "design_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "design_source_sha256": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "canonical_id",
+                "known_absent",
+                "request",
+                "design_id",
+                "design_source_sha256"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "design_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "design_source_sha256": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "scenario_id",
+          "targets",
+          "design_id",
+          "design_source_sha256"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "design_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "design_source_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
+  },
+  "required": [
+    "contract",
+    "profile_sha256",
+    "scenarios",
+    "design_id",
+    "design_source_sha256"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "profile": {
+      "type": "object",
+      "properties": {
+        "contract": {
+          "const": "anibench.finite-suite-profile.v1"
+        },
+        "profile_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "profile_type": {
+          "enum": [
+            "custom",
+            "illustrative",
+            "normative"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tolerance_authority": {
+          "type": "string",
+          "minLength": 1
+        },
+        "calibration_authority": {
+          "type": "string",
+          "minLength": 1
+        },
+        "precision_basis": {
+          "enum": [
+            "posterior_total",
+            "likelihood_only"
+          ]
+        },
+        "scenario_quantifier": {
+          "enum": [
+            "single_conditional",
+            "all_declared_scenarios",
+            "exists_declared_scenario"
+          ]
+        },
+        "scenario_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "parent_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "targets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "canonical_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "frame_sha256": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              },
+              "task": {
+                "type": "object",
+                "required": [
+                  "contract",
+                  "task_id",
+                  "task_version",
+                  "source_sha256",
+                  "model_sha256",
+                  "target_population",
+                  "estimand",
+                  "horizon",
+                  "claim_lane",
+                  "comparison_scope",
+                  "parameter_units",
+                  "prior_precision",
+                  "required_support",
+                  "functionals"
+                ],
+                "properties": {
+                  "contract": {
+                    "const": "anibench.finite-task-definition.v1"
+                  },
+                  "task_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": ".*\\S.*"
+                  },
+                  "task_version": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": ".*\\S.*"
+                  },
+                  "source_sha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$"
+                  },
+                  "model_sha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$"
+                  },
+                  "target_population": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": ".*\\S.*"
+                  },
+                  "estimand": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": ".*\\S.*"
+                  },
+                  "horizon": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": ".*\\S.*"
+                  },
+                  "claim_lane": {
+                    "enum": [
+                      "conditional_design",
+                      "realized_record"
+                    ]
+                  },
+                  "comparison_scope": {
+                    "const": "finite_functionals_only"
+                  },
+                  "parameter_units": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": ".*\\S.*"
+                    }
+                  },
+                  "prior_precision": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "required_support": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "domain_id",
+                        "role"
+                      ],
+                      "properties": {
+                        "domain_id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": ".*\\S.*"
+                        },
+                        "role": {
+                          "enum": [
+                            "observation",
+                            "perturbation"
+                          ]
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "functionals": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "functional_id",
+                        "coefficients",
+                        "unit",
+                        "variance_limit"
+                      ],
+                      "properties": {
+                        "functional_id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": ".*\\S.*"
+                        },
+                        "coefficients": {
+                          "type": "array",
+                          "minItems": 1,
+                          "items": {
+                            "type": "number"
+                          }
+                        },
+                        "unit": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": ".*\\S.*"
+                        },
+                        "variance_limit": {
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "canonical_id",
+              "frame_sha256",
+              "task"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "contract",
+        "profile_id",
+        "profile_type",
+        "scope",
+        "tolerance_authority",
+        "calibration_authority",
+        "precision_basis",
+        "scenario_quantifier",
+        "scenario_ids",
+        "parent_sha256",
+        "targets"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "SPDX-FileCopyrightText: 2026 ANI; SPDX-License-Identifier: CC-BY-4.0"
+}

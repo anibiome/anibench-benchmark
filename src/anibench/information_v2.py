@@ -417,3 +417,78 @@ def reconstruction_metrics(
             "sha256:"
         ),
     )
+
+
+def functional_likelihood_precision(information, prior_precision, coefficients) -> dict[str, Any]:
+    """Conditional estimable-functional variance from data alone, never a prior pass.
+
+    The prior supplies a coordinate-invariant whitening metric, not information.
+    General numerically singular ranges are ambiguous unless exact structural
+    support and a full-rank restricted spectrum provide a range certificate.
+    """
+    for value in (information, prior_precision, coefficients):
+        if any(isinstance(x, (bool, np.bool_)) for x in np.asarray(value, dtype=object).flat):
+            raise InformationV2Error("Boolean values are not numeric geometry")
+        raw = np.asarray(value)
+        if raw.dtype.kind not in "iuf":
+            raise InformationV2Error("Expected finite real numeric arrays, not booleans")
+    prior = _positive_definite(prior_precision, name="prior_precision")
+    whitened = prior_whitened_information(information, prior)
+    c = np.asarray(coefficients, dtype=float)
+    if c.shape != (len(prior),) or not np.all(np.isfinite(c)) or not np.any(c):
+        raise InformationV2Error("Expected a finite nonzero dimension-aligned functional")
+    values, vectors = np.linalg.eigh(prior)
+    q = ((vectors * (1 / np.sqrt(values))) @ vectors.T) @ c
+    if not np.all(np.isfinite(q)) or not np.any(q):
+        raise InformationV2Error("Whitened functional is nonfinite or numerically zero")
+    q_scale = float(np.max(np.abs(q)))
+    q_norm_scaled = float(np.linalg.norm(q / q_scale))
+    if not math.isfinite(q_norm_scaled) or q_norm_scaled <= 0:
+        raise InformationV2Error("Invalid whitened functional norm")
+    eigenvalues, directions = np.linalg.eigh(whitened)
+    if not np.all(np.isfinite(eigenvalues)):
+        raise InformationV2Error("Nonfinite information spectrum")
+    threshold = PSD_TOLERANCE * max(float(np.max(eigenvalues)), np.finfo(float).tiny)
+    active = eigenvalues > threshold
+    projections_scaled = directions.T @ (q / q_scale)
+    residual = float(np.linalg.norm(projections_scaled[~active]) / q_norm_scaled)
+    original = np.asarray(information, dtype=float)
+    # An exactly zero row/column is a structural certificate, even when c is tiny.
+    structural_null = np.all(original == 0, axis=0) & np.all(original == 0, axis=1)
+    # Whitening may amplify PSD-reconstruction roundoff under an ill-conditioned
+    # prior. Require independent rank confidence in the original information too.
+    raw_symmetric = 0.5 * (original + original.T)
+    raw_values = np.linalg.eigvalsh(raw_symmetric)
+    if not np.all(np.isfinite(raw_values)):
+        raise InformationV2Error("Nonfinite raw information spectrum")
+    raw_threshold = PSD_TOLERANCE * max(
+        float(np.max(np.abs(raw_values))), np.finfo(float).tiny
+    )
+    raw_rank = int(np.sum(raw_values > raw_threshold))
+    support_dimension = int(np.sum(~structural_null))
+    if np.any(c[structural_null] != 0):
+        identified = False
+    elif raw_rank == support_dimension and int(np.sum(active)) == support_dimension:
+        # Full rank on the exact structural support proves range membership.
+        identified = True
+    else:
+        # A small residual cannot establish exact orthogonality to an unbounded
+        # nuisance direction. General numerically singular ranges remain unknown.
+        identified = None
+    variance = None
+    if identified is True:
+        with np.errstate(over="ignore", under="ignore", invalid="ignore", divide="ignore"):
+            variance = float(np.sum((projections_scaled[active] * q_scale) ** 2 / eigenvalues[active]))
+        if not math.isfinite(variance) or variance <= 0:
+            raise InformationV2Error("Likelihood variance must be finite and strictly positive")
+    return {
+        "identified": identified,
+        "variance": variance,
+        "numerically_ambiguous": identified is None,
+        "relative_range_residual": residual,
+        "rank_relative_tolerance": PSD_TOLERANCE,
+        "raw_information_rank": raw_rank,
+        "whitened_information_rank": int(np.sum(active)),
+        "structural_support_dimension": support_dimension,
+        "precision_basis": "likelihood_only",
+    }

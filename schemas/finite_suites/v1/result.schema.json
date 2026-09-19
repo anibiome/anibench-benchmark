@@ -1,0 +1,175 @@
+{
+  "type": "object",
+  "properties": {
+    "contract": {
+      "const": "anibench.finite-suite-result.v1"
+    },
+    "profile_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "request_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile_type": {
+      "enum": [
+        "custom",
+        "illustrative",
+        "normative"
+      ]
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "precision_basis": {
+      "enum": [
+        "posterior_total",
+        "likelihood_only"
+      ]
+    },
+    "scenario_quantifier": {
+      "enum": [
+        "single_conditional",
+        "all_declared_scenarios",
+        "exists_declared_scenario"
+      ]
+    },
+    "attainment": {
+      "enum": [
+        "attained",
+        "not_attained",
+        "unknown"
+      ]
+    },
+    "scenarios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scenario_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "attainment": {
+            "enum": [
+              "attained",
+              "not_attained",
+              "unknown"
+            ]
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "canonical_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "attainment": {
+                  "enum": [
+                    "attained",
+                    "not_attained",
+                    "unknown"
+                  ]
+                },
+                "task_receipt": {
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                },
+                "likelihood_diagnostics": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "design_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "design_source_sha256": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "canonical_id",
+                "attainment",
+                "task_receipt",
+                "likelihood_diagnostics",
+                "design_id",
+                "design_source_sha256"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "design_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "design_source_sha256": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "scenario_id",
+          "attainment",
+          "targets",
+          "design_id",
+          "design_source_sha256"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "implementation": {
+      "type": "object"
+    },
+    "public_saturation_claim_allowed": {
+      "const": false
+    },
+    "promotion_allowed": {
+      "const": false
+    },
+    "empirical_learning_plateau": {
+      "type": "null"
+    },
+    "design_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "design_source_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
+  },
+  "required": [
+    "contract",
+    "profile_sha256",
+    "request_sha256",
+    "profile_id",
+    "profile_type",
+    "scope",
+    "precision_basis",
+    "scenario_quantifier",
+    "attainment",
+    "scenarios",
+    "implementation",
+    "public_saturation_claim_allowed",
+    "promotion_allowed",
+    "empirical_learning_plateau",
+    "design_id",
+    "design_source_sha256"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "SPDX-FileCopyrightText: 2026 ANI; SPDX-License-Identifier: CC-BY-4.0"
+}

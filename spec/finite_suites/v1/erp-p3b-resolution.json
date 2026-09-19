@@ -1,0 +1,60 @@
+{
+  "contract": "anibench.finite-suite-profile.v1",
+  "profile_id": "erp-p3b-resolution.illustrative.v1",
+  "profile_type": "illustrative",
+  "scope": "One current-session neural measurement target; not AniBench1 or AniBench2, not cortical intervention, not all biology",
+  "tolerance_authority": "Illustrative governance choice: marginal Gaussian 95% half-width of 1 microvolt. Not a validated biological cutoff. Weak prior precision 0.0001 per microvolt squared.",
+  "calibration_authority": "Illustrative scalar current-session P3b score in microvolts. Gaussian known-variance likelihood supplied by caller under an explicitly declared design. No persistent-person or population transport calibration. This profile does not prescribe a source variance or a collection schedule.",
+  "precision_basis": "likelihood_only",
+  "scenario_quantifier": "single_conditional",
+  "scenario_ids": [
+    "declared-model"
+  ],
+  "parent_sha256": null,
+  "targets": [
+    {
+      "canonical_id": "erp-p3b-current-session",
+      "frame_sha256": "sha256:c41e1ae791ea555e4ca62cdd9d05ec3991a1f02015011313cc1c88ef43ced214",
+      "task": {
+        "contract": "anibench.finite-task-definition.v1",
+        "task_id": "erp-p3b-current-session",
+        "task_version": "illustrative-1",
+        "source_sha256": "sha256:af1567146d38430bf30dc7ee72e3f249370b3a93c6667b13c72aa1f413f72aa0",
+        "model_sha256": "sha256:f4c4a1347e664e7d8ccd5adde31beb66f1dd4feeed408023ccf387f29a766c54",
+        "target_population": "Conditional source-protocol-compatible recording; no cross-population validity claimed",
+        "estimand": "P3b rare-minus-frequent mean voltage at Pz, 300-600 ms, baseline -200-0 ms; one current recording occasion",
+        "horizon": "one recording occasion",
+        "claim_lane": "conditional_design",
+        "comparison_scope": "finite_functionals_only",
+        "parameter_units": [
+          "microvolt"
+        ],
+        "prior_precision": [
+          [
+            0.0001
+          ]
+        ],
+        "required_support": [
+          {
+            "domain_id": "neural_electrophysiology",
+            "role": "observation"
+          },
+          {
+            "domain_id": "registered_sensory_task",
+            "role": "perturbation"
+          }
+        ],
+        "functionals": [
+          {
+            "functional_id": "fixed_window_contrast",
+            "coefficients": [
+              1
+            ],
+            "unit": "microvolt",
+            "variance_limit": 0.2603177716270057
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -81,6 +81,13 @@ def _parser() -> argparse.ArgumentParser:
     comparison.add_argument("--out", type=Path)
     comparison.add_argument("--pretty", action="store_true")
 
+    suite = sub.add_parser("finite-suite", help="Evaluate one frozen finite-target profile")
+    suite.add_argument("input", type=Path)
+    suite.add_argument("--registry", type=Path, required=True,
+                       help="Explicit trusted local profile map keyed by SHA-256")
+    suite.add_argument("--out", type=Path)
+    suite.add_argument("--pretty", action="store_true")
+
     for name, help_text in (
         ("finite-task", "Evaluate a frozen finite precision task under declared geometry"),
         ("v2-information", "Replay fail-closed v2 absolute information mechanics"),
@@ -232,6 +239,20 @@ def main(argv: list[str] | None = None) -> int:
                 )
             _emit(result, out=out, pretty=args.pretty,
                   receipt={"context_sha256": result["context_sha256"]}, report_path=False)
+            return 0
+        if args.command == "finite-suite":
+            from .finite_suites_v1 import evaluate_finite_suite
+
+            _protect_collection_inputs([args.input, args.registry],
+                                       [args.out] if args.out is not None else [])
+            result = evaluate_finite_suite(
+                _load_object(args.input, label="finite-suite request"),
+                trusted_profiles=_load_object(args.registry, label="trusted profile registry"),
+            )
+            _emit(result, out=args.out, pretty=args.pretty,
+                  receipt={"profile_sha256": result["profile_sha256"],
+                           "request_sha256": result["request_sha256"],
+                           "attainment": result["attainment"]}, report_path=False)
             return 0
         if args.command == "finite-task":
             from .finite_tasks_v1 import evaluate_finite_task

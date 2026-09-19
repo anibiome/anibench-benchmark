@@ -26,6 +26,21 @@ These are design references, not validation or endorsement of AniBench.
   visible benchmark context. AniBench needs equally legible category figures.
   A universal aggregate is not justified merely because another benchmark has
   one; its utility function and units would need a separate scientific argument.
+- [SWE-bench](https://www.swebench.com/) separates benchmark subsets, exposes
+  comparison charts and marks independently checked runs. AniBench likewise
+  distinguishes a declared result from a replayed result, with the exact
+  evaluator and comparison set visible. An approval badge cannot replace the
+  input and execution evidence.
+- [MLPerf Training](https://mlcommons.org/benchmarks/training/) fixes each task's
+  dataset and quality target before measuring time to reach it. The transferable
+  distinction is between an openly chosen benchmark target and the empirical
+  evidence used to measure progress. AniBench may choose a resolution convention;
+  it must label that choice and separately justify measurement/noise models.
+  A convention is not a discovered threshold for biological sufficiency.
+- [HELM](https://crfm.stanford.edu/2022/11/17/helm.html) makes coverage and
+  multiple evaluation dimensions explicit. AniBench should expose which
+  biological questions its current tasks cover and omit, alongside category
+  results, rather than turn missing questions into a favorable average.
 
 References inspected 2026-09-19. These observations do not assert that all
 benchmarks share one scoring system or submission policy.

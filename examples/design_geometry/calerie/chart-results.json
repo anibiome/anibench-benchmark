@@ -1,0 +1,911 @@
+[
+  {
+    "model_id": "32029c576c7e5ba56bd9ce609b3c7bb08ec4d7aea60815a293fc389332b5655e",
+    "model": {
+      "residual_variance": 0.25,
+      "yearly_correlation": 0.9
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.002209024635495223,
+      0.002209024635495223
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "aec28d8795cef0a37f9e846e251b5b512f13f5269af26c5d8359788d0a8e235e"
+    ]
+  },
+  {
+    "model_id": "32029c576c7e5ba56bd9ce609b3c7bb08ec4d7aea60815a293fc389332b5655e",
+    "model": {
+      "residual_variance": 0.25,
+      "yearly_correlation": 0.9
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": null,
+    "state": "unidentifiable",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "aec28d8795cef0a37f9e846e251b5b512f13f5269af26c5d8359788d0a8e235e"
+    ]
+  },
+  {
+    "model_id": "32029c576c7e5ba56bd9ce609b3c7bb08ec4d7aea60815a293fc389332b5655e",
+    "model": {
+      "residual_variance": 0.25,
+      "yearly_correlation": 0.9
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.0022513597513597505,
+      0.0023442238764819403
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "7e1557fa4181c598a2561405133f1f3880a45b808831b7b92c71dd4cb12d673e",
+      "0bd371202a24e9b480b362934a416dda51c805e1a86da58b5d34356edc39c6af",
+      "a880fe0ef11fa798ec46db1b6adb8a80014d23bd9e84bc20ce826e570c3e98ca",
+      "e89141bc6c71c20ef97fa36a42277a95f50153d9b7e7e17239f923f0bdce247f",
+      "76420aaa4f27f23bb6522a4d8afcd940c8a0f89ee68667f23c6cb6ac679f7cb7",
+      "a53ce6c2f293977c584fed61c2332df7fffea533a1ae11028f1df313e7fc18d8",
+      "9c207e35e62d59baeda545580f6776b909558cd335bbf8d522909ab4658f47ee",
+      "cbd5d6ac0828aa498e63352dad07f5aec178577b80eb4eb8aa4af2115371948d",
+      "bc35995d6ee45046a3a33ddebdeb400585a89ad4eba237403dcad39819ae5d4c",
+      "16e0b544d06b2dac76b25d4f94ee5b12da4e9596e786801dcc71f88c8f4280e9",
+      "9f634153fec85d7f6517d1e73f146ec9ecd11c6bfe90ab72d97133d553b37529",
+      "aac9d32c823e603e0ddcd6751dfa3416769415e1c88930760617ba4bf378e82d",
+      "cbd06a9b0ab987116d333f555ff82703cfe6d26c1b914e326aced52a1fca34a2",
+      "e29febccd51fb1fb736d07a6bbded3ed18e35b954ab8aebf640d724c3e6b168d",
+      "3b3c9b95c4c4baa2624e675c5b91ec7e02b2d5949ea5ed2b584abc331ad09b3e"
+    ]
+  },
+  {
+    "model_id": "32029c576c7e5ba56bd9ce609b3c7bb08ec4d7aea60815a293fc389332b5655e",
+    "model": {
+      "residual_variance": 0.25,
+      "yearly_correlation": 0.9
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.0006220862470862471,
+      0.0006477460711331679
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "7e1557fa4181c598a2561405133f1f3880a45b808831b7b92c71dd4cb12d673e",
+      "0bd371202a24e9b480b362934a416dda51c805e1a86da58b5d34356edc39c6af",
+      "a880fe0ef11fa798ec46db1b6adb8a80014d23bd9e84bc20ce826e570c3e98ca",
+      "e89141bc6c71c20ef97fa36a42277a95f50153d9b7e7e17239f923f0bdce247f",
+      "76420aaa4f27f23bb6522a4d8afcd940c8a0f89ee68667f23c6cb6ac679f7cb7",
+      "a53ce6c2f293977c584fed61c2332df7fffea533a1ae11028f1df313e7fc18d8",
+      "9c207e35e62d59baeda545580f6776b909558cd335bbf8d522909ab4658f47ee",
+      "cbd5d6ac0828aa498e63352dad07f5aec178577b80eb4eb8aa4af2115371948d",
+      "bc35995d6ee45046a3a33ddebdeb400585a89ad4eba237403dcad39819ae5d4c",
+      "16e0b544d06b2dac76b25d4f94ee5b12da4e9596e786801dcc71f88c8f4280e9",
+      "9f634153fec85d7f6517d1e73f146ec9ecd11c6bfe90ab72d97133d553b37529",
+      "aac9d32c823e603e0ddcd6751dfa3416769415e1c88930760617ba4bf378e82d",
+      "cbd06a9b0ab987116d333f555ff82703cfe6d26c1b914e326aced52a1fca34a2",
+      "e29febccd51fb1fb736d07a6bbded3ed18e35b954ab8aebf640d724c3e6b168d",
+      "3b3c9b95c4c4baa2624e675c5b91ec7e02b2d5949ea5ed2b584abc331ad09b3e"
+    ]
+  },
+  {
+    "model_id": "44d55e9da5ded8caca01bf5d742ee15390a682a5768a8c93362dd90e169a7aba",
+    "model": {
+      "residual_variance": 4.0,
+      "yearly_correlation": 0.0
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.1860231271995978,
+      0.1860231271995978
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "112996d2c41bc07003b8c0b1367987839b7823899e7e4286acd462d430d8bb8a"
+    ]
+  },
+  {
+    "model_id": "44d55e9da5ded8caca01bf5d742ee15390a682a5768a8c93362dd90e169a7aba",
+    "model": {
+      "residual_variance": 4.0,
+      "yearly_correlation": 0.0
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": null,
+    "state": "unidentifiable",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "112996d2c41bc07003b8c0b1367987839b7823899e7e4286acd462d430d8bb8a"
+    ]
+  },
+  {
+    "model_id": "44d55e9da5ded8caca01bf5d742ee15390a682a5768a8c93362dd90e169a7aba",
+    "model": {
+      "residual_variance": 4.0,
+      "yearly_correlation": 0.0
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.1895881895881896,
+      0.1974083264405845
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "0503302c49cf4455229ce635b75a9345833cecc0fac3cdcbd1534331e966f34a",
+      "1f6b9ff2687d9acdf9170ba99a0126090bfa98462bafdf30eb56f4255499c474",
+      "f917881a226279296089c4ebdd4ea8eee799cb5c140501f5badcb8450a9ae661",
+      "b320bfdafea548f83936358164c7c723a3c324541560ff645fb3d8e7ef541634",
+      "034450775183081ab95cab5070050c75176311b158ca2422d5e28bf362b47b90",
+      "682f632f4a2c4e2ec3bffa61bfa89eeb817accaf898ea49d9a3e47313ee2ef71",
+      "6983942899721e072f0d7181d90341eec27e053473d5aa88b346da515fe05cdd",
+      "7234de2e74c60cce955dbf1674c0429cebdce2e194e541844d22ea2a18228f1f",
+      "e946db39040eb39f86bcfd4e291bd498967d1fd84f12c8452028151041560610",
+      "8e76ccc29cc75883094abe8a5a8dcff84068f66e2fd1c50910cf329adafa980b",
+      "afcedb74eb75f9878fefd84d94f1d4a975701a275d584679989a4fb9d0202df8",
+      "3c37c2dfa5ad7f3b319ae08a4ac3a81d48da63ed2f1ff229435a2eaafe341f45",
+      "6ca139066b62a7711cad6efb7d903de820d2e34557e33c6b2e0a3db065f9bd4a",
+      "3656aa3af132236e5cd8636f0be5cb3abff63645ea0b7015c9efbc802960b644",
+      "3df0ec2fc885c44f8b9808c0d6af67fb6376515683bf19ed9d47eb664ea56ad2"
+    ]
+  },
+  {
+    "model_id": "44d55e9da5ded8caca01bf5d742ee15390a682a5768a8c93362dd90e169a7aba",
+    "model": {
+      "residual_variance": 4.0,
+      "yearly_correlation": 0.0
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.1421911421911422,
+      0.1480562448304384
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "0503302c49cf4455229ce635b75a9345833cecc0fac3cdcbd1534331e966f34a",
+      "1f6b9ff2687d9acdf9170ba99a0126090bfa98462bafdf30eb56f4255499c474",
+      "f917881a226279296089c4ebdd4ea8eee799cb5c140501f5badcb8450a9ae661",
+      "b320bfdafea548f83936358164c7c723a3c324541560ff645fb3d8e7ef541634",
+      "034450775183081ab95cab5070050c75176311b158ca2422d5e28bf362b47b90",
+      "682f632f4a2c4e2ec3bffa61bfa89eeb817accaf898ea49d9a3e47313ee2ef71",
+      "6983942899721e072f0d7181d90341eec27e053473d5aa88b346da515fe05cdd",
+      "7234de2e74c60cce955dbf1674c0429cebdce2e194e541844d22ea2a18228f1f",
+      "e946db39040eb39f86bcfd4e291bd498967d1fd84f12c8452028151041560610",
+      "8e76ccc29cc75883094abe8a5a8dcff84068f66e2fd1c50910cf329adafa980b",
+      "afcedb74eb75f9878fefd84d94f1d4a975701a275d584679989a4fb9d0202df8",
+      "3c37c2dfa5ad7f3b319ae08a4ac3a81d48da63ed2f1ff229435a2eaafe341f45",
+      "6ca139066b62a7711cad6efb7d903de820d2e34557e33c6b2e0a3db065f9bd4a",
+      "3656aa3af132236e5cd8636f0be5cb3abff63645ea0b7015c9efbc802960b644",
+      "3df0ec2fc885c44f8b9808c0d6af67fb6376515683bf19ed9d47eb664ea56ad2"
+    ]
+  },
+  {
+    "model_id": "56461eba2819a0aef8e1dcccb159b1568dec2cbf353185634c3e3f22fa3407d4",
+    "model": {
+      "residual_variance": 1.0,
+      "yearly_correlation": 0.5
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.034879336349924586,
+      0.034879336349924586
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "3a9245261607a3d13bef5b588322b6b3227dfde8327d2bdf6c32ffdb2ab24cc9"
+    ]
+  },
+  {
+    "model_id": "56461eba2819a0aef8e1dcccb159b1568dec2cbf353185634c3e3f22fa3407d4",
+    "model": {
+      "residual_variance": 1.0,
+      "yearly_correlation": 0.5
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": null,
+    "state": "unidentifiable",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "3a9245261607a3d13bef5b588322b6b3227dfde8327d2bdf6c32ffdb2ab24cc9"
+    ]
+  },
+  {
+    "model_id": "56461eba2819a0aef8e1dcccb159b1568dec2cbf353185634c3e3f22fa3407d4",
+    "model": {
+      "residual_variance": 1.0,
+      "yearly_correlation": 0.5
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.03554778554778555,
+      0.0370140612076096
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "195c4d056a7a7d7719254d902a45f0c843ccc9421d9133ef0049d426d97af735",
+      "e2cc459211a93a6e1e9d6c1a1daec574b22276702c83c2ecf8cc124fffffaf6b",
+      "f24931f6d4931a13e5b07db17380e45c1e8cb13773be1da49db7df03f07ec165",
+      "b24f0469db7b47244b044189b6ec46b05fbb41188cac2f3de502c88b62c2cd8c",
+      "4d98b9fcb3d2300c39b67cf2e14b6b819ce2e0430baad5044bcc8ba58bde0370",
+      "002a1c2c24a5e65a5571318ca51dee5f5f1855bf3c278a34adfbefd3de724855",
+      "d0fbf31b033c155f6427c9e3a8d3afc7e174de73bf40a18383bfc8894bd9c799",
+      "58e34b504ac1ab9368e36db5af903d99e84dca1e8810ad1eb93c6272ef1ae1bd",
+      "790895d86078e8b50b31064610f682e4d12fb4de47a7879907336a428e1f8b45",
+      "1f604bf049ecf63aacbe4656aa4399073fe8256b9f0ab4739c3a0f516aae2b0e",
+      "b6ceabdefa3e4658187ec7a53abf6adb0c2c98c07cb5fcf96bc418e2d66f33a5",
+      "1a854484fa84a487a34d6e88e1740ac6104a56d81d5a68ee777713af77f5ce40",
+      "9fea12f90b7e917328454abc99b907628b721487b7d86872785d6e3945867d4c",
+      "a7db542c05172d61f38355fde13a0ef4c7d10d8082079a2b7be4b9821ce943d3",
+      "056458e285b14181c8923084b25ac3f4cc2d2af5b8c595b61e1f1017e6aa1b28"
+    ]
+  },
+  {
+    "model_id": "56461eba2819a0aef8e1dcccb159b1568dec2cbf353185634c3e3f22fa3407d4",
+    "model": {
+      "residual_variance": 1.0,
+      "yearly_correlation": 0.5
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.014811577311577312,
+      0.015422525503170668
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "195c4d056a7a7d7719254d902a45f0c843ccc9421d9133ef0049d426d97af735",
+      "e2cc459211a93a6e1e9d6c1a1daec574b22276702c83c2ecf8cc124fffffaf6b",
+      "f24931f6d4931a13e5b07db17380e45c1e8cb13773be1da49db7df03f07ec165",
+      "b24f0469db7b47244b044189b6ec46b05fbb41188cac2f3de502c88b62c2cd8c",
+      "4d98b9fcb3d2300c39b67cf2e14b6b819ce2e0430baad5044bcc8ba58bde0370",
+      "002a1c2c24a5e65a5571318ca51dee5f5f1855bf3c278a34adfbefd3de724855",
+      "d0fbf31b033c155f6427c9e3a8d3afc7e174de73bf40a18383bfc8894bd9c799",
+      "58e34b504ac1ab9368e36db5af903d99e84dca1e8810ad1eb93c6272ef1ae1bd",
+      "790895d86078e8b50b31064610f682e4d12fb4de47a7879907336a428e1f8b45",
+      "1f604bf049ecf63aacbe4656aa4399073fe8256b9f0ab4739c3a0f516aae2b0e",
+      "b6ceabdefa3e4658187ec7a53abf6adb0c2c98c07cb5fcf96bc418e2d66f33a5",
+      "1a854484fa84a487a34d6e88e1740ac6104a56d81d5a68ee777713af77f5ce40",
+      "9fea12f90b7e917328454abc99b907628b721487b7d86872785d6e3945867d4c",
+      "a7db542c05172d61f38355fde13a0ef4c7d10d8082079a2b7be4b9821ce943d3",
+      "056458e285b14181c8923084b25ac3f4cc2d2af5b8c595b61e1f1017e6aa1b28"
+    ]
+  },
+  {
+    "model_id": "6839d7e52c0bdbeb2f3950eb49e83152f4f5f9da7c9d0431844951e5b66ce439",
+    "model": {
+      "residual_variance": 1.0,
+      "yearly_correlation": 0.0
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.04650578179989945,
+      0.04650578179989945
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "bfcd7938773e8491d0b0f8bb8843064330657da4ab6390beb6cbdaca02deafd7"
+    ]
+  },
+  {
+    "model_id": "6839d7e52c0bdbeb2f3950eb49e83152f4f5f9da7c9d0431844951e5b66ce439",
+    "model": {
+      "residual_variance": 1.0,
+      "yearly_correlation": 0.0
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": null,
+    "state": "unidentifiable",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "bfcd7938773e8491d0b0f8bb8843064330657da4ab6390beb6cbdaca02deafd7"
+    ]
+  },
+  {
+    "model_id": "6839d7e52c0bdbeb2f3950eb49e83152f4f5f9da7c9d0431844951e5b66ce439",
+    "model": {
+      "residual_variance": 1.0,
+      "yearly_correlation": 0.0
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.0473970473970474,
+      0.04935208161014613
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "cf9e641067022bfb369d60bc296874d48fb3a8a7e5bed48d4c1d1e86f8e24971",
+      "2fa385fa69a6fc20199c47bbfa719a9e9bce6ed8e9e215168628b93f52c08d5d",
+      "f3d2f4cb5bcd586529638459346bf089ec94cddedcd5cbabad0143f2103a2938",
+      "a067b5f46eceaaf4351d91d22e1cfa7ee6d7ad1fc04f11fe545e56ad77a5d3d3",
+      "19d1800177b218a328415c563c5b9628edf2660d7574ffac4a6bda288071b063",
+      "46a1a7f60f177cea47ededff989b692651b7809f272a9245e2ae0e19f744b914",
+      "940720b4c4794b3d229960b369d84652bdc60c06da5c9b0b829b85be9e49ca73",
+      "3821b66918a6f812e5e24ce30a8798dfb3cdd6bbf9ec5e35c0a36214d3a0d998",
+      "d23a1dcd58625bcbe101415f81162350c6d9d50f26de903f8b9b50674242bbeb",
+      "a167c02360c5153905ddde371744ba2045e5ecc56bf485cc2db502c4c3bc5d9b",
+      "edf633aed6db77814b48af70331d54edd9ad62cbef9c3fdd4c87edb6c0a32587",
+      "3cf5a3479e8f7aeed92f58d68dbb6fc296b8bf8539271ca7a302d64f5a30417a",
+      "fe56ee884ced22463336faf0b48d16ab298d3e65f814753def4e1d030bcb3c75",
+      "59e192e841ecde7fc2c6e596c8ec2b166777c34021b7f54632ac62a673dd637e",
+      "3b8634ed103db6f26911d5a141ea42d5c4a55721a634d46d5c2b37f674a3be17"
+    ]
+  },
+  {
+    "model_id": "6839d7e52c0bdbeb2f3950eb49e83152f4f5f9da7c9d0431844951e5b66ce439",
+    "model": {
+      "residual_variance": 1.0,
+      "yearly_correlation": 0.0
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.03554778554778555,
+      0.0370140612076096
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "cf9e641067022bfb369d60bc296874d48fb3a8a7e5bed48d4c1d1e86f8e24971",
+      "2fa385fa69a6fc20199c47bbfa719a9e9bce6ed8e9e215168628b93f52c08d5d",
+      "f3d2f4cb5bcd586529638459346bf089ec94cddedcd5cbabad0143f2103a2938",
+      "a067b5f46eceaaf4351d91d22e1cfa7ee6d7ad1fc04f11fe545e56ad77a5d3d3",
+      "19d1800177b218a328415c563c5b9628edf2660d7574ffac4a6bda288071b063",
+      "46a1a7f60f177cea47ededff989b692651b7809f272a9245e2ae0e19f744b914",
+      "940720b4c4794b3d229960b369d84652bdc60c06da5c9b0b829b85be9e49ca73",
+      "3821b66918a6f812e5e24ce30a8798dfb3cdd6bbf9ec5e35c0a36214d3a0d998",
+      "d23a1dcd58625bcbe101415f81162350c6d9d50f26de903f8b9b50674242bbeb",
+      "a167c02360c5153905ddde371744ba2045e5ecc56bf485cc2db502c4c3bc5d9b",
+      "edf633aed6db77814b48af70331d54edd9ad62cbef9c3fdd4c87edb6c0a32587",
+      "3cf5a3479e8f7aeed92f58d68dbb6fc296b8bf8539271ca7a302d64f5a30417a",
+      "fe56ee884ced22463336faf0b48d16ab298d3e65f814753def4e1d030bcb3c75",
+      "59e192e841ecde7fc2c6e596c8ec2b166777c34021b7f54632ac62a673dd637e",
+      "3b8634ed103db6f26911d5a141ea42d5c4a55721a634d46d5c2b37f674a3be17"
+    ]
+  },
+  {
+    "model_id": "dd312bbc99b306b367810e679499a90d5e7dd6089331ef26b12136a81ce45d0a",
+    "model": {
+      "residual_variance": 0.25,
+      "yearly_correlation": 0.5
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.008719834087481147,
+      0.008719834087481147
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "cee40677a886202cd2427dd8dcb34a05f4c79207efe0664a9183dccf0293567f"
+    ]
+  },
+  {
+    "model_id": "dd312bbc99b306b367810e679499a90d5e7dd6089331ef26b12136a81ce45d0a",
+    "model": {
+      "residual_variance": 0.25,
+      "yearly_correlation": 0.5
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": null,
+    "state": "unidentifiable",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "cee40677a886202cd2427dd8dcb34a05f4c79207efe0664a9183dccf0293567f"
+    ]
+  },
+  {
+    "model_id": "dd312bbc99b306b367810e679499a90d5e7dd6089331ef26b12136a81ce45d0a",
+    "model": {
+      "residual_variance": 0.25,
+      "yearly_correlation": 0.5
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.008886946386946388,
+      0.0092535153019024
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "035b92021a8089ef33ef46af5206876bc4d9ed9ce87e3041fef19b931aba62e5",
+      "97f2255eda403362e67d1803f2d14e9c7d72f4b02dd5afcbd374a605ae323d6c",
+      "216b724ecb9a1bf93ec8f13ddf1b7573d1163da79a9334312360ddfb77e24493",
+      "ce24f4090a47ae5913f8829dc3d11952f5edafe1a4d794f9056170bfc216036c",
+      "6f370d497db1f87361967a41a53a07acd463da9ee3d524135da93429103c46d1",
+      "d7f3a0ece4f44291894533d767642984ce4c960a90d2d6e67c5d75d4277d236e",
+      "2ceca1c95fb2dac3ff802c3d679c87404c994d7f8229e894a158d8bf1d72c711",
+      "a7c19fbf069cb031f326484007a408b5e770cc93d46d4136ee0854526676abf6",
+      "90aa49033629875c366a3b0f94c180590d66a9e3dd23d9b9c9a5baf71b4534b4",
+      "e868ea1ce21fa1b7e6dad3bd9a6933653e837bdd55d53ab8ce98db818255bb81",
+      "6d7f58dad9a4d061e47c9cf715e4384ba8d3c3747edda76028a4eb9c6a540425",
+      "399b07c6dc88e8702cc5e8b76922d28fbafff1e5a217bf5d07975ff97cba8f4d",
+      "bea6cfade5f7324f5f4221ee2b45cd5ef1124e52ff761fffe1c79317cff844b9",
+      "e0de01558975a75277d8d95ad56575483310e0d0bf378bd7f8a99db4c5ba76d9",
+      "f387aed55fd6a8929949981d4e21c407d4c64ca96c039044ed39e13198878216"
+    ]
+  },
+  {
+    "model_id": "dd312bbc99b306b367810e679499a90d5e7dd6089331ef26b12136a81ce45d0a",
+    "model": {
+      "residual_variance": 0.25,
+      "yearly_correlation": 0.5
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.003702894327894328,
+      0.003855631375792667
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "035b92021a8089ef33ef46af5206876bc4d9ed9ce87e3041fef19b931aba62e5",
+      "97f2255eda403362e67d1803f2d14e9c7d72f4b02dd5afcbd374a605ae323d6c",
+      "216b724ecb9a1bf93ec8f13ddf1b7573d1163da79a9334312360ddfb77e24493",
+      "ce24f4090a47ae5913f8829dc3d11952f5edafe1a4d794f9056170bfc216036c",
+      "6f370d497db1f87361967a41a53a07acd463da9ee3d524135da93429103c46d1",
+      "d7f3a0ece4f44291894533d767642984ce4c960a90d2d6e67c5d75d4277d236e",
+      "2ceca1c95fb2dac3ff802c3d679c87404c994d7f8229e894a158d8bf1d72c711",
+      "a7c19fbf069cb031f326484007a408b5e770cc93d46d4136ee0854526676abf6",
+      "90aa49033629875c366a3b0f94c180590d66a9e3dd23d9b9c9a5baf71b4534b4",
+      "e868ea1ce21fa1b7e6dad3bd9a6933653e837bdd55d53ab8ce98db818255bb81",
+      "6d7f58dad9a4d061e47c9cf715e4384ba8d3c3747edda76028a4eb9c6a540425",
+      "399b07c6dc88e8702cc5e8b76922d28fbafff1e5a217bf5d07975ff97cba8f4d",
+      "bea6cfade5f7324f5f4221ee2b45cd5ef1124e52ff761fffe1c79317cff844b9",
+      "e0de01558975a75277d8d95ad56575483310e0d0bf378bd7f8a99db4c5ba76d9",
+      "f387aed55fd6a8929949981d4e21c407d4c64ca96c039044ed39e13198878216"
+    ]
+  },
+  {
+    "model_id": "de306be36e2a9315cb300c6582aa58f3b2ada70a2370ea05961881791a8a8c4e",
+    "model": {
+      "residual_variance": 4.0,
+      "yearly_correlation": 0.5
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.13951734539969834,
+      0.13951734539969834
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "2bd738b1e651233655ab88b684f8d328d13cc1d7fd66ca77380d52b181f32a77"
+    ]
+  },
+  {
+    "model_id": "de306be36e2a9315cb300c6582aa58f3b2ada70a2370ea05961881791a8a8c4e",
+    "model": {
+      "residual_variance": 4.0,
+      "yearly_correlation": 0.5
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": null,
+    "state": "unidentifiable",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "2bd738b1e651233655ab88b684f8d328d13cc1d7fd66ca77380d52b181f32a77"
+    ]
+  },
+  {
+    "model_id": "de306be36e2a9315cb300c6582aa58f3b2ada70a2370ea05961881791a8a8c4e",
+    "model": {
+      "residual_variance": 4.0,
+      "yearly_correlation": 0.5
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.1421911421911422,
+      0.1480562448304384
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "4c0110b74245432fab499f355b04fd45f7c5522caf4db1bd4f7728cdcfec71e3",
+      "42c94651e2e8b4aebb0250f896bcd818b8934d68140d38d91d07997a4f425d1c",
+      "b596ca8d707549c22547cd81c6352e2c085e9c34554d03dc53a1c87e2b388f8a",
+      "8c7dbf0abab710abbccc0228bd328f1793b1ac63a56b942b04632e5ede15ba17",
+      "eb0f227c8c9522db046c851b4784240a9e661abadc0293526573a0b50e0f972e",
+      "430019a913874a04c32ab2534061d66c6f77a3361d8fbc5955bbf8385f7f234c",
+      "9025364b8d4e45463d1d25e6bc525c89d2e7a145d96dbce2a38b8b4724f3d63c",
+      "55c15448cb0e167bb66d6e17269101d079776a4adba792915ae0e079c7999615",
+      "6849b723f9129b74dd030070234de81e6a8efb6189bceda1d55ac6cae915ba1d",
+      "30feae0adfc38c48cef93c3d7878a785cfb434a93f379d8334f13fae2a23d8ac",
+      "d5a30e8df67bdbdcee8984b0b3fa33834d54f735c047c05249e9d0e701c01f2c",
+      "1b1163c416a1e98a3c9bd10ef86d27099577cc45ed34dd072cc4ab9990acd7dd",
+      "03ec1939ca2b89abba8cff2ace3ebf83513f133d8bf4c106b11e8cec04fb46dc",
+      "ec28c106a3762915c614f6ae468c9ed85e4570ab0f5f32b9a4bfcbf1ee491fc2",
+      "5bee32f801b65b75c795a72b58736766b84424fe38063eee66753f14e0dacc81"
+    ]
+  },
+  {
+    "model_id": "de306be36e2a9315cb300c6582aa58f3b2ada70a2370ea05961881791a8a8c4e",
+    "model": {
+      "residual_variance": 4.0,
+      "yearly_correlation": 0.5
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.05924630924630925,
+      0.06169010201268267
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "4c0110b74245432fab499f355b04fd45f7c5522caf4db1bd4f7728cdcfec71e3",
+      "42c94651e2e8b4aebb0250f896bcd818b8934d68140d38d91d07997a4f425d1c",
+      "b596ca8d707549c22547cd81c6352e2c085e9c34554d03dc53a1c87e2b388f8a",
+      "8c7dbf0abab710abbccc0228bd328f1793b1ac63a56b942b04632e5ede15ba17",
+      "eb0f227c8c9522db046c851b4784240a9e661abadc0293526573a0b50e0f972e",
+      "430019a913874a04c32ab2534061d66c6f77a3361d8fbc5955bbf8385f7f234c",
+      "9025364b8d4e45463d1d25e6bc525c89d2e7a145d96dbce2a38b8b4724f3d63c",
+      "55c15448cb0e167bb66d6e17269101d079776a4adba792915ae0e079c7999615",
+      "6849b723f9129b74dd030070234de81e6a8efb6189bceda1d55ac6cae915ba1d",
+      "30feae0adfc38c48cef93c3d7878a785cfb434a93f379d8334f13fae2a23d8ac",
+      "d5a30e8df67bdbdcee8984b0b3fa33834d54f735c047c05249e9d0e701c01f2c",
+      "1b1163c416a1e98a3c9bd10ef86d27099577cc45ed34dd072cc4ab9990acd7dd",
+      "03ec1939ca2b89abba8cff2ace3ebf83513f133d8bf4c106b11e8cec04fb46dc",
+      "ec28c106a3762915c614f6ae468c9ed85e4570ab0f5f32b9a4bfcbf1ee491fc2",
+      "5bee32f801b65b75c795a72b58736766b84424fe38063eee66753f14e0dacc81"
+    ]
+  },
+  {
+    "model_id": "e5109f6f9a5dbe6708b44b1ed5ed7cbe5ae59a19bdbb24ce5ea0624e8cd7e1b4",
+    "model": {
+      "residual_variance": 0.25,
+      "yearly_correlation": 0.0
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.011626445449974862,
+      0.011626445449974862
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "86d1c5693f37f09eb4ed0e864655ee7632225672abb69767dfb28c263f3444a9"
+    ]
+  },
+  {
+    "model_id": "e5109f6f9a5dbe6708b44b1ed5ed7cbe5ae59a19bdbb24ce5ea0624e8cd7e1b4",
+    "model": {
+      "residual_variance": 0.25,
+      "yearly_correlation": 0.0
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": null,
+    "state": "unidentifiable",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "86d1c5693f37f09eb4ed0e864655ee7632225672abb69767dfb28c263f3444a9"
+    ]
+  },
+  {
+    "model_id": "e5109f6f9a5dbe6708b44b1ed5ed7cbe5ae59a19bdbb24ce5ea0624e8cd7e1b4",
+    "model": {
+      "residual_variance": 0.25,
+      "yearly_correlation": 0.0
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.01184926184926185,
+      0.012338020402536532
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "e5297ee3c9893a3443c456ad0b373991bf26e07d605371d4877efeab945a6bfe",
+      "ba1366f2a4897581beaf02666eb8d29d0c9ed9fee53b8c9bfc3b8800ae43608c",
+      "4419137e14757ac48795bd110c973b980a54de0b0546eef87f409b98fa54ecab",
+      "80f3f2ee678264b5082bd69a5b7b590b67cd5d0c77ae04a485e351b13c518385",
+      "18701e330b06db2027bed84943168f836672468efdbc9761819a178be6e0ca03",
+      "2e25efba523f10d3e0f334ec46779c4943db7a3854afde3c6c87c31e9dae5b7e",
+      "4e34f6ecbb413258a8cc6bbc42092e3020af22928d38cba31aebcf2ad23d67c2",
+      "52f99e2670800c22d9c1b5fe5751ac2739df88ef847bcd7e84167a88ecefc626",
+      "5b6331ffdaed4fd0825755a5c332b93b1d8cb03c54097dbfad9be700f13268a2",
+      "0a5860ce257a3a903307224ec87f7f0f3b3ca8e2cbd9228ec2097dd70545d75b",
+      "ee6dc615de636fccd63fd923907150fdf18946e64e28b6b1eef1de6d02cb117a",
+      "ab63a19404abf2446853f3305c683f4de75e60f7d356ea05dfce66860a3040d2",
+      "748b6308e04452653a5db2855b866af6e16341bdd4386b7b332e0a2bc995c505",
+      "737c624c9f9caf05c0ed3a15dda1b87644ce4b67d649a44ebc8d30fbebdf655f",
+      "d2bd2df489771f695b8fd70055706119d38c8723e952b574d31dc690fcf26cc4"
+    ]
+  },
+  {
+    "model_id": "e5109f6f9a5dbe6708b44b1ed5ed7cbe5ae59a19bdbb24ce5ea0624e8cd7e1b4",
+    "model": {
+      "residual_variance": 0.25,
+      "yearly_correlation": 0.0
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.008886946386946388,
+      0.0092535153019024
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "e5297ee3c9893a3443c456ad0b373991bf26e07d605371d4877efeab945a6bfe",
+      "ba1366f2a4897581beaf02666eb8d29d0c9ed9fee53b8c9bfc3b8800ae43608c",
+      "4419137e14757ac48795bd110c973b980a54de0b0546eef87f409b98fa54ecab",
+      "80f3f2ee678264b5082bd69a5b7b590b67cd5d0c77ae04a485e351b13c518385",
+      "18701e330b06db2027bed84943168f836672468efdbc9761819a178be6e0ca03",
+      "2e25efba523f10d3e0f334ec46779c4943db7a3854afde3c6c87c31e9dae5b7e",
+      "4e34f6ecbb413258a8cc6bbc42092e3020af22928d38cba31aebcf2ad23d67c2",
+      "52f99e2670800c22d9c1b5fe5751ac2739df88ef847bcd7e84167a88ecefc626",
+      "5b6331ffdaed4fd0825755a5c332b93b1d8cb03c54097dbfad9be700f13268a2",
+      "0a5860ce257a3a903307224ec87f7f0f3b3ca8e2cbd9228ec2097dd70545d75b",
+      "ee6dc615de636fccd63fd923907150fdf18946e64e28b6b1eef1de6d02cb117a",
+      "ab63a19404abf2446853f3305c683f4de75e60f7d356ea05dfce66860a3040d2",
+      "748b6308e04452653a5db2855b866af6e16341bdd4386b7b332e0a2bc995c505",
+      "737c624c9f9caf05c0ed3a15dda1b87644ce4b67d649a44ebc8d30fbebdf655f",
+      "d2bd2df489771f695b8fd70055706119d38c8723e952b574d31dc690fcf26cc4"
+    ]
+  },
+  {
+    "model_id": "ec02e2e1354b9f04d06eb660391fb38ce3c2f4f77c19a464b6b395fbdb244885",
+    "model": {
+      "residual_variance": 1.0,
+      "yearly_correlation": 0.9
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.008836098541980891,
+      0.008836098541980891
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "995ddd27d0396b63291f92a79d18079905de5498f712900b8bb071b995d9aeae"
+    ]
+  },
+  {
+    "model_id": "ec02e2e1354b9f04d06eb660391fb38ce3c2f4f77c19a464b6b395fbdb244885",
+    "model": {
+      "residual_variance": 1.0,
+      "yearly_correlation": 0.9
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": null,
+    "state": "unidentifiable",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "995ddd27d0396b63291f92a79d18079905de5498f712900b8bb071b995d9aeae"
+    ]
+  },
+  {
+    "model_id": "ec02e2e1354b9f04d06eb660391fb38ce3c2f4f77c19a464b6b395fbdb244885",
+    "model": {
+      "residual_variance": 1.0,
+      "yearly_correlation": 0.9
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.009005439005439002,
+      0.009376895505927761
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "4d27f9d4afc3bf3b88cae18b4ce6fa4c3bb9092c05621e2e049c83c521659f24",
+      "ff60b33fb24f5c4ea4fdb58d1529be6e9fd9d215540a672b1ee7fb2423636b31",
+      "15652408af9202a5a86f3785e852cc39007ed55810a4ae1a15de6d0a5c3f9c43",
+      "0e368b4da7e7acc753d288699d2987fc20e698926aa5b3a78b1ddebf23dfdb0f",
+      "3eb946fd24912cf5a500f7595f500fb7cfb99d2fcc761c67da56c987e04dae22",
+      "f51fc1e6a02b754707804b636045d623c7916c37c6ff790777249c6b85233037",
+      "5333cc67201668562d3f695518a5afbea54899e014df7768b3d4c2eed0763943",
+      "171273f670320689394925c676b4ce90246b2d0a9e0437f681466887cc828fa7",
+      "440e7bd76ea7b98d8ba24c5206a7710c554216ed6af33ff22a22c541d6321653",
+      "a3c16b56848d0d73859cb8ba3e96d4d0bc3da838a9c5f4e8045530985e9244c3",
+      "e0aff306ffbabc980e7568bd288b28922b6eebbbe9637e2a617cef7670be422f",
+      "f88eb695745688c7d18a76f856938b3f24a0f239a53535a3426e60515df16da3",
+      "2758071f3b4fc7fa309d6ebbf1db640380ed93acc3ae488bef63ea57da9e4787",
+      "4ba31e1779e4c4630ab5755327bed7977f7bffd5482bc4d391a14f65581ad67d",
+      "03867dc702186077c6bf5aef56b9faba591a9a80c8240c206945b80051e30064"
+    ]
+  },
+  {
+    "model_id": "ec02e2e1354b9f04d06eb660391fb38ce3c2f4f77c19a464b6b395fbdb244885",
+    "model": {
+      "residual_variance": 1.0,
+      "yearly_correlation": 0.9
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.0024883449883449883,
+      0.0025909842845326715
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "4d27f9d4afc3bf3b88cae18b4ce6fa4c3bb9092c05621e2e049c83c521659f24",
+      "ff60b33fb24f5c4ea4fdb58d1529be6e9fd9d215540a672b1ee7fb2423636b31",
+      "15652408af9202a5a86f3785e852cc39007ed55810a4ae1a15de6d0a5c3f9c43",
+      "0e368b4da7e7acc753d288699d2987fc20e698926aa5b3a78b1ddebf23dfdb0f",
+      "3eb946fd24912cf5a500f7595f500fb7cfb99d2fcc761c67da56c987e04dae22",
+      "f51fc1e6a02b754707804b636045d623c7916c37c6ff790777249c6b85233037",
+      "5333cc67201668562d3f695518a5afbea54899e014df7768b3d4c2eed0763943",
+      "171273f670320689394925c676b4ce90246b2d0a9e0437f681466887cc828fa7",
+      "440e7bd76ea7b98d8ba24c5206a7710c554216ed6af33ff22a22c541d6321653",
+      "a3c16b56848d0d73859cb8ba3e96d4d0bc3da838a9c5f4e8045530985e9244c3",
+      "e0aff306ffbabc980e7568bd288b28922b6eebbbe9637e2a617cef7670be422f",
+      "f88eb695745688c7d18a76f856938b3f24a0f239a53535a3426e60515df16da3",
+      "2758071f3b4fc7fa309d6ebbf1db640380ed93acc3ae488bef63ea57da9e4787",
+      "4ba31e1779e4c4630ab5755327bed7977f7bffd5482bc4d391a14f65581ad67d",
+      "03867dc702186077c6bf5aef56b9faba591a9a80c8240c206945b80051e30064"
+    ]
+  },
+  {
+    "model_id": "f254aa3602818021c55f3bb2c43eff396e32f860b5d087aceb1b5df0e8b53c85",
+    "model": {
+      "residual_variance": 4.0,
+      "yearly_correlation": 0.9
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.035344394167923565,
+      0.035344394167923565
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "738a44ce6260511c0db71ed947b29ae4095084f45eaedb74e741b624629b9d2a"
+    ]
+  },
+  {
+    "model_id": "f254aa3602818021c55f3bb2c43eff396e32f860b5d087aceb1b5df0e8b53c85",
+    "model": {
+      "residual_variance": 4.0,
+      "yearly_correlation": 0.9
+    },
+    "design_id": "endpoint_pair",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": null,
+    "state": "unidentifiable",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "738a44ce6260511c0db71ed947b29ae4095084f45eaedb74e741b624629b9d2a"
+    ]
+  },
+  {
+    "model_id": "f254aa3602818021c55f3bb2c43eff396e32f860b5d087aceb1b5df0e8b53c85",
+    "model": {
+      "residual_variance": 4.0,
+      "yearly_correlation": 0.9
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.03602175602175601,
+      0.037507582023711045
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "30592843f73852f70e909babdc7dbaa4c76fbc57d7a8b03db981b426494e5156",
+      "cf973be937459db833b9a340d2f622afd4bed81bbadb1d4dc549e301b648cac0",
+      "fac209c5ec8f751afe3d55674aae819f672575bf751d117d42ace934c722f023",
+      "087b43972a8e3784b8693efe3ca5f60b90aa0771850392a37a0719dbe0894e4d",
+      "75a23de6097f2832c9f486cfe5a9f27a313d617cc48437f5399d89d3be868083",
+      "c1e52b3a3b7bb4c8803627bd4f506f70abe8c09506e27068d76dee3c0ed0daef",
+      "1344269456382656ed1f7a526f7ab999def86442b161dcde53af605961cc6c98",
+      "eb10eb94b670eff80500b935ae31f19442b79e2a514f53be605108439f621caa",
+      "5082b7380398cdec3e79a2d9355c5754c2e1bbd9ef2d867f70675d31a652f117",
+      "0ce8c4de0e2fce1713fdbf1cf39909fbed08926afb2dba72969d0a6593e8617e",
+      "a6ec2f38c3d1e4e4e4d061153a538c23c579701dc407664827a9b18821299652",
+      "fec13d3123412212d2c0a7516c91fb074fe38a461c774934dc0d5733adb31bea",
+      "b98c6c3cad4e62d0e29e158fec584a1f6cacface569d02fe4a22ad946431be8e",
+      "ba3ff01acbfb9c2771d77b5d093ca91def01bf51c81b4de7d323057d25ea94e5",
+      "90a04996ad93cfd80ca42f68b956fb0b8566f5b3215748778708475aa0b6c10b"
+    ]
+  },
+  {
+    "model_id": "f254aa3602818021c55f3bb2c43eff396e32f860b5d087aceb1b5df0e8b53c85",
+    "model": {
+      "residual_variance": 4.0,
+      "yearly_correlation": 0.9
+    },
+    "design_id": "three_timepoints",
+    "estimand_id": "CR_minus_AL_24mo_curvature",
+    "variance_unit": "standardized_scalar_unit_squared",
+    "variance_interval": [
+      0.009953379953379953,
+      0.010363937138130686
+    ],
+    "state": "conditional_model",
+    "interval_semantics": "support_envelope_not_confidence_interval",
+    "request_sha256": [
+      "30592843f73852f70e909babdc7dbaa4c76fbc57d7a8b03db981b426494e5156",
+      "cf973be937459db833b9a340d2f622afd4bed81bbadb1d4dc549e301b648cac0",
+      "fac209c5ec8f751afe3d55674aae819f672575bf751d117d42ace934c722f023",
+      "087b43972a8e3784b8693efe3ca5f60b90aa0771850392a37a0719dbe0894e4d",
+      "75a23de6097f2832c9f486cfe5a9f27a313d617cc48437f5399d89d3be868083",
+      "c1e52b3a3b7bb4c8803627bd4f506f70abe8c09506e27068d76dee3c0ed0daef",
+      "1344269456382656ed1f7a526f7ab999def86442b161dcde53af605961cc6c98",
+      "eb10eb94b670eff80500b935ae31f19442b79e2a514f53be605108439f621caa",
+      "5082b7380398cdec3e79a2d9355c5754c2e1bbd9ef2d867f70675d31a652f117",
+      "0ce8c4de0e2fce1713fdbf1cf39909fbed08926afb2dba72969d0a6593e8617e",
+      "a6ec2f38c3d1e4e4e4d061153a538c23c579701dc407664827a9b18821299652",
+      "fec13d3123412212d2c0a7516c91fb074fe38a461c774934dc0d5733adb31bea",
+      "b98c6c3cad4e62d0e29e158fec584a1f6cacface569d02fe4a22ad946431be8e",
+      "ba3ff01acbfb9c2771d77b5d093ca91def01bf51c81b4de7d323057d25ea94e5",
+      "90a04996ad93cfd80ca42f68b956fb0b8566f5b3215748778708475aa0b6c10b"
+    ]
+  }
+]

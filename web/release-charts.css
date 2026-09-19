@@ -513,3 +513,60 @@ body {
     padding-top: 24px;
   }
 }
+
+/* Keep the first real-study marks visible on ordinary laptop viewports. */
+#results > .results-intro {
+  max-width: 1040px;
+  padding: 22px 0 20px;
+}
+#results > .results-intro .eyebrow {
+  margin-bottom: 8px;
+}
+#results > .results-intro h1 {
+  max-width: 1040px;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.12;
+  margin-bottom: 8px;
+  letter-spacing: -1.1px;
+}
+#results > .results-intro > p:not(.eyebrow) {
+  max-width: 940px;
+  margin: 8px 0;
+  font-size: 17px;
+  line-height: 1.5;
+}
+#results > .results-intro .results-links {
+  margin-top: 12px;
+  gap: 10px 22px;
+}
+#observed {
+  padding-top: 18px;
+}
+#observed .section-heading {
+  margin-bottom: 14px;
+}
+#observed .section-heading .eyebrow {
+  margin-bottom: 6px;
+}
+#observed .section-heading h2 {
+  font-size: clamp(24px, 2.2vw, 29px);
+}
+#observed .evidence-filter-panel {
+  margin-bottom: 8px;
+}
+#observed .evidence-filter-panel > summary {
+  padding: 10px 14px;
+}
+#filter-summary {
+  margin: 8px 0 12px;
+  line-height: 1.45;
+}
+@media (max-width: 760px) {
+  #results > .results-intro {
+    padding: 20px 0 18px;
+  }
+  #observed .section-heading {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+}

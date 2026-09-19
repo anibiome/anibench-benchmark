@@ -1759,3 +1759,10 @@ button.text-link {
   text-align: left;
   cursor: pointer;
 }
+
+/* Catalog entries explain their evidence and supported question. */
+.chart-index-family button strong,
+.chart-index-family button small,
+.chart-index-family button span { display: block; }
+.chart-index-family button small { margin: 5px 0; font-weight: 600; }
+.chart-index-family button span { font-weight: 400; line-height: 1.45; }

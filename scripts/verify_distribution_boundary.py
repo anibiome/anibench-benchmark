@@ -138,6 +138,8 @@ ALLOWED_WEB_FILENAMES = frozenset(
         "benchmark.css",
         "benchmark.js",
         "benchmark.test.js",
+        "calerie-design.svg",
+        "calerie-design.json",
         "release-charts.js",
         "release-charts.css",
         "release-charts.test.js",

@@ -547,6 +547,35 @@ the source measurement schedule, and hypothetical visits are not observed
 retests. Neither frontier certifies an optimal biological study or normative
 AniBench attainment.
 
+### 6.9 A source-supported temporal design comparison
+
+The [CALERIE example](../examples/design_geometry/calerie/README.md) compares
+two analysis designs using public collection counts from
+[Waziry et al. (2023)](https://doi.org/10.1038/s43587-022-00357-y).
+The reported change-analysis denominators are 125/66 participants in the
+restriction/control arms at 12 months and 117/68 at 24 months, within a
+197-person baseline-plus-follow-up population. Disjoint-arm constraints imply
+179–183 people in both endpoint-analysis subsets under the conservative common
+universe interpretation. If those subsets exactly cover the 197, their overlap
+is 179. The code retains both interpretations explicitly.
+
+For an illustrative common scalar with residual variance one and independent
+annual errors, existing AniBench information APIs evaluate a two-year endpoint
+change and midpoint curvature. Baseline plus 24-month data give endpoint-change
+variance 0.046505782 and cannot identify curvature. Complete three-visit records
+give endpoint-change variance 0.047397047–0.049352082 and curvature variance
+0.035547786–0.037014061. These are conditional model predictions, not observed
+clock uncertainty or treatment effects. The source does not estimate the
+assumed covariance or establish retained-subset exchangeability.
+
+The example illustrates why visit counts are insufficient: added temporal
+support can identify another question, while selecting complete cases reduces
+population support. Nine noise scenarios produce 144 bound evaluations, kept
+separate by model; the support ranges are not confidence intervals. All feasible
+arm supports must be included exactly once in each comparison envelope. The
+replay, source manifest, numerical receipts and publication figure are runnable
+from the public source package without participant data.
+
 ## 7. Validation and limitations
 
 The implementation is tested for mathematical/representation invariants,

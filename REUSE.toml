@@ -54,13 +54,13 @@ SPDX-FileCopyrightText = "2026 ANI"
 SPDX-License-Identifier = "CC-BY-4.0"
 
 [[annotations]]
-path = ["web/erp-design-sensitivity.json", "web/erp-design-plan.json", "examples/calibration/erp_core/*.md", "examples/calibration/erp_core/*.json", "examples/calibration/erp_core/*.png", "examples/calibration/erp_core/*.pdf"]
+path = ["spec/finite_suites/v1/erp-p3b-resolution.json", "web/erp-design-sensitivity.json", "web/erp-design-plan.json", "examples/calibration/erp_core/*.md", "examples/calibration/erp_core/*.json", "examples/calibration/erp_core/*.png", "examples/calibration/erp_core/*.pdf"]
 precedence = "override"
 SPDX-FileCopyrightText = "ERP CORE contributors; 2026 AniBench contributors for analysis modifications"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
 
 [[annotations]]
-path = ["examples/calibration/erp_core/*.py"]
+path = ["examples/calibration/erp_core/*.py", "examples/design_geometry/calerie/*.py", "examples/finite_suites/*.py"]
 precedence = "override"
 SPDX-FileCopyrightText = "2026 AniBench contributors"
 SPDX-License-Identifier = "Apache-2.0"

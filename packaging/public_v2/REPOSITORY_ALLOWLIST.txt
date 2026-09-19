@@ -70,6 +70,7 @@ docs/DATA_GOVERNANCE.md
 docs/DESIGN_STUDIO.md
 docs/EVALUATION.md
 docs/EVIDENCE_POLICY.md
+docs/FINITE_SUITES_V1.md
 docs/FINITE_TASK_PRECISION_V1.md
 docs/FIRST_PRINCIPLES.md
 docs/HOW_TO_READ_ANIBENCH.md
@@ -105,6 +106,16 @@ examples/collection/assays.csv
 examples/collection/comparison-basis.json
 examples/collection/synthetic-record.json
 examples/collection/table-map.json
+examples/design_geometry/calerie/README.md
+examples/design_geometry/calerie/chart-results.json
+examples/design_geometry/calerie/comparison.png
+examples/design_geometry/calerie/comparison.svg
+examples/design_geometry/calerie/figure-metadata.json
+examples/design_geometry/calerie/plot.py
+examples/design_geometry/calerie/replay.py
+examples/design_geometry/calerie/source_manifest.json
+examples/finite_suites/README.md
+examples/finite_suites/replay_erp.py
 examples/finite_tasks/synthetic-provenance.json
 examples/finite_tasks/synthetic-request.json
 examples/optimizer_protocol_v2_example.py
@@ -135,6 +146,8 @@ schemas/collection/study-context.schema.json
 schemas/collection/table-map.schema.json
 schemas/finite_precision/v1/evaluation-input.schema.json
 schemas/finite_precision/v1/evaluation-result.schema.json
+schemas/finite_suites/v1/input.schema.json
+schemas/finite_suites/v1/result.schema.json
 schemas/protocol_cards/v1/packet.schema.json
 schemas/v2/conditional-posterior-reference.schema.json
 schemas/v2/design-assessment.schema.json
@@ -177,6 +190,7 @@ scripts/verify_release_metadata.py
 scripts/verify_reported_facts.py
 scripts/verify_studio_browser.mjs
 spec/candidate_levels/discussion-v0.1.json
+spec/finite_suites/v1/erp-p3b-resolution.json
 spec/v2/authority/causal-encoding.json
 spec/v2/authority/covariance-scenario-envelopes.json
 spec/v2/authority/event-unit-registry.json
@@ -204,6 +218,7 @@ src/anibench/contracts/identifiers.py
 src/anibench/contracts_v2.py
 src/anibench/design_v2.py
 src/anibench/explorer.py
+src/anibench/finite_suites_v1.py
 src/anibench/finite_tasks_v1.py
 src/anibench/information_v2.py
 src/anibench/intake.py
@@ -222,6 +237,7 @@ src/anibench/studio_product.py
 src/anibench/study_context.py
 src/anibench/uncertainty_v2.py
 src/anibench/v2.py
+tests/test_calerie_design_geometry.py
 tests/test_collection_compare.py
 tests/test_collection_ingest.py
 tests/test_collection_v1.py
@@ -236,6 +252,9 @@ tests/test_eval_cli.py
 tests/test_eval_comparison.py
 tests/test_explorer.py
 tests/test_fetch_v2_external_sources.py
+tests/test_finite_suite_cli.py
+tests/test_finite_suite_example.py
+tests/test_finite_suites_v1.py
 tests/test_finite_task_cli.py
 tests/test_finite_tasks_v1.py
 tests/test_first_principles.py
@@ -271,6 +290,8 @@ web/benchmark.css
 web/benchmark.html
 web/benchmark.js
 web/benchmark.test.js
+web/calerie-design.json
+web/calerie-design.svg
 web/collection-example.json
 web/collection-viewer.js
 web/collection-viewer.test.js

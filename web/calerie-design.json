@@ -1,0 +1,127 @@
+{
+  "version": "anibench.calerie-figure.v1",
+  "evidence_kind": "published_collection_counts_with_hypothetical_noise_model",
+  "source_manifest_sha256": "592d014e034f4e440ae26c9b6d9d3fe6d71ca6265918db9b48210ebf4a8a32cb",
+  "source_sha256": "7c73637279d5f788ed7969c6a90dbd5ff3e2cff2e75b3e8cac7b9c8cd3bfa730",
+  "chart_results_sha256": "455fa9a5e9b459bdd23270e57dfee658453f4e78cb386c5549adb5284baa5903",
+  "plot_script_sha256": "e431b0e97380d903f017b920cf4f00caaa66d24a4ca87fafac048a473e083eb2",
+  "implementation": {
+    "python": "3.12.13",
+    "numpy": "2.5.1",
+    "sha256": {
+      "replay.py": "d9f1383d5793c723ba38fa937ef44cdf6aafbd9a94253c3a72ff7062170431bc",
+      "causal_v2.py": "3aeb60b5f4bba6233e2ddf291faf99e26f054cfcbb6a2a1f30457f2c197a27b9",
+      "information_v2.py": "9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0"
+    }
+  },
+  "display_unit": "standardized_scalar_unit",
+  "display_transform": "square_root_of_variance",
+  "interval_semantics": "feasible_support_envelope_not_confidence_interval",
+  "model": {
+    "residual_variance": 1.0,
+    "yearly_correlation": 0.0
+  },
+  "rows": [
+    {
+      "model_id": "6839d7e52c0bdbeb2f3950eb49e83152f4f5f9da7c9d0431844951e5b66ce439",
+      "model": {
+        "residual_variance": 1.0,
+        "yearly_correlation": 0.0
+      },
+      "design_id": "endpoint_pair",
+      "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+      "variance_unit": "standardized_scalar_unit_squared",
+      "variance_interval": [
+        0.04650578179989945,
+        0.04650578179989945
+      ],
+      "state": "conditional_model",
+      "interval_semantics": "support_envelope_not_confidence_interval",
+      "request_sha256": [
+        "bfcd7938773e8491d0b0f8bb8843064330657da4ab6390beb6cbdaca02deafd7"
+      ]
+    },
+    {
+      "model_id": "6839d7e52c0bdbeb2f3950eb49e83152f4f5f9da7c9d0431844951e5b66ce439",
+      "model": {
+        "residual_variance": 1.0,
+        "yearly_correlation": 0.0
+      },
+      "design_id": "endpoint_pair",
+      "estimand_id": "CR_minus_AL_24mo_curvature",
+      "variance_unit": "standardized_scalar_unit_squared",
+      "variance_interval": null,
+      "state": "unidentifiable",
+      "interval_semantics": "support_envelope_not_confidence_interval",
+      "request_sha256": [
+        "bfcd7938773e8491d0b0f8bb8843064330657da4ab6390beb6cbdaca02deafd7"
+      ]
+    },
+    {
+      "model_id": "6839d7e52c0bdbeb2f3950eb49e83152f4f5f9da7c9d0431844951e5b66ce439",
+      "model": {
+        "residual_variance": 1.0,
+        "yearly_correlation": 0.0
+      },
+      "design_id": "three_timepoints",
+      "estimand_id": "CR_minus_AL_24mo_endpoint_change",
+      "variance_unit": "standardized_scalar_unit_squared",
+      "variance_interval": [
+        0.0473970473970474,
+        0.04935208161014613
+      ],
+      "state": "conditional_model",
+      "interval_semantics": "support_envelope_not_confidence_interval",
+      "request_sha256": [
+        "cf9e641067022bfb369d60bc296874d48fb3a8a7e5bed48d4c1d1e86f8e24971",
+        "2fa385fa69a6fc20199c47bbfa719a9e9bce6ed8e9e215168628b93f52c08d5d",
+        "f3d2f4cb5bcd586529638459346bf089ec94cddedcd5cbabad0143f2103a2938",
+        "a067b5f46eceaaf4351d91d22e1cfa7ee6d7ad1fc04f11fe545e56ad77a5d3d3",
+        "19d1800177b218a328415c563c5b9628edf2660d7574ffac4a6bda288071b063",
+        "46a1a7f60f177cea47ededff989b692651b7809f272a9245e2ae0e19f744b914",
+        "940720b4c4794b3d229960b369d84652bdc60c06da5c9b0b829b85be9e49ca73",
+        "3821b66918a6f812e5e24ce30a8798dfb3cdd6bbf9ec5e35c0a36214d3a0d998",
+        "d23a1dcd58625bcbe101415f81162350c6d9d50f26de903f8b9b50674242bbeb",
+        "a167c02360c5153905ddde371744ba2045e5ecc56bf485cc2db502c4c3bc5d9b",
+        "edf633aed6db77814b48af70331d54edd9ad62cbef9c3fdd4c87edb6c0a32587",
+        "3cf5a3479e8f7aeed92f58d68dbb6fc296b8bf8539271ca7a302d64f5a30417a",
+        "fe56ee884ced22463336faf0b48d16ab298d3e65f814753def4e1d030bcb3c75",
+        "59e192e841ecde7fc2c6e596c8ec2b166777c34021b7f54632ac62a673dd637e",
+        "3b8634ed103db6f26911d5a141ea42d5c4a55721a634d46d5c2b37f674a3be17"
+      ]
+    },
+    {
+      "model_id": "6839d7e52c0bdbeb2f3950eb49e83152f4f5f9da7c9d0431844951e5b66ce439",
+      "model": {
+        "residual_variance": 1.0,
+        "yearly_correlation": 0.0
+      },
+      "design_id": "three_timepoints",
+      "estimand_id": "CR_minus_AL_24mo_curvature",
+      "variance_unit": "standardized_scalar_unit_squared",
+      "variance_interval": [
+        0.03554778554778555,
+        0.0370140612076096
+      ],
+      "state": "conditional_model",
+      "interval_semantics": "support_envelope_not_confidence_interval",
+      "request_sha256": [
+        "cf9e641067022bfb369d60bc296874d48fb3a8a7e5bed48d4c1d1e86f8e24971",
+        "2fa385fa69a6fc20199c47bbfa719a9e9bce6ed8e9e215168628b93f52c08d5d",
+        "f3d2f4cb5bcd586529638459346bf089ec94cddedcd5cbabad0143f2103a2938",
+        "a067b5f46eceaaf4351d91d22e1cfa7ee6d7ad1fc04f11fe545e56ad77a5d3d3",
+        "19d1800177b218a328415c563c5b9628edf2660d7574ffac4a6bda288071b063",
+        "46a1a7f60f177cea47ededff989b692651b7809f272a9245e2ae0e19f744b914",
+        "940720b4c4794b3d229960b369d84652bdc60c06da5c9b0b829b85be9e49ca73",
+        "3821b66918a6f812e5e24ce30a8798dfb3cdd6bbf9ec5e35c0a36214d3a0d998",
+        "d23a1dcd58625bcbe101415f81162350c6d9d50f26de903f8b9b50674242bbeb",
+        "a167c02360c5153905ddde371744ba2045e5ecc56bf485cc2db502c4c3bc5d9b",
+        "edf633aed6db77814b48af70331d54edd9ad62cbef9c3fdd4c87edb6c0a32587",
+        "3cf5a3479e8f7aeed92f58d68dbb6fc296b8bf8539271ca7a302d64f5a30417a",
+        "fe56ee884ced22463336faf0b48d16ab298d3e65f814753def4e1d030bcb3c75",
+        "59e192e841ecde7fc2c6e596c8ec2b166777c34021b7f54632ac62a673dd637e",
+        "3b8634ed103db6f26911d5a141ea42d5c4a55721a634d46d5c2b37f674a3be17"
+      ]
+    }
+  ]
+}

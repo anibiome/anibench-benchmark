@@ -35,7 +35,7 @@ jobs:
           cache: pip
       - run: python -m pip install --upgrade pip packaging
       - run: python -m pip install -e '.[dev,paper]'
-      - run: ruff check src tests scripts examples/calibration/erp_core
+      - run: ruff check src tests scripts examples/calibration/erp_core examples/design_geometry/calerie examples/finite_suites
       - run: python scripts/verify_release_metadata.py --pretty
       - run: python scripts/verify_external_field_receipts.py --pretty
       - run: python -m pytest -q
@@ -134,3 +134,8 @@ jobs:
           /tmp/anibench-wheel-smoke/bin/anibench v2-optimize-protocol \
             /tmp/installed-optimizer-request.json \
             --out /tmp/installed-optimizer-result.json --pretty
+          /tmp/anibench-wheel-smoke/bin/python -c "import runpy, anibench, sys; from pathlib import Path; sys.argv=['replay_erp.py', '--out', '/tmp/installed-erp-suite']; runpy.run_path(str(Path(anibench.__file__).parent / 'examples/finite_suites/replay_erp.py'), run_name='__main__')"
+          /tmp/anibench-wheel-smoke/bin/anibench finite-suite \
+            /tmp/installed-erp-suite/R1-depth-23.request.json \
+            --registry /tmp/installed-erp-suite/trusted-profiles.json \
+            --out /tmp/installed-erp-suite-cli.json --pretty
