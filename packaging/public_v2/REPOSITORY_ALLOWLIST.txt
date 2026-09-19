@@ -47,6 +47,7 @@ data/source_projections/v2/zoe-method.json
 docs/ACCESSIBILITY.md
 docs/ANTI_GAMING.md
 docs/API.md
+docs/COLLECTION_COMPARISONS.md
 docs/COLLECTION_PROFILE.md
 docs/CTGOV_50_TRIAL_STRESS_TEST.md
 docs/DATA_GOVERNANCE.md
@@ -66,6 +67,7 @@ docs/V2_OPTIMIZER.md
 docs/audits/CTGOV_50_TRIAL_STRESS_TEST_2026-07-14.json
 evals/level1/eval-card.json
 examples/collection/assays.csv
+examples/collection/comparison-basis.json
 examples/collection/synthetic-record.json
 examples/collection/table-map.json
 examples/optimizer_protocol_v2_example.py
@@ -77,6 +79,7 @@ packaging/public_v2/EXTERNAL_FIELD_PROVENANCE_RECEIPT.json
 packaging/public_v2/EXTERNAL_SOURCE_VERIFICATION_RECEIPT.json
 packaging/public_v2/REPOSITORY_ALLOWLIST.txt
 packaging/public_v2/SOURCE_COORDINATE_TABLE.csv
+paper/AniBench_open_benchmark.md
 paper/v2/AniBench_v2_benchmark_protocol.md
 paper/v2/REPORTING_CHECKLIST.md
 paper/v2/build_method_figures.py
@@ -89,6 +92,7 @@ paper/v2/figures/figure_03_same_event_antigaming.svg
 paper/v2/figures/figure_04_evidence_lanes.png
 paper/v2/figures/figure_04_evidence_lanes.svg
 pyproject.toml
+schemas/collection/comparison-basis.schema.json
 schemas/collection/record.schema.json
 schemas/collection/table-map.schema.json
 schemas/v2/design-assessment.schema.json
@@ -112,6 +116,7 @@ scripts/assemble_release_candidate.py
 scripts/build_docx_package.py
 scripts/build_explorer.py
 scripts/build_level1_target_v3.py
+scripts/build_manuscript.py
 scripts/build_v2_external_corpus.py
 scripts/export_public_repository.py
 scripts/fetch_v2_external_sources.py
@@ -141,6 +146,7 @@ src/anibench/__init__.py
 src/anibench/api.py
 src/anibench/causal_v2.py
 src/anibench/cli.py
+src/anibench/collection_compare.py
 src/anibench/collection_ingest.py
 src/anibench/collection_v1.py
 src/anibench/comparison_v1.py
@@ -164,6 +170,7 @@ src/anibench/studio.py
 src/anibench/studio_product.py
 src/anibench/uncertainty_v2.py
 src/anibench/v2.py
+tests/test_collection_compare.py
 tests/test_collection_ingest.py
 tests/test_collection_v1.py
 tests/test_ctgov_50_stress_test.py
@@ -176,6 +183,7 @@ tests/test_first_principles.py
 tests/test_installed_studio_e2e.py
 tests/test_level1_assessment_v3.py
 tests/test_level1_target_v3.py
+tests/test_manuscript_build.py
 tests/test_optimizer_protocol_v2.py
 tests/test_protocol_capacity_v2.py
 tests/test_protocol_web_examples.py

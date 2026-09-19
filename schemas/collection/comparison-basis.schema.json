@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anibench.org/schemas/collection/comparison-basis.schema.json",
+  "title": "AniBench declared native-metric comparison basis",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "comparison_id", "metric", "record_basis", "population_definition", "observation_scope", "quality_definition", "time_resolution_days", "review_protocol"],
+  "properties": {
+    "schema_version": {"const": "anibench.collection-comparison-basis.v1"},
+    "comparison_id": {"$ref": "#/$defs/text"},
+    "metric": {"enum": ["roster_participants", "measured_participants", "repeated_participants", "median_observation_times", "median_observed_span_days", "module_participants", "module_targets", "module_median_targets", "module_participant_events", "module_target_observations"]},
+    "record_basis": {"enum": ["planned", "collected"]},
+    "population_definition": {"$ref": "#/$defs/text"},
+    "observation_scope": {"$ref": "#/$defs/text"},
+    "quality_definition": {"$ref": "#/$defs/text"},
+    "time_resolution_days": {"type": "number", "minimum": 0},
+    "review_protocol": {"$ref": "#/$defs/text"},
+    "module_id": {"$ref": "#/$defs/text"},
+    "module_definition": {
+      "type": "object", "additionalProperties": false,
+      "required": ["domain", "target_unit", "target_definition_id"],
+      "properties": {
+        "domain": {"enum": ["molecular", "microbial", "physiological", "functional", "cognitive", "psychological", "digital", "exposure_context"]},
+        "target_unit": {"$ref": "#/$defs/text"},
+        "target_definition_id": {"$ref": "#/$defs/text"}
+      }
+    }
+  },
+  "$defs": {"text": {"type": "string", "minLength": 1, "maxLength": 4000}}
+}

@@ -35,6 +35,17 @@ local CSV or CSV.gz tables to measure coverage, QC, linkage, and repeat observat
 It does not guess assay semantics or infer independent information from column counts.
 See the [private-run workflow](docs/EVALUATION.md#run-on-private-study-data).
 
+Read the [research manuscript](paper/AniBench_open_benchmark.md) for the
+mathematical derivation, limitations, source examples and reproducible figures.
+Build its PDF with `python -m pip install -e '.[paper]'` followed by
+`python scripts/build_manuscript.py --out output/pdf/AniBench_open_benchmark.pdf`.
+
+Compare native collection metrics with `anibench compare-records`. Its
+[metric cards and submission rules](docs/COLLECTION_COMPARISONS.md) retain the
+roster, units, source hashes and uncertainty bounds. Missing geometry does not
+exclude a study from a supported count comparison. A category rank applies only
+to its named metric and bound corpus.
+
 ## Explore and compare
 
 Open the [published study explorer](https://anibench.ani-ai-is-alive.chatgpt.site)

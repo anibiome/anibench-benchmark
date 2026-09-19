@@ -264,8 +264,8 @@
           <div>
             <a
               class="primary-link"
-              href="https://github.com/anibiome/anibench-benchmark/blob/main/paper/v2/AniBench_v2_benchmark_protocol.md"
-              >Methods manuscript ↗</a
+              href="https://github.com/anibiome/anibench-benchmark/blob/main/paper/AniBench_open_benchmark.md"
+              >Research manuscript ↗</a
             ><a
               class="text-link"
               href="https://github.com/anibiome/anibench-benchmark/blob/main/docs/FIRST_PRINCIPLES.md"
@@ -370,12 +370,25 @@ python -m pip install -e .</code></pre>
               <p class="eyebrow">04 / COMPARE &amp; CONTRIBUTE</p>
               <h2>Make the result reproducible.</h2>
               <p>
-                Compare evaluation receipts on a shared basis. The evaluator
-                checks hashes and model compatibility before calculating
-                within-family Pareto relations.
+                Compare one collection metric with explicit units, denominators,
+                and missing-data bounds. Each category has its own result; no
+                weighted total decides an overall winner.
               </p>
-              <pre><code>anibench compare study-a.eval.json study-b.eval.json \
+              <pre><code>anibench compare-records study-a.json study-b.json \
+  --basis comparison-basis.json \
   --out comparison.json --pretty</code></pre>
+              <p>
+                <a
+                  class="text-link"
+                  href="https://github.com/anibiome/anibench-benchmark/blob/main/docs/COLLECTION_COMPARISONS.md"
+                  >Metric cards and comparison rules ↗</a
+                >
+              </p>
+              <p>
+                For model-based geometry, <code>anibench compare</code> computes
+                within-family Pareto relations from compatible evaluation
+                receipts.
+              </p>
               <p>
                 For a public contribution, submit the protocol, source
                 references, definitions, and reviewed aggregate receipt. Keep

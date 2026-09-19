@@ -1,0 +1,17 @@
+{
+  "schema_version": "anibench.collection-comparison-basis.v1",
+  "comparison_id": "synthetic-protein-coverage-v1",
+  "metric": "module_median_targets",
+  "record_basis": "collected",
+  "population_definition": "All synthetic enrolled participants, including those without accepted measurements.",
+  "observation_scope": "Protein availability over the complete 28-day synthetic collection window; no clinical effect is evaluated.",
+  "quality_definition": "Only synthetic pass acquisitions count. Pending quality remains unresolved.",
+  "time_resolution_days": 1,
+  "review_protocol": "Illustrative software example, not an independently reviewed public study claim.",
+  "module_id": "proteomics",
+  "module_definition": {
+    "domain": "molecular",
+    "target_unit": "proteins",
+    "target_definition_id": "synthetic-protein-targets-v1"
+  }
+}

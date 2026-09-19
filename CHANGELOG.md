@@ -4,6 +4,12 @@ All notable changes are recorded here. AniBench uses semantic versioning for the
 
 ## Unreleased
 
+- Add `anibench compare-records`: versioned native-metric cards, shared-basis
+  checks, source-bound receipts, exact ties, missing-data bounds, and possible
+  competition ranks. Preserve the canonical geometry/Pareto comparator.
+- Add a complete research manuscript and deterministic PDF builder with two
+  reproducible scientific figures, source references and replay metadata.
+
 - Add local collection-record and CSV/CSV.gz profiling with a fixed participant
   roster, explicit quality rules, target/event deduplication, joint measurement
   coverage, and conditional follow-up summaries. Treatment results are not inputs.

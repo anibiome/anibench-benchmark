@@ -14,3 +14,6 @@ tmp/
 # source policy permits normalized facts, locators, URLs, and hashes—not
 # redistribution of publication text or controlled upstream bytes.
 data/source_projections/v2/sources/
+
+# Reproducible publication builds; source and builder are tracked.
+/output/

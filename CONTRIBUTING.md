@@ -16,6 +16,10 @@ Every capacity-bearing or comparison-bearing fact must include:
 
 A title, abstract keyword, sponsor, journal, press release, or institutional reputation cannot create a score-bearing fact.
 
+Native collection submissions follow the metric cards, missingness rules and
+review requirements in [Collection comparisons](docs/COLLECTION_COMPARISONS.md).
+A source-supported count comparison does not require full information geometry.
+
 ## Methods contributions
 
 Formula, reference, axis, or evidence-state changes require a methods RFC with:

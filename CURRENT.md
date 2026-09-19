@@ -20,6 +20,11 @@ workflow. The September 18 collection layer adds `anibench profile` and
 `anibench profile-tables` for coverage, declared quality, dates, and linkage from
 local records or explicitly mapped CSV/CSV.gz tables. See
 `docs/COLLECTION_PROFILE.md`. It does not estimate an information or noise model.
+Native metric comparison is available through `anibench compare-records`; see
+`docs/COLLECTION_COMPARISONS.md`. It emits evidence-bounded ranks for one named
+quantity within a bound corpus, independently of geometry. These are not overall
+study-quality or biologically calibrated information ranks. The current research
+manuscript is `paper/AniBench_open_benchmark.md`.
 The website front door is `web/benchmark.html`; the detailed explorer and
 canonical evaluator remain available without changing their contracts.
 
@@ -68,7 +73,7 @@ semantics were superseded while preserving the six-block, 64-coordinate
 scientific map.
 
 Current invariant: no hidden overall scalar, no evidence-status penalty, no
-modality-menu inflation, no invented source geometry, and no stable public rank
+modality-menu inflation, no invented source geometry, and no stable overall biological-capacity rank
 without an independently reviewed Level-1 authority, source-complete comparable
 inputs, biological calibration, hostile review, and a release decision bound to
 exact bytes.

@@ -43,6 +43,14 @@ def _parser() -> argparse.ArgumentParser:
     tables.add_argument("--manifest-out", type=Path, help="Optional private participant-linked intermediate")
     tables.add_argument("--pretty", action="store_true")
 
+    records = sub.add_parser(
+        "compare-records", help="Compare one native collection metric with explicit evidence bounds"
+    )
+    records.add_argument("inputs", metavar="PROFILE_JSON", nargs="+", type=Path)
+    records.add_argument("--basis", type=Path, required=True)
+    records.add_argument("--out", type=Path, required=True)
+    records.add_argument("--pretty", action="store_true")
+
     comparison = sub.add_parser(
         "compare", help="Compare canonical eval receipts on a strict shared Pareto basis"
     )
@@ -175,6 +183,17 @@ def main(argv: list[str] | None = None) -> int:
                 result, out=args.out, pretty=args.pretty,
                 receipt={"profile_sha256": result["profile_sha256"]},
             )
+            return 0
+        if args.command == "compare-records":
+            from .collection_compare import compare_collection_profiles
+
+            _protect_collection_inputs([*args.inputs, args.basis], [args.out])
+            result = compare_collection_profiles(
+                [_load_object(path, label="collection profile") for path in args.inputs],
+                _load_object(args.basis, label="comparison basis"),
+            )
+            _emit(result, out=args.out, pretty=args.pretty,
+                  receipt={"comparison_sha256": result["comparison_sha256"]})
             return 0
         if args.command == "profile-tables":
             from .collection_ingest import import_collection_tables
