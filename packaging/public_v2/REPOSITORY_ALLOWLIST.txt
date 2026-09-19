@@ -6,6 +6,7 @@
 .github/pull_request_template.md
 .github/workflows/codeql.yml
 .github/workflows/pr.yml
+.github/workflows/publish-verified-rc3.yml
 .github/workflows/release.yml
 .gitignore
 .zenodo.json
@@ -63,6 +64,7 @@ docs/DATA_GOVERNANCE.md
 docs/DESIGN_STUDIO.md
 docs/EVALUATION.md
 docs/EVIDENCE_POLICY.md
+docs/FINITE_TASK_PRECISION_V1.md
 docs/FIRST_PRINCIPLES.md
 docs/HOW_TO_READ_ANIBENCH.md
 docs/INTAKE_AND_ADJUDICATION.md
@@ -81,6 +83,8 @@ examples/collection/assays.csv
 examples/collection/comparison-basis.json
 examples/collection/synthetic-record.json
 examples/collection/table-map.json
+examples/finite_tasks/synthetic-provenance.json
+examples/finite_tasks/synthetic-request.json
 examples/optimizer_protocol_v2_example.py
 examples/v2/illustrative-design.json
 examples/v2/illustrative-protocol-source.json
@@ -106,6 +110,8 @@ pyproject.toml
 schemas/collection/comparison-basis.schema.json
 schemas/collection/record.schema.json
 schemas/collection/table-map.schema.json
+schemas/finite_precision/v1/evaluation-input.schema.json
+schemas/finite_precision/v1/evaluation-result.schema.json
 schemas/v2/conditional-posterior-reference.schema.json
 schemas/v2/design-assessment.schema.json
 schemas/v2/design-input.schema.json
@@ -170,6 +176,7 @@ src/anibench/contracts/identifiers.py
 src/anibench/contracts_v2.py
 src/anibench/design_v2.py
 src/anibench/explorer.py
+src/anibench/finite_tasks_v1.py
 src/anibench/information_v2.py
 src/anibench/intake.py
 src/anibench/level1_assessment_v3.py
@@ -195,6 +202,8 @@ tests/test_eval_cli.py
 tests/test_eval_comparison.py
 tests/test_explorer.py
 tests/test_fetch_v2_external_sources.py
+tests/test_finite_task_cli.py
+tests/test_finite_tasks_v1.py
 tests/test_first_principles.py
 tests/test_installed_studio_e2e.py
 tests/test_level1_assessment_v3.py

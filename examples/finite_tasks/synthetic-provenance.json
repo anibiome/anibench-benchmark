@@ -1,0 +1,46 @@
+{
+  "contract": "anibench.synthetic-finite-task-provenance.v1",
+  "license": "CC-BY-4.0",
+  "copyright": "2026 ANI",
+  "source_kind": "synthetic_no_real_study",
+  "biological_calibration": false,
+  "domain_labels": "Illustrative required-domain labels only; no actual molecular or neural acquisition is asserted.",
+  "model": {
+    "description": "Invented two-coordinate linear Gaussian teaching example; no fitted biology or study data.",
+    "parameter_meaning": [
+      "synthetic coordinate A",
+      "synthetic coordinate B"
+    ],
+    "prior_precision": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "observation_operator": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "noise_covariance": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "independent_observation_count": 1
+  }
+}

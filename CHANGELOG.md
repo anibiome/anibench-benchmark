@@ -2,6 +2,15 @@
 
 All notable changes are recorded here. AniBench uses semantic versioning for the benchmark contract, not only the Python package.
 
+## Unreleased
+
+- Add `anibench finite-task` for frozen, unit-aware precision requirements under
+  declared Gaussian geometry. Required domain roles use noncompensatory
+  true/false/unknown support; prior precision is reported separately from acquired
+  variance reduction. No calibrated AniBench 1/2 target set is implied.
+- Repair research-release note retrieval and publish the already verified RC3
+  artifacts without changing the RC3 tag or its package bytes.
+
 ## 2.0.0-rc.3 - 2026-09-19
 
 - Replace the homepage table with a six-family research workbench, persistent

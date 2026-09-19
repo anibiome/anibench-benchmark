@@ -59,6 +59,7 @@ def _parser() -> argparse.ArgumentParser:
     comparison.add_argument("--pretty", action="store_true")
 
     for name, help_text in (
+        ("finite-task", "Evaluate a frozen finite precision task under declared geometry"),
         ("v2-information", "Replay fail-closed v2 absolute information mechanics"),
         ("v2-design", "Compile a typed trial-design receipt"),
         ("v2-protocol-capacity", "Compile separate protocol-capacity families"),
@@ -162,7 +163,7 @@ def _protect_collection_inputs(inputs: list[Path], outputs: list[Path]) -> None:
             if output.resolve() == source.resolve() or (
                 output.exists() and source.exists() and output.samefile(source)
             ):
-                raise ValueError("Collection outputs must be distinct from inputs and each other")
+                raise ValueError("Outputs must be distinct from inputs and each other")
         protected.append(output)
 
 
@@ -173,6 +174,15 @@ def main(argv: list[str] | None = None) -> int:
             from .studio import serve_studio
 
             serve_studio(args.host, args.port, unsafe_nonloopback=args.unsafe_nonloopback)
+            return 0
+        if args.command == "finite-task":
+            from .finite_tasks_v1 import evaluate_finite_task
+
+            _protect_collection_inputs([args.input], [args.out] if args.out is not None else [])
+            result = evaluate_finite_task(_load_object(args.input, label="finite-task request"))
+            _emit(result, out=args.out, pretty=args.pretty,
+                  receipt={"task_sha256": result["task_sha256"],
+                           "attainment": result["attainment"]})
             return 0
         if args.command == "profile":
             from .collection_v1 import profile_collection

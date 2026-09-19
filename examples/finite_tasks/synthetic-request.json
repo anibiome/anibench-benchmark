@@ -1,0 +1,89 @@
+{
+  "contract": "anibench.finite-task-request.v1",
+  "task": {
+    "contract": "anibench.finite-task-definition.v1",
+    "task_id": "synthetic-finite-precision-example",
+    "task_version": "1",
+    "source_sha256": "sha256:88d112b3ea53f5af88d2a819b0624e39325c430484fcb05a502cfaa6b856de79",
+    "model_sha256": "sha256:19e6d4b2de85d7f58532661297a34cf6c6be101cec32e951fc3a1f2fd4b57900",
+    "target_population": "Invented Gaussian population; not a clinical cohort",
+    "estimand": "Two invented coordinate values under the accompanying synthetic Gaussian model",
+    "horizon": "one modeled occasion",
+    "claim_lane": "conditional_design",
+    "comparison_scope": "finite_functionals_only",
+    "parameter_units": [
+      "unit A",
+      "unit B"
+    ],
+    "prior_precision": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "required_support": [
+      {
+        "domain_id": "molecular",
+        "role": "observation"
+      },
+      {
+        "domain_id": "neural",
+        "role": "observation"
+      }
+    ],
+    "functionals": [
+      {
+        "functional_id": "first",
+        "coefficients": [
+          1,
+          0
+        ],
+        "unit": "unit A",
+        "variance_limit": 0.5
+      },
+      {
+        "functional_id": "second",
+        "coefficients": [
+          0,
+          1
+        ],
+        "unit": "unit B",
+        "variance_limit": 0.5
+      }
+    ]
+  },
+  "task_sha256": "sha256:a7d42f51da6ef45d05903e50ca2ee02d57f2a009e8876b909721419232d8e31e",
+  "evidence": {
+    "identifiability": true,
+    "collection_verified": null,
+    "support": [
+      {
+        "domain_id": "molecular",
+        "role": "observation",
+        "supported": true
+      },
+      {
+        "domain_id": "neural",
+        "role": "observation",
+        "supported": true
+      }
+    ]
+  },
+  "geometry": {
+    "model_sha256": "sha256:19e6d4b2de85d7f58532661297a34cf6c6be101cec32e951fc3a1f2fd4b57900",
+    "information_matrix": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ]
+  }
+}

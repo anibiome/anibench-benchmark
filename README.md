@@ -132,6 +132,12 @@ This emits family-wise Pareto fronts and pairwise dominance, never a hidden
 weighted total. Caller-declared geometry is labeled a sandbox; mismatched code,
 Level-1 authority, geometry authority, or parameter-space source fails closed.
 
+Main also includes a [finite precision task evaluator](docs/FINITE_TASK_PRECISION_V1.md)
+with frozen functionals, units, required observation/perturbation roles, and
+explicit prior-only precision. This addition follows the RC3 tag and is not part
+of that immutable package. It provides a mechanism for future finite benchmark
+levels; the biological task set and precision thresholds remain uncalibrated.
+
 ## What makes AniBench different
 
 Sample size, visit count, assay count, and raw bytes are not interchangeable.

@@ -1,0 +1,54 @@
+name: Publish the verified RC3 bundle
+
+# Repair the RC3 upload without moving its immutable tag or rebuilding assets.
+# Only an explicit main-branch change to this file can trigger this narrow job.
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/publish-verified-rc3.yml]
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      RELEASE_TAG: v2.0.0-rc.3
+      SOURCE_SHA: 30e6b5ac432fdd3aec61ce803146018f59b840fb
+      SOURCE_RUN: '35454725626'
+    steps:
+      - name: Verify source identity and the successful build job
+        shell: bash
+        run: |
+          test "$GH_REPO" = anibiome/anibench-benchmark
+          test "$(gh api "repos/$GH_REPO/actions/runs/$SOURCE_RUN" --jq .head_sha)" = "$SOURCE_SHA"
+          test "$(gh api "repos/$GH_REPO/actions/runs/$SOURCE_RUN/jobs" --jq '.jobs[] | select(.name == "Build, test, inspect, and attest") | .conclusion')" = success
+          gh api "repos/$GH_REPO/git/ref/tags/$RELEASE_TAG" > tag-ref.json
+          test "$(jq -r .object.type tag-ref.json)" = tag
+          TAG_OBJECT=$(jq -r .object.sha tag-ref.json)
+          gh api "repos/$GH_REPO/git/tags/$TAG_OBJECT" > tag.json
+          test "$(jq -r .object.sha tag.json)" = "$SOURCE_SHA"
+          jq -r .message tag.json > release-notes.md
+      - name: Download only the already verified RC3 artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: anibench-v2.0.0-rc.3
+          run-id: 35454725626
+          github-token: ${{ github.token }}
+          path: dist
+      - name: Verify the exact artifact checksums
+        working-directory: dist
+        run: sha256sum --check SHA256SUMS
+      - name: Publish the verified research prerelease without replacing assets
+        run: >-
+          gh release create "$RELEASE_TAG"
+          dist/*.whl dist/*.tar.gz dist/INSTALLED_STUDIO_E2E_RECEIPT.json
+          dist/SHA256SUMS dist/anibench.spdx.json
+          dist/AniBench.pdf dist/anibench-paper-replay.zip
+          --verify-tag --prerelease --latest=false
+          --title "AniBench $RELEASE_TAG — research candidate"
+          --notes-file release-notes.md
