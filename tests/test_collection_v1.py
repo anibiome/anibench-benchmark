@@ -193,3 +193,17 @@ def test_reusable_target_sets_fail_closed(failure):
         manifest["target_sets"].append(deepcopy(manifest["target_sets"][0]))
     with pytest.raises(CollectionError):
         profile_collection(manifest)
+
+
+def test_public_browser_example_replays_the_collection_table_inputs():
+    from anibench.collection_ingest import import_collection_tables
+
+    mapping_path = ROOT / "examples/collection/table-map.json"
+    manifest, _ = import_collection_tables(json.loads(mapping_path.read_text()), base=mapping_path.parent)
+    generated = profile_collection(manifest)
+    published = json.loads((ROOT / "web/collection-example.json").read_text())
+    # The static example retains the versions used to create it; environments
+    # can use newer compatible dependencies without changing native quantities.
+    for value in (generated, published):
+        del value["implementation"], value["profile_sha256"]
+    assert generated == published

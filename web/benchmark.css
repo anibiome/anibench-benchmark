@@ -858,3 +858,132 @@ details code {
 .run-main {
   min-width: 0;
 }
+
+.receipt-workspace {
+  border: 1px solid var(--line);
+  padding: 28px;
+  margin-bottom: 44px;
+}
+.receipt-workspace > p {
+  max-width: 800px;
+  color: var(--muted);
+}
+.receipt-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 22px 0;
+}
+.receipt-controls button,
+.receipt-file-label {
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.receipt-file-label {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--blue);
+}
+.receipt-file-label input {
+  max-width: 220px;
+  font-size: 12px;
+}
+#receipt-view {
+  border-top: 1px solid var(--line);
+  padding-top: 28px;
+  margin-top: 24px;
+}
+#receipt-view h2 {
+  overflow-wrap: anywhere;
+}
+.receipt-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 28px 0;
+}
+.receipt-stats dt {
+  color: var(--muted);
+  font-size: 12px;
+}
+.receipt-stats dd {
+  font-size: 27px;
+  font-weight: 600;
+  margin: 6px 0;
+}
+.receipt-stats small {
+  color: var(--muted);
+  font-size: 11px;
+}
+.receipt-unit {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 4px;
+}
+.coverage-track {
+  display: block;
+  width: 130px;
+  height: 5px;
+  margin-top: 10px;
+}
+.coverage-track rect:first-child {
+  fill: var(--blue-wash);
+}
+.coverage-track rect:last-child {
+  fill: var(--blue);
+}
+.receipt-details {
+  border-top: 1px solid var(--line);
+  padding: 22px 0;
+  margin-top: 20px;
+}
+.receipt-details summary {
+  cursor: pointer;
+  font-weight: 500;
+}
+.receipt-details p {
+  color: var(--muted);
+  font-size: 13px;
+}
+.receipt-hash {
+  display: block;
+  overflow-wrap: anywhere;
+  margin: 10px 0;
+  font-size: 11px;
+}
+.receipt-details select {
+  max-width: 100%;
+  border: 1px solid var(--line);
+  padding: 8px;
+  background: white;
+  margin: 10px 0;
+}
+#receipt-view td {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 760px) {
+  .receipt-workspace {
+    padding: 20px 16px;
+  }
+  .receipt-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 15px;
+  }
+  .receipt-stats dd {
+    font-size: 22px;
+  }
+  .receipt-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .receipt-workspace .table-scroll {
+    max-width: 100%;
+  }
+}

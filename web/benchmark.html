@@ -11,6 +11,7 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="benchmark.css" />
     <script src="benchmark.js" defer></script>
+    <script src="collection-viewer.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -284,6 +285,41 @@
             Run locally, inspect the code, and keep participant records private.
           </p>
         </div>
+        <section class="receipt-workspace" aria-labelledby="receipt-heading">
+          <div class="surface-heading">
+            <div>
+              <p class="eyebrow">EXPLORE YOUR RESULT</p>
+              <h2 id="receipt-heading">Turn a receipt into a study profile.</h2>
+            </div>
+          </div>
+          <p>
+            Open an aggregate JSON output from <code>profile</code>,
+            <code>profile-tables</code>, or <code>compare-records</code>. Files
+            are read in your browser; their contents are never uploaded by this
+            page. Keep raw participant files in your governed workspace.
+          </p>
+          <div class="receipt-controls">
+            <label class="receipt-file-label" for="receipt-file"
+              >Open an aggregate receipt<input
+                id="receipt-file"
+                type="file"
+                accept=".json,application/json" /></label
+            ><button id="demo-receipt" type="button">
+              Try the synthetic example</button
+            ><button id="clear-receipt" type="button" hidden>
+              Clear receipt
+            </button>
+          </div>
+          <p
+            id="receipt-status"
+            class="table-note"
+            role="status"
+            aria-live="polite"
+          >
+            New to AniBench? Try the example, then follow the four steps below.
+          </p>
+          <div id="receipt-view" hidden></div>
+        </section>
         <div class="run-layout">
           <div class="run-main">
             <section class="run-step">

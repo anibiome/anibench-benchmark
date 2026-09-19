@@ -1,0 +1,129 @@
+{
+  "acquisition_audit": {
+    "identical_repeated_rows_removed": 0,
+    "quality_status_counts": {
+      "fail": 0,
+      "pass": 3,
+      "planned": 0,
+      "unknown": 1
+    },
+    "submitted_rows": 4,
+    "unique_lineages": 4
+  },
+  "assumptions": [
+    "The submitted roster defines the denominator, including people with no accepted measurements.",
+    "Elapsed times and linkage are source declarations, not independently verified identities.",
+    "Targets are counted within registered modules; counts are not summed across different units.",
+    "An accepted target is recorded availability; biological information and treatment benefit are not estimated.",
+    "Dated event aliases at identical participant/time coordinates do not add coverage.",
+    "Temporal linkage retains the declared time resolution; a shared day is not exact simultaneity.",
+    "No time-window matching, imputation, or independence assumption is introduced.",
+    "Quantiles use linear interpolation; they summarize this roster, not sampling uncertainty.",
+    "Aggregate output is not automatically safe to publish, especially for small cohorts."
+  ],
+  "biological_information": {
+    "reason": "requires_target_observation_and_noise_model",
+    "state": "not_estimated"
+  },
+  "coverage_interpretation": "lower_bound",
+  "domain_coverage": [
+    {
+      "domain": "molecular",
+      "participants": 2,
+      "roster_denominator": 3
+    }
+  ],
+  "implementation": {
+    "engine": "anibench.collection-record.v1",
+    "jsonschema_version": "4.26.0",
+    "module_sha256": "bde1737010230bf30f623a153408504a31987d2ca4bc289ae7d4699036ca335b",
+    "numpy_version": "2.5.1",
+    "schema_sha256": "69593db83ea9d9021c9dde0b8360f611068227a277caacf752443f88e687fee8"
+  },
+  "inventory_status": "partial",
+  "joint_coverage": [],
+  "longitudinal": {
+    "adjacent_intervals_days": {
+      "max": 28.0,
+      "median": 28.0,
+      "min": 28.0,
+      "n": 1,
+      "p10": 28.0,
+      "p90": 28.0
+    },
+    "distinct_known_times_per_participant": {
+      "max": 2.0,
+      "median": 1.0,
+      "min": 0.0,
+      "n": 3,
+      "p10": 0.2,
+      "p90": 1.8
+    },
+    "events_with_unknown_time": 0,
+    "interval_weighting": "one_weight_per_interval_not_per_person",
+    "observed_events_per_participant": {
+      "max": 2.0,
+      "median": 1.0,
+      "min": 0.0,
+      "n": 3,
+      "p10": 0.2,
+      "p90": 1.8
+    },
+    "span_days_among_repeated_participants": {
+      "max": 28.0,
+      "median": 28.0,
+      "min": 28.0,
+      "n": 1,
+      "p10": 28.0,
+      "p90": 28.0
+    },
+    "summary_scope": "conditional_on_observed_dated_events_not_a_bound_on_unobserved_followup",
+    "time_semantics": "elapsed_days_from_each_participant_origin"
+  },
+  "manifest_sha256": "sha256:821e7a5227a017b9ef5d55a5628218843f4d296924c58e6abf22646d325248d1",
+  "modules": [
+    {
+      "count_semantics": "distinct_registered_targets_not_independent_biological_dimensions",
+      "domain": "molecular",
+      "module_id": "proteomics",
+      "observed_target_count": 2,
+      "participant_events_with_accepted_targets": 3,
+      "people_with_accepted_targets": 2,
+      "registered_target_count": 2,
+      "roster_denominator": 3,
+      "target_definition_id": "synthetic-protein-targets-v1",
+      "target_observations": 6,
+      "target_unit": "proteins",
+      "targets_per_observed_event": {
+        "max": 2.0,
+        "median": 2.0,
+        "min": 2.0,
+        "n": 3,
+        "p10": 2.0,
+        "p90": 2.0
+      },
+      "targets_per_participant": {
+        "max": 2.0,
+        "median": 2.0,
+        "min": 0.0,
+        "n": 3,
+        "p10": 0.4,
+        "p90": 2.0
+      }
+    }
+  ],
+  "overall_score": null,
+  "population": {
+    "participants_with_accepted_targets": 2,
+    "participants_with_two_or_more_times": 1,
+    "roster_participants": 3
+  },
+  "profile_sha256": "sha256:935165089564a7bba697f2cb1ffb689484d98e1d488ba496a5c3c9ace7dde4a1",
+  "record_basis": "collected",
+  "schema_version": "anibench.collection-profile.v1",
+  "source_sha256": [
+    "409285ff5e6c21e54af432bc49234fa883ae57036323a42aea75aa4a9580585e"
+  ],
+  "study_id": "synthetic-collection-example",
+  "time_resolution_days": 1
+}

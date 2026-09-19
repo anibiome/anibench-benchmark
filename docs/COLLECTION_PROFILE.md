@@ -150,3 +150,18 @@ For repeated wide assays, a record can declare reusable `target_sets`, each with
 set belongs to the acquisition's module and contains only registered targets.
 This lossless representation avoids repeating thousands of target names per
 sample; it changes neither coverage nor lineage counts. It is not downsampling.
+
+## View a local receipt
+
+Start `anibench studio`, open `http://127.0.0.1:8765/benchmark.html#run`, and
+choose the aggregate JSON produced by either collection command. The viewer
+shows the full roster, accepted coverage, native target depth, conditional
+follow-up and pairwise measurement linkage. It also reads `compare-records`
+receipts with evidence bounds and possible ranks.
+
+File contents are read in browser memory, with no upload, persistent storage or
+analytics. Clear the receipt to remove the view. Raw participant manifests are
+rejected. This is a viewer of supplied results, not independent source or hash
+verification; reproduce the receipt with the Python commands before making a
+public claim. The built-in example is generated from the shipped synthetic
+tables and checked against the Python profiler in the test suite.

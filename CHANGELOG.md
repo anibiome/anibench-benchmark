@@ -4,6 +4,10 @@ All notable changes are recorded here. AniBench uses semantic versioning for the
 
 ## Unreleased
 
+- Add a local browser receipt viewer with collection charts, linked-measurement
+  coverage, native-category rank ranges and a reproducible synthetic example.
+  File contents opened in the browser are not transmitted or persisted by the page.
+
 - Add `anibench compare-records`: versioned native-metric cards, shared-basis
   checks, source-bound receipts, exact ties, missing-data bounds, and possible
   competition ranks. Preserve the canonical geometry/Pareto comparator.

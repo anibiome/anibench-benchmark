@@ -64,6 +64,9 @@ study atlas and benchmark workspace. Search source records, inspect publication
 facts and their exact provenance, select studies side by side, evaluate a
 protocol, or compare canonical eval receipts with charts in native units.
 The existing Trial Designer remains at the root URL.
+The **Run AniBench** page at `/benchmark.html#run` opens aggregate collection
+profiles and native-metric comparison receipts as charts. File contents remain
+in the browser; this viewer does not upload, persist, or certify them.
 
 The atlas contains 16 study records; their complete capacity geometry is still
 unresolved. Its descriptive source plots are not a biological leaderboard.

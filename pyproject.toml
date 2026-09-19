@@ -99,6 +99,8 @@ exclude = [
 packages = ["src/anibench"]
 
 [tool.hatch.build.targets.wheel.force-include]
+"web/collection-viewer.js" = "anibench/web/collection-viewer.js"
+"web/collection-example.json" = "anibench/web/collection-example.json"
 "schemas/collection/comparison-basis.schema.json" = "anibench/schemas/collection/comparison-basis.schema.json"
 "web/benchmark.html" = "anibench/web/benchmark.html"
 "web/benchmark.css" = "anibench/web/benchmark.css"
@@ -174,6 +176,9 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/web/collection-viewer.js",
+  "/web/collection-example.json",
+  "/web/collection-viewer.test.js",
   "/schemas/collection/comparison-basis.schema.json",
   "/examples/collection/comparison-basis.json",
   "/tests/test_collection_compare.py",

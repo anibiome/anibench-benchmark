@@ -205,6 +205,9 @@ web/benchmark.css
 web/benchmark.html
 web/benchmark.js
 web/benchmark.test.js
+web/collection-example.json
+web/collection-viewer.js
+web/collection-viewer.test.js
 web/explore.css
 web/explore.html
 web/explore.js
