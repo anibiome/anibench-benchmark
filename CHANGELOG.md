@@ -4,6 +4,9 @@ All notable changes are recorded here. AniBench uses semantic versioning for the
 
 ## Unreleased
 
+- Add a conditional ERP design planner with exact shared-parameter feasibility,
+  explicit unknown targets and bounded resource frontiers. Individually possible
+  precision targets cannot pass when their shared assumptions contradict.
 - Add a reproducible aggregate ERP CORE measurement-precision example with
   pinned sources, explicit within-session assumptions and separately licensed
   source-derived reports. No biological attainment cutoff is introduced.

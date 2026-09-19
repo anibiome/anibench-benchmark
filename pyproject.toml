@@ -196,7 +196,12 @@ include = [
   "/examples/calibration/erp_core/design-sensitivity.json",
   "/examples/calibration/erp_core/DESIGN_SENSITIVITY.md",
   "/examples/calibration/erp_core/DESIGN_TABLE.md",
+  "/examples/calibration/erp_core/DESIGN_PLANNER.md",
+  "/examples/calibration/erp_core/plan_design.py",
+  "/examples/calibration/erp_core/illustrative-plan.json",
+  "/examples/calibration/erp_core/illustrative-plan-results.json",
   "/tests/test_erp_calibration_recipe.py",
+  "/tests/test_erp_design_planner.py",
   "/tests/test_erp_design_sensitivity.py",
   "/LICENSES/CC-BY-SA-4.0.txt",
 

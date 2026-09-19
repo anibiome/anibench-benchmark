@@ -1,0 +1,15 @@
+{
+  "schema_version": "anibench.erp-design-request.v1",
+  "target_status": "illustrative",
+  "target_rationale": "Invented variance ceilings for demonstrating joint constraints and resource tradeoffs. These are not biological minimum resolutions, clinical targets or AniBench 1/2 thresholds.",
+  "variance_limits_uV2": {
+    "current_session": 1.5,
+    "persistent_person": 1.0,
+    "population_mean": 0.04
+  },
+  "grid": {
+    "N": [2, 20, 40, 100, 250, 500, 2000],
+    "k": [1, 2, 4, 8, 12],
+    "d": [1, 4, 16]
+  }
+}

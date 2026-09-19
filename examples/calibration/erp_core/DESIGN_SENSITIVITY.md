@@ -8,6 +8,10 @@ This is a conditional sensitivity calculation for the ERP CORE P3 rare-minus-fre
 
 See all [27 tabulated scenarios](DESIGN_TABLE.md).
 
+To search a grid against explicit precision ceilings, use the
+[conditional design planner](DESIGN_PLANNER.md). It checks that all targets
+can hold under the same person/session variance split.
+
 ## Source and assumption
 
 Source-derived report, table and figures are adaptations under **CC BY-SA 4.0**, attributed to **ERP CORE** and the authors of the [primary SME paper](https://doi.org/10.1111/psyp.14264). Original recording/contrast settings and aggregate provenance are documented in the [calibration report](REPORT.md). The OSF CC BY versus official project/bundled CC BY-SA discrepancy is retained; this artifact uses the more restrictive share-alike attribution. [The generated JSON](design-sensitivity.json) binds the exact aggregate input and executable by SHA-256, and carries the upstream source hashes. It uses a generic source filename and contains no input path.

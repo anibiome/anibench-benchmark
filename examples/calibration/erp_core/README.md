@@ -23,6 +23,12 @@ visits. Its chart preserves the unknown split between persistent-person and
 visit variability. Those ranges are conditional identification bounds, not
 confidence intervals. The example requires matplotlib for plotting.
 
+The [conditional design planner](DESIGN_PLANNER.md) checks a user-declared grid
+against three explicit precision ceilings. It intersects constraints on the
+same unknown person/session split, rather than independently choosing a
+favorable split for each task. Its supplied targets are illustrative and do
+not certify a biological benchmark level.
+
 ## License boundary
 
 Original `analyze_erp.py` and the synthetic tests are licensed Apache-2.0: https://www.apache.org/licenses/LICENSE-2.0 . Copyright 2026 AniBench contributors.

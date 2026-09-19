@@ -9,6 +9,11 @@ now recomputes one conditional within-session neural measurement error from
 public derived files. Its source records remain outside the repository. It
 does not supply repeat-session calibration or a biological precision threshold.
 
+Its [conditional design planner](../examples/calibration/erp_core/DESIGN_PLANNER.md)
+demonstrates how declared precision limits produce a bounded design frontier.
+All task constraints must share the same variance assumptions. Illustrative
+limits in that example are not candidate-level biological thresholds.
+
 ## Shared scope
 
 AB1 proposes one named ambulatory adult 18–65 catchment and a 14-day observation block. These boundaries are policy starting points, not empirical minima. People must have linked observations across tasks for cross-domain claims. Meal, exertion, immune draws and neural probes must be scheduled to avoid unmodeled interference; validated recovery/washout is a prerequisite to a final protocol, not guessed here. Task eligibility and resulting population exclusions remain visible.

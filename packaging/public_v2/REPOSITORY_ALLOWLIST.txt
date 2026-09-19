@@ -85,6 +85,7 @@ docs/V2_METHODS_CANDIDATE.md
 docs/V2_OPTIMIZER.md
 docs/audits/CTGOV_50_TRIAL_STRESS_TEST_2026-07-14.json
 evals/level1/eval-card.json
+examples/calibration/erp_core/DESIGN_PLANNER.md
 examples/calibration/erp_core/DESIGN_SENSITIVITY.md
 examples/calibration/erp_core/DESIGN_TABLE.md
 examples/calibration/erp_core/README.md
@@ -93,6 +94,9 @@ examples/calibration/erp_core/aggregate_results.json
 examples/calibration/erp_core/analyze_erp.py
 examples/calibration/erp_core/design-sensitivity.json
 examples/calibration/erp_core/design_sensitivity.py
+examples/calibration/erp_core/illustrative-plan-results.json
+examples/calibration/erp_core/illustrative-plan.json
+examples/calibration/erp_core/plan_design.py
 examples/calibration/erp_core/sensitivity.png
 examples/calibration/erp_core/source_manifest.json
 examples/collection/assays.csv
@@ -221,6 +225,7 @@ tests/test_ctgov_50_stress_test.py
 tests/test_depth_population_tradeoff.py
 tests/test_distribution_boundary.py
 tests/test_erp_calibration_recipe.py
+tests/test_erp_design_planner.py
 tests/test_erp_design_sensitivity.py
 tests/test_eval_cli.py
 tests/test_eval_comparison.py
