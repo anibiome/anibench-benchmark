@@ -245,15 +245,43 @@ const AniBenchRegistryArchitecture = (() => {
         "",
       )}</select></label><div data-registry-result aria-live="polite">${content(packet, lifecycle, filters)}</div><p>Neither axis is a biological-capacity or quality score. The publication and ethics filters above apply here too: all records are registry sources with unknown approval. The enrollment selector further separates their lifecycle. Registry reporting does not establish ethics approval.</p><details><summary>Selection and reproducibility</summary><p>${escape(packet.selection_rule)} Frozen ${escape(packet.selection_frozen_at)}. ${escape(packet.snapshot_freshness)}</p><p>Manifest SHA-256 <code>${escape(packet.snapshot_manifest_sha256)}</code></p><p>From a repository checkout:</p><pre><code>cd examples/registry_architecture\npython replay.py --out reproduced</code></pre><p>With exact frozen snapshots, add <code>--snapshot-cache /path/to/frozen-snapshots</code>; without them this replays supplied aggregates, not fresh raw-source verification.</p><a href="https://github.com/anibiome/anibench-benchmark/tree/main/examples/registry_architecture">Adapter, rules and runnable source package</a> · <a href="registry-architecture-data.json" download>Download exact input facts</a></details></article>`;
   }
-  async function mount() {
-    const root = document.getElementById("registry-architecture");
+  function lifecycleFromURL(href) {
+    const value = new URL(href).searchParams.get("registry_lifecycle");
+    return Object.hasOwn(labels, value) ? value : "collected";
+  }
+  function bindLifecycle(control, environment, refresh) {
+    const restore = () => {
+      control.value = lifecycleFromURL(environment.location.href);
+      refresh();
+    };
+    control.addEventListener("change", () => {
+      const url = new URL(environment.location.href);
+      const value = Object.hasOwn(labels, control.value)
+        ? control.value
+        : "collected";
+      control.value = value;
+      if (value === "collected") url.searchParams.delete("registry_lifecycle");
+      else url.searchParams.set("registry_lifecycle", value);
+      environment.history.pushState(null, "", url);
+      refresh();
+    });
+    environment.addEventListener("popstate", restore);
+    restore();
+  }
+  async function mount(doc = document, environment = window, fetcher = fetch) {
+    const root = doc.getElementById("registry-architecture");
     if (!root) return;
+    root.innerHTML = '<p role="status">Loading frozen registry comparison…</p>';
     try {
-      const response = await fetch("registry-architecture-data.json");
+      const response = await fetcher("registry-architecture-data.json");
       if (!response.ok) throw Error("Unavailable");
       const packet = validate(await response.json());
-      let filters = evidenceFilters(window.location.href);
-      root.innerHTML = render(packet, "collected", filters);
+      let filters = evidenceFilters(environment.location.href);
+      root.innerHTML = render(
+        packet,
+        lifecycleFromURL(environment.location.href),
+        filters,
+      );
       const refresh = () => {
         root.querySelector("[data-registry-result]").innerHTML = content(
           packet,
@@ -261,16 +289,23 @@ const AniBenchRegistryArchitecture = (() => {
           filters,
         );
       };
-      root
-        .querySelector("[data-registry-lifecycle]")
-        .addEventListener("change", refresh);
-      bindEvidence(document, window, (value) => {
+      bindLifecycle(
+        root.querySelector("[data-registry-lifecycle]"),
+        environment,
+        refresh,
+      );
+      bindEvidence(doc, environment, (value) => {
         filters = value;
         refresh();
       });
     } catch {
       root.innerHTML =
-        '<p role="status">Registry comparison unavailable. Other charts remain available. <a href="https://github.com/anibiome/anibench-benchmark/tree/main/examples/registry_architecture">Open the reproducible source example</a>.</p>';
+        '<p role="status">Registry comparison unavailable. Other charts remain available. <button type="button" data-registry-retry>Retry registry chart</button> <a href="https://github.com/anibiome/anibench-benchmark/tree/main/examples/registry_architecture">Open the reproducible source example</a>.</p>';
+      root
+        .querySelector("[data-registry-retry]")
+        .addEventListener("click", () => mount(doc, environment, fetcher), {
+          once: true,
+        });
     }
   }
   return {
@@ -283,6 +318,8 @@ const AniBenchRegistryArchitecture = (() => {
     evidenceFilters,
     eligible,
     bindEvidence,
+    lifecycleFromURL,
+    bindLifecycle,
     mount,
   };
 })();
