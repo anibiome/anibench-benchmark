@@ -1,0 +1,55 @@
+.registry-panel {
+  max-width: 940px;
+}
+.registry-panel svg {
+  display: block;
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  margin: 12px auto;
+  overflow: visible;
+}
+.registry-panel svg text {
+  font:
+    12px system-ui,
+    sans-serif;
+  fill: currentColor;
+}
+.registry-grid {
+  stroke: #cbd5dc;
+  stroke-width: 1;
+}
+.registry-point {
+  fill: #176f80;
+  fill-opacity: 0.55;
+  stroke: #176f80;
+  stroke-width: 0.8;
+}
+.registry-panel label {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.registry-panel select {
+  font: inherit;
+  max-width: 100%;
+  padding: 8px;
+}
+.registry-panel code {
+  overflow-wrap: anywhere;
+}
+.registry-panel td details {
+  min-width: 180px;
+}
+.registry-panel details {
+  margin-top: 12px;
+}
+@media (max-width: 600px) {
+  .registry-panel svg text {
+    font-size: 18px;
+  }
+  .registry-panel {
+    padding: 14px;
+  }
+}

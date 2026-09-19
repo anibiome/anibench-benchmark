@@ -123,6 +123,10 @@ ALLOWED_SOURCE_ATLAS_FILENAMES = frozenset(
 
 ALLOWED_WEB_FILENAMES = frozenset(
     {
+        "registry-architecture.js",
+        "registry-architecture.css",
+        "registry-architecture-data.json",
+        "registry-architecture.test.js",
         "broad-reference.js",
         "broad-reference.css",
         "broad-reference-data.json",

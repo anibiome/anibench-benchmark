@@ -22,6 +22,9 @@ All notable changes are recorded here. AniBench uses semantic versioning for the
   of a requested display quantile grid.
 
 
+- Add a visible registry enrollment/group scatter with actual, estimated and unknown lifecycles, shared publication/ethics filtering, and exact source rows.
+- Clarify how collection and geometry CLI outputs open in their respective local chart workspaces.
+
 ## 2.0.0-rc.4 - 2026-09-19
 
 - Add a conditional ERP design planner with exact shared-parameter feasibility,

@@ -362,6 +362,10 @@ web/explore.test.js
 web/favicon.svg
 web/optimizer-protocol-example.json
 web/protocol-capacity-example.json
+web/registry-architecture-data.json
+web/registry-architecture.css
+web/registry-architecture.js
+web/registry-architecture.test.js
 web/release-chart-provenance.json
 web/release-chart-receipts.json
 web/release-charts.css

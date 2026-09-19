@@ -60,7 +60,7 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: "22"
-      - run: node --test web/v2.test.js web/explore.test.js web/benchmark.test.js web/release-charts.test.js web/collection-viewer.test.js web/broad-reference.test.js
+      - run: node --test web/v2.test.js web/explore.test.js web/benchmark.test.js web/release-charts.test.js web/collection-viewer.test.js web/broad-reference.test.js web/registry-architecture.test.js
 
   public-boundary:
     name: Fresh-history public export
@@ -106,7 +106,7 @@ jobs:
           python -m pip install -e '.[dev,paper]'
           reuse lint
           python -m pytest -q
-          node --test web/v2.test.js web/explore.test.js web/benchmark.test.js web/release-charts.test.js web/collection-viewer.test.js web/broad-reference.test.js
+          node --test web/v2.test.js web/explore.test.js web/benchmark.test.js web/release-charts.test.js web/collection-viewer.test.js web/broad-reference.test.js web/registry-architecture.test.js
       - name: Build and inspect public distributions
         working-directory: /tmp/anibench-public
         run: |

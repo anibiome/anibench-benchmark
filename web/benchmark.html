@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="benchmark.css" />
     <link rel="stylesheet" href="release-charts.css" />
     <link rel="stylesheet" href="broad-reference.css" />
+    <link rel="stylesheet" href="registry-architecture.css" />
     <script src="benchmark.js" defer></script>
     <script src="release-charts.js" defer></script>
     <script src="broad-reference.js" defer></script>
+    <script src="registry-architecture.js" defer></script>
     <script src="collection-viewer.js" defer></script>
   </head>
   <body>
@@ -89,6 +91,7 @@
             measurement definitions stay visible beside each point.
           </p>
         </section>
+        <section id="registry-architecture" class="results-section" aria-label="Frozen registry study descriptors"><p role="status">Loading frozen registry comparison…</p></section>
         <section id="broad-reference" class="results-section" aria-label="Synthetic reference candidate"><p role="status">Loading synthetic reference examples…</p></section>
         <section id="temporal-design" class="results-section" aria-labelledby="temporal-heading">
           <div class="section-heading"><div>
@@ -540,6 +543,10 @@ python -m pip install -e .</code></pre>
               </p>
               <pre><code>anibench profile-tables examples/collection/table-map.json \
   --out build/collection.json --pretty</code></pre>
+              <p>Then choose <strong>Open an aggregate receipt</strong> above and
+                select <code>build/collection.json</code> to see coverage and
+                linked-measurement charts.</p>
+              <a class="text-link" href="#receipt-heading">Open your collection result ↑</a>
               <div class="example-readout">
                 <p class="eyebrow">EXPECTED OUTPUT · SYNTHETIC DATA</p>
                 <dl>
@@ -584,7 +591,13 @@ python -m pip install -e .</code></pre>
   --out build/design.json --pretty</code></pre>
               <p>
                 For a local interface, run <code>anibench studio</code> and open
-                <code>http://127.0.0.1:8765/explore.html</code>.
+                <code>http://127.0.0.1:8765/explore.html#workspace</code>. Choose
+                <strong>Evaluate study geometry JSON</strong> and select
+                <code>web/protocol-capacity-example.json</code> to inspect the
+                six families. To compare designs, select two compatible
+                <code>eval</code> outputs with <strong>Compare eval receipts</strong>.
+                Geometry outputs use this workspace; the viewer above opens
+                collection profiles and collection comparisons.
               </p>
               <a
                 class="text-link"
@@ -603,6 +616,8 @@ python -m pip install -e .</code></pre>
               <pre><code>anibench compare-records study-a.json study-b.json \
   --basis comparison-basis.json \
   --out comparison.json --pretty</code></pre>
+              <p>Open <code>comparison.json</code> with the aggregate-receipt
+                viewer above to inspect category values and rank bounds.</p>
               <p>
                 <a
                   class="text-link"

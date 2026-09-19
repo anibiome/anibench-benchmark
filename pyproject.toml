@@ -258,8 +258,18 @@ packages = ["src/anibench"]
 "examples/paper_charts/metadata.json" = "anibench/examples/paper_charts/metadata.json"
 "examples/paper_charts/plot_paper_plates.py" = "anibench/examples/paper_charts/plot_paper_plates.py"
 
+"web/registry-architecture.js" = "anibench/web/registry-architecture.js"
+"web/registry-architecture.css" = "anibench/web/registry-architecture.css"
+"web/registry-architecture-data.json" = "anibench/web/registry-architecture-data.json"
+"web/registry-architecture.test.js" = "anibench/web/registry-architecture.test.js"
+
 [tool.hatch.build.targets.sdist]
 include = [
+  "/web/registry-architecture.js",
+  "/web/registry-architecture.css",
+  "/web/registry-architecture-data.json",
+  "/web/registry-architecture.test.js",
+
   "/examples/paper_charts/01-population.png",
   "/examples/paper_charts/01-population.svg",
   "/examples/paper_charts/02-coverage.png",
