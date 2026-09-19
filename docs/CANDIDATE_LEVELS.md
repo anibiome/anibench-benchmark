@@ -1,8 +1,13 @@
 # Candidate AniBench 1 and AniBench 2 finite collection-capacity suites
 
-**Public discussion proposal, not a calibrated or normative target.** This does not replace the canonical six-family evaluator or its role-aware coordinate authority. The machine-readable counterpart is [discussion-v0.1.json](../spec/candidate_levels/discussion-v0.1.json). AB1 is a six-task linked panel of accessible biological states and responses. Core AB2 retains those tasks at finer registered precision and extends cell/spatial/time/context resolution. A separately named optional extension addresses controlled cortical perturbation. It is not a definition of complete human biology. No native-unit biological precision thresholds have been fabricated, no participant data were downloaded, and no calibrated biological level is claimed.
+**Public discussion proposal, not a calibrated or normative target.** This does not replace the canonical six-family evaluator or its role-aware coordinate authority. The machine-readable counterpart is [discussion-v0.1.json](../spec/candidate_levels/discussion-v0.1.json). AB1 is a six-task linked panel of accessible biological states and responses. Core AB2 retains those tasks at finer registered precision and extends cell/spatial/time/context resolution. A separately named optional extension addresses controlled cortical perturbation. It is not a definition of complete human biology. No native-unit biological precision threshold or calibrated biological level is claimed.
 
 The primary literature supports the relevance and measurable nature of the selected quantities. It does not endorse this task set, these particular cross-domain correlations, the coverage policy, or AB2's level boundary. Age, time, task and target choices below remain explicit policy proposals.
+
+The subsequent [ERP CORE example](../examples/calibration/erp_core/README.md)
+now recomputes one conditional within-session neural measurement error from
+public derived files. Its source records remain outside the repository. It
+does not supply repeat-session calibration or a biological precision threshold.
 
 ## Shared scope
 

@@ -21,6 +21,7 @@ LICENSE
 LICENSE-DATA
 LICENSES/Apache-2.0.txt
 LICENSES/CC-BY-4.0.txt
+LICENSES/CC-BY-SA-4.0.txt
 Makefile
 README.md
 REUSE.toml
@@ -84,6 +85,16 @@ docs/V2_METHODS_CANDIDATE.md
 docs/V2_OPTIMIZER.md
 docs/audits/CTGOV_50_TRIAL_STRESS_TEST_2026-07-14.json
 evals/level1/eval-card.json
+examples/calibration/erp_core/DESIGN_SENSITIVITY.md
+examples/calibration/erp_core/DESIGN_TABLE.md
+examples/calibration/erp_core/README.md
+examples/calibration/erp_core/REPORT.md
+examples/calibration/erp_core/aggregate_results.json
+examples/calibration/erp_core/analyze_erp.py
+examples/calibration/erp_core/design-sensitivity.json
+examples/calibration/erp_core/design_sensitivity.py
+examples/calibration/erp_core/sensitivity.png
+examples/calibration/erp_core/source_manifest.json
 examples/collection/assays.csv
 examples/collection/comparison-basis.json
 examples/collection/synthetic-record.json
@@ -209,6 +220,8 @@ tests/test_council_protocol_adversaries.py
 tests/test_ctgov_50_stress_test.py
 tests/test_depth_population_tradeoff.py
 tests/test_distribution_boundary.py
+tests/test_erp_calibration_recipe.py
+tests/test_erp_design_sensitivity.py
 tests/test_eval_cli.py
 tests/test_eval_comparison.py
 tests/test_explorer.py

@@ -1,6 +1,11 @@
 AniBench-authored benchmark manifests, tables, documentation, and figures are
-licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).
+licensed under Creative Commons Attribution 4.0 International (CC BY 4.0),
+except where a file or REUSE.toml explicitly states a different license.
+
+The source-derived reports, manifests, aggregate results and figures in
+examples/calibration/erp_core/ use CC BY-SA 4.0. See that directory's README
+for attribution, modifications and the retained upstream-license discrepancy.
+Original analysis code and synthetic tests use Apache-2.0.
 
 Upstream publications and datasets remain under their original licenses. A
 source citation in AniBench is not a relicensing of the cited work or data.
-

@@ -1,0 +1,140 @@
+{
+  "analytic_contrast_SME_RMS_uV": 2.420626134371423,
+  "analytic_contrast_variance_mean_uV2": 5.859430882401938,
+  "analytic_parent_SME_RMS_uV": [
+    2.23455789718643,
+    0.9306889311277393
+  ],
+  "analytic_vs_bootstrap_parent_relative_difference_max": 0.12173131904490632,
+  "analytic_vs_bootstrap_parent_relative_difference_median": 0.02235378388956491,
+  "attribution": "ERP CORE by Emily S. Kappenman and Steven J. Luck; Kappenman et al. (2021), ERP CORE; Guanghui Zhang and Steven J. Luck (2023), Variations in ERP data quality across paradigms, participants, and scoring procedures. Analysis modifications by AniBench contributors. No endorsement implied.",
+  "biological_cutoff": null,
+  "blockers": [
+    "Analytic versus supplied bootstrap SME discrepancies are retained; finite empirical-resampling correction is diagnostic, not proof that every discrepancy is Monte Carlo noise.",
+    "No actual repeat sessions: stable person and visit variance unidentified.",
+    "Scalar summaries cannot diagnose serial or cross-condition error dependence.",
+    "Conditional independence of retained trials and zero cross-condition error covariance are assumptions.",
+    "Source windows optimized on same cohort: no independent window-selection validation.",
+    "Bootstrap intervals condition on estimated participant noise summaries; they do not propagate full within-person trial-variance estimation uncertainty.",
+    "CC BY versus CC BY-SA source license discrepancy retained."
+  ],
+  "bootstrap": {
+    "adjusted_person_plus_session_variance_untruncated_uV2": [
+      2.352312143489319,
+      16.56566339267594
+    ],
+    "analytic_contrast_variance_mean_uV2": [
+      3.470725280942586,
+      9.000565580342856
+    ],
+    "method": "paired nonparametric resampling of people, percentile 95% intervals; plug-in source noise summaries, not nested trial resampling",
+    "observed_person_contrast_variance_uV2": [
+      8.151824770061992,
+      22.34137507731204
+    ],
+    "replicates": 20000,
+    "seed": 20260919
+  },
+  "certified_saturation": false,
+  "checks": {
+    "HDF5_P3_counts_equal_workbook_exactly": true,
+    "byte_hashes_verified": true,
+    "ids_unique_and_aligned": true,
+    "no_missing_selected_values": true,
+    "positive_integer_trial_counts": true,
+    "published_rounded_count_and_amplitude_means_reconcile": true,
+    "source_workbooks_unchanged": true,
+    "workbook_RMS_summary_reconciles": true
+  },
+  "cohort_mean_observed_SE_uV": 0.6168398985406177,
+  "empirical_bootstrap_vs_reported_parent_relative_difference_max": 0.05646149222825966,
+  "exact_empirical_resampling_contrast_SME_RMS_uV": 2.327235281353125,
+  "exact_empirical_resampling_parent_SME_RMS_uV": [
+    2.1347821975158188,
+    0.9266763318140224
+  ],
+  "license": "CC-BY-SA-4.0",
+  "mapping": {
+    "HDF5_count_variable": "D_trial_number_1 (source script names D_trial_number; shape and count equality verified)",
+    "HDF5_raw_shape": [
+      7,
+      2,
+      40
+    ],
+    "HDF5_transposed_matlab_shape": [
+      40,
+      2,
+      7
+    ],
+    "all_four_identifier_vectors_equal": true,
+    "component": "P3",
+    "component_mat_index_1based": 1,
+    "condition_order": [
+      "rare",
+      "frequent"
+    ],
+    "scoring": "mean amplitude",
+    "scoring_dimension_1based": 1,
+    "source_mat_shapes": {
+      "D_SD_mean_amp_Parent.mat": [
+        40,
+        7,
+        2
+      ],
+      "D_amp_parent.mat": [
+        40,
+        7,
+        2,
+        2
+      ]
+    },
+    "source_script_person_order_matches_ids": true,
+    "workbook_ranges": {
+      "SME_difference": "P3_Individual_SME.xlsx/Sheet1!K5:K44",
+      "SME_ids": "P3_Individual_SME.xlsx/Sheet1!A5:A44 and J5:J44",
+      "SME_parent": "P3_Individual_SME.xlsx/Sheet1!B5:C44",
+      "accepted_frequent": "P3_Individual_Number-trials.xlsx/Sheet1!G3:G42",
+      "accepted_rare": "P3_Individual_Number-trials.xlsx/Sheet1!B3:B42",
+      "trial_ids": "P3_Individual_Number-trials.xlsx/Sheet1!A3:A42 and F3:F42"
+    }
+  },
+  "mean_contrast_uV": 7.046749845209615,
+  "mean_parent_amplitude_uV": [
+    11.385597764487951,
+    4.338847919278337
+  ],
+  "mean_retained_trials": [
+    30.525,
+    139.9
+  ],
+  "measurement_adjusted_person_plus_session_variance_nonnegative_uV2": 9.360227534862045,
+  "measurement_adjusted_person_plus_session_variance_untruncated_uV2": 9.360227534862045,
+  "measurement_units": "microvolt",
+  "n_people": 40,
+  "observed_person_contrast_variance_uV2": 15.219658417263982,
+  "reported_bootstrap_contrast_SME_RMS_uV": 2.349119531867206,
+  "reported_bootstrap_contrast_variance_mean_uV2": 5.518362574999999,
+  "reported_bootstrap_parent_SME_RMS_uV": [
+    2.1261346500163154,
+    0.9258019631649093
+  ],
+  "runtime": {
+    "h5py": "3.14.0",
+    "numpy": "2.3.5",
+    "openpyxl": "3.1.5",
+    "python": "3.12.14",
+    "scipy": "1.18.0"
+  },
+  "schema_version": "anibench.erp-aggregate-calibration.v1",
+  "scope": "conditional within-session precision; aggregate-only",
+  "script_sha256": "7ca1c7cee18218c569920548d23459931ea8cbf177309fe6024722630cd6cdcd",
+  "source_hashes": {
+    "D_SD_mean_amp_Parent.mat": "3c626e628ee40998f01ca30ebc4c62f4385774e1e3dfa7af2255772f12d453b0",
+    "D_amp_parent.mat": "56a7f8b44a5a051ca91e0db334a42cc544804d45715e17721e955d7960ef9b4c",
+    "D_trials_allERP.mat": "b8f29599890aa6413b6542908bb77c9379fbb3efd418675a1d4c2edfa7ee15e7",
+    "P3_Individual_Number-trials.xlsx": "48e86f137119b7b900b4f8ae55c9f13034194c71b4b87d079c1b3b0ab0b5b959",
+    "P3_Individual_SME.xlsx": "d7cedb3903a0a790ee20099f5858aeb88c768f5f2ee5e5740ae6a67dd9c98cef"
+  },
+  "source_manifest_sha256": "af1567146d38430bf30dc7ee72e3f249370b3a93c6667b13c72aa1f413f72aa0",
+  "variance_units": "microvolt^2"
+}

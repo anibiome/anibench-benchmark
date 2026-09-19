@@ -47,6 +47,12 @@ The biological task scopes are discussion proposals with unresolved precision
 calibration; the example uses explicitly invented models. These additions are
 after the immutable RC3 release.
 
+The [ERP CORE calibration example](examples/calibration/erp_core/README.md)
+recomputes measurement uncertainty from five hash-pinned public source files.
+It includes aggregate results, source mappings and an executable analysis.
+The one-session source cannot identify visit-to-visit variability or establish
+an AniBench biological precision cutoff.
+
 Compare native collection metrics with `anibench compare-records`. Its
 [metric cards and submission rules](docs/COLLECTION_COMPARISONS.md) retain the
 roster, units, source hashes and uncertainty bounds. Missing geometry does not
@@ -424,6 +430,8 @@ gates.
 ## License and citation
 
 Code is licensed under Apache-2.0. Benchmark data and documentation are licensed
-under CC BY 4.0 unless an upstream source row states otherwise. See
+under CC BY 4.0 unless a file or upstream source states otherwise. The source-derived
+ERP CORE calibration reports and figures use CC BY-SA 4.0; its original analysis
+code remains Apache-2.0. See
 [`LICENSE`](LICENSE), [`LICENSE-DATA`](LICENSE-DATA), and
 [`CITATION.cff`](CITATION.cff).

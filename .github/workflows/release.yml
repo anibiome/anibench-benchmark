@@ -51,7 +51,7 @@ jobs:
         run: python scripts/verify_release_metadata.py --tag "$RELEASE_TAG" --pretty
       - name: Verify source, license, tests, and Studio
         run: |
-          ruff check src tests scripts
+          ruff check src tests scripts examples/calibration/erp_core
           reuse lint
           python scripts/verify_external_field_receipts.py --pretty
           python -m pytest -q

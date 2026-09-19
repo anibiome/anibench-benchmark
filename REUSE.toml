@@ -52,3 +52,15 @@ path = [
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2026 ANI"
 SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = ["examples/calibration/erp_core/*.md", "examples/calibration/erp_core/*.json", "examples/calibration/erp_core/*.png", "examples/calibration/erp_core/*.pdf"]
+precedence = "override"
+SPDX-FileCopyrightText = "ERP CORE contributors; 2026 AniBench contributors for analysis modifications"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = ["examples/calibration/erp_core/*.py"]
+precedence = "override"
+SPDX-FileCopyrightText = "2026 AniBench contributors"
+SPDX-License-Identifier = "Apache-2.0"

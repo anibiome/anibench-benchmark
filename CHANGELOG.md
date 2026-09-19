@@ -4,6 +4,10 @@ All notable changes are recorded here. AniBench uses semantic versioning for the
 
 ## Unreleased
 
+- Add a reproducible aggregate ERP CORE measurement-precision example with
+  pinned sources, explicit within-session assumptions and separately licensed
+  source-derived reports. No biological attainment cutoff is introduced.
+- Display Boolean synthetic design metrics as Yes/No without a numeric axis.
 - Add the public Oh My Gut! protocol card with four replayable PDF facts,
   separately curated observations, a visible timing discrepancy and explicit
   unknowns. The explorer now contains 17 source records; planned counts remain

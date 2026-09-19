@@ -1,0 +1,123 @@
+{
+  "attribution": "ERP CORE by Emily S. Kappenman and Steven J. Luck; Kappenman et al. (2021), ERP CORE; Guanghui Zhang and Steven J. Luck (2023), Variations in ERP data quality across paradigms, participants, and scoring procedures. Analysis modifications by AniBench contributors. No endorsement implied.",
+  "citations": {
+    "original_paper": "https://doi.org/10.1016/j.neuroimage.2020.117465",
+    "paper": "https://doi.org/10.1111/psyp.14264",
+    "parent_doi": "https://doi.org/10.18115/D5JW4R",
+    "project": "ERP CORE SME",
+    "url": "https://osf.io/p3bqd/"
+  },
+  "files": [
+    {
+      "download_url": "https://osf.io/download/y3nf5/",
+      "hashes": {
+        "md5": "4460422df7af2ba97007c8d8bfab573b",
+        "sha256": "d7cedb3903a0a790ee20099f5858aeb88c768f5f2ee5e5740ae6a67dd9c98cef"
+      },
+      "id": "62fc738f57d7c708ee1bb7d4",
+      "metadata_url": "https://api.osf.io/v2/files/62fc738f57d7c708ee1bb7d4/",
+      "name": "P3_Individual_SME.xlsx",
+      "path": "/Spreadsheets for individual's SME/P3_Individual_SME.xlsx",
+      "size_bytes": 13977,
+      "version": 1
+    },
+    {
+      "download_url": "https://osf.io/download/ph6rd/",
+      "hashes": {
+        "md5": "a1795464d069959d26bd27aef57c0366",
+        "sha256": "48e86f137119b7b900b4f8ae55c9f13034194c71b4b87d079c1b3b0ab0b5b959"
+      },
+      "id": "62febeca57d7c7119c1baa51",
+      "metadata_url": "https://api.osf.io/v2/files/62febeca57d7c7119c1baa51/",
+      "name": "P3_Individual_Number-trials.xlsx",
+      "path": "/Number of trials for individuals/P3_Individual_Number-trials.xlsx",
+      "size_bytes": 11543,
+      "version": 1
+    },
+    {
+      "download_url": "https://osf.io/download/w67zm/",
+      "hashes": {
+        "md5": "ac9523beaaacffcad55df44d122b0409",
+        "sha256": "3c626e628ee40998f01ca30ebc4c62f4385774e1e3dfa7af2255772f12d453b0"
+      },
+      "id": "63bdcbba9d8d38049e6022fb",
+      "metadata_url": "https://api.osf.io/v2/files/63bdcbba9d8d38049e6022fb/",
+      "name": "D_SD_mean_amp_Parent.mat",
+      "path": "/Matlab script codes for SME results/D_SD_mean_amp_Parent.mat",
+      "size_bytes": 4428,
+      "version": 1
+    },
+    {
+      "download_url": "https://osf.io/download/spb89/",
+      "hashes": {
+        "md5": "abb7423661606d0d08f33d2f219b02a9",
+        "sha256": "56a7f8b44a5a051ca91e0db334a42cc544804d45715e17721e955d7960ef9b4c"
+      },
+      "id": "63bdcbba5161da04633a6495",
+      "metadata_url": "https://api.osf.io/v2/files/63bdcbba5161da04633a6495/",
+      "name": "D_amp_parent.mat",
+      "path": "/Matlab script codes for SME results/D_amp_parent.mat",
+      "size_bytes": 8903,
+      "version": 1
+    },
+    {
+      "download_url": "https://osf.io/download/63bdcbb9bdcfea04eab3ec83/",
+      "hashes": {
+        "md5": "745ae442b8754ec0f41d3b06eff39502",
+        "sha256": "b8f29599890aa6413b6542908bb77c9379fbb3efd418675a1d4c2edfa7ee15e7"
+      },
+      "id": "63bdcbb9bdcfea04eab3ec83",
+      "metadata_url": "https://api.osf.io/v2/files/63bdcbb9bdcfea04eab3ec83/",
+      "name": "D_trials_allERP.mat",
+      "path": "/Matlab script codes for SME results/D_trials_allERP.mat",
+      "size_bytes": 6392,
+      "version": 1
+    }
+  ],
+  "license": "CC-BY-SA-4.0",
+  "license_evidence": {
+    "conflict": true,
+    "local_analysis_compatible_under_both": true,
+    "official_project_page_and_bundled_license": "CC BY-SA 4.0",
+    "osf_license_metadata": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+    "osf_sme_node": "CC BY 4.0",
+    "redistribution_proposal": "Preserve provenance and attribution; keep source-derived data in a separately labeled CC BY-SA 4.0 package unless source-specific clarification resolves the discrepancy. Do not silently relabel as benchmark code/data license.",
+    "sources": [
+      "https://erpinfo.org/erp-core",
+      "https://raw.githubusercontent.com/lucklab/ERP_CORE/c18b43d70d791ca914d90410afe4ff06d6f7f429/License.txt",
+      "https://api.osf.io/v2/nodes/p3bqd/"
+    ]
+  },
+  "license_scope": "This annotated source manifest and source-derived report/data; original analysis code is Apache-2.0. Source files are not included.",
+  "measurement": {
+    "baseline_ms": [
+      -200,
+      0
+    ],
+    "component": "P3b",
+    "functional": "rare-minus-frequent fixed-window mean voltage at Pz",
+    "reference": "mean of P9 and P10",
+    "selection_independent_validation": false,
+    "task": "active visual oddball",
+    "units": "microvolt",
+    "variance_units": "microvolt^2",
+    "window_ms": [
+      300,
+      600
+    ],
+    "window_selected_on_source_data": true
+  },
+  "population": {
+    "age_range_years": [
+      18,
+      30
+    ],
+    "age_sd_years": 2.87,
+    "mean_age_years": 21.5,
+    "n": 40,
+    "representative_population_sample": false,
+    "sampling_frame": "UC Davis community, neurotypical young adults; native English competence and vision/neurological eligibility criteria"
+  },
+  "repeated_sessions_available": false,
+  "schema_version": "anibench.erp-source-manifest.v1"
+}

@@ -186,6 +186,20 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/examples/calibration/erp_core/sensitivity.png",
+  "/examples/calibration/erp_core/aggregate_results.json",
+  "/examples/calibration/erp_core/design_sensitivity.py",
+  "/examples/calibration/erp_core/source_manifest.json",
+  "/examples/calibration/erp_core/REPORT.md",
+  "/examples/calibration/erp_core/analyze_erp.py",
+  "/examples/calibration/erp_core/README.md",
+  "/examples/calibration/erp_core/design-sensitivity.json",
+  "/examples/calibration/erp_core/DESIGN_SENSITIVITY.md",
+  "/examples/calibration/erp_core/DESIGN_TABLE.md",
+  "/tests/test_erp_calibration_recipe.py",
+  "/tests/test_erp_design_sensitivity.py",
+  "/LICENSES/CC-BY-SA-4.0.txt",
+
   "/schemas/protocol_cards/v1/packet.schema.json",
   "/spec/candidate_levels/discussion-v0.1.json",
   "/docs/CANDIDATE_LEVELS.md",

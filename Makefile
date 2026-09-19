@@ -9,7 +9,7 @@ test:
 	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src $(PYTHON) -m pytest -q
 
 lint:
-	PYTHONPATH=src $(PYTHON) -m ruff check src tests scripts
+	PYTHONPATH=src $(PYTHON) -m ruff check src tests scripts examples/calibration/erp_core
 
 license:
 	$(PYTHON) -m reuse lint
