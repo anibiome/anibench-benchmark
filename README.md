@@ -35,6 +35,12 @@ local CSV or CSV.gz tables to measure coverage, QC, linkage, and repeat observat
 It does not guess assay semantics or infer independent information from column counts.
 See the [private-run workflow](docs/EVALUATION.md#run-on-private-study-data).
 
+For published aggregate quantities, use
+[native architecture comparison](docs/ARCHITECTURE_V1.md):
+`anibench compare-architecture examples/architecture/protein-inventory.json --out output/comparison.json`.
+It compares explicitly selected, compatible source quantities without a noise
+model, preserves missing values and population scopes, and emits no overall score.
+
 Read the [research manuscript](paper/AniBench_open_benchmark.md) for the
 mathematical derivation, limitations, source examples and reproducible figures.
 Build its PDF with `python -m pip install -e '.[paper]'` followed by

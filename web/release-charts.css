@@ -570,3 +570,38 @@ body {
     margin-bottom: 12px;
   }
 }
+
+/* Collection architecture uses independent entity rows, never an aggregate rank. */
+.architecture-intro { margin: 8px 0 16px; }
+.architecture-intro h3 { margin: 0 0 6px; font-size: 22px; }
+.architecture-intro p { margin: 0; font-size: 15px; line-height: 1.45; }
+#source-architecture > .release-figure, #source-architecture > .chart-grid { margin-bottom: 22px; }
+.architecture-entity { border-top: 1px solid var(--line); margin-top: 14px; }
+.architecture-entity h4 { margin: 10px 0; font-size: 13px; text-transform: none; color: var(--muted); }
+.architecture-number { padding: 4px 0; }
+.architecture-number > div { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.architecture-number strong { font-size: inherit; }
+.architecture-number span { min-width: 0; font-size: 14px; line-height: 1.4; }
+.architecture-number b { flex: 0 0 auto; font-size: 16px; text-align: right; }
+.architecture-number .release-svg { margin: 0; height: 20px; width: 100%; }
+.architecture-evidence { margin-top: 10px; font-size: 13px; }
+.architecture-evidence table { min-width: 620px; width: 100%; border-collapse: collapse; }
+.architecture-evidence th, .architecture-evidence td { padding: 10px; text-align: left; vertical-align: top; border: 1px solid var(--line); }
+.architecture-evidence small, .architecture-matrix details small { display: block; overflow-wrap: anywhere; }
+.architecture-evidence a, .architecture-matrix details a { text-decoration: underline; }
+.architecture-matrix { width: 100%; min-width: 1000px; border-collapse: collapse; font-size: 14px; }
+.architecture-matrix caption { text-align: left; margin-bottom: 12px; }
+.architecture-matrix th, .architecture-matrix td { padding: 12px; text-align: left; vertical-align: top; border: 1px solid var(--line); }
+.architecture-matrix th { min-width: 115px; }
+.architecture-matrix th small { display: block; font-weight: 400; margin-top: 8px; }
+.architecture-matrix p { margin: 7px 0; line-height: 1.4; }
+.architecture-cell-reported_present { background: #eaf4f1; }
+.architecture-cell-source_described { background: #fff5dc; border-style: dashed !important; }
+.architecture-cell-unreported, .architecture-cell-filtered { background: #f4f6f8; color: #53606c; }
+.architecture-scroll-hint { font-size: 13px; color: var(--muted); }
+.architecture-secondary { margin: 28px 0 16px; font-size: 22px; }
+@media (max-width: 760px) {
+  .architecture-number b { font-size: 15px; }
+  .architecture-number > div { gap: 3px 8px; }
+  .architecture-intro h3 { font-size: 20px; }
+}

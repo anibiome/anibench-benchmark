@@ -99,6 +99,9 @@ exclude = [
 packages = ["src/anibench"]
 
 [tool.hatch.build.targets.wheel.force-include]
+"docs/ARCHITECTURE_V1.md" = "anibench/docs/ARCHITECTURE_V1.md"
+"examples/architecture/README.md" = "anibench/examples/architecture/README.md"
+"examples/architecture/protein-inventory.json" = "anibench/examples/architecture/protein-inventory.json"
 "examples/calibration/erp_core/README.md" = "anibench/examples/calibration/erp_core/README.md"
 "examples/finite_suites/replay_erp.py" = "anibench/examples/finite_suites/replay_erp.py"
 "examples/finite_suites/README.md" = "anibench/examples/finite_suites/README.md"
@@ -129,6 +132,7 @@ packages = ["src/anibench"]
 "web/release-charts.js" = "anibench/web/release-charts.js"
 "web/elite-public-card.json" = "anibench/web/elite-public-card.json"
 "web/study-status-cards.json" = "anibench/web/study-status-cards.json"
+"web/source-architecture.json" = "anibench/web/source-architecture.json"
 "web/release-charts.css" = "anibench/web/release-charts.css"
 "web/release-results.json" = "anibench/web/release-results.json"
 "web/release-chart-receipts.json" = "anibench/web/release-chart-receipts.json"
@@ -207,6 +211,11 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/docs/ARCHITECTURE_V1.md",
+  "/examples/architecture/README.md",
+  "/examples/architecture/protein-inventory.json",
+  "/tests/test_architecture_cli.py",
+  "/tests/test_architecture_v1.py",
   "/tests/test_uncertainty_v2.py",
   "/examples/finite_suites/replay_erp.py",
   "/examples/finite_suites/README.md",
@@ -306,6 +315,7 @@ include = [
   "/web/release-charts.test.js",
   "/web/elite-public-card.json",
   "/web/study-status-cards.json",
+  "/web/source-architecture.json",
   "/docs/BENCHMARK_RELEASE_STANDARD.md",
   "/scripts/build_release_charts.py",
   "/tests/test_release_charts.py",

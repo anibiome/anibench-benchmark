@@ -60,6 +60,7 @@ data/synthetic_geometry_audit/actual_geometry_results.json
 docs/ACCESSIBILITY.md
 docs/ANTI_GAMING.md
 docs/API.md
+docs/ARCHITECTURE_V1.md
 docs/BENCHMARK_RELEASE_STANDARD.md
 docs/CANDIDATE_LEVELS.md
 docs/COLLECTION_COMPARISONS.md
@@ -88,6 +89,8 @@ docs/V2_METHODS_CANDIDATE.md
 docs/V2_OPTIMIZER.md
 docs/audits/CTGOV_50_TRIAL_STRESS_TEST_2026-07-14.json
 evals/level1/eval-card.json
+examples/architecture/README.md
+examples/architecture/protein-inventory.json
 examples/calibration/erp_core/DESIGN_PLANNER.md
 examples/calibration/erp_core/DESIGN_SENSITIVITY.md
 examples/calibration/erp_core/DESIGN_TABLE.md
@@ -207,6 +210,7 @@ spec/v3/level1/migrations/v2-to-v3-substantive-impact-receipt.json
 spec/v3/level1/role-aware-target-requirements.v3.json
 src/anibench/__init__.py
 src/anibench/api.py
+src/anibench/architecture_v1.py
 src/anibench/causal_v2.py
 src/anibench/cli.py
 src/anibench/collection_compare.py
@@ -237,6 +241,8 @@ src/anibench/studio_product.py
 src/anibench/study_context.py
 src/anibench/uncertainty_v2.py
 src/anibench/v2.py
+tests/test_architecture_cli.py
+tests/test_architecture_v1.py
 tests/test_calerie_design_geometry.py
 tests/test_collection_compare.py
 tests/test_collection_ingest.py
@@ -312,6 +318,7 @@ web/release-charts.css
 web/release-charts.js
 web/release-charts.test.js
 web/release-results.json
+web/source-architecture.json
 web/study-status-cards.json
 web/v2.css
 web/v2.html

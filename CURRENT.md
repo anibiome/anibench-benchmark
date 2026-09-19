@@ -25,6 +25,12 @@ Native metric comparison is available through `anibench compare-records`; see
 quantity within a bound corpus, independently of geometry. These are not overall
 study-quality or biologically calibrated information ranks. The current research
 manuscript is `paper/AniBench_open_benchmark.md`.
+`anibench compare-architecture` also accepts aggregate source quantities directly,
+without constructing a participant roster or an information/noise model. Its
+explicitly selected quantities retain units, denominators, population scopes,
+source identities and uncertainty. See `docs/ARCHITECTURE_V1.md`. Source-literal
+facts remain viewable when conditional learnability cannot yet be calculated;
+missing geometry is not a reason to hide a verified collection characteristic.
 The website front door is `web/benchmark.html`. Its Charts view separates
 source-reported population/time/protein properties, executed hypothetical
 precision comparisons and ERP-noise-conditioned design planning. Independent

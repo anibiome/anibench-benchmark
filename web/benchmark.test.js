@@ -283,7 +283,7 @@ test("unified catalog names only implemented destinations and preserves all fami
   const { chartCatalog, catalogHTML } = require("./benchmark.js");
   const fs = require("node:fs"), path = require("node:path");
   const page = fs.readFileSync(path.join(__dirname,"benchmark.html"),"utf8");
-  const release = fs.readFileSync(path.join(__dirname,"release-charts.js"),"utf8");
+  const release = fs.readFileSync(path.join(__dirname,"release-charts.js"),"utf8") + require("./release-charts.js").architectureHTML(JSON.parse(fs.readFileSync(path.join(__dirname,"source-architecture.json"),"utf8")));
   assert.equal(new Set(chartCatalog.map(item=>item.id)).size, chartCatalog.length);
   for(const item of chartCatalog){
     assert.ok(item.question && item.evidence && item.inference);

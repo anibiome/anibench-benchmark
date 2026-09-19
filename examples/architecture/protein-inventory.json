@@ -1,0 +1,85 @@
+{
+  "contract": "anibench.architecture-request.v1",
+  "basis": {
+    "basis_id": "reported-protein-inventory.v1",
+    "population_comparison": {
+      "mode": "quantity_only_preserve_each_population_scope",
+      "rationale": "Compare reported unique protein inventory size across distinct assay platforms and source-defined populations; no assay equivalence, per-person completeness or transportability is implied."
+    },
+    "coordinates": [
+      {
+        "coordinate_id": "protein_inventory",
+        "semantics": {
+          "quantity_kind": "measurement_breadth",
+          "unit": "proteins",
+          "entity_namespace": "source_reported_unique_protein_inventory",
+          "denominator": "source_defined_assay_inventory_not_participant",
+          "collection_status": "collected",
+          "time_scope": "reported_study_assay_inventory",
+          "aggregation": "distinct_count_as_reported"
+        },
+        "direction": "higher_quantity"
+      }
+    ]
+  },
+  "records": [
+    {
+      "record_id": "ipop-ihmp-2019",
+      "study_id": "snyder-ipop-ihmp-106",
+      "population_scope": "Published iPOP/iHMP study; plasma SWATH-MS inventory; 106-person cohort, assay-complete per-person denominator not established here.",
+      "coordinates": [
+        {
+          "coordinate_id": "protein_inventory",
+          "semantics": {
+            "quantity_kind": "measurement_breadth",
+            "unit": "proteins",
+            "entity_namespace": "source_reported_unique_protein_inventory",
+            "denominator": "source_defined_assay_inventory_not_participant",
+            "collection_status": "collected",
+            "time_scope": "reported_study_assay_inventory",
+            "aggregation": "distinct_count_as_reported"
+          },
+          "value": {
+            "state": "point",
+            "value": 302
+          },
+          "sources": [
+            {
+              "source_sha256": "sha256:710919f3ff5fd4cfb1dc8bab4a76234fdc85fddd20586a5bcb005e06cf5f1a9e",
+              "locator": "/0/documents/0/passages/12/text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "ukb-ppp-2023",
+      "study_id": "uk-biobank",
+      "population_scope": "Published UKB-PPP Olink Explore plasma proteomics inventory; 54,219 participants selected across baseline and COVID repeat-imaging cohorts, not whole UK Biobank.",
+      "coordinates": [
+        {
+          "coordinate_id": "protein_inventory",
+          "semantics": {
+            "quantity_kind": "measurement_breadth",
+            "unit": "proteins",
+            "entity_namespace": "source_reported_unique_protein_inventory",
+            "denominator": "source_defined_assay_inventory_not_participant",
+            "collection_status": "collected",
+            "time_scope": "reported_study_assay_inventory",
+            "aggregation": "distinct_count_as_reported"
+          },
+          "value": {
+            "state": "point",
+            "value": 2923
+          },
+          "sources": [
+            {
+              "source_sha256": "sha256:dbf50d8d006d4c26d702856890cc0a408954e2a6b873d721d5bc6ebe607e0fe9",
+              "locator": "/0/documents/0/passages/10/text"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

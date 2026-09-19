@@ -362,3 +362,117 @@ test("CALERIE rejects duplicate, stale-state and out-of-scale rows instead of dr
   const outside = structuredClone(packet); outside.rows[0].variance_interval = [1, 1];
   assert.throws(() => c.caleriePlot(outside, packet.rows[0].estimand_id));
 });
+
+test("source architecture preserves HPP bounds, five identities and separate molecular entities", () => {
+  const packet = read("source-architecture.json"), before = JSON.stringify(packet);
+  c.validateArchitecture(packet);
+  const html = c.architectureHTML(packet);
+  assert.equal(packet.studies.length, 5);
+  assert.match(html, /≈ 28,000/);
+  assert.match(html, /&gt; 13,000/);
+  assert.match(html, /Description only/);
+  assert.match(html, /Online self-report; wearable sensing not established/);
+  assert.match(html, /Metabolic challenges/);
+  assert.match(html, /Exercise\/fitness challenge in a subset/);
+  assert.match(html, /infection is observational/);
+  const molecular = c.architectureNumeric(packet, "molecular", {publication:"all",ethics:"all"});
+  assert.match(molecular, /13,379/);
+  assert.match(molecular, /2,923/);
+  assert.match(molecular, /derived glycan traits/);
+  assert.doesNotMatch(molecular, /16,302/);
+  const hpp = packet.studies.find(s=>s.study_id==="human-phenotype-project-2025");
+  assert.equal(hpp.ethics.status,"unknown");
+  assert.equal(packet.sources[hpp.numeric_facts[0].source.source_id].publication,"peer_reviewed_article");
+  assert.equal(JSON.stringify(packet), before);
+});
+
+test("architecture source and ethics filters stay independent and distinguish filtered from unreported", () => {
+  const packet=read("source-architecture.json");
+  const peer = c.architectureHTML(packet,{publication:"peer_reviewed_article",ethics:"all"});
+  assert.match(peer,/Human Phenotype Project/);
+  // ELITE may appear in the explicit scope caveat; no matching ELITE row or mark.
+  assert.doesNotMatch(peer,/<th scope="row">ELITE/);
+  assert.match(peer,/Filtered source/); // UKB neural/digital official sources, not its journal source.
+  const approved = c.architectureHTML(packet,{publication:"all",ethics:"approval_reported"});
+  assert.doesNotMatch(approved,/<strong>Human Phenotype Project<\/strong>/);
+  assert.doesNotMatch(approved,/<th scope="row">ELITE/);
+  assert.match(approved,/<th scope="row">UK Biobank/);
+  const official = c.architectureHTML(packet,{publication:"first_party_self_report",ethics:"all"});
+  assert.match(official,/<th scope="row">ELITE/);
+  assert.match(official,/No numerical facts match/);
+  const none = c.architectureHTML(packet,{publication:"unpublished",ethics:"approval_reported"});
+  assert.match(none,/0 of 5 study descriptions/);
+  assert.doesNotMatch(none,/<circle/);
+});
+
+test("public architecture packet contains bound references but no raw passages or private paths", () => {
+  const packet=read("source-architecture.json"), serialized=JSON.stringify(packet);
+  assert.doesNotMatch(serialized,/\/Users\/|raw_path|normalized_paragraph|epmc-core|participant_id|email/);
+  for (const study of packet.studies) {
+    for (const fact of study.numeric_facts) {
+      assert.match(packet.sources[fact.source.source_id].sha256,/^[a-f0-9]{64}$/);
+      assert.match(fact.source.passage_sha256,/^[a-f0-9]{64}$/);
+      assert.ok(fact.scope && fact.precision && fact.unit);
+    }
+    assert.equal(new Set(study.coverage.map(c=>c.domain)).size,6);
+  }
+  const wrong=structuredClone(packet);wrong.studies[0].numeric_facts[0].value=NaN;
+  assert.throws(()=>c.architectureHTML(wrong));
+  const missing=structuredClone(packet);delete missing.sources[missing.studies[0].numeric_facts[0].source.source_id];
+  assert.throws(()=>c.architectureHTML(missing));
+});
+
+
+test("architecture fails closed for malformed domains, identities and source metadata", () => {
+  const mutations = [
+    p => p.studies[0].coverage.pop(),
+    p => p.studies[0].coverage[1].domain = p.studies[0].coverage[0].domain,
+    p => p.studies[0].numeric_facts[1].fact_id = p.studies[0].numeric_facts[0].fact_id,
+    p => p.studies[0].numeric_facts[0].fact_id = "",
+    p => p.studies[0].name = null,
+    p => Object.values(p.sources)[0].sha256 = "unverified",
+    p => Object.values(p.sources)[0].publication = "approved",
+    p => Object.values(p.sources)[0].fetch_url = "javascript:alert(1)",
+    p => p.studies[0].coverage[0].sources = [],
+  ];
+  for (const mutate of mutations) {
+    const packet = read("source-architecture.json"); mutate(packet);
+    assert.throws(() => c.architectureHTML(packet));
+  }
+});
+
+test("zero is an explicit separate population point, never logarithmic unknown", () => {
+  const packet = read("source-architecture.json");
+  const fact = packet.studies[0].numeric_facts.find(f => f.panel === "population");
+  fact.value = 0; fact.precision = "exact_reported";
+  c.validateArchitecture(packet);
+  const html = c.architectureNumeric(packet, "population", {publication:"all",ethics:"all"});
+  assert.match(html, /0 separate; positive axis 1 to 1,000,000/);
+  assert.match(html, /circle cx="12"/);
+  assert.doesNotMatch(html, /NaN|Infinity/);
+});
+
+test("source acquisition locators are distinct from human article URLs", () => {
+  const packet = read("source-architecture.json");
+  for (const source of Object.values(packet.sources)) {
+    assert.match(source.fetch_url, /^https:\/\//);
+    assert.ok(Object.hasOwn(source, "retrieved_at"));
+    if (source.retrieved_at !== null) assert.ok(Number.isFinite(Date.parse(source.retrieved_at)));
+  }
+  assert.notEqual(packet.sources.PMC6666404.fetch_url, packet.sources.PMC6666404.url);
+  assert.equal(packet.sources.ELITE_PUBLIC.retrieved_at, null);
+});
+
+
+test("compact architecture charts retain every row with one expandable evidence table", () => {
+  const packet = read("source-architecture.json");
+  const html = c.architectureNumeric(packet, "population", {publication:"all",ethics:"all"});
+  assert.equal((html.match(/class="architecture-number"/g)||[]).length, 8);
+  assert.equal((html.match(/<details/g)||[]).length, 1);
+  assert.equal((html.match(/viewBox="0 0 440 20"/g)||[]).length, 8);
+  assert.match(html, /<caption>Exact source-specific denominators/);
+  for (const study of packet.studies) for (const fact of study.numeric_facts.filter(f=>f.panel === "population")) {
+    assert.ok(html.includes(fact.scope));
+    assert.ok(html.includes(packet.sources[fact.source.source_id].sha256));
+  }
+});

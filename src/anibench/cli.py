@@ -74,6 +74,13 @@ def _parser() -> argparse.ArgumentParser:
     records.add_argument("--out", type=Path, required=True)
     records.add_argument("--pretty", action="store_true")
 
+    architecture = sub.add_parser(
+        "compare-architecture", help="Compare source-reported study quantities on an explicit basis"
+    )
+    architecture.add_argument("input", metavar="ARCHITECTURE_JSON", type=Path)
+    architecture.add_argument("--out", type=Path, required=True)
+    architecture.add_argument("--pretty", action="store_true")
+
     comparison = sub.add_parser(
         "compare", help="Compare canonical eval receipts on a strict shared Pareto basis"
     )
@@ -239,6 +246,15 @@ def main(argv: list[str] | None = None) -> int:
                 )
             _emit(result, out=out, pretty=args.pretty,
                   receipt={"context_sha256": result["context_sha256"]}, report_path=False)
+            return 0
+        if args.command == "compare-architecture":
+            from .architecture_v1 import compare_architecture
+
+            _protect_collection_inputs([args.input], [args.out])
+            result = compare_architecture(_load_object(args.input, label="architecture request"))
+            _emit(result, out=args.out, pretty=args.pretty,
+                  receipt={"receipt_sha256": result["receipt_sha256"],
+                           "basis_sha256": result["basis_sha256"]}, report_path=False)
             return 0
         if args.command == "finite-suite":
             from .finite_suites_v1 import evaluate_finite_suite

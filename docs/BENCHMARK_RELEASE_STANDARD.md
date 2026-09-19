@@ -47,6 +47,15 @@ benchmarks share one scoring system or submission policy.
 
 ## A comparable numerical result
 
+Source-literal quantities can be compared before an information model exists.
+`compare-architecture` freezes the selected quantity meanings, units,
+denominators, aggregation, collection status and preference directions. Each
+record retains its own population scope. Comparing reported protein inventory
+sizes does not require exchangeable populations, equal assay noise or complete
+participant tables; it also cannot establish equal assay quality, information
+per person or transportability. Missing and incompatible ordered quantities
+remain unresolved, and categorical descriptions carry no implicit preference.
+
 Every information comparison needs the same target population, estimand, horizon,
 parameterization, observation/noise assumptions, evaluation version and evidence
 lane. A study may lead one declared task and trail another. Unobserved directions
@@ -54,8 +63,9 @@ remain unresolved; duplicating dependent measurements must not create independen
 information. Greater per-person precision cannot manufacture additional people.
 
 For a finite scalar task, the implemented conditional Gaussian reference uses
-posterior covariance `(P0 + I)^-1` and evaluates a declared functional `a` through
-`a^T (P0 + I)^-1 a`. It requires explicit support and identifiability evidence.
+prior precision `P_prior`, information `I`, posterior covariance
+`(P_prior + I)^-1`, and functional variance `a^T (P_prior + I)^-1 a`.
+It requires explicit support and identifiability evidence.
 The synthetic examples demonstrate this mathematics; they do not calibrate all
 human biology. Biological tolerances, valid observation operators and uncertainty
 in nuisance parameters need independent scientific justification.

@@ -86,6 +86,10 @@ const AniBenchPage = (() => {
     },
   };
   const chartCatalog = [
+    {section:"Study collection architecture", id:"architecture-population", target:"architecture-population", fallback:"source-architecture", question:"Which people support each collection?", evidence:"Primary source facts and explicit subsets", inference:"Compare denominators without adding overlapping cohorts."},
+    {section:"Study collection architecture", id:"architecture-molecular", target:"architecture-molecular", fallback:"source-architecture", question:"Which molecular entities were measured?", evidence:"Reported assay targets in separate units", inference:"Proteins, transcripts, metabolites and derived traits are never summed."},
+    {section:"Study collection architecture", id:"architecture-timing", target:"architecture-timing", fallback:"source-architecture", question:"How often and for how long?", evidence:"Observed summaries and reported schedules", inference:"Different native timing quantities remain separate."},
+    {section:"Study collection architecture", id:"architecture-coverage", target:"architecture-coverage", fallback:"source-architecture", question:"Which observation types are documented?", evidence:"Reported presence, official description or unreported", inference:"Distinguish molecular/digital/functional/cognitive/neural and perturbation coverage; not completeness."},
     {section:"Real study properties", id:"population", target:"figure-population", fallback:"observed", question:"How many people?", evidence:"Reported source facts", inference:"Compare named populations, not assay-complete people or overall quality."},
     {section:"Real study properties", id:"time", target:"figure-time", fallback:"observed", question:"How much time?", evidence:"Reported source facts", inference:"Compare labeled follow-up and treatment windows; cadence remains separate."},
     {section:"Real study properties", id:"proteins", target:"figure-proteins", fallback:"observed", question:"How broad is a protein panel?", evidence:"Reported source facts", inference:"Compare assay targets, not independent biological dimensions."},

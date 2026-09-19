@@ -21,7 +21,7 @@ ASSETS = ("explore.html", "explore.css", "explore.js", "favicon.svg",
           "release-charts.js", "release-charts.css", "release-results.json",
           "release-chart-receipts.json", "release-chart-provenance.json",
           "erp-design-sensitivity.json", "erp-design-plan.json",
-          "elite-public-card.json", "study-status-cards.json",
+          "elite-public-card.json", "study-status-cards.json", "source-architecture.json",
           "calerie-design.svg", "calerie-design.json")
 
 

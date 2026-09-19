@@ -150,6 +150,7 @@ ALLOWED_WEB_FILENAMES = frozenset(
         "erp-design-plan.json",
         "elite-public-card.json",
         "study-status-cards.json",
+        "source-architecture.json",
         "collection-viewer.js",
         "collection-viewer.test.js",
         "collection-example.json",

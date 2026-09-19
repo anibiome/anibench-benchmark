@@ -689,6 +689,88 @@ const AniBenchCharts = (() => {
         "",
       )}</tbody></table></div><a class="export-data" href="study-status-cards.json" download>Download source-bound publication and ethics records</a></details>`;
   }
+  function validateArchitecture(packet) {
+    const domains = ["molecular","digital","functional","cognitive","neural","perturbation"];
+    if (packet?.schema_version !== "anibench.public-study-architecture.v1" || !Array.isArray(packet.studies) || !packet.sources) throw Error("Invalid architecture packet");
+    for (const source of Object.values(packet.sources)) {
+      if (!source || !Object.hasOwn(publicationLabels,source.publication) || !/^[a-f0-9]{64}$/.test(source.sha256) || safeURL(source.url) === "#" || safeURL(source.fetch_url) === "#") throw Error("Invalid architecture source");
+    }
+    const ids = new Set(), factIds = new Set();
+    const checkRef = ref => {
+      if (!ref || !packet.sources[ref.source_id] || typeof ref.source_locator !== "string" || !ref.source_locator || !/^[a-f0-9]{64}$/.test(ref.passage_sha256)) throw Error("Unbound architecture reference");
+    };
+    for (const study of packet.studies) {
+      if (typeof study.study_id !== "string" || !study.study_id.trim() || typeof study.name !== "string" || !study.name.trim() || ids.has(study.study_id) || !Array.isArray(study.numeric_facts) || !Array.isArray(study.coverage)) throw Error("Invalid or duplicate architecture study");
+      ids.add(study.study_id);
+      if (!study.ethics || !Object.hasOwn(ethicsLabels,study.ethics.status)) throw Error("Invalid architecture ethics state");
+      if (study.coverage.length !== domains.length || new Set(study.coverage.map(cell=>cell.domain)).size !== domains.length || study.coverage.some(cell=>!domains.includes(cell.domain))) throw Error("Architecture needs six distinct coverage domains");
+      for (const fact of study.numeric_facts) {
+        if (typeof fact.fact_id !== "string" || !fact.fact_id.trim() || factIds.has(fact.fact_id)) throw Error("Invalid or duplicate architecture fact identity");
+        factIds.add(fact.fact_id);
+        if (!Number.isFinite(fact.value) || fact.value < 0 || !["population","molecular","timing"].includes(fact.panel) || !["exact_reported","approximate","strict_lower_bound","reported_median","typical_schedule","reported_schedule"].includes(fact.precision)) throw Error("Invalid architecture quantity");
+        for (const field of ["entity","unit","scope","label"]) if (typeof fact[field] !== "string" || !fact[field]) throw Error("Missing architecture definition");
+        checkRef(fact.source);
+      }
+      for (const cell of study.coverage) {
+        if (!["reported_present","source_described","unreported"].includes(cell.state) || !Array.isArray(cell.sources) || typeof cell.description !== "string") throw Error("Invalid architecture presence state");
+        if (cell.state !== "unreported" && !cell.sources.length) throw Error("Unbound architecture presence");
+        cell.sources.forEach(checkRef);
+      }
+    }
+  }
+  function architectureValue(fact) {
+    return `${fact.precision === "approximate" ? "≈ " : fact.precision === "strict_lower_bound" ? "> " : ""}${num(fact.value)}${fact.precision === "reported_median" ? " median" : ""}`;
+  }
+  function architectureMatches(packet, study, ref, filters) {
+    return matchesStatus({publication:packet.sources[ref?.source_id]?.publication || "unknown",ethics:study.ethics.status}, filters);
+  }
+  function architectureSources(packet, refs) {
+    return refs.map(ref => {
+      const source = packet.sources[ref.source_id];
+      return `<a href="${esc(safeURL(source.url))}" target="_blank" rel="noopener">Source ↗</a><small>${esc(ref.source_locator)} · SHA-256 ${esc(source.sha256)}</small>`;
+    }).join(" ");
+  }
+  function architectureNumeric(packet, panel, filters) {
+    const rows = packet.studies.flatMap(study => study.numeric_facts.filter(fact => fact.panel === panel && architectureMatches(packet,study,fact.source,filters)).map(fact => ({study,fact})));
+    const titles = {population:"How many people?",molecular:"Molecular targets, by entity",timing:"How often, and for how long?"};
+    const notes = {population:"Named populations and subsets · people · log scale",molecular:"Separate entity scales · no cross-entity total",timing:"Separate native units · observations and schedules differ"};
+    const entities = [...new Set(rows.map(row=>row.fact.entity))];
+    let html = `<div class="release-figure architecture-panel" id="architecture-${panel}"><div class="figure-top"><div><h3>${titles[panel]}</h3><p>${notes[panel]}</p></div></div>`;
+    if (!rows.length) html += '<p class="chart-empty">No numerical facts match these source/ethics filters. Missing or filtered values are not zero.</p>';
+    for (const entity of entities) {
+      const group = rows.filter(row=>row.fact.entity===entity);
+      const maximum = panel === "population" ? 1000000 : Math.max(1,...group.map(row=>row.fact.value));
+      const hasZero = panel === "population" && group.some(row=>row.fact.value === 0);
+      const origin = hasZero ? 60 : 12;
+      const scale = value => value === 0 ? 12 : origin + (panel === "population" ? Math.log10(value)/6 : value/maximum)*(408-origin);
+      html += `<section class="architecture-entity"><h4>${esc(entity.replaceAll("_"," "))}${entity === group[0].fact.unit ? "" : ` (${esc(group[0].fact.unit.replaceAll("_"," "))})`}${panel === "population" ? (hasZero ? " · 0 separate; positive axis 1 to 1,000,000" : " · 1 to 1,000,000") : ` · axis 0–${num(maximum)}`}</h4>`;
+      for (const {study,fact} of group) {
+        const x = scale(fact.value), value = architectureValue(fact);
+        const marker = fact.precision === "strict_lower_bound"
+          ? `<circle cx="${x}" cy="10" r="5" fill="white" stroke="#147a87" stroke-width="2"/><path d="M ${x+8} 10 h 14 m -5 -5 l 5 5 -5 5" fill="none" stroke="#147a87" stroke-width="2"/>`
+          : `<circle cx="${x}" cy="10" r="5" fill="${fact.precision === "approximate" ? "white" : "#147a87"}" stroke="#147a87" stroke-width="2"/>`;
+        html += `<div class="architecture-number"><div><span><strong>${esc(study.name)}</strong> · ${esc(fact.label)}</span><b>${esc(value)}</b></div>${svgShell(`${study.name}: ${fact.label}, ${value} ${fact.unit}; ${fact.precision}`,`<line x1="${origin}" x2="408" y1="10" y2="10" stroke="#dce3e8" stroke-width="2"/>${marker}`,20,440)}</div>`;
+      }
+      html += '</section>';
+    }
+    if (rows.length) html += `<details class="architecture-evidence"><summary>Definitions, values &amp; sources (${rows.length})</summary><div class="table-scroll"><table><caption>Exact source-specific denominators and precision; no cross-study total.</caption><thead><tr><th scope="col">Study / collection</th><th scope="col">Reported value</th><th scope="col">Definition &amp; evidence</th></tr></thead><tbody>${rows.map(({study,fact})=>`<tr><th scope="row">${esc(study.name)} · ${esc(fact.label)}</th><td>${esc(architectureValue(fact))} ${esc(fact.unit.replaceAll("_"," "))}<br>${esc(fact.precision.replaceAll("_"," "))}</td><td>${esc(fact.scope)} ${architectureSources(packet,[fact.source])}</td></tr>`).join("")}</tbody></table></div></details>`;
+    html += `<p class="diagram-note">${panel === "population" ? "Each denominator belongs to its named collection. These groups may overlap; do not add them. Open marks retain approximate or lower-bound values." : panel === "molecular" ? "A transcript, protein, metabolite, cytokine, peak and derived trait are different entities. Counts do not establish independent information or complete measurements for every person." : "A median span, a sampling interval, treatment sessions and sensor wear are different quantities. No common duration score is computed."}</p></div>`;
+    return html;
+  }
+  function architectureCoverage(packet, filters) {
+    const domains = ["molecular","digital","functional","cognitive","neural","perturbation"];
+    const studies = packet.studies.filter(study => study.numeric_facts.some(fact=>architectureMatches(packet,study,fact.source,filters)) || study.coverage.some(cell=>cell.sources.length && cell.sources.every(ref=>architectureMatches(packet,study,ref,filters))));
+    return `<section class="release-figure" id="architecture-coverage"><h3>Which kinds of observation are documented?</h3><p class="diagram-note">Reported = primary publication/resource. Description only = official inventory, not verified realized collection. Unreported does not mean absent. Digital distinguishes self-report from sensing; functional tests distinguish metabolic challenges from physical function.</p><p class="architecture-scroll-hint">Scroll the table horizontally on smaller screens to inspect all categories.</p><div class="table-scroll"><table class="architecture-matrix"><caption>${studies.length} of ${packet.studies.length} study descriptions match source/ethics filters. Presence is not complete participant coverage.</caption><thead><tr><th scope="col">Study</th>${domains.map(domain=>`<th scope="col">${domain[0].toUpperCase()+domain.slice(1)}</th>`).join("")}</tr></thead><tbody>${studies.map(study=>`<tr><th scope="row">${esc(study.name)}<small>${esc(ethicsLabels[study.ethics.status])}</small></th>${domains.map(domain=>{
+      const cell = study.coverage.find(item=>item.domain===domain);
+      const state = cell.state === "unreported" ? "unreported" : cell.sources.every(ref=>architectureMatches(packet,study,ref,filters)) ? cell.state : "filtered";
+      const label = {reported_present:"Reported",source_described:"Description only",unreported:"Unreported",filtered:"Filtered source"}[state];
+      return `<td class="architecture-cell-${state}"><strong>${label}</strong><p>${esc(state === "filtered" ? "This cell's source does not match the publication filter." : cell.description)}</p>${["reported_present","source_described"].includes(state) ? `<details><summary>Evidence</summary>${architectureSources(packet,cell.sources)}</details>` : ""}</td>`;
+    }).join("")}</tr>`).join("")}</tbody></table></div><p>No cell certifies a complete dataset, independent dimension, causal identification or rank. An immunization/challenge observation does not by itself establish randomized assignment. HPP coverage is abstract-only; ELITE coverage is an official description.</p></section>`;
+  }
+  function architectureHTML(packet, filters = {publication:"all",ethics:"all"}) {
+    validateArchitecture(packet);
+    return `<div class="chart-grid">${architectureNumeric(packet,"population",filters)}${architectureNumeric(packet,"molecular",filters)}</div><div class="architecture-intro"><p>Five public inventories · separate denominators and entities · source/ethics filters apply. Featured/Expanded applies below.</p></div>${architectureNumeric(packet,"timing",filters)}${architectureCoverage(packet,filters)}<a class="export-data" href="source-architecture.json" download>Download architecture facts and source provenance ↓</a>`;
+  }
   function caleriePlot(packet, estimand) {
     const designs = [["endpoint_pair", "Baseline + 24 months"], ["three_timepoints", "All three visits"]];
     const left = 14, right = 426, maximum = 0.3;
@@ -762,6 +844,22 @@ const AniBenchCharts = (() => {
     loadSection(() => Promise.all([jsonFile("erp-design-sensitivity.json"), jsonFile("erp-design-plan.json")]),
       packets => renderERP(...packets), () => { document.getElementById("erp-design-lab").innerHTML =
         '<p class="chart-message">Design results are unavailable. Reload to retry.</p>'; });
+    let architecturePacket = null;
+    const updateArchitecture = () => {
+      if (!architecturePacket) return;
+      const target = document.getElementById("source-architecture");
+      try {
+        target.innerHTML = architectureHTML(architecturePacket, {
+          publication:document.getElementById("publication-filter")?.value || "all",
+          ethics:document.getElementById("ethics-filter")?.value || "all",
+        });
+      } catch {
+        target.innerHTML = '<p class="chart-message">Study architecture is unavailable because its source packet could not be validated. Other charts remain available.</p>';
+      }
+    };
+    loadSection(() => jsonFile("source-architecture.json"), packet => { architecturePacket = packet; updateArchitecture(); }, () => {
+      document.getElementById("source-architecture").innerHTML = '<p class="chart-message">Study architecture could not load. Other source charts remain available; reload to retry.</p>';
+    });
     const statusRequest = jsonFile("study-status-cards.json").catch(() => null);
     const eliteRequest = jsonFile("elite-public-card.json").catch(() => null);
     try {
@@ -769,7 +867,7 @@ const AniBenchCharts = (() => {
       let statuses = null, elite = null, statusPending = true;
       const controls = document.getElementById("evidence-filters");
       controls.innerHTML =
-        '<label>Comparison set<select id="chart-scope"><option value="featured">Featured comparisons</option><option value="all">Expanded comparisons</option></select></label><label>Publication source<select id="publication-filter"><option value="all">All sources</option><option value="peer_reviewed_article">Peer-reviewed only</option><option value="preprint">Preprints only</option><option value="public_participant_protocol">Protocols only</option><option value="registry_record">Registry records only</option><option value="first_party_resource_release">Official data releases</option><option value="first_party_self_report">First-party reports</option><option value="unpublished">Unpublished only</option><option value="unknown">Unknown status</option></select></label><label>Ethics / IRB status<select id="ethics-filter"><option value="all">All approval states</option><option value="approval_reported">Approval reported</option><option value="explicitly_not_approved">Explicitly not approved</option><option value="exempt_reported">Exemption reported</option><option value="unknown">Unknown status</option></select></label><button type="button" id="reset-evidence-filters">Reset filters</button>';
+        '<label>Additional comparisons<select id="chart-scope"><option value="featured">Featured comparisons</option><option value="all">Expanded comparisons</option></select></label><label>Publication source<select id="publication-filter"><option value="all">All sources</option><option value="peer_reviewed_article">Peer-reviewed only</option><option value="preprint">Preprints only</option><option value="public_participant_protocol">Protocols only</option><option value="registry_record">Registry records only</option><option value="first_party_resource_release">Official data releases</option><option value="first_party_self_report">First-party reports</option><option value="unpublished">Unpublished only</option><option value="unknown">Unknown status</option></select></label><label>Ethics / IRB status<select id="ethics-filter"><option value="all">All approval states</option><option value="approval_reported">Approval reported</option><option value="explicitly_not_approved">Explicitly not approved</option><option value="exempt_reported">Exemption reported</option><option value="unknown">Unknown status</option></select></label><button type="button" id="reset-evidence-filters">Reset filters</button>';
       const update = () => {
         const filters = {
           scope: document.getElementById("chart-scope").value,
@@ -778,6 +876,7 @@ const AniBenchCharts = (() => {
         };
         document.getElementById("filter-toggle").textContent =
           `Filters · ${filters.publication === "all" ? "all publication types" : publicationLabels[filters.publication] || "unknown publication"} · ${filters.ethics === "all" ? "all ethics states" : ethicsLabels[filters.ethics] || "unknown ethics"}`;
+        updateArchitecture();
         area.innerHTML = reported(atlas, statuses, filters);
         const eliteStatus = {
           publication: "first_party_self_report",
@@ -803,7 +902,7 @@ const AniBenchCharts = (() => {
         document.getElementById("filter-details").textContent =
           `Hidden by publication only: ${counts.publicationOnly}; ethics only: ${counts.ethicsOnly}; both: ${counts.both}. In this comparison set, publication is unknown for ${counts.unknownPublication} source facts and ethics for ${counts.unknownEthics}.`;
         document.getElementById("filter-summary").textContent =
-          `${shown.length} of ${plotted.length} selected source facts shown. Filters change inclusion, not the values. ${statuses ? "Unknown approval stays distinct from explicitly no approval." : statusPending ? "Evidence status is still loading; pending classification is not evidence of no approval." : "Status records unavailable: classification is unknown."}`;
+          `${shown.length} of ${plotted.length} additional source facts shown below. Filters change inclusion, not the values. ${statuses ? "Unknown approval stays distinct from explicitly no approval." : statusPending ? "Evidence status is still loading; pending classification is not evidence of no approval." : "Status records unavailable: classification is unknown."}`;
         document.getElementById("status-roster").innerHTML = statuses
           ? statusRoster(statuses, filters)
           : "";
@@ -827,6 +926,7 @@ const AniBenchCharts = (() => {
   }
 
   return {
+    architectureHTML, architectureNumeric, architectureCoverage, architectureValue, architectureMatches, validateArchitecture,
     calerieExample,
     caleriePlot,
     bindURLControls,
