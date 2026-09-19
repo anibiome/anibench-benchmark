@@ -54,6 +54,13 @@ target units, and target definitions must be stable and meaningful. A derived
 feature should have a separate declared definition from an acquired analyte.
 Counts from different modules are never added into a depth score.
 
+Use `neural` for direct neural observations, such as an explicitly defined EEG
+or fMRI measurement. Cognitive test performance remains `cognitive`; it is not
+proof of neural imaging or recording. A neural collection label does not establish
+neurostimulation, randomization, or causal identification. Describe those in the
+protocol design separately. Electrode, voxel, and derived-feature counts need
+explicit target definitions and do not denote independent biological dimensions.
+
 Map existing QC labels to `pass`, `fail`, or `unknown`. A constant status is an
 explicit user declaration, not an independent quality review. Only `pass`
 contributes to a collected profile. A planned profile uses `planned` throughout
@@ -165,3 +172,7 @@ rejected. This is a viewer of supplied results, not independent source or hash
 verification; reproduce the receipt with the Python commands before making a
 public claim. The built-in example is generated from the shipped synthetic
 tables and checked against the Python profiler in the test suite.
+
+
+Publication/ethics evidence and hypothetical approval copies can be attached
+without changing these results; see [Study context](STUDY_CONTEXT.md).

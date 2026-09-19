@@ -134,3 +134,27 @@ def test_mixed_absolute_and_relative_clocks_require_explicit_alignment(tmp_path)
     payload["sources"].append({**payload["sources"][0], "time_format": "elapsed_days"})
     with pytest.raises(CollectionError, match="alignment"):
         import_collection_tables(payload, base=tmp_path)
+
+
+def test_neural_observation_retains_own_domain_without_claiming_perturbation(tmp_path):
+    payload = mapping("eeg.csv")
+    payload["modules"] = [{"module_id": "eeg", "domain": "neural",
+                           "target_unit": "registered_erp_components",
+                           "target_definition_id": "synthetic-erp-v1"}]
+    payload["sources"][0].update(module_id="eeg", feature_columns=["p3"])
+    (tmp_path / "eeg.csv").write_text(
+        "person,visit,day,qc,p3\n"
+        "private-person-a,v1,2026-01-01,ok,0\n"
+        "private-person-a,v2,2026-01-29,ok,1\n"
+        "private-person-b,v1,2026-01-01,pending,2\n"
+    )
+    manifest, _ = import_collection_tables(payload, base=tmp_path)
+    result = profile_collection(manifest)
+    module = result["modules"][0]
+    assert module["domain"] == "neural"
+    assert module["roster_denominator"] == 3
+    assert module["people_with_accepted_targets"] == 1
+    assert module["target_observations"] == 2
+    assert module["observed_target_count"] == 1
+    assert all(row["domain"] != "cognitive" for row in result["domain_coverage"])
+    assert "causal" not in result and "intervention" not in result

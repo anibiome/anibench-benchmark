@@ -43,6 +43,29 @@ def _parser() -> argparse.ArgumentParser:
     tables.add_argument("--manifest-out", type=Path, help="Optional private participant-linked intermediate")
     tables.add_argument("--pretty", action="store_true")
 
+    context = sub.add_parser(
+        "study-context", help="Bind evidence metadata or a hypothetical approval copy to local bytes"
+    )
+    actions = context.add_subparsers(dest="context_action", required=True)
+    for action in ("create", "assume-approval", "verify"):
+        command = actions.add_parser(action)
+        command.add_argument("input", metavar="DESIGN_INPUT", type=Path)
+        command.add_argument("--result", type=Path, help="Optional exact result bytes to bind")
+        if action == "verify":
+            command.add_argument("--context", type=Path, required=True)
+            command.add_argument("--parent", type=Path)
+        else:
+            command.add_argument("--id", dest="record_id", required=True)
+            command.add_argument("--name", required=True)
+            command.add_argument("--out", type=Path, required=True)
+            command.add_argument("--pretty", action="store_true")
+            if action == "create":
+                command.add_argument("--evidence", type=Path,
+                                     help="Optional publication/ethics evidence JSON; default unknown")
+            else:
+                command.add_argument("--parent", type=Path, required=True)
+                command.add_argument("--reason", required=True)
+
     records = sub.add_parser(
         "compare-records", help="Compare one native collection metric with explicit evidence bounds"
     )
@@ -132,6 +155,7 @@ def _emit(
     out: Path | None,
     pretty: bool,
     receipt: dict[str, Any] | None = None,
+    report_path: bool = True,
 ) -> None:
     rendered = json.dumps(result, indent=2 if pretty else None, sort_keys=True)
     if out is None:
@@ -139,7 +163,8 @@ def _emit(
         return
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(rendered + "\n", encoding="utf-8")
-    print(json.dumps({"written": str(out), **(receipt or {})}, sort_keys=True))
+    print(json.dumps({**({"written": str(out)} if report_path else {}),
+                      **(receipt or {})}, sort_keys=True))
 
 
 def _write_snapshot(snapshot: Any, out: Path) -> None:
@@ -174,6 +199,39 @@ def main(argv: list[str] | None = None) -> int:
             from .studio import serve_studio
 
             serve_studio(args.host, args.port, unsafe_nonloopback=args.unsafe_nonloopback)
+            return 0
+        if args.command == "study-context":
+            from .study_context import create_context, hypothetical_approval_copy, validate_context
+
+            inputs = [args.input] + ([args.result] if args.result is not None else [])
+            for name in ("parent", "context", "evidence"):
+                value = getattr(args, name, None)
+                if value is not None:
+                    inputs.append(value)
+            out = getattr(args, "out", None)
+            _protect_collection_inputs(inputs, [out] if out is not None else [])
+            input_bytes = args.input.read_bytes()
+            result_bytes = args.result.read_bytes() if args.result is not None else None
+            parent_path = getattr(args, "parent", None)
+            parent = _load_object(parent_path, label="parent context") if parent_path else None
+            if args.context_action == "verify":
+                result = _load_object(args.context, label="study context")
+                validate_context(result, input_bytes=input_bytes,
+                                 result_bytes=result_bytes, parent=parent)
+                print(json.dumps({"valid": True, "context_sha256": result["context_sha256"],
+                                  "scientific_result_verified": False}))
+                return 0
+            if args.context_action == "create":
+                evidence = _load_object(args.evidence, label="study evidence") if args.evidence else None
+                result = create_context(args.record_id, args.name, input_bytes=input_bytes,
+                                        result_bytes=result_bytes, evidence=evidence)
+            else:
+                result = hypothetical_approval_copy(
+                    parent, args.record_id, args.name, reason=args.reason,
+                    input_bytes=input_bytes, result_bytes=result_bytes,
+                )
+            _emit(result, out=out, pretty=args.pretty,
+                  receipt={"context_sha256": result["context_sha256"]}, report_path=False)
             return 0
         if args.command == "finite-task":
             from .finite_tasks_v1 import evaluate_finite_task

@@ -81,6 +81,7 @@ docs/REGISTRY_STRESS_240.md
 docs/RELEASE.md
 docs/RELEASE_CHECKLIST.md
 docs/SCIENTIFIC_FOUNDATIONS.md
+docs/STUDY_CONTEXT.md
 docs/STUDY_EXPLORER.md
 docs/V2_METHODS_CANDIDATE.md
 docs/V2_OPTIMIZER.md
@@ -130,6 +131,7 @@ paper/v2/figures/figure_04_evidence_lanes.svg
 pyproject.toml
 schemas/collection/comparison-basis.schema.json
 schemas/collection/record.schema.json
+schemas/collection/study-context.schema.json
 schemas/collection/table-map.schema.json
 schemas/finite_precision/v1/evaluation-input.schema.json
 schemas/finite_precision/v1/evaluation-result.schema.json
@@ -217,6 +219,7 @@ src/anibench/reported_facts.py
 src/anibench/source_atlas_v2.py
 src/anibench/studio.py
 src/anibench/studio_product.py
+src/anibench/study_context.py
 src/anibench/uncertainty_v2.py
 src/anibench/v2.py
 tests/test_collection_compare.py
@@ -255,6 +258,8 @@ tests/test_release_metadata_v2.py
 tests/test_saturation_packaging.py
 tests/test_studio_intake.py
 tests/test_studio_product.py
+tests/test_study_context.py
+tests/test_study_context_cli.py
 tests/test_v2_contract_semantics.py
 tests/test_v2_contracts.py
 tests/test_v2_design.py

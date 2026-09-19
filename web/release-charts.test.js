@@ -211,3 +211,30 @@ test("standalone SVG exports retain visible interpretation, escaped source prove
   assert.match(svg, /<g transform="translate\(0,75\)">/);
   assert.ok(!svg.includes("<paper>"));
 });
+
+test("filter exclusion reasons partition hidden facts and retain unknown counts", () => {
+  const states = [
+    { publication: "peer_reviewed_article", ethics: "approval_reported" },
+    { publication: "unpublished", ethics: "approval_reported" },
+    { publication: "peer_reviewed_article", ethics: "unknown" },
+    { publication: "unknown", ethics: "unknown" },
+  ];
+  assert.deepEqual(
+    c.filterCounts(states, {
+      publication: "peer_reviewed_article",
+      ethics: "approval_reported",
+    }),
+    {
+      shown: 1,
+      publicationOnly: 1,
+      ethicsOnly: 1,
+      both: 1,
+      unknownPublication: 1,
+      unknownEthics: 2,
+    },
+  );
+  assert.equal(
+    c.filterCounts(states, { publication: "all", ethics: "all" }).shown,
+    4,
+  );
+});

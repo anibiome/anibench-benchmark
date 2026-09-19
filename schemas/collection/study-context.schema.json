@@ -1,0 +1,258 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_id",
+    "display_name",
+    "record_kind",
+    "parent",
+    "evidence_scope",
+    "evidence",
+    "design_binding",
+    "assumptions",
+    "context_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "anibench.study-context.v1"
+    },
+    "record_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "record_kind": {
+      "enum": [
+        "actual",
+        "hypothetical"
+      ]
+    },
+    "parent": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "record_id",
+            "context_sha256"
+          ],
+          "properties": {
+            "record_id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+            },
+            "context_sha256": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            }
+          }
+        }
+      ]
+    },
+    "evidence_scope": {
+      "enum": [
+        "this_record",
+        "parent_study"
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "publication",
+        "ethics"
+      ],
+      "properties": {
+        "publication": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "basis",
+            "sources"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "peer_reviewed_article",
+                "preprint",
+                "public_participant_protocol",
+                "registry_record",
+                "first_party_resource_release",
+                "first_party_self_report",
+                "unpublished",
+                "unknown"
+              ]
+            },
+            "basis": {
+              "enum": [
+                "source_reported",
+                "user_declared",
+                "unknown"
+              ]
+            },
+            "sources": {
+              "type": "array",
+              "maxItems": 20,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "url",
+                  "locator"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2048
+                  },
+                  "locator": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 500
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ethics": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "basis",
+            "sources"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "approval_reported",
+                "explicitly_not_approved",
+                "exempt_reported",
+                "unknown"
+              ]
+            },
+            "basis": {
+              "enum": [
+                "source_reported",
+                "user_declared",
+                "unknown"
+              ]
+            },
+            "sources": {
+              "type": "array",
+              "maxItems": 20,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "url",
+                  "locator"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2048
+                  },
+                  "locator": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 500
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "design_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "input_sha256",
+        "result_sha256",
+        "result_state"
+      ],
+      "properties": {
+        "input_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "result_sha256": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            }
+          ]
+        },
+        "result_state": {
+          "enum": [
+            "not_run",
+            "bytes_bound"
+          ]
+        }
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "parent_value",
+          "assumed_value",
+          "reason",
+          "affects_design"
+        ],
+        "properties": {
+          "path": {
+            "const": "/scenario_assumptions/ethics_status"
+          },
+          "parent_value": {
+            "enum": [
+              "approval_reported",
+              "explicitly_not_approved",
+              "exempt_reported",
+              "unknown"
+            ]
+          },
+          "assumed_value": {
+            "const": "approved"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "affects_design": {
+            "const": false
+          }
+        }
+      }
+    },
+    "context_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Study evidence and approval-only hypothetical context; semantic validation also required"
+}

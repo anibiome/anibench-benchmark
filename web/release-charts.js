@@ -203,6 +203,7 @@ const AniBenchCharts = (() => {
     registry_record: "Registry",
     first_party_resource_release: "Official data release",
     first_party_self_report: "First-party report",
+    unpublished: "Unpublished",
     unknown: "Unknown",
   };
   const ethicsLabels = {
@@ -235,6 +236,28 @@ const AniBenchCharts = (() => {
         status.publication === filters.publication) &&
       (filters.ethics === "all" || status.ethics === filters.ethics)
     );
+  }
+  function filterCounts(statuses, filters) {
+    const counts = {
+      shown: 0,
+      publicationOnly: 0,
+      ethicsOnly: 0,
+      both: 0,
+      unknownPublication: 0,
+      unknownEthics: 0,
+    };
+    for (const status of statuses) {
+      const p =
+        filters.publication !== "all" &&
+        status.publication !== filters.publication;
+      const e = filters.ethics !== "all" && status.ethics !== filters.ethics;
+      counts[
+        p && e ? "both" : p ? "publicationOnly" : e ? "ethicsOnly" : "shown"
+      ]++;
+      if (status.publication === "unknown") counts.unknownPublication++;
+      if (status.ethics === "unknown") counts.unknownEthics++;
+    }
+    return counts;
   }
   function allFactSets(atlas) {
     const facts = atlas.studies.flatMap(
@@ -649,7 +672,7 @@ const AniBenchCharts = (() => {
       const elite = extras[1].status === "fulfilled" ? extras[1].value : null;
       const controls = document.getElementById("evidence-filters");
       controls.innerHTML =
-        '<label>Comparison set<select id="chart-scope"><option value="featured">Featured comparisons</option><option value="all">Expanded comparisons</option></select></label><label>Publication source<select id="publication-filter"><option value="all">All sources</option><option value="peer_reviewed_article">Peer-reviewed only</option><option value="preprint">Preprints only</option><option value="public_participant_protocol">Protocols only</option><option value="registry_record">Registry records only</option><option value="first_party_resource_release">Official data releases</option><option value="first_party_self_report">First-party reports</option><option value="unknown">Unknown status</option></select></label><label>Ethics / IRB status<select id="ethics-filter"><option value="all">All approval states</option><option value="approval_reported">Approval reported</option><option value="explicitly_not_approved">Explicitly not approved</option><option value="exempt_reported">Exemption reported</option><option value="unknown">Unknown status</option></select></label><button type="button" id="reset-evidence-filters">Reset filters</button>';
+        '<label>Comparison set<select id="chart-scope"><option value="featured">Featured comparisons</option><option value="all">Expanded comparisons</option></select></label><label>Publication source<select id="publication-filter"><option value="all">All sources</option><option value="peer_reviewed_article">Peer-reviewed only</option><option value="preprint">Preprints only</option><option value="public_participant_protocol">Protocols only</option><option value="registry_record">Registry records only</option><option value="first_party_resource_release">Official data releases</option><option value="first_party_self_report">First-party reports</option><option value="unpublished">Unpublished only</option><option value="unknown">Unknown status</option></select></label><label>Ethics / IRB status<select id="ethics-filter"><option value="all">All approval states</option><option value="approval_reported">Approval reported</option><option value="explicitly_not_approved">Explicitly not approved</option><option value="exempt_reported">Exemption reported</option><option value="unknown">Unknown status</option></select></label><button type="button" id="reset-evidence-filters">Reset filters</button>';
       const update = () => {
         const filters = {
           scope: document.getElementById("chart-scope").value,
@@ -676,6 +699,12 @@ const AniBenchCharts = (() => {
         const shown = plotted.filter((f) =>
           matchesStatus(factStatus(f, statuses), filters),
         );
+        const counts = filterCounts(
+          plotted.map((f) => factStatus(f, statuses)),
+          filters,
+        );
+        document.getElementById("filter-details").textContent =
+          `Hidden by publication only: ${counts.publicationOnly}; ethics only: ${counts.ethicsOnly}; both: ${counts.both}. In this comparison set, publication is unknown for ${counts.unknownPublication} source facts and ethics for ${counts.unknownEthics}.`;
         document.getElementById("filter-summary").textContent =
           `${shown.length} of ${plotted.length} selected source facts shown. Filters change inclusion, not the values. ${statuses ? "Unknown approval stays distinct from explicitly no approval." : "Status records unavailable: classification is unknown."}`;
         document.getElementById("status-roster").innerHTML = statuses
@@ -738,6 +767,7 @@ const AniBenchCharts = (() => {
   return {
     allFactSets,
     matchesStatus,
+    filterCounts,
     factStatus,
     statusRoster,
     eliteCard,
