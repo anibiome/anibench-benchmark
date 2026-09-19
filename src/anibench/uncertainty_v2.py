@@ -3,6 +3,7 @@ from __future__ import annotations
 import math
 from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
+from numbers import Real
 
 import numpy as np
 
@@ -30,7 +31,14 @@ class PropagatedInterval:
     seed: int
 
 
-def sample_coordinate(coordinate: Coordinate, *, draws: int, rng: np.random.Generator) -> np.ndarray:
+def sample_coordinate(
+    coordinate: Coordinate, *, draws: int, rng: np.random.Generator
+) -> np.ndarray:
+    """Sample a declared model; an interval explicitly assigns a uniform law.
+
+    Bounds alone do not establish that law. Callers must justify this modeling
+    choice before interpreting the propagated quantiles as uncertainty.
+    """
     if draws < 1:
         raise UncertaintyV2Error("draws must be positive")
     if coordinate.state == "exact":
@@ -55,7 +63,9 @@ def sample_coordinate(coordinate: Coordinate, *, draws: int, rng: np.random.Gene
             mean = float(params.get("mean", math.nan))
             sd = float(params.get("sd", math.nan))
             if not math.isfinite(mean) or not math.isfinite(sd) or sd < 0:
-                raise UncertaintyV2Error("normal distribution requires finite mean and nonnegative sd")
+                raise UncertaintyV2Error(
+                    "normal distribution requires finite mean and nonnegative sd"
+                )
             return rng.normal(mean, sd, size=draws)
         raise UncertaintyV2Error("unsupported distribution")
     if coordinate.state in {"unknown", "absent"}:
@@ -71,15 +81,33 @@ def propagate(
     seed: int = 1729,
     quantiles: Sequence[float] = (0.025, 0.5, 0.975),
 ) -> PropagatedInterval:
-    if len(quantiles) != 3 or not all(0 <= value <= 1 for value in quantiles):
-        raise UncertaintyV2Error("quantiles must contain three probabilities")
+    """Return Monte Carlo quantiles under independent coordinate models.
+
+    These are neither guaranteed bounds nor automatically confidence intervals.
+    Dependence between uncertain inputs requires a separate joint sampler.
+    """
+    if len(quantiles) != 3 or not all(
+        isinstance(value, Real)
+        and not isinstance(value, bool)
+        and math.isfinite(value)
+        and 0 <= value <= 1
+        for value in quantiles
+    ):
+        raise UncertaintyV2Error("quantiles must contain three finite numeric probabilities")
+    if not quantiles[0] <= quantiles[1] <= quantiles[2]:
+        raise UncertaintyV2Error("quantiles must be ordered lower <= median <= upper")
+    if quantiles[1] != 0.5:
+        raise UncertaintyV2Error("the middle quantile must be 0.5 to report a median")
     rng = np.random.default_rng(seed)
     sampled = {
         key: sample_coordinate(coordinate, draws=draws, rng=rng)
         for key, coordinate in coordinates.items()
     }
     values = np.asarray(
-        [evaluator({key: float(rows[index]) for key, rows in sampled.items()}) for index in range(draws)],
+        [
+            evaluator({key: float(rows[index]) for key, rows in sampled.items()})
+            for index in range(draws)
+        ],
         dtype=float,
     )
     if not np.all(np.isfinite(values)):

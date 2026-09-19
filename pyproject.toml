@@ -207,6 +207,7 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/tests/test_uncertainty_v2.py",
   "/examples/finite_suites/replay_erp.py",
   "/examples/finite_suites/README.md",
   "/tests/test_finite_suite_example.py",

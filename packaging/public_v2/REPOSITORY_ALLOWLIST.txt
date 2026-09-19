@@ -279,6 +279,7 @@ tests/test_studio_intake.py
 tests/test_studio_product.py
 tests/test_study_context.py
 tests/test_study_context_cli.py
+tests/test_uncertainty_v2.py
 tests/test_v2_contract_semantics.py
 tests/test_v2_contracts.py
 tests/test_v2_design.py
