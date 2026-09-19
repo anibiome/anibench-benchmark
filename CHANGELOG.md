@@ -2,7 +2,7 @@
 
 All notable changes are recorded here. AniBench uses semantic versioning for the benchmark contract, not only the Python package.
 
-## Unreleased
+## 2.0.0-rc.2 - 2026-09-18
 
 - Add a local browser receipt viewer with collection charts, linked-measurement
   coverage, native-category rank ranges and a reproducible synthetic example.

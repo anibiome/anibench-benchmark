@@ -547,7 +547,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--output-root", type=Path, required=True)
-    parser.add_argument("--version", default="2.0.0-rc.1")
+    parser.add_argument("--version", default="2.0.0-rc.2")
     parser.add_argument("--source-date-epoch", type=int, required=True)
     parser.add_argument(
         "--allow-dirty",

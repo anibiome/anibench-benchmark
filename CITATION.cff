@@ -1,12 +1,12 @@
 cff-version: 1.2.0
-title: "AniBench: reconstructive and causal capacity of human trials"
+title: "AniBench: an open benchmark for biological learning capacity in human studies"
 message: "If you use AniBench, cite this software release and every primary study source used in an assessment."
 type: software
 authors:
   - family-names: Balen
     given-names: Bruno
     affiliation: ANI Biome PBC
-version: 2.0.0-rc.1
+version: 2.0.0-rc.2
 license: Apache-2.0
 repository-code: "https://github.com/anibiome/anibench-benchmark"
 abstract: >-

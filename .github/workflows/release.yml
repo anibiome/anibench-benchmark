@@ -140,6 +140,7 @@ jobs:
   publish:
     name: Publish only after exact external gates
     needs: build-test-attest
+    if: ${{ !contains(github.ref_name, '-rc.') }}
     runs-on: ubuntu-latest
     environment:
       name: public-release

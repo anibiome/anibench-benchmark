@@ -154,14 +154,14 @@ and exact open gates. Atlas row order is fixed source order, never ranking.
 
 ```bash
 anibench studio
-node --test web/v2.test.js
+node --test web/v2.test.js web/explore.test.js web/benchmark.test.js web/collection-viewer.test.js
 python -m pytest -q tests/test_protocol_capacity_v2.py \
   tests/test_level1_assessment_v3.py \
   tests/test_optimizer_protocol_v2.py \
   tests/test_protocol_web_examples.py
 python -m build
 python scripts/verify_installed_studio.py \
-  --wheel dist/anibench-2.0.0rc1-py3-none-any.whl \
+  --wheel dist/anibench-2.0.0rc2-py3-none-any.whl \
   --receipt dist/INSTALLED_STUDIO_E2E_RECEIPT.json --pretty
 ```
 

@@ -10,10 +10,10 @@ PUBLIC_REPOSITORY_URL = "https://github.com/anibiome/anibench-benchmark"
 
 
 def test_current_release_metadata_versions_are_consistent() -> None:
-    report = verify_release_metadata(ROOT, tag="v2.0.0-rc.1")
+    report = verify_release_metadata(ROOT, tag="v2.0.0-rc.2")
     assert report["passed"] is True, json.dumps(report, indent=2)
-    assert set(report["normalized_versions"].values()) == {"2.0.0rc1"}
-    assert report["versions"]["src/anibench/__init__.py"] == "2.0.0rc1"
+    assert set(report["normalized_versions"].values()) == {"2.0.0rc2"}
+    assert report["versions"]["src/anibench/__init__.py"] == "2.0.0rc2"
     assert report["repository_urls"] == {
         "pyproject.toml:Repository": PUBLIC_REPOSITORY_URL,
         "pyproject.toml:Documentation": f"{PUBLIC_REPOSITORY_URL}#readme",

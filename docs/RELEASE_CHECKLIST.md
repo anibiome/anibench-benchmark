@@ -1,4 +1,4 @@
-# AniBench v2.0.0-rc.1 release checklist
+# AniBench v2.0.0-rc.2 release checklist
 
 This checklist distinguishes open-source software readiness from biological
 validation and public ranking authority.
@@ -31,8 +31,9 @@ private or absent.
 - [ ] Pre/post HEAD, tree, and clean-status identity passed; no mutable
   working-tree byte was used as release authority.
 - [ ] `pyproject.toml`, `uv.lock`, `CITATION.cff`, `.zenodo.json`,
-  `codemeta.json`, `CHANGELOG.md`, and proposed tag identify v2.0.0-rc.1.
-- [ ] Six family outputs remain non-interchangeable; no hidden scalar or rank.
+  `codemeta.json`, `CHANGELOG.md`, and proposed tag identify v2.0.0-rc.2.
+- [ ] Six family outputs remain non-interchangeable; no hidden overall scalar or rank.
+- [ ] Native category comparisons preserve metric definitions, evidence bounds, denominators, exact ties and the bound comparison corpus.
 - [ ] Planned-design capacity has no lifecycle maturity penalty.
 - [ ] Unknown, absent, interval, conditional, and exact values remain distinct.
 - [ ] Role-aware Level-1 v3 preserves 64 coordinates in seven disjoint roles;
@@ -42,8 +43,8 @@ private or absent.
   family-specific operating-characteristic gates close.
 - [ ] The public package contains no recursive v2 perfect-protocol template,
   global enrollment claim, target percentage, or observed-to-target ratio.
-- [ ] Public rank permission remains false unless a separately receipted release
-  decision changes that claim.
+- [ ] Overall biological-rank permission remains false. Native category ranks
+  follow the separately versioned collection comparison contract.
 
 ## B. Clear public bytes and rights
 
@@ -77,15 +78,15 @@ private or absent.
 python -m pip install -e '.[dev]'
 python -m pip install build packaging 'reuse[charset-normalizer]'
 ruff check src tests scripts
-python scripts/verify_release_metadata.py --tag v2.0.0-rc.1 --pretty
+python scripts/verify_release_metadata.py --tag v2.0.0-rc.2 --pretty
 python scripts/verify_external_field_receipts.py --pretty
 reuse lint
 python -m pytest -q
-node --test web/v2.test.js
+node --test web/v2.test.js web/explore.test.js web/benchmark.test.js web/collection-viewer.test.js
 python -m build
 python scripts/verify_distribution_boundary.py dist/*.whl dist/*.tar.gz --pretty
 python scripts/verify_installed_studio.py \
-  --wheel dist/anibench-2.0.0rc1-py3-none-any.whl \
+  --wheel dist/anibench-2.0.0rc2-py3-none-any.whl \
   --receipt dist/INSTALLED_STUDIO_E2E_RECEIPT.json --pretty
 ```
 
