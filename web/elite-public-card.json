@@ -1,0 +1,56 @@
+{
+  "schema_version": "anibench.public-presence-card.v1",
+  "study_id": "ani-elite-sheba",
+  "name": "ELITE",
+  "claim_scope": "official_source_description_not_execution_verification",
+  "public_rank_allowed": false,
+  "source": {
+    "url": "https://www.ani.ai/#elite",
+    "checked_date": "2026-09-19",
+    "bytes": 23735,
+    "sha256": "10211add32efb4c7393de6ad02e11145f4b0b4242c2bd8a6841f911eef830583",
+    "hash_scope": "exact_raw_html_response_bytes",
+    "locator": "section#elite first p",
+    "normalized_paragraph": "ELITE is our healthspan intervention trial at Sheba Medical Center, conducted with the Sheba Longevity Center under the principal investigator Dr Evelyne Bischof. The protocol pairs physician-supervised intervention with deep longitudinal phenotyping: scheduled bloodwork, multiomics, microbiome sampling, validated functional and cognitive endpoints, and digital monitoring across the trial arc.",
+    "normalization": "HTMLParser character references decoded; Unicode whitespace collapse; strip",
+    "normalized_paragraph_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1"
+  },
+  "collection_domains": [
+    {
+      "label": "Bloodwork",
+      "source_term": "scheduled bloodwork",
+      "state": "official_source_described"
+    },
+    {
+      "label": "Multiomics",
+      "source_term": "multiomics",
+      "state": "official_source_described"
+    },
+    {
+      "label": "Microbiome sampling",
+      "source_term": "microbiome sampling",
+      "state": "official_source_described"
+    },
+    {
+      "label": "Functional endpoints",
+      "source_term": "functional",
+      "state": "official_source_described"
+    },
+    {
+      "label": "Cognitive endpoints",
+      "source_term": "cognitive endpoints",
+      "state": "official_source_described"
+    },
+    {
+      "label": "Digital monitoring",
+      "source_term": "digital monitoring",
+      "state": "official_source_described"
+    }
+  ],
+  "limits": [
+    "No numerical enrollment, duration, cadence, target counts or overlap supplied.",
+    "Description does not independently establish actual collection, completeness, quality control or biological reconstruction performance.",
+    "Functional/cognitive endpoints do not establish direct neural recording or neural perturbation.",
+    "The source calls endpoints validated; this packet makes no independent validation claim."
+  ]
+}

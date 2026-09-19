@@ -1,0 +1,639 @@
+{
+  "schema_version": "anibench.study-status-cards.v1",
+  "claim_scope": "source_version_and_reported_ethics_not_independent_committee_verification",
+  "checked_date": "2026-09-19",
+  "filter_contract": {
+    "ethics": "approval_reported, explicitly_not_approved, exempt_reported, unknown are distinct; unknown never equals no approval.",
+    "publication": "Filter individual plotted facts by their source status; study linked_peer_reviewed_source is existence only. False means no linked qualifying source in this audited set, not proof no publication exists.",
+    "hypothetical": "Keep synthetic designs in a separate lane; simulated approval cannot be labeled actual ethics approval.",
+    "admission": "Neither publication nor ethics status is a blanket inclusion gate. Default include all; filters are user-selected views, not scientific quality scores."
+  },
+  "sources": {
+    "PMC6826138": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6826138/",
+      "sha256": "c8123080a5d5fab153c28fd07af0d96e144371700bd8d4e39dd6e3df1639f449",
+      "bytes": 85904,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC6826138/unicode",
+      "doi": "10.1111/acel.13028",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "PMC13184684": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13184684/",
+      "sha256": "3346f808b917ffc2cda58eca1a6d74b1b4a3daac370918563f2cccd774099f31",
+      "bytes": 390148,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC13184684/unicode",
+      "doi": "10.64898/2026.02.27.702183",
+      "publication_type": "preprint",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study.",
+      "publication_metadata_source_id": "metadata42164870",
+      "publication_metadata_locator": "/resultList/result/0/pubTypeList/pubType (includes Preprint); /resultList/result/0/journalInfo/journal/title"
+    },
+    "PMC10567551": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10567551/",
+      "sha256": "dbf50d8d006d4c26d702856890cc0a408954e2a6b873d721d5bc6ebe607e0fe9",
+      "bytes": 141634,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC10567551/unicode",
+      "doi": "10.1038/s41586-023-06592-6",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "PMC11271409": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11271409/",
+      "sha256": "3a75f546c429bfc81e68ca61314969d852cc3b479aecf80de719d9045bc3f0c5",
+      "bytes": 142206,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC11271409/unicode",
+      "doi": "10.1038/s41591-024-02951-6",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "PMC4266388": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4266388/",
+      "sha256": "8b9e52a1863de7c495dbdba71c86e92c32a21080291ff477c21fbb7cb44cad47",
+      "bytes": 123059,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC4266388/unicode",
+      "doi": "10.1001/jama.2014.5616",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "PMC4380465": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4380465/",
+      "sha256": "1a72d655696c959ee5a5f76ed8099c714fba24c32da09ab669bfd9e4bf076612",
+      "bytes": 67382,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC4380465/unicode",
+      "doi": "10.1371/journal.pmed.1001779",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "PMC12074816": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12074816/",
+      "sha256": "18697a5ed9b6ebe7b2c59606c14157200f4c978b9d9f06345a567963fae53849",
+      "bytes": 249357,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC12074816/unicode",
+      "doi": "10.18632/aging.206235",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "PMC7301912": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7301912/",
+      "sha256": "341c4b905b7807ded1660b0a5f77a8ae8611c8ddf377c519c3161864cfd1989a",
+      "bytes": 71071,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC7301912/unicode",
+      "doi": "10.1038/s41591-019-0719-5",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "PMC12443626": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12443626/",
+      "sha256": "72b874b6e0ab0636e360298d0850dd9189c2922e34915e99e29d82caae08bb42",
+      "bytes": 121270,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC12443626/unicode",
+      "doi": "10.1038/s41586-025-09272-9",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "PMC8265154": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8265154/",
+      "sha256": "db59483efc24be0c34df9cd9d6e2189f2c84051a98fba16d25faf64e8c911a44",
+      "bytes": 128588,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC8265154/unicode",
+      "doi": "10.1038/s41591-020-0934-0",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "PMC12618261": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12618261/",
+      "sha256": "481eebba26859a9117586910745d6252e1c147c7f52f82fa1a9623e9942829ee",
+      "bytes": 183708,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC12618261/unicode",
+      "doi": "10.1038/s43587-025-00996-x",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "PMC6666404": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6666404/",
+      "sha256": "710919f3ff5fd4cfb1dc8bab4a76234fdc85fddd20586a5bcb005e06cf5f1a9e",
+      "bytes": 180237,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC6666404/unicode",
+      "doi": "10.1038/s41586-019-1236-x",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "PMC11370476": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11370476/",
+      "sha256": "b0a71913c9cf59406b968bdc3d407764c5a12a7bd943a03251305813ec70e30b",
+      "bytes": 107501,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC11370476/unicode",
+      "doi": "10.1101/2024.05.17.594714",
+      "publication_type": "preprint",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study.",
+      "publication_metadata_source_id": "metadata39229162",
+      "publication_metadata_locator": "/resultList/result/0/pubTypeList/pubType (includes Preprint); /resultList/result/0/journalInfo/journal/title"
+    },
+    "PMC11922767": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11922767/",
+      "sha256": "316332a2acab00fda07a31fb431fac4102c48c47486e70203da2b53a674f3057",
+      "bytes": 120785,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC11922767/unicode",
+      "doi": "10.1038/s43587-024-00793-y",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "PMC7250878": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7250878/",
+      "sha256": "28653c29252d05752660540fa1d0e487e07f45a734df137a76899ec31b27b254",
+      "bytes": 131548,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC7250878/unicode",
+      "doi": "10.1038/s41467-020-15948-9",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "PMC6426126": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6426126/",
+      "sha256": "da9724a6b420234493c81edad40b9a086267765d64ccb792f7db645cabcdd207",
+      "bytes": 84102,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC6426126/unicode",
+      "doi": "10.1056/NEJMoa1800722",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "PMC10148951": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10148951/",
+      "sha256": "7c73637279d5f788ed7969c6a90dbd5ff3e2cff2e75b3e8cac7b9c8cd3bfa730",
+      "bytes": 199954,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC10148951/unicode",
+      "doi": "10.1038/s43587-022-00357-y",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "PMC12341816": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12341816/",
+      "sha256": "a2ce8d6646637658363e4efae30a22c8c05bb9fd3dff648d87f3ee513b7f3c08",
+      "bytes": 190820,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "bioc_json",
+      "checked_date": "2026-09-19",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC12341816/unicode",
+      "doi": "10.1111/acel.70103",
+      "publication_type": "peer_reviewed_article",
+      "publication_basis": "Reviewed primary article identity and bibliographic metadata; source-version classification, not every future publication of the study."
+    },
+    "metadata38956196": {
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:38956196%20AND%20SRC:MED&format=json&resultType=core",
+      "sha256": "66df505084a276b3bdc65da04339a70a05f468111175913b18e9ef93056fa12e",
+      "bytes": 17367,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "archive_bibliographic_json",
+      "checked_date": "2026-09-19"
+    },
+    "metadata42164870": {
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42164870%20AND%20SRC:MED&format=json&resultType=core",
+      "sha256": "f52095849c2986ad0522867aedb306ca422d6f1a28de5e1bd7681a80a3e8c17d",
+      "bytes": 11361,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "archive_bibliographic_json",
+      "checked_date": "2026-09-19"
+    },
+    "metadata39229162": {
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:39229162%20AND%20SRC:MED&format=json&resultType=core",
+      "sha256": "9ad0dbcdca2da6b1c2fc7159861146a2c64c07776ca0c0846d79f2b645105c20",
+      "bytes": 11136,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "archive_bibliographic_json",
+      "checked_date": "2026-09-19"
+    },
+    "AOUCDRv9": {
+      "url": "https://support.researchallofus.org/hc/en-us/articles/50653909888788-Our-Largest-Genomic-Dataset-Curated-Data-Repository-version-9",
+      "fetch_url": "https://support.researchallofus.org/hc/en-us/articles/50653909888788-Our-Largest-Genomic-Dataset-Curated-Data-Repository-version-9",
+      "sha256": "1ec92a3151aabdb09878f6012907faa9636e9d1786976083745db0fed973869d",
+      "checked_date": "2026-09-17",
+      "hash_scope": "exact_utf8_response_body",
+      "source_format": "utf8_text",
+      "refresh_of_sha256": "0979026c955f6ac3030644922bb73be462cb05d50e336616705bf9991688db5b",
+      "refresh_reason": "Current official CDRv9 page; original projection and original source hash retained separately.",
+      "replay_status": "previously_bound_packet_only_fresh_download_HTTP403"
+    },
+    "NCT07596576": {
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT07596576",
+      "sha256": "adcd5ed890e477a64fd823d8c372384ba926d6eba4b25d25ff40fdab0beb7d7a",
+      "bytes": 10230,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "registry_json",
+      "checked_date": "2026-09-19"
+    },
+    "wur-omg-brochure-2025-v2": {
+      "url": "https://backend.wur.nl/sites/default/files/2025-11/E1.E2.Proefpersonen.informatiebrochure.OMG_.versie2.dd16062025_Clean%20(1).pdf",
+      "sha256": "24bfc80ff119bab92a745b1e17f1bb2fdffd4179ce7ff815123e94fb16113ed8",
+      "bytes": 656942,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "pdf",
+      "checked_date": "2026-09-19"
+    },
+    "elite-official-description": {
+      "url": "https://www.ani.ai/#elite",
+      "sha256": "10211add32efb4c7393de6ad02e11145f4b0b4242c2bd8a6841f911eef830583",
+      "bytes": 23735,
+      "hash_scope": "exact_acquired_response_bytes",
+      "format": "html",
+      "checked_date": "2026-09-19"
+    }
+  },
+  "cards": [
+    {
+      "study_id": "all-of-us-cdrv9",
+      "publication_sources": [
+        {
+          "source_id": "AOUCDRv9",
+          "status": "first_party_resource_release",
+          "locator": "Official CDRv9 release page"
+        }
+      ],
+      "linked_peer_reviewed_source": false,
+      "ethics": {
+        "status": "unknown",
+        "reason": "No explicit ethics approval verified in the record-specific sources checked; no inference of absence."
+      }
+    },
+    {
+      "study_id": "aspree",
+      "publication_sources": [
+        {
+          "source_id": "PMC6426126",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        }
+      ],
+      "linked_peer_reviewed_source": true,
+      "ethics": {
+        "status": "approval_reported",
+        "source_id": "PMC6426126",
+        "locator": "/0/documents/0/passages/14/text",
+        "summary": "Participating institutional review boards approved the trial.",
+        "scope": "Approval reported by study authors; original committee decision independently unverified."
+      }
+    },
+    {
+      "study_id": "calerie-phase-2-expanded",
+      "publication_sources": [
+        {
+          "source_id": "PMC10148951",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        },
+        {
+          "source_id": "PMC11370476",
+          "status": "preprint",
+          "locator": "/0/documents/0/passages/0/infons"
+        }
+      ],
+      "linked_peer_reviewed_source": true,
+      "ethics": {
+        "status": "approval_reported",
+        "source_id": "PMC10148951",
+        "locator": "/0/documents/0/passages/32/text",
+        "summary": "Review boards at three clinical centers and the coordinating center approved the protocol.",
+        "scope": "Approval reported by study authors; original committee decision independently unverified."
+      }
+    },
+    {
+      "study_id": "circulate-tpe-ivig",
+      "publication_sources": [
+        {
+          "source_id": "PMC12341816",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        }
+      ],
+      "linked_peer_reviewed_source": true,
+      "ethics": {
+        "status": "approval_reported",
+        "source_id": "PMC12341816",
+        "locator": "/0/documents/0/passages/49/text",
+        "summary": "Diagnostics Institutional Review Board approved the protocol.",
+        "scope": "Approval reported by study authors; original committee decision independently unverified."
+      }
+    },
+    {
+      "study_id": "do-health-bio-age",
+      "publication_sources": [
+        {
+          "source_id": "PMC11922767",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        }
+      ],
+      "linked_peer_reviewed_source": true,
+      "ethics": {
+        "status": "approval_reported",
+        "source_id": "PMC11922767",
+        "locator": "/0/documents/0/passages/33/text",
+        "summary": "Zurich cantonal ethics committee approved the Bio-Age study, BASEC2021-02510.",
+        "scope": "Approval reported by study authors; original committee decision independently unverified."
+      }
+    },
+    {
+      "study_id": "dq-senolytic-bone",
+      "publication_sources": [
+        {
+          "source_id": "metadata38956196",
+          "status": "peer_reviewed_article",
+          "locator": "/resultList/result/0/journalInfo; /resultList/result/0/pubTypeList",
+          "verification": "Primary publication linked by PubMed; exact archive bibliographic response pinned. Fulltext ethics statement not retrieved."
+        }
+      ],
+      "linked_peer_reviewed_source": true,
+      "ethics": {
+        "status": "unknown",
+        "reason": "No explicit ethics approval verified in the record-specific sources checked; no inference of absence."
+      }
+    },
+    {
+      "study_id": "life-study",
+      "publication_sources": [
+        {
+          "source_id": "PMC4266388",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        }
+      ],
+      "linked_peer_reviewed_source": true,
+      "ethics": {
+        "status": "approval_reported",
+        "source_id": "PMC4266388",
+        "locator": "/0/documents/0/passages/27/text",
+        "summary": "Institutional review boards at participating sites approved the protocol.",
+        "scope": "Approval reported by study authors; original committee decision independently unverified."
+      }
+    },
+    {
+      "study_id": "mitoimmune-urolithin-a",
+      "publication_sources": [
+        {
+          "source_id": "PMC12618261",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        }
+      ],
+      "linked_peer_reviewed_source": true,
+      "ethics": {
+        "status": "approval_reported",
+        "source_id": "PMC12618261",
+        "locator": "/0/documents/0/passages/52/text",
+        "summary": "Frankfurt medical ethics committee approved the study,2022-745_2.",
+        "scope": "Approval reported by study authors; original committee decision independently unverified."
+      }
+    },
+    {
+      "study_id": "motrpac-human-pre-suspension-expanded",
+      "publication_sources": [
+        {
+          "source_id": "PMC13184684",
+          "status": "preprint",
+          "locator": "/0/documents/0/passages/0/infons"
+        }
+      ],
+      "linked_peer_reviewed_source": false,
+      "ethics": {
+        "status": "approval_reported",
+        "source_id": "PMC13184684",
+        "locator": "/0/documents/0/passages/79/text",
+        "summary": "Johns Hopkins institutional review board approved the study, JHMIRB5.",
+        "scope": "Approval reported by study authors; original committee decision independently unverified."
+      }
+    },
+    {
+      "study_id": "pearl-rapamycin",
+      "publication_sources": [
+        {
+          "source_id": "PMC12074816",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        }
+      ],
+      "linked_peer_reviewed_source": true,
+      "ethics": {
+        "status": "approval_reported",
+        "source_id": "PMC12074816",
+        "locator": "/0/documents/0/passages/64/text",
+        "summary": "Institute of Regenerative and Cellular Medicine IRB approved the protocol, IRCM-2020-252.",
+        "scope": "Approval reported by study authors; original committee decision independently unverified."
+      }
+    },
+    {
+      "study_id": "predict-1",
+      "publication_sources": [
+        {
+          "source_id": "PMC8265154",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        }
+      ],
+      "linked_peer_reviewed_source": true,
+      "ethics": {
+        "status": "approval_reported",
+        "source_id": "PMC8265154",
+        "locator": "/0/documents/0/passages/51/text",
+        "summary": "UK research ethics committee/IRAS and US Partners Healthcare IRB approvals are reported.",
+        "scope": "Approval reported by study authors; original committee decision independently unverified."
+      }
+    },
+    {
+      "study_id": "sheba-sharp",
+      "publication_sources": [
+        {
+          "source_id": "NCT07596576",
+          "status": "registry_record",
+          "locator": "/protocolSection/identificationModule"
+        }
+      ],
+      "linked_peer_reviewed_source": false,
+      "ethics": {
+        "status": "unknown",
+        "reason": "No explicit ethics approval verified in the record-specific sources checked; no inference of absence."
+      }
+    },
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "publication_sources": [
+        {
+          "source_id": "PMC6666404",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        },
+        {
+          "source_id": "PMC7301912",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        }
+      ],
+      "linked_peer_reviewed_source": true,
+      "ethics": {
+        "status": "approval_reported",
+        "source_id": "PMC6666404",
+        "locator": "/0/documents/0/passages/52/text",
+        "summary": "Stanford institutional review board approved research protocol23602.",
+        "scope": "Approval reported by study authors; original committee decision independently unverified."
+      }
+    },
+    {
+      "study_id": "triim",
+      "publication_sources": [
+        {
+          "source_id": "PMC6826138",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        }
+      ],
+      "linked_peer_reviewed_source": true,
+      "ethics": {
+        "status": "approval_reported",
+        "source_id": "PMC6826138",
+        "locator": "/0/documents/0/passages/44/text",
+        "summary": "Aspire institutional review board approved the trial protocol.",
+        "scope": "Approval reported by study authors; original committee decision independently unverified."
+      }
+    },
+    {
+      "study_id": "uk-biobank",
+      "publication_sources": [
+        {
+          "source_id": "PMC4380465",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        },
+        {
+          "source_id": "PMC12443626",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        },
+        {
+          "source_id": "PMC7250878",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        },
+        {
+          "source_id": "PMC10567551",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        }
+      ],
+      "linked_peer_reviewed_source": true,
+      "ethics": {
+        "status": "approval_reported",
+        "source_id": "PMC7250878",
+        "locator": "/0/documents/0/passages/11/text",
+        "summary": "UKB reports NHS North West research ethics committee approval11/NW/0382.",
+        "scope": "Approval reported by study authors; original committee decision independently unverified."
+      }
+    },
+    {
+      "study_id": "zoe-method",
+      "publication_sources": [
+        {
+          "source_id": "PMC11271409",
+          "status": "peer_reviewed_article",
+          "locator": "/0/documents/0/passages/0/infons"
+        }
+      ],
+      "linked_peer_reviewed_source": true,
+      "ethics": {
+        "status": "approval_reported",
+        "source_id": "PMC11271409",
+        "locator": "/0/documents/0/passages/59/text",
+        "summary": "Advarra IRB approval is reported for protocol00044316.",
+        "scope": "Approval reported by study authors; original committee decision independently unverified."
+      }
+    },
+    {
+      "study_id": "wur-oh-my-gut",
+      "publication_sources": [
+        {
+          "source_id": "wur-omg-brochure-2025-v2",
+          "status": "public_participant_protocol",
+          "locator": "Cover/version2 June2025"
+        }
+      ],
+      "linked_peer_reviewed_source": false,
+      "ethics": {
+        "status": "approval_reported",
+        "source_id": "wur-omg-brochure-2025-v2",
+        "locator": "PDF page2, section1",
+        "summary": "Participant information states that the Brabant medical ethics review committee approved this research.",
+        "scope": "Official protocol statement; committee decision independently unverified."
+      }
+    },
+    {
+      "study_id": "ani-elite-sheba",
+      "publication_sources": [
+        {
+          "source_id": "elite-official-description",
+          "status": "first_party_self_report",
+          "locator": "section#elite first paragraph"
+        }
+      ],
+      "linked_peer_reviewed_source": false,
+      "ethics": {
+        "status": "unknown",
+        "reason": "No explicit approval statement in the public ELITE paragraph; no private record consulted for this status."
+      }
+    }
+  ],
+  "limitations": [
+    "No absence-of-approval claim is made for any named study.",
+    "Publication class does not certify study quality, execution, assay completeness or treatment success.",
+    "DO-HEALTH primary fulltext was newly linked through PubMed. DQ publication metadata verified through PubMed web view, but no exact fulltext hash obtained.",
+    "CALERIE mixes peer-reviewed and preprint sources; MoTrPAC selected human pre-suspension source is a preprint.",
+    "Source snapshots retained privately; no complete articles redistributed."
+  ]
+}

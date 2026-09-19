@@ -17,7 +17,11 @@ from anibench.studio_product import build_studio_comparator_atlas
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ("explore.html", "explore.css", "explore.js", "favicon.svg",
           "benchmark.html", "benchmark.css", "benchmark.js",
-          "collection-viewer.js", "collection-example.json")
+          "collection-viewer.js", "collection-example.json",
+          "release-charts.js", "release-charts.css", "release-results.json",
+          "release-chart-receipts.json", "release-chart-provenance.json",
+          "erp-design-sensitivity.json", "erp-design-plan.json",
+          "elite-public-card.json", "study-status-cards.json")
 
 
 def build_explorer(output: Path, root: Path = ROOT) -> dict:

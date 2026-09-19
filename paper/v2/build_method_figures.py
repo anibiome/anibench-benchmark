@@ -8,21 +8,20 @@ scores, trial ranks, or biological-validation results.
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timezone
 import os
+from datetime import datetime, timezone
 from pathlib import Path
 
 import matplotlib
 
 matplotlib.use("Agg")
 matplotlib.rcParams["svg.hashsalt"] = "anibench-v2-method-figures"
-import matplotlib.pyplot as plt  # noqa: E402
-from matplotlib.patches import (  # noqa: E402
+import matplotlib.pyplot as plt
+from matplotlib.patches import (
     FancyArrowPatch,
     FancyBboxPatch,
     RegularPolygon,
 )
-
 
 INK = "#17232C"
 MUTED = "#5E6A72"
@@ -175,7 +174,7 @@ def pipeline(output: Path, *, source_date_epoch: int):
         fontsize=11,
         weight="bold",
         color=INK,
-        bbox=dict(boxstyle="round,pad=0.45", facecolor="white", edgecolor=ORANGE, linewidth=1.4),
+        bbox={"boxstyle": "round,pad=0.45", "facecolor": "white", "edgecolor": ORANGE, "linewidth": 1.4},
     )
     _save(
         fig,

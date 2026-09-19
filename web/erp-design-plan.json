@@ -1,0 +1,3220 @@
+{
+  "schema_version": "anibench.erp-design-plan.v1",
+  "target_status": "illustrative",
+  "request": {
+    "schema_version": "anibench.erp-design-request.v1",
+    "target_status": "illustrative",
+    "target_rationale": "Invented variance ceilings for demonstrating joint constraints and resource tradeoffs. These are not biological minimum resolutions, clinical targets or AniBench 1/2 thresholds.",
+    "variance_limits_uV2": {
+      "current_session": 1.5,
+      "persistent_person": 1.0,
+      "population_mean": 0.04
+    },
+    "grid": {
+      "N": [
+        2,
+        20,
+        40,
+        100,
+        250,
+        500,
+        2000
+      ],
+      "k": [
+        1,
+        2,
+        4,
+        8,
+        12
+      ],
+      "d": [
+        1,
+        4,
+        16
+      ]
+    }
+  },
+  "A_uV2": 9.360227534862045,
+  "v_uV2": 5.859430882401938,
+  "parameter_set": "S in [0,A]; B=A-S. Plug-in A and v are fixed, not known truth.",
+  "scope": "Bounded declared design grid; no global optimum or AniBench level attainment",
+  "biological_threshold_validated": false,
+  "precision_is_simultaneous_coverage": false,
+  "variance_limit_units": "microvolt^2",
+  "counts": {
+    "robust": 6,
+    "assumption_sensitive": 27,
+    "infeasible": 72,
+    "unresolved": 0
+  },
+  "no_feasible_design_within_grid": false,
+  "frontier_resource_order": [
+    "N",
+    "k",
+    "d"
+  ],
+  "robust_resource_frontier": [
+    {
+      "N": 250,
+      "k": 12,
+      "d": 4
+    }
+  ],
+  "possible_resource_frontier": [
+    {
+      "N": 40,
+      "k": 12,
+      "d": 4
+    },
+    {
+      "N": 100,
+      "k": 8,
+      "d": 4
+    },
+    {
+      "N": 250,
+      "k": 1,
+      "d": 16
+    },
+    {
+      "N": 250,
+      "k": 2,
+      "d": 4
+    }
+  ],
+  "rows": [
+    {
+      "N": 2,
+      "k": 1,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2,
+      "k": 1,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2,
+      "k": 1,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "5070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2,
+      "k": 2,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2,
+      "k": 2,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2,
+      "k": 2,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "13070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2,
+      "k": 4,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2,
+      "k": 4,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "5070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2,
+      "k": 4,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "29070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2,
+      "k": 8,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1070284558799031/500000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2,
+      "k": 8,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "13070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2,
+      "k": 8,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "61070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2,
+      "k": 12,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "3070284558799031/500000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2,
+      "k": 12,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2,
+      "k": 12,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 20,
+      "k": 1,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 20,
+      "k": 1,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 20,
+      "k": 1,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "5070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 20,
+      "k": 2,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 20,
+      "k": 2,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 20,
+      "k": 2,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "13070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 20,
+      "k": 4,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 20,
+      "k": 4,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "5070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 20,
+      "k": 4,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "29070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 20,
+      "k": 8,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1070284558799031/500000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 20,
+      "k": 8,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "13070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 20,
+      "k": 8,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "61070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 20,
+      "k": 12,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "3070284558799031/500000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 20,
+      "k": 12,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 20,
+      "k": 12,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 40,
+      "k": 1,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 40,
+      "k": 1,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 40,
+      "k": 1,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "5070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 40,
+      "k": 2,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 40,
+      "k": 2,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 40,
+      "k": 2,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "13070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 40,
+      "k": 4,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 40,
+      "k": 4,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "5070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 40,
+      "k": 4,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "29070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 40,
+      "k": 8,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1070284558799031/500000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 40,
+      "k": 8,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "13070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "127093355998993689/14000000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": true
+    },
+    {
+      "N": 40,
+      "k": 8,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "61070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "499584277672371849/56000000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": true
+    },
+    {
+      "N": 40,
+      "k": 12,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "3070284558799031/500000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "49491080650373239/5500000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 40,
+      "k": 12,
+      "d": 4,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "189175176277890049/22000000000000000",
+        "upper_exact": "1872045506972409/200000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "189175176277890049/22000000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 40,
+      "k": 12,
+      "d": 16,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "67991959889814299/8000000000000000",
+        "upper_exact": "1872045506972409/200000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "67991959889814299/8000000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 100,
+      "k": 1,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 100,
+      "k": 1,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 100,
+      "k": 1,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "5070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 100,
+      "k": 2,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 100,
+      "k": 2,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 100,
+      "k": 2,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "13070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 100,
+      "k": 4,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "13650170510925059/1500000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 100,
+      "k": 4,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "5070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "45811535720097329/6000000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": true
+    },
+    {
+      "N": 100,
+      "k": 4,
+      "d": 16,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "29070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "174456996556786409/24000000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": true
+    },
+    {
+      "N": 100,
+      "k": 8,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1070284558799031/500000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "24370625580649149/3500000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 100,
+      "k": 8,
+      "d": 4,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "88693355998993689/14000000000000000",
+        "upper_exact": "13070284558799031/2000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "13070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "88693355998993689/14000000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 100,
+      "k": 8,
+      "d": 16,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "49426325381767407/8000000000000000",
+        "upper_exact": "61070284558799031/8000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "61070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "49426325381767407/8000000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 100,
+      "k": 12,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "3070284558799031/500000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "35091080650373239/5500000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 100,
+      "k": 12,
+      "d": 4,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "131575176277890049/22000000000000000",
+        "upper_exact": "1872045506972409/200000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "131575176277890049/22000000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 100,
+      "k": 12,
+      "d": 16,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "517511558787957289/88000000000000000",
+        "upper_exact": "1872045506972409/200000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "517511558787957289/88000000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 250,
+      "k": 1,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 250,
+      "k": 1,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 250,
+      "k": 1,
+      "d": 16,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "5070284558799031/8000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "5070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 250,
+      "k": 2,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "1144971488031507/250000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 250,
+      "k": 2,
+      "d": 4,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "370625580649149/2000000000000000",
+        "upper_exact": "1070284558799031/2000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "370625580649149/2000000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 250,
+      "k": 2,
+      "d": 16,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "13070284558799031/8000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "13070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 250,
+      "k": 4,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "1650170510925059/1500000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 250,
+      "k": 4,
+      "d": 4,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "5070284558799031/2000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "5070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 250,
+      "k": 4,
+      "d": 16,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "29070284558799031/8000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "29070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 250,
+      "k": 8,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1070284558799031/500000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "52946511521307/500000000000000",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 250,
+      "k": 8,
+      "d": 4,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "13070284558799031/2000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "13070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 250,
+      "k": 8,
+      "d": 16,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "61070284558799031/8000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "61070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 250,
+      "k": 12,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "3070284558799031/500000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 250,
+      "k": 12,
+      "d": 4,
+      "status": "robust",
+      "known_constraints_status": "robust",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "1872045506972409/200000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 250,
+      "k": 12,
+      "d": 16,
+      "status": "robust",
+      "known_constraints_status": "robust",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "1872045506972409/200000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 500,
+      "k": 1,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 500,
+      "k": 1,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 500,
+      "k": 1,
+      "d": 16,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "5070284558799031/8000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "5070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 500,
+      "k": 2,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 500,
+      "k": 2,
+      "d": 4,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "1070284558799031/2000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 500,
+      "k": 2,
+      "d": 16,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "13070284558799031/8000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "13070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 500,
+      "k": 4,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 500,
+      "k": 4,
+      "d": 4,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "5070284558799031/2000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "5070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 500,
+      "k": 4,
+      "d": 16,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "29070284558799031/8000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "29070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 500,
+      "k": 8,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1070284558799031/500000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 500,
+      "k": 8,
+      "d": 4,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "13070284558799031/2000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "13070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 500,
+      "k": 8,
+      "d": 16,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "61070284558799031/8000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "61070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 500,
+      "k": 12,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "3070284558799031/500000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 500,
+      "k": 12,
+      "d": 4,
+      "status": "robust",
+      "known_constraints_status": "robust",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "1872045506972409/200000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 500,
+      "k": 12,
+      "d": 16,
+      "status": "robust",
+      "known_constraints_status": "robust",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "1872045506972409/200000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2000,
+      "k": 1,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2000,
+      "k": 1,
+      "d": 4,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2000,
+      "k": 1,
+      "d": 16,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "5070284558799031/8000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "5070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2000,
+      "k": 2,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2000,
+      "k": 2,
+      "d": 4,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "1070284558799031/2000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2000,
+      "k": 2,
+      "d": 16,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "13070284558799031/8000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "13070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2000,
+      "k": 4,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2000,
+      "k": 4,
+      "d": 4,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "5070284558799031/2000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "5070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2000,
+      "k": 4,
+      "d": 16,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "29070284558799031/8000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "29070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2000,
+      "k": 8,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1070284558799031/500000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2000,
+      "k": 8,
+      "d": 4,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "13070284558799031/2000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "13070284558799031/2000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2000,
+      "k": 8,
+      "d": 16,
+      "status": "assumption_sensitive",
+      "known_constraints_status": "assumption_sensitive",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "61070284558799031/8000000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "61070284558799031/8000000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2000,
+      "k": 12,
+      "d": 1,
+      "status": "infeasible",
+      "known_constraints_status": "infeasible",
+      "admissible_S_uV2": null,
+      "individual_checks": {
+        "current_session": {
+          "status": "infeasible",
+          "admissible_S_uV2": null
+        },
+        "persistent_person": {
+          "status": "assumption_sensitive",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "3070284558799031/500000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2000,
+      "k": 12,
+      "d": 4,
+      "status": "robust",
+      "known_constraints_status": "robust",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "1872045506972409/200000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    },
+    {
+      "N": 2000,
+      "k": 12,
+      "d": 16,
+      "status": "robust",
+      "known_constraints_status": "robust",
+      "admissible_S_uV2": {
+        "lower_exact": "0",
+        "upper_exact": "1872045506972409/200000000000000"
+      },
+      "individual_checks": {
+        "current_session": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "persistent_person": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        },
+        "population_mean": {
+          "status": "robust",
+          "admissible_S_uV2": {
+            "lower_exact": "0",
+            "upper_exact": "1872045506972409/200000000000000"
+          }
+        }
+      },
+      "all_tasks_individually_possible_but_jointly_infeasible": false
+    }
+  ],
+  "bindings": {
+    "aggregate_sha256": "29ed1afb9a2554f41e26559bc85e04b5f66e06358f58d1ea141f6703d8f6bf83",
+    "request_sha256": "5836be167b962f3f7aa5a4e6a11fc76c65ef5cd1c54c4969ecad06ef7cb23fc9",
+    "script_sha256": "81491816434755d476355cf561ed60823fd5c5d19352e39a92765a3e4f86ba9e",
+    "python": "3.12.13"
+  },
+  "attribution": "Adapted ERP CORE aggregate analysis; https://doi.org/10.1111/psyp.14264; source-derived outputs CC BY-SA 4.0. Targets are unvalidated assumptions."
+}

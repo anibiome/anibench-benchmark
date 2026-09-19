@@ -25,8 +25,13 @@ Native metric comparison is available through `anibench compare-records`; see
 quantity within a bound corpus, independently of geometry. These are not overall
 study-quality or biologically calibrated information ranks. The current research
 manuscript is `paper/AniBench_open_benchmark.md`.
-The website front door is `web/benchmark.html`; the detailed explorer and
-canonical evaluator remain available without changing their contracts.
+The website front door is `web/benchmark.html`. Its Charts view separates
+source-reported population/time/protein properties, executed hypothetical
+precision comparisons and ERP-noise-conditioned design planning. Independent
+publication-source and reported ethics/IRB filters change inclusion, not scores;
+unknown approval is not absent approval. `docs/BENCHMARK_RELEASE_STANDARD.md`
+defines this evidence distinction. The detailed explorer and canonical evaluator
+remain available without changing their contracts.
 
 September 19 research-candidate update: `docs/CONDITIONAL_POSTERIOR_REFERENCE.md`
 distinguishes basis-marginal completion from an all-directions conditional

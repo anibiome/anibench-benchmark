@@ -369,11 +369,11 @@ const AniBenchPage = (() => {
     return `<section class="protocol-description"><h3>Planned protocol</h3><p class="intro-note">${escape(source?.document_version || "Public source")}. These descriptions are curated from the cited pages. Unknowns and conflicting statements remain visible.</p>${observations.map((item) => `<div class="detail-fact"><div><strong>${escape(item.label)}</strong><span class="fact-unit">${escape(human(item.state))}</span></div><div><p>${escape(item.value ?? "Unknown")}</p><p>${escape(item.note)}</p><details><summary>Source & interpretation</summary><p>PDF ${item.pages.length > 1 ? "pages" : "page"} ${escape(item.pages.join(", "))} · ${escape(item.locator)}</p><p>${escape(human(item.curation))}; this interpretation is not machine-verified.</p></details></div></div>`).join("")}</section>`;
   }
   function route() {
-    const selected = ["studies", "method", "run"].includes(
+    const selected = ["results", "studies", "method", "run"].includes(
       location.hash.slice(1),
     )
       ? location.hash.slice(1)
-      : "studies";
+      : "results";
     document.querySelectorAll("main > .view").forEach((view) => {
       view.hidden = view.id !== selected;
     });
@@ -517,13 +517,11 @@ const AniBenchPage = (() => {
         a.name.localeCompare(b.name),
       );
       atlasStudies = studies;
-      try {
-        const demoResponse = await fetch("explorer-demo.json");
-        if (demoResponse.ok) demo = await demoResponse.json();
-      } catch {
-        /* Public records remain usable if the optional demonstration is unavailable. */
-      }
       restoreState();
+      fetch("explorer-demo.json", { signal: AbortSignal.timeout(15000) })
+        .then(response => response.ok ? response.json() : null)
+        .then(packet => { if (packet) { demo = packet; restoreState(); } })
+        .catch(() => { /* Real-study charts remain available independently. */ });
       window.addEventListener("popstate", restoreState);
       document
         .getElementById("family-strip")

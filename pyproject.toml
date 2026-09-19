@@ -115,6 +115,15 @@ packages = ["src/anibench"]
 "web/benchmark.html" = "anibench/web/benchmark.html"
 "web/benchmark.css" = "anibench/web/benchmark.css"
 "web/benchmark.js" = "anibench/web/benchmark.js"
+"web/release-charts.js" = "anibench/web/release-charts.js"
+"web/elite-public-card.json" = "anibench/web/elite-public-card.json"
+"web/study-status-cards.json" = "anibench/web/study-status-cards.json"
+"web/release-charts.css" = "anibench/web/release-charts.css"
+"web/release-results.json" = "anibench/web/release-results.json"
+"web/release-chart-receipts.json" = "anibench/web/release-chart-receipts.json"
+"web/release-chart-provenance.json" = "anibench/web/release-chart-provenance.json"
+"web/erp-design-sensitivity.json" = "anibench/web/erp-design-sensitivity.json"
+"web/erp-design-plan.json" = "anibench/web/erp-design-plan.json"
 "schemas/collection/record.schema.json" = "anibench/schemas/collection/record.schema.json"
 "schemas/collection/table-map.schema.json" = "anibench/schemas/collection/table-map.schema.json"
 "schemas/v2/event-manifest.schema.json" = "anibench/schemas/v2/event-manifest.schema.json"
@@ -251,6 +260,19 @@ include = [
   "/web/benchmark.css",
   "/web/benchmark.js",
   "/web/benchmark.test.js",
+  "/web/release-charts.js",
+  "/web/release-charts.css",
+  "/web/release-results.json",
+  "/web/release-chart-receipts.json",
+  "/web/release-chart-provenance.json",
+  "/web/erp-design-sensitivity.json",
+  "/web/erp-design-plan.json",
+  "/web/release-charts.test.js",
+  "/web/elite-public-card.json",
+  "/web/study-status-cards.json",
+  "/docs/BENCHMARK_RELEASE_STANDARD.md",
+  "/scripts/build_release_charts.py",
+  "/tests/test_release_charts.py",
   "/schemas/collection/record.schema.json",
   "/schemas/collection/table-map.schema.json",
   "/examples/collection/synthetic-record.json",

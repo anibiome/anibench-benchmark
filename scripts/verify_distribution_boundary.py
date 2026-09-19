@@ -138,6 +138,16 @@ ALLOWED_WEB_FILENAMES = frozenset(
         "benchmark.css",
         "benchmark.js",
         "benchmark.test.js",
+        "release-charts.js",
+        "release-charts.css",
+        "release-charts.test.js",
+        "release-results.json",
+        "release-chart-receipts.json",
+        "release-chart-provenance.json",
+        "erp-design-sensitivity.json",
+        "erp-design-plan.json",
+        "elite-public-card.json",
+        "study-status-cards.json",
         "collection-viewer.js",
         "collection-viewer.test.js",
         "collection-example.json",
@@ -264,9 +274,7 @@ def expected_distribution_members(
     if (authority_root / ".gitignore").is_file():
         relative_members.add(".gitignore")
     relative_members = {
-        relative
-        for relative in relative_members
-        if not _is_hatch_excluded(relative, excludes)
+        relative for relative in relative_members if not _is_hatch_excluded(relative, excludes)
     }
     relative_members.add("PKG-INFO")
     return frozenset(f"{sdist_root}/{relative}" for relative in relative_members)
@@ -363,7 +371,9 @@ def inspect_distribution(
                             findings.append({"path": name, "rule_id": "unsafe_archive_path"})
                         continue
                     if unix_type == stat.S_IFLNK:
-                        findings.append({"path": name, "rule_id": "archive_link_or_directory_forbidden"})
+                        findings.append(
+                            {"path": name, "rule_id": "archive_link_or_directory_forbidden"}
+                        )
                         continue
                     if unix_type not in {0, stat.S_IFREG}:
                         findings.append({"path": name, "rule_id": "archive_non_regular_forbidden"})

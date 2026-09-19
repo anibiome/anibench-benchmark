@@ -1,0 +1,60 @@
+{
+  "contract": "anibench.synthetic-depth-population-provenance.v1",
+  "license": "CC-BY-4.0",
+  "copyright": "2026 ANI",
+  "source_kind": "invented_models_no_real_study_or_calibration",
+  "models": {
+    "person_state": {
+      "estimand": "one sampled person's scalar state, separate inference problem",
+      "observation": "m independent readings given that scalar state",
+      "likelihood_information_formula": "m / R",
+      "R": 4.0,
+      "prior_precision": 1e-06
+    },
+    "population_mean": {
+      "estimand": "mean of a synthetic population, separate inference problem",
+      "observation": "N independent donor means with known variance B + R/m",
+      "likelihood_information_formula": "N / (B + R/m)",
+      "B": 1.0,
+      "R": 4.0,
+      "prior_precision": 1e-06
+    }
+  },
+  "designs": [
+    {
+      "id": "two_people_extreme_depth",
+      "N": 2,
+      "m": 1000000,
+      "cost_usd": 100000000
+    },
+    {
+      "id": "large_complete_shallow",
+      "N": 2000,
+      "m": 1,
+      "cost_usd": null
+    },
+    {
+      "id": "large_missing_neural",
+      "N": 200000,
+      "m": 1,
+      "cost_usd": null
+    },
+    {
+      "id": "two_people_much_higher_cost",
+      "N": 2,
+      "m": 1000000,
+      "cost_usd": 10000000000
+    },
+    {
+      "id": "balanced_complete",
+      "N": 2000,
+      "m": 2000,
+      "cost_usd": null
+    }
+  ],
+  "toy_halfwidth": 0.1,
+  "nominal_normal_coverage": 0.95,
+  "warning": "Known variances and normal likelihoods; no AB1/AB2 biological thresholds.",
+  "joint_inference": "None. Scalar task results are not pooled as independent blocks.",
+  "role_gate_test": "Synthetic neural required-support declarations test interface logic, not calibrated neural operators."
+}

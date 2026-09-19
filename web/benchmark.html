@@ -10,7 +10,9 @@
     <title>AniBench — Benchmark the study. Expand what we can learn.</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="benchmark.css" />
+    <link rel="stylesheet" href="release-charts.css" />
     <script src="benchmark.js" defer></script>
+    <script src="release-charts.js" defer></script>
     <script src="collection-viewer.js" defer></script>
   </head>
   <body>
@@ -22,8 +24,9 @@
         ></a
       >
       <nav aria-label="Main navigation">
-        <a href="#studies" aria-current="page">Studies</a
-        ><a href="#method">Method</a><a href="#run">Run AniBench</a>
+        <a href="#results" aria-current="page">Charts</a
+        ><a href="#studies">Explorer</a><a href="#method">Method</a
+        ><a href="#run">Run AniBench</a>
       </nav>
       <a
         class="source-link"
@@ -32,7 +35,108 @@
       >
     </header>
     <main id="main">
-      <section id="studies" class="view">
+      <section id="results" class="view">
+        <div class="results-intro">
+          <p class="eyebrow">ANIBENCH · OPEN HUMAN-STUDY BENCHMARK</p>
+          <h1>What makes a human study informative?</h1>
+          <p>
+            Compare population, measurement depth and time. Then test what each
+            design can actually resolve.
+          </p>
+          <div class="results-links">
+            <a href="#observed">Study comparisons ↓</a
+            ><a href="#tradeoffs">Design stress tests ↓</a
+            ><a href="#design-lab">Explore a design ↓</a>
+          </div>
+        </div>
+        <section
+          id="observed"
+          class="results-section"
+          aria-labelledby="observed-heading"
+        >
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">01 / REAL STUDIES</p>
+              <h2 id="observed-heading">
+                Scale is one strength. Depth is another.
+              </h2>
+            </div>
+            <a href="#studies" class="text-link">Explore every source →</a>
+          </div>
+          <details class="evidence-filter-panel">
+            <summary id="filter-toggle">Filter study evidence</summary>
+            <div
+              id="evidence-filters"
+              class="design-controls"
+              aria-label="Filter real-study chart evidence"
+            ></div>
+          </details>
+          <p id="filter-summary" class="diagram-note" role="status"></p>
+          <div class="chart-grid" id="reported-chart-grid">
+            <p role="status">Loading source-backed study charts…</p>
+          </div>
+          <div id="status-roster"></div>
+          <p class="results-caption">
+            These figures compare reported study properties, not treatment
+            benefit or an overall quality score. Different populations and
+            measurement definitions stay visible beside each point.
+          </p>
+        </section>
+        <section
+          id="tradeoffs"
+          class="results-section"
+          aria-labelledby="tradeoff-heading"
+        >
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">02 / HYPOTHETICAL STUDIES · EXECUTED MODEL</p>
+              <h2 id="tradeoff-heading">
+                Two deeply measured people cannot answer every question.
+              </h2>
+            </div>
+          </div>
+          <p class="section-deck">
+            Give two people a million independent readings each. Give 2,000
+            people one reading each. The leading design changes with the
+            question.
+          </p>
+          <div id="tradeoff-charts" class="chart-grid">
+            <p>Loading reproducible model results…</p>
+          </div>
+        </section>
+        <section
+          id="design-lab"
+          class="results-section"
+          aria-labelledby="design-heading"
+        >
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">
+                03 / MEASURED EEG NOISE · CONDITIONAL DESIGN
+              </p>
+              <h2 id="design-heading">How much does a deeper study buy?</h2>
+            </div>
+          </div>
+          <p class="section-deck">
+            Explore one defined neural measurement: the ERP CORE P3 response.
+            Change participants, repeat visits and recording depth to see their
+            different effects on precision.
+          </p>
+          <div id="erp-design-lab"><p>Loading design calibration…</p></div>
+        </section>
+        <section class="results-next">
+          <div>
+            <p class="eyebrow">FROM COMPARISON TO CONTRIBUTION</p>
+            <h2>Run the same code on your study.</h2>
+            <p>
+              Keep participant data local. Inspect every assumption. Publish an
+              aggregate profile that others can reproduce.
+            </p>
+          </div>
+          <a class="primary-link" href="#run">Run AniBench →</a>
+        </section>
+      </section>
+      <section id="studies" class="view" hidden>
         <div class="workspace-title">
           <div>
             <p class="eyebrow">ANIBENCH / RESEARCH WORKBENCH</p>
@@ -185,22 +289,37 @@
           <div class="method-intro">
             <div>
               <h2>Could two extremely measured people win everything?</h2>
-              <p>In our runnable synthetic example, deep measurements on two
+              <p>
+                In our runnable synthetic example, deep measurements on two
                 people lead individual-state precision. A larger shallow cohort
                 leads population-mean precision. Increasing the budget alone
-                changes neither receipt.</p>
-              <a href="https://github.com/anibiome/anibench-benchmark/blob/main/scripts/audit_depth_population_tradeoff.py">Run the adversarial example ↗</a>
-              <p>A second example uses measured ERP noise to explore how people,
-                recording depth and repeat visits change precision.</p>
-              <a href="https://github.com/anibiome/anibench-benchmark/blob/main/examples/calibration/erp_core/DESIGN_SENSITIVITY.md">Explore the ERP calibration and design chart ↗</a>
+                changes neither receipt.
+              </p>
+              <a
+                href="https://github.com/anibiome/anibench-benchmark/blob/main/scripts/audit_depth_population_tradeoff.py"
+                >Run the adversarial example ↗</a
+              >
+              <p>
+                A second example uses measured ERP noise to explore how people,
+                recording depth and repeat visits change precision.
+              </p>
+              <a
+                href="https://github.com/anibiome/anibench-benchmark/blob/main/examples/calibration/erp_core/DESIGN_SENSITIVITY.md"
+                >Explore the ERP calibration and design chart ↗</a
+              >
             </div>
             <div>
               <h2>What would AniBench 1 and 2 require?</h2>
-              <p>The candidate scopes name biological questions, required
+              <p>
+                The candidate scopes name biological questions, required
                 observations and calibration work. Participant count follows
                 from precision and dependence. Neural observation and cortical
-                perturbation have distinct requirements.</p>
-              <a href="https://github.com/anibiome/anibench-benchmark/blob/main/docs/CANDIDATE_LEVELS.md">Read the concrete task proposal ↗</a>
+                perturbation have distinct requirements.
+              </p>
+              <a
+                href="https://github.com/anibiome/anibench-benchmark/blob/main/docs/CANDIDATE_LEVELS.md"
+                >Read the concrete task proposal ↗</a
+              >
             </div>
           </div>
           <p class="eyebrow">SIX COMPLEMENTARY FAMILIES</p>

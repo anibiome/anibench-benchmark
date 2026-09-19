@@ -8,10 +8,10 @@ first participant-event schedule.  It cannot patch compiled family results.
 from __future__ import annotations
 
 import copy
-from typing import Any, Mapping
+from collections.abc import Mapping
+from typing import Any
 
 from anibench.optimizer_protocol_v2 import optimize_protocol
-
 
 EXAMPLE_SOURCE_SHA256 = "sha256:" + "0" * 64
 

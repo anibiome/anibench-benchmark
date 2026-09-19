@@ -1,0 +1,1609 @@
+{
+  "contract": "anibench.synthetic-depth-population-actual-api.v1",
+  "status": "executed_actual_api_not_biological_calibration",
+  "source_sha256": "sha256:3b86e28434c1b9b642d023f4ea2807c0ba180679d3037c389ea55c0eebb8429c",
+  "script_sha256": "sha256:641ac5012120f6b09bab3fcf0ea71df6e293921123eccbb4da54e54b20a99953",
+  "model_hashes": {
+    "person_state": "sha256:d0bce39893e49d496b3a114ebc699258d1dfdd7043ecabc3d332e81de2fec792",
+    "population_mean": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3"
+  },
+  "scalar_task_runs": [
+    {
+      "design": {
+        "id": "two_people_extreme_depth",
+        "N": 2,
+        "m": 1000000,
+        "cost_usd": 100000000
+      },
+      "task_name": "person_state",
+      "request": {
+        "contract": "anibench.finite-task-request.v1",
+        "task": {
+          "contract": "anibench.finite-task-definition.v1",
+          "task_id": "synthetic-depth-person_state",
+          "task_version": "1",
+          "source_sha256": "sha256:3b86e28434c1b9b642d023f4ea2807c0ba180679d3037c389ea55c0eebb8429c",
+          "model_sha256": "sha256:d0bce39893e49d496b3a114ebc699258d1dfdd7043ecabc3d332e81de2fec792",
+          "target_population": "Invented normal population; no real participant records",
+          "estimand": "one sampled person's scalar state, separate inference problem",
+          "horizon": "one frozen synthetic state block",
+          "claim_lane": "conditional_design",
+          "comparison_scope": "finite_functionals_only",
+          "parameter_units": [
+            "toy unit"
+          ],
+          "prior_precision": [
+            [
+              1e-06
+            ]
+          ],
+          "required_support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation"
+            }
+          ],
+          "functionals": [
+            {
+              "functional_id": "person_state",
+              "coefficients": [
+                1.0
+              ],
+              "unit": "toy unit",
+              "variance_limit": 0.0026031777162700592
+            }
+          ]
+        },
+        "task_sha256": "sha256:10717b88257e67bc63ea6ed57158d2988ad998e6707c42eb6e84a312354d337e",
+        "evidence": {
+          "identifiability": true,
+          "collection_verified": null,
+          "support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation",
+              "supported": true
+            }
+          ]
+        },
+        "geometry": {
+          "model_sha256": "sha256:d0bce39893e49d496b3a114ebc699258d1dfdd7043ecabc3d332e81de2fec792",
+          "information_matrix": [
+            [
+              250000.0
+            ]
+          ]
+        }
+      },
+      "receipt": {
+        "contract": "anibench.finite-task-precision.v1",
+        "implementation": {
+          "contract": "anibench.finite-task-implementation.v1",
+          "sha256": {
+            "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+            "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
+          },
+          "python_version": "3.12.13",
+          "numpy_version": "2.5.1",
+          "jsonschema_version": "4.26.0"
+        },
+        "task_id": "synthetic-depth-person_state",
+        "task_version": "1",
+        "task_sha256": "sha256:10717b88257e67bc63ea6ed57158d2988ad998e6707c42eb6e84a312354d337e",
+        "request_sha256": "sha256:dd7b590b5c290f16382e3985089cca273db552c8090d2b77f0a60392bc2f3d4f",
+        "claim_lane": "conditional_design",
+        "claim_scope": "conditional_gaussian_finite_functionals_not_biological_calibration",
+        "comparison_scope": "finite_functionals_only",
+        "attainment": "attained",
+        "support": [
+          {
+            "domain_id": "synthetic_measurement",
+            "role": "observation",
+            "state": "attained"
+          }
+        ],
+        "checks": {
+          "identifiability": "attained"
+        },
+        "functionals": [
+          {
+            "functional_id": "person_state",
+            "unit": "toy unit",
+            "posterior_variance": 3.999999999984e-06,
+            "prior_variance": 1000000.0,
+            "prior_only_precision_attainment": false,
+            "variance_reduction": 999999.999996,
+            "variance_limit": 0.0026031777162700592,
+            "state": "attained"
+          }
+        ],
+        "numerical_relative_tolerance": 1e-10,
+        "evidence_verification": "caller_declared_not_independently_certified",
+        "all_direction_attainment": null,
+        "empirical_learning_plateau": null,
+        "public_saturation_claim_allowed": false,
+        "promotion_allowed": false
+      },
+      "analytic_posterior_variance": 3.999999999984e-06,
+      "analytic_likelihood_variance": 4e-06
+    },
+    {
+      "design": {
+        "id": "two_people_extreme_depth",
+        "N": 2,
+        "m": 1000000,
+        "cost_usd": 100000000
+      },
+      "task_name": "population_mean",
+      "request": {
+        "contract": "anibench.finite-task-request.v1",
+        "task": {
+          "contract": "anibench.finite-task-definition.v1",
+          "task_id": "synthetic-depth-population_mean",
+          "task_version": "1",
+          "source_sha256": "sha256:3b86e28434c1b9b642d023f4ea2807c0ba180679d3037c389ea55c0eebb8429c",
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "target_population": "Invented normal population; no real participant records",
+          "estimand": "mean of a synthetic population, separate inference problem",
+          "horizon": "one frozen synthetic state block",
+          "claim_lane": "conditional_design",
+          "comparison_scope": "finite_functionals_only",
+          "parameter_units": [
+            "toy unit"
+          ],
+          "prior_precision": [
+            [
+              1e-06
+            ]
+          ],
+          "required_support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation"
+            }
+          ],
+          "functionals": [
+            {
+              "functional_id": "population_mean",
+              "coefficients": [
+                1.0
+              ],
+              "unit": "toy unit",
+              "variance_limit": 0.0026031777162700592
+            }
+          ]
+        },
+        "task_sha256": "sha256:c82f4867b93ff4a91ae5f37a134786becd2dc82d47a9fecab7d1e9fb3c19e24f",
+        "evidence": {
+          "identifiability": true,
+          "collection_verified": null,
+          "support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation",
+              "supported": true
+            }
+          ]
+        },
+        "geometry": {
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "information_matrix": [
+            [
+              1.9999920000320002
+            ]
+          ]
+        }
+      },
+      "receipt": {
+        "contract": "anibench.finite-task-precision.v1",
+        "implementation": {
+          "contract": "anibench.finite-task-implementation.v1",
+          "sha256": {
+            "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+            "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
+          },
+          "python_version": "3.12.13",
+          "numpy_version": "2.5.1",
+          "jsonschema_version": "4.26.0"
+        },
+        "task_id": "synthetic-depth-population_mean",
+        "task_version": "1",
+        "task_sha256": "sha256:c82f4867b93ff4a91ae5f37a134786becd2dc82d47a9fecab7d1e9fb3c19e24f",
+        "request_sha256": "sha256:6f59ae70200877c3402eb8e78a4bf56f039ee7642fa5ab0a16170430c3df045d",
+        "claim_lane": "conditional_design",
+        "claim_scope": "conditional_gaussian_finite_functionals_not_biological_calibration",
+        "comparison_scope": "finite_functionals_only",
+        "attainment": "not_attained",
+        "support": [
+          {
+            "domain_id": "synthetic_measurement",
+            "role": "observation",
+            "state": "attained"
+          }
+        ],
+        "checks": {
+          "identifiability": "attained"
+        },
+        "functionals": [
+          {
+            "functional_id": "population_mean",
+            "unit": "toy unit",
+            "posterior_variance": 0.500001749998125,
+            "prior_variance": 1000000.0,
+            "prior_only_precision_attainment": false,
+            "variance_reduction": 999999.49999825,
+            "variance_limit": 0.0026031777162700592,
+            "state": "not_attained"
+          }
+        ],
+        "numerical_relative_tolerance": 1e-10,
+        "evidence_verification": "caller_declared_not_independently_certified",
+        "all_direction_attainment": null,
+        "empirical_learning_plateau": null,
+        "public_saturation_claim_allowed": false,
+        "promotion_allowed": false
+      },
+      "analytic_posterior_variance": 0.500001749998125,
+      "analytic_likelihood_variance": 0.500002
+    },
+    {
+      "design": {
+        "id": "large_complete_shallow",
+        "N": 2000,
+        "m": 1,
+        "cost_usd": null
+      },
+      "task_name": "person_state",
+      "request": {
+        "contract": "anibench.finite-task-request.v1",
+        "task": {
+          "contract": "anibench.finite-task-definition.v1",
+          "task_id": "synthetic-depth-person_state",
+          "task_version": "1",
+          "source_sha256": "sha256:3b86e28434c1b9b642d023f4ea2807c0ba180679d3037c389ea55c0eebb8429c",
+          "model_sha256": "sha256:d0bce39893e49d496b3a114ebc699258d1dfdd7043ecabc3d332e81de2fec792",
+          "target_population": "Invented normal population; no real participant records",
+          "estimand": "one sampled person's scalar state, separate inference problem",
+          "horizon": "one frozen synthetic state block",
+          "claim_lane": "conditional_design",
+          "comparison_scope": "finite_functionals_only",
+          "parameter_units": [
+            "toy unit"
+          ],
+          "prior_precision": [
+            [
+              1e-06
+            ]
+          ],
+          "required_support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation"
+            }
+          ],
+          "functionals": [
+            {
+              "functional_id": "person_state",
+              "coefficients": [
+                1.0
+              ],
+              "unit": "toy unit",
+              "variance_limit": 0.0026031777162700592
+            }
+          ]
+        },
+        "task_sha256": "sha256:10717b88257e67bc63ea6ed57158d2988ad998e6707c42eb6e84a312354d337e",
+        "evidence": {
+          "identifiability": true,
+          "collection_verified": null,
+          "support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation",
+              "supported": true
+            }
+          ]
+        },
+        "geometry": {
+          "model_sha256": "sha256:d0bce39893e49d496b3a114ebc699258d1dfdd7043ecabc3d332e81de2fec792",
+          "information_matrix": [
+            [
+              0.25
+            ]
+          ]
+        }
+      },
+      "receipt": {
+        "contract": "anibench.finite-task-precision.v1",
+        "implementation": {
+          "contract": "anibench.finite-task-implementation.v1",
+          "sha256": {
+            "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+            "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
+          },
+          "python_version": "3.12.13",
+          "numpy_version": "2.5.1",
+          "jsonschema_version": "4.26.0"
+        },
+        "task_id": "synthetic-depth-person_state",
+        "task_version": "1",
+        "task_sha256": "sha256:10717b88257e67bc63ea6ed57158d2988ad998e6707c42eb6e84a312354d337e",
+        "request_sha256": "sha256:08b0405684d7f28e43f07aca187d4e37c3ac53b8b1046289d2bc1baa13fbedfb",
+        "claim_lane": "conditional_design",
+        "claim_scope": "conditional_gaussian_finite_functionals_not_biological_calibration",
+        "comparison_scope": "finite_functionals_only",
+        "attainment": "not_attained",
+        "support": [
+          {
+            "domain_id": "synthetic_measurement",
+            "role": "observation",
+            "state": "attained"
+          }
+        ],
+        "checks": {
+          "identifiability": "attained"
+        },
+        "functionals": [
+          {
+            "functional_id": "person_state",
+            "unit": "toy unit",
+            "posterior_variance": 3.999984000064,
+            "prior_variance": 1000000.0,
+            "prior_only_precision_attainment": false,
+            "variance_reduction": 999996.0000159999,
+            "variance_limit": 0.0026031777162700592,
+            "state": "not_attained"
+          }
+        ],
+        "numerical_relative_tolerance": 1e-10,
+        "evidence_verification": "caller_declared_not_independently_certified",
+        "all_direction_attainment": null,
+        "empirical_learning_plateau": null,
+        "public_saturation_claim_allowed": false,
+        "promotion_allowed": false
+      },
+      "analytic_posterior_variance": 3.9999840000640003,
+      "analytic_likelihood_variance": 4.0
+    },
+    {
+      "design": {
+        "id": "large_complete_shallow",
+        "N": 2000,
+        "m": 1,
+        "cost_usd": null
+      },
+      "task_name": "population_mean",
+      "request": {
+        "contract": "anibench.finite-task-request.v1",
+        "task": {
+          "contract": "anibench.finite-task-definition.v1",
+          "task_id": "synthetic-depth-population_mean",
+          "task_version": "1",
+          "source_sha256": "sha256:3b86e28434c1b9b642d023f4ea2807c0ba180679d3037c389ea55c0eebb8429c",
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "target_population": "Invented normal population; no real participant records",
+          "estimand": "mean of a synthetic population, separate inference problem",
+          "horizon": "one frozen synthetic state block",
+          "claim_lane": "conditional_design",
+          "comparison_scope": "finite_functionals_only",
+          "parameter_units": [
+            "toy unit"
+          ],
+          "prior_precision": [
+            [
+              1e-06
+            ]
+          ],
+          "required_support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation"
+            }
+          ],
+          "functionals": [
+            {
+              "functional_id": "population_mean",
+              "coefficients": [
+                1.0
+              ],
+              "unit": "toy unit",
+              "variance_limit": 0.0026031777162700592
+            }
+          ]
+        },
+        "task_sha256": "sha256:c82f4867b93ff4a91ae5f37a134786becd2dc82d47a9fecab7d1e9fb3c19e24f",
+        "evidence": {
+          "identifiability": true,
+          "collection_verified": null,
+          "support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation",
+              "supported": true
+            }
+          ]
+        },
+        "geometry": {
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "information_matrix": [
+            [
+              400.0
+            ]
+          ]
+        }
+      },
+      "receipt": {
+        "contract": "anibench.finite-task-precision.v1",
+        "implementation": {
+          "contract": "anibench.finite-task-implementation.v1",
+          "sha256": {
+            "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+            "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
+          },
+          "python_version": "3.12.13",
+          "numpy_version": "2.5.1",
+          "jsonschema_version": "4.26.0"
+        },
+        "task_id": "synthetic-depth-population_mean",
+        "task_version": "1",
+        "task_sha256": "sha256:c82f4867b93ff4a91ae5f37a134786becd2dc82d47a9fecab7d1e9fb3c19e24f",
+        "request_sha256": "sha256:562aa438135ead04670e607108a271b108addd48fe0b1dab11a9e60faa704910",
+        "claim_lane": "conditional_design",
+        "claim_scope": "conditional_gaussian_finite_functionals_not_biological_calibration",
+        "comparison_scope": "finite_functionals_only",
+        "attainment": "attained",
+        "support": [
+          {
+            "domain_id": "synthetic_measurement",
+            "role": "observation",
+            "state": "attained"
+          }
+        ],
+        "checks": {
+          "identifiability": "attained"
+        },
+        "functionals": [
+          {
+            "functional_id": "population_mean",
+            "unit": "toy unit",
+            "posterior_variance": 0.00249999999375,
+            "prior_variance": 1000000.0,
+            "prior_only_precision_attainment": false,
+            "variance_reduction": 999999.9975,
+            "variance_limit": 0.0026031777162700592,
+            "state": "attained"
+          }
+        ],
+        "numerical_relative_tolerance": 1e-10,
+        "evidence_verification": "caller_declared_not_independently_certified",
+        "all_direction_attainment": null,
+        "empirical_learning_plateau": null,
+        "public_saturation_claim_allowed": false,
+        "promotion_allowed": false
+      },
+      "analytic_posterior_variance": 0.00249999999375,
+      "analytic_likelihood_variance": 0.0025
+    },
+    {
+      "design": {
+        "id": "large_missing_neural",
+        "N": 200000,
+        "m": 1,
+        "cost_usd": null
+      },
+      "task_name": "person_state",
+      "request": {
+        "contract": "anibench.finite-task-request.v1",
+        "task": {
+          "contract": "anibench.finite-task-definition.v1",
+          "task_id": "synthetic-depth-person_state",
+          "task_version": "1",
+          "source_sha256": "sha256:3b86e28434c1b9b642d023f4ea2807c0ba180679d3037c389ea55c0eebb8429c",
+          "model_sha256": "sha256:d0bce39893e49d496b3a114ebc699258d1dfdd7043ecabc3d332e81de2fec792",
+          "target_population": "Invented normal population; no real participant records",
+          "estimand": "one sampled person's scalar state, separate inference problem",
+          "horizon": "one frozen synthetic state block",
+          "claim_lane": "conditional_design",
+          "comparison_scope": "finite_functionals_only",
+          "parameter_units": [
+            "toy unit"
+          ],
+          "prior_precision": [
+            [
+              1e-06
+            ]
+          ],
+          "required_support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation"
+            }
+          ],
+          "functionals": [
+            {
+              "functional_id": "person_state",
+              "coefficients": [
+                1.0
+              ],
+              "unit": "toy unit",
+              "variance_limit": 0.0026031777162700592
+            }
+          ]
+        },
+        "task_sha256": "sha256:10717b88257e67bc63ea6ed57158d2988ad998e6707c42eb6e84a312354d337e",
+        "evidence": {
+          "identifiability": true,
+          "collection_verified": null,
+          "support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation",
+              "supported": true
+            }
+          ]
+        },
+        "geometry": {
+          "model_sha256": "sha256:d0bce39893e49d496b3a114ebc699258d1dfdd7043ecabc3d332e81de2fec792",
+          "information_matrix": [
+            [
+              0.25
+            ]
+          ]
+        }
+      },
+      "receipt": {
+        "contract": "anibench.finite-task-precision.v1",
+        "implementation": {
+          "contract": "anibench.finite-task-implementation.v1",
+          "sha256": {
+            "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+            "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
+          },
+          "python_version": "3.12.13",
+          "numpy_version": "2.5.1",
+          "jsonschema_version": "4.26.0"
+        },
+        "task_id": "synthetic-depth-person_state",
+        "task_version": "1",
+        "task_sha256": "sha256:10717b88257e67bc63ea6ed57158d2988ad998e6707c42eb6e84a312354d337e",
+        "request_sha256": "sha256:08b0405684d7f28e43f07aca187d4e37c3ac53b8b1046289d2bc1baa13fbedfb",
+        "claim_lane": "conditional_design",
+        "claim_scope": "conditional_gaussian_finite_functionals_not_biological_calibration",
+        "comparison_scope": "finite_functionals_only",
+        "attainment": "not_attained",
+        "support": [
+          {
+            "domain_id": "synthetic_measurement",
+            "role": "observation",
+            "state": "attained"
+          }
+        ],
+        "checks": {
+          "identifiability": "attained"
+        },
+        "functionals": [
+          {
+            "functional_id": "person_state",
+            "unit": "toy unit",
+            "posterior_variance": 3.999984000064,
+            "prior_variance": 1000000.0,
+            "prior_only_precision_attainment": false,
+            "variance_reduction": 999996.0000159999,
+            "variance_limit": 0.0026031777162700592,
+            "state": "not_attained"
+          }
+        ],
+        "numerical_relative_tolerance": 1e-10,
+        "evidence_verification": "caller_declared_not_independently_certified",
+        "all_direction_attainment": null,
+        "empirical_learning_plateau": null,
+        "public_saturation_claim_allowed": false,
+        "promotion_allowed": false
+      },
+      "analytic_posterior_variance": 3.9999840000640003,
+      "analytic_likelihood_variance": 4.0
+    },
+    {
+      "design": {
+        "id": "large_missing_neural",
+        "N": 200000,
+        "m": 1,
+        "cost_usd": null
+      },
+      "task_name": "population_mean",
+      "request": {
+        "contract": "anibench.finite-task-request.v1",
+        "task": {
+          "contract": "anibench.finite-task-definition.v1",
+          "task_id": "synthetic-depth-population_mean",
+          "task_version": "1",
+          "source_sha256": "sha256:3b86e28434c1b9b642d023f4ea2807c0ba180679d3037c389ea55c0eebb8429c",
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "target_population": "Invented normal population; no real participant records",
+          "estimand": "mean of a synthetic population, separate inference problem",
+          "horizon": "one frozen synthetic state block",
+          "claim_lane": "conditional_design",
+          "comparison_scope": "finite_functionals_only",
+          "parameter_units": [
+            "toy unit"
+          ],
+          "prior_precision": [
+            [
+              1e-06
+            ]
+          ],
+          "required_support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation"
+            }
+          ],
+          "functionals": [
+            {
+              "functional_id": "population_mean",
+              "coefficients": [
+                1.0
+              ],
+              "unit": "toy unit",
+              "variance_limit": 0.0026031777162700592
+            }
+          ]
+        },
+        "task_sha256": "sha256:c82f4867b93ff4a91ae5f37a134786becd2dc82d47a9fecab7d1e9fb3c19e24f",
+        "evidence": {
+          "identifiability": true,
+          "collection_verified": null,
+          "support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation",
+              "supported": true
+            }
+          ]
+        },
+        "geometry": {
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "information_matrix": [
+            [
+              40000.0
+            ]
+          ]
+        }
+      },
+      "receipt": {
+        "contract": "anibench.finite-task-precision.v1",
+        "implementation": {
+          "contract": "anibench.finite-task-implementation.v1",
+          "sha256": {
+            "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+            "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
+          },
+          "python_version": "3.12.13",
+          "numpy_version": "2.5.1",
+          "jsonschema_version": "4.26.0"
+        },
+        "task_id": "synthetic-depth-population_mean",
+        "task_version": "1",
+        "task_sha256": "sha256:c82f4867b93ff4a91ae5f37a134786becd2dc82d47a9fecab7d1e9fb3c19e24f",
+        "request_sha256": "sha256:a230b5bca3dad730b02967ec7e7ce49acb2c399686a0c9f84757599fea732d74",
+        "claim_lane": "conditional_design",
+        "claim_scope": "conditional_gaussian_finite_functionals_not_biological_calibration",
+        "comparison_scope": "finite_functionals_only",
+        "attainment": "attained",
+        "support": [
+          {
+            "domain_id": "synthetic_measurement",
+            "role": "observation",
+            "state": "attained"
+          }
+        ],
+        "checks": {
+          "identifiability": "attained"
+        },
+        "functionals": [
+          {
+            "functional_id": "population_mean",
+            "unit": "toy unit",
+            "posterior_variance": 2.4999999999375003e-05,
+            "prior_variance": 1000000.0,
+            "prior_only_precision_attainment": false,
+            "variance_reduction": 999999.999975,
+            "variance_limit": 0.0026031777162700592,
+            "state": "attained"
+          }
+        ],
+        "numerical_relative_tolerance": 1e-10,
+        "evidence_verification": "caller_declared_not_independently_certified",
+        "all_direction_attainment": null,
+        "empirical_learning_plateau": null,
+        "public_saturation_claim_allowed": false,
+        "promotion_allowed": false
+      },
+      "analytic_posterior_variance": 2.4999999999375e-05,
+      "analytic_likelihood_variance": 2.5e-05
+    },
+    {
+      "design": {
+        "id": "two_people_much_higher_cost",
+        "N": 2,
+        "m": 1000000,
+        "cost_usd": 10000000000
+      },
+      "task_name": "person_state",
+      "request": {
+        "contract": "anibench.finite-task-request.v1",
+        "task": {
+          "contract": "anibench.finite-task-definition.v1",
+          "task_id": "synthetic-depth-person_state",
+          "task_version": "1",
+          "source_sha256": "sha256:3b86e28434c1b9b642d023f4ea2807c0ba180679d3037c389ea55c0eebb8429c",
+          "model_sha256": "sha256:d0bce39893e49d496b3a114ebc699258d1dfdd7043ecabc3d332e81de2fec792",
+          "target_population": "Invented normal population; no real participant records",
+          "estimand": "one sampled person's scalar state, separate inference problem",
+          "horizon": "one frozen synthetic state block",
+          "claim_lane": "conditional_design",
+          "comparison_scope": "finite_functionals_only",
+          "parameter_units": [
+            "toy unit"
+          ],
+          "prior_precision": [
+            [
+              1e-06
+            ]
+          ],
+          "required_support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation"
+            }
+          ],
+          "functionals": [
+            {
+              "functional_id": "person_state",
+              "coefficients": [
+                1.0
+              ],
+              "unit": "toy unit",
+              "variance_limit": 0.0026031777162700592
+            }
+          ]
+        },
+        "task_sha256": "sha256:10717b88257e67bc63ea6ed57158d2988ad998e6707c42eb6e84a312354d337e",
+        "evidence": {
+          "identifiability": true,
+          "collection_verified": null,
+          "support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation",
+              "supported": true
+            }
+          ]
+        },
+        "geometry": {
+          "model_sha256": "sha256:d0bce39893e49d496b3a114ebc699258d1dfdd7043ecabc3d332e81de2fec792",
+          "information_matrix": [
+            [
+              250000.0
+            ]
+          ]
+        }
+      },
+      "receipt": {
+        "contract": "anibench.finite-task-precision.v1",
+        "implementation": {
+          "contract": "anibench.finite-task-implementation.v1",
+          "sha256": {
+            "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+            "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
+          },
+          "python_version": "3.12.13",
+          "numpy_version": "2.5.1",
+          "jsonschema_version": "4.26.0"
+        },
+        "task_id": "synthetic-depth-person_state",
+        "task_version": "1",
+        "task_sha256": "sha256:10717b88257e67bc63ea6ed57158d2988ad998e6707c42eb6e84a312354d337e",
+        "request_sha256": "sha256:dd7b590b5c290f16382e3985089cca273db552c8090d2b77f0a60392bc2f3d4f",
+        "claim_lane": "conditional_design",
+        "claim_scope": "conditional_gaussian_finite_functionals_not_biological_calibration",
+        "comparison_scope": "finite_functionals_only",
+        "attainment": "attained",
+        "support": [
+          {
+            "domain_id": "synthetic_measurement",
+            "role": "observation",
+            "state": "attained"
+          }
+        ],
+        "checks": {
+          "identifiability": "attained"
+        },
+        "functionals": [
+          {
+            "functional_id": "person_state",
+            "unit": "toy unit",
+            "posterior_variance": 3.999999999984e-06,
+            "prior_variance": 1000000.0,
+            "prior_only_precision_attainment": false,
+            "variance_reduction": 999999.999996,
+            "variance_limit": 0.0026031777162700592,
+            "state": "attained"
+          }
+        ],
+        "numerical_relative_tolerance": 1e-10,
+        "evidence_verification": "caller_declared_not_independently_certified",
+        "all_direction_attainment": null,
+        "empirical_learning_plateau": null,
+        "public_saturation_claim_allowed": false,
+        "promotion_allowed": false
+      },
+      "analytic_posterior_variance": 3.999999999984e-06,
+      "analytic_likelihood_variance": 4e-06
+    },
+    {
+      "design": {
+        "id": "two_people_much_higher_cost",
+        "N": 2,
+        "m": 1000000,
+        "cost_usd": 10000000000
+      },
+      "task_name": "population_mean",
+      "request": {
+        "contract": "anibench.finite-task-request.v1",
+        "task": {
+          "contract": "anibench.finite-task-definition.v1",
+          "task_id": "synthetic-depth-population_mean",
+          "task_version": "1",
+          "source_sha256": "sha256:3b86e28434c1b9b642d023f4ea2807c0ba180679d3037c389ea55c0eebb8429c",
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "target_population": "Invented normal population; no real participant records",
+          "estimand": "mean of a synthetic population, separate inference problem",
+          "horizon": "one frozen synthetic state block",
+          "claim_lane": "conditional_design",
+          "comparison_scope": "finite_functionals_only",
+          "parameter_units": [
+            "toy unit"
+          ],
+          "prior_precision": [
+            [
+              1e-06
+            ]
+          ],
+          "required_support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation"
+            }
+          ],
+          "functionals": [
+            {
+              "functional_id": "population_mean",
+              "coefficients": [
+                1.0
+              ],
+              "unit": "toy unit",
+              "variance_limit": 0.0026031777162700592
+            }
+          ]
+        },
+        "task_sha256": "sha256:c82f4867b93ff4a91ae5f37a134786becd2dc82d47a9fecab7d1e9fb3c19e24f",
+        "evidence": {
+          "identifiability": true,
+          "collection_verified": null,
+          "support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation",
+              "supported": true
+            }
+          ]
+        },
+        "geometry": {
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "information_matrix": [
+            [
+              1.9999920000320002
+            ]
+          ]
+        }
+      },
+      "receipt": {
+        "contract": "anibench.finite-task-precision.v1",
+        "implementation": {
+          "contract": "anibench.finite-task-implementation.v1",
+          "sha256": {
+            "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+            "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
+          },
+          "python_version": "3.12.13",
+          "numpy_version": "2.5.1",
+          "jsonschema_version": "4.26.0"
+        },
+        "task_id": "synthetic-depth-population_mean",
+        "task_version": "1",
+        "task_sha256": "sha256:c82f4867b93ff4a91ae5f37a134786becd2dc82d47a9fecab7d1e9fb3c19e24f",
+        "request_sha256": "sha256:6f59ae70200877c3402eb8e78a4bf56f039ee7642fa5ab0a16170430c3df045d",
+        "claim_lane": "conditional_design",
+        "claim_scope": "conditional_gaussian_finite_functionals_not_biological_calibration",
+        "comparison_scope": "finite_functionals_only",
+        "attainment": "not_attained",
+        "support": [
+          {
+            "domain_id": "synthetic_measurement",
+            "role": "observation",
+            "state": "attained"
+          }
+        ],
+        "checks": {
+          "identifiability": "attained"
+        },
+        "functionals": [
+          {
+            "functional_id": "population_mean",
+            "unit": "toy unit",
+            "posterior_variance": 0.500001749998125,
+            "prior_variance": 1000000.0,
+            "prior_only_precision_attainment": false,
+            "variance_reduction": 999999.49999825,
+            "variance_limit": 0.0026031777162700592,
+            "state": "not_attained"
+          }
+        ],
+        "numerical_relative_tolerance": 1e-10,
+        "evidence_verification": "caller_declared_not_independently_certified",
+        "all_direction_attainment": null,
+        "empirical_learning_plateau": null,
+        "public_saturation_claim_allowed": false,
+        "promotion_allowed": false
+      },
+      "analytic_posterior_variance": 0.500001749998125,
+      "analytic_likelihood_variance": 0.500002
+    },
+    {
+      "design": {
+        "id": "balanced_complete",
+        "N": 2000,
+        "m": 2000,
+        "cost_usd": null
+      },
+      "task_name": "person_state",
+      "request": {
+        "contract": "anibench.finite-task-request.v1",
+        "task": {
+          "contract": "anibench.finite-task-definition.v1",
+          "task_id": "synthetic-depth-person_state",
+          "task_version": "1",
+          "source_sha256": "sha256:3b86e28434c1b9b642d023f4ea2807c0ba180679d3037c389ea55c0eebb8429c",
+          "model_sha256": "sha256:d0bce39893e49d496b3a114ebc699258d1dfdd7043ecabc3d332e81de2fec792",
+          "target_population": "Invented normal population; no real participant records",
+          "estimand": "one sampled person's scalar state, separate inference problem",
+          "horizon": "one frozen synthetic state block",
+          "claim_lane": "conditional_design",
+          "comparison_scope": "finite_functionals_only",
+          "parameter_units": [
+            "toy unit"
+          ],
+          "prior_precision": [
+            [
+              1e-06
+            ]
+          ],
+          "required_support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation"
+            }
+          ],
+          "functionals": [
+            {
+              "functional_id": "person_state",
+              "coefficients": [
+                1.0
+              ],
+              "unit": "toy unit",
+              "variance_limit": 0.0026031777162700592
+            }
+          ]
+        },
+        "task_sha256": "sha256:10717b88257e67bc63ea6ed57158d2988ad998e6707c42eb6e84a312354d337e",
+        "evidence": {
+          "identifiability": true,
+          "collection_verified": null,
+          "support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation",
+              "supported": true
+            }
+          ]
+        },
+        "geometry": {
+          "model_sha256": "sha256:d0bce39893e49d496b3a114ebc699258d1dfdd7043ecabc3d332e81de2fec792",
+          "information_matrix": [
+            [
+              500.0
+            ]
+          ]
+        }
+      },
+      "receipt": {
+        "contract": "anibench.finite-task-precision.v1",
+        "implementation": {
+          "contract": "anibench.finite-task-implementation.v1",
+          "sha256": {
+            "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+            "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
+          },
+          "python_version": "3.12.13",
+          "numpy_version": "2.5.1",
+          "jsonschema_version": "4.26.0"
+        },
+        "task_id": "synthetic-depth-person_state",
+        "task_version": "1",
+        "task_sha256": "sha256:10717b88257e67bc63ea6ed57158d2988ad998e6707c42eb6e84a312354d337e",
+        "request_sha256": "sha256:67d05d51a0e60c9729afb95a64c504d0a8fa390bc1d87a37ab46b3c9915f3ee3",
+        "claim_lane": "conditional_design",
+        "claim_scope": "conditional_gaussian_finite_functionals_not_biological_calibration",
+        "comparison_scope": "finite_functionals_only",
+        "attainment": "attained",
+        "support": [
+          {
+            "domain_id": "synthetic_measurement",
+            "role": "observation",
+            "state": "attained"
+          }
+        ],
+        "checks": {
+          "identifiability": "attained"
+        },
+        "functionals": [
+          {
+            "functional_id": "person_state",
+            "unit": "toy unit",
+            "posterior_variance": 0.001999999996,
+            "prior_variance": 1000000.0,
+            "prior_only_precision_attainment": false,
+            "variance_reduction": 999999.998,
+            "variance_limit": 0.0026031777162700592,
+            "state": "attained"
+          }
+        ],
+        "numerical_relative_tolerance": 1e-10,
+        "evidence_verification": "caller_declared_not_independently_certified",
+        "all_direction_attainment": null,
+        "empirical_learning_plateau": null,
+        "public_saturation_claim_allowed": false,
+        "promotion_allowed": false
+      },
+      "analytic_posterior_variance": 0.001999999996,
+      "analytic_likelihood_variance": 0.002
+    },
+    {
+      "design": {
+        "id": "balanced_complete",
+        "N": 2000,
+        "m": 2000,
+        "cost_usd": null
+      },
+      "task_name": "population_mean",
+      "request": {
+        "contract": "anibench.finite-task-request.v1",
+        "task": {
+          "contract": "anibench.finite-task-definition.v1",
+          "task_id": "synthetic-depth-population_mean",
+          "task_version": "1",
+          "source_sha256": "sha256:3b86e28434c1b9b642d023f4ea2807c0ba180679d3037c389ea55c0eebb8429c",
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "target_population": "Invented normal population; no real participant records",
+          "estimand": "mean of a synthetic population, separate inference problem",
+          "horizon": "one frozen synthetic state block",
+          "claim_lane": "conditional_design",
+          "comparison_scope": "finite_functionals_only",
+          "parameter_units": [
+            "toy unit"
+          ],
+          "prior_precision": [
+            [
+              1e-06
+            ]
+          ],
+          "required_support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation"
+            }
+          ],
+          "functionals": [
+            {
+              "functional_id": "population_mean",
+              "coefficients": [
+                1.0
+              ],
+              "unit": "toy unit",
+              "variance_limit": 0.0026031777162700592
+            }
+          ]
+        },
+        "task_sha256": "sha256:c82f4867b93ff4a91ae5f37a134786becd2dc82d47a9fecab7d1e9fb3c19e24f",
+        "evidence": {
+          "identifiability": true,
+          "collection_verified": null,
+          "support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation",
+              "supported": true
+            }
+          ]
+        },
+        "geometry": {
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "information_matrix": [
+            [
+              1996.007984031936
+            ]
+          ]
+        }
+      },
+      "receipt": {
+        "contract": "anibench.finite-task-precision.v1",
+        "implementation": {
+          "contract": "anibench.finite-task-implementation.v1",
+          "sha256": {
+            "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+            "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
+          },
+          "python_version": "3.12.13",
+          "numpy_version": "2.5.1",
+          "jsonschema_version": "4.26.0"
+        },
+        "task_id": "synthetic-depth-population_mean",
+        "task_version": "1",
+        "task_sha256": "sha256:c82f4867b93ff4a91ae5f37a134786becd2dc82d47a9fecab7d1e9fb3c19e24f",
+        "request_sha256": "sha256:95b0e45c3efee920b5a2c5c04d35e97e116942238f4e862d4eb8b497060c19cf",
+        "claim_lane": "conditional_design",
+        "claim_scope": "conditional_gaussian_finite_functionals_not_biological_calibration",
+        "comparison_scope": "finite_functionals_only",
+        "attainment": "attained",
+        "support": [
+          {
+            "domain_id": "synthetic_measurement",
+            "role": "observation",
+            "state": "attained"
+          }
+        ],
+        "checks": {
+          "identifiability": "attained"
+        },
+        "functionals": [
+          {
+            "functional_id": "population_mean",
+            "unit": "toy unit",
+            "posterior_variance": 0.000500999999748999,
+            "prior_variance": 1000000.0,
+            "prior_only_precision_attainment": false,
+            "variance_reduction": 999999.999499,
+            "variance_limit": 0.0026031777162700592,
+            "state": "attained"
+          }
+        ],
+        "numerical_relative_tolerance": 1e-10,
+        "evidence_verification": "caller_declared_not_independently_certified",
+        "all_direction_attainment": null,
+        "empirical_learning_plateau": null,
+        "public_saturation_claim_allowed": false,
+        "promotion_allowed": false
+      },
+      "analytic_posterior_variance": 0.000500999999748999,
+      "analytic_likelihood_variance": 0.000501
+    }
+  ],
+  "neural_role_gate_runs": [
+    {
+      "declared_neural_support": false,
+      "request": {
+        "contract": "anibench.finite-task-request.v1",
+        "task": {
+          "contract": "anibench.finite-task-definition.v1",
+          "task_id": "synthetic-population-with-required-neural-support",
+          "task_version": "1",
+          "source_sha256": "sha256:3b86e28434c1b9b642d023f4ea2807c0ba180679d3037c389ea55c0eebb8429c",
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "target_population": "Invented normal population; no real participant records",
+          "estimand": "mean of a synthetic population, separate inference problem",
+          "horizon": "one frozen synthetic state block",
+          "claim_lane": "conditional_design",
+          "comparison_scope": "finite_functionals_only",
+          "parameter_units": [
+            "toy unit"
+          ],
+          "prior_precision": [
+            [
+              1e-06
+            ]
+          ],
+          "required_support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation"
+            },
+            {
+              "domain_id": "synthetic_neural",
+              "role": "observation"
+            }
+          ],
+          "functionals": [
+            {
+              "functional_id": "population_mean",
+              "coefficients": [
+                1.0
+              ],
+              "unit": "toy unit",
+              "variance_limit": 0.0026031777162700592
+            }
+          ]
+        },
+        "task_sha256": "sha256:4e1519a98878a5140d203813959ee649c8ca5f583ccf9d111c276a10578375bb",
+        "evidence": {
+          "identifiability": true,
+          "collection_verified": null,
+          "support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation",
+              "supported": true
+            },
+            {
+              "domain_id": "synthetic_neural",
+              "role": "observation",
+              "supported": false
+            }
+          ]
+        },
+        "geometry": {
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "information_matrix": [
+            [
+              40000.0
+            ]
+          ]
+        }
+      },
+      "receipt": {
+        "contract": "anibench.finite-task-precision.v1",
+        "implementation": {
+          "contract": "anibench.finite-task-implementation.v1",
+          "sha256": {
+            "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+            "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
+          },
+          "python_version": "3.12.13",
+          "numpy_version": "2.5.1",
+          "jsonschema_version": "4.26.0"
+        },
+        "task_id": "synthetic-population-with-required-neural-support",
+        "task_version": "1",
+        "task_sha256": "sha256:4e1519a98878a5140d203813959ee649c8ca5f583ccf9d111c276a10578375bb",
+        "request_sha256": "sha256:92f29e67308e68a3a870b8833b73a91f4f6ba1c9f050171e0b438b93bc8ef1d2",
+        "claim_lane": "conditional_design",
+        "claim_scope": "conditional_gaussian_finite_functionals_not_biological_calibration",
+        "comparison_scope": "finite_functionals_only",
+        "attainment": "not_attained",
+        "support": [
+          {
+            "domain_id": "synthetic_measurement",
+            "role": "observation",
+            "state": "attained"
+          },
+          {
+            "domain_id": "synthetic_neural",
+            "role": "observation",
+            "state": "not_attained"
+          }
+        ],
+        "checks": {
+          "identifiability": "attained"
+        },
+        "functionals": [
+          {
+            "functional_id": "population_mean",
+            "unit": "toy unit",
+            "posterior_variance": 2.4999999999375003e-05,
+            "prior_variance": 1000000.0,
+            "prior_only_precision_attainment": false,
+            "variance_reduction": 999999.999975,
+            "variance_limit": 0.0026031777162700592,
+            "state": "attained"
+          }
+        ],
+        "numerical_relative_tolerance": 1e-10,
+        "evidence_verification": "caller_declared_not_independently_certified",
+        "all_direction_attainment": null,
+        "empirical_learning_plateau": null,
+        "public_saturation_claim_allowed": false,
+        "promotion_allowed": false
+      }
+    },
+    {
+      "declared_neural_support": null,
+      "request": {
+        "contract": "anibench.finite-task-request.v1",
+        "task": {
+          "contract": "anibench.finite-task-definition.v1",
+          "task_id": "synthetic-population-with-required-neural-support",
+          "task_version": "1",
+          "source_sha256": "sha256:3b86e28434c1b9b642d023f4ea2807c0ba180679d3037c389ea55c0eebb8429c",
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "target_population": "Invented normal population; no real participant records",
+          "estimand": "mean of a synthetic population, separate inference problem",
+          "horizon": "one frozen synthetic state block",
+          "claim_lane": "conditional_design",
+          "comparison_scope": "finite_functionals_only",
+          "parameter_units": [
+            "toy unit"
+          ],
+          "prior_precision": [
+            [
+              1e-06
+            ]
+          ],
+          "required_support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation"
+            },
+            {
+              "domain_id": "synthetic_neural",
+              "role": "observation"
+            }
+          ],
+          "functionals": [
+            {
+              "functional_id": "population_mean",
+              "coefficients": [
+                1.0
+              ],
+              "unit": "toy unit",
+              "variance_limit": 0.0026031777162700592
+            }
+          ]
+        },
+        "task_sha256": "sha256:4e1519a98878a5140d203813959ee649c8ca5f583ccf9d111c276a10578375bb",
+        "evidence": {
+          "identifiability": true,
+          "collection_verified": null,
+          "support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation",
+              "supported": true
+            },
+            {
+              "domain_id": "synthetic_neural",
+              "role": "observation",
+              "supported": null
+            }
+          ]
+        },
+        "geometry": {
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "information_matrix": [
+            [
+              40000.0
+            ]
+          ]
+        }
+      },
+      "receipt": {
+        "contract": "anibench.finite-task-precision.v1",
+        "implementation": {
+          "contract": "anibench.finite-task-implementation.v1",
+          "sha256": {
+            "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+            "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
+          },
+          "python_version": "3.12.13",
+          "numpy_version": "2.5.1",
+          "jsonschema_version": "4.26.0"
+        },
+        "task_id": "synthetic-population-with-required-neural-support",
+        "task_version": "1",
+        "task_sha256": "sha256:4e1519a98878a5140d203813959ee649c8ca5f583ccf9d111c276a10578375bb",
+        "request_sha256": "sha256:6c64ebe819da6654f30ae280d3eb7a062650bf446746f50c201d7a7d52515f20",
+        "claim_lane": "conditional_design",
+        "claim_scope": "conditional_gaussian_finite_functionals_not_biological_calibration",
+        "comparison_scope": "finite_functionals_only",
+        "attainment": "unknown",
+        "support": [
+          {
+            "domain_id": "synthetic_measurement",
+            "role": "observation",
+            "state": "attained"
+          },
+          {
+            "domain_id": "synthetic_neural",
+            "role": "observation",
+            "state": "unknown"
+          }
+        ],
+        "checks": {
+          "identifiability": "attained"
+        },
+        "functionals": [
+          {
+            "functional_id": "population_mean",
+            "unit": "toy unit",
+            "posterior_variance": 2.4999999999375003e-05,
+            "prior_variance": 1000000.0,
+            "prior_only_precision_attainment": false,
+            "variance_reduction": 999999.999975,
+            "variance_limit": 0.0026031777162700592,
+            "state": "attained"
+          }
+        ],
+        "numerical_relative_tolerance": 1e-10,
+        "evidence_verification": "caller_declared_not_independently_certified",
+        "all_direction_attainment": null,
+        "empirical_learning_plateau": null,
+        "public_saturation_claim_allowed": false,
+        "promotion_allowed": false
+      }
+    },
+    {
+      "declared_neural_support": true,
+      "request": {
+        "contract": "anibench.finite-task-request.v1",
+        "task": {
+          "contract": "anibench.finite-task-definition.v1",
+          "task_id": "synthetic-population-with-required-neural-support",
+          "task_version": "1",
+          "source_sha256": "sha256:3b86e28434c1b9b642d023f4ea2807c0ba180679d3037c389ea55c0eebb8429c",
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "target_population": "Invented normal population; no real participant records",
+          "estimand": "mean of a synthetic population, separate inference problem",
+          "horizon": "one frozen synthetic state block",
+          "claim_lane": "conditional_design",
+          "comparison_scope": "finite_functionals_only",
+          "parameter_units": [
+            "toy unit"
+          ],
+          "prior_precision": [
+            [
+              1e-06
+            ]
+          ],
+          "required_support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation"
+            },
+            {
+              "domain_id": "synthetic_neural",
+              "role": "observation"
+            }
+          ],
+          "functionals": [
+            {
+              "functional_id": "population_mean",
+              "coefficients": [
+                1.0
+              ],
+              "unit": "toy unit",
+              "variance_limit": 0.0026031777162700592
+            }
+          ]
+        },
+        "task_sha256": "sha256:4e1519a98878a5140d203813959ee649c8ca5f583ccf9d111c276a10578375bb",
+        "evidence": {
+          "identifiability": true,
+          "collection_verified": null,
+          "support": [
+            {
+              "domain_id": "synthetic_measurement",
+              "role": "observation",
+              "supported": true
+            },
+            {
+              "domain_id": "synthetic_neural",
+              "role": "observation",
+              "supported": true
+            }
+          ]
+        },
+        "geometry": {
+          "model_sha256": "sha256:2b4e661d332d9a189539bde1a002dc3c9c4aeeb543ee6e8d4f8cfd8bf5e025f3",
+          "information_matrix": [
+            [
+              40000.0
+            ]
+          ]
+        }
+      },
+      "receipt": {
+        "contract": "anibench.finite-task-precision.v1",
+        "implementation": {
+          "contract": "anibench.finite-task-implementation.v1",
+          "sha256": {
+            "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+            "information_v2.py": "sha256:5e64e931e6406277e0da0eba6cf20f76c0ed21744ec00c828b0f18e8069e5c35",
+            "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+            "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229"
+          },
+          "python_version": "3.12.13",
+          "numpy_version": "2.5.1",
+          "jsonschema_version": "4.26.0"
+        },
+        "task_id": "synthetic-population-with-required-neural-support",
+        "task_version": "1",
+        "task_sha256": "sha256:4e1519a98878a5140d203813959ee649c8ca5f583ccf9d111c276a10578375bb",
+        "request_sha256": "sha256:56335497ef732d2ae6fbdcdaa0c9a14a9008b63c57ace4c4247df14f2366faef",
+        "claim_lane": "conditional_design",
+        "claim_scope": "conditional_gaussian_finite_functionals_not_biological_calibration",
+        "comparison_scope": "finite_functionals_only",
+        "attainment": "attained",
+        "support": [
+          {
+            "domain_id": "synthetic_measurement",
+            "role": "observation",
+            "state": "attained"
+          },
+          {
+            "domain_id": "synthetic_neural",
+            "role": "observation",
+            "state": "attained"
+          }
+        ],
+        "checks": {
+          "identifiability": "attained"
+        },
+        "functionals": [
+          {
+            "functional_id": "population_mean",
+            "unit": "toy unit",
+            "posterior_variance": 2.4999999999375003e-05,
+            "prior_variance": 1000000.0,
+            "prior_only_precision_attainment": false,
+            "variance_reduction": 999999.999975,
+            "variance_limit": 0.0026031777162700592,
+            "state": "attained"
+          }
+        ],
+        "numerical_relative_tolerance": 1e-10,
+        "evidence_verification": "caller_declared_not_independently_certified",
+        "all_direction_attainment": null,
+        "empirical_learning_plateau": null,
+        "public_saturation_claim_allowed": false,
+        "promotion_allowed": false
+      }
+    }
+  ],
+  "assertions_passed": 34,
+  "no_joint_block_assumption": true,
+  "cost_treatment": "metadata only; equal acquisitions produce byte-identical API receipts",
+  "comparison_scope": "Separate scalar-task precision orderings; no overall ranking"
+}

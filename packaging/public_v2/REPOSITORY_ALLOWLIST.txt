@@ -60,6 +60,7 @@ data/synthetic_geometry_audit/actual_geometry_results.json
 docs/ACCESSIBILITY.md
 docs/ANTI_GAMING.md
 docs/API.md
+docs/BENCHMARK_RELEASE_STANDARD.md
 docs/CANDIDATE_LEVELS.md
 docs/COLLECTION_COMPARISONS.md
 docs/COLLECTION_PROFILE.md
@@ -158,6 +159,7 @@ scripts/build_docx_package.py
 scripts/build_explorer.py
 scripts/build_level1_target_v3.py
 scripts/build_manuscript.py
+scripts/build_release_charts.py
 scripts/build_v2_external_corpus.py
 scripts/export_public_repository.py
 scripts/fetch_v2_external_sources.py
@@ -248,6 +250,7 @@ tests/test_public_runtime_quarantine.py
 tests/test_public_v2_distribution_boundary.py
 tests/test_public_v2_wheel_runtime.py
 tests/test_registry_stress_240.py
+tests/test_release_charts.py
 tests/test_release_metadata_v2.py
 tests/test_saturation_packaging.py
 tests/test_studio_intake.py
@@ -266,6 +269,9 @@ web/benchmark.test.js
 web/collection-example.json
 web/collection-viewer.js
 web/collection-viewer.test.js
+web/elite-public-card.json
+web/erp-design-plan.json
+web/erp-design-sensitivity.json
 web/explore.css
 web/explore.html
 web/explore.js
@@ -273,6 +279,13 @@ web/explore.test.js
 web/favicon.svg
 web/optimizer-protocol-example.json
 web/protocol-capacity-example.json
+web/release-chart-provenance.json
+web/release-chart-receipts.json
+web/release-charts.css
+web/release-charts.js
+web/release-charts.test.js
+web/release-results.json
+web/study-status-cards.json
 web/v2.css
 web/v2.html
 web/v2.js
