@@ -250,11 +250,18 @@ const AniBenchPage = (() => {
           : 0,
       ),
     );
-    return `<section class="synthetic-chart"><p class="chart-unit">${escape(human(descriptor.unit))} · Linear scale · Synthetic model output</p><ol class="plot-rows">${rows
+    const booleanMetric = descriptor.unit === "boolean";
+    const scaleLabel = booleanMetric ? "Yes / No" : `${human(descriptor.unit)} · Linear scale`;
+    return `<section class="synthetic-chart"><p class="chart-unit">${escape(scaleLabel)} · Synthetic model output</p><ol class="plot-rows">${rows
       .map((row) => {
         const value = row.metric?.value;
-        const known = typeof value === "number" && Number.isFinite(value);
-        return `<li><div class="plot-study"><span>${escape(row.name)}</span><small>Nominal scenario · assumed geometry</small></div><div class="plot-range">${known ? `<span class="plot-bar" style="width:${Math.max(0, (value / max) * 100)}%"></span><span class="plot-number">${escape(number(value))}</span>` : `<span class="missing">${escape(row.metric?.state || "unresolved")}</span>`}</div></li>`;
+        const known = !booleanMetric && typeof value === "number" && Number.isFinite(value);
+        const display = booleanMetric && typeof value === "boolean"
+          ? `<span class="plot-number">${value ? "Yes" : "No"}</span>`
+          : known
+            ? `<span class="plot-bar" style="width:${Math.max(0, (value / max) * 100)}%"></span><span class="plot-number">${escape(number(value))}</span>`
+            : `<span class="missing">${escape(row.metric?.state || "unresolved")}</span>`;
+        return `<li><div class="plot-study"><span>${escape(row.name)}</span><small>Nominal scenario · assumed geometry</small></div><div class="plot-range">${display}</div></li>`;
       })
       .join(
         "",

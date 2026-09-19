@@ -233,6 +233,27 @@ test("missing selected studies remain visible outside numerical axes", () => {
   assert.equal((chart.match(/plot-number/g) || []).length, 1);
 });
 
+test("Boolean design support distinguishes yes, no and unknown without a numeric axis", () => {
+  const packet = {
+    labels: {},
+    receipts: [true, false, null].map((value, index) => ({
+      protocol_id: String(index),
+      assessment_receipt_sha256: "sha256:receipt",
+      scenarios: [{ families: [{ family_id: "personalized_sequential", native_metrics: [{
+        metric_id: "adaptive", label: "Adaptive structure", value, unit: "boolean",
+        state: value === null ? "unresolved" : "computed_unverified_geometry",
+      }] }] }],
+    })),
+  };
+  const metric = demoMetrics(packet, "personalized_sequential")[0];
+  const chart = syntheticPlot(packet, "personalized_sequential", metric.id, new Set(["0", "1", "2"]));
+  assert.match(chart, /plot-number">Yes</);
+  assert.match(chart, /plot-number">No</);
+  assert.match(chart, /class="missing">unresolved/);
+  assert.match(chart, /Yes \/ No · Synthetic model output/);
+  assert.doesNotMatch(chart, /Linear scale|plot-bar/);
+});
+
 test("different follow-up semantics are separated even within the same unit", () => {
   const study = {
     study_id: "time",
