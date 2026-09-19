@@ -55,7 +55,7 @@ jobs:
           reuse lint
           python scripts/verify_external_field_receipts.py --pretty
           python -m pytest -q
-          node --test web/v2.test.js
+          node --test web/v2.test.js web/explore.test.js web/benchmark.test.js web/collection-viewer.test.js
       - name: Scan every Git tree reachable from every public ref
         run: python scripts/export_public_repository.py --repo . --verify-public-history
       - name: Rebuild and verify the one-root public export contract

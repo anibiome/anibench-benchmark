@@ -138,6 +138,9 @@ ALLOWED_WEB_FILENAMES = frozenset(
         "benchmark.css",
         "benchmark.js",
         "benchmark.test.js",
+        "collection-viewer.js",
+        "collection-viewer.test.js",
+        "collection-example.json",
     }
 )
 
