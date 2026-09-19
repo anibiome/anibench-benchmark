@@ -11,8 +11,10 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="benchmark.css" />
     <link rel="stylesheet" href="release-charts.css" />
+    <link rel="stylesheet" href="broad-reference.css" />
     <script src="benchmark.js" defer></script>
     <script src="release-charts.js" defer></script>
+    <script src="broad-reference.js" defer></script>
     <script src="collection-viewer.js" defer></script>
   </head>
   <body>
@@ -44,7 +46,8 @@
             design can actually resolve.
           </p>
           <div class="results-links">
-            <a href="#source-architecture">Compare what studies collected ↓</a
+            <a href="#source-architecture">Compare reported study collections ↓</a
+            ><a href="#broad-reference">AniBench 1/2 designs ↓</a
             ><a href="#temporal-design">What another visit adds ↓</a
             ><a href="#tradeoffs">Design stress tests ↓</a
             ><a href="#design-lab">Explore a design ↓</a><button type="button" class="text-link" data-open-catalog>All charts ↗</button>
@@ -59,7 +62,7 @@
             <div>
               <p class="eyebrow">01 / REAL STUDIES</p>
               <h2 id="observed-heading">
-                Compare what studies collected.
+                Compare reported study collections.
               </h2>
             </div>
             <a href="#studies" class="text-link">Explore every source →</a>
@@ -86,6 +89,7 @@
             measurement definitions stay visible beside each point.
           </p>
         </section>
+        <section id="broad-reference" class="results-section" aria-label="Synthetic reference candidate"><p role="status">Loading synthetic reference examples…</p></section>
         <section id="temporal-design" class="results-section" aria-labelledby="temporal-heading">
           <div class="section-heading"><div>
             <p class="eyebrow">02 / PUBLISHED COLLECTION COUNTS · CONDITIONAL MODEL</p>
@@ -452,7 +456,7 @@
             <a
               class="text-link"
               href="https://github.com/anibiome/anibench-benchmark/releases/download/v2.0.0-rc.4/AniBench.pdf"
-              >Download the paper PDF ↓</a
+              >Download RC4 paper PDF (earlier snapshot) ↓</a
             ><a
               class="text-link"
               href="https://github.com/anibiome/anibench-benchmark/blob/main/docs/FIRST_PRINCIPLES.md"

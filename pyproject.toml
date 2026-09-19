@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "anibench"
-version = "2.0.0rc4"
+version = "2.0.0rc5"
 description = "An auditable benchmark of how much human trials can teach future superintelligence about biology and intervention response."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -99,6 +99,39 @@ exclude = [
 packages = ["src/anibench"]
 
 [tool.hatch.build.targets.wheel.force-include]
+"examples/broad_reference/charts/broad-reference.png" = "anibench/examples/broad_reference/charts/broad-reference.png"
+"examples/broad_reference/charts/broad-reference.svg" = "anibench/examples/broad_reference/charts/broad-reference.svg"
+"examples/broad_reference/charts/figure-metadata.json" = "anibench/examples/broad_reference/charts/figure-metadata.json"
+"examples/broad_reference/charts/plot.py" = "anibench/examples/broad_reference/charts/plot.py"
+"web/broad-reference-data.json" = "anibench/web/broad-reference-data.json"
+"web/broad-reference.css" = "anibench/web/broad-reference.css"
+"web/broad-reference.js" = "anibench/web/broad-reference.js"
+"web/broad-reference.test.js" = "anibench/web/broad-reference.test.js"
+"examples/architecture/charts/01-populations-and-coverage.png" = "anibench/examples/architecture/charts/01-populations-and-coverage.png"
+"examples/architecture/charts/01-populations-and-coverage.svg" = "anibench/examples/architecture/charts/01-populations-and-coverage.svg"
+"examples/architecture/charts/02-entities-and-timing.png" = "anibench/examples/architecture/charts/02-entities-and-timing.png"
+"examples/architecture/charts/02-entities-and-timing.svg" = "anibench/examples/architecture/charts/02-entities-and-timing.svg"
+"examples/architecture/charts/README.md" = "anibench/examples/architecture/charts/README.md"
+"examples/architecture/charts/metadata.json" = "anibench/examples/architecture/charts/metadata.json"
+"examples/architecture/charts/plot.py" = "anibench/examples/architecture/charts/plot.py"
+"examples/broad_reference/PACKAGE_MANIFEST.json" = "anibench/examples/broad_reference/PACKAGE_MANIFEST.json"
+"examples/broad_reference/README.md" = "anibench/examples/broad_reference/README.md"
+"examples/broad_reference/catalogue.py" = "anibench/examples/broad_reference/catalogue.py"
+"examples/broad_reference/coordinate_catalogue.json" = "anibench/examples/broad_reference/coordinate_catalogue.json"
+"examples/broad_reference/figure-data.json" = "anibench/examples/broad_reference/figure-data.json"
+"examples/broad_reference/manuscript-prose.md" = "anibench/examples/broad_reference/manuscript-prose.md"
+"examples/broad_reference/profile-declarations.json" = "anibench/examples/broad_reference/profile-declarations.json"
+"examples/broad_reference/prototype.py" = "anibench/examples/broad_reference/prototype.py"
+"examples/broad_reference/replay-bindings.json" = "anibench/examples/broad_reference/replay-bindings.json"
+"examples/broad_reference/replay.py" = "anibench/examples/broad_reference/replay.py"
+"examples/broad_reference/standard.json" = "anibench/examples/broad_reference/standard.json"
+"examples/broad_reference/test_prototype.py" = "anibench/examples/broad_reference/test_prototype.py"
+"examples/registry_architecture/README.md" = "anibench/examples/registry_architecture/README.md"
+"examples/registry_architecture/SHA256SUMS" = "anibench/examples/registry_architecture/SHA256SUMS"
+"examples/registry_architecture/adapter.py" = "anibench/examples/registry_architecture/adapter.py"
+"examples/registry_architecture/inputs.json" = "anibench/examples/registry_architecture/inputs.json"
+"examples/registry_architecture/replay.py" = "anibench/examples/registry_architecture/replay.py"
+"examples/registry_architecture/test_adapter.py" = "anibench/examples/registry_architecture/test_adapter.py"
 "docs/ARCHITECTURE_V1.md" = "anibench/docs/ARCHITECTURE_V1.md"
 "examples/architecture/README.md" = "anibench/examples/architecture/README.md"
 "examples/architecture/protein-inventory.json" = "anibench/examples/architecture/protein-inventory.json"
@@ -209,8 +242,77 @@ packages = ["src/anibench"]
 "web/explore.js" = "anibench/web/explore.js"
 "data/reported_facts/v1/literature.json" = "anibench/data/reported_facts/v1/literature.json"
 
+"examples/paper_charts/01-population.png" = "anibench/examples/paper_charts/01-population.png"
+"examples/paper_charts/01-population.svg" = "anibench/examples/paper_charts/01-population.svg"
+"examples/paper_charts/02-coverage.png" = "anibench/examples/paper_charts/02-coverage.png"
+"examples/paper_charts/02-coverage.svg" = "anibench/examples/paper_charts/02-coverage.svg"
+"examples/paper_charts/03-molecular.png" = "anibench/examples/paper_charts/03-molecular.png"
+"examples/paper_charts/03-molecular.svg" = "anibench/examples/paper_charts/03-molecular.svg"
+"examples/paper_charts/04-timing.png" = "anibench/examples/paper_charts/04-timing.png"
+"examples/paper_charts/04-timing.svg" = "anibench/examples/paper_charts/04-timing.svg"
+"examples/paper_charts/05-reference-examples.png" = "anibench/examples/paper_charts/05-reference-examples.png"
+"examples/paper_charts/05-reference-examples.svg" = "anibench/examples/paper_charts/05-reference-examples.svg"
+"examples/paper_charts/06-reference-sensitivity.png" = "anibench/examples/paper_charts/06-reference-sensitivity.png"
+"examples/paper_charts/06-reference-sensitivity.svg" = "anibench/examples/paper_charts/06-reference-sensitivity.svg"
+"examples/paper_charts/README.md" = "anibench/examples/paper_charts/README.md"
+"examples/paper_charts/metadata.json" = "anibench/examples/paper_charts/metadata.json"
+"examples/paper_charts/plot_paper_plates.py" = "anibench/examples/paper_charts/plot_paper_plates.py"
+
 [tool.hatch.build.targets.sdist]
 include = [
+  "/examples/paper_charts/01-population.png",
+  "/examples/paper_charts/01-population.svg",
+  "/examples/paper_charts/02-coverage.png",
+  "/examples/paper_charts/02-coverage.svg",
+  "/examples/paper_charts/03-molecular.png",
+  "/examples/paper_charts/03-molecular.svg",
+  "/examples/paper_charts/04-timing.png",
+  "/examples/paper_charts/04-timing.svg",
+  "/examples/paper_charts/05-reference-examples.png",
+  "/examples/paper_charts/05-reference-examples.svg",
+  "/examples/paper_charts/06-reference-sensitivity.png",
+  "/examples/paper_charts/06-reference-sensitivity.svg",
+  "/examples/paper_charts/README.md",
+  "/examples/paper_charts/metadata.json",
+  "/examples/paper_charts/plot_paper_plates.py",
+
+  "/examples/broad_reference/charts/broad-reference.png",
+  "/examples/broad_reference/charts/broad-reference.svg",
+  "/examples/broad_reference/charts/figure-metadata.json",
+  "/examples/broad_reference/charts/plot.py",
+  "/web/broad-reference-data.json",
+  "/web/broad-reference.css",
+  "/web/broad-reference.js",
+  "/web/broad-reference.test.js",
+
+  "/tests/test_broad_reference_example.py",
+  "/examples/architecture/charts/01-populations-and-coverage.png",
+  "/examples/architecture/charts/01-populations-and-coverage.svg",
+  "/examples/architecture/charts/02-entities-and-timing.png",
+  "/examples/architecture/charts/02-entities-and-timing.svg",
+  "/examples/architecture/charts/README.md",
+  "/examples/architecture/charts/metadata.json",
+  "/examples/architecture/charts/plot.py",
+  "/examples/broad_reference/PACKAGE_MANIFEST.json",
+  "/examples/broad_reference/README.md",
+  "/examples/broad_reference/catalogue.py",
+  "/examples/broad_reference/coordinate_catalogue.json",
+  "/examples/broad_reference/figure-data.json",
+  "/examples/broad_reference/manuscript-prose.md",
+  "/examples/broad_reference/profile-declarations.json",
+  "/examples/broad_reference/prototype.py",
+  "/examples/broad_reference/replay-bindings.json",
+  "/examples/broad_reference/replay.py",
+  "/examples/broad_reference/standard.json",
+  "/examples/broad_reference/test_prototype.py",
+
+  "/examples/registry_architecture/README.md",
+  "/examples/registry_architecture/SHA256SUMS",
+  "/examples/registry_architecture/adapter.py",
+  "/examples/registry_architecture/inputs.json",
+  "/examples/registry_architecture/replay.py",
+  "/examples/registry_architecture/test_adapter.py",
+  "/tests/test_registry_architecture_example.py",
   "/docs/ARCHITECTURE_V1.md",
   "/examples/architecture/README.md",
   "/examples/architecture/protein-inventory.json",

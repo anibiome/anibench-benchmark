@@ -15,7 +15,7 @@ from anibench.explorer import build_explorer_demo
 from anibench.studio_product import build_studio_comparator_atlas
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ("explore.html", "explore.css", "explore.js", "favicon.svg",
+ASSETS = ("broad-reference.js", "broad-reference.css", "broad-reference-data.json", "explore.html", "explore.css", "explore.js", "favicon.svg",
           "benchmark.html", "benchmark.css", "benchmark.js",
           "collection-viewer.js", "collection-example.json",
           "release-charts.js", "release-charts.css", "release-results.json",

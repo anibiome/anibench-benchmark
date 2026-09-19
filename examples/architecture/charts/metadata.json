@@ -1,0 +1,1078 @@
+{
+  "source_packet_filename": "source-architecture.json",
+  "source_packet_sha256": "881916b01f134c061ffab62580f858fc45e0ea7c14da8a6c2f0b1f73f5ef1108",
+  "plot_code_sha256": "504c1b49000d4026b0e733ef2a2841ca6cf871f3faf09140e92cc40ba0556bde",
+  "claim_scope": "source_reported_collection_architecture_not_geometry_rank_or_complete_coverage",
+  "figures": [
+    {
+      "name": "01-populations-and-coverage",
+      "source_packet_sha256": "881916b01f134c061ffab62580f858fc45e0ea7c14da8a6c2f0b1f73f5ef1108",
+      "selected_fact_ids": [
+        "snyder-ipop-ihmp-106:architecture:participants",
+        "circulate-tpe-ivig:architecture:enrolled",
+        "circulate-tpe-ivig:architecture:completed",
+        "uk-biobank:architecture:baseline_people",
+        "uk-biobank:architecture:proteomics_people",
+        "uk-biobank:architecture:imaging_people",
+        "human-phenotype-project-2025:architecture:enrolled",
+        "human-phenotype-project-2025:architecture:initial_visit_completed"
+      ],
+      "source_ids": [
+        "PMC6666404",
+        "PMC12341816",
+        "UKB_TYPES",
+        "PMC10567551",
+        "hpp-nature-medicine-2025-abstract"
+      ],
+      "scope": "source_reported_collection_architecture_not_geometry_rank_or_complete_coverage",
+      "coverage_cells": [
+        {
+          "study_id": "snyder-ipop-ihmp-106",
+          "domain": "molecular",
+          "state": "reported_present"
+        },
+        {
+          "study_id": "snyder-ipop-ihmp-106",
+          "domain": "digital",
+          "state": "reported_present"
+        },
+        {
+          "study_id": "snyder-ipop-ihmp-106",
+          "domain": "functional",
+          "state": "reported_present"
+        },
+        {
+          "study_id": "snyder-ipop-ihmp-106",
+          "domain": "cognitive",
+          "state": "unreported"
+        },
+        {
+          "study_id": "snyder-ipop-ihmp-106",
+          "domain": "neural",
+          "state": "unreported"
+        },
+        {
+          "study_id": "snyder-ipop-ihmp-106",
+          "domain": "perturbation",
+          "state": "reported_present"
+        },
+        {
+          "study_id": "circulate-tpe-ivig",
+          "domain": "molecular",
+          "state": "reported_present"
+        },
+        {
+          "study_id": "circulate-tpe-ivig",
+          "domain": "digital",
+          "state": "unreported"
+        },
+        {
+          "study_id": "circulate-tpe-ivig",
+          "domain": "functional",
+          "state": "unreported"
+        },
+        {
+          "study_id": "circulate-tpe-ivig",
+          "domain": "cognitive",
+          "state": "unreported"
+        },
+        {
+          "study_id": "circulate-tpe-ivig",
+          "domain": "neural",
+          "state": "unreported"
+        },
+        {
+          "study_id": "circulate-tpe-ivig",
+          "domain": "perturbation",
+          "state": "reported_present"
+        },
+        {
+          "study_id": "uk-biobank",
+          "domain": "molecular",
+          "state": "reported_present"
+        },
+        {
+          "study_id": "uk-biobank",
+          "domain": "digital",
+          "state": "reported_present"
+        },
+        {
+          "study_id": "uk-biobank",
+          "domain": "functional",
+          "state": "reported_present"
+        },
+        {
+          "study_id": "uk-biobank",
+          "domain": "cognitive",
+          "state": "reported_present"
+        },
+        {
+          "study_id": "uk-biobank",
+          "domain": "neural",
+          "state": "reported_present"
+        },
+        {
+          "study_id": "uk-biobank",
+          "domain": "perturbation",
+          "state": "reported_present"
+        },
+        {
+          "study_id": "human-phenotype-project-2025",
+          "domain": "molecular",
+          "state": "reported_present"
+        },
+        {
+          "study_id": "human-phenotype-project-2025",
+          "domain": "digital",
+          "state": "reported_present"
+        },
+        {
+          "study_id": "human-phenotype-project-2025",
+          "domain": "functional",
+          "state": "unreported"
+        },
+        {
+          "study_id": "human-phenotype-project-2025",
+          "domain": "cognitive",
+          "state": "unreported"
+        },
+        {
+          "study_id": "human-phenotype-project-2025",
+          "domain": "neural",
+          "state": "unreported"
+        },
+        {
+          "study_id": "human-phenotype-project-2025",
+          "domain": "perturbation",
+          "state": "unreported"
+        },
+        {
+          "study_id": "ani-elite-sheba",
+          "domain": "molecular",
+          "state": "source_described"
+        },
+        {
+          "study_id": "ani-elite-sheba",
+          "domain": "digital",
+          "state": "source_described"
+        },
+        {
+          "study_id": "ani-elite-sheba",
+          "domain": "functional",
+          "state": "source_described"
+        },
+        {
+          "study_id": "ani-elite-sheba",
+          "domain": "cognitive",
+          "state": "source_described"
+        },
+        {
+          "study_id": "ani-elite-sheba",
+          "domain": "perturbation",
+          "state": "source_described"
+        },
+        {
+          "study_id": "ani-elite-sheba",
+          "domain": "neural",
+          "state": "unreported"
+        }
+      ],
+      "artifacts": {
+        "svg": "36e717b41f293ae31338eccfa1bc06db156c9e149dcd7bb7fc2e32389702be51",
+        "png": "cbf1b5dd4bc94e0b709d57418ddcaf108538ff366398faa229282bfd5c704859"
+      }
+    },
+    {
+      "name": "02-entities-and-timing",
+      "source_packet_sha256": "881916b01f134c061ffab62580f858fc45e0ea7c14da8a6c2f0b1f73f5ef1108",
+      "selected_fact_ids": [
+        "snyder-ipop-ihmp-106:architecture:proteins",
+        "snyder-ipop-ihmp-106:architecture:transcripts",
+        "snyder-ipop-ihmp-106:architecture:metabolites",
+        "snyder-ipop-ihmp-106:architecture:cytokines_growth_factors",
+        "circulate-tpe-ivig:architecture:glycan_peaks",
+        "circulate-tpe-ivig:architecture:derived_glycan_traits",
+        "uk-biobank:architecture:proteomics_unique_proteins",
+        "snyder-ipop-ihmp-106:architecture:median_span",
+        "snyder-ipop-ihmp-106:architecture:median_visits",
+        "snyder-ipop-ihmp-106:architecture:healthy_sampling_interval",
+        "circulate-tpe-ivig:architecture:short_regimen_duration",
+        "circulate-tpe-ivig:architecture:monthly_treatments",
+        "uk-biobank:architecture:digital_accelerometry_days"
+      ],
+      "source_ids": [
+        "PMC6666404",
+        "PMC12341816",
+        "UKB_TYPES",
+        "PMC10567551",
+        "hpp-nature-medicine-2025-abstract"
+      ],
+      "scope": "source_reported_collection_architecture_not_geometry_rank_or_complete_coverage",
+      "artifacts": {
+        "svg": "ad744c4ec2dc4e868ef3679d0215faae3eaa181cfaf42b44e2378ee295e40335",
+        "png": "ed97438fa30979828fd7cf521e09d07382b6bb67f97b3e77c2de08d5947acbe0"
+      }
+    }
+  ],
+  "numeric_facts": [
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "study_name": "iPOP / iHMP",
+      "fact_id": "snyder-ipop-ihmp-106:architecture:participants",
+      "panel": "population",
+      "label": "Profiled people",
+      "entity": "participants",
+      "value": 106,
+      "unit": "participants",
+      "precision": "exact_reported",
+      "scope": "People profiled in the longitudinal host\u2013microbe cohort; modality completeness differs by visit.",
+      "source": {
+        "source_id": "PMC6666404",
+        "source_locator": "/0/documents/0/passages/10/text",
+        "passage_sha256": "8589dc0fd187d2dc7b3a3b7f97b98f81e390899e6edafd14c0147e8b795e8f05"
+      }
+    },
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "study_name": "iPOP / iHMP",
+      "fact_id": "snyder-ipop-ihmp-106:architecture:proteins",
+      "panel": "molecular",
+      "label": "Plasma proteins",
+      "entity": "proteins",
+      "value": 302,
+      "unit": "proteins",
+      "precision": "exact_reported",
+      "scope": "Source-wide SWATH-MS plasma protein inventory; per-person completeness is not established by this count.",
+      "source": {
+        "source_id": "PMC6666404",
+        "source_locator": "/0/documents/0/passages/12/text",
+        "passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c"
+      }
+    },
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "study_name": "iPOP / iHMP",
+      "fact_id": "snyder-ipop-ihmp-106:architecture:transcripts",
+      "panel": "molecular",
+      "label": "PBMC transcripts",
+      "entity": "transcripts",
+      "value": 13379,
+      "unit": "transcripts",
+      "precision": "exact_reported",
+      "scope": "PBMC transcript inventory measured by RNA sequencing; not independent genes or complete transcripts in every person.",
+      "source": {
+        "source_id": "PMC6666404",
+        "source_locator": "/0/documents/0/passages/12/text",
+        "passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c"
+      }
+    },
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "study_name": "iPOP / iHMP",
+      "fact_id": "snyder-ipop-ihmp-106:architecture:metabolites",
+      "panel": "molecular",
+      "label": "Plasma metabolites",
+      "entity": "metabolites",
+      "value": 722,
+      "unit": "metabolites",
+      "precision": "exact_reported",
+      "scope": "Plasma metabolite inventory from untargeted LC-MS/MS; per-person completeness is not established.",
+      "source": {
+        "source_id": "PMC6666404",
+        "source_locator": "/0/documents/0/passages/12/text",
+        "passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c"
+      }
+    },
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "study_name": "iPOP / iHMP",
+      "fact_id": "snyder-ipop-ihmp-106:architecture:cytokines_growth_factors",
+      "panel": "molecular",
+      "label": "Serum cytokines / growth factors",
+      "entity": "cytokines_growth_factors",
+      "value": 62,
+      "unit": "assay_targets",
+      "precision": "exact_reported",
+      "scope": "Serum cytokine and growth-factor assay targets reported in the study; no independent-information interpretation.",
+      "source": {
+        "source_id": "PMC6666404",
+        "source_locator": "/0/documents/0/passages/12/text",
+        "passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c"
+      }
+    },
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "study_name": "iPOP / iHMP",
+      "fact_id": "snyder-ipop-ihmp-106:architecture:median_span",
+      "panel": "timing",
+      "label": "Median observed span",
+      "entity": "observed_span_years",
+      "value": 1.6,
+      "unit": "years",
+      "precision": "reported_median",
+      "scope": "Median observed span per participant across the iPOP cohort; not a uniform treatment duration.",
+      "source": {
+        "source_id": "PMC6666404",
+        "source_locator": "/0/documents/0/passages/11/text",
+        "passage_sha256": "0799dee5020712208c13f94cc589ae62847af8413a57a6f6f870a20d8cadff9c"
+      }
+    },
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "study_name": "iPOP / iHMP",
+      "fact_id": "snyder-ipop-ihmp-106:architecture:median_visits",
+      "panel": "timing",
+      "label": "Median visits per person",
+      "entity": "visits_per_person",
+      "value": 7,
+      "unit": "visits_per_participant",
+      "precision": "reported_median",
+      "scope": "Median profiled visits per participant, including healthy and stress-event visits.",
+      "source": {
+        "source_id": "PMC6666404",
+        "source_locator": "/0/documents/0/passages/11/text",
+        "passage_sha256": "0799dee5020712208c13f94cc589ae62847af8413a57a6f6f870a20d8cadff9c"
+      }
+    },
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "study_name": "iPOP / iHMP",
+      "fact_id": "snyder-ipop-ihmp-106:architecture:healthy_sampling_interval",
+      "panel": "timing",
+      "label": "Typical healthy-sampling interval",
+      "entity": "sampling_interval_months",
+      "value": 3,
+      "unit": "months",
+      "precision": "typical_schedule",
+      "scope": "Typical three-month healthy sampling schedule; actual individual visit gaps may differ.",
+      "source": {
+        "source_id": "PMC6666404",
+        "source_locator": "/0/documents/0/passages/11/text",
+        "passage_sha256": "0799dee5020712208c13f94cc589ae62847af8413a57a6f6f870a20d8cadff9c"
+      }
+    },
+    {
+      "study_id": "circulate-tpe-ivig",
+      "study_name": "CIRCULATE TPE",
+      "fact_id": "circulate-tpe-ivig:architecture:enrolled",
+      "panel": "population",
+      "label": "Enrolled",
+      "entity": "participants",
+      "value": 44,
+      "unit": "participants",
+      "precision": "exact_reported",
+      "scope": "People enrolled in the source study; not necessarily completed or assay-complete.",
+      "source": {
+        "source_id": "PMC12341816",
+        "source_locator": "/0/documents/0/passages/10/text",
+        "passage_sha256": "bf51b7a0aef769b4f7f9748aa829be0e8829ea651eff9c78c138ca5a2800f716"
+      }
+    },
+    {
+      "study_id": "circulate-tpe-ivig",
+      "study_name": "CIRCULATE TPE",
+      "fact_id": "circulate-tpe-ivig:architecture:completed",
+      "panel": "population",
+      "label": "Completed",
+      "entity": "participants",
+      "value": 42,
+      "unit": "participants",
+      "precision": "exact_reported",
+      "scope": "People reported to have completed the TPE study; per-assay retained counts remain unresolved.",
+      "source": {
+        "source_id": "PMC12341816",
+        "source_locator": "/0/documents/0/passages/10/text",
+        "passage_sha256": "bf51b7a0aef769b4f7f9748aa829be0e8829ea651eff9c78c138ca5a2800f716"
+      }
+    },
+    {
+      "study_id": "circulate-tpe-ivig",
+      "study_name": "CIRCULATE TPE",
+      "fact_id": "circulate-tpe-ivig:architecture:glycan_peaks",
+      "panel": "molecular",
+      "label": "Measured glycan peaks",
+      "entity": "glycan_peaks",
+      "value": 27,
+      "unit": "peaks",
+      "precision": "exact_reported",
+      "scope": "Measured glycan peaks from electropherograms; peaks can include more than one glycan structure.",
+      "source": {
+        "source_id": "PMC12341816",
+        "source_locator": "/0/documents/0/passages/74/text",
+        "passage_sha256": "0ade4b7414f6e4c2cca7b3dc22ec894b97861e5e4cda12d9e721ff6f3ca3cfd6"
+      }
+    },
+    {
+      "study_id": "circulate-tpe-ivig",
+      "study_name": "CIRCULATE TPE",
+      "fact_id": "circulate-tpe-ivig:architecture:derived_glycan_traits",
+      "panel": "molecular",
+      "label": "Derived glycan traits",
+      "entity": "derived_glycan_traits",
+      "value": 6,
+      "unit": "derived_traits",
+      "precision": "exact_reported",
+      "scope": "Calculated glycan traits sharing structural features; not additional independently acquired targets.",
+      "source": {
+        "source_id": "PMC12341816",
+        "source_locator": "/0/documents/0/passages/74/text",
+        "passage_sha256": "0ade4b7414f6e4c2cca7b3dc22ec894b97861e5e4cda12d9e721ff6f3ca3cfd6"
+      }
+    },
+    {
+      "study_id": "circulate-tpe-ivig",
+      "study_name": "CIRCULATE TPE",
+      "fact_id": "circulate-tpe-ivig:architecture:short_regimen_duration",
+      "panel": "timing",
+      "label": "Short-regimen treatment span",
+      "entity": "treatment_span_months",
+      "value": 3,
+      "unit": "months",
+      "precision": "reported_schedule",
+      "scope": "Three-month TPE regimen with two sessions during the first week of each monthly cycle.",
+      "source": {
+        "source_id": "PMC12341816",
+        "source_locator": "/0/documents/0/passages/31/text",
+        "passage_sha256": "cf5b0c6e12d02d91a9f18eaadf1c24b7181b9ffe31491eeb899ebeeae405d167"
+      }
+    },
+    {
+      "study_id": "circulate-tpe-ivig",
+      "study_name": "CIRCULATE TPE",
+      "fact_id": "circulate-tpe-ivig:architecture:monthly_treatments",
+      "panel": "timing",
+      "label": "Monthly-regimen sessions",
+      "entity": "treatment_sessions",
+      "value": 6,
+      "unit": "treatment_sessions",
+      "precision": "reported_schedule",
+      "scope": "Six sessions in the monthly TPE regimen; treatment count differs from blood-sampling occasions.",
+      "source": {
+        "source_id": "PMC12341816",
+        "source_locator": "/0/documents/0/passages/31/text",
+        "passage_sha256": "cf5b0c6e12d02d91a9f18eaadf1c24b7181b9ffe31491eeb899ebeeae405d167"
+      }
+    },
+    {
+      "study_id": "uk-biobank",
+      "study_name": "UK Biobank",
+      "fact_id": "uk-biobank:architecture:baseline_people",
+      "panel": "population",
+      "label": "Baseline cohort",
+      "entity": "participants",
+      "value": 500000,
+      "unit": "participants",
+      "precision": "approximate",
+      "scope": "Rounded size of the baseline UK Biobank cohort; not the number with every measurement.",
+      "source": {
+        "source_id": "UKB_TYPES",
+        "source_locator": "/article/body#normalized_char=1610:1989",
+        "passage_sha256": "6732eceb0d1b8fc6953dc98dbf5b023be5047f433ba3dc75fbbf62fcdc373111"
+      }
+    },
+    {
+      "study_id": "uk-biobank",
+      "study_name": "UK Biobank",
+      "fact_id": "uk-biobank:architecture:proteomics_people",
+      "panel": "population",
+      "label": "Proteomics subset",
+      "entity": "participants",
+      "value": 54219,
+      "unit": "participants",
+      "precision": "exact_reported",
+      "scope": "UKB-PPP plasma proteomics participants; subset of UK Biobank, with separate repeated-imaging support.",
+      "source": {
+        "source_id": "PMC10567551",
+        "source_locator": "/0/documents/0/passages/10/text",
+        "passage_sha256": "87dc018e635071ece5bac9a313ad946838fadda63e8a739dc8d45a344da89d4d"
+      }
+    },
+    {
+      "study_id": "uk-biobank",
+      "study_name": "UK Biobank",
+      "fact_id": "uk-biobank:architecture:imaging_people",
+      "panel": "population",
+      "label": "Imaging cohort",
+      "entity": "participants",
+      "value": 100000,
+      "unit": "participants",
+      "precision": "approximate",
+      "scope": "Rounded size of the imaging cohort in the official overview; not complete data for every imaging sequence.",
+      "source": {
+        "source_id": "UKB_TYPES",
+        "source_locator": "/article/body#normalized_char=1748:1989",
+        "passage_sha256": "2a2903238d6b3fc4e2e6cc0896277a89962efb0e71a088a0df448803ce30d827"
+      }
+    },
+    {
+      "study_id": "uk-biobank",
+      "study_name": "UK Biobank",
+      "fact_id": "uk-biobank:architecture:proteomics_unique_proteins",
+      "panel": "molecular",
+      "label": "Unique plasma proteins",
+      "entity": "proteins",
+      "value": 2923,
+      "unit": "proteins",
+      "precision": "exact_reported",
+      "scope": "2923 unique proteins in the UKB Olink panel across 54219 people; distinct from 2941 analytes, with incomplete/variable sample coverage.",
+      "source": {
+        "source_id": "PMC10567551",
+        "source_locator": "/0/documents/0/passages/10/text",
+        "passage_sha256": "87dc018e635071ece5bac9a313ad946838fadda63e8a739dc8d45a344da89d4d"
+      }
+    },
+    {
+      "study_id": "uk-biobank",
+      "study_name": "UK Biobank",
+      "fact_id": "uk-biobank:architecture:digital_accelerometry_days",
+      "panel": "timing",
+      "label": "Accelerometer wear window",
+      "entity": "sensor_window_days",
+      "value": 7,
+      "unit": "days",
+      "precision": "reported_schedule",
+      "scope": "Seven-day wrist accelerometer wear window in a UK Biobank subset, not continuous years of sensing.",
+      "source": {
+        "source_id": "UKB_TYPES",
+        "source_locator": "/article/body#normalized_char=5250:5356",
+        "passage_sha256": "c08e42af824ec0aaba1c0466130d730dc573157a68f303de9b51917bfabb808b"
+      }
+    },
+    {
+      "study_id": "human-phenotype-project-2025",
+      "study_name": "Human Phenotype Project",
+      "fact_id": "human-phenotype-project-2025:architecture:enrolled",
+      "panel": "population",
+      "label": "Enrolled by July 2025",
+      "entity": "participants",
+      "value": 28000,
+      "unit": "participants",
+      "precision": "approximate",
+      "scope": "Approximately 28000 enrolled by the July 2025 abstract; not all completed an initial visit or every modality.",
+      "source": {
+        "source_id": "hpp-nature-medicine-2025-abstract",
+        "source_locator": "/resultList/result/0/abstractText",
+        "passage_sha256": "ed6852fad165c2d295e82857b5209e4172dcf5c904432ee77b50c66604738c72"
+      }
+    },
+    {
+      "study_id": "human-phenotype-project-2025",
+      "study_name": "Human Phenotype Project",
+      "fact_id": "human-phenotype-project-2025:architecture:initial_visit_completed",
+      "panel": "population",
+      "label": "Initial visit by July 2025",
+      "entity": "participants",
+      "value": 13000,
+      "unit": "participants",
+      "precision": "strict_lower_bound",
+      "scope": "Strictly more than 13000 initial visits by the July 2025 HPP abstract; per-modality coverage is unreported.",
+      "source": {
+        "source_id": "hpp-nature-medicine-2025-abstract",
+        "source_locator": "/resultList/result/0/abstractText",
+        "passage_sha256": "ed6852fad165c2d295e82857b5209e4172dcf5c904432ee77b50c66604738c72"
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "domain": "molecular",
+      "state": "reported_present",
+      "description": "RNA, proteins, metabolites, cytokines, exome and microbiome",
+      "sources": [
+        {
+          "source_id": "PMC6666404",
+          "source_locator": "/0/documents/0/passages/12/text",
+          "passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "domain": "digital",
+      "state": "reported_present",
+      "description": "Online self-report; wearable sensing not established",
+      "sources": [
+        {
+          "source_id": "PMC6666404",
+          "source_locator": "/0/documents/0/passages/12/text",
+          "passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "domain": "functional",
+      "state": "reported_present",
+      "description": "Metabolic challenges: OGTT and insulin suppression; not a physical-function battery",
+      "sources": [
+        {
+          "source_id": "PMC6666404",
+          "source_locator": "/0/documents/0/passages/13/text",
+          "passage_sha256": "49b30a93eece9dd4821428aebb1d13136325133a1d22a03ab864c03fcb47ed71"
+        },
+        {
+          "source_id": "PMC6666404",
+          "source_locator": "/0/documents/0/passages/13/text",
+          "passage_sha256": "49b30a93eece9dd4821428aebb1d13136325133a1d22a03ab864c03fcb47ed71"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "domain": "cognitive",
+      "state": "unreported",
+      "description": "Not established in reviewed source",
+      "sources": [],
+      "precision": "unreported_in_reviewed_scope"
+    },
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "domain": "neural",
+      "state": "unreported",
+      "description": "Direct neural recording not established",
+      "sources": [],
+      "precision": "unreported_in_reviewed_scope"
+    },
+    {
+      "study_id": "snyder-ipop-ihmp-106",
+      "domain": "perturbation",
+      "state": "reported_present",
+      "description": "Immunization sampling and metabolic challenges; infection is observational event sampling",
+      "sources": [
+        {
+          "source_id": "PMC6666404",
+          "source_locator": "/0/documents/0/passages/11/text",
+          "passage_sha256": "0799dee5020712208c13f94cc589ae62847af8413a57a6f6f870a20d8cadff9c"
+        },
+        {
+          "source_id": "PMC6666404",
+          "source_locator": "/0/documents/0/passages/13/text",
+          "passage_sha256": "49b30a93eece9dd4821428aebb1d13136325133a1d22a03ab864c03fcb47ed71"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "circulate-tpe-ivig",
+      "domain": "molecular",
+      "state": "reported_present",
+      "description": "Methylation, proteomics, glycomics, lipid/metabolite and immune-cell assays",
+      "sources": [
+        {
+          "source_id": "PMC12341816",
+          "source_locator": "/0/documents/0/passages/36/text",
+          "passage_sha256": "aa9f37ee8c3016fd87694b9ee7e5ae5d7a3b506ce75a3f18d19dc47f3f34adcb"
+        },
+        {
+          "source_id": "PMC12341816",
+          "source_locator": "/0/documents/0/passages/60/text",
+          "passage_sha256": "21ce8d0eb8cf0ce50e9607dee59c12a66c531b53c438c4f6ad202bf22344dbd2"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "circulate-tpe-ivig",
+      "domain": "digital",
+      "state": "unreported",
+      "description": "Direct collection not established in reviewed source",
+      "sources": [],
+      "precision": "unreported_in_reviewed_scope"
+    },
+    {
+      "study_id": "circulate-tpe-ivig",
+      "domain": "functional",
+      "state": "unreported",
+      "description": "Direct collection not established in reviewed source",
+      "sources": [],
+      "precision": "unreported_in_reviewed_scope"
+    },
+    {
+      "study_id": "circulate-tpe-ivig",
+      "domain": "cognitive",
+      "state": "unreported",
+      "description": "Direct collection not established in reviewed source",
+      "sources": [],
+      "precision": "unreported_in_reviewed_scope"
+    },
+    {
+      "study_id": "circulate-tpe-ivig",
+      "domain": "neural",
+      "state": "unreported",
+      "description": "Direct collection not established in reviewed source",
+      "sources": [],
+      "precision": "unreported_in_reviewed_scope"
+    },
+    {
+      "study_id": "circulate-tpe-ivig",
+      "domain": "perturbation",
+      "state": "reported_present",
+      "description": "TPE with/without IVIG and sham; entry-order allocation described",
+      "sources": [
+        {
+          "source_id": "PMC12341816",
+          "source_locator": "/0/documents/0/passages/53/text",
+          "passage_sha256": "225cadb62bfd4814ed27a444b4c155e7c622375f6da38f54fbd73789f458f8ee"
+        },
+        {
+          "source_id": "PMC12341816",
+          "source_locator": "/0/documents/0/passages/51/text",
+          "passage_sha256": "088248a0248ccdcbb4a35843181844113f15edbdac0835f5dd938e91bcad05e1"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "uk-biobank",
+      "domain": "molecular",
+      "state": "reported_present",
+      "description": "Proteomic subset; analytes and unique proteins kept separate",
+      "sources": [
+        {
+          "source_id": "PMC10567551",
+          "source_locator": "/0/documents/0/passages/10/text",
+          "passage_sha256": "87dc018e635071ece5bac9a313ad946838fadda63e8a739dc8d45a344da89d4d"
+        },
+        {
+          "source_id": "PMC10567551",
+          "source_locator": "/0/documents/0/passages/10/text",
+          "passage_sha256": "87dc018e635071ece5bac9a313ad946838fadda63e8a739dc8d45a344da89d4d"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "uk-biobank",
+      "domain": "digital",
+      "state": "reported_present",
+      "description": "Wrist accelerometry in a subset; seven-day wear window",
+      "sources": [
+        {
+          "source_id": "UKB_TYPES",
+          "source_locator": "/article/body#normalized_char=5250:5356",
+          "passage_sha256": "c08e42af824ec0aaba1c0466130d730dc573157a68f303de9b51917bfabb808b"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "uk-biobank",
+      "domain": "functional",
+      "state": "reported_present",
+      "description": "Grip strength, spirometry and subset exercise testing",
+      "sources": [
+        {
+          "source_id": "PMC4380465",
+          "source_locator": "/0/documents/0/passages/20/text",
+          "passage_sha256": "458c315de18be80f89fa72884f3b3128fb9962c9bc976bf46800b7c48d564c80"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "uk-biobank",
+      "domain": "cognitive",
+      "state": "reported_present",
+      "description": "Computer-based tests; completion varies by test",
+      "sources": [
+        {
+          "source_id": "PMC4380465",
+          "source_locator": "/0/documents/0/passages/19/text",
+          "passage_sha256": "5208a8594cb8bbda5db75a49cd60480582ca901a31a9ad782d2f808a86bfdb05"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "uk-biobank",
+      "domain": "neural",
+      "state": "reported_present",
+      "description": "Brain MRI including resting/task fMRI; imaging subset",
+      "sources": [
+        {
+          "source_id": "UKB_IMAGING",
+          "source_locator": "/article/body#normalized_char=3730:4136",
+          "passage_sha256": "7d098f78da9e51a2d44b6029011073e3672b8c1d8baef17a90e430a8cfc4bb00"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "uk-biobank",
+      "domain": "perturbation",
+      "state": "reported_present",
+      "description": "Exercise/fitness challenge in a subset; assigned therapeutic treatment not established here",
+      "sources": [
+        {
+          "source_id": "PMC4380465",
+          "source_locator": "/0/documents/0/passages/20/text",
+          "passage_sha256": "458c315de18be80f89fa72884f3b3128fb9962c9bc976bf46800b7c48d564c80"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "human-phenotype-project-2025",
+      "domain": "molecular",
+      "state": "reported_present",
+      "description": "Genetics, transcriptomics, microbiome, metabolomics and immune profiling; abstract scope",
+      "sources": [
+        {
+          "source_id": "hpp-nature-medicine-2025-abstract",
+          "source_locator": "/resultList/result/0/abstractText",
+          "passage_sha256": "ed6852fad165c2d295e82857b5209e4172dcf5c904432ee77b50c66604738c72"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "human-phenotype-project-2025",
+      "domain": "digital",
+      "state": "reported_present",
+      "description": "Continuous glucose and sleep monitoring; durations unreported",
+      "sources": [
+        {
+          "source_id": "hpp-nature-medicine-2025-abstract",
+          "source_locator": "/resultList/result/0/abstractText",
+          "passage_sha256": "ed6852fad165c2d295e82857b5209e4172dcf5c904432ee77b50c66604738c72"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "human-phenotype-project-2025",
+      "domain": "functional",
+      "state": "unreported",
+      "description": "Not established by the abstract",
+      "sources": [],
+      "precision": "unreported_in_reviewed_scope"
+    },
+    {
+      "study_id": "human-phenotype-project-2025",
+      "domain": "cognitive",
+      "state": "unreported",
+      "description": "Not established by the abstract",
+      "sources": [],
+      "precision": "unreported_in_reviewed_scope"
+    },
+    {
+      "study_id": "human-phenotype-project-2025",
+      "domain": "neural",
+      "state": "unreported",
+      "description": "Not established by the abstract",
+      "sources": [],
+      "precision": "unreported_in_reviewed_scope"
+    },
+    {
+      "study_id": "human-phenotype-project-2025",
+      "domain": "perturbation",
+      "state": "unreported",
+      "description": "Not established by the abstract",
+      "sources": [],
+      "precision": "unreported_in_reviewed_scope"
+    },
+    {
+      "study_id": "ani-elite-sheba",
+      "domain": "molecular",
+      "state": "source_described",
+      "description": "Bloodwork, multiomics and microbiome sampling",
+      "sources": [
+        {
+          "source_id": "ELITE_PUBLIC",
+          "source_locator": "section#elite first p",
+          "passage_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "ani-elite-sheba",
+      "domain": "digital",
+      "state": "source_described",
+      "description": "Digital monitoring; modality/cadence unspecified",
+      "sources": [
+        {
+          "source_id": "ELITE_PUBLIC",
+          "source_locator": "section#elite first p",
+          "passage_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "ani-elite-sheba",
+      "domain": "functional",
+      "state": "source_described",
+      "description": "Functional endpoints; exact tests unspecified",
+      "sources": [
+        {
+          "source_id": "ELITE_PUBLIC",
+          "source_locator": "section#elite first p",
+          "passage_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "ani-elite-sheba",
+      "domain": "cognitive",
+      "state": "source_described",
+      "description": "Cognitive endpoints; exact tests unspecified",
+      "sources": [
+        {
+          "source_id": "ELITE_PUBLIC",
+          "source_locator": "section#elite first p",
+          "passage_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "ani-elite-sheba",
+      "domain": "perturbation",
+      "state": "source_described",
+      "description": "Physician-supervised intervention; allocation unspecified",
+      "sources": [
+        {
+          "source_id": "ELITE_PUBLIC",
+          "source_locator": "section#elite first p",
+          "passage_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1"
+        }
+      ],
+      "precision": "qualitative_presence_not_complete_coverage"
+    },
+    {
+      "study_id": "ani-elite-sheba",
+      "domain": "neural",
+      "state": "unreported",
+      "description": "Direct neural observation not established by public description",
+      "sources": [],
+      "precision": "unreported_in_reviewed_scope"
+    }
+  ],
+  "sources": {
+    "PMC6666404": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6666404/",
+      "sha256": "710919f3ff5fd4cfb1dc8bab4a76234fdc85fddd20586a5bcb005e06cf5f1a9e",
+      "hash_scope": "exact BioC JSON response bytes",
+      "publication": "peer_reviewed_article",
+      "scope": "primary publication",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC6666404/unicode",
+      "retrieved_at": "2026-09-19T22:12:07.037923+00:00",
+      "checked_date": null
+    },
+    "PMC12341816": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12341816/",
+      "sha256": "a2ce8d6646637658363e4efae30a22c8c05bb9fd3dff648d87f3ee513b7f3c08",
+      "hash_scope": "exact BioC JSON response bytes",
+      "publication": "peer_reviewed_article",
+      "scope": "primary publication",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC12341816/unicode",
+      "retrieved_at": "2026-09-19T22:12:07.678062+00:00",
+      "checked_date": null
+    },
+    "PMC4380465": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4380465/",
+      "sha256": "1a72d655696c959ee5a5f76ed8099c714fba24c32da09ab669bfd9e4bf076612",
+      "hash_scope": "exact BioC JSON response bytes",
+      "publication": "peer_reviewed_article",
+      "scope": "primary publication",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC4380465/unicode",
+      "retrieved_at": "2026-09-19T22:12:08.121960+00:00",
+      "checked_date": null
+    },
+    "PMC10567551": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10567551/",
+      "sha256": "dbf50d8d006d4c26d702856890cc0a408954e2a6b873d721d5bc6ebe607e0fe9",
+      "hash_scope": "exact BioC JSON response bytes",
+      "publication": "peer_reviewed_article",
+      "scope": "primary publication",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC10567551/unicode",
+      "retrieved_at": "2026-09-19T22:12:08.611273+00:00",
+      "checked_date": null
+    },
+    "PMC12443626": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12443626/",
+      "sha256": "72b874b6e0ab0636e360298d0850dd9189c2922e34915e99e29d82caae08bb42",
+      "hash_scope": "exact BioC JSON response bytes",
+      "publication": "peer_reviewed_article",
+      "scope": "primary publication",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC12443626/unicode",
+      "retrieved_at": "2026-09-19T22:12:08.990141+00:00",
+      "checked_date": null
+    },
+    "UKB_TYPES": {
+      "url": "https://community.ukbiobank.ac.uk/hc/en-gb/articles/23472796568861-What-types-of-data-are-available-in-UK-Biobank",
+      "sha256": "faf1a3eb98fc740f4b2a7b31edf24d342aa3b811f05d3c5d6e953668a6dcff70",
+      "hash_scope": "exact public help-center API JSON body",
+      "publication": "first_party_resource_release",
+      "scope": "official documentation",
+      "locator_recipe": "HTMLParser(convert_charrefs=True).handle_data from /article/body; join with spaces; Unicode whitespace collapse; strip; UTF-8",
+      "updated_at": "2026-09-01T12:31:01Z",
+      "fetch_url": "https://community.ukbiobank.ac.uk/api/v2/help_center/en-gb/articles/23472796568861.json",
+      "retrieved_at": "2026-09-19T22:14:34.690361+00:00",
+      "checked_date": null
+    },
+    "UKB_IMAGING": {
+      "url": "https://community.ukbiobank.ac.uk/hc/en-gb/articles/24618819821981-Imaging-Data",
+      "sha256": "2b5a3f8a5f982c31dc9d0f83f8a5da4809dd24e84dd45ce4010396c13c5f09c1",
+      "hash_scope": "exact public help-center API JSON body",
+      "publication": "first_party_resource_release",
+      "scope": "official documentation",
+      "locator_recipe": "HTMLParser(convert_charrefs=True).handle_data from /article/body; join with spaces; Unicode whitespace collapse; strip; UTF-8",
+      "updated_at": "2026-09-02T11:00:04Z",
+      "fetch_url": "https://community.ukbiobank.ac.uk/api/v2/help_center/en-gb/articles/24618819821981.json",
+      "retrieved_at": "2026-09-19T22:14:34.982467+00:00",
+      "checked_date": null
+    },
+    "hpp-nature-medicine-2025-abstract": {
+      "url": "https://doi.org/10.1038/s41591-025-03790-9",
+      "sha256": "60fe13781569f4857126f8a175dc2d276fe99004ef69f15e99254088b7e517e1",
+      "hash_scope": "exact Europe PMC core JSON body",
+      "publication": "peer_reviewed_article",
+      "scope": "abstract_only",
+      "as_of": "2025-07-15",
+      "fetch_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:40665053%20AND%20SRC:MED&format=json&resultType=core",
+      "retrieved_at": "2026-09-19T22:15:14.047356+00:00",
+      "checked_date": null
+    },
+    "ELITE_PUBLIC": {
+      "url": "https://www.ani.ai/#elite",
+      "sha256": "10211add32efb4c7393de6ad02e11145f4b0b4242c2bd8a6841f911eef830583",
+      "hash_scope": "exact_raw_html_response_bytes",
+      "publication": "first_party_self_report",
+      "scope": "official description; collection not independently verified",
+      "fetch_url": "https://www.ani.ai/",
+      "retrieved_at": null,
+      "checked_date": "2026-09-19",
+      "retrieval_note": "Existing public card acquisition date; exact retrieval timestamp unavailable. Fragment omitted from HTTP URL."
+    },
+    "PMC7250878": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7250878/",
+      "sha256": "28653c29252d05752660540fa1d0e487e07f45a734df137a76899ec31b27b254",
+      "hash_scope": "exact_acquired_response_bytes",
+      "publication": "peer_reviewed_article",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC7250878/unicode",
+      "retrieved_at": null,
+      "checked_date": "2026-09-19"
+    }
+  },
+  "rendering": {
+    "matplotlib": "3.11.0",
+    "PNG_dpi": 180,
+    "PNG_Description_metadata": false,
+    "ordering": "source packet order; not numerical rank",
+    "transformations": "Population axis logarithmic; molecular entity axes separate and linear; numeric values unchanged; no cross-unit totals."
+  },
+  "limitations": [
+    "Source-specific denominators, assay technologies, completeness and source versions differ.",
+    "Presence is not participant completeness, quality or functional/neural equivalence.",
+    "HPP abstract-only July2025 counts.",
+    "ELITE presence only public description; no proprietary values used.",
+    "Figure uses packet bytes, not an independent fresh source acquisition."
+  ]
+}

@@ -1,0 +1,29 @@
+/* Additive section styles; never changes actual-study evidence controls. */
+#broad-reference { margin: 34px 0; }
+#broad-reference .br-overview, #broad-reference .br-pair { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 20px; }
+#broad-reference .br-panel { padding: 18px; min-width: 0; }
+#broad-reference h4 { margin: 0 0 10px; font-size: 19px; }
+#broad-reference p { line-height: 1.5; }
+#broad-reference .br-svg { width: 100%; height: auto; display: block; }
+#broad-reference .br-svg text { font: 15px system-ui,sans-serif; fill: #344653; }
+#broad-reference .br-grid { stroke: #dce4e8; stroke-width: 1; }
+#broad-reference .br-point { fill: #147a87; stroke: white; stroke-width: 1; }
+#broad-reference .br-limit { stroke: #825820; stroke-width: 3; }
+#broad-reference .br-witness { padding: 18px; border: 1px solid var(--line,#dce4e8); border-radius: 12px; margin-bottom: 14px; }
+#broad-reference .br-state { display: inline-block; border-radius: 5px; padding: 3px 7px; background: #eef2f4; font-size: 14px; }
+#broad-reference .br-attained { background: #e6f3ef; color: #185449; }
+#broad-reference .br-not_attained { background: #fff1de; color: #705024; }
+#broad-reference .br-unknown { background: #eef0f5; color: #485267; }
+#broad-reference label { display: block; font-weight: 600; }
+#broad-reference select { display: block; width: 100%; max-width: 480px; margin: 8px 0 16px; font: inherit; padding: 9px; }
+#broad-reference select:focus-visible, #broad-reference summary:focus-visible, #broad-reference a:focus-visible { outline: 3px solid #147a87; outline-offset: 3px; }
+#broad-reference .br-sensitivity-heading { margin-top: 24px; }
+#broad-reference .br-hash { display: block; overflow-wrap: anywhere; font-size: 12px; }
+#broad-reference .br-evidence { margin: 14px 0; }
+#broad-reference table { min-width: 740px; width: 100%; border-collapse: collapse; }
+#broad-reference td, #broad-reference th { padding: 10px; border: 1px solid var(--line,#dce4e8); text-align: left; vertical-align: top; }
+@media(max-width:760px) {
+  #broad-reference .br-overview, #broad-reference .br-pair { grid-template-columns: minmax(0,1fr); }
+  #broad-reference .br-panel { padding: 12px; }
+  #broad-reference .br-svg text { font-size: 20px; }
+}

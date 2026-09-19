@@ -51,11 +51,11 @@ jobs:
         run: python scripts/verify_release_metadata.py --tag "$RELEASE_TAG" --pretty
       - name: Verify source, license, tests, and Studio
         run: |
-          ruff check src tests scripts examples/calibration/erp_core
+          ruff check src tests scripts examples/calibration/erp_core examples/architecture examples/broad_reference examples/registry_architecture examples/paper_charts examples/design_geometry/calerie examples/finite_suites
           reuse lint
           python scripts/verify_external_field_receipts.py --pretty
           python -m pytest -q
-          node --test web/v2.test.js web/explore.test.js web/benchmark.test.js web/release-charts.test.js web/collection-viewer.test.js
+          node --test web/v2.test.js web/explore.test.js web/benchmark.test.js web/release-charts.test.js web/collection-viewer.test.js web/broad-reference.test.js
       - name: Scan every Git tree reachable from every public ref
         run: python scripts/export_public_repository.py --repo . --verify-public-history
       - name: Rebuild and verify the one-root public export contract

@@ -24,6 +24,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import font_manager
+from PIL import Image as RasterImage
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
@@ -53,6 +54,45 @@ WIDTH = 468
 
 def sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def publication_bindings() -> dict:
+    """Refuse stale source packets, models, or reviewed plate bytes."""
+    architecture = ROOT / "examples/architecture/charts"
+    reference = ROOT / "examples/broad_reference"
+    a = json.loads((architecture / "metadata.json").read_text())
+    b = json.loads((reference / "charts/figure-metadata.json").read_text())
+    checks = {
+        ROOT / "web/source-architecture.json": a["source_packet_sha256"],
+        architecture / "plot.py": a["plot_code_sha256"],
+        reference / "PACKAGE_MANIFEST.json": b["source_manifest_sha256"],
+        reference / "figure-data.json": b["source_figure_data_sha256"],
+        reference / "charts/plot.py": b["plot_script_sha256"],
+    }
+    for figure in a["figures"]:
+        for extension, digest in figure["artifacts"].items():
+            checks[architecture / f"{figure['name']}.{extension}"] = digest
+    for name, digest in b["files"].items():
+        checks[reference / "charts" / name] = digest
+    for row in json.loads((reference / "PACKAGE_MANIFEST.json").read_text())["files"]:
+        checks[reference / row["path"]] = row["sha256"]
+    paper_charts = ROOT / "examples/paper_charts"
+    p = json.loads((paper_charts / "metadata.json").read_text())
+    checks[paper_charts / "metadata.json"] = sha(paper_charts / "metadata.json")
+    checks[paper_charts / "plot_paper_plates.py"] = p["plot_script_sha256"]
+    for key, path in {
+        "architecture": ROOT / "web/source-architecture.json",
+        "reference": reference / "figure-data.json",
+        "profiles": reference / "profile-declarations.json",
+    }.items():
+        checks[path] = p["source_files"][key]["sha256"]
+    for plate in p["plates"]:
+        for extension, digest in plate["artifacts"].items():
+            checks[paper_charts / f"{plate['id']}.{extension}"] = digest
+    for path, digest in checks.items():
+        if sha(path) != digest:
+            raise ValueError(f"Publication source/figure binding changed: {path.name}")
+    return {str(path.relative_to(ROOT)): digest for path, digest in checks.items()}
 
 
 def figures(folder: Path) -> dict:
@@ -210,6 +250,7 @@ def _build(out: Path) -> dict:
     assets = out.parent / (out.stem + "-assets")
     assets.mkdir(exist_ok=False)
     audit = figures(assets)
+    audit["publication_bindings"] = publication_bindings()
     source = ROOT / "paper/AniBench_open_benchmark.md"
     text = source.read_text()
     source_equations = re.findall(r"\\\[(.*?)\\\]", text, re.DOTALL)
@@ -232,12 +273,84 @@ def _build(out: Path) -> dict:
         story.append(KeepTogether([Spacer(1, 10), Image(BytesIO((assets / name).read_bytes()), WIDTH, h),
                                   Spacer(1, 8), Paragraph(captions[number], style["Caption"])]))
 
+    plates = {
+        "01-population": (
+            "examples/paper_charts/01-population.png",
+            (
+                'Figure 3. Source-specific populations and subsets. Approximate and strict lower- '
+                'bound values remain qualified; overlapping groups are not summed.'
+            ),
+        ),
+        "02-coverage": (
+            "examples/paper_charts/02-coverage.png",
+            (
+                'Figure 4. Documented observation classes. Official description, reported presence '
+                'and unreported evidence remain distinct; presence is not complete collection.'
+            ),
+        ),
+        "03-molecular": (
+            "examples/paper_charts/03-molecular.png",
+            (
+                'Figure 5. Source-wide molecular inventories on separate entity axes. Counts do not '
+                'establish independent biological information or person-level completeness.'
+            ),
+        ),
+        "04-timing": (
+            "examples/paper_charts/04-timing.png",
+            (
+                'Figure 6. Source statements in native units. Median span, median visits, typical '
+                'sampling, treatment sessions and sensor wear retain their different meanings.'
+            ),
+        ),
+        "05-reference-examples": (
+            "examples/paper_charts/05-reference-examples.png",
+            (
+                'Figure 7. Executed conditional reference-workload outcomes. Every category requires '
+                'all its registered targets; unknown does not pass. These are synthetic designs, not '
+                'named-study scores.'
+            ),
+        ),
+        "06-reference-sensitivity": (
+            "examples/paper_charts/06-reference-sensitivity.png",
+            (
+                'Figure 8. The same example designs under alternative noise and correlation '
+                'assumptions. These are different frozen models, not empirically calibrated '
+                'biological levels.'
+            ),
+        ),
+    }
+
+    def add_plate(identity):
+        filename, caption = plates[identity]
+        path = ROOT / filename
+        data = path.read_bytes()
+        with RasterImage.open(BytesIO(data)) as raster:
+            height = WIDTH * raster.height / raster.width
+        if height > 535:
+            raise ValueError("Publication plate exceeds the reviewed page frame")
+        (assets / path.name).write_bytes(data)
+        audit.setdefault("publication_plates", {})[identity] = {
+            "path": filename, "sha256": sha(path),
+        }
+        appendix_heading = (isinstance(story[-1], Paragraph) and
+                            story[-1].getPlainText() == "Appendix: comparison charts")
+        if story and not isinstance(story[-1], PageBreak) and not appendix_heading:
+            story.append(PageBreak())
+        story.extend([Image(BytesIO(data), WIDTH, height),
+                      Spacer(1, 12), Paragraph(caption, style["Caption"]), PageBreak()])
+
     while i < len(lines):
         line = lines[i].strip()
         if not line:
             i += 1
             continue
-        if line.startswith("# "):
+        if line.startswith("![Figure "):
+            match = re.fullmatch(r"!\[Figure (\d+)\]\(../examples/paper_charts/([\w-]+)\.png\)", line)
+            if not match or match[2] not in plates:
+                raise ValueError("Unknown manuscript plate")
+            add_plate(match[2])
+            i += 1
+        elif line.startswith("# "):
             story.append(Paragraph(inline(line[2:]), style["PaperTitle"]))
             i += 1
         elif line.startswith("**Bruno Balen"):
@@ -252,6 +365,9 @@ def _build(out: Path) -> dict:
                 add_figure(1)
             if line == "## References":
                 refs = True
+            if line == "## Appendix: comparison charts":
+                refs = False
+                story.append(PageBreak())
             story.append(Paragraph(inline(line.lstrip("# ")), style["Subsection" if line.startswith("###") else "Section"]))
             i += 1
         elif line == r"\[":

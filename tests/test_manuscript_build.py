@@ -28,6 +28,11 @@ def test_paper_replays_numbers_builds_deterministically_and_preserves_outputs(tm
     for number in ("0.301030", "0.150515", "2.645141", "1.322571"):
         assert number in text
     assert "Figure 1." in text and "Figure 2." in text
+    assert all(f"Figure {i}." in text for i in range(3, 9))
+    assert "13,687" in text and "10,325" in text
+    assert "synthetic" in text and "conditional witnesses" in text
+    assert len(audit["publication_plates"]) == 6
+    assert "web/source-architecture.json" in audit["publication_bindings"]
     original = hashlib.sha256(first.read_bytes()).hexdigest()
     with pytest.raises(ValueError, match="new paths"):
         build(first)

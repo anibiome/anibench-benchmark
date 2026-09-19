@@ -1,0 +1,84 @@
+{
+  "contract": "anibench.broad-reference-candidate.v1",
+  "status": "concrete_candidate_normative_synthetic_not_empirically_calibrated",
+  "scope": "Broad collection-layer coverage and finite reference learnability; not saturation of all human biology",
+  "domain_dimensions_per_band": {
+    "genomic": 16,
+    "transcriptomic": 16,
+    "proteomic": 16,
+    "metabolomic": 16,
+    "functional": 4,
+    "digital": 4,
+    "cognitive": 4,
+    "neural": 4
+  },
+  "coordinate_authority": "Normative synthetic orthogonal reference coordinates in each named layer. They are NOT independent dimensions inferred from assay counts, actual genes, ANI axes, or validated biological modes.",
+  "coordinate_admission": "Actual study adapters must bind a frozen observable catalogue and validated or explicitly assumed operator; platform labels/counts alone do not establish coverage.",
+  "model": {
+    "measurement_variance_R": 4.0,
+    "between_person_variance_B": 1.0,
+    "occasion_variance_S": 0.25,
+    "prior_precision": 1e-06,
+    "units": "squared frozen standardized reference units",
+    "repeat_information": "effective_depth=m/(1+(m-1)*rho); copies add zero",
+    "population_variance": "(B+S+R/effective_depth)/N",
+    "temporal_contrast_variance": "2R/effective_depth for observed occasion changes; no persistent-person claim",
+    "cross_domain_covariance": "Only explicit complementary operator task is joint; other target receipts are marginal constraints, never summed into joint information"
+  },
+  "AB1": {
+    "bands": [
+      "base"
+    ],
+    "required_days": [
+      0,
+      30
+    ],
+    "limits": {
+      "state": 0.25,
+      "population": 0.01,
+      "time": 0.5,
+      "causal": 0.04,
+      "linkage": 0.01,
+      "complementarity": 0.25
+    },
+    "causal": "One randomized binary input contrast on a standardized response; no treatment benefit required"
+  },
+  "AB2": {
+    "parent": "AB1",
+    "retain_all_parent_targets": true,
+    "variance_limit_multiplier": 0.25,
+    "bands": [
+      "base",
+      "extension"
+    ],
+    "required_days": [
+      0,
+      30,
+      365
+    ],
+    "interaction_variance_limit": 0.01,
+    "causal": "Two crossed randomized inputs with estimable difference-of-differences",
+    "neural_extension": "Additional spatial/hemodynamic reference targets require an observation operator; not direct cortical perturbation"
+  },
+  "optional_extension": "Named neural-causal workload additionally requires cortical assignment, response measurement and matched peripheral control; not a core AB1/AB2 gate",
+  "coverage_rule": "All registered marginal variance ceilings and required roles; no simultaneous confidence coverage is claimed",
+  "prior_rule": "likelihood_only; prior-only attainment never supplies acquired precision",
+  "no_overall_scalar": true,
+  "empirical_calibration": null,
+  "real_study_scoring_allowed": false,
+  "cardinality_authority": "16 and 4 are computational test-coverage conventions: multiple molecular directions and small nonmolecular operator blocks. They do not estimate biological rank or sufficient coverage.",
+  "normative_choices": [
+    "layers and finite coordinate cardinalities",
+    "days/horizons",
+    "variance ceilings",
+    "noise/heterogeneity workload",
+    "causal contrast set"
+  ],
+  "not_normative_facts": [
+    "actual study covariance",
+    "actual signal-to-noise",
+    "participant overlap",
+    "assay independence",
+    "physiological equivalence"
+  ]
+}

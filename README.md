@@ -40,6 +40,16 @@ For published aggregate quantities, use
 `anibench compare-architecture examples/architecture/protein-inventory.json --out output/comparison.json`.
 It compares explicitly selected, compatible source quantities without a noise
 model, preserves missing values and population scopes, and emits no overall score.
+The [240-study registry example](examples/registry_architecture/README.md) runs
+every within-lifecycle enrollment/arm comparison with an independent oracle.
+It separates registry-reported actual enrollment from estimated enrollment and never infers
+molecular depth or participant follow-up from registration metadata.
+
+The [broad reference workload](examples/broad_reference/README.md) supplies executable
+AniBench 1/2 candidate levels: explicit synthetic coordinates, precision ceilings,
+14 design/level cases and ten sensitivity cases. Conditional witnesses and adversarial failures
+make the proposed ladder testable; these are not calibrated biological sufficiency
+thresholds. Run `python examples/broad_reference/replay.py --out output/reference`.
 
 Read the [research manuscript](paper/AniBench_open_benchmark.md) for the
 mathematical derivation, limitations, source examples and reproducible figures.
@@ -94,7 +104,7 @@ The **Run AniBench** page at `/benchmark.html#run` opens aggregate collection
 profiles and native-metric comparison receipts as charts. File contents remain
 in the browser; this viewer does not upload, persist, or certify them.
 
-The atlas contains 16 registry projection records plus the public Oh My Gut!
+The atlas contains 16 source-projection records plus the public Oh My Gut!
 protocol card. Complete capacity geometry remains unresolved for these 17 records;
 the descriptive source plots are not a biological leaderboard.
 An explicitly synthetic example demonstrates different strengths in depth and
@@ -247,7 +257,7 @@ coverage.
 Run the Studio from an installed wheel:
 
 ```bash
-python -m pip install /path/to/anibench-2.0.0rc4-py3-none-any.whl
+python -m pip install /path/to/anibench-2.0.0rc5-py3-none-any.whl
 anibench studio
 # http://127.0.0.1:8765/
 ```
@@ -341,7 +351,8 @@ compensate for another through an overall scalar or rank.
 The public repository includes a source-bound external comparator corpus. The
 private authority repository can build a separate, source-bound ANI portfolio
 overlay, but that controlled overlay and its source locators are excluded from
-the fresh-history public export. Every displayed field is sealed to a source
+the fresh-history public export. In the mechanically sealed external coordinate
+atlas, every displayed field is bound to a source
 object hash, locator, projection pointer, and value digest. A value remains
 `state=known` only when every declared source binding is machine-resolved by a
 receipted executable derivation. Curated, manual, unresolved, or otherwise
@@ -350,6 +361,13 @@ their source identifiers, locators, and reason. A citation or raw-file hash is
 never mislabeled as an executable derivation. A study with adequate public
 descriptive facts but missing event geometry remains visible as `not_scoreable`;
 it is not assigned zero and it is not given an invented matrix.
+
+The separate [source-architecture inventory](web/source-architecture.json) preserves
+curated source-located quantities and qualitative coverage states; hashes bind
+bytes, not factual interpretation or study execution. Native quantity comparisons
+remain usable without complete information geometry. Its two
+[publication figures](examples/architecture/charts/README.md) retain distinct
+population, entity and timing definitions.
 
 Generated figures always ship with machine-readable CSV/JSON and a build
 receipt. Row order in an atlas is not a rank.
@@ -419,7 +437,7 @@ ruff check .
 python scripts/export_public_repository.py --help
 python -m build
 python scripts/verify_installed_studio.py \
-  --wheel dist/anibench-2.0.0rc4-py3-none-any.whl --pretty
+  --wheel dist/anibench-2.0.0rc5-py3-none-any.whl --pretty
 ```
 
 Every result binds the protocol hash, formula version, source state, scenario

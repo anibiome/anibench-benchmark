@@ -769,7 +769,7 @@ const AniBenchCharts = (() => {
   }
   function architectureHTML(packet, filters = {publication:"all",ethics:"all"}) {
     validateArchitecture(packet);
-    return `<div class="chart-grid">${architectureNumeric(packet,"population",filters)}${architectureNumeric(packet,"molecular",filters)}</div><div class="architecture-intro"><p>Five public inventories · separate denominators and entities · source/ethics filters apply. Featured/Expanded applies below.</p></div>${architectureNumeric(packet,"timing",filters)}${architectureCoverage(packet,filters)}<a class="export-data" href="source-architecture.json" download>Download architecture facts and source provenance ↓</a>`;
+    return `<div class="chart-grid">${architectureNumeric(packet,"population",filters)}${architectureNumeric(packet,"molecular",filters)}</div><div class="architecture-intro"><p>Five public inventories · separate denominators and entities · source/ethics filters apply. Featured/Expanded applies below.</p></div>${architectureNumeric(packet,"timing",filters)}${architectureCoverage(packet,filters)}<a class="export-data" href="source-architecture.json" download>Download architecture facts and source provenance ↓</a><p><a href="https://github.com/anibiome/anibench-benchmark/tree/main/examples/architecture">Reproduce the native comparison</a> · <a href="https://github.com/anibiome/anibench-benchmark/tree/main/examples/architecture/charts">Download publication figures</a></p>`;
   }
   function caleriePlot(packet, estimand) {
     const designs = [["endpoint_pair", "Baseline + 24 months"], ["three_timepoints", "All three visits"]];

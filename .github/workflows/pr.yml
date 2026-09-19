@@ -35,7 +35,7 @@ jobs:
           cache: pip
       - run: python -m pip install --upgrade pip packaging
       - run: python -m pip install -e '.[dev,paper]'
-      - run: ruff check src tests scripts examples/calibration/erp_core examples/design_geometry/calerie examples/finite_suites
+      - run: ruff check src tests scripts examples/calibration/erp_core examples/architecture examples/broad_reference examples/registry_architecture examples/paper_charts examples/design_geometry/calerie examples/finite_suites
       - run: python scripts/verify_release_metadata.py --pretty
       - run: python scripts/verify_external_field_receipts.py --pretty
       - run: python -m pytest -q
@@ -60,7 +60,7 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: "22"
-      - run: node --test web/v2.test.js web/explore.test.js web/benchmark.test.js web/release-charts.test.js web/collection-viewer.test.js
+      - run: node --test web/v2.test.js web/explore.test.js web/benchmark.test.js web/release-charts.test.js web/collection-viewer.test.js web/broad-reference.test.js
 
   public-boundary:
     name: Fresh-history public export
@@ -106,7 +106,7 @@ jobs:
           python -m pip install -e '.[dev,paper]'
           reuse lint
           python -m pytest -q
-          node --test web/v2.test.js web/explore.test.js web/benchmark.test.js web/release-charts.test.js web/collection-viewer.test.js
+          node --test web/v2.test.js web/explore.test.js web/benchmark.test.js web/release-charts.test.js web/collection-viewer.test.js web/broad-reference.test.js
       - name: Build and inspect public distributions
         working-directory: /tmp/anibench-public
         run: |

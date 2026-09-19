@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="468pt" height="511.2pt" viewBox="0 0 468 511.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title>03-molecular</title>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>03-molecular</dc:title>
+    <dc:description>{"evidence": {"numeric_facts": [{"entity": "proteins", "fact_id": "snyder-ipop-ihmp-106:architecture:proteins", "label": "Plasma proteins", "panel": "molecular", "precision": "exact_reported", "scope": "Source-wide SWATH-MS plasma protein inventory; per-person completeness is not established by this count.", "source": {"passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c", "source_id": "PMC6666404", "source_locator": "/0/documents/0/passages/12/text"}, "study_id": "snyder-ipop-ihmp-106", "unit": "proteins", "value": 302}, {"entity": "transcripts", "fact_id": "snyder-ipop-ihmp-106:architecture:transcripts", "label": "PBMC transcripts", "panel": "molecular", "precision": "exact_reported", "scope": "PBMC transcript inventory measured by RNA sequencing; not independent genes or complete transcripts in every person.", "source": {"passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c", "source_id": "PMC6666404", "source_locator": "/0/documents/0/passages/12/text"}, "study_id": "snyder-ipop-ihmp-106", "unit": "transcripts", "value": 13379}, {"entity": "metabolites", "fact_id": "snyder-ipop-ihmp-106:architecture:metabolites", "label": "Plasma metabolites", "panel": "molecular", "precision": "exact_reported", "scope": "Plasma metabolite inventory from untargeted LC-MS/MS; per-person completeness is not established.", "source": {"passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c", "source_id": "PMC6666404", "source_locator": "/0/documents/0/passages/12/text"}, "study_id": "snyder-ipop-ihmp-106", "unit": "metabolites", "value": 722}, {"entity": "cytokines_growth_factors", "fact_id": "snyder-ipop-ihmp-106:architecture:cytokines_growth_factors", "label": "Serum cytokines / growth factors", "panel": "molecular", "precision": "exact_reported", "scope": "Serum cytokine and growth-factor assay targets reported in the study; no independent-information interpretation.", "source": {"passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c", "source_id": "PMC6666404", "source_locator": "/0/documents/0/passages/12/text"}, "study_id": "snyder-ipop-ihmp-106", "unit": "assay_targets", "value": 62}, {"entity": "glycan_peaks", "fact_id": "circulate-tpe-ivig:architecture:glycan_peaks", "label": "Measured glycan peaks", "panel": "molecular", "precision": "exact_reported", "scope": "Measured glycan peaks from electropherograms; peaks can include more than one glycan structure.", "source": {"passage_sha256": "0ade4b7414f6e4c2cca7b3dc22ec894b97861e5e4cda12d9e721ff6f3ca3cfd6", "source_id": "PMC12341816", "source_locator": "/0/documents/0/passages/74/text"}, "study_id": "circulate-tpe-ivig", "unit": "peaks", "value": 27}, {"entity": "derived_glycan_traits", "fact_id": "circulate-tpe-ivig:architecture:derived_glycan_traits", "label": "Derived glycan traits", "panel": "molecular", "precision": "exact_reported", "scope": "Calculated glycan traits sharing structural features; not additional independently acquired targets.", "source": {"passage_sha256": "0ade4b7414f6e4c2cca7b3dc22ec894b97861e5e4cda12d9e721ff6f3ca3cfd6", "source_id": "PMC12341816", "source_locator": "/0/documents/0/passages/74/text"}, "study_id": "circulate-tpe-ivig", "unit": "derived_traits", "value": 6}, {"entity": "proteins", "fact_id": "uk-biobank:architecture:proteomics_unique_proteins", "label": "Unique plasma proteins", "panel": "molecular", "precision": "exact_reported", "scope": "2923 unique proteins in the UKB Olink panel across 54219 people; distinct from 2941 analytes, with incomplete/variable sample coverage.", "source": {"passage_sha256": "87dc018e635071ece5bac9a313ad946838fadda63e8a739dc8d45a344da89d4d", "source_id": "PMC10567551", "source_locator": "/0/documents/0/passages/10/text"}, "study_id": "uk-biobank", "unit": "proteins", "value": 2923}]}, "height_inches": 7.1, "id": "03-molecular", "input_sha256": {"architecture": "881916b01f134c061ffab62580f858fc45e0ea7c14da8a6c2f0b1f73f5ef1108", "profiles": "0ecb5abf8fb886b480ba5b0eb6149560b1ff90087e329cf1e5934185497744ea", "reference": "07c504463cc95d40738eed16547c523f3dfe7940fe7c2b9a8b1b9147018b4653"}, "minimum_body_label_pt": 9, "minimum_notes_pt": 8, "width_inches": 6.5}</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 511.2 
+L 468 511.2 
+L 468 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 42.12 176.364 
+L 215.28 176.364 
+L 215.28 122.688 
+L 42.12 122.688 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 42.12 176.364 
+L 42.12 122.688 
+" clip-path="url(#p8b3a5ee455)" style="fill: none; stroke: #dce4e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="mf489babe91" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mf489babe91" x="42.12" y="176.364" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="42.12" y="190.201891" transform="rotate(-0 42.12 190.201891)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 147.906618 176.364 
+L 147.906618 122.688 
+" clip-path="url(#p8b3a5ee455)" style="fill: none; stroke: #dce4e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#mf489babe91" x="147.906618" y="176.364" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="147.906618" y="190.201891" transform="rotate(-0 147.906618 190.201891)">2500</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2"/>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="m708499e787" d="M 0 2.5 
+C 0.663008 2.5 1.29895 2.236584 1.767767 1.767767 
+C 2.236584 1.29895 2.5 0.663008 2.5 0 
+C 2.5 -0.663008 2.236584 -1.29895 1.767767 -1.767767 
+C 1.29895 -2.236584 0.663008 -2.5 0 -2.5 
+C -0.663008 -2.5 -1.29895 -2.236584 -1.767767 -1.767767 
+C -2.236584 -1.29895 -2.5 -0.663008 -2.5 0 
+C -2.5 0.663008 -2.236584 1.29895 -1.767767 1.767767 
+C -1.29895 2.236584 -0.663008 2.5 0 2.5 
+z
+" style="stroke: #176b75"/>
+    </defs>
+    <g clip-path="url(#p8b3a5ee455)">
+     <use xlink:href="#m708499e787" x="54.899024" y="133.247213" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="PathCollection_2">
+    <g clip-path="url(#p8b3a5ee455)">
+     <use xlink:href="#m708499e787" x="165.805714" y="150.845902" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 42.12 176.364 
+L 42.12 122.688 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 42.12 176.364 
+L 215.28 176.364 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="59.899024" y="135.585104" transform="rotate(-0 59.899024 135.585104)">302</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="43.8516" y="147.024603" transform="rotate(-0 43.8516 147.024603)">iPOP / iHMP</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="170.805714" y="153.183792" transform="rotate(-0 170.805714 153.183792)">2,923</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="43.8516" y="164.623291" transform="rotate(-0 43.8516 164.623291)">UK Biobank</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="42.12" y="101.688" transform="rotate(-0 42.12 101.688)">Proteins</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_5">
+    <path d="M 266.76 176.364 
+L 439.92 176.364 
+L 439.92 122.688 
+L 266.76 122.688 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 266.76 176.364 
+L 266.76 122.688 
+" clip-path="url(#p4046bf8e25)" style="fill: none; stroke: #dce4e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#mf489babe91" x="266.76" y="176.364" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="266.76" y="190.201891" transform="rotate(-0 266.76 190.201891)">0</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 359.207653 176.364 
+L 359.207653 122.688 
+" clip-path="url(#p4046bf8e25)" style="fill: none; stroke: #dce4e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#mf489babe91" x="359.207653" y="176.364" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="359.207653" y="190.201891" transform="rotate(-0 359.207653 190.201891)">10000</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4"/>
+   <g id="PathCollection_3">
+    <g clip-path="url(#p4046bf8e25)">
+     <use xlink:href="#m708499e787" x="390.445714" y="138.398049" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="patch_6">
+    <path d="M 266.76 176.364 
+L 266.76 122.688 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 266.76 176.364 
+L 439.92 176.364 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="395.445714" y="140.735939" transform="rotate(-0 395.445714 140.735939)">13,379</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="268.4916" y="157.75551" transform="rotate(-0 268.4916 157.75551)">iPOP / iHMP</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="266.76" y="101.688" transform="rotate(-0 266.76 101.688)">PBMC transcripts</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="patch_8">
+    <path d="M 42.12 283.716 
+L 215.28 283.716 
+L 215.28 230.04 
+L 42.12 230.04 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_5">
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 42.12 283.716 
+L 42.12 230.04 
+" clip-path="url(#p0d95157bdd)" style="fill: none; stroke: #dce4e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#mf489babe91" x="42.12" y="283.716" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_13">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="42.12" y="297.553891" transform="rotate(-0 42.12 297.553891)">0</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <path d="M 144.905912 283.716 
+L 144.905912 230.04 
+" clip-path="url(#p0d95157bdd)" style="fill: none; stroke: #dce4e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#mf489babe91" x="144.905912" y="283.716" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_14">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="144.905912" y="297.553891" transform="rotate(-0 144.905912 297.553891)">600</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_6"/>
+   <g id="PathCollection_4">
+    <g clip-path="url(#p0d95157bdd)">
+     <use xlink:href="#m708499e787" x="165.805714" y="245.750049" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="patch_9">
+    <path d="M 42.12 283.716 
+L 42.12 230.04 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 42.12 283.716 
+L 215.28 283.716 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="170.805714" y="248.087939" transform="rotate(-0 170.805714 248.087939)">722</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="43.8516" y="265.10751" transform="rotate(-0 43.8516 265.10751)">iPOP / iHMP</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="42.12" y="209.04" transform="rotate(-0 42.12 209.04)">Plasma metabolites</text>
+   </g>
+  </g>
+  <g id="axes_4">
+   <g id="patch_11">
+    <path d="M 266.76 283.716 
+L 439.92 283.716 
+L 439.92 230.04 
+L 266.76 230.04 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_7">
+    <g id="xtick_7">
+     <g id="line2d_13">
+      <path d="M 266.76 283.716 
+L 266.76 230.04 
+" clip-path="url(#p5c8685b6b0)" style="fill: none; stroke: #dce4e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#mf489babe91" x="266.76" y="283.716" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_18">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="266.76" y="297.553891" transform="rotate(-0 266.76 297.553891)">0</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_15">
+      <path d="M 366.506544 283.716 
+L 366.506544 230.04 
+" clip-path="url(#p5c8685b6b0)" style="fill: none; stroke: #dce4e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#mf489babe91" x="366.506544" y="283.716" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_19">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="366.506544" y="297.553891" transform="rotate(-0 366.506544 297.553891)">50</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_8"/>
+   <g id="PathCollection_5">
+    <g clip-path="url(#p5c8685b6b0)">
+     <use xlink:href="#m708499e787" x="390.445714" y="245.750049" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="patch_12">
+    <path d="M 266.76 283.716 
+L 266.76 230.04 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 266.76 283.716 
+L 439.92 283.716 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="395.445714" y="248.087939" transform="rotate(-0 395.445714 248.087939)">62</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="268.4916" y="265.10751" transform="rotate(-0 268.4916 265.10751)">iPOP / iHMP</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="266.76" y="209.04" transform="rotate(-0 266.76 209.04)">Cytokines / growth factors</text>
+   </g>
+  </g>
+  <g id="axes_5">
+   <g id="patch_14">
+    <path d="M 42.12 391.068 
+L 215.28 391.068 
+L 215.28 337.392 
+L 42.12 337.392 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_9">
+    <g id="xtick_9">
+     <g id="line2d_17">
+      <path d="M 42.12 391.068 
+L 42.12 337.392 
+" clip-path="url(#pe451aea582)" style="fill: none; stroke: #dce4e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#mf489babe91" x="42.12" y="391.068" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_23">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="42.12" y="404.905891" transform="rotate(-0 42.12 404.905891)">0</text>
+     </g>
+    </g>
+    <g id="xtick_10">
+     <g id="line2d_19">
+      <path d="M 133.739048 391.068 
+L 133.739048 337.392 
+" clip-path="url(#pe451aea582)" style="fill: none; stroke: #dce4e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_20">
+      <g>
+       <use xlink:href="#mf489babe91" x="133.739048" y="391.068" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_24">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="133.739048" y="404.905891" transform="rotate(-0 133.739048 404.905891)">20</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_10"/>
+   <g id="PathCollection_6">
+    <g clip-path="url(#pe451aea582)">
+     <use xlink:href="#m708499e787" x="165.805714" y="353.102049" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="patch_15">
+    <path d="M 42.12 391.068 
+L 42.12 337.392 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 42.12 391.068 
+L 215.28 391.068 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="170.805714" y="355.439939" transform="rotate(-0 170.805714 355.439939)">27</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="43.8516" y="372.459159" transform="rotate(-0 43.8516 372.459159)">CIRCULATE TPE</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="42.12" y="316.392" transform="rotate(-0 42.12 316.392)">Glycan peaks</text>
+   </g>
+  </g>
+  <g id="axes_6">
+   <g id="patch_17">
+    <path d="M 266.76 391.068 
+L 439.92 391.068 
+L 439.92 337.392 
+L 266.76 337.392 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_11">
+    <g id="xtick_11">
+     <g id="line2d_21">
+      <path d="M 266.76 391.068 
+L 266.76 337.392 
+" clip-path="url(#pd62c928ceb)" style="fill: none; stroke: #dce4e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_22">
+      <g>
+       <use xlink:href="#mf489babe91" x="266.76" y="391.068" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_28">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="266.76" y="404.905891" transform="rotate(-0 266.76 404.905891)">0</text>
+     </g>
+    </g>
+    <g id="xtick_12">
+     <g id="line2d_23">
+      <path d="M 369.831429 391.068 
+L 369.831429 337.392 
+" clip-path="url(#pd62c928ceb)" style="fill: none; stroke: #dce4e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_24">
+      <g>
+       <use xlink:href="#mf489babe91" x="369.831429" y="391.068" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_29">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="369.831429" y="404.905891" transform="rotate(-0 369.831429 404.905891)">5</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_12"/>
+   <g id="PathCollection_7">
+    <g clip-path="url(#pd62c928ceb)">
+     <use xlink:href="#m708499e787" x="390.445714" y="353.102049" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="patch_18">
+    <path d="M 266.76 391.068 
+L 266.76 337.392 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 266.76 391.068 
+L 439.92 391.068 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="395.445714" y="355.439939" transform="rotate(-0 395.445714 355.439939)">6</text>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="268.4916" y="372.459159" transform="rotate(-0 268.4916 372.459159)">CIRCULATE TPE</text>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="266.76" y="316.392" transform="rotate(-0 266.76 316.392)">Derived glycan traits</text>
+   </g>
+  </g>
+  <g id="text_33">
+   <text style="font-weight: 700; font-size: 14px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="28.529812" transform="rotate(-0 18.72 28.529812)">Molecular entities stay separate</text>
+  </g>
+  <g id="text_34">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="57.347437" transform="rotate(-0 18.72 57.347437)">Each panel has its own axis. Inventories do not measure independent information.</text>
+  </g>
+  <g id="text_35">
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #172c37" transform="translate(18.72 457.6635)">Assay technologies and source-wide completeness differ. Glycan peaks can contain multiple</text>
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #172c37" transform="translate(18.72 468.8635)">structures; calculated traits are not extra independent acquisitions. Values do not establish</text>
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #172c37" transform="translate(18.72 480.0635)">every target in every person.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p8b3a5ee455">
+   <rect x="42.12" y="122.688" width="173.16" height="53.676"/>
+  </clipPath>
+  <clipPath id="p4046bf8e25">
+   <rect x="266.76" y="122.688" width="173.16" height="53.676"/>
+  </clipPath>
+  <clipPath id="p0d95157bdd">
+   <rect x="42.12" y="230.04" width="173.16" height="53.676"/>
+  </clipPath>
+  <clipPath id="p5c8685b6b0">
+   <rect x="266.76" y="230.04" width="173.16" height="53.676"/>
+  </clipPath>
+  <clipPath id="pe451aea582">
+   <rect x="42.12" y="337.392" width="173.16" height="53.676"/>
+  </clipPath>
+  <clipPath id="pd62c928ceb">
+   <rect x="266.76" y="337.392" width="173.16" height="53.676"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="468pt" height="453.6pt" viewBox="0 0 468 453.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title>02-coverage</title>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>02-coverage</dc:title>
+    <dc:description>{"evidence": {"coverage": [{"description": "RNA, proteins, metabolites, cytokines, exome and microbiome", "domain": "molecular", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c", "source_id": "PMC6666404", "source_locator": "/0/documents/0/passages/12/text"}], "state": "reported_present", "study_id": "snyder-ipop-ihmp-106"}, {"description": "Online self-report; wearable sensing not established", "domain": "digital", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c", "source_id": "PMC6666404", "source_locator": "/0/documents/0/passages/12/text"}], "state": "reported_present", "study_id": "snyder-ipop-ihmp-106"}, {"description": "Metabolic challenges: OGTT and insulin suppression; not a physical-function battery", "domain": "functional", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "49b30a93eece9dd4821428aebb1d13136325133a1d22a03ab864c03fcb47ed71", "source_id": "PMC6666404", "source_locator": "/0/documents/0/passages/13/text"}, {"passage_sha256": "49b30a93eece9dd4821428aebb1d13136325133a1d22a03ab864c03fcb47ed71", "source_id": "PMC6666404", "source_locator": "/0/documents/0/passages/13/text"}], "state": "reported_present", "study_id": "snyder-ipop-ihmp-106"}, {"description": "Not established in reviewed source", "domain": "cognitive", "precision": "unreported_in_reviewed_scope", "sources": [], "state": "unreported", "study_id": "snyder-ipop-ihmp-106"}, {"description": "Direct neural recording not established", "domain": "neural", "precision": "unreported_in_reviewed_scope", "sources": [], "state": "unreported", "study_id": "snyder-ipop-ihmp-106"}, {"description": "Immunization sampling and metabolic challenges; infection is observational event sampling", "domain": "perturbation", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "0799dee5020712208c13f94cc589ae62847af8413a57a6f6f870a20d8cadff9c", "source_id": "PMC6666404", "source_locator": "/0/documents/0/passages/11/text"}, {"passage_sha256": "49b30a93eece9dd4821428aebb1d13136325133a1d22a03ab864c03fcb47ed71", "source_id": "PMC6666404", "source_locator": "/0/documents/0/passages/13/text"}], "state": "reported_present", "study_id": "snyder-ipop-ihmp-106"}, {"description": "Methylation, proteomics, glycomics, lipid/metabolite and immune-cell assays", "domain": "molecular", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "aa9f37ee8c3016fd87694b9ee7e5ae5d7a3b506ce75a3f18d19dc47f3f34adcb", "source_id": "PMC12341816", "source_locator": "/0/documents/0/passages/36/text"}, {"passage_sha256": "21ce8d0eb8cf0ce50e9607dee59c12a66c531b53c438c4f6ad202bf22344dbd2", "source_id": "PMC12341816", "source_locator": "/0/documents/0/passages/60/text"}], "state": "reported_present", "study_id": "circulate-tpe-ivig"}, {"description": "Direct collection not established in reviewed source", "domain": "digital", "precision": "unreported_in_reviewed_scope", "sources": [], "state": "unreported", "study_id": "circulate-tpe-ivig"}, {"description": "Direct collection not established in reviewed source", "domain": "functional", "precision": "unreported_in_reviewed_scope", "sources": [], "state": "unreported", "study_id": "circulate-tpe-ivig"}, {"description": "Direct collection not established in reviewed source", "domain": "cognitive", "precision": "unreported_in_reviewed_scope", "sources": [], "state": "unreported", "study_id": "circulate-tpe-ivig"}, {"description": "Direct collection not established in reviewed source", "domain": "neural", "precision": "unreported_in_reviewed_scope", "sources": [], "state": "unreported", "study_id": "circulate-tpe-ivig"}, {"description": "TPE with/without IVIG and sham; entry-order allocation described", "domain": "perturbation", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "225cadb62bfd4814ed27a444b4c155e7c622375f6da38f54fbd73789f458f8ee", "source_id": "PMC12341816", "source_locator": "/0/documents/0/passages/53/text"}, {"passage_sha256": "088248a0248ccdcbb4a35843181844113f15edbdac0835f5dd938e91bcad05e1", "source_id": "PMC12341816", "source_locator": "/0/documents/0/passages/51/text"}], "state": "reported_present", "study_id": "circulate-tpe-ivig"}, {"description": "Proteomic subset; analytes and unique proteins kept separate", "domain": "molecular", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "87dc018e635071ece5bac9a313ad946838fadda63e8a739dc8d45a344da89d4d", "source_id": "PMC10567551", "source_locator": "/0/documents/0/passages/10/text"}, {"passage_sha256": "87dc018e635071ece5bac9a313ad946838fadda63e8a739dc8d45a344da89d4d", "source_id": "PMC10567551", "source_locator": "/0/documents/0/passages/10/text"}], "state": "reported_present", "study_id": "uk-biobank"}, {"description": "Wrist accelerometry in a subset; seven-day wear window", "domain": "digital", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "c08e42af824ec0aaba1c0466130d730dc573157a68f303de9b51917bfabb808b", "source_id": "UKB_TYPES", "source_locator": "/article/body#normalized_char=5250:5356"}], "state": "reported_present", "study_id": "uk-biobank"}, {"description": "Grip strength, spirometry and subset exercise testing", "domain": "functional", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "458c315de18be80f89fa72884f3b3128fb9962c9bc976bf46800b7c48d564c80", "source_id": "PMC4380465", "source_locator": "/0/documents/0/passages/20/text"}], "state": "reported_present", "study_id": "uk-biobank"}, {"description": "Computer-based tests; completion varies by test", "domain": "cognitive", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "5208a8594cb8bbda5db75a49cd60480582ca901a31a9ad782d2f808a86bfdb05", "source_id": "PMC4380465", "source_locator": "/0/documents/0/passages/19/text"}], "state": "reported_present", "study_id": "uk-biobank"}, {"description": "Brain MRI including resting/task fMRI; imaging subset", "domain": "neural", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "7d098f78da9e51a2d44b6029011073e3672b8c1d8baef17a90e430a8cfc4bb00", "source_id": "UKB_IMAGING", "source_locator": "/article/body#normalized_char=3730:4136"}], "state": "reported_present", "study_id": "uk-biobank"}, {"description": "Exercise/fitness challenge in a subset; assigned therapeutic treatment not established here", "domain": "perturbation", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "458c315de18be80f89fa72884f3b3128fb9962c9bc976bf46800b7c48d564c80", "source_id": "PMC4380465", "source_locator": "/0/documents/0/passages/20/text"}], "state": "reported_present", "study_id": "uk-biobank"}, {"description": "Genetics, transcriptomics, microbiome, metabolomics and immune profiling; abstract scope", "domain": "molecular", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "ed6852fad165c2d295e82857b5209e4172dcf5c904432ee77b50c66604738c72", "source_id": "hpp-nature-medicine-2025-abstract", "source_locator": "/resultList/result/0/abstractText"}], "state": "reported_present", "study_id": "human-phenotype-project-2025"}, {"description": "Continuous glucose and sleep monitoring; durations unreported", "domain": "digital", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "ed6852fad165c2d295e82857b5209e4172dcf5c904432ee77b50c66604738c72", "source_id": "hpp-nature-medicine-2025-abstract", "source_locator": "/resultList/result/0/abstractText"}], "state": "reported_present", "study_id": "human-phenotype-project-2025"}, {"description": "Not established by the abstract", "domain": "functional", "precision": "unreported_in_reviewed_scope", "sources": [], "state": "unreported", "study_id": "human-phenotype-project-2025"}, {"description": "Not established by the abstract", "domain": "cognitive", "precision": "unreported_in_reviewed_scope", "sources": [], "state": "unreported", "study_id": "human-phenotype-project-2025"}, {"description": "Not established by the abstract", "domain": "neural", "precision": "unreported_in_reviewed_scope", "sources": [], "state": "unreported", "study_id": "human-phenotype-project-2025"}, {"description": "Not established by the abstract", "domain": "perturbation", "precision": "unreported_in_reviewed_scope", "sources": [], "state": "unreported", "study_id": "human-phenotype-project-2025"}, {"description": "Bloodwork, multiomics and microbiome sampling", "domain": "molecular", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1", "source_id": "ELITE_PUBLIC", "source_locator": "section#elite first p"}], "state": "source_described", "study_id": "ani-elite-sheba"}, {"description": "Digital monitoring; modality/cadence unspecified", "domain": "digital", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1", "source_id": "ELITE_PUBLIC", "source_locator": "section#elite first p"}], "state": "source_described", "study_id": "ani-elite-sheba"}, {"description": "Functional endpoints; exact tests unspecified", "domain": "functional", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1", "source_id": "ELITE_PUBLIC", "source_locator": "section#elite first p"}], "state": "source_described", "study_id": "ani-elite-sheba"}, {"description": "Cognitive endpoints; exact tests unspecified", "domain": "cognitive", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1", "source_id": "ELITE_PUBLIC", "source_locator": "section#elite first p"}], "state": "source_described", "study_id": "ani-elite-sheba"}, {"description": "Physician-supervised intervention; allocation unspecified", "domain": "perturbation", "precision": "qualitative_presence_not_complete_coverage", "sources": [{"passage_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1", "source_id": "ELITE_PUBLIC", "source_locator": "section#elite first p"}], "state": "source_described", "study_id": "ani-elite-sheba"}, {"description": "Direct neural observation not established by public description", "domain": "neural", "precision": "unreported_in_reviewed_scope", "sources": [], "state": "unreported", "study_id": "ani-elite-sheba"}]}, "height_inches": 6.3, "id": "02-coverage", "input_sha256": {"architecture": "881916b01f134c061ffab62580f858fc45e0ea7c14da8a6c2f0b1f73f5ef1108", "profiles": "0ecb5abf8fb886b480ba5b0eb6149560b1ff90087e329cf1e5934185497744ea", "reference": "07c504463cc95d40738eed16547c523f3dfe7940fe7c2b9a8b1b9147018b4653"}, "minimum_body_label_pt": 9, "minimum_notes_pt": 8, "width_inches": 6.5}</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 453.6 
+L 468 453.6 
+L 468 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 102.96 317.52 
+L 444.6 317.52 
+L 444.6 113.4 
+L 102.96 113.4 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="m2632e13c2b" d="M 0 4.242641 
+C 1.125161 4.242641 2.204391 3.795609 3 3 
+C 3.795609 2.204391 4.242641 1.125161 4.242641 0 
+C 4.242641 -1.125161 3.795609 -2.204391 3 -3 
+C 2.204391 -3.795609 1.125161 -4.242641 0 -4.242641 
+C -1.125161 -4.242641 -2.204391 -3.795609 -3 -3 
+C -3.795609 -2.204391 -4.242641 -1.125161 -4.242641 0 
+C -4.242641 1.125161 -3.795609 2.204391 -3 3 
+C -2.204391 3.795609 -1.125161 4.242641 0 4.242641 
+z
+" style="stroke: #176b75"/>
+    </defs>
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#m2632e13c2b" x="137.124" y="130.41" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="PathCollection_2">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#m2632e13c2b" x="137.124" y="164.43" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="PathCollection_3">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#m2632e13c2b" x="137.124" y="198.45" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="PathCollection_4">
+    <defs>
+     <path id="mdf2e570c21" d="M 4.242641 0 
+L -4.242641 -0 
+" style="stroke: #87939b; stroke-width: 1.5"/>
+    </defs>
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mdf2e570c21" x="137.124" y="232.47" style="fill: #87939b; stroke: #87939b; stroke-width: 1.5"/>
+    </g>
+   </g>
+   <g id="PathCollection_5">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mdf2e570c21" x="137.124" y="266.49" style="fill: #87939b; stroke: #87939b; stroke-width: 1.5"/>
+    </g>
+   </g>
+   <g id="PathCollection_6">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#m2632e13c2b" x="137.124" y="300.51" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="PathCollection_7">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#m2632e13c2b" x="205.452" y="130.41" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="PathCollection_8">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mdf2e570c21" x="205.452" y="164.43" style="fill: #87939b; stroke: #87939b; stroke-width: 1.5"/>
+    </g>
+   </g>
+   <g id="PathCollection_9">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mdf2e570c21" x="205.452" y="198.45" style="fill: #87939b; stroke: #87939b; stroke-width: 1.5"/>
+    </g>
+   </g>
+   <g id="PathCollection_10">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mdf2e570c21" x="205.452" y="232.47" style="fill: #87939b; stroke: #87939b; stroke-width: 1.5"/>
+    </g>
+   </g>
+   <g id="PathCollection_11">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mdf2e570c21" x="205.452" y="266.49" style="fill: #87939b; stroke: #87939b; stroke-width: 1.5"/>
+    </g>
+   </g>
+   <g id="PathCollection_12">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#m2632e13c2b" x="205.452" y="300.51" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="PathCollection_13">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#m2632e13c2b" x="273.78" y="130.41" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="PathCollection_14">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#m2632e13c2b" x="273.78" y="164.43" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="PathCollection_15">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#m2632e13c2b" x="273.78" y="198.45" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="PathCollection_16">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#m2632e13c2b" x="273.78" y="232.47" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="PathCollection_17">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#m2632e13c2b" x="273.78" y="266.49" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="PathCollection_18">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#m2632e13c2b" x="273.78" y="300.51" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="PathCollection_19">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#m2632e13c2b" x="342.108" y="130.41" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="PathCollection_20">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#m2632e13c2b" x="342.108" y="164.43" style="fill: #176b75; stroke: #176b75"/>
+    </g>
+   </g>
+   <g id="PathCollection_21">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mdf2e570c21" x="342.108" y="198.45" style="fill: #87939b; stroke: #87939b; stroke-width: 1.5"/>
+    </g>
+   </g>
+   <g id="PathCollection_22">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mdf2e570c21" x="342.108" y="232.47" style="fill: #87939b; stroke: #87939b; stroke-width: 1.5"/>
+    </g>
+   </g>
+   <g id="PathCollection_23">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mdf2e570c21" x="342.108" y="266.49" style="fill: #87939b; stroke: #87939b; stroke-width: 1.5"/>
+    </g>
+   </g>
+   <g id="PathCollection_24">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mdf2e570c21" x="342.108" y="300.51" style="fill: #87939b; stroke: #87939b; stroke-width: 1.5"/>
+    </g>
+   </g>
+   <g id="PathCollection_25">
+    <defs>
+     <path id="mbfd3c38596" d="M -0 6 
+L 6 0 
+L 0 -6 
+L -6 -0 
+z
+" style="stroke: #a56917"/>
+    </defs>
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mbfd3c38596" x="410.436" y="130.41" style="fill: #a56917; stroke: #a56917"/>
+    </g>
+   </g>
+   <g id="PathCollection_26">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mbfd3c38596" x="410.436" y="164.43" style="fill: #a56917; stroke: #a56917"/>
+    </g>
+   </g>
+   <g id="PathCollection_27">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mbfd3c38596" x="410.436" y="198.45" style="fill: #a56917; stroke: #a56917"/>
+    </g>
+   </g>
+   <g id="PathCollection_28">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mbfd3c38596" x="410.436" y="232.47" style="fill: #a56917; stroke: #a56917"/>
+    </g>
+   </g>
+   <g id="PathCollection_29">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mdf2e570c21" x="410.436" y="266.49" style="fill: #87939b; stroke: #87939b; stroke-width: 1.5"/>
+    </g>
+   </g>
+   <g id="PathCollection_30">
+    <g clip-path="url(#pa342c4e3bc)">
+     <use xlink:href="#mbfd3c38596" x="410.436" y="300.51" style="fill: #a56917; stroke: #a56917"/>
+    </g>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(123.958687 90.534551)">iPOP /</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(125.893687 101.337012)">iHMP</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(180.712547 90.535254)">CIRCULATE</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(197.146687 101.337012)">TPE</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(267.535547 90.534551)">UK</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(255.616875 101.337012)">Biobank</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4"/>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="342.108" y="102.237891" transform="rotate(-0 342.108 102.237891)">HPP</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5"/>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="410.436" y="102.237891" transform="rotate(-0 410.436 102.237891)">ELITE</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_6"/>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="93.96" y="133.829297" transform="rotate(-0 93.96 133.829297)">Molecular</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_7"/>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="93.96" y="167.849297" transform="rotate(-0 93.96 167.849297)">Digital</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_8"/>
+     <g id="text_8">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="93.96" y="201.869297" transform="rotate(-0 93.96 201.869297)">Functional</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_9"/>
+     <g id="text_9">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="93.96" y="235.889297" transform="rotate(-0 93.96 235.889297)">Cognitive</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_10"/>
+     <g id="text_10">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="93.96" y="269.909297" transform="rotate(-0 93.96 269.909297)">Neural</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_11"/>
+     <g id="text_11">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="93.96" y="303.929297" transform="rotate(-0 93.96 303.929297)">Perturbation</text>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_12">
+    <path d="M 102.96 113.4 
+L 444.6 113.4 
+" clip-path="url(#pa342c4e3bc)" style="fill: none; stroke: #dce4e7; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_13">
+    <path d="M 102.96 147.42 
+L 444.6 147.42 
+" clip-path="url(#pa342c4e3bc)" style="fill: none; stroke: #dce4e7; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_14">
+    <path d="M 102.96 181.44 
+L 444.6 181.44 
+" clip-path="url(#pa342c4e3bc)" style="fill: none; stroke: #dce4e7; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_15">
+    <path d="M 102.96 215.46 
+L 444.6 215.46 
+" clip-path="url(#pa342c4e3bc)" style="fill: none; stroke: #dce4e7; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_16">
+    <path d="M 102.96 249.48 
+L 444.6 249.48 
+" clip-path="url(#pa342c4e3bc)" style="fill: none; stroke: #dce4e7; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_17">
+    <path d="M 102.96 283.5 
+L 444.6 283.5 
+" clip-path="url(#pa342c4e3bc)" style="fill: none; stroke: #dce4e7; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_18">
+    <path d="M 102.96 317.52 
+L 444.6 317.52 
+" clip-path="url(#pa342c4e3bc)" style="fill: none; stroke: #dce4e7; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 102.96 317.52 
+L 102.96 113.4 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 102.96 317.52 
+L 444.6 317.52 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+  </g>
+  <g id="text_12">
+   <text style="font-weight: 700; font-size: 14px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="26.513813" transform="rotate(-0 18.72 26.513813)">Which observations are documented?</text>
+  </g>
+  <g id="text_13">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="51.875437" transform="rotate(-0 18.72 51.875437)">Source-reported coverage; no cell establishes complete participant coverage.</text>
+  </g>
+  <g id="text_14">
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #172c37" transform="translate(18.72 357.0795)">● Reported in publication/resource   ◆ Official description only — Unreported in reviewed</text>
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #172c37" transform="translate(18.72 368.646375)">material, not absent.</text>
+  </g>
+  <g id="text_15">
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #172c37" transform="translate(18.72 393.3675)">Digital includes iPOP self-report. Functional includes metabolic challenges. UK Biobank</text>
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #172c37" transform="translate(18.72 404.5675)">perturbation is subset exercise testing, not assigned therapy. Neural means brain measurement;</text>
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #172c37" transform="translate(18.72 415.7675)">cognitive tests alone do not establish neural sensing. HPP is abstract-only; ELITE is public</text>
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #172c37" transform="translate(18.72 426.9675)">description.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pa342c4e3bc">
+   <rect x="102.96" y="113.4" width="341.64" height="204.12"/>
+  </clipPath>
+ </defs>
+</svg>

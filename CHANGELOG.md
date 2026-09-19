@@ -4,6 +4,24 @@ All notable changes are recorded here. AniBench uses semantic versioning for the
 
 ## Unreleased
 
+## 2.0.0-rc.5 - 2026-09-19
+
+- Add native architecture comparison with typed source quantities, denominators,
+  uncertainty and scoped Pareto relations, independently of information geometry.
+- Replay all 13,687 within-lifecycle enrollment/group comparisons for 240 frozen
+  registry studies, with independent pairwise checks and source rederivation.
+- Add executable synthetic AniBench 1/2 candidate workloads, a neural-causal child,
+  14 design/level cases and ten sensitivity cases. Candidate thresholds remain
+  normative reference assumptions, not calibrated biological sufficiency.
+- Add source collection charts, downloadable publication figures and interactive
+  reference-design charts. Separate publication and ethics filters preserve
+  unknowns and do not change capacity mathematics.
+- Add source-bound CALERIE temporal-design and finite-suite ERP examples,
+  stricter singular-direction checks, and expanded paper/replay artifacts.
+- Validate uncertainty quantile order and report the actual median independently
+  of a requested display quantile grid.
+
+
 ## 2.0.0-rc.4 - 2026-09-19
 
 - Add a conditional ERP design planner with exact shared-parameter feasibility,

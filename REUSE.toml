@@ -60,7 +60,7 @@ SPDX-FileCopyrightText = "ERP CORE contributors; 2026 AniBench contributors for 
 SPDX-License-Identifier = "CC-BY-SA-4.0"
 
 [[annotations]]
-path = ["examples/calibration/erp_core/*.py", "examples/design_geometry/calerie/*.py", "examples/finite_suites/*.py"]
+path = ["examples/calibration/erp_core/*.py", "examples/design_geometry/calerie/*.py", "examples/finite_suites/*.py", "examples/registry_architecture/*.py", "examples/architecture/charts/*.py", "examples/broad_reference/**", "examples/paper_charts/**"]
 precedence = "override"
 SPDX-FileCopyrightText = "2026 AniBench contributors"
 SPDX-License-Identifier = "Apache-2.0"

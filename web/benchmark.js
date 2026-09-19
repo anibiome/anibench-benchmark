@@ -86,6 +86,7 @@ const AniBenchPage = (() => {
     },
   };
   const chartCatalog = [
+    {section:"Conditional reference workload", id:"broad-reference", target:"broad-reference", fallback:"broad-reference", question:"Why do people, depth and assumptions change attainment?", evidence:"Synthetic candidate workload", inference:"Conditional finite workload only; no real-study ranking."},
     {section:"Study collection architecture", id:"architecture-population", target:"architecture-population", fallback:"source-architecture", question:"Which people support each collection?", evidence:"Primary source facts and explicit subsets", inference:"Compare denominators without adding overlapping cohorts."},
     {section:"Study collection architecture", id:"architecture-molecular", target:"architecture-molecular", fallback:"source-architecture", question:"Which molecular entities were measured?", evidence:"Reported assay targets in separate units", inference:"Proteins, transcripts, metabolites and derived traits are never summed."},
     {section:"Study collection architecture", id:"architecture-timing", target:"architecture-timing", fallback:"source-architecture", question:"How often and for how long?", evidence:"Observed summaries and reported schedules", inference:"Different native timing quantities remain separate."},

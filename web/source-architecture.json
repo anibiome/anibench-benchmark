@@ -665,7 +665,7 @@
               "passage_sha256": "458c315de18be80f89fa72884f3b3128fb9962c9bc976bf46800b7c48d564c80"
             }
           ],
-          "precision": "unreported_in_reviewed_scope"
+          "precision": "qualitative_presence_not_complete_coverage"
         }
       ]
     },

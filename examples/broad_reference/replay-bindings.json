@@ -1,0 +1,23 @@
+{
+  "script_sha256": {
+    "prototype.py": "sha256:f0576431da5b3bd785f5b1d2374fe04caea5057be4f5a1202e42bd2be1766d6b",
+    "catalogue.py": "sha256:4d534234e63ffbbfa3545ae896f2f7483037433e882aca3d204cc5c8bd9300a7",
+    "replay.py": "sha256:6702b84b9e174aaebdb7799e92668a04ff4705a40a8748d10e7fd2804ae258cf"
+  },
+  "evaluator_bindings": {
+    "contract": "anibench.finite-task-implementation.v1",
+    "sha256": {
+      "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+      "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0",
+      "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+      "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229",
+      "finite_suites/finite_suites_v1.py": "sha256:31a8eed855c72435a76df27f3fc2bb8ff8e861343ee4113a2cbf8ffd3beae8c5",
+      "finite_suites/input.schema.json": "sha256:b07c40d77356ccb9ec8b6975f6c1ce4fc061ad9ace73c41d648f02375927a259",
+      "finite_suites/result.schema.json": "sha256:5a5536da43ab8b44182f06661fb503a06dd7146f91d5f67be507174e3140dc2c"
+    },
+    "python_version": "3.12.13",
+    "numpy_version": "2.5.1",
+    "jsonschema_version": "4.26.0"
+  },
+  "note": "Full evaluator implementation/runtime bindings are available in regenerated receipts with --receipts."
+}

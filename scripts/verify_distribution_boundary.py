@@ -123,6 +123,10 @@ ALLOWED_SOURCE_ATLAS_FILENAMES = frozenset(
 
 ALLOWED_WEB_FILENAMES = frozenset(
     {
+        "broad-reference.js",
+        "broad-reference.css",
+        "broad-reference-data.json",
+        "broad-reference.test.js",
         "favicon.svg",
         "optimizer-protocol-example.json",
         "protocol-capacity-example.json",

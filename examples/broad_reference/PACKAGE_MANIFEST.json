@@ -1,0 +1,76 @@
+{
+  "contract": "anibench.broad-reference-package-manifest.v1",
+  "status": "frozen_reference_candidate",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 9891,
+      "sha256": "8f5d9a6e4adbab05be7d30a8df041c6b05af32d721ff5cdc7e8c9f3934140b37"
+    },
+    {
+      "path": "catalogue.py",
+      "bytes": 2998,
+      "sha256": "4d534234e63ffbbfa3545ae896f2f7483037433e882aca3d204cc5c8bd9300a7"
+    },
+    {
+      "path": "coordinate_catalogue.json",
+      "bytes": 143260,
+      "sha256": "34e7f148248e2cf7ddd26e45c72da620baf68009f3753da0d5e4fed317476a52"
+    },
+    {
+      "path": "figure-data.json",
+      "bytes": 33447,
+      "sha256": "07c504463cc95d40738eed16547c523f3dfe7940fe7c2b9a8b1b9147018b4653"
+    },
+    {
+      "path": "manuscript-prose.md",
+      "bytes": 2550,
+      "sha256": "6859373757970b4a32bc592fe80046a1d71408f0bb491da7611a142a643558d8"
+    },
+    {
+      "path": "profile-declarations.json",
+      "bytes": 42684,
+      "sha256": "0ecb5abf8fb886b480ba5b0eb6149560b1ff90087e329cf1e5934185497744ea"
+    },
+    {
+      "path": "prototype.py",
+      "bytes": 25103,
+      "sha256": "f0576431da5b3bd785f5b1d2374fe04caea5057be4f5a1202e42bd2be1766d6b"
+    },
+    {
+      "path": "replay-bindings.json",
+      "bytes": 1417,
+      "sha256": "8edd8c85fd8ae80e0d29d7afbc81ce2a1cac45c15e1742e385e10f394c659887"
+    },
+    {
+      "path": "replay.py",
+      "bytes": 7863,
+      "sha256": "6702b84b9e174aaebdb7799e92668a04ff4705a40a8748d10e7fd2804ae258cf"
+    },
+    {
+      "path": "standard.json",
+      "bytes": 3457,
+      "sha256": "97df8e0080c10eb8eaad7a0fea19c6a894bca45b22703a7a8972c54effba239c"
+    },
+    {
+      "path": "test_prototype.py",
+      "bytes": 10152,
+      "sha256": "f668d23aa5f9bed314b6ba6dc2fdb762b43dbdc583801a13f73e3600a741d3cb"
+    }
+  ],
+  "verification": {
+    "examples_replayed": 14,
+    "examples_exact_match": true,
+    "sensitivity_replayed": 10,
+    "sensitivity_exact_match": true,
+    "tests_passed": 19,
+    "ruff": "passed",
+    "independent_review": "BR-01 cleared; bounded correction verification"
+  },
+  "exclusions": [
+    "__pycache__",
+    "test caches",
+    "PACKAGE_MANIFEST.json self hash"
+  ],
+  "scope": "Synthetic normative reference workload; not biological sufficiency or actual-study admission"
+}

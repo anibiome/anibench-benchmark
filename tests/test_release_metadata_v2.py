@@ -11,10 +11,10 @@ PUBLIC_REPOSITORY_URL = "https://github.com/anibiome/anibench-benchmark"
 
 
 def test_current_release_metadata_versions_are_consistent() -> None:
-    report = verify_release_metadata(ROOT, tag="v2.0.0-rc.4")
+    report = verify_release_metadata(ROOT, tag="v2.0.0-rc.5")
     assert report["passed"] is True, json.dumps(report, indent=2)
-    assert set(report["normalized_versions"].values()) == {"2.0.0rc4"}
-    assert report["versions"]["src/anibench/__init__.py"] == "2.0.0rc4"
+    assert set(report["normalized_versions"].values()) == {"2.0.0rc5"}
+    assert report["versions"]["src/anibench/__init__.py"] == "2.0.0rc5"
     assert report["repository_urls"] == {
         "pyproject.toml:Repository": PUBLIC_REPOSITORY_URL,
         "pyproject.toml:Documentation": f"{PUBLIC_REPOSITORY_URL}#readme",
@@ -32,7 +32,7 @@ def test_release_metadata_rejects_wrong_tag() -> None:
 
 
 def test_equivalent_version_spelling_cannot_select_stable_publication_lane() -> None:
-    report = verify_release_metadata(ROOT, tag="v2.0.0rc4")
+    report = verify_release_metadata(ROOT, tag="v2.0.0rc5")
     assert report["passed"] is False
     assert "noncanonical_release_tag" in report["findings"]
 
@@ -46,8 +46,8 @@ def test_stale_lock_version_is_rejected(tmp_path: Path) -> None:
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT / name, target)
     lock = tmp_path / "uv.lock"
-    lock.write_text(lock.read_text().replace('version = "2.0.0rc4"', 'version = "2.0.0rc3"', 1))
-    report = verify_release_metadata(tmp_path, tag="v2.0.0-rc.4")
+    lock.write_text(lock.read_text().replace('version = "2.0.0rc5"', 'version = "2.0.0rc3"', 1))
+    report = verify_release_metadata(tmp_path, tag="v2.0.0-rc.5")
     assert report["passed"] is False
     assert "metadata_version_mismatch" in report["findings"]
 

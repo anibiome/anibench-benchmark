@@ -4,7 +4,7 @@
   "name": "AniBench: an open benchmark for biological learning capacity in human studies",
   "description": "An auditable benchmark of what human trials can teach future superintelligence about biological state, change, intervention response, and person-to-person variation.",
   "codeRepository": "https://github.com/anibiome/anibench-benchmark",
-  "version": "2.0.0-rc.4",
+  "version": "2.0.0-rc.5",
   "license": "https://spdx.org/licenses/Apache-2.0",
   "programmingLanguage": "Python",
   "author": [

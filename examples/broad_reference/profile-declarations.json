@@ -1,0 +1,1094 @@
+[
+  {
+    "profile_sha256": "sha256:6f4f5aa03b1b8c9eb5da89e5d8c53ac7c430cb8e13024772a24418179f5601ba",
+    "profile_id": "AB1.broad-reference.candidate.v1",
+    "profile_type": "custom",
+    "parent_sha256": null,
+    "precision_basis": "likelihood_only",
+    "scope": "Broad collection-layer coverage and finite reference learnability; not saturation of all human biology",
+    "scenario_ids": [
+      "declared-reference-model"
+    ],
+    "targets": [
+      {
+        "canonical_id": "genomic.base.state",
+        "frame_sha256": "sha256:f5c35710de9c271f0f429e4571973377bd010a72c4b5fbd33a307e38ebfe36aa",
+        "task_sha256": "sha256:92626b20f39109adaa65cf3c300a85e58251fb4fd47104250cd1af02b96f3580",
+        "functional_count": 16,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "genomic.base.population",
+        "frame_sha256": "sha256:efb37477c906b390e6cee7402e1dacdd9b51e8e6182f3ddd5835373983a4e422",
+        "task_sha256": "sha256:29ad3e21e49c8a987d646b7b81e75c31ffb173e9d97fb5f9d6401b9cbe0e89eb",
+        "functional_count": 16,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "transcriptomic.base.state",
+        "frame_sha256": "sha256:6389faaf10dbcdfe75444d6810b59bb8c6b44b77c16d876c8cda46fa207b3a6b",
+        "task_sha256": "sha256:16497d112820349c2f958d412106fe9f99e3715d54f9f01ab44f6c20134021e9",
+        "functional_count": 16,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "transcriptomic.base.population",
+        "frame_sha256": "sha256:0eb4fddbc2acbfaffaf84a7c2bcda7c2822ecb3d55d21cbcce99afb694f7fba8",
+        "task_sha256": "sha256:5207f532740fecfb917de69060ad4d0655d7678f8711d72d1e4939273210c459",
+        "functional_count": 16,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "transcriptomic.base.time",
+        "frame_sha256": "sha256:b701240b00bb99b3362705ab5481f4308ad4f7e32577256cb8370e6716560b0d",
+        "task_sha256": "sha256:2be12d26332ab539194e6dba8eec8bf96aa1100128a9b90b9ae01292ef950cb8",
+        "functional_count": 16,
+        "variance_limits": [
+          0.5
+        ]
+      },
+      {
+        "canonical_id": "proteomic.base.state",
+        "frame_sha256": "sha256:62711d72b1b742a774a6063133e515695af7a9654b919c0e79b465d23b64d263",
+        "task_sha256": "sha256:8a19a66881993a8189daf484b6c5f7232cb601379ed234371fa8566260df48eb",
+        "functional_count": 16,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "proteomic.base.population",
+        "frame_sha256": "sha256:de3fac522452f1f1d00f677096f54808d4e3f2c4318ee4527faf9f96b1654ded",
+        "task_sha256": "sha256:884671ac5fe87b9e6f05c32ed89779e6d5537a39032fb785b7604c470e0d2f83",
+        "functional_count": 16,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "proteomic.base.time",
+        "frame_sha256": "sha256:3ca5a828568f9967e7c2d043d331b0daa8ac1494eb104d74cf048b2eebd1429c",
+        "task_sha256": "sha256:056bcf2ca200796742982a5e6ead904ff6afd0c281046601f0b79eb79a7f81c1",
+        "functional_count": 16,
+        "variance_limits": [
+          0.5
+        ]
+      },
+      {
+        "canonical_id": "metabolomic.base.state",
+        "frame_sha256": "sha256:e5fac26aca3ecb10285e088434900f5ec429a4bd93c194fccb6e10212b6d0e42",
+        "task_sha256": "sha256:d368b52a424d5abfda70d62b6bde33268ea3a7f43651f4fb6907c2cbf523f653",
+        "functional_count": 16,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "metabolomic.base.population",
+        "frame_sha256": "sha256:a0fd84b01d3bfa2bbc177b4b86a3d798f1ce5a0b90486060ff052087cdcd81a2",
+        "task_sha256": "sha256:a07dc31a05408d8653e91faef8f87e5460061b57bf04729c95bc646b2f72d3a7",
+        "functional_count": 16,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "metabolomic.base.time",
+        "frame_sha256": "sha256:b7fd0edfba7f03ee90334d43c1addca6fc5a97a7e55e5828c4f35a1b0c4ad4d7",
+        "task_sha256": "sha256:5fa05e3652919466bf845deb5f3fe2a0768dca8e55c5b1f9eb2faa4898faeaed",
+        "functional_count": 16,
+        "variance_limits": [
+          0.5
+        ]
+      },
+      {
+        "canonical_id": "functional.base.state",
+        "frame_sha256": "sha256:75d112e8ec35d05055a6d05b10acebeb4d0e7424a9ecb284187e23e56aa2d4dc",
+        "task_sha256": "sha256:2c1d665585664e6ba2b97e2dc85ab7a8b0a22df3bbb0e04eb5d844d572a74b4e",
+        "functional_count": 4,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "functional.base.population",
+        "frame_sha256": "sha256:dd34c85a725a687e1785c45aeb49f2c413a754eb5febc52d1bd56f710a9b3a8f",
+        "task_sha256": "sha256:af520bf6c648639a6eda18e5e989343412b0b87a643e898fafd3efd0d54ad489",
+        "functional_count": 4,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "functional.base.time",
+        "frame_sha256": "sha256:92ca82917d7b35abaa48c8fa9d77f54db79ead2dfb5491c93516149ff7ca07e4",
+        "task_sha256": "sha256:3b983aaf34a95e6b19bb0c4bb423b8bec95a8489de40f7872e2a7a70a2000bea",
+        "functional_count": 4,
+        "variance_limits": [
+          0.5
+        ]
+      },
+      {
+        "canonical_id": "digital.base.state",
+        "frame_sha256": "sha256:bae0130c837aae6b37e2eb3561171c103404d2a9d84e30c5dce031a19867a62d",
+        "task_sha256": "sha256:771fb46c032c8e0e706898d325da20cbea7975a8bb06d82fe5e3b3129a507557",
+        "functional_count": 4,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "digital.base.population",
+        "frame_sha256": "sha256:47c51c279a4f02c62a2c6ccbc2838bb09e6e63530f43cfeb5b973c714b26a07a",
+        "task_sha256": "sha256:140d543c24cfbc49b15d63a0289966f0ea6c60a23cda4859e3ed63dbb388c653",
+        "functional_count": 4,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "digital.base.time",
+        "frame_sha256": "sha256:148cd3d06cc3872ec08417eafcc34c03afde82bb6e291c0c4b47a2451cffe220",
+        "task_sha256": "sha256:3bb3008767b2db168e2fe6cbc8195a74dedfa6b074c116f93e28e91ab02f504b",
+        "functional_count": 4,
+        "variance_limits": [
+          0.5
+        ]
+      },
+      {
+        "canonical_id": "cognitive.base.state",
+        "frame_sha256": "sha256:496ceef0beb73cd60dfcf6e07365580fa5e7445b5c6cd418a51de1972b925cd4",
+        "task_sha256": "sha256:b81e2b1ded3ba066aa4645efffd3ba0f541b1feff6e00230dc98be649dd30b9d",
+        "functional_count": 4,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "cognitive.base.population",
+        "frame_sha256": "sha256:d11dd4ec2621c5e6453290a2dcaddb390ff12c2b3adf82e76e4c56e1b92df507",
+        "task_sha256": "sha256:c0d60030fd0bb91d4608c3b8af541d4c32fdf7c0611f4c47b31d9b6ccb72fc45",
+        "functional_count": 4,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "cognitive.base.time",
+        "frame_sha256": "sha256:402acc03831dab5041953880458bc54fc11de1952e3e0399578ee79cf48459af",
+        "task_sha256": "sha256:1796e0a4b76b00b35ff4691bd7c14748795d01f2ecbdf32db8a39961afc97654",
+        "functional_count": 4,
+        "variance_limits": [
+          0.5
+        ]
+      },
+      {
+        "canonical_id": "neural.base.state",
+        "frame_sha256": "sha256:b221502e5742dce8331522aeb2697f74f4700f42a625f4e53cab25f23da3be2c",
+        "task_sha256": "sha256:4ca80bf075dc7fc8b51bb157a44e81e62891952476df023f0ca6617ffc571e7b",
+        "functional_count": 4,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "neural.base.population",
+        "frame_sha256": "sha256:36ac4f2051a499013b51dc8bc6af35cd5512f0e101822f78297b528b099964f6",
+        "task_sha256": "sha256:b3251b49e2123af798a83e033335cfecbe99a60ad916c64118c0f22c1126fb06",
+        "functional_count": 4,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "neural.base.time",
+        "frame_sha256": "sha256:34af884cf41b41c53e96369c9a99c097dc1ba5bd21b2374b1814fda1bca9a598",
+        "task_sha256": "sha256:b42cd08b1c39979eff363c7ffe04e1170a9ae539735b1a3a733f0453a8cede29",
+        "functional_count": 4,
+        "variance_limits": [
+          0.5
+        ]
+      },
+      {
+        "canonical_id": "randomized-input-contrast",
+        "frame_sha256": "sha256:69ac7fe1ad91de3e36751fc48310bbed7f0c5d8f7ab57536ca9efb298b2fb3d7",
+        "task_sha256": "sha256:9c72dca220177885f1ab53def4c79af1cf85df5c7b94a58bf70dbce57b946784",
+        "functional_count": 1,
+        "variance_limits": [
+          0.04
+        ]
+      },
+      {
+        "canonical_id": "population-crossmodal-link",
+        "frame_sha256": "sha256:6450920277d3462636cb757068e21ce218952401bc0c919fdeef5067a6f75f42",
+        "task_sha256": "sha256:25c80013d1218ae69731202b212e4e5406ab4f3189e560b3e9938f512d3bf61a",
+        "functional_count": 1,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "molecular-functional-complementarity",
+        "frame_sha256": "sha256:2f2cda96ef5ac826b2dbdf08419e52280101a9f043ade2267cd1862a5976acce",
+        "task_sha256": "sha256:fa16b008967dc36a92ff2cf88c427fcc58434441c6b346ef7c5db7e037bbdf2f",
+        "functional_count": 2,
+        "variance_limits": [
+          0.25
+        ]
+      }
+    ]
+  },
+  {
+    "profile_sha256": "sha256:35701f676d5f6b2ff2c9d125a3a1d9ab4286a21df77a9f1ab8447d5d2aac4551",
+    "profile_id": "AB2.broad-reference.candidate.v1",
+    "profile_type": "custom",
+    "parent_sha256": "sha256:6f4f5aa03b1b8c9eb5da89e5d8c53ac7c430cb8e13024772a24418179f5601ba",
+    "precision_basis": "likelihood_only",
+    "scope": "Broad collection-layer coverage and finite reference learnability; not saturation of all human biology",
+    "scenario_ids": [
+      "declared-reference-model"
+    ],
+    "targets": [
+      {
+        "canonical_id": "genomic.base.state",
+        "frame_sha256": "sha256:f5c35710de9c271f0f429e4571973377bd010a72c4b5fbd33a307e38ebfe36aa",
+        "task_sha256": "sha256:2a3866bcdf5c02d453ea6ab953922503cc5cc8be9a03635e372731590705b99c",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "genomic.base.population",
+        "frame_sha256": "sha256:efb37477c906b390e6cee7402e1dacdd9b51e8e6182f3ddd5835373983a4e422",
+        "task_sha256": "sha256:466c8aa7d858c59b2ef8215a3cbb1b9fd362aa79d1d599864ac138a088d2b520",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "transcriptomic.base.state",
+        "frame_sha256": "sha256:6389faaf10dbcdfe75444d6810b59bb8c6b44b77c16d876c8cda46fa207b3a6b",
+        "task_sha256": "sha256:40a6ee5a37de862c4e72d9ce955964c2a25bd6fc5ec62b1eb039e355268dc138",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "transcriptomic.base.population",
+        "frame_sha256": "sha256:0eb4fddbc2acbfaffaf84a7c2bcda7c2822ecb3d55d21cbcce99afb694f7fba8",
+        "task_sha256": "sha256:d529fbc6db3186c7086c2bb4700bae330d5ede3ba0aaff1702a0bc60228e1139",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "transcriptomic.base.time",
+        "frame_sha256": "sha256:b701240b00bb99b3362705ab5481f4308ad4f7e32577256cb8370e6716560b0d",
+        "task_sha256": "sha256:0e9d1bfbee45ae187e3b00fd3e93efad8428bb9ec56f9d3281e9685007ebb635",
+        "functional_count": 16,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "proteomic.base.state",
+        "frame_sha256": "sha256:62711d72b1b742a774a6063133e515695af7a9654b919c0e79b465d23b64d263",
+        "task_sha256": "sha256:cd83889a1ab0e1ff34b92a4e0651a95cef0a3eaadb2a666e02e256e9aaa9a3cf",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "proteomic.base.population",
+        "frame_sha256": "sha256:de3fac522452f1f1d00f677096f54808d4e3f2c4318ee4527faf9f96b1654ded",
+        "task_sha256": "sha256:2f5bfa62b823bdb9d2d3e53e114bd55c28b398fa959ca63753cb4bab66bd7274",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "proteomic.base.time",
+        "frame_sha256": "sha256:3ca5a828568f9967e7c2d043d331b0daa8ac1494eb104d74cf048b2eebd1429c",
+        "task_sha256": "sha256:35e1d15eb11c95ae01d41f29d1b6d5966f6327072b371226ef2f150fb1caa319",
+        "functional_count": 16,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "metabolomic.base.state",
+        "frame_sha256": "sha256:e5fac26aca3ecb10285e088434900f5ec429a4bd93c194fccb6e10212b6d0e42",
+        "task_sha256": "sha256:78d999d9b05bb51077abedf7fdb66b37902fe55b8f9b51c5e35fddf30cb76fb1",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "metabolomic.base.population",
+        "frame_sha256": "sha256:a0fd84b01d3bfa2bbc177b4b86a3d798f1ce5a0b90486060ff052087cdcd81a2",
+        "task_sha256": "sha256:89fe61f5beeb30797fbe8f3883c93a5c1f2be4979cd21de2f92cbddd89b52c07",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "metabolomic.base.time",
+        "frame_sha256": "sha256:b7fd0edfba7f03ee90334d43c1addca6fc5a97a7e55e5828c4f35a1b0c4ad4d7",
+        "task_sha256": "sha256:188a95100c86530200bfd2064c9547cdb4ac54f8afe1c9140003421e97add016",
+        "functional_count": 16,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "functional.base.state",
+        "frame_sha256": "sha256:75d112e8ec35d05055a6d05b10acebeb4d0e7424a9ecb284187e23e56aa2d4dc",
+        "task_sha256": "sha256:6834d5250e35b0af0f9b1448fba59c230e78c8d379e9ce4b87e7b12f3a220bdb",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "functional.base.population",
+        "frame_sha256": "sha256:dd34c85a725a687e1785c45aeb49f2c413a754eb5febc52d1bd56f710a9b3a8f",
+        "task_sha256": "sha256:ad1ad7f036ab2db7faa981f94a1903ea61f242f41d18eb0954a9434faef2e531",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "functional.base.time",
+        "frame_sha256": "sha256:92ca82917d7b35abaa48c8fa9d77f54db79ead2dfb5491c93516149ff7ca07e4",
+        "task_sha256": "sha256:978493eede41d6b4841e8edd70032a71c4f2917d7a2f6b7c135d05aec02ae846",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "digital.base.state",
+        "frame_sha256": "sha256:bae0130c837aae6b37e2eb3561171c103404d2a9d84e30c5dce031a19867a62d",
+        "task_sha256": "sha256:a167a922537c28c8bd83270519ce997c822931bbe6d24aacc6a8b4482a31b188",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "digital.base.population",
+        "frame_sha256": "sha256:47c51c279a4f02c62a2c6ccbc2838bb09e6e63530f43cfeb5b973c714b26a07a",
+        "task_sha256": "sha256:9edf3a20ba7408767429687f6f4e5e209acc65bb60dac3c0ba47a5cdd9117193",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "digital.base.time",
+        "frame_sha256": "sha256:148cd3d06cc3872ec08417eafcc34c03afde82bb6e291c0c4b47a2451cffe220",
+        "task_sha256": "sha256:79d758a66bd92a5a742c5bde69372c59b63987c5bbfbc85550b620ccf2d3b90d",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "cognitive.base.state",
+        "frame_sha256": "sha256:496ceef0beb73cd60dfcf6e07365580fa5e7445b5c6cd418a51de1972b925cd4",
+        "task_sha256": "sha256:515b710842d76ada28c676e6596fb2a17d804550e051f1f009316974ccd57f93",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "cognitive.base.population",
+        "frame_sha256": "sha256:d11dd4ec2621c5e6453290a2dcaddb390ff12c2b3adf82e76e4c56e1b92df507",
+        "task_sha256": "sha256:498cd90af0d53383d50c83f75b07b552a3756950a0300c41e09c807d2a0afc04",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "cognitive.base.time",
+        "frame_sha256": "sha256:402acc03831dab5041953880458bc54fc11de1952e3e0399578ee79cf48459af",
+        "task_sha256": "sha256:cd95081b14a9c98c03049b66a292532d5dafc192721a65d5c386e4e0a275facf",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "neural.base.state",
+        "frame_sha256": "sha256:b221502e5742dce8331522aeb2697f74f4700f42a625f4e53cab25f23da3be2c",
+        "task_sha256": "sha256:9c50911a847dea8db60701aa35922dc3376ef230a9243c2d3cdcedf014e9fc7c",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "neural.base.population",
+        "frame_sha256": "sha256:36ac4f2051a499013b51dc8bc6af35cd5512f0e101822f78297b528b099964f6",
+        "task_sha256": "sha256:612994929095ada2111157ad42682b8dea6a58da83a489a3483cdf1cbe71825e",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "neural.base.time",
+        "frame_sha256": "sha256:34af884cf41b41c53e96369c9a99c097dc1ba5bd21b2374b1814fda1bca9a598",
+        "task_sha256": "sha256:09f71f1ecd87f758f8b0993d0e9b2fb04bc924221044a2d69fa79d5b6a0915b6",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "randomized-input-contrast",
+        "frame_sha256": "sha256:69ac7fe1ad91de3e36751fc48310bbed7f0c5d8f7ab57536ca9efb298b2fb3d7",
+        "task_sha256": "sha256:ae1a8173b9ab4f1abfabd32db1c44108cc0563f3844bf2c227d699921598cf73",
+        "functional_count": 1,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "population-crossmodal-link",
+        "frame_sha256": "sha256:6450920277d3462636cb757068e21ce218952401bc0c919fdeef5067a6f75f42",
+        "task_sha256": "sha256:c944abd88fb8866df601fac1073accfca60dc3436df11c5b4042c9b36af985ec",
+        "functional_count": 1,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "molecular-functional-complementarity",
+        "frame_sha256": "sha256:2f2cda96ef5ac826b2dbdf08419e52280101a9f043ade2267cd1862a5976acce",
+        "task_sha256": "sha256:f4c30ed08acde0f1aa338a5ca9def2cd99b1638c49dbf4b6f460e6c67a4bb596",
+        "functional_count": 2,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "genomic.extension.state",
+        "frame_sha256": "sha256:b359c32b6194c8421d1cab7be0d87f392c754de9bac5e81d4625caf7f7eb33b4",
+        "task_sha256": "sha256:a611ae859bbc2e63256e57a5dce84784078cee7cc158eb0791df9993d3e95496",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "genomic.extension.population",
+        "frame_sha256": "sha256:3e6b15cb132e3c2562672a831b5354e729a9aab730e94887a35d1bc19264e32c",
+        "task_sha256": "sha256:f90289f69bc138e80b2b899a3d160fe1f46c025f8c0da3bf2267155dace9afda",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "transcriptomic.extension.state",
+        "frame_sha256": "sha256:ab9bb2692c3183900ef42fc5ea28c9ae58831d763f12f14b671245186baa715f",
+        "task_sha256": "sha256:3736b74be78c89c0b9cf7d2aab7f068b40ead4a5ba903f78f95f6fdcfa327ff9",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "transcriptomic.extension.population",
+        "frame_sha256": "sha256:cd20868235928b4c0804b25cb41cb93f3e7efcefb48ab6f3db635924349e30d3",
+        "task_sha256": "sha256:cf50255503702f60825ba5fd35c41538c6527e8d427632a9ef815292c0b0f5a2",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "transcriptomic.extension.time",
+        "frame_sha256": "sha256:d98dd9bf3f273d6d889cf305fc95b3e98154cc4540216356a6669b535cdfac79",
+        "task_sha256": "sha256:d4730e34f3dd72e102d21d7d9a7d16085e3fbc7911859e221dc791cc7aeead5c",
+        "functional_count": 16,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "transcriptomic.base.annual",
+        "frame_sha256": "sha256:5bfe5b284ad521dd3e78c5b0aaa1ff16cf73327caa08dbc9e53d97b6ea322543",
+        "task_sha256": "sha256:77eedb25e5ad9dd7815a951c6ab1f98fdf7807b4cb2c369ba13bd2d368c859e4",
+        "functional_count": 16,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "transcriptomic.extension.annual",
+        "frame_sha256": "sha256:c96c3f8e2034cc69aa3656f5638f8881be30a48616678d1e8bea3fdaaa2d115a",
+        "task_sha256": "sha256:f4e5421062e6797443544527c576ca473b8ec81779f198c2b4de81e06d19575d",
+        "functional_count": 16,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "proteomic.extension.state",
+        "frame_sha256": "sha256:aa86d8f5a11ba0fccbb010310e24c662d2473a8e6d4a57a5761cfe0a0e81cd35",
+        "task_sha256": "sha256:a53d75f69e01ae648c64274438d347164138e9ad87769cd697857a7c9911d4ae",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "proteomic.extension.population",
+        "frame_sha256": "sha256:8cd987d83362912e67170fdb90a6a5aa6fc45f35c70840bfea47f3aa01061aa7",
+        "task_sha256": "sha256:44675ceb7da11d43a5b98fc489653a55a4a809688ef22ddf0efbaf11f55660d1",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "proteomic.extension.time",
+        "frame_sha256": "sha256:2e5e63ce3e1bac69642b42e3373dd5bd000745599e8241920f2e03e3b1a69d57",
+        "task_sha256": "sha256:05a449e7fb510f92ab95b42f3c13c6d696da70a181913f36f357abb774622215",
+        "functional_count": 16,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "proteomic.base.annual",
+        "frame_sha256": "sha256:c960c89a0fef075b667ed09ce59822606174bd8a8e571d1aeb357eaebabd05b6",
+        "task_sha256": "sha256:dd4158750ed7c7a433953f9690e2db8bb8bf1d5d5e8a6d1261d259032ba217f5",
+        "functional_count": 16,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "proteomic.extension.annual",
+        "frame_sha256": "sha256:b5103e06b7713716efa0d4bae2fbc38b642baacc2f3321ed0246fa2b7e57cf50",
+        "task_sha256": "sha256:7795e82e4a4ac1f6947912b27ef081ac2d48aa52b4a45925e5b7649ef7056276",
+        "functional_count": 16,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "metabolomic.extension.state",
+        "frame_sha256": "sha256:ab71f43b559bd13e0251b87a69e0996e204615bc01011eb353f1914d2408a8d7",
+        "task_sha256": "sha256:e3246fd06da6a1357989c41bdd40589a8e0991d3975a32a170c201943fde93df",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "metabolomic.extension.population",
+        "frame_sha256": "sha256:809cf5d654b76a0e247124a55f71e2fefd1a139acad5f82390a878859d32b362",
+        "task_sha256": "sha256:1ec4e29974d2b8e570691c135a0f15748960c57e24d90b302af6f6aae1a408e8",
+        "functional_count": 16,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "metabolomic.extension.time",
+        "frame_sha256": "sha256:e29f68d51226e4d5544ebaf1f0e59e9d227472118e232035be2494f5b7ac22b9",
+        "task_sha256": "sha256:79075d8982722373583faa14a8ecfe6a22d7f571d261478f93cffd301842f954",
+        "functional_count": 16,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "metabolomic.base.annual",
+        "frame_sha256": "sha256:bfaf59fd15959e7b3b9ba4fc6567f2ced3af9be9a0bfe6063236d6856545bcc0",
+        "task_sha256": "sha256:56007f67e366212d2f0490d0a30fcfe59065161539e193edf6ced85a47fd9fa3",
+        "functional_count": 16,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "metabolomic.extension.annual",
+        "frame_sha256": "sha256:a9511db4d3958d572e06e2248af04e46b0f123a98a69bbf327b1366f678ba94c",
+        "task_sha256": "sha256:095ab2d0aa8d3409a6b9113781dec23f66a0e3864ab8aec9527d0d8e0dfd3b14",
+        "functional_count": 16,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "functional.extension.state",
+        "frame_sha256": "sha256:e509dfa49b0f7d3e97a696b470682c30439601007df503707f6170218922d299",
+        "task_sha256": "sha256:a27892692ef559cd5a8c6bde3f476c8cf73b57da6d57a6be73fb30ff1df9f639",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "functional.extension.population",
+        "frame_sha256": "sha256:757de2fd73ba949b5a92f4af2cffeeb08549efd6cc15065ca5bda392760b6e1e",
+        "task_sha256": "sha256:b3405bb5635767259fd24853ad5668f07c4224834e0df3cc5b8eee95a6e3a026",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "functional.extension.time",
+        "frame_sha256": "sha256:b69303fdb16bf809598a9de75c20785656c000fdbcbec7434e5222d7aed8e8fa",
+        "task_sha256": "sha256:1a249e1920a33ad891beef54751a23b9f09f3678e14711a550c733c718ff0f5c",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "functional.base.annual",
+        "frame_sha256": "sha256:b58274afeae794f36fab406ba9347f89a8003a919077dbe0ba437ad58e85ca0f",
+        "task_sha256": "sha256:4ba933b9e468c2fb3cb7a71eacc4c5b9ffac2f438f74d6ca89c76fd5876cf688",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "functional.extension.annual",
+        "frame_sha256": "sha256:c33cdb07b25d5113f42ac4552604d380102ec438a5942a34ef9df9baebe3f2d6",
+        "task_sha256": "sha256:4ada39ba05d0dca1fd9c58d61a2e88e02b29dc0a6585577b01687e413646a311",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "digital.extension.state",
+        "frame_sha256": "sha256:e312e4a91da3200db646796bdfa5c0067ef3293c773f793579a46b577f79f245",
+        "task_sha256": "sha256:ce2dd799dfe2f595960a6971652f53e6e619b9cdb7b425d1a842aa19b8bfdf7b",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "digital.extension.population",
+        "frame_sha256": "sha256:2943727e272c9f3afa03d96413826741ff6c27a0ed35782065388b5f4fb1b7d4",
+        "task_sha256": "sha256:9a68fd7544dd4c6309e30806345100a4e4654caf960c95dae16ab14f005a3bf9",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "digital.extension.time",
+        "frame_sha256": "sha256:ba21a3f997876c1efe57458408f3881a18cfb978bd2c7622ccf69a956d4dee9d",
+        "task_sha256": "sha256:025aad1893afee068ebd2b02b31006fb24c50abf03159f3657a687b074c050fe",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "digital.base.annual",
+        "frame_sha256": "sha256:021c619125e23d3a366292c4a93ca031aab178767f416b75e25778d880081c3e",
+        "task_sha256": "sha256:81c5dc38ff942109c4a22fda911ba2886b1a84a71152369401f8240dd374586f",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "digital.extension.annual",
+        "frame_sha256": "sha256:c2927921d452ea9790b2e55c48eb0184b1a3064e2b923acc176fd2079a5fdf3f",
+        "task_sha256": "sha256:ffedab390a933e437c0bbbf25e76bad079c7185a0f54654c6fe8940700bcb977",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "cognitive.extension.state",
+        "frame_sha256": "sha256:6562c572330ce024b714ffcf4590fab3a815f88cbf63398e646e2d1061619279",
+        "task_sha256": "sha256:518d8d4ef28dfe0b2a86db08c380d07b6a7cafe3eeb4bd0b438cc7301fc8a411",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "cognitive.extension.population",
+        "frame_sha256": "sha256:12d3e4e408e72924abdd38793eca585da1efb10e20ed82cab5cb0b62dc19c038",
+        "task_sha256": "sha256:70a74057d4143076523a79f42731197762199aa7f37f172529b39818717849a1",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "cognitive.extension.time",
+        "frame_sha256": "sha256:65d875318c2c0db0245eaa33eee341d7b74c817cc04f13a9ffa1954a9470d762",
+        "task_sha256": "sha256:94d7ffc0993af57285f7bf1092382c04613e8cc7410d9570e1a326f91b9bd3ab",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "cognitive.base.annual",
+        "frame_sha256": "sha256:d9c6fec427e2e545c7c1c3a0f2ca375d7093b63b325d18f9210e650d9375b2f7",
+        "task_sha256": "sha256:9ce0eede6e5dccb30e205d76bec9d6b6484e7a2f3c8109fbbfd0cacd4837d153",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "cognitive.extension.annual",
+        "frame_sha256": "sha256:9dbff1cd0f585b1fa891cf139ea6811fe490e1a164c49ba7b711c160fc527d25",
+        "task_sha256": "sha256:1c31d4f1b1225b360130602ffa281eb716999008776149b78ece7e421506fc4d",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "neural.extension.state",
+        "frame_sha256": "sha256:de5f58dd2d836d8c47c225d0f64594aad2d3180148085123492c07421561a271",
+        "task_sha256": "sha256:8a8a0a287c22aeb2473c576723f68e45a6279c2a6d1ac85d187035f333f41745",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0625
+        ]
+      },
+      {
+        "canonical_id": "neural.extension.population",
+        "frame_sha256": "sha256:6e1d67a792c7a1eca8f26e82218948105973c35bb985bd8bcaf97b7e1e559668",
+        "task_sha256": "sha256:f4a6d1b00f7ed190448655310eb5387c8a509733d436435e2b022fc99cff3f70",
+        "functional_count": 4,
+        "variance_limits": [
+          0.0025
+        ]
+      },
+      {
+        "canonical_id": "neural.extension.time",
+        "frame_sha256": "sha256:8ae668a981c830b67dbfc0cd5c08d1761f7c8f06c50cd383b8fc17de2b6388d7",
+        "task_sha256": "sha256:906394091f926d5a83f7225fc364556b2d33edc535ad5f5a878612be6a493883",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "neural.base.annual",
+        "frame_sha256": "sha256:59e6c4d27348a2c4c723bb814eea4d425edbec7b3840ddc0b4a96f89ef441b11",
+        "task_sha256": "sha256:b0be6f305c5d68d35ddac7ec63c9c7269e5e2688a45c515d64c832512cb3d933",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "neural.extension.annual",
+        "frame_sha256": "sha256:0cec4e500bb8a26584207b04c87e146077f6e38d49cc297837e922e0b8b9c252",
+        "task_sha256": "sha256:c268fac76ec410e8bf414396476a6ac27135590a065fb0bfd47049af5ddf8742",
+        "functional_count": 4,
+        "variance_limits": [
+          0.125
+        ]
+      },
+      {
+        "canonical_id": "randomized-input-interaction",
+        "frame_sha256": "sha256:b95b74d0f45face8a555bc48f6881f681ec084f3b7a66a2abc123f0bb7a939d6",
+        "task_sha256": "sha256:d2a66824c8269c7433a8ca4b4939a74541c41ca4abc5e71edbfa7f7ec3e88321",
+        "functional_count": 1,
+        "variance_limits": [
+          0.01
+        ]
+      }
+    ]
+  },
+  {
+    "profile_sha256": "sha256:e6f54ff1cdcf2d5ac9ed68539dfc27abe8649ba78249df86bf5541db6e943e65",
+    "profile_id": "AB1-neural.broad-reference.candidate.v1",
+    "profile_type": "custom",
+    "parent_sha256": "sha256:6f4f5aa03b1b8c9eb5da89e5d8c53ac7c430cb8e13024772a24418179f5601ba",
+    "precision_basis": "likelihood_only",
+    "scope": "Broad collection-layer coverage and finite reference learnability; not saturation of all human biology",
+    "scenario_ids": [
+      "declared-reference-model"
+    ],
+    "targets": [
+      {
+        "canonical_id": "genomic.base.state",
+        "frame_sha256": "sha256:f5c35710de9c271f0f429e4571973377bd010a72c4b5fbd33a307e38ebfe36aa",
+        "task_sha256": "sha256:92626b20f39109adaa65cf3c300a85e58251fb4fd47104250cd1af02b96f3580",
+        "functional_count": 16,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "genomic.base.population",
+        "frame_sha256": "sha256:efb37477c906b390e6cee7402e1dacdd9b51e8e6182f3ddd5835373983a4e422",
+        "task_sha256": "sha256:29ad3e21e49c8a987d646b7b81e75c31ffb173e9d97fb5f9d6401b9cbe0e89eb",
+        "functional_count": 16,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "transcriptomic.base.state",
+        "frame_sha256": "sha256:6389faaf10dbcdfe75444d6810b59bb8c6b44b77c16d876c8cda46fa207b3a6b",
+        "task_sha256": "sha256:16497d112820349c2f958d412106fe9f99e3715d54f9f01ab44f6c20134021e9",
+        "functional_count": 16,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "transcriptomic.base.population",
+        "frame_sha256": "sha256:0eb4fddbc2acbfaffaf84a7c2bcda7c2822ecb3d55d21cbcce99afb694f7fba8",
+        "task_sha256": "sha256:5207f532740fecfb917de69060ad4d0655d7678f8711d72d1e4939273210c459",
+        "functional_count": 16,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "transcriptomic.base.time",
+        "frame_sha256": "sha256:b701240b00bb99b3362705ab5481f4308ad4f7e32577256cb8370e6716560b0d",
+        "task_sha256": "sha256:2be12d26332ab539194e6dba8eec8bf96aa1100128a9b90b9ae01292ef950cb8",
+        "functional_count": 16,
+        "variance_limits": [
+          0.5
+        ]
+      },
+      {
+        "canonical_id": "proteomic.base.state",
+        "frame_sha256": "sha256:62711d72b1b742a774a6063133e515695af7a9654b919c0e79b465d23b64d263",
+        "task_sha256": "sha256:8a19a66881993a8189daf484b6c5f7232cb601379ed234371fa8566260df48eb",
+        "functional_count": 16,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "proteomic.base.population",
+        "frame_sha256": "sha256:de3fac522452f1f1d00f677096f54808d4e3f2c4318ee4527faf9f96b1654ded",
+        "task_sha256": "sha256:884671ac5fe87b9e6f05c32ed89779e6d5537a39032fb785b7604c470e0d2f83",
+        "functional_count": 16,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "proteomic.base.time",
+        "frame_sha256": "sha256:3ca5a828568f9967e7c2d043d331b0daa8ac1494eb104d74cf048b2eebd1429c",
+        "task_sha256": "sha256:056bcf2ca200796742982a5e6ead904ff6afd0c281046601f0b79eb79a7f81c1",
+        "functional_count": 16,
+        "variance_limits": [
+          0.5
+        ]
+      },
+      {
+        "canonical_id": "metabolomic.base.state",
+        "frame_sha256": "sha256:e5fac26aca3ecb10285e088434900f5ec429a4bd93c194fccb6e10212b6d0e42",
+        "task_sha256": "sha256:d368b52a424d5abfda70d62b6bde33268ea3a7f43651f4fb6907c2cbf523f653",
+        "functional_count": 16,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "metabolomic.base.population",
+        "frame_sha256": "sha256:a0fd84b01d3bfa2bbc177b4b86a3d798f1ce5a0b90486060ff052087cdcd81a2",
+        "task_sha256": "sha256:a07dc31a05408d8653e91faef8f87e5460061b57bf04729c95bc646b2f72d3a7",
+        "functional_count": 16,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "metabolomic.base.time",
+        "frame_sha256": "sha256:b7fd0edfba7f03ee90334d43c1addca6fc5a97a7e55e5828c4f35a1b0c4ad4d7",
+        "task_sha256": "sha256:5fa05e3652919466bf845deb5f3fe2a0768dca8e55c5b1f9eb2faa4898faeaed",
+        "functional_count": 16,
+        "variance_limits": [
+          0.5
+        ]
+      },
+      {
+        "canonical_id": "functional.base.state",
+        "frame_sha256": "sha256:75d112e8ec35d05055a6d05b10acebeb4d0e7424a9ecb284187e23e56aa2d4dc",
+        "task_sha256": "sha256:2c1d665585664e6ba2b97e2dc85ab7a8b0a22df3bbb0e04eb5d844d572a74b4e",
+        "functional_count": 4,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "functional.base.population",
+        "frame_sha256": "sha256:dd34c85a725a687e1785c45aeb49f2c413a754eb5febc52d1bd56f710a9b3a8f",
+        "task_sha256": "sha256:af520bf6c648639a6eda18e5e989343412b0b87a643e898fafd3efd0d54ad489",
+        "functional_count": 4,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "functional.base.time",
+        "frame_sha256": "sha256:92ca82917d7b35abaa48c8fa9d77f54db79ead2dfb5491c93516149ff7ca07e4",
+        "task_sha256": "sha256:3b983aaf34a95e6b19bb0c4bb423b8bec95a8489de40f7872e2a7a70a2000bea",
+        "functional_count": 4,
+        "variance_limits": [
+          0.5
+        ]
+      },
+      {
+        "canonical_id": "digital.base.state",
+        "frame_sha256": "sha256:bae0130c837aae6b37e2eb3561171c103404d2a9d84e30c5dce031a19867a62d",
+        "task_sha256": "sha256:771fb46c032c8e0e706898d325da20cbea7975a8bb06d82fe5e3b3129a507557",
+        "functional_count": 4,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "digital.base.population",
+        "frame_sha256": "sha256:47c51c279a4f02c62a2c6ccbc2838bb09e6e63530f43cfeb5b973c714b26a07a",
+        "task_sha256": "sha256:140d543c24cfbc49b15d63a0289966f0ea6c60a23cda4859e3ed63dbb388c653",
+        "functional_count": 4,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "digital.base.time",
+        "frame_sha256": "sha256:148cd3d06cc3872ec08417eafcc34c03afde82bb6e291c0c4b47a2451cffe220",
+        "task_sha256": "sha256:3bb3008767b2db168e2fe6cbc8195a74dedfa6b074c116f93e28e91ab02f504b",
+        "functional_count": 4,
+        "variance_limits": [
+          0.5
+        ]
+      },
+      {
+        "canonical_id": "cognitive.base.state",
+        "frame_sha256": "sha256:496ceef0beb73cd60dfcf6e07365580fa5e7445b5c6cd418a51de1972b925cd4",
+        "task_sha256": "sha256:b81e2b1ded3ba066aa4645efffd3ba0f541b1feff6e00230dc98be649dd30b9d",
+        "functional_count": 4,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "cognitive.base.population",
+        "frame_sha256": "sha256:d11dd4ec2621c5e6453290a2dcaddb390ff12c2b3adf82e76e4c56e1b92df507",
+        "task_sha256": "sha256:c0d60030fd0bb91d4608c3b8af541d4c32fdf7c0611f4c47b31d9b6ccb72fc45",
+        "functional_count": 4,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "cognitive.base.time",
+        "frame_sha256": "sha256:402acc03831dab5041953880458bc54fc11de1952e3e0399578ee79cf48459af",
+        "task_sha256": "sha256:1796e0a4b76b00b35ff4691bd7c14748795d01f2ecbdf32db8a39961afc97654",
+        "functional_count": 4,
+        "variance_limits": [
+          0.5
+        ]
+      },
+      {
+        "canonical_id": "neural.base.state",
+        "frame_sha256": "sha256:b221502e5742dce8331522aeb2697f74f4700f42a625f4e53cab25f23da3be2c",
+        "task_sha256": "sha256:4ca80bf075dc7fc8b51bb157a44e81e62891952476df023f0ca6617ffc571e7b",
+        "functional_count": 4,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "neural.base.population",
+        "frame_sha256": "sha256:36ac4f2051a499013b51dc8bc6af35cd5512f0e101822f78297b528b099964f6",
+        "task_sha256": "sha256:b3251b49e2123af798a83e033335cfecbe99a60ad916c64118c0f22c1126fb06",
+        "functional_count": 4,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "neural.base.time",
+        "frame_sha256": "sha256:34af884cf41b41c53e96369c9a99c097dc1ba5bd21b2374b1814fda1bca9a598",
+        "task_sha256": "sha256:b42cd08b1c39979eff363c7ffe04e1170a9ae539735b1a3a733f0453a8cede29",
+        "functional_count": 4,
+        "variance_limits": [
+          0.5
+        ]
+      },
+      {
+        "canonical_id": "randomized-input-contrast",
+        "frame_sha256": "sha256:69ac7fe1ad91de3e36751fc48310bbed7f0c5d8f7ab57536ca9efb298b2fb3d7",
+        "task_sha256": "sha256:9c72dca220177885f1ab53def4c79af1cf85df5c7b94a58bf70dbce57b946784",
+        "functional_count": 1,
+        "variance_limits": [
+          0.04
+        ]
+      },
+      {
+        "canonical_id": "population-crossmodal-link",
+        "frame_sha256": "sha256:6450920277d3462636cb757068e21ce218952401bc0c919fdeef5067a6f75f42",
+        "task_sha256": "sha256:25c80013d1218ae69731202b212e4e5406ab4f3189e560b3e9938f512d3bf61a",
+        "functional_count": 1,
+        "variance_limits": [
+          0.01
+        ]
+      },
+      {
+        "canonical_id": "molecular-functional-complementarity",
+        "frame_sha256": "sha256:2f2cda96ef5ac826b2dbdf08419e52280101a9f043ade2267cd1862a5976acce",
+        "task_sha256": "sha256:fa16b008967dc36a92ff2cf88c427fcc58434441c6b346ef7c5db7e037bbdf2f",
+        "functional_count": 2,
+        "variance_limits": [
+          0.25
+        ]
+      },
+      {
+        "canonical_id": "controlled-cortical-response",
+        "frame_sha256": "sha256:a6b6e0a5f044cbadacbf97df91b635e12d25d087156089abbc2f4092f786966f",
+        "task_sha256": "sha256:8c5c3195cd9f90bedcd77e0555d0ad817041589379b0b15116618af1ff1189a1",
+        "functional_count": 1,
+        "variance_limits": [
+          0.04
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="468pt" height="410.4pt" viewBox="0 0 468 410.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title>04-timing</title>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>04-timing</dc:title>
+    <dc:description>{"evidence": {"numeric_facts": [{"entity": "observed_span_years", "fact_id": "snyder-ipop-ihmp-106:architecture:median_span", "label": "Median observed span", "panel": "timing", "precision": "reported_median", "scope": "Median observed span per participant across the iPOP cohort; not a uniform treatment duration.", "source": {"passage_sha256": "0799dee5020712208c13f94cc589ae62847af8413a57a6f6f870a20d8cadff9c", "source_id": "PMC6666404", "source_locator": "/0/documents/0/passages/11/text"}, "study_id": "snyder-ipop-ihmp-106", "unit": "years", "value": 1.6}, {"entity": "visits_per_person", "fact_id": "snyder-ipop-ihmp-106:architecture:median_visits", "label": "Median visits per person", "panel": "timing", "precision": "reported_median", "scope": "Median profiled visits per participant, including healthy and stress-event visits.", "source": {"passage_sha256": "0799dee5020712208c13f94cc589ae62847af8413a57a6f6f870a20d8cadff9c", "source_id": "PMC6666404", "source_locator": "/0/documents/0/passages/11/text"}, "study_id": "snyder-ipop-ihmp-106", "unit": "visits_per_participant", "value": 7}, {"entity": "sampling_interval_months", "fact_id": "snyder-ipop-ihmp-106:architecture:healthy_sampling_interval", "label": "Typical healthy-sampling interval", "panel": "timing", "precision": "typical_schedule", "scope": "Typical three-month healthy sampling schedule; actual individual visit gaps may differ.", "source": {"passage_sha256": "0799dee5020712208c13f94cc589ae62847af8413a57a6f6f870a20d8cadff9c", "source_id": "PMC6666404", "source_locator": "/0/documents/0/passages/11/text"}, "study_id": "snyder-ipop-ihmp-106", "unit": "months", "value": 3}, {"entity": "treatment_span_months", "fact_id": "circulate-tpe-ivig:architecture:short_regimen_duration", "label": "Short-regimen treatment span", "panel": "timing", "precision": "reported_schedule", "scope": "Three-month TPE regimen with two sessions during the first week of each monthly cycle.", "source": {"passage_sha256": "cf5b0c6e12d02d91a9f18eaadf1c24b7181b9ffe31491eeb899ebeeae405d167", "source_id": "PMC12341816", "source_locator": "/0/documents/0/passages/31/text"}, "study_id": "circulate-tpe-ivig", "unit": "months", "value": 3}, {"entity": "treatment_sessions", "fact_id": "circulate-tpe-ivig:architecture:monthly_treatments", "label": "Monthly-regimen sessions", "panel": "timing", "precision": "reported_schedule", "scope": "Six sessions in the monthly TPE regimen; treatment count differs from blood-sampling occasions.", "source": {"passage_sha256": "cf5b0c6e12d02d91a9f18eaadf1c24b7181b9ffe31491eeb899ebeeae405d167", "source_id": "PMC12341816", "source_locator": "/0/documents/0/passages/31/text"}, "study_id": "circulate-tpe-ivig", "unit": "treatment_sessions", "value": 6}, {"entity": "sensor_window_days", "fact_id": "uk-biobank:architecture:digital_accelerometry_days", "label": "Accelerometer wear window", "panel": "timing", "precision": "reported_schedule", "scope": "Seven-day wrist accelerometer wear window in a UK Biobank subset, not continuous years of sensing.", "source": {"passage_sha256": "c08e42af824ec0aaba1c0466130d730dc573157a68f303de9b51917bfabb808b", "source_id": "UKB_TYPES", "source_locator": "/article/body#normalized_char=5250:5356"}, "study_id": "uk-biobank", "unit": "days", "value": 7}]}, "height_inches": 5.7, "id": "04-timing", "input_sha256": {"architecture": "881916b01f134c061ffab62580f858fc45e0ea7c14da8a6c2f0b1f73f5ef1108", "profiles": "0ecb5abf8fb886b480ba5b0eb6149560b1ff90087e329cf1e5934185497744ea", "reference": "07c504463cc95d40738eed16547c523f3dfe7940fe7c2b9a8b1b9147018b4653"}, "minimum_body_label_pt": 9, "minimum_notes_pt": 8, "width_inches": 6.5}</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 410.4 
+L 468 410.4 
+L 468 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="line2d_1">
+   <path d="M 18.72 122.2992 
+L 449.28 122.2992 
+" style="fill: none; stroke: #dce4e7; stroke-width: 0.7; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_2">
+   <path d="M 18.72 157.1832 
+L 449.28 157.1832 
+" style="fill: none; stroke: #dce4e7; stroke-width: 0.7; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_3">
+   <path d="M 18.72 192.0672 
+L 449.28 192.0672 
+" style="fill: none; stroke: #dce4e7; stroke-width: 0.7; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_4">
+   <path d="M 18.72 226.9512 
+L 449.28 226.9512 
+" style="fill: none; stroke: #dce4e7; stroke-width: 0.7; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_5">
+   <path d="M 18.72 261.8352 
+L 449.28 261.8352 
+" style="fill: none; stroke: #dce4e7; stroke-width: 0.7; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_6">
+   <path d="M 18.72 296.7192 
+L 449.28 296.7192 
+" style="fill: none; stroke: #dce4e7; stroke-width: 0.7; stroke-linecap: square"/>
+  </g>
+  <g id="text_1">
+   <text style="font-weight: 700; font-size: 14px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="25.001813" transform="rotate(-0 18.72 25.001813)">Timing and repetition retain their meaning</text>
+  </g>
+  <g id="text_2">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #172c37" transform="translate(18.72 47.771437)">A median span, a sampling interval, treatments and sensor wear are different</text>
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #172c37" transform="translate(18.72 60.371438)">quantities.</text>
+  </g>
+  <g id="text_3">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="102.6" transform="rotate(-0 18.72 102.6)">iPOP / iHMP</text>
+  </g>
+  <g id="text_4">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="114.912" transform="rotate(-0 18.72 114.912)">Median observed span</text>
+  </g>
+  <g id="text_5">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="346.32" y="102.6" transform="rotate(-0 346.32 102.6)">1.6 years</text>
+  </g>
+  <g id="text_6">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="137.484" transform="rotate(-0 18.72 137.484)">iPOP / iHMP</text>
+  </g>
+  <g id="text_7">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="149.796" transform="rotate(-0 18.72 149.796)">Median visits per person</text>
+  </g>
+  <g id="text_8">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="346.32" y="137.484" transform="rotate(-0 346.32 137.484)">7 visits / person</text>
+  </g>
+  <g id="text_9">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="172.368" transform="rotate(-0 18.72 172.368)">iPOP / iHMP</text>
+  </g>
+  <g id="text_10">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="184.68" transform="rotate(-0 18.72 184.68)">Typical healthy interval</text>
+  </g>
+  <g id="text_11">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="346.32" y="172.368" transform="rotate(-0 346.32 172.368)">3 months</text>
+  </g>
+  <g id="text_12">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="207.252" transform="rotate(-0 18.72 207.252)">CIRCULATE TPE</text>
+  </g>
+  <g id="text_13">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="219.564" transform="rotate(-0 18.72 219.564)">Short-regimen treatment span</text>
+  </g>
+  <g id="text_14">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="346.32" y="207.252" transform="rotate(-0 346.32 207.252)">3 months</text>
+  </g>
+  <g id="text_15">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="242.136" transform="rotate(-0 18.72 242.136)">CIRCULATE TPE</text>
+  </g>
+  <g id="text_16">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="254.448" transform="rotate(-0 18.72 254.448)">Monthly-regimen sessions</text>
+  </g>
+  <g id="text_17">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="346.32" y="242.136" transform="rotate(-0 346.32 242.136)">6 treatments</text>
+  </g>
+  <g id="text_18">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="277.02" transform="rotate(-0 18.72 277.02)">UK Biobank</text>
+  </g>
+  <g id="text_19">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="18.72" y="289.332" transform="rotate(-0 18.72 289.332)">Accelerometer wear window</text>
+  </g>
+  <g id="text_20">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172c37" x="346.32" y="277.02" transform="rotate(-0 346.32 277.02)">7 days</text>
+  </g>
+  <g id="text_21">
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #172c37" transform="translate(18.72 348.4395)">Span and visit counts are medians; the healthy interval is a typical schedule. TPE rows describe</text>
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #172c37" transform="translate(18.72 359.6395)">distinct regimens. UK Biobank wear is a subset schedule. No individual follow-up duration or</text>
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #172c37" transform="translate(18.72 370.8395)">treatment exposure is imputed.</text>
+  </g>
+ </g>
+</svg>

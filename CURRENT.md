@@ -39,6 +39,15 @@ unknown approval is not absent approval. `docs/BENCHMARK_RELEASE_STANDARD.md`
 defines this evidence distinction. The detailed explorer and canonical evaluator
 remain available without changing their contracts.
 
+The executable [broad reference candidate](examples/broad_reference/README.md)
+now supplies a frozen, synthetic AniBench 1/2 workload and a stricter child
+profile, with explicit coordinates, conditional sample/depth boundaries and
+adversarial failures. Its thresholds are normative research conventions, not
+empirically calibrated biological sufficiency. The separate
+[240-study native architecture replay](examples/registry_architecture/README.md)
+compares literal enrollment and listed group quantities within lifecycle cohorts;
+it does not infer information geometry from registry metadata.
+
 September 19 research-candidate update: `docs/CONDITIONAL_POSTERIOR_REFERENCE.md`
 distinguishes basis-marginal completion from an all-directions conditional
 posterior guarantee. `docs/LEVELS_AND_SATURATION.md` derives illustrative task

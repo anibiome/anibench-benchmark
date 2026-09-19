@@ -27,7 +27,7 @@ contraction and explain why neither target count nor data volume substitutes
 for this quantity. Reproducible synthetic examples demonstrate opposing strengths
 in depth and temporal span without an overall winner. A public literature atlas
 illustrates heterogeneous denominators and the limits of comparisons from
-published summaries. The present results establish software behavior and
+published summaries. A separate source-architecture inventory preserves 21 numerical facts and 30 qualitative coverage cells across five study descriptions. Native architecture comparisons additionally replay all 13,687 within-lifecycle enrollment/arm-group pairs from a frozen corpus of 240 registry studies. These comparisons operate on compatible source quantities, not inferred biological information matrices or calibrated study-quality scores. The present results establish software behavior and
 conditional mathematical properties; they do not establish a biologically
 validated ranking of real studies. AniBench is intended as an extensible standard
 whose targets, assumptions, evidence, and implementation can be inspected,
@@ -317,7 +317,10 @@ population, observation and quality definitions. Module comparisons additionally
 require matching target definitions and units. These declarations make the
 comparison reviewable; they are not independent scientific certification.
 
-For closed evidence bounds [L_i,U_i], strict superiority requires L_i > U_j.
+The `anibench compare-architecture` operation supports aggregate source facts without a participant table or information matrix. Each selected coordinate declares its entity, unit, denominator, collection status, time scope, aggregation rule and preference direction. Population scopes remain attached to each record. Descriptor-only coordinates do not determine preferences; unknown or incompatible ordered coordinates block definite comparison. For a multi-coordinate interval claim, one record's worst endpoint must be no worse than the other's best endpoint on every selected coordinate, and strictly better on at least one. Thus touching bounds can support a weak inequality only when another coordinate supplies the strict improvement. This rule yields scoped definite/possible frontiers, not an overall biological-quality score.
+
+For single-metric collected-profile comparisons with closed evidence bounds
+[L_i,U_i], strict superiority requires L_i > U_j.
 Competition-rank bounds are 1 plus the number of definitely higher studies, and
 1 plus the number of possibly higher studies. Exact ties share a rank; an
 unbounded upper value is retained as unknown support. A conditional span from
@@ -418,6 +421,12 @@ and a proteomics resource with 54,219 participants and 2,923 unique proteins
 The CIRCULATE record preserves publication enrollment, analyzed participants,
 and the frozen registry population as distinct facts [9].
 
+A complementary source-architecture packet contains five public inventories: iPOP/iHMP, CIRCULATE TPE, UK Biobank, the Human Phenotype Project and ELITE. It retains 21 numerical facts with their native entities, source-specific denominators and precision qualifiers. Eight describe population or subset support, seven describe molecular inventories and six describe timing or repetition. The accompanying 30 coverage cells distinguish reported presence, official description only and unreported evidence; unreported does not mean absent. These inventories are a separate projection from the larger source atlas and are not added to it as distinct studies or independent facts.
+
+The displays preserve assay-specific distinctions. Proteins, transcripts, metabolites, glycan peaks and calculated glycan traits are not interchangeable units, and source-wide inventories do not establish participant-level completeness. Observed span, sampling cadence, treatment sessions and accelerometer wear windows also retain separate meanings. The Human Phenotype Project counts are from a July 2025 abstract. ELITE contributes public descriptive coverage rather than an imputed population or assay count. UK Biobank's perturbation description refers to a subset exercise challenge, not evidence of assigned therapeutic treatment. The packet binds each numerical fact or reported/described coverage cell to exact source identifiers and locators; this permits source review without certifying the underlying study execution.
+
+Figures 3–6 in the appendix show the native source comparisons.
+
 The atlas does not contain complete comparable information geometry for these
 studies. Accordingly, it does not establish their six-family rankings. Exact
 source replay verifies extraction and byte identity, not the original study's
@@ -502,6 +511,12 @@ and source hashes. The portable runner supports an external raw-source cache;
 changed upstream bytes fail the frozen replay rather than silently replacing
 its evidence. See `docs/REGISTRY_STRESS_240.md` for reproduction and sampling limits.
 
+A second replay uses the same 240 frozen registry identities for native source-coordinate comparisons. It separates 127 records reporting actual enrollment, 107 reporting estimated enrollment and six with unresolved enrollment status. Every pair within each lifecycle cohort is evaluated, yielding 13,687 primary comparisons. Enrollment denotes the registry's reported cohort quantity; listed arm-group counts describe protocol entries, not verified executed arms or independent causal contrasts. Registry phase remains categorical, while randomized-assignment declarations are descriptor-only and do not certify the implemented mechanism.
+
+Under the explicitly selected preferences for larger enrollment and more listed arm groups, the primary replay reports 10,325 definite dominance relations, 2,810 definite tradeoffs, 75 exact ties and 477 unresolved comparisons. A separate difference-vector oracle checks every primary relation. Withholding enrollment blocks ordering, record reordering leaves comparisons unchanged, and reversing the arm-count preference changes the relations rather than producing a universal winner. These are comparisons of the selected native quantities, not rankings of biological information or treatment benefit.
+
+A separate calendar-status lane evaluates 15,433 pairs. Matching actual/estimated date status and source precision are retained; month-only dates yield bounded spans, while missing or mixed-status dates remain unknown. Study start-to-primary-completion spans are not individual follow-up or exposure duration. Optional access to the exact frozen snapshots verifies their byte hashes and rederives every supplied coordinate and descriptor before the replay creates output. Retrieval metadata remains provenance from the manifest, and no source truth or clinical execution is independently certified. The corpus was retrieved on 19 September 2026 and is a fixed query-selected sample, not an unbiased survey of the clinical-study landscape. Reproduction is provided in `examples/registry_architecture`.
+
 ### 6.7 Source cards and planned protocol facts
 
 The public explorer presents 17 source-backed cards: 16 mechanical source
@@ -575,6 +590,27 @@ separate by model; the support ranges are not confidence intervals. All feasible
 arm supports must be included exactly once in each comparison envelope. The
 replay, source manifest, numerical receipts and publication figure are runnable
 from the public source package without participant data.
+
+### 6.10 An executable broad reference candidate
+
+The broad-reference candidate defines a finite, explicitly synthetic collection-and-learnability workload across genomic context, transcriptomic, proteomic, metabolomic, functional, digital, cognitive and neural observation layers. Its coordinate counts, horizons and precision ceilings are normative test conventions rather than empirical claims of sufficient biological coverage. Genomic coordinates are immutable context; mutable layers additionally include within-person temporal contrasts. Attainment is a conjunction of identifiable likelihood-precision targets and collection roles, implemented by the existing finite-suite evaluator. No treatment benefit, aggregate points score or scalar sum across physical units is required. The neural-causal extension separately requires controlled cortical assignment; neural observation alone can satisfy the core reference ladder.
+
+Under one frozen synthetic model with measurement variance R=4, between-person variance B=1, occasion variance S=0.25 and independent repeats, a complete linked design with 160 people, depth16 per coordinate per occasion, days0/30 and two balanced assignment groups passes the first candidate level. A design with 2112 people, depth64, days0/30/365, four factorial assignment groups and the additional reference coordinates passes the stricter child level. These are conditional witnesses, not prescribed enrollment thresholds. The public replay reports both pass boundaries and sensitivity: increasing measurement or person variance, occasion variation or repeat correlation invalidates these witnesses. Two people with extreme measurement depth fail population and randomized-contrast targets, while a very large shallow cohort fails individual-state targets.
+
+Real assay counts cannot be mapped directly into independent reference coordinates or identity observation operators. Applying this workload to a named collection requires a source-bound observable catalogue, fixed units and normalization, justified observation and noise operators, verified overlap and appropriately identified contrasts. Until such mappings exist, source-native architecture plots describe real collections, while reference-workload receipts describe conditional examples. Neither the chosen eight layers nor their finite synthetic coordinates establish completeness over tissues, cell states, rare variation, nonlinear dynamics or population transport. This limitation concerns the biological mapping; it does not prevent publishing and testing the versioned normative workload itself.
+
+The frozen candidate contains 160 base/extension reference coordinates. AB1
+requires 26 targets and 228 marginal functional checks; AB2 requires 64 targets
+and 581 checks. Marginal attainment does not imply a simultaneous all-direction
+guarantee. At independent depth16, the reference AB1 population boundary is
+150 complete linked people; at depth64, the AB2 factorial boundary is 2100.
+The convenient witnesses above are not the minimum in every dimension.
+The [full model and replay](../examples/broad_reference/README.md) derive the
+conditional boundaries and declare unmodeled tissues, cell populations, rare
+variants, bias, dropout, interference and transport. The optional cortical child
+requires both cortical assignment and matched peripheral control.
+
+Figures 7–8 in the appendix show the executed reference examples and sensitivity.
 
 ## 7. Validation and limitations
 
@@ -650,6 +686,21 @@ canonical receipts, and the comparison. The existing
 versioned evaluator in more detail. Record the exact Git commit, dependencies,
 source hashes, and command when reporting a result.
 
+Reproduce the native comparisons and conditional reference workload with:
+
+```bash
+anibench compare-architecture examples/architecture/protein-inventory.json \
+  --out build/protein-inventory-comparison.json
+python examples/registry_architecture/replay.py --out build/registry-native-replay
+python examples/broad_reference/replay.py --out build/reference-replay
+```
+
+The registry replay uses public aggregates. It reports snapshot rederivation as
+unrequested unless `--snapshot-cache` identifies the exact frozen source files.
+The [source adapter guide](../examples/registry_architecture/README.md) and
+[publication figure recipe](../examples/architecture/charts/README.md) document
+those independent reproduction steps.
+
 Build the manuscript PDF, figures and replay metadata with:
 
 ```bash
@@ -707,3 +758,17 @@ calibration and independent review remain necessary for stronger public claims.
 10. Collins GS, et al. TRIPOD+AI statement: updated guidance for reporting
     clinical prediction models that use regression or machine learning methods.
     BMJ. 2024;385:e078378. <https://doi.org/10.1136/bmj-2023-078378>
+
+## Appendix: comparison charts
+
+![Figure 3](../examples/paper_charts/01-population.png)
+
+![Figure 4](../examples/paper_charts/02-coverage.png)
+
+![Figure 5](../examples/paper_charts/03-molecular.png)
+
+![Figure 6](../examples/paper_charts/04-timing.png)
+
+![Figure 7](../examples/paper_charts/05-reference-examples.png)
+
+![Figure 8](../examples/paper_charts/06-reference-sensitivity.png)

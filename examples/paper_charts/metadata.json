@@ -1,0 +1,2274 @@
+{
+  "contract": "anibench.paper-plates.v1",
+  "source_files": {
+    "architecture": {
+      "filename": "source-architecture.json",
+      "sha256": "881916b01f134c061ffab62580f858fc45e0ea7c14da8a6c2f0b1f73f5ef1108"
+    },
+    "reference": {
+      "filename": "figure-data.json",
+      "sha256": "07c504463cc95d40738eed16547c523f3dfe7940fe7c2b9a8b1b9147018b4653"
+    },
+    "profiles": {
+      "filename": "profile-declarations.json",
+      "sha256": "0ecb5abf8fb886b480ba5b0eb6149560b1ff90087e329cf1e5934185497744ea"
+    }
+  },
+  "plot_script_sha256": "cf6470b086fbf596f7fb3787855ed09745733fe7542dccced59b9e0fe18f3353",
+  "plates": [
+    {
+      "id": "01-population",
+      "width_inches": 6.5,
+      "height_inches": 6.5,
+      "minimum_body_label_pt": 9,
+      "minimum_notes_pt": 8,
+      "input_sha256": {
+        "architecture": "881916b01f134c061ffab62580f858fc45e0ea7c14da8a6c2f0b1f73f5ef1108",
+        "reference": "07c504463cc95d40738eed16547c523f3dfe7940fe7c2b9a8b1b9147018b4653",
+        "profiles": "0ecb5abf8fb886b480ba5b0eb6149560b1ff90087e329cf1e5934185497744ea"
+      },
+      "evidence": {
+        "numeric_facts": [
+          {
+            "study_id": "snyder-ipop-ihmp-106",
+            "fact_id": "snyder-ipop-ihmp-106:architecture:participants",
+            "panel": "population",
+            "label": "Profiled people",
+            "entity": "participants",
+            "value": 106,
+            "unit": "participants",
+            "precision": "exact_reported",
+            "scope": "People profiled in the longitudinal host\u2013microbe cohort; modality completeness differs by visit.",
+            "source": {
+              "source_id": "PMC6666404",
+              "source_locator": "/0/documents/0/passages/10/text",
+              "passage_sha256": "8589dc0fd187d2dc7b3a3b7f97b98f81e390899e6edafd14c0147e8b795e8f05"
+            }
+          },
+          {
+            "study_id": "circulate-tpe-ivig",
+            "fact_id": "circulate-tpe-ivig:architecture:enrolled",
+            "panel": "population",
+            "label": "Enrolled",
+            "entity": "participants",
+            "value": 44,
+            "unit": "participants",
+            "precision": "exact_reported",
+            "scope": "People enrolled in the source study; not necessarily completed or assay-complete.",
+            "source": {
+              "source_id": "PMC12341816",
+              "source_locator": "/0/documents/0/passages/10/text",
+              "passage_sha256": "bf51b7a0aef769b4f7f9748aa829be0e8829ea651eff9c78c138ca5a2800f716"
+            }
+          },
+          {
+            "study_id": "circulate-tpe-ivig",
+            "fact_id": "circulate-tpe-ivig:architecture:completed",
+            "panel": "population",
+            "label": "Completed",
+            "entity": "participants",
+            "value": 42,
+            "unit": "participants",
+            "precision": "exact_reported",
+            "scope": "People reported to have completed the TPE study; per-assay retained counts remain unresolved.",
+            "source": {
+              "source_id": "PMC12341816",
+              "source_locator": "/0/documents/0/passages/10/text",
+              "passage_sha256": "bf51b7a0aef769b4f7f9748aa829be0e8829ea651eff9c78c138ca5a2800f716"
+            }
+          },
+          {
+            "study_id": "uk-biobank",
+            "fact_id": "uk-biobank:architecture:baseline_people",
+            "panel": "population",
+            "label": "Baseline cohort",
+            "entity": "participants",
+            "value": 500000,
+            "unit": "participants",
+            "precision": "approximate",
+            "scope": "Rounded size of the baseline UK Biobank cohort; not the number with every measurement.",
+            "source": {
+              "source_id": "UKB_TYPES",
+              "source_locator": "/article/body#normalized_char=1610:1989",
+              "passage_sha256": "6732eceb0d1b8fc6953dc98dbf5b023be5047f433ba3dc75fbbf62fcdc373111"
+            }
+          },
+          {
+            "study_id": "uk-biobank",
+            "fact_id": "uk-biobank:architecture:proteomics_people",
+            "panel": "population",
+            "label": "Proteomics subset",
+            "entity": "participants",
+            "value": 54219,
+            "unit": "participants",
+            "precision": "exact_reported",
+            "scope": "UKB-PPP plasma proteomics participants; subset of UK Biobank, with separate repeated-imaging support.",
+            "source": {
+              "source_id": "PMC10567551",
+              "source_locator": "/0/documents/0/passages/10/text",
+              "passage_sha256": "87dc018e635071ece5bac9a313ad946838fadda63e8a739dc8d45a344da89d4d"
+            }
+          },
+          {
+            "study_id": "uk-biobank",
+            "fact_id": "uk-biobank:architecture:imaging_people",
+            "panel": "population",
+            "label": "Imaging cohort",
+            "entity": "participants",
+            "value": 100000,
+            "unit": "participants",
+            "precision": "approximate",
+            "scope": "Rounded size of the imaging cohort in the official overview; not complete data for every imaging sequence.",
+            "source": {
+              "source_id": "UKB_TYPES",
+              "source_locator": "/article/body#normalized_char=1748:1989",
+              "passage_sha256": "2a2903238d6b3fc4e2e6cc0896277a89962efb0e71a088a0df448803ce30d827"
+            }
+          },
+          {
+            "study_id": "human-phenotype-project-2025",
+            "fact_id": "human-phenotype-project-2025:architecture:enrolled",
+            "panel": "population",
+            "label": "Enrolled by July 2025",
+            "entity": "participants",
+            "value": 28000,
+            "unit": "participants",
+            "precision": "approximate",
+            "scope": "Approximately 28000 enrolled by the July 2025 abstract; not all completed an initial visit or every modality.",
+            "source": {
+              "source_id": "hpp-nature-medicine-2025-abstract",
+              "source_locator": "/resultList/result/0/abstractText",
+              "passage_sha256": "ed6852fad165c2d295e82857b5209e4172dcf5c904432ee77b50c66604738c72"
+            }
+          },
+          {
+            "study_id": "human-phenotype-project-2025",
+            "fact_id": "human-phenotype-project-2025:architecture:initial_visit_completed",
+            "panel": "population",
+            "label": "Initial visit by July 2025",
+            "entity": "participants",
+            "value": 13000,
+            "unit": "participants",
+            "precision": "strict_lower_bound",
+            "scope": "Strictly more than 13000 initial visits by the July 2025 HPP abstract; per-modality coverage is unreported.",
+            "source": {
+              "source_id": "hpp-nature-medicine-2025-abstract",
+              "source_locator": "/resultList/result/0/abstractText",
+              "passage_sha256": "ed6852fad165c2d295e82857b5209e4172dcf5c904432ee77b50c66604738c72"
+            }
+          }
+        ]
+      },
+      "artifacts": {
+        "svg": "df69db56732eec0c97f3a992a404e469d836e195add8b396da3e0fdfd116e0a1",
+        "png": "fa4b874b029c0de082bf5196931daf34bda8bba9432fe245348c5fd0384363e0"
+      }
+    },
+    {
+      "id": "02-coverage",
+      "width_inches": 6.5,
+      "height_inches": 6.3,
+      "minimum_body_label_pt": 9,
+      "minimum_notes_pt": 8,
+      "input_sha256": {
+        "architecture": "881916b01f134c061ffab62580f858fc45e0ea7c14da8a6c2f0b1f73f5ef1108",
+        "reference": "07c504463cc95d40738eed16547c523f3dfe7940fe7c2b9a8b1b9147018b4653",
+        "profiles": "0ecb5abf8fb886b480ba5b0eb6149560b1ff90087e329cf1e5934185497744ea"
+      },
+      "evidence": {
+        "coverage": [
+          {
+            "study_id": "snyder-ipop-ihmp-106",
+            "domain": "molecular",
+            "state": "reported_present",
+            "description": "RNA, proteins, metabolites, cytokines, exome and microbiome",
+            "sources": [
+              {
+                "source_id": "PMC6666404",
+                "source_locator": "/0/documents/0/passages/12/text",
+                "passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "snyder-ipop-ihmp-106",
+            "domain": "digital",
+            "state": "reported_present",
+            "description": "Online self-report; wearable sensing not established",
+            "sources": [
+              {
+                "source_id": "PMC6666404",
+                "source_locator": "/0/documents/0/passages/12/text",
+                "passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "snyder-ipop-ihmp-106",
+            "domain": "functional",
+            "state": "reported_present",
+            "description": "Metabolic challenges: OGTT and insulin suppression; not a physical-function battery",
+            "sources": [
+              {
+                "source_id": "PMC6666404",
+                "source_locator": "/0/documents/0/passages/13/text",
+                "passage_sha256": "49b30a93eece9dd4821428aebb1d13136325133a1d22a03ab864c03fcb47ed71"
+              },
+              {
+                "source_id": "PMC6666404",
+                "source_locator": "/0/documents/0/passages/13/text",
+                "passage_sha256": "49b30a93eece9dd4821428aebb1d13136325133a1d22a03ab864c03fcb47ed71"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "snyder-ipop-ihmp-106",
+            "domain": "cognitive",
+            "state": "unreported",
+            "description": "Not established in reviewed source",
+            "sources": [],
+            "precision": "unreported_in_reviewed_scope"
+          },
+          {
+            "study_id": "snyder-ipop-ihmp-106",
+            "domain": "neural",
+            "state": "unreported",
+            "description": "Direct neural recording not established",
+            "sources": [],
+            "precision": "unreported_in_reviewed_scope"
+          },
+          {
+            "study_id": "snyder-ipop-ihmp-106",
+            "domain": "perturbation",
+            "state": "reported_present",
+            "description": "Immunization sampling and metabolic challenges; infection is observational event sampling",
+            "sources": [
+              {
+                "source_id": "PMC6666404",
+                "source_locator": "/0/documents/0/passages/11/text",
+                "passage_sha256": "0799dee5020712208c13f94cc589ae62847af8413a57a6f6f870a20d8cadff9c"
+              },
+              {
+                "source_id": "PMC6666404",
+                "source_locator": "/0/documents/0/passages/13/text",
+                "passage_sha256": "49b30a93eece9dd4821428aebb1d13136325133a1d22a03ab864c03fcb47ed71"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "circulate-tpe-ivig",
+            "domain": "molecular",
+            "state": "reported_present",
+            "description": "Methylation, proteomics, glycomics, lipid/metabolite and immune-cell assays",
+            "sources": [
+              {
+                "source_id": "PMC12341816",
+                "source_locator": "/0/documents/0/passages/36/text",
+                "passage_sha256": "aa9f37ee8c3016fd87694b9ee7e5ae5d7a3b506ce75a3f18d19dc47f3f34adcb"
+              },
+              {
+                "source_id": "PMC12341816",
+                "source_locator": "/0/documents/0/passages/60/text",
+                "passage_sha256": "21ce8d0eb8cf0ce50e9607dee59c12a66c531b53c438c4f6ad202bf22344dbd2"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "circulate-tpe-ivig",
+            "domain": "digital",
+            "state": "unreported",
+            "description": "Direct collection not established in reviewed source",
+            "sources": [],
+            "precision": "unreported_in_reviewed_scope"
+          },
+          {
+            "study_id": "circulate-tpe-ivig",
+            "domain": "functional",
+            "state": "unreported",
+            "description": "Direct collection not established in reviewed source",
+            "sources": [],
+            "precision": "unreported_in_reviewed_scope"
+          },
+          {
+            "study_id": "circulate-tpe-ivig",
+            "domain": "cognitive",
+            "state": "unreported",
+            "description": "Direct collection not established in reviewed source",
+            "sources": [],
+            "precision": "unreported_in_reviewed_scope"
+          },
+          {
+            "study_id": "circulate-tpe-ivig",
+            "domain": "neural",
+            "state": "unreported",
+            "description": "Direct collection not established in reviewed source",
+            "sources": [],
+            "precision": "unreported_in_reviewed_scope"
+          },
+          {
+            "study_id": "circulate-tpe-ivig",
+            "domain": "perturbation",
+            "state": "reported_present",
+            "description": "TPE with/without IVIG and sham; entry-order allocation described",
+            "sources": [
+              {
+                "source_id": "PMC12341816",
+                "source_locator": "/0/documents/0/passages/53/text",
+                "passage_sha256": "225cadb62bfd4814ed27a444b4c155e7c622375f6da38f54fbd73789f458f8ee"
+              },
+              {
+                "source_id": "PMC12341816",
+                "source_locator": "/0/documents/0/passages/51/text",
+                "passage_sha256": "088248a0248ccdcbb4a35843181844113f15edbdac0835f5dd938e91bcad05e1"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "uk-biobank",
+            "domain": "molecular",
+            "state": "reported_present",
+            "description": "Proteomic subset; analytes and unique proteins kept separate",
+            "sources": [
+              {
+                "source_id": "PMC10567551",
+                "source_locator": "/0/documents/0/passages/10/text",
+                "passage_sha256": "87dc018e635071ece5bac9a313ad946838fadda63e8a739dc8d45a344da89d4d"
+              },
+              {
+                "source_id": "PMC10567551",
+                "source_locator": "/0/documents/0/passages/10/text",
+                "passage_sha256": "87dc018e635071ece5bac9a313ad946838fadda63e8a739dc8d45a344da89d4d"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "uk-biobank",
+            "domain": "digital",
+            "state": "reported_present",
+            "description": "Wrist accelerometry in a subset; seven-day wear window",
+            "sources": [
+              {
+                "source_id": "UKB_TYPES",
+                "source_locator": "/article/body#normalized_char=5250:5356",
+                "passage_sha256": "c08e42af824ec0aaba1c0466130d730dc573157a68f303de9b51917bfabb808b"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "uk-biobank",
+            "domain": "functional",
+            "state": "reported_present",
+            "description": "Grip strength, spirometry and subset exercise testing",
+            "sources": [
+              {
+                "source_id": "PMC4380465",
+                "source_locator": "/0/documents/0/passages/20/text",
+                "passage_sha256": "458c315de18be80f89fa72884f3b3128fb9962c9bc976bf46800b7c48d564c80"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "uk-biobank",
+            "domain": "cognitive",
+            "state": "reported_present",
+            "description": "Computer-based tests; completion varies by test",
+            "sources": [
+              {
+                "source_id": "PMC4380465",
+                "source_locator": "/0/documents/0/passages/19/text",
+                "passage_sha256": "5208a8594cb8bbda5db75a49cd60480582ca901a31a9ad782d2f808a86bfdb05"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "uk-biobank",
+            "domain": "neural",
+            "state": "reported_present",
+            "description": "Brain MRI including resting/task fMRI; imaging subset",
+            "sources": [
+              {
+                "source_id": "UKB_IMAGING",
+                "source_locator": "/article/body#normalized_char=3730:4136",
+                "passage_sha256": "7d098f78da9e51a2d44b6029011073e3672b8c1d8baef17a90e430a8cfc4bb00"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "uk-biobank",
+            "domain": "perturbation",
+            "state": "reported_present",
+            "description": "Exercise/fitness challenge in a subset; assigned therapeutic treatment not established here",
+            "sources": [
+              {
+                "source_id": "PMC4380465",
+                "source_locator": "/0/documents/0/passages/20/text",
+                "passage_sha256": "458c315de18be80f89fa72884f3b3128fb9962c9bc976bf46800b7c48d564c80"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "human-phenotype-project-2025",
+            "domain": "molecular",
+            "state": "reported_present",
+            "description": "Genetics, transcriptomics, microbiome, metabolomics and immune profiling; abstract scope",
+            "sources": [
+              {
+                "source_id": "hpp-nature-medicine-2025-abstract",
+                "source_locator": "/resultList/result/0/abstractText",
+                "passage_sha256": "ed6852fad165c2d295e82857b5209e4172dcf5c904432ee77b50c66604738c72"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "human-phenotype-project-2025",
+            "domain": "digital",
+            "state": "reported_present",
+            "description": "Continuous glucose and sleep monitoring; durations unreported",
+            "sources": [
+              {
+                "source_id": "hpp-nature-medicine-2025-abstract",
+                "source_locator": "/resultList/result/0/abstractText",
+                "passage_sha256": "ed6852fad165c2d295e82857b5209e4172dcf5c904432ee77b50c66604738c72"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "human-phenotype-project-2025",
+            "domain": "functional",
+            "state": "unreported",
+            "description": "Not established by the abstract",
+            "sources": [],
+            "precision": "unreported_in_reviewed_scope"
+          },
+          {
+            "study_id": "human-phenotype-project-2025",
+            "domain": "cognitive",
+            "state": "unreported",
+            "description": "Not established by the abstract",
+            "sources": [],
+            "precision": "unreported_in_reviewed_scope"
+          },
+          {
+            "study_id": "human-phenotype-project-2025",
+            "domain": "neural",
+            "state": "unreported",
+            "description": "Not established by the abstract",
+            "sources": [],
+            "precision": "unreported_in_reviewed_scope"
+          },
+          {
+            "study_id": "human-phenotype-project-2025",
+            "domain": "perturbation",
+            "state": "unreported",
+            "description": "Not established by the abstract",
+            "sources": [],
+            "precision": "unreported_in_reviewed_scope"
+          },
+          {
+            "study_id": "ani-elite-sheba",
+            "domain": "molecular",
+            "state": "source_described",
+            "description": "Bloodwork, multiomics and microbiome sampling",
+            "sources": [
+              {
+                "source_id": "ELITE_PUBLIC",
+                "source_locator": "section#elite first p",
+                "passage_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "ani-elite-sheba",
+            "domain": "digital",
+            "state": "source_described",
+            "description": "Digital monitoring; modality/cadence unspecified",
+            "sources": [
+              {
+                "source_id": "ELITE_PUBLIC",
+                "source_locator": "section#elite first p",
+                "passage_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "ani-elite-sheba",
+            "domain": "functional",
+            "state": "source_described",
+            "description": "Functional endpoints; exact tests unspecified",
+            "sources": [
+              {
+                "source_id": "ELITE_PUBLIC",
+                "source_locator": "section#elite first p",
+                "passage_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "ani-elite-sheba",
+            "domain": "cognitive",
+            "state": "source_described",
+            "description": "Cognitive endpoints; exact tests unspecified",
+            "sources": [
+              {
+                "source_id": "ELITE_PUBLIC",
+                "source_locator": "section#elite first p",
+                "passage_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "ani-elite-sheba",
+            "domain": "perturbation",
+            "state": "source_described",
+            "description": "Physician-supervised intervention; allocation unspecified",
+            "sources": [
+              {
+                "source_id": "ELITE_PUBLIC",
+                "source_locator": "section#elite first p",
+                "passage_sha256": "31b5bba84bb5fb5da2feaf258bce843a9acbadf8bb1d2ad00770cbade35f60f1"
+              }
+            ],
+            "precision": "qualitative_presence_not_complete_coverage"
+          },
+          {
+            "study_id": "ani-elite-sheba",
+            "domain": "neural",
+            "state": "unreported",
+            "description": "Direct neural observation not established by public description",
+            "sources": [],
+            "precision": "unreported_in_reviewed_scope"
+          }
+        ]
+      },
+      "artifacts": {
+        "svg": "692478b46de4169f03cd1edbc405506274f4fa4cec36e022d20b9093e677e356",
+        "png": "2b17d980d8bc9993ced5115aeb1a67a883faa6f9f72d00455ac4b8b45cdf7b7a"
+      }
+    },
+    {
+      "id": "03-molecular",
+      "width_inches": 6.5,
+      "height_inches": 7.1,
+      "minimum_body_label_pt": 9,
+      "minimum_notes_pt": 8,
+      "input_sha256": {
+        "architecture": "881916b01f134c061ffab62580f858fc45e0ea7c14da8a6c2f0b1f73f5ef1108",
+        "reference": "07c504463cc95d40738eed16547c523f3dfe7940fe7c2b9a8b1b9147018b4653",
+        "profiles": "0ecb5abf8fb886b480ba5b0eb6149560b1ff90087e329cf1e5934185497744ea"
+      },
+      "evidence": {
+        "numeric_facts": [
+          {
+            "study_id": "snyder-ipop-ihmp-106",
+            "fact_id": "snyder-ipop-ihmp-106:architecture:proteins",
+            "panel": "molecular",
+            "label": "Plasma proteins",
+            "entity": "proteins",
+            "value": 302,
+            "unit": "proteins",
+            "precision": "exact_reported",
+            "scope": "Source-wide SWATH-MS plasma protein inventory; per-person completeness is not established by this count.",
+            "source": {
+              "source_id": "PMC6666404",
+              "source_locator": "/0/documents/0/passages/12/text",
+              "passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c"
+            }
+          },
+          {
+            "study_id": "snyder-ipop-ihmp-106",
+            "fact_id": "snyder-ipop-ihmp-106:architecture:transcripts",
+            "panel": "molecular",
+            "label": "PBMC transcripts",
+            "entity": "transcripts",
+            "value": 13379,
+            "unit": "transcripts",
+            "precision": "exact_reported",
+            "scope": "PBMC transcript inventory measured by RNA sequencing; not independent genes or complete transcripts in every person.",
+            "source": {
+              "source_id": "PMC6666404",
+              "source_locator": "/0/documents/0/passages/12/text",
+              "passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c"
+            }
+          },
+          {
+            "study_id": "snyder-ipop-ihmp-106",
+            "fact_id": "snyder-ipop-ihmp-106:architecture:metabolites",
+            "panel": "molecular",
+            "label": "Plasma metabolites",
+            "entity": "metabolites",
+            "value": 722,
+            "unit": "metabolites",
+            "precision": "exact_reported",
+            "scope": "Plasma metabolite inventory from untargeted LC-MS/MS; per-person completeness is not established.",
+            "source": {
+              "source_id": "PMC6666404",
+              "source_locator": "/0/documents/0/passages/12/text",
+              "passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c"
+            }
+          },
+          {
+            "study_id": "snyder-ipop-ihmp-106",
+            "fact_id": "snyder-ipop-ihmp-106:architecture:cytokines_growth_factors",
+            "panel": "molecular",
+            "label": "Serum cytokines / growth factors",
+            "entity": "cytokines_growth_factors",
+            "value": 62,
+            "unit": "assay_targets",
+            "precision": "exact_reported",
+            "scope": "Serum cytokine and growth-factor assay targets reported in the study; no independent-information interpretation.",
+            "source": {
+              "source_id": "PMC6666404",
+              "source_locator": "/0/documents/0/passages/12/text",
+              "passage_sha256": "02e0244c79ad6903fd1235495d9a55bff5a3be0936f4eb2f34bd4322a4eac55c"
+            }
+          },
+          {
+            "study_id": "circulate-tpe-ivig",
+            "fact_id": "circulate-tpe-ivig:architecture:glycan_peaks",
+            "panel": "molecular",
+            "label": "Measured glycan peaks",
+            "entity": "glycan_peaks",
+            "value": 27,
+            "unit": "peaks",
+            "precision": "exact_reported",
+            "scope": "Measured glycan peaks from electropherograms; peaks can include more than one glycan structure.",
+            "source": {
+              "source_id": "PMC12341816",
+              "source_locator": "/0/documents/0/passages/74/text",
+              "passage_sha256": "0ade4b7414f6e4c2cca7b3dc22ec894b97861e5e4cda12d9e721ff6f3ca3cfd6"
+            }
+          },
+          {
+            "study_id": "circulate-tpe-ivig",
+            "fact_id": "circulate-tpe-ivig:architecture:derived_glycan_traits",
+            "panel": "molecular",
+            "label": "Derived glycan traits",
+            "entity": "derived_glycan_traits",
+            "value": 6,
+            "unit": "derived_traits",
+            "precision": "exact_reported",
+            "scope": "Calculated glycan traits sharing structural features; not additional independently acquired targets.",
+            "source": {
+              "source_id": "PMC12341816",
+              "source_locator": "/0/documents/0/passages/74/text",
+              "passage_sha256": "0ade4b7414f6e4c2cca7b3dc22ec894b97861e5e4cda12d9e721ff6f3ca3cfd6"
+            }
+          },
+          {
+            "study_id": "uk-biobank",
+            "fact_id": "uk-biobank:architecture:proteomics_unique_proteins",
+            "panel": "molecular",
+            "label": "Unique plasma proteins",
+            "entity": "proteins",
+            "value": 2923,
+            "unit": "proteins",
+            "precision": "exact_reported",
+            "scope": "2923 unique proteins in the UKB Olink panel across 54219 people; distinct from 2941 analytes, with incomplete/variable sample coverage.",
+            "source": {
+              "source_id": "PMC10567551",
+              "source_locator": "/0/documents/0/passages/10/text",
+              "passage_sha256": "87dc018e635071ece5bac9a313ad946838fadda63e8a739dc8d45a344da89d4d"
+            }
+          }
+        ]
+      },
+      "artifacts": {
+        "svg": "e83ebe767f218741c821e8b9884bdf7d23cca3aaed0b54ae6d485455dcff5028",
+        "png": "5945cea8577f5a208af5be97d9c56963882a850709dda34e954126ab48abcc18"
+      }
+    },
+    {
+      "id": "04-timing",
+      "width_inches": 6.5,
+      "height_inches": 5.7,
+      "minimum_body_label_pt": 9,
+      "minimum_notes_pt": 8,
+      "input_sha256": {
+        "architecture": "881916b01f134c061ffab62580f858fc45e0ea7c14da8a6c2f0b1f73f5ef1108",
+        "reference": "07c504463cc95d40738eed16547c523f3dfe7940fe7c2b9a8b1b9147018b4653",
+        "profiles": "0ecb5abf8fb886b480ba5b0eb6149560b1ff90087e329cf1e5934185497744ea"
+      },
+      "evidence": {
+        "numeric_facts": [
+          {
+            "study_id": "snyder-ipop-ihmp-106",
+            "fact_id": "snyder-ipop-ihmp-106:architecture:median_span",
+            "panel": "timing",
+            "label": "Median observed span",
+            "entity": "observed_span_years",
+            "value": 1.6,
+            "unit": "years",
+            "precision": "reported_median",
+            "scope": "Median observed span per participant across the iPOP cohort; not a uniform treatment duration.",
+            "source": {
+              "source_id": "PMC6666404",
+              "source_locator": "/0/documents/0/passages/11/text",
+              "passage_sha256": "0799dee5020712208c13f94cc589ae62847af8413a57a6f6f870a20d8cadff9c"
+            }
+          },
+          {
+            "study_id": "snyder-ipop-ihmp-106",
+            "fact_id": "snyder-ipop-ihmp-106:architecture:median_visits",
+            "panel": "timing",
+            "label": "Median visits per person",
+            "entity": "visits_per_person",
+            "value": 7,
+            "unit": "visits_per_participant",
+            "precision": "reported_median",
+            "scope": "Median profiled visits per participant, including healthy and stress-event visits.",
+            "source": {
+              "source_id": "PMC6666404",
+              "source_locator": "/0/documents/0/passages/11/text",
+              "passage_sha256": "0799dee5020712208c13f94cc589ae62847af8413a57a6f6f870a20d8cadff9c"
+            }
+          },
+          {
+            "study_id": "snyder-ipop-ihmp-106",
+            "fact_id": "snyder-ipop-ihmp-106:architecture:healthy_sampling_interval",
+            "panel": "timing",
+            "label": "Typical healthy-sampling interval",
+            "entity": "sampling_interval_months",
+            "value": 3,
+            "unit": "months",
+            "precision": "typical_schedule",
+            "scope": "Typical three-month healthy sampling schedule; actual individual visit gaps may differ.",
+            "source": {
+              "source_id": "PMC6666404",
+              "source_locator": "/0/documents/0/passages/11/text",
+              "passage_sha256": "0799dee5020712208c13f94cc589ae62847af8413a57a6f6f870a20d8cadff9c"
+            }
+          },
+          {
+            "study_id": "circulate-tpe-ivig",
+            "fact_id": "circulate-tpe-ivig:architecture:short_regimen_duration",
+            "panel": "timing",
+            "label": "Short-regimen treatment span",
+            "entity": "treatment_span_months",
+            "value": 3,
+            "unit": "months",
+            "precision": "reported_schedule",
+            "scope": "Three-month TPE regimen with two sessions during the first week of each monthly cycle.",
+            "source": {
+              "source_id": "PMC12341816",
+              "source_locator": "/0/documents/0/passages/31/text",
+              "passage_sha256": "cf5b0c6e12d02d91a9f18eaadf1c24b7181b9ffe31491eeb899ebeeae405d167"
+            }
+          },
+          {
+            "study_id": "circulate-tpe-ivig",
+            "fact_id": "circulate-tpe-ivig:architecture:monthly_treatments",
+            "panel": "timing",
+            "label": "Monthly-regimen sessions",
+            "entity": "treatment_sessions",
+            "value": 6,
+            "unit": "treatment_sessions",
+            "precision": "reported_schedule",
+            "scope": "Six sessions in the monthly TPE regimen; treatment count differs from blood-sampling occasions.",
+            "source": {
+              "source_id": "PMC12341816",
+              "source_locator": "/0/documents/0/passages/31/text",
+              "passage_sha256": "cf5b0c6e12d02d91a9f18eaadf1c24b7181b9ffe31491eeb899ebeeae405d167"
+            }
+          },
+          {
+            "study_id": "uk-biobank",
+            "fact_id": "uk-biobank:architecture:digital_accelerometry_days",
+            "panel": "timing",
+            "label": "Accelerometer wear window",
+            "entity": "sensor_window_days",
+            "value": 7,
+            "unit": "days",
+            "precision": "reported_schedule",
+            "scope": "Seven-day wrist accelerometer wear window in a UK Biobank subset, not continuous years of sensing.",
+            "source": {
+              "source_id": "UKB_TYPES",
+              "source_locator": "/article/body#normalized_char=5250:5356",
+              "passage_sha256": "c08e42af824ec0aaba1c0466130d730dc573157a68f303de9b51917bfabb808b"
+            }
+          }
+        ]
+      },
+      "artifacts": {
+        "svg": "45660dcd6be99997a009753ec0b6c79ed13c2033b119d658213fceb2c265abfb",
+        "png": "2eb4b75a0ec71af801398a5bdf51fb58faa913b1ba0f149193ebb4af014e4495"
+      }
+    },
+    {
+      "id": "05-reference-examples",
+      "width_inches": 6.5,
+      "height_inches": 7.0,
+      "minimum_body_label_pt": 9,
+      "minimum_notes_pt": 8,
+      "input_sha256": {
+        "architecture": "881916b01f134c061ffab62580f858fc45e0ea7c14da8a6c2f0b1f73f5ef1108",
+        "reference": "07c504463cc95d40738eed16547c523f3dfe7940fe7c2b9a8b1b9147018b4653",
+        "profiles": "0ecb5abf8fb886b480ba5b0eb6149560b1ff90087e329cf1e5934185497744ea"
+      },
+      "evidence": {
+        "rows": [
+          {
+            "design_id": "AB1-witness",
+            "attainment": "attained",
+            "failed": [],
+            "unknown": [],
+            "target_count": 26,
+            "functional_count": 228,
+            "level": "1",
+            "people": 160,
+            "depth_per_coordinate_per_occasion": 16,
+            "effective_depth": 16.0,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 160,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.25,
+            "reference_population_variance": 0.009375,
+            "profile_sha256": "sha256:6f4f5aa03b1b8c9eb5da89e5d8c53ac7c430cb8e13024772a24418179f5601ba",
+            "design_source_sha256": "sha256:c54ba679b9a471ef61065cfafb157e4f1416e055ee39a0622c7c5b88bace3111"
+          },
+          {
+            "design_id": "AB1-witness",
+            "attainment": "not_attained",
+            "failed": [
+              "genomic.base.state",
+              "genomic.base.population",
+              "transcriptomic.base.state",
+              "transcriptomic.base.population",
+              "transcriptomic.base.time",
+              "proteomic.base.state",
+              "proteomic.base.population",
+              "proteomic.base.time",
+              "metabolomic.base.state",
+              "metabolomic.base.population",
+              "metabolomic.base.time",
+              "functional.base.state",
+              "functional.base.population",
+              "functional.base.time",
+              "digital.base.state",
+              "digital.base.population",
+              "digital.base.time",
+              "cognitive.base.state",
+              "cognitive.base.population",
+              "cognitive.base.time",
+              "neural.base.state",
+              "neural.base.population",
+              "neural.base.time",
+              "randomized-input-contrast",
+              "population-crossmodal-link",
+              "molecular-functional-complementarity",
+              "genomic.extension.state",
+              "genomic.extension.population",
+              "transcriptomic.extension.state",
+              "transcriptomic.extension.population",
+              "transcriptomic.extension.time",
+              "transcriptomic.base.annual",
+              "transcriptomic.extension.annual",
+              "proteomic.extension.state",
+              "proteomic.extension.population",
+              "proteomic.extension.time",
+              "proteomic.base.annual",
+              "proteomic.extension.annual",
+              "metabolomic.extension.state",
+              "metabolomic.extension.population",
+              "metabolomic.extension.time",
+              "metabolomic.base.annual",
+              "metabolomic.extension.annual",
+              "functional.extension.state",
+              "functional.extension.population",
+              "functional.extension.time",
+              "functional.base.annual",
+              "functional.extension.annual",
+              "digital.extension.state",
+              "digital.extension.population",
+              "digital.extension.time",
+              "digital.base.annual",
+              "digital.extension.annual",
+              "cognitive.extension.state",
+              "cognitive.extension.population",
+              "cognitive.extension.time",
+              "cognitive.base.annual",
+              "cognitive.extension.annual",
+              "neural.extension.state",
+              "neural.extension.population",
+              "neural.extension.time",
+              "neural.base.annual",
+              "neural.extension.annual",
+              "randomized-input-interaction"
+            ],
+            "unknown": [],
+            "target_count": 64,
+            "functional_count": 581,
+            "level": "2",
+            "people": 160,
+            "depth_per_coordinate_per_occasion": 16,
+            "effective_depth": 16.0,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 160,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.25,
+            "reference_population_variance": 0.009375,
+            "profile_sha256": "sha256:35701f676d5f6b2ff2c9d125a3a1d9ab4286a21df77a9f1ab8447d5d2aac4551",
+            "design_source_sha256": "sha256:c54ba679b9a471ef61065cfafb157e4f1416e055ee39a0622c7c5b88bace3111"
+          },
+          {
+            "design_id": "AB2-witness",
+            "attainment": "attained",
+            "failed": [],
+            "unknown": [],
+            "target_count": 26,
+            "functional_count": 228,
+            "level": "1",
+            "people": 2112,
+            "depth_per_coordinate_per_occasion": 64,
+            "effective_depth": 64.0,
+            "visits_days": [
+              0,
+              30,
+              365
+            ],
+            "assignment": "factorial",
+            "assignment_groups": 4,
+            "linked_people": 2112,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.0625,
+            "reference_population_variance": 0.0006214488636363636,
+            "profile_sha256": "sha256:6f4f5aa03b1b8c9eb5da89e5d8c53ac7c430cb8e13024772a24418179f5601ba",
+            "design_source_sha256": "sha256:260f018a50642c933c9142847e6671e1dc1d6bcc1f0a762d05e6707a41c6fe3b"
+          },
+          {
+            "design_id": "AB2-witness",
+            "attainment": "attained",
+            "failed": [],
+            "unknown": [],
+            "target_count": 64,
+            "functional_count": 581,
+            "level": "2",
+            "people": 2112,
+            "depth_per_coordinate_per_occasion": 64,
+            "effective_depth": 64.0,
+            "visits_days": [
+              0,
+              30,
+              365
+            ],
+            "assignment": "factorial",
+            "assignment_groups": 4,
+            "linked_people": 2112,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.0625,
+            "reference_population_variance": 0.0006214488636363636,
+            "profile_sha256": "sha256:35701f676d5f6b2ff2c9d125a3a1d9ab4286a21df77a9f1ab8447d5d2aac4551",
+            "design_source_sha256": "sha256:260f018a50642c933c9142847e6671e1dc1d6bcc1f0a762d05e6707a41c6fe3b"
+          },
+          {
+            "design_id": "two-people-extreme-depth",
+            "attainment": "not_attained",
+            "failed": [
+              "genomic.base.population",
+              "transcriptomic.base.population",
+              "proteomic.base.population",
+              "metabolomic.base.population",
+              "functional.base.population",
+              "digital.base.population",
+              "cognitive.base.population",
+              "neural.base.population",
+              "randomized-input-contrast",
+              "population-crossmodal-link"
+            ],
+            "unknown": [],
+            "target_count": 26,
+            "functional_count": 228,
+            "level": "1",
+            "people": 2,
+            "depth_per_coordinate_per_occasion": 1000000,
+            "effective_depth": 1000000.0,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 2,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 4e-06,
+            "reference_population_variance": 0.625002,
+            "profile_sha256": "sha256:6f4f5aa03b1b8c9eb5da89e5d8c53ac7c430cb8e13024772a24418179f5601ba",
+            "design_source_sha256": "sha256:77e06c2996dc24e70e1beb841cbeb8e3ac10b7cd14f435daa6bb4c635891a3be"
+          },
+          {
+            "design_id": "huge-shallow",
+            "attainment": "not_attained",
+            "failed": [
+              "genomic.base.state",
+              "transcriptomic.base.state",
+              "transcriptomic.base.time",
+              "proteomic.base.state",
+              "proteomic.base.time",
+              "metabolomic.base.state",
+              "metabolomic.base.time",
+              "functional.base.state",
+              "functional.base.time",
+              "digital.base.state",
+              "digital.base.time",
+              "cognitive.base.state",
+              "cognitive.base.time",
+              "neural.base.state",
+              "neural.base.time",
+              "molecular-functional-complementarity"
+            ],
+            "unknown": [],
+            "target_count": 26,
+            "functional_count": 228,
+            "level": "1",
+            "people": 100000,
+            "depth_per_coordinate_per_occasion": 1,
+            "effective_depth": 1.0,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 100000,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 4.0,
+            "reference_population_variance": 5.25e-05,
+            "profile_sha256": "sha256:6f4f5aa03b1b8c9eb5da89e5d8c53ac7c430cb8e13024772a24418179f5601ba",
+            "design_source_sha256": "sha256:524cea35b91349d3c0b2176ce05c315a9288455e542db65f1f8f2fabc0b80562"
+          },
+          {
+            "design_id": "correlated-oversampling",
+            "attainment": "not_attained",
+            "failed": [
+              "genomic.base.state",
+              "genomic.base.population",
+              "transcriptomic.base.state",
+              "transcriptomic.base.population",
+              "transcriptomic.base.time",
+              "proteomic.base.state",
+              "proteomic.base.population",
+              "proteomic.base.time",
+              "metabolomic.base.state",
+              "metabolomic.base.population",
+              "metabolomic.base.time",
+              "functional.base.state",
+              "functional.base.population",
+              "functional.base.time",
+              "digital.base.state",
+              "digital.base.population",
+              "digital.base.time",
+              "cognitive.base.state",
+              "cognitive.base.population",
+              "cognitive.base.time",
+              "neural.base.state",
+              "neural.base.population",
+              "neural.base.time",
+              "randomized-input-contrast",
+              "population-crossmodal-link",
+              "molecular-functional-complementarity"
+            ],
+            "unknown": [],
+            "target_count": 26,
+            "functional_count": 228,
+            "level": "1",
+            "people": 160,
+            "depth_per_coordinate_per_occasion": 1000000,
+            "effective_depth": 1.0101009998979698,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 160,
+            "repeat_correlation": 0.99,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 3.9600000399999997,
+            "reference_population_variance": 0.03256250025,
+            "profile_sha256": "sha256:6f4f5aa03b1b8c9eb5da89e5d8c53ac7c430cb8e13024772a24418179f5601ba",
+            "design_source_sha256": "sha256:8a12cd0c411e6df8917c9bb9cb01ba560199995949afe90e2792cd9d8b080a07"
+          },
+          {
+            "design_id": "redundant-arms",
+            "attainment": "not_attained",
+            "failed": [
+              "randomized-input-contrast"
+            ],
+            "unknown": [],
+            "target_count": 26,
+            "functional_count": 228,
+            "level": "1",
+            "people": 160,
+            "depth_per_coordinate_per_occasion": 16,
+            "effective_depth": 16.0,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "redundant",
+            "assignment_groups": 4,
+            "linked_people": 160,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.25,
+            "reference_population_variance": 0.009375,
+            "profile_sha256": "sha256:6f4f5aa03b1b8c9eb5da89e5d8c53ac7c430cb8e13024772a24418179f5601ba",
+            "design_source_sha256": "sha256:e46b6b44195570b73541e4cb58c7bc07c066eccc05190eb5092388cef3195c65"
+          },
+          {
+            "design_id": "unlinked",
+            "attainment": "not_attained",
+            "failed": [
+              "population-crossmodal-link",
+              "molecular-functional-complementarity"
+            ],
+            "unknown": [],
+            "target_count": 26,
+            "functional_count": 228,
+            "level": "1",
+            "people": 160,
+            "depth_per_coordinate_per_occasion": 16,
+            "effective_depth": 16.0,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 0,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.25,
+            "reference_population_variance": 0.009375,
+            "profile_sha256": "sha256:6f4f5aa03b1b8c9eb5da89e5d8c53ac7c430cb8e13024772a24418179f5601ba",
+            "design_source_sha256": "sha256:565a39aa3725421623cc89ff5f865fc25dfcb9592bb35baa48713ec39f671d3c"
+          },
+          {
+            "design_id": "daily-alias",
+            "attainment": "not_attained",
+            "failed": [
+              "digital.base.state",
+              "digital.base.population",
+              "digital.base.time"
+            ],
+            "unknown": [],
+            "target_count": 26,
+            "functional_count": 228,
+            "level": "1",
+            "people": 160,
+            "depth_per_coordinate_per_occasion": 16,
+            "effective_depth": 16.0,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 160,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.25,
+            "reference_population_variance": 0.009375,
+            "profile_sha256": "sha256:6f4f5aa03b1b8c9eb5da89e5d8c53ac7c430cb8e13024772a24418179f5601ba",
+            "design_source_sha256": "sha256:084f54a8b2ddb00c77f28ea017ebc04d085f5509b80dfec1b656c27e1b7dcb67"
+          },
+          {
+            "design_id": "neural-absent",
+            "attainment": "not_attained",
+            "failed": [
+              "neural.base.state",
+              "neural.base.population",
+              "neural.base.time"
+            ],
+            "unknown": [],
+            "target_count": 26,
+            "functional_count": 228,
+            "level": "1",
+            "people": 160,
+            "depth_per_coordinate_per_occasion": 16,
+            "effective_depth": 16.0,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 160,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.25,
+            "reference_population_variance": 0.009375,
+            "profile_sha256": "sha256:6f4f5aa03b1b8c9eb5da89e5d8c53ac7c430cb8e13024772a24418179f5601ba",
+            "design_source_sha256": "sha256:f600651c09c3bd2160aca3ef6d806a22d824dfbfae188652edc84bb842c72ef1"
+          },
+          {
+            "design_id": "neural-unknown",
+            "attainment": "unknown",
+            "failed": [],
+            "unknown": [
+              "neural.base.state",
+              "neural.base.population",
+              "neural.base.time"
+            ],
+            "target_count": 26,
+            "functional_count": 228,
+            "level": "1",
+            "people": 160,
+            "depth_per_coordinate_per_occasion": 16,
+            "effective_depth": 16.0,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 160,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.25,
+            "reference_population_variance": 0.009375,
+            "profile_sha256": "sha256:6f4f5aa03b1b8c9eb5da89e5d8c53ac7c430cb8e13024772a24418179f5601ba",
+            "design_source_sha256": "sha256:edf2923292831e1f1a9b695116a761624bf2b8ae4014f72b0dfe8c805af6224b"
+          },
+          {
+            "design_id": "observation-without-cortical-assignment",
+            "attainment": "not_attained",
+            "failed": [
+              "controlled-cortical-response"
+            ],
+            "unknown": [],
+            "target_count": 27,
+            "functional_count": 229,
+            "level": "1-neural",
+            "people": 160,
+            "depth_per_coordinate_per_occasion": 16,
+            "effective_depth": 16.0,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 160,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.25,
+            "reference_population_variance": 0.009375,
+            "profile_sha256": "sha256:e6f54ff1cdcf2d5ac9ed68539dfc27abe8649ba78249df86bf5541db6e943e65",
+            "design_source_sha256": "sha256:e21e6c3a37f5a140886e7aacbf2ba85f9a00e9839f095338b0207302862668ee"
+          },
+          {
+            "design_id": "controlled-cortical-assignment",
+            "attainment": "attained",
+            "failed": [],
+            "unknown": [],
+            "target_count": 27,
+            "functional_count": 229,
+            "level": "1-neural",
+            "people": 160,
+            "depth_per_coordinate_per_occasion": 16,
+            "effective_depth": 16.0,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 160,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.25,
+            "reference_population_variance": 0.009375,
+            "profile_sha256": "sha256:e6f54ff1cdcf2d5ac9ed68539dfc27abe8649ba78249df86bf5541db6e943e65",
+            "design_source_sha256": "sha256:b2a22404b07817b3ae553f0a6d21777baa07852a41a19fa01f42c37f1273c59b"
+          }
+        ],
+        "category_matrix": [
+          [
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "\u2013"
+          ],
+          [
+            "F",
+            "F",
+            "F",
+            "F",
+            "F",
+            "F",
+            "F",
+            "F",
+            "\u2013"
+          ],
+          [
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "\u2013"
+          ],
+          [
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "\u2013"
+          ],
+          [
+            "P",
+            "F",
+            "P",
+            "F",
+            "F",
+            "F",
+            "F",
+            "P",
+            "\u2013"
+          ],
+          [
+            "F",
+            "P",
+            "F",
+            "F",
+            "F",
+            "P",
+            "P",
+            "F",
+            "\u2013"
+          ],
+          [
+            "F",
+            "F",
+            "F",
+            "F",
+            "F",
+            "F",
+            "F",
+            "F",
+            "\u2013"
+          ],
+          [
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "F",
+            "P",
+            "P",
+            "\u2013"
+          ],
+          [
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "F",
+            "F",
+            "\u2013"
+          ],
+          [
+            "P",
+            "P",
+            "P",
+            "F",
+            "P",
+            "P",
+            "P",
+            "P",
+            "\u2013"
+          ],
+          [
+            "P",
+            "P",
+            "P",
+            "P",
+            "F",
+            "P",
+            "P",
+            "P",
+            "\u2013"
+          ],
+          [
+            "P",
+            "P",
+            "P",
+            "P",
+            "?",
+            "P",
+            "P",
+            "P",
+            "\u2013"
+          ],
+          [
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "F"
+          ],
+          [
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P"
+          ]
+        ],
+        "category_labels": [
+          "State",
+          "Pop.",
+          "Time",
+          "Digital",
+          "Neural",
+          "Causal",
+          "Linked",
+          "Joint",
+          "Cortical*"
+        ]
+      },
+      "artifacts": {
+        "svg": "416abe9b80a38303482a7036854b0cbe45e483a4d9dc1e15c949498c5462c2f3",
+        "png": "f53c1942a21052f5a19449ece2f8cc07528f92c63f59335a7ceafc400b67b34d"
+      }
+    },
+    {
+      "id": "06-reference-sensitivity",
+      "width_inches": 6.5,
+      "height_inches": 7.0,
+      "minimum_body_label_pt": 9,
+      "minimum_notes_pt": 8,
+      "input_sha256": {
+        "architecture": "881916b01f134c061ffab62580f858fc45e0ea7c14da8a6c2f0b1f73f5ef1108",
+        "reference": "07c504463cc95d40738eed16547c523f3dfe7940fe7c2b9a8b1b9147018b4653",
+        "profiles": "0ecb5abf8fb886b480ba5b0eb6149560b1ff90087e329cf1e5934185497744ea"
+      },
+      "evidence": {
+        "rows": [
+          {
+            "design_id": "AB1-witness",
+            "attainment": "attained",
+            "failed": [],
+            "unknown": [],
+            "target_count": 26,
+            "functional_count": 228,
+            "level": "1",
+            "people": 160,
+            "depth_per_coordinate_per_occasion": 16,
+            "effective_depth": 16.0,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 160,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.25,
+            "reference_population_variance": 0.009375,
+            "profile_sha256": "sha256:6f4f5aa03b1b8c9eb5da89e5d8c53ac7c430cb8e13024772a24418179f5601ba",
+            "design_source_sha256": "sha256:c54ba679b9a471ef61065cfafb157e4f1416e055ee39a0622c7c5b88bace3111"
+          },
+          {
+            "design_id": "AB2-witness",
+            "attainment": "attained",
+            "failed": [],
+            "unknown": [],
+            "target_count": 64,
+            "functional_count": 581,
+            "level": "2",
+            "people": 2112,
+            "depth_per_coordinate_per_occasion": 64,
+            "effective_depth": 64.0,
+            "visits_days": [
+              0,
+              30,
+              365
+            ],
+            "assignment": "factorial",
+            "assignment_groups": 4,
+            "linked_people": 2112,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.0625,
+            "reference_population_variance": 0.0006214488636363636,
+            "profile_sha256": "sha256:35701f676d5f6b2ff2c9d125a3a1d9ab4286a21df77a9f1ab8447d5d2aac4551",
+            "design_source_sha256": "sha256:260f018a50642c933c9142847e6671e1dc1d6bcc1f0a762d05e6707a41c6fe3b"
+          },
+          {
+            "design_id": "AB1-witness",
+            "attainment": "not_attained",
+            "failed": [
+              "genomic.base.state",
+              "genomic.base.population",
+              "transcriptomic.base.state",
+              "transcriptomic.base.population",
+              "transcriptomic.base.time",
+              "proteomic.base.state",
+              "proteomic.base.population",
+              "proteomic.base.time",
+              "metabolomic.base.state",
+              "metabolomic.base.population",
+              "metabolomic.base.time",
+              "functional.base.state",
+              "functional.base.population",
+              "functional.base.time",
+              "digital.base.state",
+              "digital.base.population",
+              "digital.base.time",
+              "cognitive.base.state",
+              "cognitive.base.population",
+              "cognitive.base.time",
+              "neural.base.state",
+              "neural.base.population",
+              "neural.base.time",
+              "randomized-input-contrast",
+              "population-crossmodal-link"
+            ],
+            "unknown": [],
+            "target_count": 26,
+            "functional_count": 228,
+            "level": "1",
+            "people": 160,
+            "depth_per_coordinate_per_occasion": 16,
+            "effective_depth": 16.0,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 160,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 8.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.5,
+            "reference_population_variance": 0.0109375,
+            "profile_sha256": "sha256:de7eff88078f4ddd1fcfd1d82864b6f738fa148d63abaedc3ef6062101c3a9a5",
+            "design_source_sha256": "sha256:b6b2bf1551992db1317f10d9f455ee151f489a42f6810707c11d0cd7bd7aa63a"
+          },
+          {
+            "design_id": "AB2-witness",
+            "attainment": "not_attained",
+            "failed": [
+              "genomic.base.state",
+              "transcriptomic.base.state",
+              "transcriptomic.base.time",
+              "proteomic.base.state",
+              "proteomic.base.time",
+              "metabolomic.base.state",
+              "metabolomic.base.time",
+              "functional.base.state",
+              "functional.base.time",
+              "digital.base.state",
+              "digital.base.time",
+              "cognitive.base.state",
+              "cognitive.base.time",
+              "neural.base.state",
+              "neural.base.time",
+              "genomic.extension.state",
+              "transcriptomic.extension.state",
+              "transcriptomic.extension.time",
+              "transcriptomic.base.annual",
+              "transcriptomic.extension.annual",
+              "proteomic.extension.state",
+              "proteomic.extension.time",
+              "proteomic.base.annual",
+              "proteomic.extension.annual",
+              "metabolomic.extension.state",
+              "metabolomic.extension.time",
+              "metabolomic.base.annual",
+              "metabolomic.extension.annual",
+              "functional.extension.state",
+              "functional.extension.time",
+              "functional.base.annual",
+              "functional.extension.annual",
+              "digital.extension.state",
+              "digital.extension.time",
+              "digital.base.annual",
+              "digital.extension.annual",
+              "cognitive.extension.state",
+              "cognitive.extension.time",
+              "cognitive.base.annual",
+              "cognitive.extension.annual",
+              "neural.extension.state",
+              "neural.extension.time",
+              "neural.base.annual",
+              "neural.extension.annual",
+              "randomized-input-interaction"
+            ],
+            "unknown": [],
+            "target_count": 64,
+            "functional_count": 581,
+            "level": "2",
+            "people": 2112,
+            "depth_per_coordinate_per_occasion": 64,
+            "effective_depth": 64.0,
+            "visits_days": [
+              0,
+              30,
+              365
+            ],
+            "assignment": "factorial",
+            "assignment_groups": 4,
+            "linked_people": 2112,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 8.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.125,
+            "reference_population_variance": 0.0006510416666666666,
+            "profile_sha256": "sha256:11487b06c5d714df9bbab4c136420422ef19a97effbbbbae15f9d65bccf70837",
+            "design_source_sha256": "sha256:078df610b7cf6beab35b8e8d2701e9ed22133b7d3f8a97b5f23f858922851c12"
+          },
+          {
+            "design_id": "AB1-witness",
+            "attainment": "not_attained",
+            "failed": [
+              "genomic.base.population",
+              "transcriptomic.base.population",
+              "proteomic.base.population",
+              "metabolomic.base.population",
+              "functional.base.population",
+              "digital.base.population",
+              "cognitive.base.population",
+              "neural.base.population",
+              "randomized-input-contrast",
+              "population-crossmodal-link"
+            ],
+            "unknown": [],
+            "target_count": 26,
+            "functional_count": 228,
+            "level": "1",
+            "people": 160,
+            "depth_per_coordinate_per_occasion": 16,
+            "effective_depth": 16.0,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 160,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 2.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.25,
+            "reference_population_variance": 0.015625,
+            "profile_sha256": "sha256:74f53c0e0d98d1470ce18b2de20a2f6fe3328dafccb589b8b805a1c3d7fbbe1c",
+            "design_source_sha256": "sha256:f381b54203b82b1886698bc34c707756bd80281d76ad3fde0b22953d4c1c0fd3"
+          },
+          {
+            "design_id": "AB2-witness",
+            "attainment": "not_attained",
+            "failed": [
+              "randomized-input-interaction"
+            ],
+            "unknown": [],
+            "target_count": 64,
+            "functional_count": 581,
+            "level": "2",
+            "people": 2112,
+            "depth_per_coordinate_per_occasion": 64,
+            "effective_depth": 64.0,
+            "visits_days": [
+              0,
+              30,
+              365
+            ],
+            "assignment": "factorial",
+            "assignment_groups": 4,
+            "linked_people": 2112,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 2.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.0625,
+            "reference_population_variance": 0.001094933712121212,
+            "profile_sha256": "sha256:56efc9fffa66562571ac6125ca0ecbe72ac7becbd81b8f38d0ac9a4b64b3fa0b",
+            "design_source_sha256": "sha256:db2cc899ad0be0b3c0c0d7ae2348d381b61309e6b52d14a3238564f82ee091a4"
+          },
+          {
+            "design_id": "AB1-witness",
+            "attainment": "not_attained",
+            "failed": [
+              "genomic.base.population",
+              "transcriptomic.base.population",
+              "proteomic.base.population",
+              "metabolomic.base.population",
+              "functional.base.population",
+              "digital.base.population",
+              "cognitive.base.population",
+              "neural.base.population",
+              "randomized-input-contrast",
+              "population-crossmodal-link"
+            ],
+            "unknown": [],
+            "target_count": 26,
+            "functional_count": 228,
+            "level": "1",
+            "people": 160,
+            "depth_per_coordinate_per_occasion": 16,
+            "effective_depth": 16.0,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 160,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 1.0
+            },
+            "reference_identity_operator_variance": 0.25,
+            "reference_population_variance": 0.0140625,
+            "profile_sha256": "sha256:6bab456661b3d2d42fc56cbcce0fe2649af52d443e102d20e159f14ffe6d25e7",
+            "design_source_sha256": "sha256:2ae354d61c6cce41b0c48b892af1ac09efea3743d174c63e3165eee92f9fc49b"
+          },
+          {
+            "design_id": "AB2-witness",
+            "attainment": "not_attained",
+            "failed": [
+              "randomized-input-interaction"
+            ],
+            "unknown": [],
+            "target_count": 64,
+            "functional_count": 581,
+            "level": "2",
+            "people": 2112,
+            "depth_per_coordinate_per_occasion": 64,
+            "effective_depth": 64.0,
+            "visits_days": [
+              0,
+              30,
+              365
+            ],
+            "assignment": "factorial",
+            "assignment_groups": 4,
+            "linked_people": 2112,
+            "repeat_correlation": 0.0,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 1.0
+            },
+            "reference_identity_operator_variance": 0.0625,
+            "reference_population_variance": 0.0009765625,
+            "profile_sha256": "sha256:e3f80ef9560ee27d6613886def70f5346909730a08b25f26f2e0c6afddfbcdda",
+            "design_source_sha256": "sha256:069a44c17ed710cf14fef1d4996853e796cb2bfd9841577773f521965d7c640e"
+          },
+          {
+            "design_id": "AB1-witness",
+            "attainment": "not_attained",
+            "failed": [
+              "genomic.base.state",
+              "genomic.base.population",
+              "transcriptomic.base.state",
+              "transcriptomic.base.population",
+              "transcriptomic.base.time",
+              "proteomic.base.state",
+              "proteomic.base.population",
+              "proteomic.base.time",
+              "metabolomic.base.state",
+              "metabolomic.base.population",
+              "metabolomic.base.time",
+              "functional.base.state",
+              "functional.base.population",
+              "functional.base.time",
+              "digital.base.state",
+              "digital.base.population",
+              "digital.base.time",
+              "cognitive.base.state",
+              "cognitive.base.population",
+              "cognitive.base.time",
+              "neural.base.state",
+              "neural.base.population",
+              "neural.base.time",
+              "randomized-input-contrast",
+              "population-crossmodal-link",
+              "molecular-functional-complementarity"
+            ],
+            "unknown": [],
+            "target_count": 26,
+            "functional_count": 228,
+            "level": "1",
+            "people": 160,
+            "depth_per_coordinate_per_occasion": 16,
+            "effective_depth": 6.4,
+            "visits_days": [
+              0,
+              30
+            ],
+            "assignment": "binary",
+            "assignment_groups": 2,
+            "linked_people": 160,
+            "repeat_correlation": 0.1,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.625,
+            "reference_population_variance": 0.01171875,
+            "profile_sha256": "sha256:6f4f5aa03b1b8c9eb5da89e5d8c53ac7c430cb8e13024772a24418179f5601ba",
+            "design_source_sha256": "sha256:65a1532f86a7821d4265990d2050551bb82dd832c64f186e05a926ca963792d9"
+          },
+          {
+            "design_id": "AB2-witness",
+            "attainment": "not_attained",
+            "failed": [
+              "genomic.base.state",
+              "transcriptomic.base.state",
+              "transcriptomic.base.time",
+              "proteomic.base.state",
+              "proteomic.base.time",
+              "metabolomic.base.state",
+              "metabolomic.base.time",
+              "functional.base.state",
+              "functional.base.time",
+              "digital.base.state",
+              "digital.base.time",
+              "cognitive.base.state",
+              "cognitive.base.time",
+              "neural.base.state",
+              "neural.base.time",
+              "molecular-functional-complementarity",
+              "genomic.extension.state",
+              "transcriptomic.extension.state",
+              "transcriptomic.extension.time",
+              "transcriptomic.base.annual",
+              "transcriptomic.extension.annual",
+              "proteomic.extension.state",
+              "proteomic.extension.time",
+              "proteomic.base.annual",
+              "proteomic.extension.annual",
+              "metabolomic.extension.state",
+              "metabolomic.extension.time",
+              "metabolomic.base.annual",
+              "metabolomic.extension.annual",
+              "functional.extension.state",
+              "functional.extension.time",
+              "functional.base.annual",
+              "functional.extension.annual",
+              "digital.extension.state",
+              "digital.extension.time",
+              "digital.base.annual",
+              "digital.extension.annual",
+              "cognitive.extension.state",
+              "cognitive.extension.time",
+              "cognitive.base.annual",
+              "cognitive.extension.annual",
+              "neural.extension.state",
+              "neural.extension.time",
+              "neural.base.annual",
+              "neural.extension.annual",
+              "randomized-input-interaction"
+            ],
+            "unknown": [],
+            "target_count": 64,
+            "functional_count": 581,
+            "level": "2",
+            "people": 2112,
+            "depth_per_coordinate_per_occasion": 64,
+            "effective_depth": 8.767123287671232,
+            "visits_days": [
+              0,
+              30,
+              365
+            ],
+            "assignment": "factorial",
+            "assignment_groups": 4,
+            "linked_people": 2112,
+            "repeat_correlation": 0.1,
+            "model": {
+              "measurement_variance_R": 4.0,
+              "between_person_variance_B": 1.0,
+              "occasion_variance_S": 0.25
+            },
+            "reference_identity_operator_variance": 0.45625000000000004,
+            "reference_population_variance": 0.0008078835227272727,
+            "profile_sha256": "sha256:35701f676d5f6b2ff2c9d125a3a1d9ab4286a21df77a9f1ab8447d5d2aac4551",
+            "design_source_sha256": "sha256:9f08c5eed5c7e95e12080f12f24366560612b9f47a3e1ef128478e93a86dea49"
+          }
+        ],
+        "category_matrix": [
+          [
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "\u2013"
+          ],
+          [
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "\u2013"
+          ],
+          [
+            "F",
+            "F",
+            "F",
+            "F",
+            "F",
+            "F",
+            "F",
+            "P",
+            "\u2013"
+          ],
+          [
+            "F",
+            "P",
+            "F",
+            "F",
+            "F",
+            "F",
+            "P",
+            "P",
+            "\u2013"
+          ],
+          [
+            "P",
+            "F",
+            "P",
+            "F",
+            "F",
+            "F",
+            "F",
+            "P",
+            "\u2013"
+          ],
+          [
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "F",
+            "P",
+            "P",
+            "\u2013"
+          ],
+          [
+            "P",
+            "F",
+            "P",
+            "F",
+            "F",
+            "F",
+            "F",
+            "P",
+            "\u2013"
+          ],
+          [
+            "P",
+            "P",
+            "P",
+            "P",
+            "P",
+            "F",
+            "P",
+            "P",
+            "\u2013"
+          ],
+          [
+            "F",
+            "F",
+            "F",
+            "F",
+            "F",
+            "F",
+            "F",
+            "F",
+            "\u2013"
+          ],
+          [
+            "F",
+            "P",
+            "F",
+            "F",
+            "F",
+            "F",
+            "P",
+            "F",
+            "\u2013"
+          ]
+        ],
+        "category_labels": [
+          "State",
+          "Pop.",
+          "Time",
+          "Digital",
+          "Neural",
+          "Causal",
+          "Linked",
+          "Joint",
+          "Cortical*"
+        ]
+      },
+      "artifacts": {
+        "svg": "36d1f11bea991b6875f2c21288a3521ad6029815c08fb37ad641113711dfdcf5",
+        "png": "f41652e6dc0f6c07349d2787d71daadd49b1e7295899473302fb8863f7123257"
+      }
+    }
+  ],
+  "source_architecture_sources": {
+    "PMC6666404": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6666404/",
+      "sha256": "710919f3ff5fd4cfb1dc8bab4a76234fdc85fddd20586a5bcb005e06cf5f1a9e",
+      "hash_scope": "exact BioC JSON response bytes",
+      "publication": "peer_reviewed_article",
+      "scope": "primary publication",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC6666404/unicode",
+      "retrieved_at": "2026-09-19T22:12:07.037923+00:00",
+      "checked_date": null
+    },
+    "PMC12341816": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12341816/",
+      "sha256": "a2ce8d6646637658363e4efae30a22c8c05bb9fd3dff648d87f3ee513b7f3c08",
+      "hash_scope": "exact BioC JSON response bytes",
+      "publication": "peer_reviewed_article",
+      "scope": "primary publication",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC12341816/unicode",
+      "retrieved_at": "2026-09-19T22:12:07.678062+00:00",
+      "checked_date": null
+    },
+    "PMC4380465": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4380465/",
+      "sha256": "1a72d655696c959ee5a5f76ed8099c714fba24c32da09ab669bfd9e4bf076612",
+      "hash_scope": "exact BioC JSON response bytes",
+      "publication": "peer_reviewed_article",
+      "scope": "primary publication",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC4380465/unicode",
+      "retrieved_at": "2026-09-19T22:12:08.121960+00:00",
+      "checked_date": null
+    },
+    "PMC10567551": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10567551/",
+      "sha256": "dbf50d8d006d4c26d702856890cc0a408954e2a6b873d721d5bc6ebe607e0fe9",
+      "hash_scope": "exact BioC JSON response bytes",
+      "publication": "peer_reviewed_article",
+      "scope": "primary publication",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC10567551/unicode",
+      "retrieved_at": "2026-09-19T22:12:08.611273+00:00",
+      "checked_date": null
+    },
+    "PMC12443626": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12443626/",
+      "sha256": "72b874b6e0ab0636e360298d0850dd9189c2922e34915e99e29d82caae08bb42",
+      "hash_scope": "exact BioC JSON response bytes",
+      "publication": "peer_reviewed_article",
+      "scope": "primary publication",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC12443626/unicode",
+      "retrieved_at": "2026-09-19T22:12:08.990141+00:00",
+      "checked_date": null
+    },
+    "UKB_TYPES": {
+      "url": "https://community.ukbiobank.ac.uk/hc/en-gb/articles/23472796568861-What-types-of-data-are-available-in-UK-Biobank",
+      "sha256": "faf1a3eb98fc740f4b2a7b31edf24d342aa3b811f05d3c5d6e953668a6dcff70",
+      "hash_scope": "exact public help-center API JSON body",
+      "publication": "first_party_resource_release",
+      "scope": "official documentation",
+      "locator_recipe": "HTMLParser(convert_charrefs=True).handle_data from /article/body; join with spaces; Unicode whitespace collapse; strip; UTF-8",
+      "updated_at": "2026-09-01T12:31:01Z",
+      "fetch_url": "https://community.ukbiobank.ac.uk/api/v2/help_center/en-gb/articles/23472796568861.json",
+      "retrieved_at": "2026-09-19T22:14:34.690361+00:00",
+      "checked_date": null
+    },
+    "UKB_IMAGING": {
+      "url": "https://community.ukbiobank.ac.uk/hc/en-gb/articles/24618819821981-Imaging-Data",
+      "sha256": "2b5a3f8a5f982c31dc9d0f83f8a5da4809dd24e84dd45ce4010396c13c5f09c1",
+      "hash_scope": "exact public help-center API JSON body",
+      "publication": "first_party_resource_release",
+      "scope": "official documentation",
+      "locator_recipe": "HTMLParser(convert_charrefs=True).handle_data from /article/body; join with spaces; Unicode whitespace collapse; strip; UTF-8",
+      "updated_at": "2026-09-02T11:00:04Z",
+      "fetch_url": "https://community.ukbiobank.ac.uk/api/v2/help_center/en-gb/articles/24618819821981.json",
+      "retrieved_at": "2026-09-19T22:14:34.982467+00:00",
+      "checked_date": null
+    },
+    "hpp-nature-medicine-2025-abstract": {
+      "url": "https://doi.org/10.1038/s41591-025-03790-9",
+      "sha256": "60fe13781569f4857126f8a175dc2d276fe99004ef69f15e99254088b7e517e1",
+      "hash_scope": "exact Europe PMC core JSON body",
+      "publication": "peer_reviewed_article",
+      "scope": "abstract_only; historical_alias_unresolved",
+      "as_of": "2025-07-15",
+      "fetch_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:40665053%20AND%20SRC:MED&format=json&resultType=core",
+      "retrieved_at": "2026-09-19T22:15:14.047356+00:00",
+      "checked_date": null
+    },
+    "ELITE_PUBLIC": {
+      "url": "https://www.ani.ai/#elite",
+      "sha256": "10211add32efb4c7393de6ad02e11145f4b0b4242c2bd8a6841f911eef830583",
+      "hash_scope": "exact_raw_html_response_bytes",
+      "publication": "first_party_self_report",
+      "scope": "official description; collection not independently verified",
+      "fetch_url": "https://www.ani.ai/",
+      "retrieved_at": null,
+      "checked_date": "2026-09-19",
+      "retrieval_note": "Existing public card acquisition date; exact retrieval timestamp unavailable. Fragment omitted from HTTP URL."
+    },
+    "PMC7250878": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7250878/",
+      "sha256": "28653c29252d05752660540fa1d0e487e07f45a734df137a76899ec31b27b254",
+      "hash_scope": "exact_acquired_response_bytes",
+      "publication": "peer_reviewed_article",
+      "fetch_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC7250878/unicode",
+      "retrieved_at": null,
+      "checked_date": "2026-09-19"
+    }
+  },
+  "rendering": {
+    "matplotlib": "3.11.0",
+    "native_width_inches": 6.5,
+    "minimum_body_label_pt": 9,
+    "minimum_note_pt": 8,
+    "png_dpi": 180
+  },
+  "claim_scope": "Formatting and exact record/category projection only; no new scientific quantities or source acquisitions"
+}
