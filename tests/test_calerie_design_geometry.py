@@ -191,9 +191,24 @@ class CalerieDesignTests(unittest.TestCase):
             hashlib.sha256((directory / "chart-results.json").read_bytes()).hexdigest(),
         )
         rows = example.comparison_rows(self.requests, [example.evaluate(r) for r in self.requests])
-        self.assertEqual(json.loads((directory / "chart-results.json").read_text()), rows)
+        published = json.loads((directory / "chart-results.json").read_text())
+        self.assertEqual(len(published), len(rows))
+        for stored, replayed in zip(published, rows):
+            # BLAS implementations may differ at the last floating-point bit.
+            # Source/model identities and missingness must still match exactly.
+            self.assertEqual(
+                {k: v for k, v in stored.items() if k != "variance_interval"},
+                {k: v for k, v in replayed.items() if k != "variance_interval"},
+            )
+            if stored["variance_interval"] is None:
+                self.assertIsNone(replayed["variance_interval"])
+            else:
+                np.testing.assert_allclose(
+                    stored["variance_interval"], replayed["variance_interval"],
+                    rtol=1e-12, atol=0,
+                )
         self.assertEqual(
-            metadata["rows"], [row for row in rows if row["model"] == metadata["model"]]
+            metadata["rows"], [row for row in published if row["model"] == metadata["model"]]
         )
         root = directory.parents[2]
         self.assertEqual(
