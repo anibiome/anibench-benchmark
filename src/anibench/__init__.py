@@ -24,4 +24,4 @@ __all__ = [
     "run_trial_eval",
     "score_joint_information_v2",
 ]
-__version__ = "2.0.0rc2"
+__version__ = "2.0.0rc3"

@@ -33,84 +33,106 @@
     </header>
     <main id="main">
       <section id="studies" class="view">
-        <div class="page-intro">
-          <p class="eyebrow">THE HUMAN STUDY BENCHMARK</p>
-          <h1>How much can a study teach us?</h1>
-          <p class="lead">
-            Compare the depth, scale, and structure of human studies.<br
-              class="desktop-break"
-            />
-            Measure the biological record—and the learning it can support.
-          </p>
-        </div>
-        <div class="context-line">
-          <span class="status-dot" aria-hidden="true"></span
-          ><span>Research release</span><span class="context-separator">/</span
-          ><span>Source-backed study facts</span
-          ><a href="#method"
-            >How comparisons work <span aria-hidden="true">→</span></a
+        <div class="workspace-title">
+          <div>
+            <p class="eyebrow">ANIBENCH / RESEARCH WORKBENCH</p>
+            <h1>Compare what a study can teach.</h1>
+          </div>
+          <a class="primary-link" href="#run"
+            >Run your study <span aria-hidden="true">↗</span></a
           >
         </div>
-        <section class="study-surface" aria-labelledby="study-heading">
-          <div class="surface-heading">
-            <div>
-              <p class="eyebrow">EXPLORE THE EVIDENCE</p>
-              <h2 id="study-heading">
-                Different studies. Different strengths.
-              </h2>
+        <p class="workspace-summary">
+          Biological depth. Population scale. Change over time. Different
+          questions deserve different comparisons.
+        </p>
+        <div
+          id="family-strip"
+          class="family-strip"
+          aria-label="The six benchmark families"
+        ></div>
+        <section class="research-workbench" aria-labelledby="study-heading">
+          <aside class="study-rail" aria-label="Select studies">
+            <div class="rail-heading">
+              <h2>Study atlas</h2>
+              <p id="study-count" role="status">Loading…</p>
             </div>
-            <p id="study-count" class="muted" role="status">
-              Loading study records…
-            </p>
-          </div>
-          <div class="controls">
             <label class="search-control"
               ><span class="sr-only">Search studies</span
               ><input
                 id="search"
                 type="search"
-                placeholder="Find a study…"
-                autocomplete="off" /></label
-            ><label class="metric-control"
-              >Compare
-              <select id="metric">
-                <option value="participants">Study size</option>
-                <option value="duration">Time &amp; follow-up</option>
-                <option value="targets">Molecular targets</option>
-              </select></label
-            ><a class="text-link" href="explore.html#workspace"
-              >Advanced workspace ↗</a
+                placeholder="Find a study"
+                autocomplete="off"
+            /></label>
+            <div class="selection-actions">
+              <button id="select-all" type="button">All studies</button
+              ><button id="clear-selection" type="button">Clear</button>
+            </div>
+            <p id="selection-note" class="selection-note" hidden></p>
+            <div id="study-selection" class="study-selection"></div>
+            <a class="rail-download" href="explorer-atlas.json" download
+              >Download source records ↓</a
             >
-          </div>
-          <p id="metric-note" class="table-note"></p>
-          <div id="load-error" class="error" role="alert" hidden></div>
-          <div class="table-scroll">
-            <table>
-              <caption class="sr-only">
-                Reported study facts. Each row preserves its source definition.
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Study</th>
-                  <th scope="col" id="value-heading">Reported participants</th>
-                  <th scope="col">What the number describes</th>
-                  <th scope="col"><span class="sr-only">Details</span></th>
-                </tr>
-              </thead>
-              <tbody id="study-rows"></tbody>
-            </table>
-          </div>
-          <p id="empty-state" class="empty" hidden>
-            No studies match. Try a shorter name.
-          </p>
-          <div class="surface-footer">
-            <p>
-              Alphabetical order. A reported fact is not an overall quality
-              score.
+          </aside>
+          <div class="analysis-canvas">
+            <div class="canvas-header">
+              <div>
+                <p class="eyebrow" id="evidence-label">REPORTED STUDY FACTS</p>
+                <h2 id="study-heading">The scale of a study</h2>
+              </div>
+              <span class="research-label">Research release</span>
+            </div>
+            <div class="mode-switch" role="group" aria-label="Evidence view">
+              <button type="button" data-mode="reported" aria-pressed="true">
+                Real studies</button
+              ><button type="button" data-mode="synthetic" aria-pressed="false">
+                Synthetic demonstration
+              </button>
+            </div>
+            <div class="controls">
+              <label class="metric-control"
+                >Measure<select id="metric"></select></label
+              ><button id="all-charts" type="button" class="text-link">
+                All charts ↗
+              </button>
+            </div>
+            <p id="metric-note" class="table-note"></p>
+            <div id="load-error" class="error" role="alert" hidden></div>
+            <div
+              id="comparison-chart"
+              class="comparison-chart"
+              aria-live="polite"
+            ></div>
+            <p id="empty-state" class="empty" hidden>
+              No studies selected. Choose studies from the atlas.
             </p>
-            <a href="explorer-atlas.json" download
-              >Download the source records ↓</a
-            >
+            <details class="source-table">
+              <summary>Inspect the underlying source facts</summary>
+              <div class="table-scroll">
+                <table>
+                  <caption class="sr-only">
+                    Every reported fact retains its source definition.
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Study</th>
+                      <th scope="col" id="value-heading">
+                        Reported participants
+                      </th>
+                      <th scope="col">Definition</th>
+                      <th scope="col"><span class="sr-only">Details</span></th>
+                    </tr>
+                  </thead>
+                  <tbody id="study-rows"></tbody>
+                </table>
+              </div>
+            </details>
+            <div class="canvas-footer">
+              <span id="chart-context"
+                >Alphabetical order · No overall winner</span
+              ><a href="#method">Read the comparison rules ↗</a>
+            </div>
           </div>
         </section>
         <section class="question-band">
@@ -250,6 +272,13 @@
               study profile. They do not determine the core collection or design
               score.
             </p>
+            <p>
+              <a
+                class="text-link"
+                href="https://github.com/anibiome/anibench-benchmark/blob/main/docs/LEVELS_AND_SATURATION.md"
+                >Finite targets and sample-size derivations ↗</a
+              >
+            </p>
           </div>
         </div>
         <section class="paper-band">
@@ -267,6 +296,11 @@
               class="primary-link"
               href="https://github.com/anibiome/anibench-benchmark/blob/main/paper/AniBench_open_benchmark.md"
               >Research manuscript ↗</a
+            >
+            <a
+              class="text-link"
+              href="https://github.com/anibiome/anibench-benchmark/releases/download/v2.0.0-rc.3/AniBench.pdf"
+              >Download the paper PDF ↓</a
             ><a
               class="text-link"
               href="https://github.com/anibiome/anibench-benchmark/blob/main/docs/FIRST_PRINCIPLES.md"
@@ -476,6 +510,23 @@ python -m pip install -e .</code></pre>
         >Apache 2.0</a
       >
     </footer>
+    <dialog id="chart-index" aria-labelledby="chart-index-title">
+      <div class="dialog-top">
+        <h2 id="chart-index-title">Every question, every chart.</h2>
+        <button
+          id="close-chart-index"
+          type="button"
+          aria-label="Close chart index"
+        >
+          ×
+        </button>
+      </div>
+      <p>
+        Reported facts and model-based examples have separate evidence labels.
+        Missing geometry stays unresolved.
+      </p>
+      <div id="chart-index-content"></div>
+    </dialog>
     <dialog id="study-detail" aria-labelledby="detail-title">
       <div class="dialog-top">
         <p class="eyebrow">STUDY EVIDENCE</p>

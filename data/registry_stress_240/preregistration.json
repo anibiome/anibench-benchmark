@@ -1,0 +1,118 @@
+{
+  "schema": "anibench.public_registry_preregistration.v1",
+  "created_at": "2026-09-19T15:44:49.078555+00:00",
+  "target_per_stratum": 20,
+  "target_total": 240,
+  "minimum_total_goal": 200,
+  "strata": [
+    {
+      "id": "healthy-aging-multiomics",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (multiomics OR \"multi-omics\" OR proteomics OR metabolomics) AND aging",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "precision-oncology-genomic",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (\"precision oncology\" OR genomic) AND cancer",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "vaccine",
+      "query": "AREA[StudyType]INTERVENTIONAL AND vaccine",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "exercise",
+      "query": "AREA[StudyType]INTERVENTIONAL AND exercise",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "nutrition-microbiome",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (nutrition OR diet) AND microbiome",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "digital-wearable",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (wearable OR \"digital health\")",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "gene-therapy",
+      "query": "AREA[StudyType]INTERVENTIONAL AND \"gene therapy\"",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "cell-therapy",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (\"cell therapy\" OR \"CAR-T\")",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "micro-randomized",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (\"micro-randomized\" OR microrandomized)",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "smart-adaptive",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (\"sequential multiple assignment\" OR \"SMART trial\")",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "neurodiagnostics",
+      "query": "(AREA[StudyType]OBSERVATIONAL OR AREA[StudyType]INTERVENTIONAL) AND (EEG OR electroencephalography OR neuroimaging OR \"brain imaging\") AND (diagnostic OR diagnosis)",
+      "allowed_study_types": [
+        "INTERVENTIONAL",
+        "OBSERVATIONAL"
+      ]
+    },
+    {
+      "id": "neuromodulation",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (\"transcranial magnetic stimulation\" OR \"deep brain stimulation\" OR \"transcranial direct current stimulation\")",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    }
+  ],
+  "selection": "Fixed stratum order; exact API response order; first 20 globally unique identifiers per stratum; no outcome-based exclusions or replacement. API sort is that of existing snapshot_clinicaltrials_search implementation.",
+  "paging": {
+    "page_size": 50,
+    "max_pages_per_stratum": 20,
+    "network_attempts": 3,
+    "sequential_delay_seconds": 0.25,
+    "retry_seconds": [
+      1,
+      3
+    ]
+  },
+  "shortage_rule": "Keep actual count and report shortage; no padding, query changes, or replacement strata.",
+  "failure_rule": "Preserve selected identity even if fetch or compilation fails; no replacement.",
+  "probes": [
+    "remove enrollmentInfo from derived registry record: population must remain unknown and no promotion",
+    "duplicate intervention list entries in derived registry record: sparse payload must remain identical",
+    "reverse arm/intervention/outcome row order in derived record: sparse payload must remain identical"
+  ],
+  "scope": "Public registry intake/parser and sparse compiler only; no biological calibration, intervention execution or global winners.",
+  "source_code_sha256": {
+    "scripts/run_ctgov_50_stress_test.py": "46d7faa3d9664cd2f13c43f102a089f259efd1d4b7ce0e136b25f50e6053beae",
+    "src/anibench/intake.py": "634daa09b396747e26a929fddbedbcd10e4756c8ea8a0dd825982d3e050a7c1f",
+    "src/anibench/design_v2.py": "320191772311d4ba627571a1e23efadd32a1e836ead4c66e59fdeceaa724f28d"
+  }
+}

@@ -727,6 +727,8 @@ components:
                 - claim_class
                 - reference_authority_id
                 - illustrative_completion_percent
+                - basis_marginal_semantics
+                - conditional_joint_diagnostic
                 - illustrative_overflow
                 - illustrative_coverage_curve
                 - illustrative_reference_direction_information
@@ -737,6 +739,8 @@ components:
                 claim_class: {type: string, const: illustrative_mechanics_fixture_not_biological_reference}
                 reference_authority_id: {type: string}
                 illustrative_completion_percent: {type: number, minimum: 0, maximum: 100}
+                basis_marginal_semantics: {const: reference_basis_marginal_variance_attainment_only}
+                conditional_joint_diagnostic: {"type": "object", "required": ["contract", "claim_class", "worst_direction_posterior_variance_ratio", "all_direction_reference_attainment", "numerical_tolerance", "comparison_rule", "public_saturation_claim_allowed", "promotion_allowed"], "properties": {"contract": {"const": "anibench.conditional-posterior-reference.v1"}, "claim_class": {"const": "conditional_gaussian_geometry_not_biological_saturation"}, "worst_direction_posterior_variance_ratio": {"type": "number", "exclusiveMinimum": 0}, "all_direction_reference_attainment": {"type": "boolean"}, "numerical_tolerance": {"const": 1e-10}, "comparison_rule": {"const": "worst_direction_posterior_variance_ratio <= 1 + numerical_tolerance"}, "public_saturation_claim_allowed": {"const": false}, "promotion_allowed": {"const": false}}, "additionalProperties": false}
                 illustrative_overflow: {type: number, minimum: 0}
                 illustrative_coverage_curve: {type: object}
                 illustrative_reference_direction_information: {type: array, items: {type: number}}

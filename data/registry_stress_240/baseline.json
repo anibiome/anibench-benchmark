@@ -1,0 +1,84 @@
+{
+  "schema": "anibench.registry-stress-240.baseline.v1",
+  "started_at": "2026-09-19T15:44:49.329082+00:00",
+  "finished_at": "2026-09-19T15:47:00.300842+00:00",
+  "preregistration_sha256": "dde0b061894262c97d80f33afd0c105d9099f5477c16428fadb492e42bd12079",
+  "source_code_sha256": {
+    "scripts/run_ctgov_50_stress_test.py": "46d7faa3d9664cd2f13c43f102a089f259efd1d4b7ce0e136b25f50e6053beae",
+    "src/anibench/intake.py": "634daa09b396747e26a929fddbedbcd10e4756c8ea8a0dd825982d3e050a7c1f",
+    "src/anibench/design_v2.py": "320191772311d4ba627571a1e23efadd32a1e836ead4c66e59fdeceaa724f28d"
+  },
+  "selected": 240,
+  "passed": 239,
+  "processing_failures": [
+    {
+      "nct_id": "NCT00489970",
+      "reason_code": "display_name_schema_length"
+    }
+  ],
+  "strata": {
+    "healthy-aging-multiomics": {
+      "selected": 20,
+      "completed": 20,
+      "shortfall": 0
+    },
+    "precision-oncology-genomic": {
+      "selected": 20,
+      "completed": 20,
+      "shortfall": 0
+    },
+    "vaccine": {
+      "selected": 20,
+      "completed": 19,
+      "shortfall": 0
+    },
+    "exercise": {
+      "selected": 20,
+      "completed": 20,
+      "shortfall": 0
+    },
+    "nutrition-microbiome": {
+      "selected": 20,
+      "completed": 20,
+      "shortfall": 0
+    },
+    "digital-wearable": {
+      "selected": 20,
+      "completed": 20,
+      "shortfall": 0
+    },
+    "gene-therapy": {
+      "selected": 20,
+      "completed": 20,
+      "shortfall": 0
+    },
+    "cell-therapy": {
+      "selected": 20,
+      "completed": 20,
+      "shortfall": 0
+    },
+    "micro-randomized": {
+      "selected": 20,
+      "completed": 20,
+      "shortfall": 0
+    },
+    "smart-adaptive": {
+      "selected": 20,
+      "completed": 20,
+      "shortfall": 0
+    },
+    "neurodiagnostics": {
+      "selected": 20,
+      "completed": 20,
+      "shortfall": 0
+    },
+    "neuromodulation": {
+      "selected": 20,
+      "completed": 20,
+      "shortfall": 0
+    }
+  },
+  "outcome_count_unknown": 239,
+  "real_outcome_arrays_among_completed": 233,
+  "scope": "Original frozen implementation: title length rejection and incorrect outcome pointer. Historical baseline is not replaced by corrected replay."
+}

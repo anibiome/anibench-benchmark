@@ -82,9 +82,13 @@ FIELD_POINTERS = {
 COUNT_POINTERS = {
     "arm_count": "/protocolSection/armsInterventionsModule/armGroups",
     "intervention_count": "/protocolSection/armsInterventionsModule/interventions",
-    "outcome_count": "/protocolSection/outcomesModule/outcomes",
     "location_count": "/protocolSection/contactsLocationsModule/locations",
 }
+
+OUTCOME_ARRAYS = ("primaryOutcomes", "secondaryOutcomes", "otherOutcomes")
+# The display-name bound in schemas/v2/design-input.schema.json. The complete
+# registry title remains in the extracted field and the mapping receipt.
+DESIGN_DISPLAY_NAME_MAX_LENGTH = 240
 
 
 class StressTestError(RuntimeError):
@@ -146,8 +150,8 @@ def _field(snapshot: IntakeSnapshot, pointer: str) -> dict[str, Any]:
 
 def _array_count(snapshot: IntakeSnapshot, pointer: str) -> dict[str, Any]:
     exists, value = pointer_value(snapshot.parsed_content, pointer)
-    valid = exists and isinstance(value, Sequence) and not isinstance(
-        value, (str, bytes, bytearray)
+    valid = (
+        exists and isinstance(value, Sequence) and not isinstance(value, (str, bytes, bytearray))
     )
     return {
         "value": len(value) if valid else None,
@@ -156,11 +160,40 @@ def _array_count(snapshot: IntakeSnapshot, pointer: str) -> dict[str, Any]:
     }
 
 
+def _outcome_count(snapshot: IntakeSnapshot) -> dict[str, Any]:
+    pointer = "/protocolSection/outcomesModule"
+    exists, module = pointer_value(snapshot.parsed_content, pointer)
+    arrays = (
+        {key: module[key] for key in OUTCOME_ARRAYS if key in module}
+        if exists and isinstance(module, Mapping)
+        else {}
+    )
+    valid = bool(arrays) and all(
+        isinstance(value, Sequence) and not isinstance(value, (str, bytes, bytearray))
+        for value in arrays.values()
+    )
+    return {
+        "value": sum(len(value) for value in arrays.values()) if valid else None,
+        "state": "exact" if valid else "unknown",
+        "binding": {
+            **_source_binding(
+                snapshot,
+                pointer,
+                derivation="sum(len(present primaryOutcomes, secondaryOutcomes, otherOutcomes arrays)); count of listed entries only",
+            ),
+            "component_json_pointers": [f"{pointer}/{key}" for key in arrays],
+        },
+    }
+
+
 def extract_registry_record(snapshot: IntakeSnapshot) -> dict[str, Any]:
     if snapshot.source_kind != "clinicaltrials_gov_v2_study":
         raise StressTestError("Expected one ClinicalTrials.gov v2 study snapshot")
     fields = {name: _field(snapshot, pointer) for name, pointer in FIELD_POINTERS.items()}
-    fields.update({name: _array_count(snapshot, pointer) for name, pointer in COUNT_POINTERS.items()})
+    fields.update(
+        {name: _array_count(snapshot, pointer) for name, pointer in COUNT_POINTERS.items()}
+    )
+    fields["outcome_count"] = _outcome_count(snapshot)
     return {
         "source_object": {
             "source_uri": snapshot.source_uri,
@@ -180,6 +213,11 @@ def sparse_design_input(record: Mapping[str, Any]) -> tuple[dict[str, Any], dict
     title = fields["brief_title"]["value"]
     if not isinstance(nct_id, str) or not isinstance(title, str) or not title.strip():
         raise StressTestError("Registry record is missing its NCT identifier or brief title")
+
+    display_name = title
+    if len(title) > DESIGN_DISPLAY_NAME_MAX_LENGTH:
+        suffix = f"… [{nct_id}]"
+        display_name = title[: DESIGN_DISPLAY_NAME_MAX_LENGTH - len(suffix)] + suffix
 
     enrollment_count = fields["enrollment_count"]["value"]
     enrollment_type = fields["enrollment_type"]["value"]
@@ -206,9 +244,7 @@ def sparse_design_input(record: Mapping[str, Any]) -> tuple[dict[str, Any], dict
 
     arms = fields["arm_count"]["value"]
     policy_arms = (
-        arms
-        if isinstance(arms, int) and not isinstance(arms, bool) and arms >= 1
-        else None
+        arms if isinstance(arms, int) and not isinstance(arms, bool) and arms >= 1 else None
     )
     allocation = fields["allocation"]["value"]
     randomization_note = "allocation_not_promoted_to_randomization"
@@ -224,7 +260,7 @@ def sparse_design_input(record: Mapping[str, Any]) -> tuple[dict[str, Any], dict
     payload = {
         "contract": "anibench.design-input.v2-candidate1",
         "study_id": nct_id,
-        "name": title,
+        "name": display_name,
         "assessment_lane": "registered",
         "population": population,
         "duration": {"value": None, "state": "unknown", "semantics": "registry_duration"},
@@ -244,6 +280,13 @@ def sparse_design_input(record: Mapping[str, Any]) -> tuple[dict[str, Any], dict
         ],
     }
     mapping = {
+        "name": {
+            "source_fields": ["brief_title", "nct_id"],
+            "source_title": title,
+            "source_binding": fields["brief_title"]["binding"],
+            "display_name_shortened": display_name != title,
+            "derivation": "identity when at most 240 characters; otherwise title prefix plus ellipsis and bracketed NCT identifier, at most 240 characters",
+        },
         "population": {
             "source_fields": ["enrollment_count", "enrollment_type"],
             "derivation": "actual->exact; estimated->conditional; otherwise unknown",
@@ -302,9 +345,13 @@ def audit_study_snapshot(
     identity_match = actual_nct_id == expected_nct_id
     interventional = fields["study_type"]["value"] == "INTERVENTIONAL"
     if not identity_match:
-        raise StressTestError(f"Exact-study identity mismatch: {expected_nct_id} != {actual_nct_id}")
+        raise StressTestError(
+            f"Exact-study identity mismatch: {expected_nct_id} != {actual_nct_id}"
+        )
     if not interventional:
-        raise StressTestError(f"Search stratum returned a non-interventional study: {actual_nct_id}")
+        raise StressTestError(
+            f"Search stratum returned a non-interventional study: {actual_nct_id}"
+        )
     payload, mapping = sparse_design_input(record)
     compiler_probe = _compiler_probe(payload)
     return {
@@ -444,9 +491,7 @@ def run_live_stress_test(*, per_stratum: int = PER_STRATUM) -> dict[str, Any]:
                 "unique_trial_count": "len(set(trials[*].nct_id))",
                 "passed_trial_count": "sum(trials[*].passed == true)",
                 "failed_trial_count": "sum(trials[*].passed == false)",
-                "categorical_counts": (
-                    "Counter(trials[*].fields[field].value; null -> UNKNOWN)"
-                ),
+                "categorical_counts": ("Counter(trials[*].fields[field].value; null -> UNKNOWN)"),
             },
         },
         "invariants": {

@@ -71,3 +71,172 @@ test("source links reject active content and local file URLs", () => {
     "https://example.org/paper",
   );
 });
+
+const {
+  factRows,
+  plot,
+  readState,
+  demoMetrics,
+  syntheticPlot,
+} = require("./benchmark.js");
+
+test("plot preserves every denominator and facets incompatible units", () => {
+  const studies = [
+    {
+      study_id: "trial",
+      name: "Example",
+      publication_facts: [
+        {
+          value: 50,
+          unit: "participants",
+          label: "Planned",
+          semantics: "planned",
+        },
+        {
+          value: 42,
+          unit: "participants",
+          label: "Analyzed",
+          semantics: "analysis",
+        },
+        { value: 100, unit: "proteins", label: "Proteins" },
+        { value: 250, unit: "metabolites", label: "Metabolites" },
+      ],
+    },
+  ];
+  assert.equal(factRows(studies, "participants").length, 2);
+  const chart = plot(studies, "targets");
+  assert.match(chart, /Reported proteins/);
+  assert.match(chart, /Reported metabolites/);
+  assert.equal((chart.match(/plot-facet/g) || []).length, 2);
+  assert.doesNotMatch(chart, /rank|winner/);
+});
+
+test("zero is retained, invalid numeric facts omitted, tiny values stay nonzero", () => {
+  const study = {
+    study_id: "s",
+    name: "Zero",
+    publication_facts: [0, null, -1, NaN, Infinity, "2"].map((value) => ({
+      value,
+      unit: "participants",
+      label: "Count",
+    })),
+  };
+  assert.equal(factsFor(study, "participants").length, 1);
+  assert.match(plot([study], "participants"), /plot-number">0</);
+  assert.equal(factText({ value: 0.000013 }), "1.300e-5");
+});
+
+test("URL state round trips an explicitly empty selection and rejects unknown IDs", () => {
+  const studies = [{ study_id: "a" }, { study_id: "b" }];
+  assert.deepEqual(
+    readState(
+      "?family=causal&studies=b,a,unknown&view=synthetic&examples=x",
+      studies,
+      ["x", "y"],
+    ),
+    {
+      family: "causal",
+      mode: "synthetic",
+      metric: null,
+      studies: ["b", "a"],
+      examples: ["x"],
+    },
+  );
+  assert.deepEqual(
+    readState("?studies=&examples=", studies, ["x"]).studies,
+    [],
+  );
+  assert.deepEqual(
+    readState("?family=__proto__", studies, []).family,
+    "extensive",
+  );
+});
+
+test("synthetic charts retain zero, unknown and provenance without a saturation claim", () => {
+  const receipt = (id, value, state) => ({
+    protocol_id: id,
+    assessment_receipt_sha256: "sha256:receipt",
+    scenarios: [
+      {
+        families: [
+          {
+            family_id: "intensive",
+            native_metrics: [
+              {
+                metric_id: "rank",
+                label: "Independent directions",
+                value,
+                state,
+                unit: "dimensions",
+                source_locator: "/rank",
+                source_object_sha256: "sha256:source",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  });
+  const packet = {
+    labels: { zero: "Zero", unknown: "Unknown" },
+    receipts: [
+      receipt("zero", 0, "computed_unverified_geometry"),
+      receipt("unknown", null, "unresolved"),
+    ],
+  };
+  const metrics = demoMetrics(packet, "intensive");
+  assert.equal(metrics.length, 1);
+  const chart = syntheticPlot(
+    packet,
+    "intensive",
+    metrics[0].id,
+    new Set(["zero", "unknown"]),
+  );
+  assert.match(chart, /plot-number">0</);
+  assert.match(chart, /class="missing">unresolved/);
+  assert.match(chart, /sha256:source/);
+  assert.match(chart, /Synthetic model output/);
+  assert.doesNotMatch(chart, /100%|winner/);
+});
+
+test("missing selected studies remain visible outside numerical axes", () => {
+  const known = {
+    study_id: "known",
+    name: "Known",
+    publication_facts: [{ value: 100, unit: "proteins", label: "Panel" }],
+  };
+  const unknown = {
+    study_id: "unknown",
+    name: "Unknown cohort",
+    publication_facts: [],
+  };
+  const chart = plot([known, unknown], "targets");
+  assert.match(chart, /Not reported in these records/);
+  assert.match(chart, /Unknown cohort/);
+  assert.equal((chart.match(/plot-number/g) || []).length, 1);
+});
+
+test("different follow-up semantics are separated even within the same unit", () => {
+  const study = {
+    study_id: "time",
+    name: "Timeline",
+    publication_facts: [
+      {
+        value: 12,
+        unit: "months",
+        label: "Treatment",
+        semantics: "treatment_period",
+      },
+      {
+        value: 12,
+        unit: "months",
+        label: "Endpoint",
+        semantics: "scheduled_endpoint",
+      },
+    ],
+  };
+  assert.equal(
+    (plot([study], "duration").match(/plot-facet/g) || []).length,
+    2,
+  );
+});

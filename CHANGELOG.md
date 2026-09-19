@@ -2,6 +2,22 @@
 
 All notable changes are recorded here. AniBench uses semantic versioning for the benchmark contract, not only the Python package.
 
+## 2.0.0-rc.3 - 2026-09-19
+
+- Replace the homepage table with a six-family research workbench, persistent
+  selections, source-definition facets and a complete synthetic chart index.
+- Add a conditional all-directions posterior diagnostic. Preserve historical
+  basis-marginal completion while exposing its stronger-claim counterexample.
+- Publish a reproducible 225-case synthetic geometry audit and 240-study registry
+  stress test; fix long registry titles and outcome-array extraction.
+- Add compiler adversarial cases for tiny cohorts, correlated repeats, omitted
+  directions and unsupported population or budget claims.
+- Extend the manuscript and explain finite task targets, sample requirements,
+  conditional attainment and empirical learning plateaus separately.
+- Publish verified research-candidate assets through a narrowly scoped GitHub
+  Actions job. This release does not establish biological calibration or an
+  overall study ranking.
+
 ## 2.0.0-rc.2 - 2026-09-18
 
 - Add a local browser receipt viewer with collection charts, linked-measurement

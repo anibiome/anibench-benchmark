@@ -28,6 +28,14 @@ manuscript is `paper/AniBench_open_benchmark.md`.
 The website front door is `web/benchmark.html`; the detailed explorer and
 canonical evaluator remain available without changing their contracts.
 
+September 19 research-candidate update: `docs/CONDITIONAL_POSTERIOR_REFERENCE.md`
+distinguishes basis-marginal completion from an all-directions conditional
+posterior guarantee. `docs/LEVELS_AND_SATURATION.md` derives illustrative task
+requirements without claiming a calibrated universal enrollment threshold.
+`docs/REGISTRY_STRESS_240.md` and `scripts/audit_synthetic_geometry.py` document
+separate real-registry intake and synthetic mathematical audits. None promotes
+an unresolved biological target or establishes an overall study winner.
+
 The current product and scientific authority is AniBench v2. Do not reconstruct
 the benchmark by averaging older repository documents.
 

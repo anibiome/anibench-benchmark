@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "anibench"
-version = "2.0.0rc2"
+version = "2.0.0rc3"
 description = "An auditable benchmark of how much human trials can teach future superintelligence about biology and intervention response."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -99,6 +99,9 @@ exclude = [
 packages = ["src/anibench"]
 
 [tool.hatch.build.targets.wheel.force-include]
+"schemas/v2/conditional-posterior-reference.schema.json" = "anibench/schemas/v2/conditional-posterior-reference.schema.json"
+"docs/CONDITIONAL_POSTERIOR_REFERENCE.md" = "anibench/docs/CONDITIONAL_POSTERIOR_REFERENCE.md"
+"docs/LEVELS_AND_SATURATION.md" = "anibench/docs/LEVELS_AND_SATURATION.md"
 "web/collection-viewer.js" = "anibench/web/collection-viewer.js"
 "web/collection-example.json" = "anibench/web/collection-example.json"
 "schemas/collection/comparison-basis.schema.json" = "anibench/schemas/collection/comparison-basis.schema.json"
@@ -176,6 +179,19 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/data/registry_stress_240",
+  "/scripts/run_registry_stress_240.py",
+  "/tests/test_registry_stress_240.py",
+  "/tests/test_council_protocol_adversaries.py",
+  "/docs/REGISTRY_STRESS_240.md",
+  "/schemas/v2/conditional-posterior-reference.schema.json",
+  "/docs/CONDITIONAL_POSTERIOR_REFERENCE.md",
+  "/docs/LEVELS_AND_SATURATION.md",
+  "/scripts/audit_synthetic_geometry.py",
+  "/scripts/illustrate_sample_requirements.py",
+  "/data/synthetic_geometry_audit/actual_geometry_results.json",
+  "/tests/test_posterior_reference_diagnostic.py",
+  "/tests/test_saturation_packaging.py",
   "/web/collection-viewer.js",
   "/web/collection-example.json",
   "/web/collection-viewer.test.js",

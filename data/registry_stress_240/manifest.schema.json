@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Frozen240-study registry manifest",
+  "type": "object",
+  "required": [
+    "schema",
+    "selection_frozen_at",
+    "preregistration_sha256",
+    "expected_count",
+    "strata",
+    "selection_rule",
+    "failure_rule",
+    "search_receipts",
+    "source_code_sha256",
+    "studies",
+    "scope"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "anibench.registry-stress-240.manifest.v1"
+    },
+    "selection_frozen_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "preregistration_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "expected_count": {
+      "const": 240
+    },
+    "strata": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "query",
+          "allowed_study_types"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "allowed_study_types": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "INTERVENTIONAL",
+                "OBSERVATIONAL"
+              ]
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "selection_rule": {
+      "type": "string"
+    },
+    "failure_rule": {
+      "type": "string"
+    },
+    "search_receipts": {
+      "type": "array"
+    },
+    "source_code_sha256": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      }
+    },
+    "studies": {
+      "type": "array",
+      "minItems": 240,
+      "maxItems": 240,
+      "items": {
+        "type": "object",
+        "required": [
+          "nct_id",
+          "stratum_id",
+          "raw_sha256",
+          "retrieved_at",
+          "source_uri"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "nct_id": {
+            "type": "string",
+            "pattern": "^NCT[0-9]{8}$"
+          },
+          "stratum_id": {
+            "type": "string"
+          },
+          "raw_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "retrieved_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "source_uri": {
+            "type": "string",
+            "pattern": "^https://clinicaltrials.gov/api/v2/studies/NCT[0-9]{8}$"
+          }
+        }
+      }
+    },
+    "scope": {
+      "type": "string"
+    }
+  }
+}

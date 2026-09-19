@@ -2,7 +2,7 @@
 
 **Bruno Balen**<br/>
 ANI Biome PBC<br/>
-Research manuscript, 18 September 2026
+Research manuscript, 19 September 2026
 
 ## Abstract
 
@@ -409,6 +409,73 @@ provides log2(1+n)/2 bits. Copying the same realized measurement n times retains
 directions differ. Figure 1 derives these curves directly from the same target
 and prior; Figure 2 reproduces the native geometry comparison in Section 6.2.
 Neither figure uses clinical data or estimates a real study's information.
+
+### 6.5 Marginal completion and all-direction posterior precision
+
+Reference-basis marginal precision does not guarantee equal precision for every
+linear combination. For trial and reference Gaussian posterior covariances
+computed with the same prior and parameter space, the implementation adds the
+conditional diagnostic
+
+\[
+r=\max_{c\ne0}\frac{c^T\Sigma_{trial}c}{c^T\Sigma_{reference}c}
+=\lambda_{max}(\Sigma_{reference}^{-1/2}\Sigma_{trial}
+\Sigma_{reference}^{-1/2}).
+\]
+
+The condition r<=1 is equivalent to the Loewner inequality
+Sigma_trial<=Sigma_reference. The implementation reports the unrounded ratio and
+uses a fixed 1e-10 numerical boundary tolerance. This is a model-conditional
+reference comparison, not certified biological saturation. Historical
+basis-marginal completion values are retained with explicit semantics, while
+existing public completion and promotion gates remain closed.
+
+A reproducible counterexample uses prior precision I, reference information I,
+and trial posterior covariance [[0.5,0.49],[0.49,0.5]]. Both reference-basis
+marginals equal 0.5, yielding 100% marginal completion. Variance along the unit
+direction (1,1)/sqrt(2) is nevertheless 0.99 against reference variance 0.5.
+The new diagnostic reports r=1.98 and rejects all-direction attainment.
+
+An additional audit executes 225 distinct synthetic information matrices across
+15 adversarial families through the information helpers and replay validator.
+All 225 agree with their independent analytic or metamorphic mechanics checks
+and retain the replay's restrictions on public claims. The cases cover small
+populations with deep observations, large shallow populations, repeated and
+correlated observations, missing directions, redundant contrasts, near-singular
+positive-definite noise, units, nuisance uncertainty and the marginal/joint
+precision distinction. All 15 joint-completion counterexamples fail the stronger
+all-direction condition. In 15 copied-contribution cases the low-level additive
+helper sums repeated inputs: acquisition-lineage deduplication is an upstream
+precondition, not something this helper can infer from shared source labels.
+
+This audit does not evaluate 225 real studies, the complete protocol compiler,
+empirical learning or biological calibration. Cost and elapsed-duration examples
+establish only that these metadata do not enter the low-level information
+formula. The source-bound results and portable runner are
+`data/synthetic_geometry_audit/actual_geometry_results.json` and
+`scripts/audit_synthetic_geometry.py`. The finite-task proposal and illustrative
+precision/power derivations are documented in `docs/LEVELS_AND_SATURATION.md`;
+planned conditional capacity remains evaluable without demonstrated model utility.
+
+### 6.6 Registry intake across 240 real studies
+
+A separately frozen corpus contains 240 unique ClinicalTrials.gov records across
+12 acquisition/design strata, with 20 records per stratum. The initial sparse
+intake replay compiled 239 records and exposed one 257-character title that
+exceeded the display-name contract. Source inspection also found an incorrect
+outcome-array pointer. After preserving the full title in provenance while
+bounding the display name, and counting the actual primary, secondary and other
+outcome arrays, all 240 records compiled. The extracted count of listed outcome
+entries was exact for 234 records and unknown for six. All 720 structural
+mutation probes passed. Historical baseline and corrected receipts are retained.
+
+This corpus evaluates registry parsing and conservative sparse compilation. It
+does not contain a complete comparable biological information model for each
+study and cannot establish study rankings, biological calibration or saturation.
+The public manifest binds record identities, acquisition strata, retrieval times
+and source hashes. The portable runner supports an external raw-source cache;
+changed upstream bytes fail the frozen replay rather than silently replacing
+its evidence. See `docs/REGISTRY_STRESS_240.md` for reproduction and sampling limits.
 
 ## 7. Validation and limitations
 

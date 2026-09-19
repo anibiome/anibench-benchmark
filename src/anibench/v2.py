@@ -183,6 +183,8 @@ def score_information_run(payload: Mapping[str, Any]) -> dict[str, Any]:
             "claim_class": fixture_authority["claim_class"],
             "reference_authority_id": fixture_authority["reference_authority_id"],
             "illustrative_completion_percent": internal.level1_completion_percent,
+            "basis_marginal_semantics": internal.basis_marginal_semantics,
+            "conditional_joint_diagnostic": internal.conditional_joint_diagnostic,
             "illustrative_overflow": internal.level1_overflow,
             "illustrative_coverage_curve": internal.coverage_curve,
             "illustrative_reference_direction_information": list(

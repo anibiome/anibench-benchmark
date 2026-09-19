@@ -1,0 +1,1894 @@
+{
+  "schema": "anibench.registry-stress-240.manifest.v1",
+  "selection_frozen_at": "2026-09-19T15:44:49.078555+00:00",
+  "preregistration_sha256": "dde0b061894262c97d80f33afd0c105d9099f5477c16428fadb492e42bd12079",
+  "expected_count": 240,
+  "strata": [
+    {
+      "id": "healthy-aging-multiomics",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (multiomics OR \"multi-omics\" OR proteomics OR metabolomics) AND aging",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "precision-oncology-genomic",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (\"precision oncology\" OR genomic) AND cancer",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "vaccine",
+      "query": "AREA[StudyType]INTERVENTIONAL AND vaccine",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "exercise",
+      "query": "AREA[StudyType]INTERVENTIONAL AND exercise",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "nutrition-microbiome",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (nutrition OR diet) AND microbiome",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "digital-wearable",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (wearable OR \"digital health\")",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "gene-therapy",
+      "query": "AREA[StudyType]INTERVENTIONAL AND \"gene therapy\"",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "cell-therapy",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (\"cell therapy\" OR \"CAR-T\")",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "micro-randomized",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (\"micro-randomized\" OR microrandomized)",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "smart-adaptive",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (\"sequential multiple assignment\" OR \"SMART trial\")",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    },
+    {
+      "id": "neurodiagnostics",
+      "query": "(AREA[StudyType]OBSERVATIONAL OR AREA[StudyType]INTERVENTIONAL) AND (EEG OR electroencephalography OR neuroimaging OR \"brain imaging\") AND (diagnostic OR diagnosis)",
+      "allowed_study_types": [
+        "INTERVENTIONAL",
+        "OBSERVATIONAL"
+      ]
+    },
+    {
+      "id": "neuromodulation",
+      "query": "AREA[StudyType]INTERVENTIONAL AND (\"transcranial magnetic stimulation\" OR \"deep brain stimulation\" OR \"transcranial direct current stimulation\")",
+      "allowed_study_types": [
+        "INTERVENTIONAL"
+      ]
+    }
+  ],
+  "selection_rule": "Fixed stratum order; exact API response order; first 20 globally unique identifiers per stratum; no outcome-based exclusions or replacement. API sort is that of existing snapshot_clinicaltrials_search implementation.",
+  "failure_rule": "Preserve selected identity even if fetch or compilation fails; no replacement.",
+  "search_receipts": [
+    {
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=50&query.term=AREA%5BStudyType%5DINTERVENTIONAL+AND+%28multiomics+OR+%22multi-omics%22+OR+proteomics+OR+metabolomics%29+AND+aging",
+      "retrieved_at": "2026-09-19T15:44:50.672360Z",
+      "raw_sha256": "06e6b2692d2a9dc34f677e2f92107bdfe8f8d9f2dd3ac3a34e8d333a57fe5efd",
+      "bytes": 971035,
+      "source_locator_count": 10644,
+      "stratum_id": "healthy-aging-multiomics",
+      "page": 1
+    },
+    {
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=50&query.term=AREA%5BStudyType%5DINTERVENTIONAL+AND+%28%22precision+oncology%22+OR+genomic%29+AND+cancer",
+      "retrieved_at": "2026-09-19T15:45:01.833728Z",
+      "raw_sha256": "5d6eff0907c414553848907b1753ea6c1580fd816acc79b4aa28522c9914f458",
+      "bytes": 2027588,
+      "source_locator_count": 53857,
+      "stratum_id": "precision-oncology-genomic",
+      "page": 1
+    },
+    {
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=50&query.term=AREA%5BStudyType%5DINTERVENTIONAL+AND+vaccine",
+      "retrieved_at": "2026-09-19T15:45:13.612934Z",
+      "raw_sha256": "fc2370858d90c0c28d0130713c87973d70d5dfa7e91b7b7b483a9d191d8efba2",
+      "bytes": 1917185,
+      "source_locator_count": 44144,
+      "stratum_id": "vaccine",
+      "page": 1
+    },
+    {
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=50&query.term=AREA%5BStudyType%5DINTERVENTIONAL+AND+exercise",
+      "retrieved_at": "2026-09-19T15:45:25.046006Z",
+      "raw_sha256": "97e10216a4c6c4da61a04bf63cf292da465a3cd8019fff689a0fa18fd5b76b1c",
+      "bytes": 894279,
+      "source_locator_count": 13351,
+      "stratum_id": "exercise",
+      "page": 1
+    },
+    {
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=50&query.term=AREA%5BStudyType%5DINTERVENTIONAL+AND+%28nutrition+OR+diet%29+AND+microbiome",
+      "retrieved_at": "2026-09-19T15:45:35.804734Z",
+      "raw_sha256": "a880a449b89af2aa628e233b9018c67ee9fffb7513b519124d7478c5371d3b63",
+      "bytes": 776471,
+      "source_locator_count": 9934,
+      "stratum_id": "nutrition-microbiome",
+      "page": 1
+    },
+    {
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=50&query.term=AREA%5BStudyType%5DINTERVENTIONAL+AND+%28wearable+OR+%22digital+health%22%29",
+      "retrieved_at": "2026-09-19T15:45:46.817293Z",
+      "raw_sha256": "04344a464f81fadbac3c29511aab6b25865d866b78bf5f2be8dcf4645b0a08e0",
+      "bytes": 913569,
+      "source_locator_count": 12190,
+      "stratum_id": "digital-wearable",
+      "page": 1
+    },
+    {
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=50&query.term=AREA%5BStudyType%5DINTERVENTIONAL+AND+%22gene+therapy%22",
+      "retrieved_at": "2026-09-19T15:45:57.443758Z",
+      "raw_sha256": "40df4df4884077d7acea3e53b03480fe81a502c3d8125ad8ac7673d180136595",
+      "bytes": 999832,
+      "source_locator_count": 21081,
+      "stratum_id": "gene-therapy",
+      "page": 1
+    },
+    {
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=50&query.term=AREA%5BStudyType%5DINTERVENTIONAL+AND+%28%22cell+therapy%22+OR+%22CAR-T%22%29",
+      "retrieved_at": "2026-09-19T15:46:07.977859Z",
+      "raw_sha256": "ba3c4713e3228c0ca94a9bec12b086cd7d90666103588e6ccfaa6fa1d0dfa322",
+      "bytes": 824917,
+      "source_locator_count": 14715,
+      "stratum_id": "cell-therapy",
+      "page": 1
+    },
+    {
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=50&query.term=AREA%5BStudyType%5DINTERVENTIONAL+AND+%28%22micro-randomized%22+OR+microrandomized%29",
+      "retrieved_at": "2026-09-19T15:46:18.356898Z",
+      "raw_sha256": "f85bcfcbb11ca08630863a2c180d727e76d7f14053ad7aa3a258d51939f80408",
+      "bytes": 779285,
+      "source_locator_count": 9774,
+      "stratum_id": "micro-randomized",
+      "page": 1
+    },
+    {
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=50&query.term=AREA%5BStudyType%5DINTERVENTIONAL+AND+%28%22sequential+multiple+assignment%22+OR+%22SMART+trial%22%29",
+      "retrieved_at": "2026-09-19T15:46:29.103206Z",
+      "raw_sha256": "eb62161365fe47dd0efb33cc922aeef506bb9f827b8f6f2dff229153b9860cbb",
+      "bytes": 1593680,
+      "source_locator_count": 20034,
+      "stratum_id": "smart-adaptive",
+      "page": 1
+    },
+    {
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=50&query.term=%28AREA%5BStudyType%5DOBSERVATIONAL+OR+AREA%5BStudyType%5DINTERVENTIONAL%29+AND+%28EEG+OR+electroencephalography+OR+neuroimaging+OR+%22brain+imaging%22%29+AND+%28diagnostic+OR+diagnosis%29",
+      "retrieved_at": "2026-09-19T15:46:40.251060Z",
+      "raw_sha256": "187eda3f0a3bbd09e161fefc782f5350f588d242f01eace76f0df16b7463f85f",
+      "bytes": 802966,
+      "source_locator_count": 12261,
+      "stratum_id": "neurodiagnostics",
+      "page": 1
+    },
+    {
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=50&query.term=AREA%5BStudyType%5DINTERVENTIONAL+AND+%28%22transcranial+magnetic+stimulation%22+OR+%22deep+brain+stimulation%22+OR+%22transcranial+direct+current+stimulation%22%29",
+      "retrieved_at": "2026-09-19T15:46:50.784485Z",
+      "raw_sha256": "38fdfafd1f6d77b39c1447cb0058894c58d67662d17d2044f203e1bec5444a56",
+      "bytes": 644053,
+      "source_locator_count": 8468,
+      "stratum_id": "neuromodulation",
+      "page": 1
+    }
+  ],
+  "source_code_sha256": {
+    "scripts/run_ctgov_50_stress_test.py": "5f310c03125ceadcd085ac15f78159934a01278f1966ab8743577b69179d4778",
+    "src/anibench/intake.py": "634daa09b396747e26a929fddbedbcd10e4756c8ea8a0dd825982d3e050a7c1f",
+    "src/anibench/design_v2.py": "320191772311d4ba627571a1e23efadd32a1e836ead4c66e59fdeceaa724f28d",
+    "schemas/v2/design-input.schema.json": "3d4d356a76cc23a0b7478836bdee0a4fcf027ea9707e6bed174efb04bf7bf2e9"
+  },
+  "studies": [
+    {
+      "nct_id": "NCT06828783",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "38ed0022b2b7308cfa74bb12c14331caee8df94fa06e69837a5e650da3ce30d6",
+      "retrieved_at": "2026-09-19T15:44:51.167557Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06828783"
+    },
+    {
+      "nct_id": "NCT05772910",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "2b164b9522b0dda0566fdb19b7e2674509579432220119a6cb0316cd0fe67d42",
+      "retrieved_at": "2026-09-19T15:44:51.693323Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05772910"
+    },
+    {
+      "nct_id": "NCT07226674",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "b4136822035db4345713a9d67761306c328590c9f6d92a2f4f33cb21de5746f5",
+      "retrieved_at": "2026-09-19T15:44:52.216132Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07226674"
+    },
+    {
+      "nct_id": "NCT07241377",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "5c7f01bac397b45c118eb0306f161db53524a159397db9345432d9a43e6aabd4",
+      "retrieved_at": "2026-09-19T15:44:52.743190Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07241377"
+    },
+    {
+      "nct_id": "NCT06071611",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "b9ae06bfb505db200e4886ebdafdca0d8df716e59da5be9cf134e756978360bb",
+      "retrieved_at": "2026-09-19T15:44:53.264324Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06071611"
+    },
+    {
+      "nct_id": "NCT04023513",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "0b27d40eb5ba8c77c17ba380d4b3bd0927f52b5b9b2a1f8df6829cf1e6f0c1d0",
+      "retrieved_at": "2026-09-19T15:44:53.695030Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04023513"
+    },
+    {
+      "nct_id": "NCT05943210",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "ac1c5214030954f1316cd56bf92bd2e745a1f02d4b0f359857eefd1894b75cda",
+      "retrieved_at": "2026-09-19T15:44:54.145210Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05943210"
+    },
+    {
+      "nct_id": "NCT03353597",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "27852ac71a32e9233650490aa696196ee8dd8307c9def5f1cd50418a98e09743",
+      "retrieved_at": "2026-09-19T15:44:54.588796Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03353597"
+    },
+    {
+      "nct_id": "NCT07000708",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "0419bab5c4d5e7d58b6e76500093559e9b7f016f28d3556c83154cd9a2cc408d",
+      "retrieved_at": "2026-09-19T15:44:55.040226Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07000708"
+    },
+    {
+      "nct_id": "NCT07646054",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "1384ef9355e356c59ae983b8099abff7dd9d3bde57bc647a4ff5badebb266247",
+      "retrieved_at": "2026-09-19T15:44:55.740717Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07646054"
+    },
+    {
+      "nct_id": "NCT03300388",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "4aa893e897dd7bedc4cd9e7618c69456542c27c769cbe984bcdef7efe2de85af",
+      "retrieved_at": "2026-09-19T15:44:56.192802Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03300388"
+    },
+    {
+      "nct_id": "NCT05217433",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "9e58b862d85bec4f18a61bb6deee30e80346694d05ddc7449ecde460c4fda1b2",
+      "retrieved_at": "2026-09-19T15:44:56.642925Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05217433"
+    },
+    {
+      "nct_id": "NCT03289832",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "7a3720a62659a6c3367327ff57a043016eb8ed447cb5e8b6a074dd542e2a1412",
+      "retrieved_at": "2026-09-19T15:44:57.099122Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03289832"
+    },
+    {
+      "nct_id": "NCT07031128",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "44849aef48c759b21d447a0492932842eafa3ebb781079e5cb0e374986691939",
+      "retrieved_at": "2026-09-19T15:44:57.611775Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07031128"
+    },
+    {
+      "nct_id": "NCT06718712",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "789bfaf66a5474d35cf2632060b0b3d0525c833f4e37ed3ace1888e4b0805605",
+      "retrieved_at": "2026-09-19T15:44:58.122942Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06718712"
+    },
+    {
+      "nct_id": "NCT03117829",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "14122f2ad730b21817862d40392340bc6eed7e3e93179e5886250241d66c9a09",
+      "retrieved_at": "2026-09-19T15:44:58.649919Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03117829"
+    },
+    {
+      "nct_id": "NCT06459310",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "0b7f873a0163142b0389bb3b164438abe4217849757705fd1e877c8d481f90dc",
+      "retrieved_at": "2026-09-19T15:44:59.185009Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06459310"
+    },
+    {
+      "nct_id": "NCT05375513",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "7f701cd0df365e4e34e57bc9f4187154526ee6ca54513f82d048b1a6df7ba06b",
+      "retrieved_at": "2026-09-19T15:44:59.698948Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05375513"
+    },
+    {
+      "nct_id": "NCT03963050",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "4a083409d821830b2eacba2d83892cd4ef13d841216ad7c645cce9f598eb116c",
+      "retrieved_at": "2026-09-19T15:45:00.221064Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03963050"
+    },
+    {
+      "nct_id": "NCT06629103",
+      "stratum_id": "healthy-aging-multiomics",
+      "raw_sha256": "25cc49f9f9e35d38d7739593d173a4eb74e1635d2008dab0ed047e966c50e7ad",
+      "retrieved_at": "2026-09-19T15:45:00.738700Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06629103"
+    },
+    {
+      "nct_id": "NCT03565029",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "71b29bb2180c2d77d1cf13398c4b4d20569598fd0b21c008b37ab6c503bb579b",
+      "retrieved_at": "2026-09-19T15:45:02.336129Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03565029"
+    },
+    {
+      "nct_id": "NCT00778869",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "093fb7d9489826c274126450a097077f1a0c268eeaaa1be7db3136c27281aa82",
+      "retrieved_at": "2026-09-19T15:45:02.853173Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00778869"
+    },
+    {
+      "nct_id": "NCT00525031",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "2d91210f2a546a870fd2ded625b5776f90c4ee8b2b60b87b242682f30a26bbb3",
+      "retrieved_at": "2026-09-19T15:45:03.886106Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00525031"
+    },
+    {
+      "nct_id": "NCT07723651",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "5c67188131da00e56dd27c9898111a9f1346e6c3dba8d2ef525b5448460cacb2",
+      "retrieved_at": "2026-09-19T15:45:04.684724Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07723651"
+    },
+    {
+      "nct_id": "NCT02986451",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "56639c5c741e269babc89f3f235c4d3545c4e9a3021e011bf1363be834bc33fe",
+      "retrieved_at": "2026-09-19T15:45:05.110188Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02986451"
+    },
+    {
+      "nct_id": "NCT05223322",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "0760735952915f717e593bc21b156febe5c28e787dbd4c9fc977b5d9f8471a8a",
+      "retrieved_at": "2026-09-19T15:45:05.548813Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05223322"
+    },
+    {
+      "nct_id": "NCT04656002",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "1535dc54a34c355c22bb9e6848e86fe8910d28e6897ee9c7dc95530757d7b4bb",
+      "retrieved_at": "2026-09-19T15:45:06.001587Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04656002"
+    },
+    {
+      "nct_id": "NCT05902988",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "bf6dfbd8128662678045bfaeddf58990e3bae9823a928141caaeec7c89799273",
+      "retrieved_at": "2026-09-19T15:45:06.527439Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05902988"
+    },
+    {
+      "nct_id": "NCT03725436",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "86550b0507ca7ca0628a9ffc1753693ba2f613b97c013e589ac6297cef97d664",
+      "retrieved_at": "2026-09-19T15:45:07.057984Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03725436"
+    },
+    {
+      "nct_id": "NCT02543255",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "67a1532eaf173ee2acf4e010d2da472eafcba577a9acedee872ef7f9e7f3b1ac",
+      "retrieved_at": "2026-09-19T15:45:07.572323Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02543255"
+    },
+    {
+      "nct_id": "NCT03967938",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "f0f3c7b68a407347858a562add9959e216bcd542c8c1a887bcf3dcade957e8a8",
+      "retrieved_at": "2026-09-19T15:45:08.091250Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03967938"
+    },
+    {
+      "nct_id": "NCT03575598",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "2d5558a421ab2d935211b68a1b594d590e2fefb11eb3e233189a17104a4a3b37",
+      "retrieved_at": "2026-09-19T15:45:08.596217Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03575598"
+    },
+    {
+      "nct_id": "NCT00691652",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "9c32946ec3bbf762f4be8519efe46a38990967067b06b7b1ab08efb21ff220eb",
+      "retrieved_at": "2026-09-19T15:45:09.138155Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00691652"
+    },
+    {
+      "nct_id": "NCT06228404",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "de87d9c0f90df645b05dc94838ee5c1e6de39ac1940102f6cb49fb48a503a0cf",
+      "retrieved_at": "2026-09-19T15:45:09.658920Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06228404"
+    },
+    {
+      "nct_id": "NCT04272333",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "a9d3d6e9ab8d047781ec02355b77b06ac78ce98f78f77028440798498dcbd9fc",
+      "retrieved_at": "2026-09-19T15:45:10.171583Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04272333"
+    },
+    {
+      "nct_id": "NCT06154109",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "2396bb746a7f1acac833e36e823ac03a1602c8b4ace85c54b6e9d1d5e53a454f",
+      "retrieved_at": "2026-09-19T15:45:10.681830Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06154109"
+    },
+    {
+      "nct_id": "NCT01839799",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "e2933b917785f1edce7c52718b36b246497da334202fb3dea0512749aee0e107",
+      "retrieved_at": "2026-09-19T15:45:11.232412Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01839799"
+    },
+    {
+      "nct_id": "NCT07375940",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "ca886d91f62849c27dffd5d2a5f63dede27ec310ddddeec7d84dfceae929b879",
+      "retrieved_at": "2026-09-19T15:45:11.758607Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07375940"
+    },
+    {
+      "nct_id": "NCT03183050",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "213b31e5652cfc9b33688a7e1d56e5b3000ebde21a50c670f3886613d4bf832c",
+      "retrieved_at": "2026-09-19T15:45:12.269868Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03183050"
+    },
+    {
+      "nct_id": "NCT04916860",
+      "stratum_id": "precision-oncology-genomic",
+      "raw_sha256": "9f653aafe722028db6dfbca31c01a7fb62a3873b38ca27cb344a8728ec3f7ee9",
+      "retrieved_at": "2026-09-19T15:45:12.783892Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04916860"
+    },
+    {
+      "nct_id": "NCT03051386",
+      "stratum_id": "vaccine",
+      "raw_sha256": "a1e46305d0fdb330fa70a8600ec532ee2241e090713ce43dd23e4dc3dc5b863c",
+      "retrieved_at": "2026-09-19T15:45:14.063475Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03051386"
+    },
+    {
+      "nct_id": "NCT05104437",
+      "stratum_id": "vaccine",
+      "raw_sha256": "cb4bca122f16d6db954235e80688c684de340afe8f024ec051302077d3329bc6",
+      "retrieved_at": "2026-09-19T15:45:14.488517Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05104437"
+    },
+    {
+      "nct_id": "NCT01974661",
+      "stratum_id": "vaccine",
+      "raw_sha256": "e8141dd6ef680b133e3ac63b389d6b4844d9207ee8374c2588aa6e8483cb8bbe",
+      "retrieved_at": "2026-09-19T15:45:14.917483Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01974661"
+    },
+    {
+      "nct_id": "NCT00109629",
+      "stratum_id": "vaccine",
+      "raw_sha256": "05cc5ce752b8e3f2a29d11e11cd6b6c7a72411a2247ee8d61924f03a620fbfe3",
+      "retrieved_at": "2026-09-19T15:45:15.442892Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00109629"
+    },
+    {
+      "nct_id": "NCT01352845",
+      "stratum_id": "vaccine",
+      "raw_sha256": "9265d397f1b1953d46641613f3d5670b08b5823dd2adb56562b857f9916be70c",
+      "retrieved_at": "2026-09-19T15:45:16.052569Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01352845"
+    },
+    {
+      "nct_id": "NCT07221162",
+      "stratum_id": "vaccine",
+      "raw_sha256": "4363f74963ad81a12ff74517291fb66f01d8de98bc53050cfe249c985446e022",
+      "retrieved_at": "2026-09-19T15:45:16.563536Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07221162"
+    },
+    {
+      "nct_id": "NCT04814446",
+      "stratum_id": "vaccine",
+      "raw_sha256": "d22d4445206e9205ae937a9c0fdd22949a1ab4c1b08dd71338bd48b539c92b19",
+      "retrieved_at": "2026-09-19T15:45:17.019251Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04814446"
+    },
+    {
+      "nct_id": "NCT01056705",
+      "stratum_id": "vaccine",
+      "raw_sha256": "106f04e61cb7bd1d756882f8bfc37492d4cb9fd5d58693a2d7707a67637ccd62",
+      "retrieved_at": "2026-09-19T15:45:17.530778Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01056705"
+    },
+    {
+      "nct_id": "NCT00071851",
+      "stratum_id": "vaccine",
+      "raw_sha256": "a437f7b4d03835ae2f27b5fb690a8fc030e1b2e17ba62501f9aa0291ce3f120f",
+      "retrieved_at": "2026-09-19T15:45:18.053380Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00071851"
+    },
+    {
+      "nct_id": "NCT04967742",
+      "stratum_id": "vaccine",
+      "raw_sha256": "e26218dbf0d8ff48f835c107f1df06d4c635745305c64c154551e5797fb4d62e",
+      "retrieved_at": "2026-09-19T15:45:18.571487Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04967742"
+    },
+    {
+      "nct_id": "NCT00489970",
+      "stratum_id": "vaccine",
+      "raw_sha256": "b8cc3e9b25b7461571f1345366d22221df19ecf146b1775f0b14d146e94ef190",
+      "retrieved_at": "2026-09-19T15:45:19.188462Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00489970"
+    },
+    {
+      "nct_id": "NCT01795131",
+      "stratum_id": "vaccine",
+      "raw_sha256": "e4a24e588eddf36198db03689fd30c336121c948b914371abf4db7bed8cb307e",
+      "retrieved_at": "2026-09-19T15:45:19.652889Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01795131"
+    },
+    {
+      "nct_id": "NCT04954131",
+      "stratum_id": "vaccine",
+      "raw_sha256": "df7cf1e408d6f24d43424a3fc3c65387ec44d8102ac2fd7024a5df28aae68085",
+      "retrieved_at": "2026-09-19T15:45:20.159943Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04954131"
+    },
+    {
+      "nct_id": "NCT05033561",
+      "stratum_id": "vaccine",
+      "raw_sha256": "3f323b013c69a1e7a46b5f30bddcb896399d7d0e291ef78ab7bbaa4991512775",
+      "retrieved_at": "2026-09-19T15:45:20.703480Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05033561"
+    },
+    {
+      "nct_id": "NCT00065442",
+      "stratum_id": "vaccine",
+      "raw_sha256": "c6cff8900aa774925236d5f13496928c197b150e4475b4ab9b8375031e1efedb",
+      "retrieved_at": "2026-09-19T15:45:21.251236Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00065442"
+    },
+    {
+      "nct_id": "NCT04978454",
+      "stratum_id": "vaccine",
+      "raw_sha256": "c48236ddac4dfe99b36421ab627ae66d78a3eca6548dc1b9a97c04f790f8054f",
+      "retrieved_at": "2026-09-19T15:45:21.846000Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04978454"
+    },
+    {
+      "nct_id": "NCT02166905",
+      "stratum_id": "vaccine",
+      "raw_sha256": "5ef5896cc5dd6888e616f34721d7ce192c329af5fc8828b6da884ad74156facb",
+      "retrieved_at": "2026-09-19T15:45:22.335294Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02166905"
+    },
+    {
+      "nct_id": "NCT04908722",
+      "stratum_id": "vaccine",
+      "raw_sha256": "675d6fba53e5c175f668a11527aa7499de8730599fa9d7e18fd08bd34a320991",
+      "retrieved_at": "2026-09-19T15:45:22.850356Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04908722"
+    },
+    {
+      "nct_id": "NCT01400672",
+      "stratum_id": "vaccine",
+      "raw_sha256": "0ccb63b1a29ec7735a3c562a56b1f437638da297dfaf46e7a44795cc33068cdc",
+      "retrieved_at": "2026-09-19T15:45:23.316336Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01400672"
+    },
+    {
+      "nct_id": "NCT04492475",
+      "stratum_id": "vaccine",
+      "raw_sha256": "b54cf712b01f6f8ae6879f07d5d5b8b70023edd921ed53f323dc31506258ce0d",
+      "retrieved_at": "2026-09-19T15:45:24.086772Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04492475"
+    },
+    {
+      "nct_id": "NCT02880982",
+      "stratum_id": "exercise",
+      "raw_sha256": "e930b7f83e0a6b23ceb7cb29342f0ddbb999d88fed43d3edd68c3826b7033ca7",
+      "retrieved_at": "2026-09-19T15:45:25.481915Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02880982"
+    },
+    {
+      "nct_id": "NCT01461382",
+      "stratum_id": "exercise",
+      "raw_sha256": "0192517cdf895eadf3e4c3c51a5063c8d407bca6602b712d9cd0ce0a6d995700",
+      "retrieved_at": "2026-09-19T15:45:25.922691Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01461382"
+    },
+    {
+      "nct_id": "NCT04869423",
+      "stratum_id": "exercise",
+      "raw_sha256": "79c286fb4d3606fbe4343fd5387e37b07a7e1a90a8fd8bdbda2a07b32e372ef8",
+      "retrieved_at": "2026-09-19T15:45:26.453003Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04869423"
+    },
+    {
+      "nct_id": "NCT07006259",
+      "stratum_id": "exercise",
+      "raw_sha256": "9a7e0d2e7b73ec84c71b7a4717c0d1b88f0100b69883693f687b473dd3ec1f32",
+      "retrieved_at": "2026-09-19T15:45:26.966994Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07006259"
+    },
+    {
+      "nct_id": "NCT00412659",
+      "stratum_id": "exercise",
+      "raw_sha256": "e7cd055877445aac4da2a1116a4a10a6ffec4b6f7f10a7de9820d381f947b131",
+      "retrieved_at": "2026-09-19T15:45:27.487661Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00412659"
+    },
+    {
+      "nct_id": "NCT07582380",
+      "stratum_id": "exercise",
+      "raw_sha256": "feef72fc753181285e1dfabeaf723536444f40683dc41748ed1bd7d1037629e1",
+      "retrieved_at": "2026-09-19T15:45:28.033892Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07582380"
+    },
+    {
+      "nct_id": "NCT05623462",
+      "stratum_id": "exercise",
+      "raw_sha256": "22318c6a27cb3fc7006d88af50517881498aa9e4a7bbfdb4fb3bdf44f88c3add",
+      "retrieved_at": "2026-09-19T15:45:28.553929Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05623462"
+    },
+    {
+      "nct_id": "NCT03593746",
+      "stratum_id": "exercise",
+      "raw_sha256": "de65771f901797db07dc99c236ee6fdb7f426cc824a4217d40f55547b9844c0c",
+      "retrieved_at": "2026-09-19T15:45:29.070970Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03593746"
+    },
+    {
+      "nct_id": "NCT06634446",
+      "stratum_id": "exercise",
+      "raw_sha256": "4681cbbfffc9318ffb25f865e9b54923887735b69e02171b1593abbf16375fbc",
+      "retrieved_at": "2026-09-19T15:45:29.586323Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06634446"
+    },
+    {
+      "nct_id": "NCT05866146",
+      "stratum_id": "exercise",
+      "raw_sha256": "acd66ee7c1af18007557ee9531031b00176b33fc482b602185227bf3e27ecd1d",
+      "retrieved_at": "2026-09-19T15:45:30.105755Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05866146"
+    },
+    {
+      "nct_id": "NCT05157646",
+      "stratum_id": "exercise",
+      "raw_sha256": "7b1efc268cc1931835e2c3d4f4ee286a8d7a372c7a66b22641f0d5d3f84e7ff1",
+      "retrieved_at": "2026-09-19T15:45:30.610314Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05157646"
+    },
+    {
+      "nct_id": "NCT00754546",
+      "stratum_id": "exercise",
+      "raw_sha256": "d71663260ba21682a92328699c2d5964c2a3cdc42a04df72eb54c6fc9be14656",
+      "retrieved_at": "2026-09-19T15:45:31.124201Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00754546"
+    },
+    {
+      "nct_id": "NCT05710003",
+      "stratum_id": "exercise",
+      "raw_sha256": "be789ed9ecb260c44883db49aa0b8d198a0b462aaf3313d8247af20fb7702fdc",
+      "retrieved_at": "2026-09-19T15:45:31.636323Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05710003"
+    },
+    {
+      "nct_id": "NCT04719403",
+      "stratum_id": "exercise",
+      "raw_sha256": "e5585c69dade400cfc6f1ef1af99a0b41ebe0662957bba508dea0dcaf50ff2b9",
+      "retrieved_at": "2026-09-19T15:45:32.062719Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04719403"
+    },
+    {
+      "nct_id": "NCT02181127",
+      "stratum_id": "exercise",
+      "raw_sha256": "3737da3028fb7b9425a3fe53c3e068c31222e3c6bff18c95f2a8f36dae1960cb",
+      "retrieved_at": "2026-09-19T15:45:32.616688Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02181127"
+    },
+    {
+      "nct_id": "NCT03313427",
+      "stratum_id": "exercise",
+      "raw_sha256": "7dea5db59f187cc67f9428818e48aacbc64b3146857c39b62d60b9c11fcf665c",
+      "retrieved_at": "2026-09-19T15:45:33.112860Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03313427"
+    },
+    {
+      "nct_id": "NCT00146861",
+      "stratum_id": "exercise",
+      "raw_sha256": "9d2ff13462196a2ece4ea3095577ff5b7bc0f921f7ac0b21f35f327ef8a49e4a",
+      "retrieved_at": "2026-09-19T15:45:33.534043Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00146861"
+    },
+    {
+      "nct_id": "NCT06974461",
+      "stratum_id": "exercise",
+      "raw_sha256": "56194b22ea1efbf7600c5457836ea526fad29d6566737121b42a1f6090dc6a70",
+      "retrieved_at": "2026-09-19T15:45:33.957851Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06974461"
+    },
+    {
+      "nct_id": "NCT02722486",
+      "stratum_id": "exercise",
+      "raw_sha256": "4b8cf4c8fa3bc13d10b71a9ce9c16e10d16fdd5789effcdc633d71cafd9318bf",
+      "retrieved_at": "2026-09-19T15:45:34.377102Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02722486"
+    },
+    {
+      "nct_id": "NCT04042870",
+      "stratum_id": "exercise",
+      "raw_sha256": "94f41645428fcb251910b50cfc5579523f29b0b438f268223d4825afea7b8416",
+      "retrieved_at": "2026-09-19T15:45:34.842216Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04042870"
+    },
+    {
+      "nct_id": "NCT05902754",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "2b129479c0af7bda0bce21b0bcbc16e1628b21cf723d352a3f248101a5ccdb9a",
+      "retrieved_at": "2026-09-19T15:45:36.278019Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05902754"
+    },
+    {
+      "nct_id": "NCT03268902",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "a40ab17147e66efa70570a3219a602c2ebf07627d98d0abcc5b12f026cf2ffc2",
+      "retrieved_at": "2026-09-19T15:45:36.782180Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03268902"
+    },
+    {
+      "nct_id": "NCT01790542",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "b0f075da76e4ea09dd221c59cffa14a99fec6e5e8e2606b9d2ec6534ea41e1a6",
+      "retrieved_at": "2026-09-19T15:45:37.399041Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01790542"
+    },
+    {
+      "nct_id": "NCT03901183",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "0d1d4f0fea34faa86d87d565a424d75519bb476f3dd6afc12be7e7420fd8bf51",
+      "retrieved_at": "2026-09-19T15:45:37.848833Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03901183"
+    },
+    {
+      "nct_id": "NCT06630637",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "5ccaac39a9a8db8bef94a5cb628355692eddaaded8878383d7dd8237296a8157",
+      "retrieved_at": "2026-09-19T15:45:38.375818Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06630637"
+    },
+    {
+      "nct_id": "NCT06954675",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "b2b50416a601dd6608774393402c614dd0c22c4ad5673d08745621f9ebc16bca",
+      "retrieved_at": "2026-09-19T15:45:38.879879Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06954675"
+    },
+    {
+      "nct_id": "NCT04046822",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "de48764944a5fb0a63275bf91ad9fcfc0c818f707f75c4fcf3d128547694ce03",
+      "retrieved_at": "2026-09-19T15:45:39.403431Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04046822"
+    },
+    {
+      "nct_id": "NCT03418857",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "42567492d440d65e223afcd5066a8ce21d044da7e1e84874b68114f1de393d9c",
+      "retrieved_at": "2026-09-19T15:45:39.836948Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03418857"
+    },
+    {
+      "nct_id": "NCT03303534",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "7d317b43e328205389b29d21fac4838ada3cbdd745b379c9aa872db1b07ffee7",
+      "retrieved_at": "2026-09-19T15:45:40.262511Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03303534"
+    },
+    {
+      "nct_id": "NCT03035799",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "acaeef0b5767b2973a7f937d7416b77ec5a1aec232bf280b34a54b1b2ea4cef0",
+      "retrieved_at": "2026-09-19T15:45:40.688295Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03035799"
+    },
+    {
+      "nct_id": "NCT04751604",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "e3dfa3242648a6d3239c5c7636de16380b38839e7e4df2fd9bc18b86d96da4f1",
+      "retrieved_at": "2026-09-19T15:45:41.165895Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04751604"
+    },
+    {
+      "nct_id": "NCT06274749",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "a78d7fec5151d247e5504b0960dcb42d17cfabb1099ff016d576a31faf81edfc",
+      "retrieved_at": "2026-09-19T15:45:41.655154Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06274749"
+    },
+    {
+      "nct_id": "NCT02340143",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "28a77d1dd7d1fc1ac44ce94479a892ecb62981be208bc63a1aa22833d66f3360",
+      "retrieved_at": "2026-09-19T15:45:42.164144Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02340143"
+    },
+    {
+      "nct_id": "NCT04082611",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "a49ee7d6b1b242fed2faa18da687854b0c8df451655486e9e86cc85382610791",
+      "retrieved_at": "2026-09-19T15:45:42.680669Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04082611"
+    },
+    {
+      "nct_id": "NCT03229863",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "f8a82559780331a64e2d286ec700a45ba167261df5a47b5bc2c9df19258fa8e1",
+      "retrieved_at": "2026-09-19T15:45:43.209885Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03229863"
+    },
+    {
+      "nct_id": "NCT02739971",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "9f4c93ee2fcb9b2740d58722b7c3fc4fac6fb40755b5fb4ed6a13d49ee9e60e9",
+      "retrieved_at": "2026-09-19T15:45:43.794659Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02739971"
+    },
+    {
+      "nct_id": "NCT02164344",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "ce2270efacd42b904e5695beb5e7b23cda46c7bf30764407ddaa6d7faded3aa7",
+      "retrieved_at": "2026-09-19T15:45:44.276527Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02164344"
+    },
+    {
+      "nct_id": "NCT05318365",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "4096783fe32be82368cc5b010b9fae20e938ebe7824a051564e851bd8678d50c",
+      "retrieved_at": "2026-09-19T15:45:44.816918Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05318365"
+    },
+    {
+      "nct_id": "NCT03732690",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "486d42e01f348a84a9f1d4040d7b7f4763a5d459c19e2a96dc780479600b6378",
+      "retrieved_at": "2026-09-19T15:45:45.346675Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03732690"
+    },
+    {
+      "nct_id": "NCT02706288",
+      "stratum_id": "nutrition-microbiome",
+      "raw_sha256": "4e492f075e0e925ac1e2b8e60a19ace56381c83f4bcde5acbd4027d809575ee8",
+      "retrieved_at": "2026-09-19T15:45:45.849706Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02706288"
+    },
+    {
+      "nct_id": "NCT04953637",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "dd0b38245a5634516382f3d164c1dc57b169c8533219334573d3cb43f49804b6",
+      "retrieved_at": "2026-09-19T15:45:47.288285Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04953637"
+    },
+    {
+      "nct_id": "NCT06412237",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "fbea289b68674e6fb1f50dd034de8380977fa342266a2d8c939c376d091bbeb4",
+      "retrieved_at": "2026-09-19T15:45:47.791673Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06412237"
+    },
+    {
+      "nct_id": "NCT06855901",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "af16bff6c6e6a1ef3a6277b8169a1ee32985f9c2866cd2b8d41c2f7684d00bb3",
+      "retrieved_at": "2026-09-19T15:45:48.317233Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06855901"
+    },
+    {
+      "nct_id": "NCT07621679",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "55188796a188b66bd61560051785ab09335e8e9188ea8ab6e417711300eb801f",
+      "retrieved_at": "2026-09-19T15:45:48.745551Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07621679"
+    },
+    {
+      "nct_id": "NCT05904769",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "c03d9a82ed8515fe6c951d4b03ad6e036393ebaab4453e36de955b3264b0aeff",
+      "retrieved_at": "2026-09-19T15:45:49.186350Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05904769"
+    },
+    {
+      "nct_id": "NCT06885502",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "207ac3b0619fa9105ca2080304cc275bd91d4128d6b22376fb76c17a34528eca",
+      "retrieved_at": "2026-09-19T15:45:49.632016Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06885502"
+    },
+    {
+      "nct_id": "NCT05877586",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "473c320e55d83bae2725bdc512199313f65024755df79c774fbcdd1060a6185e",
+      "retrieved_at": "2026-09-19T15:45:50.076762Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05877586"
+    },
+    {
+      "nct_id": "NCT07622472",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "15f6220e8b4ba69db37b1587a0c614a0e57555cad7ec56434879effe9ca77817",
+      "retrieved_at": "2026-09-19T15:45:50.580703Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07622472"
+    },
+    {
+      "nct_id": "NCT04744272",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "6febb7ebbc0f2470a89472e0fbd6c09f2f8a725442737815b013e248611809f2",
+      "retrieved_at": "2026-09-19T15:45:51.106837Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04744272"
+    },
+    {
+      "nct_id": "NCT07277166",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "a088c5082820476b0295ed2d3f8c7becc3fd8d87fc87f9589c9986b55bed1eb9",
+      "retrieved_at": "2026-09-19T15:45:51.608873Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07277166"
+    },
+    {
+      "nct_id": "NCT05831566",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "a31b7d72f5d7400970bf38ef17017f41d38f6328feb22f488aed25c16dc73bfe",
+      "retrieved_at": "2026-09-19T15:45:52.144164Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05831566"
+    },
+    {
+      "nct_id": "NCT05277194",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "2492870ffcf7d73fbc27763c26bbe7f3bd7f31a658e9a0f7adda796bdae11788",
+      "retrieved_at": "2026-09-19T15:45:52.656518Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05277194"
+    },
+    {
+      "nct_id": "NCT03971266",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "ed9dfe648cefb8cffd37ab3b9ee5b3fd0791e4d490edb6e472e8ac290c285136",
+      "retrieved_at": "2026-09-19T15:45:53.157174Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03971266"
+    },
+    {
+      "nct_id": "NCT07390045",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "d7a20998024027e4417cb57ee108d58fa7df2895f49b0f3799d7bdaa860f4fc7",
+      "retrieved_at": "2026-09-19T15:45:53.669204Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07390045"
+    },
+    {
+      "nct_id": "NCT01914588",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "64ba5edd3b911c745aace081ff35daa3f0fbb9c4622567040218def7e20d78cb",
+      "retrieved_at": "2026-09-19T15:45:54.176602Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01914588"
+    },
+    {
+      "nct_id": "NCT03950765",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "8b9d23463d1c743664ebfe4dee6f12157e1e79ae34ab08d6b8bd5cad79af317e",
+      "retrieved_at": "2026-09-19T15:45:54.608261Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03950765"
+    },
+    {
+      "nct_id": "NCT07323771",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "41b5f8d73e347ca6504fcce3a6eab12bd9ed6d639d78e6285dad8a7c8ef6e045",
+      "retrieved_at": "2026-09-19T15:45:55.035723Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07323771"
+    },
+    {
+      "nct_id": "NCT06488144",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "36213f17c0107b3416e0fdfd309d1d837ce7f7c7b74d96ad2abda4f225051ff2",
+      "retrieved_at": "2026-09-19T15:45:55.709563Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06488144"
+    },
+    {
+      "nct_id": "NCT02556164",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "b964c9065f5962a1e398a8a45679158d0a4df01fd24f45e8b63cb47928d03c4d",
+      "retrieved_at": "2026-09-19T15:45:56.181508Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02556164"
+    },
+    {
+      "nct_id": "NCT07609433",
+      "stratum_id": "digital-wearable",
+      "raw_sha256": "82763f0adf906ceaa9eb25765e64b6283aa5b34c721cb45fce3f204db0fd2e5f",
+      "retrieved_at": "2026-09-19T15:45:56.705161Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07609433"
+    },
+    {
+      "nct_id": "NCT07443137",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "e95893b771f0cf83086b786d4d6d5fbfdcef4a4e34e7af75fba016e30c89075c",
+      "retrieved_at": "2026-09-19T15:45:57.901291Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07443137"
+    },
+    {
+      "nct_id": "NCT05757245",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "8a95d0b83bf0c104ce8df9eef248a6137072886a06672bf83ea34ea223871c69",
+      "retrieved_at": "2026-09-19T15:45:58.425348Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05757245"
+    },
+    {
+      "nct_id": "NCT01236573",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "0ae1c2a09c80ce41a209e606f92ba056d9d1112ebb4b9811989936320d6a6af2",
+      "retrieved_at": "2026-09-19T15:45:59.030836Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01236573"
+    },
+    {
+      "nct_id": "NCT03223194",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "6b625c904d1ae0e28781c7caa5c0d688bfcc1455cc0530c8f9215e26e8a86537",
+      "retrieved_at": "2026-09-19T15:45:59.524432Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03223194"
+    },
+    {
+      "nct_id": "NCT05003895",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "90da131bacd3be5d9d63c51a655a7e8fcceebc897bc989e947def75428272cd7",
+      "retrieved_at": "2026-09-19T15:46:00.016418Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05003895"
+    },
+    {
+      "nct_id": "NCT00285454",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "a474651c04f24bd05522cbd9f6c19db37e175f7efdaf7d229b3e4a29ae4fcf3e",
+      "retrieved_at": "2026-09-19T15:46:00.536900Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00285454"
+    },
+    {
+      "nct_id": "NCT01189786",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "8bdc10ce47284381f404f0c4dd4f7b8cc9f6b6ee526d8fcdda7da2a4dd8a8058",
+      "retrieved_at": "2026-09-19T15:46:01.054133Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01189786"
+    },
+    {
+      "nct_id": "NCT07198555",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "516d922c7af23916ae042e723dcdef93d587d14eaeaf1ce9135897033200357d",
+      "retrieved_at": "2026-09-19T15:46:01.541635Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07198555"
+    },
+    {
+      "nct_id": "NCT00004307",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "e7e548396a8284ef38687a89662272a78340cdec37826a737da4dc813b3d3753",
+      "retrieved_at": "2026-09-19T15:46:02.051481Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00004307"
+    },
+    {
+      "nct_id": "NCT02274506",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "47c3368c4138a2bd59529896ec56e382adefa1e879e4ed929c5c855d31010d8b",
+      "retrieved_at": "2026-09-19T15:46:02.476544Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02274506"
+    },
+    {
+      "nct_id": "NCT01024998",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "83a6a7b88a7d403d5b37ea548987da1a392efbfadfd55745fba6a868f0b3374e",
+      "retrieved_at": "2026-09-19T15:46:02.907401Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01024998"
+    },
+    {
+      "nct_id": "NCT00073398",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "deabe01809aac839c5cbb7843195e3343a59d1676b7a093eed4e12bc950ffc40",
+      "retrieved_at": "2026-09-19T15:46:03.351561Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00073398"
+    },
+    {
+      "nct_id": "NCT00880464",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "2a9ed999d6d8f55c2a89ba912b8bed7ac099af775123493fced25e6bfcd1bb48",
+      "retrieved_at": "2026-09-19T15:46:03.810638Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00880464"
+    },
+    {
+      "nct_id": "NCT06467344",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "9837d3f090743db3e65651a44efe0e2b79ab16d3cade3e46d3f836e85608395c",
+      "retrieved_at": "2026-09-19T15:46:04.243343Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06467344"
+    },
+    {
+      "nct_id": "NCT07630649",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "d409ccdd9a4999746dbf90e9532f1698088af734412b8a42e3ddf292b127b560",
+      "retrieved_at": "2026-09-19T15:46:04.723335Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07630649"
+    },
+    {
+      "nct_id": "NCT01153646",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "993af8e06347af1af6f6319ba829f0defb0f6999a67baba61224ebac7c9979ae",
+      "retrieved_at": "2026-09-19T15:46:05.242697Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01153646"
+    },
+    {
+      "nct_id": "NCT07752888",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "5abdbd444c965b1a57036fdadac87401642c3de83f9de53debf53ec5c088cbd3",
+      "retrieved_at": "2026-09-19T15:46:05.757832Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07752888"
+    },
+    {
+      "nct_id": "NCT03614650",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "0a6a89dffe70dc4785bdf614313297b2155b96372d275e33615c3e87beff27aa",
+      "retrieved_at": "2026-09-19T15:46:06.258915Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03614650"
+    },
+    {
+      "nct_id": "NCT02186418",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "1fe0a48970c7fc4790ed9a777052d756c72b96fba30db4c03e9db5834cb68273",
+      "retrieved_at": "2026-09-19T15:46:06.772217Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02186418"
+    },
+    {
+      "nct_id": "NCT00003588",
+      "stratum_id": "gene-therapy",
+      "raw_sha256": "e5232d72b46f62b5781766944dd2c828893c0cbbb768c59103de389c22ab7f8b",
+      "retrieved_at": "2026-09-19T15:46:07.192354Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00003588"
+    },
+    {
+      "nct_id": "NCT04499573",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "5fa9ed4b15d8afff2bca7369acb0db53a177ed4e9e227987bed44b505ac2486c",
+      "retrieved_at": "2026-09-19T15:46:08.419479Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04499573"
+    },
+    {
+      "nct_id": "NCT06420154",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "2682d48562ce182fa0e08c3395ab6a501213acbc4c112100fc049175f3829ebe",
+      "retrieved_at": "2026-09-19T15:46:08.934391Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06420154"
+    },
+    {
+      "nct_id": "NCT06389305",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "c2f4616fef391023bad01661f4503156d9ab00016d15f1510fc7af5f70a235e6",
+      "retrieved_at": "2026-09-19T15:46:09.452916Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06389305"
+    },
+    {
+      "nct_id": "NCT04120831",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "c0154a8006b9f04afce5df108e9e4e5c03d48e4cdbdfcd95443294bd4538bbbf",
+      "retrieved_at": "2026-09-19T15:46:09.959434Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04120831"
+    },
+    {
+      "nct_id": "NCT07360288",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "dac81dcb4bfd58cea28d439c64d2594d27e1a963fc995a2b21215ecf7cc45bb7",
+      "retrieved_at": "2026-09-19T15:46:10.458526Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07360288"
+    },
+    {
+      "nct_id": "NCT02959151",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "c73fe64da71a8896bd918d2cf66bfcfb86a9ac2b246b940c95747d251a773ec1",
+      "retrieved_at": "2026-09-19T15:46:10.955315Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02959151"
+    },
+    {
+      "nct_id": "NCT05691153",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "f057f00f65c1227aa903bcca6c6288d5f74a371142de33c0a9dab59c03106068",
+      "retrieved_at": "2026-09-19T15:46:11.389787Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05691153"
+    },
+    {
+      "nct_id": "NCT06500273",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "564251c31cc40f301fdf3fa67f825402424b2794786788ebebeba9e66d23c60c",
+      "retrieved_at": "2026-09-19T15:46:11.910729Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06500273"
+    },
+    {
+      "nct_id": "NCT06218602",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "f8af23654dd18c95061ffc3a8f1e646561e05e1fb9ff31ebbe2f2fba606e0890",
+      "retrieved_at": "2026-09-19T15:46:12.435827Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06218602"
+    },
+    {
+      "nct_id": "NCT05654077",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "5a7286e346a67a5ac9a3834038f9908be9b6a3604bb8cf1ff6d52fcd2bb843d7",
+      "retrieved_at": "2026-09-19T15:46:12.864189Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05654077"
+    },
+    {
+      "nct_id": "NCT06626256",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "03eb6667d2485005ab54795f1cf0fae2ca2749f27d5fa78bb3e1541e5f1717ea",
+      "retrieved_at": "2026-09-19T15:46:13.303985Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06626256"
+    },
+    {
+      "nct_id": "NCT06590545",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "40be0bb1cd00f566701dfdf5ee5100817db3ee7e4f828a487520e49fb7499d8b",
+      "retrieved_at": "2026-09-19T15:46:13.747956Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06590545"
+    },
+    {
+      "nct_id": "NCT03016377",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "49005d11695686600ab0b86d14706ce476b9868dacaa4144b6bb86fb6d2f9325",
+      "retrieved_at": "2026-09-19T15:46:14.203917Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03016377"
+    },
+    {
+      "nct_id": "NCT07117305",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "fbb65c40a907ef831c1b44f62f1aa5d8e4ab75e145fe5ad77e8e819c1c629c75",
+      "retrieved_at": "2026-09-19T15:46:14.686954Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07117305"
+    },
+    {
+      "nct_id": "NCT06963866",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "aaf40279a97685ae4bdba14fedec4ebaa173bad4729dfd2fa0f1605ec7a4e198",
+      "retrieved_at": "2026-09-19T15:46:15.207878Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06963866"
+    },
+    {
+      "nct_id": "NCT06248086",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "8d299a853935345a972f83baf4454a68a19e64605e124b8009ed054b682e6e6e",
+      "retrieved_at": "2026-09-19T15:46:15.736081Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06248086"
+    },
+    {
+      "nct_id": "NCT03635970",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "1118ee130c25cb54173e59cbb080253ab45599e46cee433af63de26d6349a486",
+      "retrieved_at": "2026-09-19T15:46:16.246322Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03635970"
+    },
+    {
+      "nct_id": "NCT02782351",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "ed317e2f040ad2a1c9348117850fd9e5cac0a2a394de890a9a78f099c818818e",
+      "retrieved_at": "2026-09-19T15:46:16.746752Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02782351"
+    },
+    {
+      "nct_id": "NCT07048353",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "c0020943a8f44c233d2d58f0d9f9b25c1da51664ecb0ee6b681ddc4914596073",
+      "retrieved_at": "2026-09-19T15:46:17.254359Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07048353"
+    },
+    {
+      "nct_id": "NCT03125577",
+      "stratum_id": "cell-therapy",
+      "raw_sha256": "404e892b082626befc9b1c645e1f70c577e289869c1085b3dd9ab45b8742e00b",
+      "retrieved_at": "2026-09-19T15:46:17.677500Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03125577"
+    },
+    {
+      "nct_id": "NCT04967885",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "c396a6578738f0757294154e38b45b159a6acc42ac7c279e9171c0cde7b506b5",
+      "retrieved_at": "2026-09-19T15:46:18.900618Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04967885"
+    },
+    {
+      "nct_id": "NCT05555875",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "658fc18a916edd5704b23c522203cbbe86923de61e1a6e90acacba456e330f4f",
+      "retrieved_at": "2026-09-19T15:46:19.398354Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05555875"
+    },
+    {
+      "nct_id": "NCT03384550",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "a353222e5727211c02f0e40c4104fa50991016afe40dafbfe879b73c97c6f68d",
+      "retrieved_at": "2026-09-19T15:46:19.926076Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03384550"
+    },
+    {
+      "nct_id": "NCT03836391",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "3b91d2b76c02f0013929fcc18f1383f5103d665ba8cd78bfe55f209e0f2c8e97",
+      "retrieved_at": "2026-09-19T15:46:20.446543Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03836391"
+    },
+    {
+      "nct_id": "NCT05360901",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "8e120c32ed286cf92c7c9542cdcc4db34c11cef5ef5c6b6f715dc74ff23d0976",
+      "retrieved_at": "2026-09-19T15:46:20.953709Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05360901"
+    },
+    {
+      "nct_id": "NCT07750262",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "5cc836b00c649caa3237fe97a2e10beaef5034bd9b5531f112ee69fd36b042b7",
+      "retrieved_at": "2026-09-19T15:46:21.470083Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07750262"
+    },
+    {
+      "nct_id": "NCT03972293",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "22d3084e5fdabb008a22a3a02f284b0bbb326bc6b5c46ba3899b3462e96896b5",
+      "retrieved_at": "2026-09-19T15:46:21.969472Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03972293"
+    },
+    {
+      "nct_id": "NCT07555262",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "ad947d51cb7602a7894dc34f197e537eb80481f3f4573f8d50a5885107c086a1",
+      "retrieved_at": "2026-09-19T15:46:22.401240Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07555262"
+    },
+    {
+      "nct_id": "NCT03225521",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "abb3e48a5f1c136f99fcebe3d80541e8abe3bb9879f5551978ea2347754c3521",
+      "retrieved_at": "2026-09-19T15:46:22.825337Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03225521"
+    },
+    {
+      "nct_id": "NCT07714681",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "3b7bf02965a5ac4dd940db88b851e6a32020bbf279cf6b87f1202022e3c37b65",
+      "retrieved_at": "2026-09-19T15:46:23.247284Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07714681"
+    },
+    {
+      "nct_id": "NCT07746492",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "b7d64fa1e8de27b982a709edb5419e87d35269be91011a77df0313021cf855d5",
+      "retrieved_at": "2026-09-19T15:46:23.691374Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07746492"
+    },
+    {
+      "nct_id": "NCT06012851",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "1cfedb64fc56e5ae51acf37ead79f1905aa028d8c7d6eecda93c7f42a6919a6c",
+      "retrieved_at": "2026-09-19T15:46:24.148378Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06012851"
+    },
+    {
+      "nct_id": "NCT04719390",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "3a52d7171266d7c8332fe438ed00a6040cbbb26e31c03ddc4e0df2beb15e03c1",
+      "retrieved_at": "2026-09-19T15:46:24.670100Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04719390"
+    },
+    {
+      "nct_id": "NCT07503093",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "6d4879d5847386628221ef15d49ca836d9f3b94506b13ee20bbc07f04de3665d",
+      "retrieved_at": "2026-09-19T15:46:25.178358Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07503093"
+    },
+    {
+      "nct_id": "NCT06978166",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "14d8708eaefbb1f95224b2c55e90dae6c2374531d0acb790a3bb4b32da322594",
+      "retrieved_at": "2026-09-19T15:46:25.687949Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06978166"
+    },
+    {
+      "nct_id": "NCT07228130",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "92693642281a70d068d88cc7fba5f4b1dc5bc17b7a4a7622fc46aadcf3944964",
+      "retrieved_at": "2026-09-19T15:46:26.198627Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07228130"
+    },
+    {
+      "nct_id": "NCT06465680",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "adfafe13b300c3cee4909528f8aa2e2747258241ba9cc6aecc1ad078b7feea5e",
+      "retrieved_at": "2026-09-19T15:46:26.701973Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06465680"
+    },
+    {
+      "nct_id": "NCT06665620",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "6c21181ffea54a11c494a7bb914b7a09686f82561cab02c8e13abcc9d8357914",
+      "retrieved_at": "2026-09-19T15:46:27.203872Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06665620"
+    },
+    {
+      "nct_id": "NCT05791643",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "239eb862e7435202d3f993c0a5e2235796f4b8758029bcbccd31faa10ffbc485",
+      "retrieved_at": "2026-09-19T15:46:27.653351Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05791643"
+    },
+    {
+      "nct_id": "NCT07789314",
+      "stratum_id": "micro-randomized",
+      "raw_sha256": "e43577400c14c28b5ed79808494c0406ca2eb9ce5ec614118ad67e5130827b70",
+      "retrieved_at": "2026-09-19T15:46:28.162416Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07789314"
+    },
+    {
+      "nct_id": "NCT06654882",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "ff6d46d7fe639a0eac71c02657efcb5eb4e17a285d686db0aae76be07eeb9cac",
+      "retrieved_at": "2026-09-19T15:46:29.568055Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06654882"
+    },
+    {
+      "nct_id": "NCT05794555",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "38fb8719615b9651c846f572dc0532731e9655ebc69d2ab1ea7f1c9a44376e9c",
+      "retrieved_at": "2026-09-19T15:46:30.101698Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05794555"
+    },
+    {
+      "nct_id": "NCT07153042",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "91a857561abf6a2db2a364297a69b3e0672c2dda7114997ba9c49f8cfcb867c1",
+      "retrieved_at": "2026-09-19T15:46:30.552112Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07153042"
+    },
+    {
+      "nct_id": "NCT03817229",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "e2a1e17d06d8ff37cdcd29ce0a98633058952154d6f81b5e05bcb11513465940",
+      "retrieved_at": "2026-09-19T15:46:31.042612Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03817229"
+    },
+    {
+      "nct_id": "NCT07138040",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "532765069ce1218945d77f1f4b6740a0a7a26c461e8f095b8468ab7be3a86a9a",
+      "retrieved_at": "2026-09-19T15:46:31.509930Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07138040"
+    },
+    {
+      "nct_id": "NCT07483333",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "4fc296a3b191b1939f646d28485fc88bc40a4fc08daaaea3abc933b60ed2bb3e",
+      "retrieved_at": "2026-09-19T15:46:32.001722Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07483333"
+    },
+    {
+      "nct_id": "NCT05877196",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "3d9337c4a882aeb4b427e889f78aa381e4fee09b2bb663ed317f8f027161d25e",
+      "retrieved_at": "2026-09-19T15:46:32.538534Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05877196"
+    },
+    {
+      "nct_id": "NCT07792382",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "042e6d27fc63346fd5b9d74bafd438fdfbee0cec6abbdc9868b32542810b2cd4",
+      "retrieved_at": "2026-09-19T15:46:33.035001Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07792382"
+    },
+    {
+      "nct_id": "NCT05929469",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "8ecd49003468d9e3e08030d56ffe677d02483a601ba26405bbf11aac0aa65dc3",
+      "retrieved_at": "2026-09-19T15:46:33.567554Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05929469"
+    },
+    {
+      "nct_id": "NCT02655211",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "6c9c0f2ac88f784dfef19ec6863823bc372ef5be08daf3b53072c0ae1d35a742",
+      "retrieved_at": "2026-09-19T15:46:34.079309Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02655211"
+    },
+    {
+      "nct_id": "NCT02939573",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "d1dee87ed789324994516191f0024f19b544c0ffe829b7d3029cea979c2c177e",
+      "retrieved_at": "2026-09-19T15:46:34.588372Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02939573"
+    },
+    {
+      "nct_id": "NCT03510325",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "432f6e7101be6df936e14fbfb36f22f1bc76784c43bf15b34120a657f0110774",
+      "retrieved_at": "2026-09-19T15:46:35.113854Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03510325"
+    },
+    {
+      "nct_id": "NCT06582316",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "4070b3dc8d3d650fbb8528781f39b5cf0880f37ce0545a3ede66752ce1ea318d",
+      "retrieved_at": "2026-09-19T15:46:35.628533Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06582316"
+    },
+    {
+      "nct_id": "NCT05424172",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "643c64cde05a48e0e7415201ff1337a1ec4d67a4576490b04a6f2a18b6f548ca",
+      "retrieved_at": "2026-09-19T15:46:36.170801Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05424172"
+    },
+    {
+      "nct_id": "NCT06284681",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "48d3a9db284cab3bf577a4ce626304472e7ef68c101ec06be7913f85525e026a",
+      "retrieved_at": "2026-09-19T15:46:36.706255Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06284681"
+    },
+    {
+      "nct_id": "NCT06976307",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "55957735219125bb782ce234603b259900651d3bef399add625e3ad6c107cb1b",
+      "retrieved_at": "2026-09-19T15:46:37.224282Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06976307"
+    },
+    {
+      "nct_id": "NCT02564315",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "ae3da38aa1608fe31f102e525ef9e4608b9d57a11391e888ca9ad61b0f8e1f56",
+      "retrieved_at": "2026-09-19T15:46:37.743052Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02564315"
+    },
+    {
+      "nct_id": "NCT05799599",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "80916f570888c9c1bbb25f9b8a2a1ccc5e91ceed0ede910f7aadd9a6bd8d19ae",
+      "retrieved_at": "2026-09-19T15:46:38.264544Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05799599"
+    },
+    {
+      "nct_id": "NCT03992742",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "9ae869909b55f2e552b98e4dc4eb04d492cf3ba3f90dd8a904c5c88bbbcdc056",
+      "retrieved_at": "2026-09-19T15:46:38.789477Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03992742"
+    },
+    {
+      "nct_id": "NCT07031739",
+      "stratum_id": "smart-adaptive",
+      "raw_sha256": "9047042969419bd822a2299a00fdbe3c98de08fcb91d256780a4f7e412fe83a6",
+      "retrieved_at": "2026-09-19T15:46:39.306946Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07031739"
+    },
+    {
+      "nct_id": "NCT05509686",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "a8ffe704cb580a826d3d657834e4dc7470cfd48fefb7ff1ef1959e5efa142306",
+      "retrieved_at": "2026-09-19T15:46:40.745734Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05509686"
+    },
+    {
+      "nct_id": "NCT07752251",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "950db2ae42c8964e89c62bb3b6fe875c4a8547348508bfcfbfb8c499d0be137b",
+      "retrieved_at": "2026-09-19T15:46:41.166894Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07752251"
+    },
+    {
+      "nct_id": "NCT02586441",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "abbe05c8a32a947b509ba74b8f157738360a0e0fa3b660a1185b43fda969a252",
+      "retrieved_at": "2026-09-19T15:46:41.587532Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02586441"
+    },
+    {
+      "nct_id": "NCT01846741",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "b84d63633dee96e585bacc936c656fa259c467552656716e6198b96c217cf181",
+      "retrieved_at": "2026-09-19T15:46:42.097499Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01846741"
+    },
+    {
+      "nct_id": "NCT03944954",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "1775fed88aa3284158e20a2725f9bf2f374f2595879736b98f8cb7b421bc1da8",
+      "retrieved_at": "2026-09-19T15:46:42.594278Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03944954"
+    },
+    {
+      "nct_id": "NCT04830631",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "3988750d8a05fe6270fd21f8d5cab00a90ac0eb2d6c8183a1eb1d73b0ce61300",
+      "retrieved_at": "2026-09-19T15:46:43.043624Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04830631"
+    },
+    {
+      "nct_id": "NCT00715845",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "c4fc1b1155b346f5a84c92949ffdd3ab6092c6fbfd2f0c7384cf5fcd6cc8da2f",
+      "retrieved_at": "2026-09-19T15:46:43.892623Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00715845"
+    },
+    {
+      "nct_id": "NCT07148388",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "ef60a84d368342f2e0e3b1dbeed6e01e80dc76747e23d0f961f00b66d3ee9f9a",
+      "retrieved_at": "2026-09-19T15:46:44.321097Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07148388"
+    },
+    {
+      "nct_id": "NCT02674529",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "6e81c8019de9fd08ef9a3f0acf0c8a5956be5227f42043a1fc06c645da9b66bd",
+      "retrieved_at": "2026-09-19T15:46:44.771276Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02674529"
+    },
+    {
+      "nct_id": "NCT02125786",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "abeedf1b92d8ecaf7251e0463d08d7df4dbf2ae32ed8d87122fb6019325345f4",
+      "retrieved_at": "2026-09-19T15:46:45.225965Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02125786"
+    },
+    {
+      "nct_id": "NCT02662270",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "3654938c2808cba5348be3a56220df1cc96f86373311898a776b45fa9f8a38d1",
+      "retrieved_at": "2026-09-19T15:46:45.657684Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02662270"
+    },
+    {
+      "nct_id": "NCT03219073",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "d1976d4a6362c84430bae60ea1f18fb1c353053ef4e29a61c5568f0c09aad36e",
+      "retrieved_at": "2026-09-19T15:46:46.160509Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03219073"
+    },
+    {
+      "nct_id": "NCT03618251",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "8eebe322c121c16358d83fff0bc538114eeb590e6c16e0ba9da12cd7b3b82dad",
+      "retrieved_at": "2026-09-19T15:46:46.667443Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03618251"
+    },
+    {
+      "nct_id": "NCT04496531",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "bd9ed2823a59b7a51492646f94a5cdbc46a30f03a7c4faa9daafc394d26efe80",
+      "retrieved_at": "2026-09-19T15:46:47.182498Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04496531"
+    },
+    {
+      "nct_id": "NCT07260253",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "f46b9be9e2d6c971ff159d03234109b47d0e2146a8cc056bc3f2655055a68d15",
+      "retrieved_at": "2026-09-19T15:46:47.682866Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07260253"
+    },
+    {
+      "nct_id": "NCT05628805",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "e1c1fe0fde8aa9329822c43114b79df593ebb433fb9263625b32a0b42778b13e",
+      "retrieved_at": "2026-09-19T15:46:48.181019Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05628805"
+    },
+    {
+      "nct_id": "NCT07605429",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "5ef9313d4af404a9e2a8030523ca718821d42a6ce85c966d1f782ddd892afb85",
+      "retrieved_at": "2026-09-19T15:46:48.706202Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07605429"
+    },
+    {
+      "nct_id": "NCT04920175",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "c0d7c1716d499b66245ec065530d58e4523514f99301ad977949dca602cbf294",
+      "retrieved_at": "2026-09-19T15:46:49.135120Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT04920175"
+    },
+    {
+      "nct_id": "NCT03187977",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "2e9a634aabda28ecd4a2eb45a3d4486abf83a65e362c116d5ea3cf1fddee07fd",
+      "retrieved_at": "2026-09-19T15:46:49.559413Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03187977"
+    },
+    {
+      "nct_id": "NCT02897362",
+      "stratum_id": "neurodiagnostics",
+      "raw_sha256": "ad8b24142cf6affaf82586586c9934e057e198eff8b71a3fb6afebf3ae73515f",
+      "retrieved_at": "2026-09-19T15:46:49.983228Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02897362"
+    },
+    {
+      "nct_id": "NCT00169403",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "54a033605e38f3401a2d1541587f309123255e75491711f994c7176a217e4a53",
+      "retrieved_at": "2026-09-19T15:46:51.230924Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00169403"
+    },
+    {
+      "nct_id": "NCT02042573",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "811c280be5d62cbb5aca94045acd7c2906b8c07f3b380b58607147ccc975461c",
+      "retrieved_at": "2026-09-19T15:46:51.653166Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02042573"
+    },
+    {
+      "nct_id": "NCT00029666",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "5ea7dce23c2cb69ae6a4beb14e4cde1369a93d4e2f512ff46bd948a80964f11f",
+      "retrieved_at": "2026-09-19T15:46:52.081295Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT00029666"
+    },
+    {
+      "nct_id": "NCT06109480",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "1a0175fa856f0909704ca47340c6d5a3de039a81c7774923a653a4ddeda845dd",
+      "retrieved_at": "2026-09-19T15:46:52.516610Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06109480"
+    },
+    {
+      "nct_id": "NCT01798888",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "fd799b154d4d6a008da210cea2e308991f91fca65582b09df71e372ce26c819e",
+      "retrieved_at": "2026-09-19T15:46:52.977377Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01798888"
+    },
+    {
+      "nct_id": "NCT03049969",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "f0e731b2684693772f229b273dd27fa66c78666cd1f6c1561b4ee5cf393d1599",
+      "retrieved_at": "2026-09-19T15:46:53.497206Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03049969"
+    },
+    {
+      "nct_id": "NCT03592394",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "42c44fe6444b67ab1d4d6456ffb6e995d072f197c1ed29539ece5b8e9dcc19b0",
+      "retrieved_at": "2026-09-19T15:46:54.002792Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03592394"
+    },
+    {
+      "nct_id": "NCT03117231",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "894fae9b0fddda42c911714c04ea3b82549281fa2669b4e6263bb4b29faf1203",
+      "retrieved_at": "2026-09-19T15:46:54.515271Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03117231"
+    },
+    {
+      "nct_id": "NCT01747070",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "4d69f1d72befe69e650e31d831a8afa69d4716e1ad02b9aaa8fe71b2ce1a1d52",
+      "retrieved_at": "2026-09-19T15:46:55.041977Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01747070"
+    },
+    {
+      "nct_id": "NCT06898554",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "872a1c914aa932275deaf36dce88d4ab15c7a93d66637b50055465f417b8e03a",
+      "retrieved_at": "2026-09-19T15:46:55.547404Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06898554"
+    },
+    {
+      "nct_id": "NCT03693729",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "29c7013cdd3c22be994cb34a64de739fc7cc7cfa88464b1f931ac161deeacae5",
+      "retrieved_at": "2026-09-19T15:46:56.051229Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03693729"
+    },
+    {
+      "nct_id": "NCT05670873",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "6e3490568e06bec5f3ce79d27d080ce1fbfd7cad166f04a54f195cac47edc9b7",
+      "retrieved_at": "2026-09-19T15:46:56.476934Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05670873"
+    },
+    {
+      "nct_id": "NCT03291431",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "b169438828c4456074c374d6aac069c7457cd9dcc7411bd4f18c5f1aba2f01bf",
+      "retrieved_at": "2026-09-19T15:46:57.018024Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03291431"
+    },
+    {
+      "nct_id": "NCT02227953",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "617fa6b733a0b70b358f8ce02322f3404bc0b41c41bec6dc3ab49041ff40282a",
+      "retrieved_at": "2026-09-19T15:46:57.524012Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT02227953"
+    },
+    {
+      "nct_id": "NCT01751373",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "cf6a9518f26e53487bc25a167eed3146efe62ba8a0ef75618164be1cdd6a7cad",
+      "retrieved_at": "2026-09-19T15:46:57.956767Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT01751373"
+    },
+    {
+      "nct_id": "NCT05607654",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "1760ef07f84b949773a11ab65eca02dc3db0f87c9f544a78563b881810d708d7",
+      "retrieved_at": "2026-09-19T15:46:58.390169Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT05607654"
+    },
+    {
+      "nct_id": "NCT03795051",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "5f55a6e1949819725617d6719d6a07d79216acb24681e44e2ec247a2abf3c9fe",
+      "retrieved_at": "2026-09-19T15:46:58.812141Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT03795051"
+    },
+    {
+      "nct_id": "NCT06874595",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "ae1749c3c425956be6f05a9c434d8895675e09befba31a1475ab51114519f671",
+      "retrieved_at": "2026-09-19T15:46:59.254920Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT06874595"
+    },
+    {
+      "nct_id": "NCT07075770",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "09d8cf4e193e7a0e989c74078b2e89e3d3f0a79a195a6b0b00179df1d355050e",
+      "retrieved_at": "2026-09-19T15:46:59.778256Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07075770"
+    },
+    {
+      "nct_id": "NCT07216222",
+      "stratum_id": "neuromodulation",
+      "raw_sha256": "8ab83e7b8bbfa7ccc9bf523a7fc29c19e5f1ff89479273bd2b82f8bb58c4be93",
+      "retrieved_at": "2026-09-19T15:47:00.283251Z",
+      "source_uri": "https://clinicaltrials.gov/api/v2/studies/NCT07216222"
+    }
+  ],
+  "scope": "Frozen query-selected public registry ingestion and sparse compiler audit; not biological rankings or calibration."
+}

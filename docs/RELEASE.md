@@ -200,3 +200,15 @@ After publication, record:
 
 Never silently replace a published artifact. A correction is a new version with
 an explicit supersession record.
+
+## Research prerelease assets
+
+For a pushed `v*-rc.*` tag, the isolated `github-prerelease` job runs only after
+the full build/test/boundary/attestation job succeeds. It downloads that run's
+artifact, verifies SHA256SUMS and creates a GitHub prerelease on the existing tag
+with `--verify-tag --prerelease --latest=false`. It uses GitHub's ephemeral job
+token with repository contents write and Actions read only; desktop account
+credentials are unnecessary. Wheel, source distribution, installed-Studio
+receipt, manuscript, replay supplement, checksums and SBOM are attached. Existing
+releases are not overwritten. The separate stable PyPI approval gates remain in
+force. A research prerelease is not biological calibration or certification.

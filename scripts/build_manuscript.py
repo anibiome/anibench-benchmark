@@ -115,7 +115,7 @@ def figures(folder: Path) -> dict:
             "geometry_values": values, "geometry_demo": demo, "collection_profile": profile}
 
 
-EQUATION_SOURCE_SHA256 = ['05a794ce57af247fa3881e0771ff98cb90e8565dfd5902506a19869a1392c324', '93385d977ba98a66f58ef955ff7fc32e2c4ddb398fdf3a91eada275f000f0e24', 'de0b0c6abe38c1e9653d4567a59e2162b6b3dd662d74b352ac94c56d42b53b17', '08da69323bd0d9e721f361e44ec433269b9a52ff8e6eab581701969b17bd13ca', 'f5fed22d40a5f624fef9c7bdd9d9c8ab721dd1b8aa1e8bd91f6f82dd38ee9e07', '7fafa9cda27ea6765d3e05ef4380593c9e241ee707793a0716de719fdb65ab5e']
+EQUATION_SOURCE_SHA256 = ['05a794ce57af247fa3881e0771ff98cb90e8565dfd5902506a19869a1392c324', '93385d977ba98a66f58ef955ff7fc32e2c4ddb398fdf3a91eada275f000f0e24', 'de0b0c6abe38c1e9653d4567a59e2162b6b3dd662d74b352ac94c56d42b53b17', '08da69323bd0d9e721f361e44ec433269b9a52ff8e6eab581701969b17bd13ca', 'f5fed22d40a5f624fef9c7bdd9d9c8ab721dd1b8aa1e8bd91f6f82dd38ee9e07', '7fafa9cda27ea6765d3e05ef4380593c9e241ee707793a0716de719fdb65ab5e', 'ad709ce127c6dc1e99c33ab2da0c5f90babaf1837baa119bb83589c159c6b053']
 
 EQUATIONS = [
     [r"dz_i(t)=f_\theta(z_i(t),u_i(t),c_i(t))\,dt+G_\theta(z_i(t),u_i(t),c_i(t))\,dW_i(t)",
@@ -127,6 +127,8 @@ EQUATIONS = [
     [r"F=A^T R^{-1} A,\qquad P_{\mathrm{post}}=(P_0^{-1}+F)^{-1}"],
     [r"\mathcal{I}(\theta;y)=\frac{1}{2}\log\frac{\det P_0}{\det P_{\mathrm{post}}}",
      r"=\frac{1}{2}\log\det(I+P_0^{1/2}FP_0^{1/2})=\frac{1}{2}\sum_k\log(1+\lambda_k)"],
+    [r"r=\max_{c\ne0}\frac{c^T\Sigma_{\mathrm{trial}}c}{c^T\Sigma_{\mathrm{reference}}c}",
+     r"=\lambda_{\max}(\Sigma_{\mathrm{reference}}^{-1/2}\Sigma_{\mathrm{trial}}\Sigma_{\mathrm{reference}}^{-1/2})"],
 ]
 
 
@@ -239,7 +241,7 @@ def _build(out: Path) -> dict:
             story.append(Paragraph(inline(line[2:]), style["PaperTitle"]))
             i += 1
         elif line.startswith("**Bruno Balen"):
-            story.append(Paragraph("Bruno Balen<br/>ANI Biome PBC<br/>Research manuscript | 18 September 2026", style["Caption"]))
+            story.append(Paragraph("Bruno Balen<br/>ANI Biome PBC<br/>" + html.escape(lines[i + 2].strip()), style["Caption"]))
             i += 3
         elif line.startswith("##"):
             if line.startswith("## 1."):
@@ -292,7 +294,12 @@ def _build(out: Path) -> dict:
                     break
                 block.append(lines[i].strip())
                 i += 1
-            story.append(Paragraph(inline(" ".join(block)), style["Reference" if refs else "PaperBody"]))
+            prose = " ".join(block)
+            paragraph = Paragraph(inline(prose), style["Reference" if refs else "PaperBody"])
+            # Keep introductory lines with the equation, table or code they introduce.
+            if prose.endswith(":"):
+                paragraph.keepWithNext = True
+            story.append(paragraph)
     if eq != len(EQUATIONS):
         raise ValueError("Equation mapping must match the manuscript")
 

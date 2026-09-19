@@ -60,6 +60,8 @@ class ReconstructionMetrics:
     reference_matrix_sha256: str
     reference_direction_basis_sha256: str
     formula_version: str = V2_INFORMATION_VERSION
+    basis_marginal_semantics: str = "reference_basis_marginal_variance_attainment_only"
+    conditional_joint_diagnostic: dict[str, Any] | None = None
 
     def as_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -139,6 +141,11 @@ def assemble_joint_information(
     *,
     parameter_dimension: int | None = None,
 ) -> np.ndarray:
+    # Precondition: callers establish that rows have additive conditional information.
+    # Source/event labels are not acquisition identities: legitimate independent
+    # repeats may share them. This low-level helper cannot safely deduplicate them.
+    # Copies require upstream lineage deduplication; correlated rows require a
+    # joint noise covariance or a valid conditional-information decomposition.
     rows = list(contributions)
     if not rows:
         if parameter_dimension is None or parameter_dimension < 1:
@@ -294,6 +301,47 @@ def validate_reference_geometry(
     )
 
 
+def posterior_reference_diagnostic(
+    information: Sequence[Sequence[float]] | np.ndarray,
+    prior_precision: Sequence[Sequence[float]] | np.ndarray,
+    reference_information: Sequence[Sequence[float]] | np.ndarray,
+) -> dict[str, Any]:
+    """Conditional Gaussian all-direction comparison, never biological certification.
+
+    The largest generalized posterior variance ratio is
+    max_c (c.T Sigma_trial c)/(c.T Sigma_reference c). A ratio <= 1
+    means Sigma_trial <= Sigma_reference in the Loewner order. Unlike
+    reference-basis marginal completion, this includes every linear functional.
+    Both posteriors use the same explicitly declared prior and parameter space.
+    """
+    trial = prior_whitened_information(information, prior_precision)
+    reference = prior_whitened_information(reference_information, prior_precision)
+    if trial.shape != reference.shape:
+        raise InformationV2Error("information and reference dimensions differ")
+    if float(np.max(np.linalg.eigvalsh(reference))) <= 0.0:
+        raise InformationV2Error("reference information must contain a positive direction")
+    identity = np.eye(trial.shape[0], dtype=float)
+    # If reference precision = L L.T, L.T Sigma_trial L has the required
+    # generalized eigenvalues. Avoid explicitly inverting either posterior.
+    factor = np.linalg.cholesky(identity + reference)
+    relative = factor.T @ np.linalg.solve(identity + trial, factor)
+    relative = 0.5 * (relative + relative.T)
+    ratio = float(np.max(np.linalg.eigvalsh(relative)))
+    if not math.isfinite(ratio) or ratio <= 0.0:
+        raise InformationV2Error("posterior variance ratio must be finite and positive")
+    tolerance = 1e-10
+    return {
+        "contract": "anibench.conditional-posterior-reference.v1",
+        "claim_class": "conditional_gaussian_geometry_not_biological_saturation",
+        "worst_direction_posterior_variance_ratio": ratio,
+        "all_direction_reference_attainment": ratio <= 1.0 + tolerance,
+        "numerical_tolerance": tolerance,
+        "comparison_rule": "worst_direction_posterior_variance_ratio <= 1 + numerical_tolerance",
+        "public_saturation_claim_allowed": False,
+        "promotion_allowed": False,
+    }
+
+
 def reconstruction_metrics(
     information: Sequence[Sequence[float]] | np.ndarray,
     prior_precision: Sequence[Sequence[float]] | np.ndarray,
@@ -358,6 +406,7 @@ def reconstruction_metrics(
         level1_completion_percent=round(min(100.0, max(0.0, completion)), 12),
         level1_overflow=round(max(0.0, overflow), 12),
         coverage_curve={key: round(value, 12) for key, value in curve.items()},
+        conditional_joint_diagnostic=posterior_reference_diagnostic(info, prior, reference),
         generalized_eigenvalues=tuple(round(float(value), 12) for value in eigenvalues),
         reference_direction_information=tuple(
             round(float(value), 12) for value in trial_direction_values

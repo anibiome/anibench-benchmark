@@ -1,0 +1,35 @@
+{
+  "schema": "anibench.registry-stress-240.portable-verification.v1",
+  "generated_at": "2026-09-19T16:05:38.081221+00:00",
+  "network_used": false,
+  "attempted": 240,
+  "passed": 240,
+  "failed": 0,
+  "all240_historical_record_fields_match": true,
+  "portable_runner_sha256": "2ac5d48400c8eb048b75c2562aff9a37a7f2e04a49b956070d0ff6189657d24c",
+  "manifest_sha256": "b353786a486db784c2e3c19d479faf3f1d7496c92e1db713af4af432ad310cc7",
+  "source_code_sha256": {
+    "scripts/run_ctgov_50_stress_test.py": "5f310c03125ceadcd085ac15f78159934a01278f1966ab8743577b69179d4778",
+    "src/anibench/intake.py": "634daa09b396747e26a929fddbedbcd10e4756c8ea8a0dd825982d3e050a7c1f",
+    "src/anibench/design_v2.py": "320191772311d4ba627571a1e23efadd32a1e836ead4c66e59fdeceaa724f28d",
+    "schemas/v2/design-input.schema.json": "3d4d356a76cc23a0b7478836bdee0a4fcf027ea9707e6bed174efb04bf7bf2e9"
+  },
+  "metamorphic_probes": {
+    "missing_enrollment": {
+      "executed": 240,
+      "passed": 240,
+      "nontrivial_inputs": 239
+    },
+    "duplicate_interventions": {
+      "executed": 240,
+      "passed": 240,
+      "nontrivial_inputs": 240
+    },
+    "reverse_rows": {
+      "executed": 240,
+      "passed": 240,
+      "nontrivial_inputs": 225
+    }
+  },
+  "scope": "Portable runner exactly matches every allowlisted field of the corrected frozen replay; not biological validation."
+}

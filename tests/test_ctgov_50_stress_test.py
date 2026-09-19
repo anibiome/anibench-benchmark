@@ -4,6 +4,7 @@ import json
 
 import pytest
 
+from anibench.design_v2 import DesignInputError, compile_design
 from anibench.intake import snapshot_clinicaltrials_study
 from scripts.run_ctgov_50_stress_test import (
     StressTestError,
@@ -34,7 +35,9 @@ def _study(
         "identificationModule": {"nctId": nct_id, "briefTitle": "Fixture trial"},
         "statusModule": {"overallStatus": "COMPLETED"},
         "designModule": design,
-        "outcomesModule": {"outcomes": [{"measure": "Outcome that must not become biology"}]},
+        "outcomesModule": {
+            "primaryOutcomes": [{"measure": "Outcome that must not become biology"}]
+        },
         "armsInterventionsModule": {
             "interventions": [{"name": "Intervention that must not become an operator"}]
         },
@@ -134,3 +137,75 @@ def test_sparse_audit_emits_no_score_rank_information_or_imputation() -> None:
         "biological_information_inference_emitted": False,
         "missing_value_imputation_used": False,
     }
+
+
+def test_registry_outcome_categories_are_counted_with_source_locators() -> None:
+    study = _study()
+    study["protocolSection"]["outcomesModule"] = {
+        "primaryOutcomes": [{"measure": "Primary"}],
+        "secondaryOutcomes": [{"measure": "Secondary A"}, {"measure": "Secondary B"}],
+        "otherOutcomes": [{"measure": "Other"}],
+    }
+    snapshot = _snapshot(study)
+    record = extract_registry_record(snapshot)
+    outcome = record["fields"]["outcome_count"]
+    assert (outcome["value"], outcome["state"]) == (4, "exact")
+    assert outcome["binding"]["source_sha256"] == snapshot.raw_content_sha256
+    assert outcome["binding"]["json_pointer"] == "/protocolSection/outcomesModule"
+    assert outcome["binding"]["component_json_pointers"] == [
+        f"/protocolSection/outcomesModule/{key}"
+        for key in ("primaryOutcomes", "secondaryOutcomes", "otherOutcomes")
+    ]
+    design, _ = sparse_design_input(record)
+    study["protocolSection"]["outcomesModule"]["primaryOutcomes"] *= 5
+    more_outcomes = extract_registry_record(_snapshot(study))
+    assert more_outcomes["fields"]["outcome_count"]["value"] == 8
+    assert sparse_design_input(more_outcomes)[0] == design
+
+
+@pytest.mark.parametrize(
+    ("module", "value", "state"),
+    [
+        (None, None, "unknown"),
+        ({}, None, "unknown"),
+        ({"outcomes": [{"measure": "Wrong legacy field"}]}, None, "unknown"),
+        ({"primaryOutcomes": []}, 0, "exact"),
+        ({"primaryOutcomes": [{"measure": "One listed outcome"}]}, 1, "exact"),
+        ({"primaryOutcomes": [], "secondaryOutcomes": None}, None, "unknown"),
+        ({"primaryOutcomes": "malformed"}, None, "unknown"),
+    ],
+)
+def test_missing_or_malformed_outcomes_are_not_zero(module, value, state) -> None:
+    study = _study()
+    if module is None:
+        study["protocolSection"].pop("outcomesModule")
+    else:
+        study["protocolSection"]["outcomesModule"] = module
+    field = extract_registry_record(_snapshot(study))["fields"]["outcome_count"]
+    assert (field["value"], field["state"]) == (value, state)
+
+
+@pytest.mark.parametrize("length", [240, 241, 257])
+def test_long_registry_title_gets_bounded_display_name_and_full_provenance(length) -> None:
+    # NCT00489970 exposed this boundary with a 257-character registry title.
+    # Only a minimal synthetic title is needed to reproduce the public shape.
+    study = _study(nct_id="NCT00489970")
+    title = "Vaccine persistence — " + "x" * (length - len("Vaccine persistence — "))
+    study["protocolSection"]["identificationModule"]["briefTitle"] = title
+    record = extract_registry_record(_snapshot(study))
+    design, mapping = sparse_design_input(record)
+    assert record["fields"]["brief_title"]["value"] == title
+    assert mapping["name"]["source_title"] == title
+    assert mapping["name"]["source_binding"] == record["fields"]["brief_title"]["binding"]
+    assert mapping["name"]["display_name_shortened"] is (length > 240)
+    if length == 240:
+        assert design["name"] == title
+    else:
+        assert len(design["name"]) == 240
+        assert design["name"].endswith("… [NCT00489970]")
+        # Keep the compiler contract strict; only the registry display mapping changes.
+        with pytest.raises(DesignInputError, match="too long"):
+            compile_design({**design, "name": title})
+    result = compile_design(design)
+    assert result["promotion_allowed"] is False
+    assert not any(result["emission_policy"].values())
