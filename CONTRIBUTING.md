@@ -34,8 +34,11 @@ Formula, reference, axis, or evidence-state changes require a methods RFC with:
 
 ## Development
 
+Use Python 3.10 or newer and Node.js 22 or newer. Install the license checker
+alongside the development and paper dependencies before running verification.
+
 ```bash
-python -m pip install -e '.[dev]'
+python -m pip install -e '.[dev,paper]' 'reuse[charset-normalizer]'
 make test
 make verify
 ```
