@@ -79,6 +79,9 @@ const AniBenchCollection = (() => {
       ])
         if (quantity(value.population[key], true) > roster)
           throw Error("Participant coverage exceeds the roster.");
+      if (value.population.participants_with_two_or_more_times >
+          value.population.participants_with_accepted_targets)
+        throw Error("Repeated participants exceed measured participants.");
       const ids = new Set();
       for (const row of value.modules) {
         text(row.module_id);
@@ -97,6 +100,8 @@ const AniBenchCollection = (() => {
           "participant_events_with_accepted_targets",
         ])
           quantity(row[key], true);
+        if (row.observed_target_count > quantity(row.registered_target_count, true))
+          throw Error("Observed targets exceed registered targets.");
         distribution(row.targets_per_participant);
         if (row.targets_per_participant.n !== roster)
           throw Error(

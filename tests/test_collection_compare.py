@@ -141,6 +141,7 @@ def test_boundary_touch_is_not_strict_ordering():
     values = profiles()
     values[1]["coverage_interpretation"] = "lower_bound"
     values[1]["population"]["participants_with_accepted_targets"] = 0
+    values[1]["population"]["participants_with_two_or_more_times"] = 0
     values[0]["population"]["participants_with_accepted_targets"] = 4
     for value in values:
         rehash(value)
@@ -187,6 +188,9 @@ def test_possible_rank_bounds_cover_every_admissible_small_integer_world():
     for i, (lower, upper) in enumerate([(1, 2), (2, 2), (0, 4)]):
         values[i]["population"]["roster_participants"] = upper
         values[i]["population"]["participants_with_accepted_targets"] = lower
+        values[i]["population"]["participants_with_two_or_more_times"] = min(
+            values[i]["population"]["participants_with_two_or_more_times"], lower
+        )
         values[i]["coverage_interpretation"] = "exact_supplied_inventory" if lower == upper else "lower_bound"
         rehash(values[i])
     result = compare_collection_profiles(values, basis())
@@ -195,3 +199,46 @@ def test_possible_rank_bounds_cover_every_admissible_small_integer_world():
         ranks = [1 + sum(x > world[i] for j, x in enumerate(world) if i != j) for world in worlds]
         assert row["rank_min"] == min(ranks)
         assert row["rank_max"] == max(ranks)
+
+
+@pytest.mark.parametrize("metric", ["module_targets", "measured_participants"])
+def test_rehashed_observed_targets_cannot_exceed_registry_for_any_selected_metric(metric):
+    values = profiles()
+    module = next(m for m in values[1]["modules"] if m["module_id"] == "proteomics")
+    module["observed_target_count"] = module["registered_target_count"] + 1000
+    rehash(values[1])
+    with pytest.raises(ValueError, match="Observed targets exceed"):
+        compare_collection_profiles(values, basis(metric))
+
+
+@pytest.mark.parametrize("metric", ["repeated_participants", "module_targets"])
+def test_rehashed_repeated_people_cannot_exceed_measured_people_for_any_metric(metric):
+    values = profiles()
+    values[1]["population"]["participants_with_accepted_targets"] = 1
+    values[1]["population"]["participants_with_two_or_more_times"] = 2
+    rehash(values[1])
+    with pytest.raises(ValueError, match="participant counts are inconsistent"):
+        compare_collection_profiles(values, basis(metric))
+
+
+def test_rehashed_measured_people_cannot_exceed_roster_on_unrelated_metric():
+    values = profiles()
+    values[1]["population"]["participants_with_accepted_targets"] = 5
+    rehash(values[1])
+    with pytest.raises(ValueError, match="participant counts are inconsistent"):
+        compare_collection_profiles(values, basis("module_targets"))
+
+
+def test_valid_boundary_counts_remain_comparable():
+    values = profiles()
+    for value in values:
+        population = value["population"]
+        population["participants_with_two_or_more_times"] = population["participants_with_accepted_targets"]
+        for module in value["modules"]:
+            module["observed_target_count"] = module["registered_target_count"]
+        rehash(value)
+    # Equality is legitimate; these checks are not independent source validation.
+    for metric in ["repeated_participants", "module_targets"]:
+        result = compare_collection_profiles(values, basis(metric))
+        assert result["leaders"] == ["a", "b"]
+        assert result["review_status"] == "basis_declared_by_caller_not_independently_reviewed"

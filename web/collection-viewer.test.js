@@ -68,6 +68,17 @@ test("empty follow-up stays unknown and malformed quantiles are rejected", () =>
   p.longitudinal.span_days_among_repeated_participants.median = 0;
   assert.throws(() => viewer.validate(p), /empty distribution/);
 });
+test("viewer rejects repeated participants outside measured people", () => {
+  const p = example();
+  p.population.participants_with_accepted_targets = 1;
+  p.population.participants_with_two_or_more_times = 2;
+  assert.throws(() => viewer.validate(p), /Repeated participants/);
+});
+test("viewer rejects observed targets outside their registry", () => {
+  const p = example();
+  p.modules[0].observed_target_count = p.modules[0].registered_target_count + 1;
+  assert.throws(() => viewer.validate(p), /Observed targets/);
+});
 test("labels and provenance never become active HTML", () => {
   const p = example();
   p.study_id = "<img src=x onerror=alert(1)>";

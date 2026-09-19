@@ -58,6 +58,19 @@ def _verified_profile(value: dict[str, Any]) -> dict[str, Any]:
         raise CollectionComparisonError("Unsupported coverage interpretation")
     if value.get("record_basis") not in {"planned", "collected"}:
         raise CollectionComparisonError("Unsupported record basis")
+    # A caller can recompute a content hash. It binds submitted bytes, not their
+    # truth, but internally impossible counts are rejectable without raw records.
+    population = value["population"]
+    roster = _number(population["roster_participants"], integer=True)
+    measured = _number(population["participants_with_accepted_targets"], integer=True)
+    repeated = _number(population["participants_with_two_or_more_times"], integer=True)
+    if not repeated <= measured <= roster:
+        raise CollectionComparisonError("Repeated, measured, and roster participant counts are inconsistent")
+    for module in value["modules"]:
+        registered = _number(module["registered_target_count"], integer=True)
+        observed = _number(module["observed_target_count"], integer=True)
+        if observed > registered:
+            raise CollectionComparisonError("Observed targets exceed the registered target count")
     return value
 
 
