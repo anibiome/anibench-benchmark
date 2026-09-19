@@ -10,6 +10,8 @@ on:
 permissions:
   contents: write
   actions: read
+  id-token: write
+  attestations: write
 
 jobs:
   publish:
@@ -44,11 +46,66 @@ jobs:
         working-directory: dist
         run: sha256sum --check SHA256SUMS
       - name: Publish the verified research prerelease without replacing assets
-        run: >-
-          gh release create "$RELEASE_TAG"
-          dist/*.whl dist/*.tar.gz dist/INSTALLED_STUDIO_E2E_RECEIPT.json
-          dist/SHA256SUMS dist/anibench.spdx.json
-          dist/AniBench.pdf dist/anibench-paper-replay.zip
-          --verify-tag --prerelease --latest=false
-          --title "AniBench $RELEASE_TAG — research candidate"
-          --notes-file release-notes.md
+        run: |
+          if ! gh release view "$RELEASE_TAG" --json tagName > existing-release.json; then
+            gh release create "$RELEASE_TAG" \
+              dist/*.whl dist/*.tar.gz dist/INSTALLED_STUDIO_E2E_RECEIPT.json \
+              dist/SHA256SUMS dist/anibench.spdx.json \
+              dist/AniBench.pdf dist/anibench-paper-replay.zip \
+              --verify-tag --prerelease --latest=false \
+              --title "AniBench $RELEASE_TAG — research candidate" \
+              --notes-file release-notes.md
+          else
+            test "$(jq -r .tagName existing-release.json)" = "$RELEASE_TAG"
+          fi
+      - name: Set up the documented runtime inventory environment
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Install the exact verified wheel and its default dependencies
+        run: |
+          python -m venv /tmp/anibench-rc3-runtime
+          /tmp/anibench-rc3-runtime/bin/python -m pip install dist/*.whl
+      - name: Generate the resolved runtime inventory
+        uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610 # v0
+        with:
+          path: /tmp/anibench-rc3-runtime
+          format: spdx-json
+          output-file: dist/anibench-runtime.spdx.json
+          upload-artifact: false
+          upload-release-assets: false
+      - name: Validate and bind the supplementary runtime inventory
+        run: |
+          python - <<'PY'
+          import datetime, hashlib, json, pathlib, platform
+          root = pathlib.Path('dist')
+          sbom = root / 'anibench-runtime.spdx.json'
+          names = {p['name'].lower() for p in json.loads(sbom.read_text())['packages']}
+          assert {'anibench', 'numpy', 'jsonschema'} <= names, names
+          wheel, = root.glob('*.whl')
+          context = {
+              'contract': 'anibench.resolved-runtime-inventory.v1',
+              'source_tag': 'v2.0.0-rc.3',
+              'source_commit': '30e6b5ac432fdd3aec61ce803146018f59b840fb',
+              'created_at': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+              'python_version': platform.python_version(),
+              'wheel_sha256': hashlib.sha256(wheel.read_bytes()).hexdigest(),
+              'runtime_sbom_sha256': hashlib.sha256(sbom.read_bytes()).hexdigest(),
+              'scope': 'Exact released wheel installed with default dependencies on Linux; a resolved runtime snapshot, not a universal dependency lock.',
+              'original_inventory_scope': 'anibench.spdx.json describes the release directory only and is not a package dependency inventory.'
+          }
+          (root / 'RUNTIME_SBOM_CONTEXT.json').write_text(json.dumps(context, indent=2) + '\n')
+          PY
+      - name: Attest the supplementary wheel runtime inventory
+        uses: actions/attest-sbom@bd218ad0dbcb3e146bd073d1d9c6d78e08aa8a0b # v2
+        with:
+          subject-path: dist/*.whl
+          sbom-path: dist/anibench-runtime.spdx.json
+      - name: Add the supplementary inventory without changing existing assets
+        run: |
+          gh release upload "$RELEASE_TAG" dist/anibench-runtime.spdx.json dist/RUNTIME_SBOM_CONTEXT.json
+          cat >> release-notes.md <<'NOTES'
+
+          Runtime inventory supplement: the original anibench.spdx.json describes the release directory only. Use anibench-runtime.spdx.json and RUNTIME_SBOM_CONTEXT.json for the exact wheel's resolved Python 3.12 runtime inventory. This is an installation snapshot, not a universal dependency lock. Original package, paper, checksum and receipt bytes are unchanged.
+          NOTES
+          gh release edit "$RELEASE_TAG" --notes-file release-notes.md
