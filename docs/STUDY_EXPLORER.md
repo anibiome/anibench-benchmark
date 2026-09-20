@@ -4,17 +4,26 @@ The [public static explorer](https://anibench.ani-ai-is-alive.chatgpt.site)
 provides the source atlas, reported-fact comparisons, and synthetic evaluator
 demonstration without installation. Use the local Studio for custom inputs.
 
-The public entry page is `web/benchmark.html` (the static build's `index.html`).
-It separates Studies, Method, and Run AniBench into focused views. Study search,
-native-unit fact categories, and expandable provenance provide a compact first
-view; the full explorer below remains the advanced workspace. Locally, the same
-entry page is available at `http://127.0.0.1:8765/benchmark.html`.
+The public entry page is `web/compare.html` (the static build's `index.html`).
+It shows one comparison at a time: **People**, **Measurements**, or **Time**.
+Its five-study source packet is `web/source-architecture.json`. Publication and
+ethics filters are independent; publication filtering applies to each supporting
+source, and unknown approval is distinct from explicitly not approved. Click a
+study or measurement to read its definition and source. Locally, this page is at
+`http://127.0.0.1:8765/compare.html`.
 
-The study-size bars use log10(1 + count), with native counts displayed alongside.
-This is a display transform, not a benchmark score. The primary table shows the
-first publication fact for the chosen unit category, falling back to a bound
-registry population when available. Additional denominators remain in study
-details. There is no ordering by performance or conversion of unknowns to zero.
+Population bars display reported counts on a log10 axis, with the population
+role and approximate or lower-bound markers retained. Each study uses an explicit
+population field; an excluded field never silently switches to another
+denominator. Protein inventories use a linear axis. Neither is a benchmark score.
+Missing counts have no bar, and a view with no reported counts has no numerical
+axis. Coverage distinguishes documented measurements, public study descriptions
+and unreported fields. Time windows retain their original labels and units,
+without ranking follow-up, treatment and sensor windows against one another.
+
+The research views at `benchmark.html` retain the design examples, 240-record
+registry comparison, method and local run instructions. The advanced workspace
+below retains its original source atlas and evaluation workflows.
 
 Run `anibench studio` and open `http://127.0.0.1:8765/explore.html`.
 The existing Trial Designer remains at `/` and `/v2.html`.

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="AniBench compares the scale, measurements and design of human studies. Explore the evidence, read the paper, or run the open benchmark on your study."
+    />
+    <title>AniBench — Human studies, compared.</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="compare.css" />
+    <script src="compare.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#comparison">Skip to comparison</a>
+    <header class="site-header">
+      <a class="wordmark" href="index.html"
+        ><img src="favicon.svg" width="28" height="28" alt="" />AniBench</a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#comparison" aria-current="page">Compare</a>
+        <a href="benchmark.html#broad-reference">Design lab</a>
+        <a href="benchmark.html#run"
+          >Run your study <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+      <a class="code-link" href="https://github.com/anibiome/anibench-benchmark"
+        >Code <span aria-hidden="true">↗</span></a
+      >
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">
+          <span class="live-dot" aria-hidden="true"></span> An open benchmark
+          for human studies
+        </p>
+        <h1 id="page-title">
+          Human studies,<br />
+          compared.
+        </h1>
+        <p class="intro-copy">
+          How many people. Which measurements. Over what period.
+        </p>
+        <div class="intro-links">
+          <a
+            href="https://github.com/anibiome/anibench-benchmark/releases/download/v2.0.0-rc.5/AniBench.pdf"
+            >Read the paper <span aria-hidden="true">↗</span></a
+          ><span>Research release · open source</span>
+        </div>
+      </section>
+
+      <section
+        id="comparison"
+        class="comparison"
+        aria-labelledby="comparison-title"
+      >
+        <div class="comparison-top">
+          <h2 id="comparison-title">Study comparison</h2>
+          <p id="study-count">Public evidence</p>
+        </div>
+        <div class="toolbar">
+          <div class="tabs" role="tablist" aria-label="Comparison category">
+            <button
+              type="button"
+              id="tab-people"
+              role="tab"
+              aria-selected="true"
+              aria-controls="comparison-panel"
+              data-category="people"
+            >
+              People
+            </button>
+            <button
+              type="button"
+              id="tab-measurements"
+              role="tab"
+              aria-selected="false"
+              aria-controls="comparison-panel"
+              tabindex="-1"
+              data-category="measurements"
+            >
+              Measurements
+            </button>
+            <button
+              type="button"
+              id="tab-time"
+              role="tab"
+              aria-selected="false"
+              aria-controls="comparison-panel"
+              tabindex="-1"
+              data-category="time"
+            >
+              Time
+            </button>
+          </div>
+          <details class="filters" id="filters">
+            <summary>
+              Filters <span id="filter-count"></span
+              ><span aria-hidden="true">⌄</span>
+            </summary>
+            <div class="filter-popover">
+              <label
+                >Publication<select id="publication" aria-label="Publication">
+                  <option value="all">All sources</option>
+                  <option value="peer_reviewed_article">
+                    Peer-reviewed only
+                  </option>
+                  <option value="preprint">Preprints only</option>
+                  <option value="public_participant_protocol">
+                    Protocols only
+                  </option>
+                  <option value="registry_record">Registry records only</option>
+                  <option value="first_party_resource_release">
+                    Official data releases
+                  </option>
+                  <option value="first_party_self_report">
+                    First-party reports
+                  </option>
+                  <option value="unpublished">Unpublished only</option>
+                  <option value="unknown">Unknown status</option>
+                </select></label
+              >
+              <label
+                >Ethics / IRB<select id="ethics" aria-label="Ethics / IRB">
+                  <option value="all">All approval states</option>
+                  <option value="approval_reported">Approval reported</option>
+                  <option value="explicitly_not_approved">
+                    Explicitly not approved
+                  </option>
+                  <option value="exempt_reported">Exemption reported</option>
+                  <option value="unknown">Unknown status</option>
+                </select></label
+              >
+              <fieldset>
+                <legend>Studies</legend>
+                <div id="study-options"></div>
+              </fieldset>
+              <button type="button" id="reset-filters" class="text-button">
+                Reset filters
+              </button>
+            </div>
+          </details>
+        </div>
+        <div id="active-filters" class="active-filters" hidden></div>
+        <div
+          id="comparison-panel"
+          role="tabpanel"
+          aria-labelledby="tab-people"
+          tabindex="0"
+        >
+          <p class="loading" role="status">Loading study comparison…</p>
+        </div>
+        <div class="comparison-bottom">
+          <span>Click a study for definitions and sources.</span
+          ><a href="source-architecture.json" download>Download data ↓</a>
+        </div>
+      </section>
+
+      <section class="next-steps" aria-label="Explore AniBench">
+        <a href="benchmark.html#broad-reference"
+          ><span class="step-number">01 / DESIGN</span>
+          <h2>Explore study designs. <span aria-hidden="true">↗</span></h2>
+          <p>Test AniBench 1 and 2 reference designs.</p></a
+        >
+        <a href="benchmark.html#run"
+          ><span class="step-number">02 / RUN</span>
+          <h2>Bring your own study. <span aria-hidden="true">↗</span></h2>
+          <p>Run the open code with your data kept local.</p></a
+        >
+      </section>
+    </main>
+    <footer>
+      <span>AniBench <span class="footer-muted">/ Open research</span></span>
+      <div>
+        <a href="benchmark.html#method">Method</a
+        ><a href="benchmark.html#registry-architecture">240-study registry</a
+        ><a href="https://github.com/anibiome/anibench-benchmark">Code</a
+        ><a
+          href="https://github.com/anibiome/anibench-benchmark/blob/main/CONTRIBUTING.md"
+          >Contribute</a
+        >
+      </div>
+    </footer>
+    <dialog id="study-detail" aria-labelledby="detail-title">
+      <button
+        class="close-dialog"
+        type="button"
+        aria-label="Close study details"
+      >
+        ×
+      </button>
+      <div id="detail-content"></div>
+    </dialog>
+    <noscript
+      ><p class="no-script">
+        Interactive comparisons need JavaScript.
+        <a
+          href="https://github.com/anibiome/anibench-benchmark/tree/main/examples/architecture/charts"
+          >View the static figures</a
+        >
+        or <a href="source-architecture.json">download the source data</a>.
+      </p></noscript
+    >
+  </body>
+</html>

@@ -84,9 +84,11 @@ to its named metric and bound corpus.
 
 ## Explore and compare
 
-Open the [published study explorer](https://anibench.ani-ai-is-alive.chatgpt.site)
-to browse the source atlas, compare reported study facts, and run through the
-synthetic evaluation example. Custom protocol evaluation runs in the local
+Open the [published study comparison](https://anibench.ani-ai-is-alive.chatgpt.site)
+to compare people, measurements and timing across five source-backed studies.
+Filter by publication or ethics status, then open a study for its sources.
+Design examples, the broader source atlas and the method have separate views.
+Custom protocol evaluation runs in the local
 Studio described below. This is a research candidate, not a validated ranking
 of the named studies.
 

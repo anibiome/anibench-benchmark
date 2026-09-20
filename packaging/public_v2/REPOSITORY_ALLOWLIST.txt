@@ -352,6 +352,10 @@ web/calerie-design.svg
 web/collection-example.json
 web/collection-viewer.js
 web/collection-viewer.test.js
+web/compare.css
+web/compare.html
+web/compare.js
+web/compare.test.js
 web/elite-public-card.json
 web/erp-design-plan.json
 web/erp-design-sensitivity.json

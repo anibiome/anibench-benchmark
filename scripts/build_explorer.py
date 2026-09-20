@@ -15,7 +15,7 @@ from anibench.explorer import build_explorer_demo
 from anibench.studio_product import build_studio_comparator_atlas
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ("registry-architecture.js", "registry-architecture.css", "registry-architecture-data.json", "broad-reference.js", "broad-reference.css", "broad-reference-data.json", "explore.html", "explore.css", "explore.js", "favicon.svg",
+ASSETS = ("compare.html", "compare.css", "compare.js", "registry-architecture.js", "registry-architecture.css", "registry-architecture-data.json", "broad-reference.js", "broad-reference.css", "broad-reference-data.json", "explore.html", "explore.css", "explore.js", "favicon.svg",
           "benchmark.html", "benchmark.css", "benchmark.js",
           "collection-viewer.js", "collection-example.json",
           "release-charts.js", "release-charts.css", "release-results.json",
@@ -32,7 +32,7 @@ def build_explorer(output: Path, root: Path = ROOT) -> dict:
     output.mkdir(parents=True, exist_ok=False)
     for name in ASSETS:
         (output / name).write_bytes((root / "web" / name).read_bytes())
-    (output / "index.html").write_bytes((output / "benchmark.html").read_bytes())
+    (output / "index.html").write_bytes((output / "compare.html").read_bytes())
     # The Designer needs the local Python service. Give static visitors a
     # working installation page instead of a form whose submission will fail.
     (output / "v2.html").write_text(

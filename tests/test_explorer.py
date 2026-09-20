@@ -136,6 +136,9 @@ def test_source_replay_rejects_hash_drift(tmp_path):
 def test_static_build_is_create_only_and_binds_every_asset(tmp_path):
     output = tmp_path / "site"
     manifest = build_explorer(output)
+    assert (output / "index.html").read_bytes() == (ROOT / "web/compare.html").read_bytes()
+    for name in ("compare.html", "compare.css", "compare.js", "benchmark.html"):
+        assert (output / name).read_bytes() == (ROOT / "web" / name).read_bytes()
     assert manifest["study_count"] == 17
     assert manifest["capacity_comparison_complete_studies"] == 0
     for name, digest in manifest["files"].items():
@@ -197,3 +200,11 @@ def test_browser_api_is_canonical_cli_authority(studio_url, demo):
     with pytest.raises(HTTPError) as error:
         post("/api/v3/compare", {"receipts": tampered})
     assert error.value.code == 400
+
+
+def test_comparison_assets_preserve_local_designer_root(studio_url):
+    for route, filename in (("/", "v2.html"), ("/compare.html", "compare.html"),
+                            ("/compare.css", "compare.css"), ("/compare.js", "compare.js"),
+                            ("/benchmark.html", "benchmark.html")):
+        with urlopen(studio_url + route, timeout=15) as response:
+            assert response.read() == (ROOT / "web" / filename).read_bytes()

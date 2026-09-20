@@ -159,6 +159,9 @@ packages = ["src/anibench"]
 "web/collection-viewer.js" = "anibench/web/collection-viewer.js"
 "web/collection-example.json" = "anibench/web/collection-example.json"
 "schemas/collection/comparison-basis.schema.json" = "anibench/schemas/collection/comparison-basis.schema.json"
+"web/compare.html" = "anibench/web/compare.html"
+"web/compare.css" = "anibench/web/compare.css"
+"web/compare.js" = "anibench/web/compare.js"
 "web/benchmark.html" = "anibench/web/benchmark.html"
 "web/benchmark.css" = "anibench/web/benchmark.css"
 "web/benchmark.js" = "anibench/web/benchmark.js"
@@ -413,6 +416,10 @@ include = [
   "/paper/AniBench_open_benchmark.md",
   "/scripts/build_manuscript.py",
   "/tests/test_manuscript_build.py",
+  "/web/compare.html",
+  "/web/compare.css",
+  "/web/compare.js",
+  "/web/compare.test.js",
   "/web/benchmark.html",
   "/web/benchmark.css",
   "/web/benchmark.js",

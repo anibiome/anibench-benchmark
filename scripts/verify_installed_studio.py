@@ -176,6 +176,7 @@ def _verify_http(base_url: str) -> dict[str, Any]:
     checks.append("root_html_and_security_headers")
 
     assets = {
+        "/compare.html": ("text/html", b"compare.js"),
         "/v2.html": ("text/html", b'id="ctgov-search-form"'),
         "/v2.js": ("javascript", b"/api/v2/protocol-capacity"),
         "/v2.css": ("text/css", b"@media(max-width:780px)"),
