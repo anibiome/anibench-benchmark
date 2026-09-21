@@ -141,6 +141,7 @@ packages = ["src/anibench"]
 "examples/calibration/erp_core/aggregate_results.json" = "anibench/examples/calibration/erp_core/aggregate_results.json"
 "examples/calibration/erp_core/source_manifest.json" = "anibench/examples/calibration/erp_core/source_manifest.json"
 "docs/FINITE_SUITES_V1.md" = "anibench/docs/FINITE_SUITES_V1.md"
+"docs/WORKLOAD_PERCENTAGES.md" = "anibench/docs/WORKLOAD_PERCENTAGES.md"
 "schemas/finite_suites/v1/input.schema.json" = "anibench/schemas/finite_suites/v1/input.schema.json"
 "schemas/finite_suites/v1/result.schema.json" = "anibench/schemas/finite_suites/v1/result.schema.json"
 "spec/finite_suites/v1/erp-p3b-resolution.json" = "anibench/spec/finite_suites/v1/erp-p3b-resolution.json"
@@ -337,6 +338,8 @@ include = [
   "/tests/test_finite_suite_example.py",
 
   "/docs/FINITE_SUITES_V1.md",
+  "/docs/WORKLOAD_PERCENTAGES.md",
+  "/tests/test_benchmark_v1.py",
   "/schemas/finite_suites/v1/input.schema.json",
   "/schemas/finite_suites/v1/result.schema.json",
   "/spec/finite_suites/v1/erp-p3b-resolution.json",

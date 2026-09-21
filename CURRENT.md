@@ -1,5 +1,15 @@
 # AniBench current authority
 
+September 20 workload candidate: `anibench benchmark` now executes a trusted
+finite-suite profile and produces frozen category percentages, explicit unknown
+bounds, a separate precision-adequacy view and exact level decisions. See
+`docs/WORKLOAD_PERCENTAGES.md`. This is an additive candidate mechanism;
+biological workload ratification, meaningful real-study comparisons and empirical
+validation remain open. The existing count-first website is not accepted as the
+completed benchmark experience. Older release checks do not override that
+reopened product requirement. Existing `eval` and `compare` semantics below are
+preserved for compatibility.
+
 Versioned evaluator authority: 2026-07-15. Scientific reassessment and explorer
 candidate: 2026-09-17.
 

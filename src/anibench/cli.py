@@ -95,6 +95,15 @@ def _parser() -> argparse.ArgumentParser:
     suite.add_argument("--out", type=Path)
     suite.add_argument("--pretty", action="store_true")
 
+    benchmark = sub.add_parser("benchmark", help="Evaluate frozen workload category percentages")
+    benchmark.add_argument("input", type=Path)
+    benchmark.add_argument("--registry", type=Path, required=True,
+                           help="Trusted local finite-suite profiles keyed by SHA-256")
+    benchmark.add_argument("--scores", type=Path, required=True,
+                           help="Trusted local category/weight profiles keyed by SHA-256")
+    benchmark.add_argument("--out", type=Path, required=True,
+                           help="New result path; existing files are preserved")
+
     for name, help_text in (
         ("finite-task", "Evaluate a frozen finite precision task under declared geometry"),
         ("v2-information", "Replay fail-closed v2 absolute information mechanics"),
@@ -269,6 +278,22 @@ def main(argv: list[str] | None = None) -> int:
                   receipt={"profile_sha256": result["profile_sha256"],
                            "request_sha256": result["request_sha256"],
                            "attainment": result["attainment"]}, report_path=False)
+            return 0
+        if args.command == "benchmark":
+            from .benchmark_v1 import evaluate_benchmark
+
+            _protect_collection_inputs([args.input, args.registry, args.scores], [args.out])
+            result = evaluate_benchmark(
+                _load_object(args.input, label="benchmark request"),
+                trusted_profiles=_load_object(args.registry, label="trusted suite registry"),
+                trusted_score_profiles=_load_object(args.scores, label="trusted score registry"),
+            )
+            args.out.parent.mkdir(parents=True, exist_ok=True)
+            with args.out.open("x", encoding="utf-8") as stream:
+                json.dump(result, stream, indent=2, sort_keys=True, allow_nan=False)
+                stream.write("\n")
+            print(json.dumps({"receipt_sha256": result["receipt_sha256"],
+                              "level_attainment": result["level_attainment"]}))
             return 0
         if args.command == "finite-task":
             from .finite_tasks_v1 import evaluate_finite_task
