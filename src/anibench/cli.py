@@ -104,6 +104,11 @@ def _parser() -> argparse.ArgumentParser:
     benchmark.add_argument("--out", type=Path, required=True,
                            help="New result path; existing files are preserved")
 
+    summary = sub.add_parser("summary-task", help="Compile native summary sampling precision")
+    summary.add_argument("input", type=Path, help="JSON object with task, summary and evidence")
+    summary.add_argument("--out", type=Path, required=True,
+                         help="New derivation path; existing files are preserved")
+
     for name, help_text in (
         ("finite-task", "Evaluate a frozen finite precision task under declared geometry"),
         ("v2-information", "Replay fail-closed v2 absolute information mechanics"),
@@ -278,6 +283,21 @@ def main(argv: list[str] | None = None) -> int:
                   receipt={"profile_sha256": result["profile_sha256"],
                            "request_sha256": result["request_sha256"],
                            "attainment": result["attainment"]}, report_path=False)
+            return 0
+        if args.command == "summary-task":
+            from .summary_geometry_v1 import compile_summary_task
+
+            _protect_collection_inputs([args.input], [args.out])
+            payload = _load_object(args.input, label="summary task")
+            if set(payload) != {"task", "summary", "evidence"}:
+                raise ValueError("Expected exactly task, summary and evidence")
+            result = compile_summary_task(**payload)
+            args.out.parent.mkdir(parents=True, exist_ok=True)
+            with args.out.open("x", encoding="utf-8") as stream:
+                json.dump(result, stream, indent=2, sort_keys=True, allow_nan=False)
+                stream.write("\n")
+            print(json.dumps({"derivation_sha256": result["derivation_sha256"],
+                              "status": result["status"]}))
             return 0
         if args.command == "benchmark":
             from .benchmark_v1 import evaluate_benchmark

@@ -10,6 +10,14 @@ completed benchmark experience. Older release checks do not override that
 reopened product requirement. Existing `eval` and `compare` semantics below are
 preserved for compatibility.
 
+The additive `summary-task` adapter compiles qualified native population-mean
+SD/N or explicitly unadjusted mean-SE summaries into the same finite-task engine.
+It keeps population, time and quantity bound to the frozen task and does not
+infer individual assay noise or causal identification. See
+`docs/SUMMARY_GEOMETRY.md`. Source-conditional worked examples and independent
+attacks establish this bounded path; broad benchmark and release acceptance
+remain open.
+
 Versioned evaluator authority: 2026-07-15. Scientific reassessment and explorer
 candidate: 2026-09-17.
 

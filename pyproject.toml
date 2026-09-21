@@ -142,6 +142,7 @@ packages = ["src/anibench"]
 "examples/calibration/erp_core/source_manifest.json" = "anibench/examples/calibration/erp_core/source_manifest.json"
 "docs/FINITE_SUITES_V1.md" = "anibench/docs/FINITE_SUITES_V1.md"
 "docs/WORKLOAD_PERCENTAGES.md" = "anibench/docs/WORKLOAD_PERCENTAGES.md"
+"docs/SUMMARY_GEOMETRY.md" = "anibench/docs/SUMMARY_GEOMETRY.md"
 "schemas/finite_suites/v1/input.schema.json" = "anibench/schemas/finite_suites/v1/input.schema.json"
 "schemas/finite_suites/v1/result.schema.json" = "anibench/schemas/finite_suites/v1/result.schema.json"
 "spec/finite_suites/v1/erp-p3b-resolution.json" = "anibench/spec/finite_suites/v1/erp-p3b-resolution.json"
@@ -339,6 +340,8 @@ include = [
 
   "/docs/FINITE_SUITES_V1.md",
   "/docs/WORKLOAD_PERCENTAGES.md",
+  "/docs/SUMMARY_GEOMETRY.md",
+  "/tests/test_summary_geometry_v1.py",
   "/tests/test_benchmark_v1.py",
   "/schemas/finite_suites/v1/input.schema.json",
   "/schemas/finite_suites/v1/result.schema.json",
