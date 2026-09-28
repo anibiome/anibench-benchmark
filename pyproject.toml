@@ -276,6 +276,9 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/src/anibench/source_bindings_v1.py",
+  "/tests/test_source_bindings_v1.py",
+  "/docs/SOURCE_BINDINGS.md",
   "/examples/cognitive_neural_precision",
   "/paper/task_reference",
   "/docs/REFERENCE_RECIPE_V04.md",

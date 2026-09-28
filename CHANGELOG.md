@@ -18,6 +18,10 @@ All notable changes are recorded here. AniBench uses semantic versioning for the
 
 ## Unreleased
 
+- Add an offline `bind-design` intake command with complete field provenance,
+  explicit trust for extraction reviews, preserved unknowns and create-only
+  private output. Arithmetic and integrity checks do not certify source truth.
+
 - Correct CALERIE source qualification: the article's complete-series count of
   164 conflicts with the caption/Table 1 minimum of 179. Bind the conflict into
   requests, reports, paper and figures; retain earlier arithmetic only as a

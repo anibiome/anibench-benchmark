@@ -84,11 +84,14 @@ The one-session source cannot identify visit-to-visit variability or establish
 an AniBench biological precision cutoff.
 
 The [CALERIE temporal-design example](examples/design_geometry/calerie/README.md)
-uses published follow-up counts to test what an additional visit can resolve.
-Its reproducible chart separates source facts, uncertain complete-case overlap
-and hypothetical noise assumptions. A midpoint can identify curvature while a
-complete-case requirement reduces endpoint precision; more visits need not make
-every analysis stronger.
+preserves conditional arithmetic alongside an unresolved conflict in the
+article's participant counts. Its caption implies at least 179 complete records,
+while the Results report 164. The example cannot establish the realized study's
+precision until that conflict is resolved.
+
+Use [`anibench bind-design`](docs/SOURCE_BINDINGS.md) to check local input fields
+against exact source values, reviewed extractions and explicit assumptions.
+Unknowns remain unknown, and the generated evidence bundle stays local.
 
 Compare native collection metrics with `anibench compare-records`. Its
 [metric cards and submission rules](docs/COLLECTION_COMPARISONS.md) retain the

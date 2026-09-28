@@ -118,6 +118,13 @@ def _parser() -> argparse.ArgumentParser:
     summary.add_argument("--out", type=Path, required=True,
                          help="New derivation path; existing files are preserved")
 
+    binding = sub.add_parser("bind-design", help="Bind local design fields to sources and assumptions")
+    binding.add_argument("input", type=Path, help="JSON object with design, bindings and sources")
+    binding.add_argument("--reviews", type=Path,
+                         help="Explicit trusted review map; omitted means no extraction reviews trusted")
+    binding.add_argument("--out", type=Path, required=True,
+                         help="New private evidence bundle; existing files are preserved")
+
     for name, help_text in (
         ("finite-task", "Evaluate a frozen finite precision task under declared geometry"),
         ("v2-information", "Replay fail-closed v2 absolute information mechanics"),
@@ -308,6 +315,24 @@ def main(argv: list[str] | None = None) -> int:
                   receipt={"profile_sha256": result["profile_sha256"],
                            "request_sha256": result["request_sha256"],
                            "attainment": result["attainment"]}, report_path=False)
+            return 0
+        if args.command == "bind-design":
+            from .source_bindings_v1 import bind_design
+
+            inputs = [args.input] + ([args.reviews] if args.reviews else [])
+            _protect_collection_inputs(inputs, [args.out])
+            payload = _load_object(args.input, label="design source bindings")
+            if set(payload) != {"design", "bindings", "sources"}:
+                raise ValueError("Expected exactly design, bindings and sources")
+            reviews = _load_object(args.reviews, label="trusted extraction reviews") if args.reviews else {}
+            design, receipt, evidence = bind_design(**payload, trusted_review_receipts=reviews)
+            args.out.parent.mkdir(parents=True, exist_ok=True)
+            with args.out.open("x", encoding="utf-8") as stream:
+                json.dump({"design": design, "receipt": receipt, "evidence": evidence},
+                          stream, indent=2, sort_keys=True, allow_nan=False)
+                stream.write("\n")
+            print(json.dumps({"evidence_sha256": receipt["evidence_sha256"],
+                              "design_sha256": receipt["design_sha256"]}))
             return 0
         if args.command == "summary-task":
             from .summary_geometry_v1 import compile_summary_task

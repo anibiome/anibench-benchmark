@@ -86,6 +86,7 @@ docs/RELEASE.md
 docs/RELEASE_CHECKLIST.md
 docs/REPRODUCING_TASK_REFERENCE.md
 docs/SCIENTIFIC_FOUNDATIONS.md
+docs/SOURCE_BINDINGS.md
 docs/STUDY_CONTEXT.md
 docs/STUDY_EXPLORER.md
 docs/SUMMARY_GEOMETRY.md
@@ -322,6 +323,7 @@ src/anibench/release/__init__.py
 src/anibench/release/redact.py
 src/anibench/reported_facts.py
 src/anibench/source_atlas_v2.py
+src/anibench/source_bindings_v1.py
 src/anibench/studio.py
 src/anibench/studio_product.py
 src/anibench/study_context.py
@@ -386,6 +388,7 @@ tests/test_registry_stress_240.py
 tests/test_release_charts.py
 tests/test_release_metadata_v2.py
 tests/test_saturation_packaging.py
+tests/test_source_bindings_v1.py
 tests/test_studio_intake.py
 tests/test_studio_product.py
 tests/test_study_context.py
