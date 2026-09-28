@@ -314,7 +314,7 @@ def _audited_relative_files(root: Path) -> set[str]:
     the scanner itself.
     """
 
-    if not (root / ".git").is_dir():
+    if not ((root / ".git").is_dir() or (root / ".git").is_file()):
         return {path.relative_to(root).as_posix() for path in _files(root)}
     output = subprocess.check_output(
         ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"],
@@ -430,6 +430,11 @@ def inspect_public_repository(
     excluded_members = tuple(sorted(all_relative - audited))
     scan = scan_public_bundle(
         root,
+        # Root Git metadata can change after inventory (for example an
+        # automatic pack's temporary file). Exclude this namespace during the
+        # scan itself, not just files present in an earlier snapshot. The
+        # reachable history and all tracked/unignored payload remain audited.
+        exclude_root_git_metadata=True,
         # The export receipt is excluded only from its self-referential tree
         # digest, not from the privacy/security scan. Before the receipt is
         # written this path is simply absent; after writing, every receipt byte

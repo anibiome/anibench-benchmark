@@ -548,9 +548,17 @@ def scan_public_bundle(
     root: str | Path,
     *,
     exclude_paths: Iterable[str] = (),
+    exclude_root_git_metadata: bool = False,
     max_text_bytes: int = MAX_TEXT_SCAN_BYTES,
 ) -> BundleScanReport:
-    """Scan an unpacked public bundle and fail closed on uninspected payloads."""
+    """Scan an unpacked public bundle and fail closed on uninspected payloads.
+
+    Repository audits may opt out of root Git metadata, whose reachable public
+    history is audited separately. This fixed-name exclusion is checked during
+    traversal so background Git packing cannot introduce an unexcluded file.
+    Ordinary bundle scans include Git metadata by default; nested ``.git``
+    payloads and similarly named public paths are never covered by this option.
+    """
 
     root_path = Path(root).resolve()
     excluded = {Path(value).as_posix() for value in exclude_paths}
@@ -562,6 +570,10 @@ def scan_public_bundle(
         root_path.rglob("*"), key=lambda item: item.relative_to(root_path).as_posix()
     ):
         relative = path.relative_to(root_path).as_posix()
+        if exclude_root_git_metadata and (
+            relative == ".git" or relative.startswith(".git/")
+        ):
+            continue
         if relative in excluded:
             continue
         if path.is_symlink():

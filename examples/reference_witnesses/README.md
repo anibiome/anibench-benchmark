@@ -27,7 +27,17 @@ here are native36-capability-v3. No historical certificate is used as a new resu
 
 ## Run one calculation
 
-Use Python 3.12.13. From the repository root:
+Use Python 3.12.13 and a fresh checkout of the exact public reproduction commit.
+Run these commands before the installation commands below:
+
+```sh
+git clone --no-checkout https://github.com/anibiome/anibench-benchmark.git /tmp/anibench-reference-source
+git -C /tmp/anibench-reference-source checkout --detach 87550508112f58ea32d3dbe7772242e9c1352c70
+cd /tmp/anibench-reference-source
+```
+
+Use a new source directory. This preserves your existing checkout. Build and run
+from that pinned source:
 
 ```sh
 python3.12 -m venv /tmp/anibench-reference-env
@@ -55,8 +65,18 @@ tag starts two serial cases; a later manual dispatch deliberately repeats those 
 The compact recipe regenerates the exact frozen physical acquisitions. Its
 SHA-256 check rejects any change. The installed package must match all 292
 frozen runtime files and all 19 dependency versions. Building a wheel may change
-wheel metadata; it must not change these runtime bytes. The public baseline is
-commit `ae003cbb8456604255f392a254c7839d9e682e2b`.
+wheel metadata; it must not change these runtime bytes. The runtime baseline is
+commit `ae003cbb8456604255f392a254c7839d9e682e2b`; the complete public example is
+pinned at `87550508112f58ea32d3dbe7772242e9c1352c70`.
+
+Later repository fixes can change a frozen runtime file without changing the
+scientific equations. A wheel built from current HEAD may therefore correctly
+fail this historical example's `check-runtime` command. Use the pinned checkout
+above; do not bypass the check or replace old result bindings. The original
+reproduction manifest is
+`083e0272708214392ac4c72944a88240c0b85b9910ec821846334ef90eca1949`.
+This README's later clarification has a separately identified documentation-only
+manifest revision. It changes no runtime, input, profile, runner or certificate.
 
 Outputs are `RESULT.json`, `REFERENCE_PROFILE.json`, compressed input and
 canonical components, and `RECEIPT.json`. The receipt separates numerical

@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pytest
 
+from anibench.release.redact import scan_public_bundle
 from scripts.export_public_repository import (
     EXTERNAL_SOURCE_ATLAS_STUDY_IDS,
     PUBLIC_ALLOWLIST_PATH,
@@ -28,6 +29,100 @@ def _git(root: Path, *args: str) -> str:
 
 def _git_bytes(root: Path, *args: str) -> bytes:
     return subprocess.check_output(["git", *args], cwd=root)
+
+
+def _minimal_public_tree(root: Path) -> None:
+    """Small real repository fixture, with the same source-boundary contract."""
+    atlas = root / "data/source_projections/v2"
+    atlas.mkdir(parents=True)
+    for name in ("EXTERNAL_SOURCE_ACQUISITION_LEDGER", *EXTERNAL_SOURCE_ATLAS_STUDY_IDS):
+        (atlas / f"{name}.json").write_text("{}\n")
+    (atlas / "SOURCE_COORDINATE_TABLE.csv").write_text(
+        "study_id\n" + "\n".join(EXTERNAL_SOURCE_ATLAS_STUDY_IDS) + "\n"
+    )
+    (root / ".gitignore").write_text("ignored-cache.bin\n")
+    allowlist = root / PUBLIC_ALLOWLIST_PATH
+    allowlist.parent.mkdir(parents=True)
+    members = {path.relative_to(root).as_posix() for path in atlas.iterdir()}
+    allowlist.write_text(
+        "\n".join(sorted({*members, ".gitignore", PUBLIC_ALLOWLIST_PATH})) + "\n"
+    )
+    _git(root, "init", "--initial-branch=main")
+    _git(root, "config", "user.name", "Synthetic audit")
+    _git(root, "config", "user.email", "audit@example.invalid")
+    _git(root, "add", "-A")
+    _git(root, "commit", "-m", "Synthetic public root")
+
+
+def test_repository_scan_excludes_late_git_pack_but_keeps_payload_checks(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    from scripts import export_public_repository as exporter
+
+    root = tmp_path / "public"
+    _minimal_public_tree(root)
+    original = exporter._audited_relative_files
+    late_pack = root / ".git/objects/pack/tmp_pack_synthetic"
+
+    def inventory_then_pack(path: Path) -> set[str]:
+        audited = original(path)
+        late_pack.parent.mkdir(parents=True, exist_ok=True)
+        late_pack.write_bytes(b"\x00\x01\x02\x03")
+        return audited
+
+    monkeypatch.setattr(exporter, "_audited_relative_files", inventory_then_pack)
+    scanned = inspect_public_repository(root)
+    assert scanned["passed"], scanned["findings"]
+    # A plain unpacked bundle has no independent Git-history audit: no exemption.
+    assert any(
+        finding.path == ".git/objects/pack/tmp_pack_synthetic"
+        and finding.rule_id == "unclassified_binary"
+        for finding in scan_public_bundle(root).findings
+    )
+    (root / "ignored-cache.bin").write_bytes(b"\x00")
+    assert inspect_public_repository(root)["passed"]
+    rogue = root / "unreviewed.bin"
+    rogue.write_bytes(b"\x00")
+    assert any(
+        row["path"] == "unreviewed.bin" and row["rule_id"] == "unallowlisted_public_member"
+        for row in inspect_public_repository(root)["findings"]
+    )
+    # Git's ignore rules never exempt content already entering the index.
+    _git(root, "add", "--force", "ignored-cache.bin")
+    assert any(
+        row["path"] == "ignored-cache.bin" and row["rule_id"] == "unclassified_binary"
+        for row in inspect_public_repository(root)["findings"]
+    )
+    assert inspect_public_git_history(root)["passed"]
+
+
+def test_git_metadata_exclusion_is_exact_root_namespace(tmp_path: Path) -> None:
+    paths = (".git/objects/pack/probe", ".git-other/probe", "nested/.git/probe")
+    for relative in paths:
+        path = tmp_path / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(b"\x00")
+    report = scan_public_bundle(tmp_path, exclude_root_git_metadata=True)
+    assert {finding.path for finding in report.findings} == set(paths[1:])
+    assert {finding.path for finding in scan_public_bundle(tmp_path).findings} == set(paths)
+
+
+def test_repository_scan_supports_git_worktree_file_without_exempting_payload(
+    tmp_path: Path,
+) -> None:
+    authority = tmp_path / "authority"
+    _minimal_public_tree(authority)
+    worktree = tmp_path / "worktree"
+    _git(authority, "worktree", "add", "--detach", str(worktree))
+    assert (worktree / ".git").is_file()
+    scanned = inspect_public_repository(worktree)
+    assert scanned["passed"], scanned["findings"]
+    assert inspect_public_git_history(worktree)["passed"]
+    (worktree / "unreviewed.txt").write_text("Synthetic public data.\n")
+    assert any(
+        row["path"] == "unreviewed.txt" and row["rule_id"] == "unallowlisted_public_member"
+        for row in inspect_public_repository(worktree)["findings"]
+    )
 
 
 @pytest.mark.parametrize(

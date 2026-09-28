@@ -5,7 +5,7 @@
     "DEPENDENCY_VERSIONS.json": "b1d1dce0fc0cf4e1cbc6c992ee344d0c51b8b7555f38007d0012644a14df6673",
     "EXPECTED_INPUTS.json": "8de734eb877765e0e57266afe53a9f57816f27d1d083a841e351c9035a052c3c",
     "INPUT_TEMPLATE.json": "dba6c6fe2e79f3673c81dd52af5f5ade3f8eaf13c02a9b6d21235a57bd024dd3",
-    "README.md": "a5fc0c45a08a618e32cdbf2298a230c4acef2e119c903df232a25a4387a98d73",
+    "README.md": "123419390050b13c663499e89c2a03871b481d7b8f405ddfc164d3dfdf1902b9",
     "REFERENCE_BINDINGS.json": "b5d27729924f8d59be3e4a1e82a68e2cf35401bc87309476bbf2dcac81b3f944",
     "RUNTIME_MEMBERS.json": "ce1dcac7ae558c21e3208b19ef4ecc70f6e1757ad0eaf0eea07d69d0207a2cbd",
     "SEMANTIC_DECLARATION.json": "ab4293582bcd60afebe01689e2d7ebc17be4ccc170ffcd3947c751826c407c30",
@@ -13,5 +13,10 @@
     "replay.py": "2cfa0123279a684056f9007ad2fb9f5012fca2fadff419b5b568709831fc60d0",
     "requirements.lock": "712413a368fbea87faa96ec76d777aab4aea99ca05b32593d801a9b422e446f1"
   },
-  "scope": "Frozen hypothetical v3 reproduction; preparation does not establish numerical outcomes."
+  "scope": "Frozen hypothetical v3 reproduction; preparation does not establish numerical outcomes.",
+  "documentation_revision": {
+    "parent_manifest_sha256": "083e0272708214392ac4c72944a88240c0b85b9910ec821846334ef90eca1949",
+    "pinned_reproduction_commit": "87550508112f58ea32d3dbe7772242e9c1352c70",
+    "scope": "README-only clarification to build the original frozen runtime from its pinned public checkout; scientific artifacts and old results are not rebound."
+  }
 }
