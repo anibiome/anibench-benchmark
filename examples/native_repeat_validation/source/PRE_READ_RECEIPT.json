@@ -1,0 +1,9 @@
+{
+  "schema": "anibench.native-repeat-preread.v1",
+  "created_utc": "2026-09-28T04:47:33.813177+00:00",
+  "source_manifest_sha256": "4419698e4fcfcfd3b0ff79776262613dd558fa5107f451cce54e87e62a42b9b9",
+  "protocol_sha256": "fdd24b9ea40896715a3bfd09ea22f2fa3d83724f6372c8762e1d0942e396fa15",
+  "run_sha256": "6d52d25bc94035f0f47a928320a41bf1bc62a824c6ab2ef4b28dde26d5ecd398",
+  "records_loaded": false,
+  "phase": "Downloaded exact bytes, before parsing XPT records or fitting"
+}

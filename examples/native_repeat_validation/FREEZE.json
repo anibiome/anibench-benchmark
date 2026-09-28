@@ -1,0 +1,10 @@
+{
+  "schema": "anibench.native-repeat-freeze.v1",
+  "created_utc": "2026-09-28T04:47:29.777108+00:00",
+  "status": "FROZEN_BEFORE_XPT_DOWNLOAD_OR_READ",
+  "protocol_sha256": "fdd24b9ea40896715a3bfd09ea22f2fa3d83724f6372c8762e1d0942e396fa15",
+  "run_sha256": "6d52d25bc94035f0f47a928320a41bf1bc62a824c6ab2ef4b28dde26d5ecd398",
+  "independent_review_sha256": "94d41b95c6a67d8aa1455c8216e366ace8958ad8719c52b302d8221f0e4a9cf2",
+  "information_helper_sha256": "9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0",
+  "prior_knowledge": "Protocol records post-negative-pilot selection; no2015-2016 XPT records inspected in this experiment."
+}

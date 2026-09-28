@@ -1,0 +1,94 @@
+{
+  "schema": "anibench.native-repeat-validation.v1",
+  "status": "PRE_DATA_FREEZE_CANDIDATE",
+  "dataset": "NHANES 2015-2016 BPX_I and DEMO_I official public-use files",
+  "source_base": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/",
+  "question": "Does adding a second distinct physical reading improve prediction of a withheld third reading from the same examination under the testable conditional independence model?",
+  "relationship_to_goal": "Empirical validation of a specific within-session measurement-depth ordering and error-model calibration. It does not establish broad biological reconstruction or validate every AniBench category.",
+  "prior_knowledge": "Earlier NHANES 2017-2018 demographic/chemistry inverse-prediction pilot was negative/mixed. That result is retained. This different-cycle, direct-repeat experiment was selected after that result, not preregistered before the project; its protocol is frozen before reading these XPT records.",
+  "targets": [
+    {
+      "id": "systolic",
+      "columns": [
+        "BPXSY1",
+        "BPXSY2",
+        "BPXSY3"
+      ],
+      "unit": "mmHg",
+      "valid": "positive finite"
+    },
+    {
+      "id": "diastolic",
+      "columns": [
+        "BPXDI1",
+        "BPXDI2",
+        "BPXDI3"
+      ],
+      "unit": "mmHg",
+      "valid": "finite nonnegative; zero is a documented value and is retained"
+    }
+  ],
+  "eligibility": "Age at least20, positive finite MEC weight, finite masked stratum/PSU, all first3 readings valid for both targets. Common complete-case cohort. No fourth reading, value-based trimming, imputation or external linkage.",
+  "allowed_demo_fields": [
+    "SEQN",
+    "RIDAGEYR",
+    "WTMEC2YR",
+    "SDMVSTRA",
+    "SDMVPSU"
+  ],
+  "split": {
+    "unit": "joint masked stratum/PSU; all readings of a person stay together",
+    "algorithm": "Convert finite SDMVSTRA and SDMVPSU values to integers only after verifying exact integrality. For each pair serialize decimal integers without padding as anibench-native-repeats-2015-20260928|stratum|psu (UTF-8, no newline). Sort groups ascending by SHA256 hex; first floor(0.5G) train, remaining test.",
+    "minimum_groups_per_partition": 8,
+    "minimum_people_per_partition": 200,
+    "limitation": "Masked pseudo-PSUs are not actual independently held sites. This is not national population estimation.",
+    "receipt": "Save private eligibility/group/person split receipt before any fitting or numerical test inspection; public scientific outputs contain aggregate counts and digest only."
+  },
+  "fixed_models": {
+    "mean_structure": "Y_ir = theta_i + delta_r + epsilon_ir; delta1=0. Estimate delta2=mean_train(Y2-Y1), delta3=mean_train(Y3-Y1).",
+    "error_model": "epsilon_ir consists of an unidentifiable shared session term plus exchangeable independent reading-specific variation of variance sigma2. Estimate sigma2=sampleVariance_train(Y2-Y1)/2. It includes short-term physiology, procedure and measurement error; it is not identified technical assay noise. Shared session variance cancels in prediction differences and is not estimated or claimed absent.",
+    "one_reading": "predict third as Y1+delta3; predicted error variance2*sigma2",
+    "two_readings": "predict third as mean(Y1,Y2-delta2)+delta3; predicted error variance1.5*sigma2",
+    "last_reading_baseline": "predict third as Y2-delta2+delta3; predicted error variance2*sigma2",
+    "population_mean_baseline": "predict third as train mean(Y3)",
+    "linear_baseline": "Ordinary least squares third reading on intercept, first and second, trained only on train people; no tuning; numerical rank failure remains explicit.",
+    "canonical_geometry": "Compute J for 1 and2 readings with H=ones and R=sigma2*I via existing AniBench event_information and likelihood precision helper. This estimates reading-error contribution relative to shared session state, not persistent biological truth. Prediction adds independently withheld reading variance sigma2. No prior information credited."
+  },
+  "metrics": [
+    "native RMSE/MAE/bias",
+    "predicted error variance",
+    "held-test MSE divided by predicted variance",
+    "nominal Gaussian95 prediction-interval coverage",
+    "paired two-minus-one squared-error change",
+    "paired two-minus-last squared-error change",
+    "held-test improvement versus constant and fitted linear baselines",
+    "MEC-weighted diagnostic sensitivity for RMSE and paired changes",
+    "Paired-bootstrap MSEtwo/MSEone and MSEtwo/MSElast ratios versus model prediction0.75"
+  ],
+  "uncertainty": {
+    "method": "1000 paired bootstrap draws of test joint masked groups; all members retained; percentile95 intervals, conditional on fixed trained model",
+    "seed": 20260928,
+    "limits": "Few clusters; ignores calibration-parameter uncertainty and survey-design national estimation. Coverage refers to noisy third readings, not latent truth.",
+    "multiple_targets": "Intervals are nominal targetwise diagnostics, not simultaneous confidence or an overall calibration certificate. Both targets and all comparisons reported."
+  },
+  "falsifiers": {
+    "ordering": "Predicted gain contradicted if paired two-minus-one MSE interval entirely positive; supported if entirely negative; otherwise inconclusive.",
+    "calibration": "Flag model misspecification if MSE/predicted variance interval excludes1 or Gaussian coverage interval excludes.95. Report finite-sample uncertainty without selective suppression.",
+    "simple_baseline": "Compare two-reading average with last-reading and trained linear baseline; added data alone does not justify a complex estimator.",
+    "scope": "Even success only supports this same-session contrast. Session/persistent-person variance cannot be separated and no universal latent-state accuracy or saturation claim follows."
+  },
+  "controls": [
+    "Exact protocol/source hashes",
+    "one-to-one component joins",
+    "No overlap in train/test masked groups or people",
+    "Train-only fit and explicit test-label mutation invariant",
+    "Copying the same physical reading leaves benchmark information unchanged after deduplication",
+    "Shuffling second-reading linkage within test is a labeled adversarial condition with seed20260928; never a normal acquisition",
+    "Canonical geometry agrees scalar arithmetic",
+    "Source eligibility and excluded-row counts preserved"
+  ],
+  "stopping": "One frozen run, preserving both targets and every model, including negative results. Implementation corrections require additive receipts and explanation. No target, split, precision threshold or covariance tuning after test inspection.",
+  "privacy": "Statistical analysis of official public-use data only. No identity research, external linkage or participant-level output. Only aggregate model/results enter scientific review. Keep source files and split identities in private staging.",
+  "failure_policy": "Any nonfinite/nonpositive sigma2, insufficient frozen partition counts, nonunique key, source/protocol/code mismatch or invalid group key stops the experiment with an explicit error receipt; no ridge, altered split or replacement estimator. Rank-deficient OLS marks that baseline unresolved while fixed estimators remain evaluable. Unexpected implementation errors stop rather than produce a numerical result.",
+  "source_integrity": "Freeze protocol and run code before download. Download exactly BPX_I.xpt, DEMO_I.xpt and both codebooks from the official source_base, verify XPT headers, record byte hashes in a create-only manifest. Bind manifest hash in a PRE_READ_RECEIPT before loading records. Validate exact source set, URLs, sizes and hashes on every replay."
+}

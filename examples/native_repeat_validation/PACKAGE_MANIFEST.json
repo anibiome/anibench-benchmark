@@ -1,0 +1,17 @@
+{
+  "schema": "anibench.native-repeat-public-package.v1",
+  "scope": "Original frozen statistical experiment code, public-source identities, aggregate results and portable replay only",
+  "files": {
+    "README.md": "20f79228005893b47fe7158f95f38eb0f2073ed344d24ebf1bff4f666b9f62f1",
+    "REPORT.md": "0bd1d1c13700f6c4323199afba9f5b3610f94192853474b4742337706faf1448",
+    "run.py": "6d52d25bc94035f0f47a928320a41bf1bc62a824c6ab2ef4b28dde26d5ecd398",
+    "replay.py": "1b8207573018a9e3209856373310398768f219065933f5f48123df0154efb60f",
+    "plot.py": "efc0d2343633c24aca5dc84da5b7ab98eca15427df0721ab39eb7e61414859b5",
+    "PROTOCOL.json": "fdd24b9ea40896715a3bfd09ea22f2fa3d83724f6372c8762e1d0942e396fa15",
+    "FREEZE.json": "636af63d3884aeb4672f4a79976f93a22e52b80410cccd9701c996646901134d",
+    "aggregate-results.json": "92a7b897bbd8dcbac8d47f415a3bd7f01f02a76fee37992687b294f1039a6cf1",
+    "source/SOURCE_MANIFEST.json": "4419698e4fcfcfd3b0ff79776262613dd558fa5107f451cce54e87e62a42b9b9",
+    "source/PRE_READ_RECEIPT.json": "8e25204207886ba08beda655a5c2d4664e7e2506bd44c5e8642546a4c0a246fe"
+  },
+  "excluded": "Participant records, participant or masked-group split keys, private review archive and local paths"
+}

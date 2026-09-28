@@ -164,6 +164,17 @@ examples/native_mean_pilot/pilot.json
 examples/native_mean_pilot/render.mjs
 examples/native_mean_pilot/replay.py
 examples/native_mean_pilot/sources.json
+examples/native_repeat_validation/FREEZE.json
+examples/native_repeat_validation/PACKAGE_MANIFEST.json
+examples/native_repeat_validation/PROTOCOL.json
+examples/native_repeat_validation/README.md
+examples/native_repeat_validation/REPORT.md
+examples/native_repeat_validation/aggregate-results.json
+examples/native_repeat_validation/plot.py
+examples/native_repeat_validation/replay.py
+examples/native_repeat_validation/run.py
+examples/native_repeat_validation/source/PRE_READ_RECEIPT.json
+examples/native_repeat_validation/source/SOURCE_MANIFEST.json
 examples/optimizer_protocol_v2_example.py
 examples/paper_charts/01-population.png
 examples/paper_charts/01-population.svg

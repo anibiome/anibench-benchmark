@@ -99,6 +99,7 @@ exclude = [
 packages = ["src/anibench"]
 
 [tool.hatch.build.targets.wheel.force-include]
+"examples/native_repeat_validation" = "anibench/examples/native_repeat_validation"
 "examples/cognitive_neural_precision" = "anibench/examples/cognitive_neural_precision"
 "paper/task_reference" = "anibench/paper/task_reference"
 "docs/REFERENCE_RECIPE_V04.md" = "anibench/docs/REFERENCE_RECIPE_V04.md"
@@ -276,6 +277,7 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/examples/native_repeat_validation",
   "/src/anibench/source_bindings_v1.py",
   "/tests/test_source_bindings_v1.py",
   "/docs/SOURCE_BINDINGS.md",
