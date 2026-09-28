@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "anibench"
-version = "2.0.0rc5"
+version = "2.0.0rc6.dev0"
 description = "An auditable benchmark of how much human trials can teach future superintelligence about biology and intervention response."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -99,6 +99,7 @@ exclude = [
 packages = ["src/anibench"]
 
 [tool.hatch.build.targets.wheel.force-include]
+"examples/native_mean_pilot" = "anibench/examples/native_mean_pilot"
 "examples/broad_reference/charts/broad-reference.png" = "anibench/examples/broad_reference/charts/broad-reference.png"
 "examples/broad_reference/charts/broad-reference.svg" = "anibench/examples/broad_reference/charts/broad-reference.svg"
 "examples/broad_reference/charts/figure-metadata.json" = "anibench/examples/broad_reference/charts/figure-metadata.json"
@@ -270,6 +271,13 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/examples/native_mean_pilot",
+  "/src/anibench/reference_planner.py",
+  "/src/anibench/workbench.py",
+  "/src/anibench/workbench_assets",
+  "/tests/test_reference_workbench.py",
+  "/tests/test_workbench_display.mjs",
+  "/docs/LOCAL_WORKBENCH.md",
   "/web/registry-architecture.js",
   "/web/registry-architecture.css",
   "/web/registry-architecture-data.json",

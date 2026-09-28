@@ -1,0 +1,392 @@
+{
+  "records": [
+    {
+      "assumptions": [
+        "Header N used conditionally; target-specific missing count not separately supplied.",
+        "Independent persons and source-population sampling assumed; source-rounded dispersion is plug-in, not measurement error."
+      ],
+      "estimand_kind": "population_mean",
+      "family_id": "MIPACT",
+      "horizon": "baseline",
+      "id": "MIPACT.fasting_glucose",
+      "n": 204,
+      "operator": "Fasting clinic glucose",
+      "population_scope": "MIPACT Table 1 selected cardiovascular/diabetes-risk sample; per-variable N conditional on table header 204",
+      "sd": 0.5,
+      "sd_rounding_half_unit": 0.05,
+      "source": {
+        "locator": "BioC passages 47 Table 1 total column; 49 mean(SD) footnote; 34-35 methods",
+        "sha256": "5dd915d72e5d3ee7a0dd00ea983ca49a7dfbc9d7b7d3b29abd91eb3befa86a99",
+        "snapshot": "PMC7414690.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7414690/"
+      },
+      "target_id": "fasting_glucose",
+      "unit": "mmol/L"
+    },
+    {
+      "assumptions": [
+        "Header N used conditionally; target-specific missing count not separately supplied.",
+        "Independent persons and source-population sampling assumed; source-rounded dispersion is plug-in, not measurement error."
+      ],
+      "estimand_kind": "population_mean",
+      "family_id": "MIPACT",
+      "horizon": "baseline",
+      "id": "MIPACT.total_cholesterol",
+      "n": 204,
+      "operator": "Clinic laboratory total cholesterol",
+      "population_scope": "MIPACT Table 1 selected cardiovascular/diabetes-risk sample; per-variable N conditional on table header 204",
+      "sd": 1,
+      "sd_rounding_half_unit": 0.05,
+      "source": {
+        "locator": "BioC passages 47 Table 1 total column; 49 mean(SD) footnote; 34-35 methods",
+        "sha256": "5dd915d72e5d3ee7a0dd00ea983ca49a7dfbc9d7b7d3b29abd91eb3befa86a99",
+        "snapshot": "PMC7414690.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7414690/"
+      },
+      "target_id": "total_cholesterol",
+      "unit": "mmol/L"
+    },
+    {
+      "assumptions": [
+        "Header N used conditionally; target-specific missing count not separately supplied.",
+        "Independent persons and source-population sampling assumed; source-rounded dispersion is plug-in, not measurement error."
+      ],
+      "estimand_kind": "population_mean",
+      "family_id": "MIPACT",
+      "horizon": "baseline",
+      "id": "MIPACT.systolic_bp",
+      "n": 204,
+      "operator": "Clinic systolic BP",
+      "population_scope": "MIPACT Table 1 selected cardiovascular/diabetes-risk sample; per-variable N conditional on table header 204",
+      "sd": 16,
+      "sd_rounding_half_unit": 0.5,
+      "source": {
+        "locator": "BioC passages 47 Table 1 total column; 49 mean(SD) footnote; 34-35 methods",
+        "sha256": "5dd915d72e5d3ee7a0dd00ea983ca49a7dfbc9d7b7d3b29abd91eb3befa86a99",
+        "snapshot": "PMC7414690.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7414690/"
+      },
+      "target_id": "systolic_bp",
+      "unit": "mmHg"
+    },
+    {
+      "assumptions": [
+        "Header N used conditionally; target-specific missing count not separately supplied.",
+        "Independent persons and source-population sampling assumed; source-rounded dispersion is plug-in, not measurement error."
+      ],
+      "estimand_kind": "population_mean",
+      "family_id": "MIPACT",
+      "horizon": "baseline",
+      "id": "MIPACT.body_mass",
+      "n": 204,
+      "operator": "Clinic body mass",
+      "population_scope": "MIPACT Table 1 selected cardiovascular/diabetes-risk sample; per-variable N conditional on table header 204",
+      "sd": 14.3,
+      "sd_rounding_half_unit": 0.05,
+      "source": {
+        "locator": "BioC passages 47 Table 1 total column; 49 mean(SD) footnote; 34-35 methods",
+        "sha256": "5dd915d72e5d3ee7a0dd00ea983ca49a7dfbc9d7b7d3b29abd91eb3befa86a99",
+        "snapshot": "PMC7414690.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7414690/"
+      },
+      "target_id": "body_mass",
+      "unit": "kg"
+    },
+    {
+      "assumptions": [
+        "Header N used conditionally; target-specific missing count not separately supplied.",
+        "Independent persons and source-population sampling assumed; source-rounded dispersion is plug-in, not measurement error."
+      ],
+      "estimand_kind": "population_mean",
+      "family_id": "MIPACT",
+      "horizon": "baseline",
+      "id": "MIPACT.device_mvpa",
+      "n": 204,
+      "operator": "BodyMedia Core/SenseWear algorithm v5.2, >=3 MET, >=6 valid days >=80% 24h",
+      "population_scope": "MIPACT Table 1 selected cardiovascular/diabetes-risk sample; per-variable N conditional on table header 204",
+      "sd": 57,
+      "sd_rounding_half_unit": 0.5,
+      "source": {
+        "locator": "BioC passages 47 Table 1 total column; 49 mean(SD) footnote; 34-35 methods",
+        "sha256": "5dd915d72e5d3ee7a0dd00ea983ca49a7dfbc9d7b7d3b29abd91eb3befa86a99",
+        "snapshot": "PMC7414690.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7414690/"
+      },
+      "target_id": "device_mvpa",
+      "unit": "min/day"
+    },
+    {
+      "assumptions": [
+        "Header N used conditionally; target-specific missing count not separately supplied.",
+        "Independent persons and source-population sampling assumed; source-rounded dispersion is plug-in, not measurement error."
+      ],
+      "estimand_kind": "population_mean",
+      "family_id": "MIPACT",
+      "horizon": "baseline",
+      "id": "MIPACT.device_sedentary",
+      "n": 204,
+      "operator": "BodyMedia Core/SenseWear algorithm v5.2, <1.8 MET, >=6 valid days >=80% 24h",
+      "population_scope": "MIPACT Table 1 selected cardiovascular/diabetes-risk sample; per-variable N conditional on table header 204",
+      "sd": 111,
+      "sd_rounding_half_unit": 0.5,
+      "source": {
+        "locator": "BioC passages 47 Table 1 total column; 49 mean(SD) footnote; 34-35 methods",
+        "sha256": "5dd915d72e5d3ee7a0dd00ea983ca49a7dfbc9d7b7d3b29abd91eb3befa86a99",
+        "snapshot": "PMC7414690.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7414690/"
+      },
+      "target_id": "device_sedentary",
+      "unit": "min/day"
+    },
+    {
+      "assumptions": [
+        "Baseline MRI availability does not establish each biomarker or cognitive endpoint completeness.",
+        "Laboratory/BP platform equivalence across sources is an explicit comparison assumption, not empirically verified harmonization.",
+        "Independent persons and source-population sampling assumed; source-rounded dispersion is plug-in, not measurement error."
+      ],
+      "estimand_kind": "population_mean",
+      "family_id": "DIRECT_PLUS",
+      "horizon": "baseline",
+      "id": "DIRECT_PLUS.fasting_glucose",
+      "n": 284,
+      "operator": "Plasma glucose, Roche GLUC3 hexokinase assay;08:00 after12hour fast; mg/dL converted with factor18.0182",
+      "population_scope": "DIRECT PLUS baseline MRI subset; N284 table header conditional per-variable completeness",
+      "sd": 0.9601403025829439,
+      "sd_rounding_half_unit": 0.0027749719727830752,
+      "source": {
+        "locator": "BioC passages 39 Table 1 entire cohort; 40 mean\u00b1SD and MRI N footnote",
+        "sha256": "bdda53cf50fdd21a4b48a9ca4325843f364a2046184163e37cbbd4664cd47b1d",
+        "snapshot": "PMC9071484.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9071484/"
+      },
+      "supporting_source": {
+        "locator": "Supplemental Methods2; physical measures and brain MRI",
+        "sha256": "c8236bdeb2552b3fadc32c4c8c9d6d08687a57781fe26563206e7db6662c6ab6",
+        "snapshot": "DIRECT_PLUS_supplement.docx",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9071484/supplementaryFiles"
+      },
+      "target_id": "fasting_glucose",
+      "unit": "mmol/L"
+    },
+    {
+      "assumptions": [
+        "Baseline MRI availability does not establish each biomarker or cognitive endpoint completeness.",
+        "Laboratory/BP platform equivalence across sources is an explicit comparison assumption, not empirically verified harmonization.",
+        "Independent persons and source-population sampling assumed; source-rounded dispersion is plug-in, not measurement error."
+      ],
+      "estimand_kind": "population_mean",
+      "family_id": "DIRECT_PLUS",
+      "horizon": "baseline",
+      "id": "DIRECT_PLUS.total_cholesterol",
+      "n": 284,
+      "operator": "Serum total cholesterol, Cobas8000 enzymatic assay;08:00 after12hour fast;mg/dL converted with factor38.665",
+      "population_scope": "DIRECT PLUS baseline MRI subset; N284 table header conditional per-variable completeness",
+      "sd": 0.8638303375145481,
+      "sd_rounding_half_unit": 0.00129315918789603,
+      "source": {
+        "locator": "BioC passages 39 Table 1 entire cohort; 40 mean\u00b1SD and MRI N footnote",
+        "sha256": "bdda53cf50fdd21a4b48a9ca4325843f364a2046184163e37cbbd4664cd47b1d",
+        "snapshot": "PMC9071484.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9071484/"
+      },
+      "supporting_source": {
+        "locator": "Supplemental Methods2; physical measures and brain MRI",
+        "sha256": "c8236bdeb2552b3fadc32c4c8c9d6d08687a57781fe26563206e7db6662c6ab6",
+        "snapshot": "DIRECT_PLUS_supplement.docx",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9071484/supplementaryFiles"
+      },
+      "target_id": "total_cholesterol",
+      "unit": "mmol/L"
+    },
+    {
+      "assumptions": [
+        "Baseline MRI availability does not establish each biomarker or cognitive endpoint completeness.",
+        "Laboratory/BP platform equivalence across sources is an explicit comparison assumption, not empirically verified harmonization.",
+        "Independent persons and source-population sampling assumed; source-rounded dispersion is plug-in, not measurement error."
+      ],
+      "estimand_kind": "population_mean",
+      "family_id": "DIRECT_PLUS",
+      "horizon": "baseline",
+      "id": "DIRECT_PLUS.systolic_bp",
+      "n": 284,
+      "operator": "Resting blood pressure, Accutorr4; average of two readings",
+      "population_scope": "DIRECT PLUS baseline MRI subset; N284 table header conditional per-variable completeness",
+      "sd": 14.1,
+      "sd_rounding_half_unit": 0.05,
+      "source": {
+        "locator": "BioC passages 39 Table 1 entire cohort; 40 mean\u00b1SD and MRI N footnote",
+        "sha256": "bdda53cf50fdd21a4b48a9ca4325843f364a2046184163e37cbbd4664cd47b1d",
+        "snapshot": "PMC9071484.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9071484/"
+      },
+      "supporting_source": {
+        "locator": "Supplemental Methods2; physical measures and brain MRI",
+        "sha256": "c8236bdeb2552b3fadc32c4c8c9d6d08687a57781fe26563206e7db6662c6ab6",
+        "snapshot": "DIRECT_PLUS_supplement.docx",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9071484/supplementaryFiles"
+      },
+      "target_id": "systolic_bp",
+      "unit": "mmHg"
+    },
+    {
+      "assumptions": [
+        "Baseline MRI availability does not establish each biomarker or cognitive endpoint completeness.",
+        "Laboratory/BP platform equivalence across sources is an explicit comparison assumption, not empirically verified harmonization.",
+        "Independent persons and source-population sampling assumed; source-rounded dispersion is plug-in, not measurement error."
+      ],
+      "estimand_kind": "population_mean",
+      "family_id": "DIRECT_PLUS",
+      "horizon": "baseline",
+      "id": "DIRECT_PLUS.body_mass",
+      "n": 284,
+      "operator": "Clinic body mass",
+      "population_scope": "DIRECT PLUS baseline MRI subset; N284 table header conditional per-variable completeness",
+      "sd": 14.4,
+      "sd_rounding_half_unit": 0.05,
+      "source": {
+        "locator": "BioC passages 39 Table 1 entire cohort; 40 mean\u00b1SD and MRI N footnote",
+        "sha256": "bdda53cf50fdd21a4b48a9ca4325843f364a2046184163e37cbbd4664cd47b1d",
+        "snapshot": "PMC9071484.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9071484/"
+      },
+      "supporting_source": {
+        "locator": "Supplemental Methods2; physical measures and brain MRI",
+        "sha256": "c8236bdeb2552b3fadc32c4c8c9d6d08687a57781fe26563206e7db6662c6ab6",
+        "snapshot": "DIRECT_PLUS_supplement.docx",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9071484/supplementaryFiles"
+      },
+      "target_id": "body_mass",
+      "unit": "kg"
+    },
+    {
+      "assumptions": [
+        "Baseline MRI availability does not establish each biomarker or cognitive endpoint completeness.",
+        "Laboratory/BP platform equivalence across sources is an explicit comparison assumption, not empirically verified harmonization.",
+        "Independent persons and source-population sampling assumed; source-rounded dispersion is plug-in, not measurement error.",
+        "Not admitted to bilateral hippocampal benchmark target without source aggregation definition."
+      ],
+      "estimand_kind": "population_mean",
+      "family_id": "DIRECT_PLUS",
+      "horizon": "baseline",
+      "id": "DIRECT_PLUS.bilateral_hippocampus",
+      "n": 284,
+      "operator": "Source-reported hippocampal volume; hemisphere aggregation unverified",
+      "population_scope": "DIRECT PLUS baseline MRI subset; N284 table header conditional per-variable completeness",
+      "sd": 0.9,
+      "sd_rounding_half_unit": 0.05,
+      "source": {
+        "locator": "BioC passages 39 Table 1 entire cohort; 40 mean\u00b1SD and MRI N footnote",
+        "sha256": "bdda53cf50fdd21a4b48a9ca4325843f364a2046184163e37cbbd4664cd47b1d",
+        "snapshot": "PMC9071484.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9071484/"
+      },
+      "supporting_source": {
+        "locator": "Supplemental Methods2; physical measures and brain MRI",
+        "sha256": "c8236bdeb2552b3fadc32c4c8c9d6d08687a57781fe26563206e7db6662c6ab6",
+        "snapshot": "DIRECT_PLUS_supplement.docx",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9071484/supplementaryFiles"
+      },
+      "target_id": "source_hippocampus_volume",
+      "unit": "cm^3"
+    },
+    {
+      "assumptions": [
+        "Baseline MRI availability does not establish each biomarker or cognitive endpoint completeness.",
+        "Laboratory/BP platform equivalence across sources is an explicit comparison assumption, not empirically verified harmonization.",
+        "Independent persons and source-population sampling assumed; source-rounded dispersion is plug-in, not measurement error."
+      ],
+      "estimand_kind": "population_mean",
+      "family_id": "DIRECT_PLUS",
+      "horizon": "baseline",
+      "id": "DIRECT_PLUS.lateral_ventricle",
+      "n": 284,
+      "operator": "Structural MRI lateral ventricle volume, source segmentation",
+      "population_scope": "DIRECT PLUS baseline MRI subset; N284 table header conditional per-variable completeness",
+      "sd": 13.5,
+      "sd_rounding_half_unit": 0.05,
+      "source": {
+        "locator": "BioC passages 39 Table 1 entire cohort; 40 mean\u00b1SD and MRI N footnote",
+        "sha256": "bdda53cf50fdd21a4b48a9ca4325843f364a2046184163e37cbbd4664cd47b1d",
+        "snapshot": "PMC9071484.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9071484/"
+      },
+      "supporting_source": {
+        "locator": "Supplemental Methods2; physical measures and brain MRI",
+        "sha256": "c8236bdeb2552b3fadc32c4c8c9d6d08687a57781fe26563206e7db6662c6ab6",
+        "snapshot": "DIRECT_PLUS_supplement.docx",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9071484/supplementaryFiles"
+      },
+      "target_id": "lateral_ventricle",
+      "unit": "cm^3"
+    }
+  ],
+  "reference_timing": "Source inspection preceded draft threshold selection; numerical scoring followed threshold freeze. Not blinded reference calibration.",
+  "scope": "Paraphrased factual public aggregate extractions and source locators; no original article/supplement content redistributed.",
+  "studies": [
+    {
+      "additional_facts": {
+        "allocation_discrepancy": "Table1 and delivery passage68 support134intervention/70control; abstract120/84 conflicts and is not silently erased"
+      },
+      "ethics": {
+        "source": {
+          "locator": "BioC passages18 and106",
+          "sha256": "5dd915d72e5d3ee7a0dd00ea983ca49a7dfbc9d7b7d3b29abd91eb3befa86a99",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7414690/"
+        },
+        "statement": "NHS South West Research Ethics Committee,13/SW/0179; written informed consent",
+        "status": "approved"
+      },
+      "family_id": "MIPACT",
+      "label": "MIPACT activity-feedback trial",
+      "lifecycle": "collected",
+      "limits": [
+        "Conditional source-selected population sampling precision; no whole-study rank",
+        "Table-header N for reported baseline variables is an explicit completeness assumption, not independently audited per-variable N"
+      ],
+      "publication": {
+        "source": {
+          "locator": "Primary results article front matter and methods",
+          "sha256": "5dd915d72e5d3ee7a0dd00ea983ca49a7dfbc9d7b7d3b29abd91eb3befa86a99",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7414690/"
+        },
+        "status": "peer_reviewed_results"
+      }
+    },
+    {
+      "additional_facts": {
+        "cognitive_baseline_n": 200,
+        "cognitive_eligible_followup_n": 120,
+        "cognitive_precision_status": "Acquired BEF tasks; no verified native SD for pilot targets yet",
+        "cognitive_source": {
+          "locator": "BioC passage45",
+          "sha256": "bdda53cf50fdd21a4b48a9ca4325843f364a2046184163e37cbbd4664cd47b1d",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9071484/"
+        }
+      },
+      "ethics": {
+        "source": {
+          "locator": "BioC passage22",
+          "sha256": "bdda53cf50fdd21a4b48a9ca4325843f364a2046184163e37cbbd4664cd47b1d",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9071484/"
+        },
+        "statement": "Soroka Medical Center Medical Ethics Board and Institutional Review Board; written consent",
+        "status": "approved"
+      },
+      "family_id": "DIRECT_PLUS",
+      "label": "DIRECT PLUS dietary trial",
+      "lifecycle": "collected",
+      "limits": [
+        "Conditional source-selected population sampling precision; no whole-study rank",
+        "Table-header N for reported baseline variables is an explicit completeness assumption, not independently audited per-variable N"
+      ],
+      "publication": {
+        "source": {
+          "locator": "Primary results article front matter and methods",
+          "sha256": "bdda53cf50fdd21a4b48a9ca4325843f364a2046184163e37cbbd4664cd47b1d",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9071484/"
+        },
+        "status": "peer_reviewed_results"
+      }
+    }
+  ]
+}

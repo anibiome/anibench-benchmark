@@ -1,5 +1,16 @@
 # AniBench current authority
 
+September 27 development candidate: `anibench workbench` serves an installed,
+loopback-only comparison interface and conditional reference planner;
+`anibench plan` writes reproducible before/after results. See
+`docs/LOCAL_WORKBENCH.md`. The copied reference v0.4 is hash-pinned and calls
+the canonical `benchmark` evaluator. Catalogue v3 uses likelihood-only scores;
+12 historical posterior-based pass labels were corrected. The source view
+compares individual native-precision tasks with explicit cross-study measurement
+assumptions. Neither it nor the hypothetical domain chart closes the requested
+multi-domain real-study benchmark, full empirical programme or private ELITE
+coverage. The complete goal remains open.
+
 September 20 workload candidate: `anibench benchmark` now executes a trusted
 finite-suite profile and produces frozen category percentages, explicit unknown
 bounds, a separate precision-adequacy view and exact level decisions. See

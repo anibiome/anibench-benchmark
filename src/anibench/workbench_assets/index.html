@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AniBench — human study benchmark</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to results</a>
+<header class="masthead">
+  <a class="brand" href="#compare" aria-label="AniBench home"><span class="mark" aria-hidden="true">a</span>AniBench<span class="edition">Research preview</span></a>
+  <nav aria-label="Main navigation">
+    <a href="#compare">Compare</a><a href="#design">Design a study</a><a href="#run">Run AniBench</a><a href="#methods">Methods</a><a href="#paper">Paper &amp; code</a>
+  </nav>
+</header>
+<main id="content" tabindex="-1">
+<section id="compare" class="page" aria-labelledby="compare-title">
+  <div class="eyebrow">HUMAN STUDIES · REPRODUCIBLE BENCHMARKS</div>
+  <h1 id="compare-title">What can a study reveal?</h1>
+  <p class="lead">Compare strengths across biological domains. See the exact tasks, evidence and assumptions behind every percentage.</p>
+  <div class="view-tabs" aria-label="Comparison view"><button id="view-pilot" aria-pressed="true">Across domains</button><button id="view-native" aria-pressed="false">Individual measurements</button></div>
+  <div id="pilot-panel"><p id="pilot-status" role="status">Loading the native-precision pilot…</p><div id="pilot-controls"></div><div id="pilot-chart"></div><div id="pilot-details"></div></div>
+  <div id="single-panel" hidden>
+  <div id="comparison-status" role="status" aria-live="polite">Loading evaluated study tasks…</div>
+  <div id="comparison-controls"></div>
+  <div id="comparison-chart"></div>
+  <div id="comparison-details"></div>
+  </div>
+</section>
+<section id="design" class="page" hidden aria-labelledby="design-title">
+  <div class="eyebrow">DESIGN EXPLORER · CONDITIONAL REFERENCE v0.4</div>
+  <h1 id="design-title">See what changes the study.</h1>
+  <p class="lead">Change a design. See which reference tasks it meets—and what still limits it.</p>
+  <div class="toolbar"><label>Reference <select id="level"><option>AB1</option><option>AB2</option></select></label><label>Show <select id="metric"><option value="attainment">Reference tasks met</option><option value="precision">Progress toward precision targets</option></select></label><label>Variance assumption <select id="scenario"><option value="envelope">Both scenarios</option><option value="declared-noise">Declared variance</option><option value="double-noise">Twice the variance</option></select></label></div>
+  <div class="design-layout">
+    <form id="design-form" class="card design-controls">
+      <h2>Change the design</h2>
+      <label>Try a hypothetical design<select id="design-preset"><option value="custom">Custom design</option><option value="balanced">Larger and deeper</option><option value="tiny">Two people, extreme depth</option><option value="shallow">Very large, shallow study</option><option value="neural">Deep study without neural data</option></select></label>
+      <label>Independent people <input name="N" type="number" min="2" max="1000000000" step="1" required></label>
+      <label>Measurement depth multiplier <input name="depth" type="number" min="1" max="1000000000" step="1" required></label>
+      <p class="field-note">A modeled reduction in measurement variance. It is not a count of assays or money spent.</p>
+      <details><summary>Sampling and required measurements</summary>
+        <label>Technical repeats at each time point <input name="technical_repeats_per_endpoint" type="number" min="1" max="1000000" step="1" required></label>
+        <label>Correlation between repeats <input name="repeat_rho" type="number" min="0" max="1" step="0.05" required></label>
+        <label class="check"><input name="paired_endpoints" type="checkbox"> Linked observations at both required time points</label>
+        <label class="check"><input name="controlled" type="checkbox"> Two equally sized randomized groups</label>
+        <label class="check"><input name="bridge" type="checkbox"> Paired measurements across platforms</label>
+        <label>Measure only <select name="only_domain"><option value="">All five domains</option></select></label>
+        <label>Missing domain <select name="absent_domain"><option value="">None</option></select></label>
+        <label>Unconfirmed domain <select name="unknown_domain"><option value="">None</option></select></label>
+      </details>
+      <button class="primary" type="submit">Evaluate design <span aria-hidden="true">↗</span></button>
+      <button id="reset" type="button" class="quiet">Reset example</button>
+    </form>
+    <div class="card results-card">
+      <div class="card-heading"><div><span class="eyebrow">FIVE BIOLOGICAL DOMAINS</span><h2 id="design-chart-title">Reference tasks met (%)</h2></div><div class="legend"><span class="before">Baseline</span><span class="after">Changed design</span></div></div>
+      <p id="design-meaning" class="chart-meaning"></p>
+      <div id="design-status" role="status" aria-live="polite"></div>
+      <div id="design-chart"></div>
+      <div id="design-summary" class="result-summary"></div>
+      <div class="actions"><button id="pin">Use as baseline</button><button id="export-design">Export result JSON</button><button id="export-design-svg">Export chart SVG</button><button id="export-design-csv">Export chart CSV</button></div>
+    </div>
+  </div>
+  <p class="scope-note">This is a hypothetical reference experiment. Its fixed targets, timing, and variance model define the comparison. Your last evaluated design stays in this browser tab for reloads. Export it to keep a durable copy.</p>
+  <div id="design-details"></div>
+</section>
+<section id="run" class="page prose" hidden aria-labelledby="run-title">
+  <div class="eyebrow">YOUR STUDY · YOUR COMPUTER</div><h1 id="run-title">Run it on your own design.</h1>
+  <p class="lead">The same Python evaluator powers the interface and command line. Your private records can stay on your computer.</p>
+  <div class="steps">
+    <article class="card"><span class="step">01</span><h2>Start with a design</h2><p>Download the reference design input, change the declared design, and run a before/after evaluation.</p><button id="download-template">Download design JSON</button><pre><code>anibench plan design.json --out result.json</code></pre><p class="small">Use a new output filename. Existing results are preserved.</p></article>
+    <article class="card"><span class="step">02</span><h2>Inspect the result</h2><p>Open an exported planner result. The local evaluator reruns its declared designs; imported percentages are never trusted.</p><label class="file">Import planner result<input id="import-design" type="file" accept=".json,application/json"></label><p id="import-status" role="status"></p></article>
+    <article class="card"><span class="step">03</span><h2>Evaluate collected records</h2><p>Map participant keys, acquisition times, units, and quality flags explicitly. Collection profiling shows what was acquired; task scoring additionally needs justified measurement and sampling models.</p><pre><code>anibench profile-tables table-map.json \
+  --out collection.json</code></pre><p><a href="https://github.com/anibiome/anibench-benchmark/blob/main/docs/COLLECTION_PROFILE.md" target="_blank" rel="noopener noreferrer">Collection-input documentation ↗</a></p></article>
+  </div>
+  <details><summary>Use a different frozen task reference</summary><p>The general evaluator accepts your explicit trusted task and score registries. A new reference produces a new result identity.</p><pre><code>anibench benchmark request.json \
+  --registry tasks.json --scores categories.json \
+  --out benchmark-result.json</code></pre></details>
+  <p class="scope-note">This interface uses a loopback server with an automatic stop. Inputs are not saved by the server. Export files deliberately when you want to keep them.</p>
+</section>
+<section id="methods" class="page prose" hidden aria-labelledby="methods-title">
+  <div class="eyebrow">THE COMPARISON CONTRACT</div><h1 id="methods-title">Every percentage has a question.</h1>
+  <p class="lead">A score measures attainment of a fixed set of tasks. It is never the percentage of human biology understood.</p>
+  <div class="method-grid">
+    <article class="card"><h2>What counts as a task?</h2><p>A named quantity, population, time window, required observations, and precision target. For example: estimating a baseline population mean within a declared standard error.</p></article>
+    <article class="card"><h2>What does 100% mean?</h2><p>All of the selected category's weighted tasks meet their requirements under the chosen assumptions. Other categories can still fail. Exact level attainment is checked separately.</p></article>
+    <article class="card"><h2>What does a range mean?</h2><p>Confirmed passes form the lower bound. Unresolved task weight can extend the upper bound. A range across variance scenarios expresses model sensitivity; neither range is automatically a statistical confidence interval.</p></article>
+    <article class="card"><h2>What cannot buy a score?</h2><p>More files, duplicated assays, money spent, publication status, or an ethics label. Independent people, valid timing, complementary measurements, and identified comparisons matter through their measurement model.</p></article>
+  </div>
+  <details><summary>Equations and assumptions</summary><p>For fixed positive task weights w and task pass indicators a, attainment is 100 × Σ(w a) / Σw. Unknown tasks remain in that denominator.</p><p>For an estimable scalar with sampling variance v and target variance τ², the secondary precision progress is min(1, τ² / v). It is not a probability of success.</p><p>The conditional linear model uses J = HᵀR⁻¹H. Observation operators and covariance must have source-supported semantics. A strong prior does not become information collected by the study.</p><p>The design explorer uses the preserved v0.4 hypothetical model. Population, individual change, randomized contrast, and platform comparison use distinct sampling models. AB2 inherits AB1 targets with tighter precision and additional questions. Native targets and exact windows are visible in each design result.</p></details>
+  <details><summary>Publication and ethics filters</summary><p>These controls select visible studies; they do not change scores. Unknown approval is distinct from reported non-approval. A registry entry is not proof of peer-reviewed results or ethics approval.</p></details>
+</section>
+<section id="paper" class="page prose" hidden aria-labelledby="paper-title">
+  <div class="eyebrow">RESEARCH &amp; REPRODUCTION</div><h1 id="paper-title">Inspect the work.</h1>
+  <p class="lead">Methods, code, result files, and limitations belong together.</p>
+  <div class="method-grid"><article class="card"><h2>Scientific manuscript</h2><p>The current manuscript is a working draft. It distinguishes the conditional reference model from empirical validation and preserves negative findings.</p><a class="button" href="paper.md" download>Download working manuscript</a></article><article class="card"><h2>Open implementation</h2><p>AniBench's public repository contains the earlier research release. This local workbench is a new candidate; its package version does not by itself establish a new published release.</p><a class="button" href="https://github.com/anibiome/anibench-benchmark" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></article></div>
+  <p class="scope-note">Scientific calibration, broad real-study coverage, and full release acceptance remain in progress. Current results carry their own exact scope.</p>
+</section>
+</main>
+<footer><a class="brand" href="#compare">AniBench</a><span>Human studies. Explicit questions. Reproducible evidence.</span><a href="#methods">How to read a score</a></footer>
+<script type="module" src="app.mjs"></script>
+</body>
+</html>

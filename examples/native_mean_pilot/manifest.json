@@ -1,0 +1,25 @@
+{
+  "files": {
+    "README.md": "dfc7c90f7adf6ab2d45d195f139fea46e1f43ef19f47443e26eacd3ccfb854c2",
+    "expected-chart.svg": "dbce655af7e2cb8966890b91de416d0762a796b88298dd1727ad348566c8c989",
+    "inputs.json": "4383f7aa86ebc3d461bd4d0be5023c5a40d050e361c271ccb70668652fbac215",
+    "pilot.json": "fda5ce91a6d39a8d6fd891856072af984c7570d027d1c28849bf275fbc6676d5",
+    "render.mjs": "e80574dec261e1db8ff7a08b0fd7023e16259dd146ddc465948537394e209319",
+    "replay.py": "ad68c5405d69933748aea6a778d2c7d89c744c8c1aa2bd5f0d8f42aa716c8181",
+    "sources.json": "7ee5661255bae937b7ef0ccd378a5aab9af338bcea20c838fb75f46d9cae8125"
+  },
+  "reference_environment": {
+    "contract": "anibench.finite-task-implementation.v1",
+    "jsonschema_version": "4.26.0",
+    "numpy_version": "2.5.1",
+    "python_version": "3.12.13",
+    "sha256": {
+      "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+      "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229",
+      "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+      "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0"
+    }
+  },
+  "schema": "anibench.native-pilot-example-manifest.v1",
+  "scope": "Exploratory two-study ten-target native mean pilot; no full benchmark certification."
+}

@@ -1,0 +1,1325 @@
+{
+  "schema": "anibench.native-broad-workload-candidate.v0.1",
+  "status": "PROPOSED_NOT_RATIFIED_NOT_EMPIRICALLY_CALIBRATED",
+  "targets": [
+    {
+      "id": "albumin",
+      "canonical_quantity": "Serum albumin concentration",
+      "unit": "g/L",
+      "compartment": "serum",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "single fasting morning draw; calibrated chemistry analyzer",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "clinical_chemistry"
+      ],
+      "resolution": {
+        "standard_error_limit": 1.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "NHANES-BIOPRO"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "serum albumin concentration"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "fasting_glucose",
+      "canonical_quantity": "Fasting plasma glucose concentration",
+      "unit": "mmol/L",
+      "compartment": "plasma",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "overnight fast; venous assay distinct from interstitial sensor",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "clinical_chemistry"
+      ],
+      "resolution": {
+        "standard_error_limit": 0.25,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "UKB_FIELD_30740"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "fasting plasma glucose concentration"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "creatinine",
+      "canonical_quantity": "Serum creatinine concentration",
+      "unit": "umol/L",
+      "compartment": "serum",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "single draw; traceable analyzer, not eGFR transformation",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "clinical_chemistry"
+      ],
+      "resolution": {
+        "standard_error_limit": 5.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "NHANES-BIOPRO"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "serum creatinine concentration"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "triglycerides",
+      "canonical_quantity": "Serum triglyceride concentration",
+      "unit": "mmol/L",
+      "compartment": "serum",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "fixed fasting duration; calibrated analyzer",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "clinical_chemistry"
+      ],
+      "resolution": {
+        "standard_error_limit": 0.15,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "pmc8265154"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "serum triglyceride concentration"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "hba1c",
+      "canonical_quantity": "Glycated hemoglobin fraction",
+      "unit": "mmol/mol",
+      "compartment": "erythrocytes",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "single draw; IFCC-traceable assay; no instant glucose equivalence",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "clinical_chemistry"
+      ],
+      "resolution": {
+        "standard_error_limit": 2.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "PMC6666404"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "glycated hemoglobin fraction"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "il6",
+      "canonical_quantity": "IL-6 immunoreactive concentration",
+      "unit": "pg/mL",
+      "compartment": "plasma",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "same antibody calibration and lot bridge; explicit below-LOQ censoring",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "proteome"
+      ],
+      "resolution": {
+        "standard_error_limit": 0.5,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "PMC6666404"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "il-6 immunoreactive concentration"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "apob",
+      "canonical_quantity": "Apolipoprotein B mass concentration",
+      "unit": "g/L",
+      "compartment": "serum",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "traceable quantitative immunoassay, not affinity RFU",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "proteome"
+      ],
+      "resolution": {
+        "standard_error_limit": 0.05,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "PMC10567551"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "apolipoprotein b mass concentration"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "leucine",
+      "canonical_quantity": "Leucine concentration",
+      "unit": "umol/L",
+      "compartment": "plasma",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "isotope-dilution targeted mass spectrometry; separate isoleucine",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "metabolome"
+      ],
+      "resolution": {
+        "standard_error_limit": 10.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "PMC6666404"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "leucine concentration"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "lactate",
+      "canonical_quantity": "Lactate concentration",
+      "unit": "mmol/L",
+      "compartment": "plasma",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "fixed postcollection delay and resting condition",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "metabolome"
+      ],
+      "resolution": {
+        "standard_error_limit": 0.2,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "pmc13184684"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "lactate concentration"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "cd4_count",
+      "canonical_quantity": "CD4 positive T-cell absolute count",
+      "unit": "cells/uL",
+      "compartment": "whole blood",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "gating tree plus counting beads; person denominator not cell count",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "cell"
+      ],
+      "resolution": {
+        "standard_error_limit": 50.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "pmc6826138"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "cd4 positive t-cell absolute count"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "cd4_naive_fraction",
+      "canonical_quantity": "Naive fraction within CD4 T cells",
+      "unit": "percentage_points",
+      "compartment": "whole blood",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "frozen naive markers/gates; denominator all viable CD4 T cells",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "cell"
+      ],
+      "resolution": {
+        "standard_error_limit": 5.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "pmc6826138"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "naive fraction within cd4 t cells"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "microbial_f_prausnitzii",
+      "canonical_quantity": "Faecalibacterium prausnitzii relative abundance",
+      "unit": "fraction_of_assigned_microbes",
+      "compartment": "stool",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "frozen taxonomy/database and denominator; compositional, not absolute load",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "microbial"
+      ],
+      "resolution": {
+        "standard_error_limit": 0.01,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "IBDMDB"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "faecalibacterium prausnitzii relative abundance"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "microbial_butyrate_pathway",
+      "canonical_quantity": "Butyrate synthesis pathway abundance",
+      "unit": "copies_per_million_microbial_gene_copies",
+      "compartment": "stool",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "frozen pathway accession/read mapping/normalization; not flux",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "microbial"
+      ],
+      "resolution": {
+        "standard_error_limit": 10.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "IBDMDB"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "butyrate synthesis pathway abundance"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "muscle_ppargc1a",
+      "canonical_quantity": "PPARGC1A transcript abundance",
+      "unit": "log2_TPM",
+      "compartment": "vastus_lateralis_biopsy",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "frozen transcript accession/annotation; tissue-composition adjustment separate; log transform floor preregistered",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "tissue"
+      ],
+      "resolution": {
+        "standard_error_limit": 0.5,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "pmc13184684"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "ppargc1a transcript abundance"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "adipose_adipocyte_area",
+      "canonical_quantity": "Median adipocyte section area",
+      "unit": "um2",
+      "compartment": "subcutaneous_abdominal_adipose",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "fixed section/orientation/segmentation and spatial sampling; not whole-body tissue state",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "tissue"
+      ],
+      "resolution": {
+        "standard_error_limit": 100.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "pmc13184684"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "median adipocyte section area"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "grip",
+      "canonical_quantity": "Maximum dominant-hand grip force",
+      "unit": "kg_force",
+      "compartment": "whole_person",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "three standardized dynamometer attempts; dominance and posture fixed",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "functional"
+      ],
+      "resolution": {
+        "standard_error_limit": 2.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "pmc12479048"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "maximum dominant-hand grip force"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "gait",
+      "canonical_quantity": "Usual 4m gait speed",
+      "unit": "m/s",
+      "compartment": "whole_person",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "standing start, fixed course and assistive-device policy",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "functional"
+      ],
+      "resolution": {
+        "standard_error_limit": 0.05,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "pmc12479048"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "usual 4m gait speed"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "vo2peak",
+      "canonical_quantity": "Peak oxygen uptake per body mass",
+      "unit": "mL/kg/min",
+      "compartment": "whole_person",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "frozen exercise ramp and gas calibration; peak criterion declared",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "functional"
+      ],
+      "resolution": {
+        "standard_error_limit": 2.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "pmc13184684"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "peak oxygen uptake per body mass"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "systolic",
+      "canonical_quantity": "Mean current-session systolic pressure",
+      "unit": "mmHg",
+      "compartment": "brachial_artery",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "mean first3 positive readings with >=2; fixed rest/posture/cuff",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "functional"
+      ],
+      "resolution": {
+        "standard_error_limit": 5.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "NHANES-BPX"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "mean current-session systolic pressure"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "acceleration",
+      "canonical_quantity": "Mean waking wrist acceleration ENMO",
+      "unit": "milli_g",
+      "compartment": "dominant_wrist",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "7days; frozen raw pipeline/nonwear/valid-day rules; sensor placement fixed",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "digital"
+      ],
+      "resolution": {
+        "standard_error_limit": 5.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "UKB_FIELD_90012"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "mean waking wrist acceleration enmo"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "sleep_duration",
+      "canonical_quantity": "Night total sleep duration",
+      "unit": "minutes",
+      "compartment": "whole_person",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "PSG scored epochs excluding movement/unknown; fixed lights-off window",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "digital"
+      ],
+      "resolution": {
+        "standard_error_limit": 20.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "SLEEP_EDF"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "night total sleep duration"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "sleep_efficiency",
+      "canonical_quantity": "Time asleep divided by time in bed",
+      "unit": "percentage_points",
+      "compartment": "whole_person",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "same PSG scoring and independently defined in-bed interval",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "digital"
+      ],
+      "resolution": {
+        "standard_error_limit": 3.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "SLEEP_EDF"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "time asleep divided by time in bed"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "rr_variability",
+      "canonical_quantity": "Resting RMSSD of RR intervals",
+      "unit": "ms",
+      "compartment": "cardiac_electrical",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "5minute sinus rhythm; ECG beat QC and ectopy rules; not PPG interchangeability",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "digital"
+      ],
+      "resolution": {
+        "standard_error_limit": 5.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "UNSUPPORTED"
+      ],
+      "source_support": "No qualified source in current seed; research target only",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "resting rmssd of rr intervals"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "reaction_time",
+      "canonical_quantity": "Median correct simple reaction latency",
+      "unit": "ms",
+      "compartment": "behavior",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "fixed stimulus/device/key latency and trial exclusion",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "cognitive"
+      ],
+      "resolution": {
+        "standard_error_limit": 20.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "UKB_FIELD_20023"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "median correct simple reaction latency"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "symbol_coding",
+      "canonical_quantity": "Digit Symbol Coding correct score",
+      "unit": "correct_symbols",
+      "compartment": "behavior",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "source fixed task duration/form; 0-133 version",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "cognitive"
+      ],
+      "resolution": {
+        "standard_error_limit": 3.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "pmc4698980"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "digit symbol coding correct score"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "verbal_recall",
+      "canonical_quantity": "Hopkins delayed verbal recall",
+      "unit": "correct_words",
+      "compartment": "behavior",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "12word source form and delay; practice/form effects modeled",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "cognitive"
+      ],
+      "resolution": {
+        "standard_error_limit": 1.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "pmc4698980"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "hopkins delayed verbal recall"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "depressive_symptoms",
+      "canonical_quantity": "PHQ-9 sum score",
+      "unit": "scale_points",
+      "compartment": "self_report",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "9 items over prior2weeks; ordinal observed score not latent depression",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "psychological"
+      ],
+      "resolution": {
+        "standard_error_limit": 2.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "UNSUPPORTED"
+      ],
+      "source_support": "No qualified source in current seed; research target only",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "phq-9 sum score"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "p3b",
+      "canonical_quantity": "P3b target-minus-standard mean voltage",
+      "unit": "uV",
+      "compartment": "scalp_Pz",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "ERP CORE frozen window/reference/filter/trial rules; neural observation only",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "neural_observation"
+      ],
+      "resolution": {
+        "standard_error_limit": 1.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "ERP_CORE"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "p3b target-minus-standard mean voltage"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "n170",
+      "canonical_quantity": "N170 face-minus-car mean voltage",
+      "unit": "uV",
+      "compartment": "scalp_ROI",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "ERP CORE frozen ROI/window/reference; independent task binding",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "neural_observation"
+      ],
+      "resolution": {
+        "standard_error_limit": 1.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "ERP_CORE"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "n170 face-minus-car mean voltage"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "slow_wave_power",
+      "canonical_quantity": "NREM slow-wave EEG spectral power",
+      "unit": "uV2",
+      "compartment": "Fpz_Cz",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "0.5-4Hz integrated PSD with fixed epoch/taper/scoring and amplitude units",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "neural_observation"
+      ],
+      "resolution": {
+        "standard_error_limit": 5.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "SLEEP_EDF"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "nrem slow-wave eeg spectral power"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "hippocampal_volume",
+      "canonical_quantity": "Left hippocampal segmented volume",
+      "unit": "mm3",
+      "compartment": "brain_left_hippocampus",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "fixed MRI sequence and segmentation atlas/version; no EEG substitution",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "neural_structure"
+      ],
+      "resolution": {
+        "standard_error_limit": 100.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "PMC7250878"
+      ],
+      "source_support": "methods family only; exact analyte/operator qualification pending",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "left hippocampal segmented volume"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "cortical_evoked",
+      "canonical_quantity": "TMS-evoked fixed-window cortical EEG voltage contrast",
+      "unit": "uV",
+      "compartment": "scalp_ROI",
+      "population": "Adults within a preregistered cohort eligibility frame; no automatic population transport",
+      "time_and_operator": "active versus matched sham, sensory controls, dose/coil/ROI/window frozen",
+      "estimand": "Person-specific measured observable under the declared acquisition condition",
+      "question_family": "current_state",
+      "domain_views": [
+        "neural_perturbation"
+      ],
+      "resolution": {
+        "standard_error_limit": 1.0,
+        "authority": "candidate governance convention, not validated biological sufficiency",
+        "rationale": "Finite interpretable native-unit challenge; ratify or amend before scoring; sensitivity at half and twice this limit required"
+      },
+      "source_ids": [
+        "UNSUPPORTED"
+      ],
+      "source_support": "No qualified source in current seed; research target only",
+      "operator_admission": "Source-bound protocol plus dimensional calibration, residual covariance and independent-unit evidence; assay name/count never identity H",
+      "aliases": [
+        "tms-evoked fixed-window cortical eeg voltage contrast"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "population_albumin",
+      "base_quantity_id": "albumin",
+      "canonical_quantity": "Mean in frozen eligible adult population with sampling/selection weights and independent people",
+      "unit": "g/L",
+      "compartment": "serum",
+      "population": "Task-specific declared cohort, assignment or external-cohort frame required",
+      "time_and_operator": "Inherit base measurement operator; additionally require exact person/time/assignment linkage",
+      "estimand": "Mean in frozen eligible adult population with sampling/selection weights and independent people",
+      "question_family": "population_mean",
+      "domain_views": [
+        "clinical_chemistry"
+      ],
+      "resolution": {
+        "standard_error_limit": 0.25,
+        "authority": "candidate governance convention, not biological calibration",
+        "rationale": "Stricter population contrasts or paired changes; native-scale policy with half/twice sensitivity"
+      },
+      "source_ids": [
+        "NHANES-BIOPRO"
+      ],
+      "source_support": "Base measurement support only; design-specific linkage and identifying assumptions not inferred",
+      "operator_admission": "Full joint design including covariance, selection, assignment and independent units; no reuse as independent evidence of base task",
+      "aliases": [
+        "population albumin"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "albumin_change",
+      "base_quantity_id": "albumin",
+      "canonical_quantity": "Within-person difference baseline to12months; paired covariance and attrition selection",
+      "unit": "g/L",
+      "compartment": "serum",
+      "population": "Task-specific declared cohort, assignment or external-cohort frame required",
+      "time_and_operator": "Inherit base measurement operator; additionally require exact person/time/assignment linkage",
+      "estimand": "Within-person difference baseline to12months; paired covariance and attrition selection",
+      "question_family": "longitudinal_change",
+      "domain_views": [
+        "clinical_chemistry"
+      ],
+      "resolution": {
+        "standard_error_limit": 1,
+        "authority": "candidate governance convention, not biological calibration",
+        "rationale": "Stricter population contrasts or paired changes; native-scale policy with half/twice sensitivity"
+      },
+      "source_ids": [
+        "NHANES-BIOPRO"
+      ],
+      "source_support": "Base measurement support only; design-specific linkage and identifying assumptions not inferred",
+      "operator_admission": "Full joint design including covariance, selection, assignment and independent units; no reuse as independent evidence of base task",
+      "aliases": [
+        "albumin change"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "muscle_response",
+      "base_quantity_id": "muscle_ppargc1a",
+      "canonical_quantity": "Randomized exercise-versus-rest difference in baseline-to3hour change; intention-to-treat assignment",
+      "unit": "log2_TPM",
+      "compartment": "vastus_lateralis_biopsy",
+      "population": "Task-specific declared cohort, assignment or external-cohort frame required",
+      "time_and_operator": "Inherit base measurement operator; additionally require exact person/time/assignment linkage",
+      "estimand": "Randomized exercise-versus-rest difference in baseline-to3hour change; intention-to-treat assignment",
+      "question_family": "controlled_effect",
+      "domain_views": [
+        "tissue"
+      ],
+      "resolution": {
+        "standard_error_limit": 0.5,
+        "authority": "candidate governance convention, not biological calibration",
+        "rationale": "Stricter population contrasts or paired changes; native-scale policy with half/twice sensitivity"
+      },
+      "source_ids": [
+        "pmc13184684"
+      ],
+      "source_support": "Base measurement support only; design-specific linkage and identifying assumptions not inferred",
+      "operator_admission": "Full joint design including covariance, selection, assignment and independent units; no reuse as independent evidence of base task",
+      "aliases": [
+        "muscle response"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "grip_treatment_effect",
+      "base_quantity_id": "grip",
+      "canonical_quantity": "Randomized intervention-versus-control difference at12months adjusted only for prespecified baseline",
+      "unit": "kg_force",
+      "compartment": "whole_person",
+      "population": "Task-specific declared cohort, assignment or external-cohort frame required",
+      "time_and_operator": "Inherit base measurement operator; additionally require exact person/time/assignment linkage",
+      "estimand": "Randomized intervention-versus-control difference at12months adjusted only for prespecified baseline",
+      "question_family": "controlled_effect",
+      "domain_views": [
+        "functional"
+      ],
+      "resolution": {
+        "standard_error_limit": 1,
+        "authority": "candidate governance convention, not biological calibration",
+        "rationale": "Stricter population contrasts or paired changes; native-scale policy with half/twice sensitivity"
+      },
+      "source_ids": [
+        "pmc12479048"
+      ],
+      "source_support": "Base measurement support only; design-specific linkage and identifying assumptions not inferred",
+      "operator_admission": "Full joint design including covariance, selection, assignment and independent units; no reuse as independent evidence of base task",
+      "aliases": [
+        "grip treatment effect"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "glucose_response_heterogeneity",
+      "base_quantity_id": "fasting_glucose",
+      "canonical_quantity": "Difference in randomized treatment effects across two prespecified baseline strata; not individual treatment effects",
+      "unit": "mmol/L",
+      "compartment": "plasma",
+      "population": "Task-specific declared cohort, assignment or external-cohort frame required",
+      "time_and_operator": "Inherit base measurement operator; additionally require exact person/time/assignment linkage",
+      "estimand": "Difference in randomized treatment effects across two prespecified baseline strata; not individual treatment effects",
+      "question_family": "heterogeneity",
+      "domain_views": [
+        "clinical_chemistry"
+      ],
+      "resolution": {
+        "standard_error_limit": 0.25,
+        "authority": "candidate governance convention, not biological calibration",
+        "rationale": "Stricter population contrasts or paired changes; native-scale policy with half/twice sensitivity"
+      },
+      "source_ids": [
+        "UKB_FIELD_30740"
+      ],
+      "source_support": "Base measurement support only; design-specific linkage and identifying assumptions not inferred",
+      "operator_admission": "Full joint design including covariance, selection, assignment and independent units; no reuse as independent evidence of base task",
+      "aliases": [
+        "glucose response heterogeneity"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "sleep_drug_effect",
+      "base_quantity_id": "sleep_duration",
+      "canonical_quantity": "Within-person drug-versus-placebo contrast; assignment/order/washout independently verified",
+      "unit": "minutes",
+      "compartment": "whole_person",
+      "population": "Task-specific declared cohort, assignment or external-cohort frame required",
+      "time_and_operator": "Inherit base measurement operator; additionally require exact person/time/assignment linkage",
+      "estimand": "Within-person drug-versus-placebo contrast; assignment/order/washout independently verified",
+      "question_family": "controlled_effect",
+      "domain_views": [
+        "digital"
+      ],
+      "resolution": {
+        "standard_error_limit": 15,
+        "authority": "candidate governance convention, not biological calibration",
+        "rationale": "Stricter population contrasts or paired changes; native-scale policy with half/twice sensitivity"
+      },
+      "source_ids": [
+        "SLEEP_EDF"
+      ],
+      "source_support": "Base measurement support only; design-specific linkage and identifying assumptions not inferred",
+      "operator_admission": "Full joint design including covariance, selection, assignment and independent units; no reuse as independent evidence of base task",
+      "aliases": [
+        "sleep drug effect"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "p3b_retest",
+      "base_quantity_id": "p3b",
+      "canonical_quantity": "Within-person difference between two real sessions7days apart; not split trials",
+      "unit": "uV",
+      "compartment": "scalp_Pz",
+      "population": "Task-specific declared cohort, assignment or external-cohort frame required",
+      "time_and_operator": "Inherit base measurement operator; additionally require exact person/time/assignment linkage",
+      "estimand": "Within-person difference between two real sessions7days apart; not split trials",
+      "question_family": "longitudinal_change",
+      "domain_views": [
+        "neural_observation"
+      ],
+      "resolution": {
+        "standard_error_limit": 1,
+        "authority": "candidate governance convention, not biological calibration",
+        "rationale": "Stricter population contrasts or paired changes; native-scale policy with half/twice sensitivity"
+      },
+      "source_ids": [
+        "ERP_CORE"
+      ],
+      "source_support": "Base measurement support only; design-specific linkage and identifying assumptions not inferred",
+      "operator_admission": "Full joint design including covariance, selection, assignment and independent units; no reuse as independent evidence of base task",
+      "aliases": [
+        "p3b retest"
+      ],
+      "task_ready": false
+    },
+    {
+      "id": "albumin_transfer_gap",
+      "base_quantity_id": "albumin",
+      "canonical_quantity": "Difference of signed reconstruction error means between frozen source and external target cohorts under same frozen model; not biological treatment effect",
+      "unit": "g/L",
+      "compartment": "serum",
+      "population": "Task-specific declared cohort, assignment or external-cohort frame required",
+      "time_and_operator": "Inherit base measurement operator; additionally require exact person/time/assignment linkage",
+      "estimand": "Difference of signed reconstruction error means between frozen source and external target cohorts under same frozen model; not biological treatment effect",
+      "question_family": "transfer",
+      "domain_views": [
+        "clinical_chemistry"
+      ],
+      "resolution": {
+        "standard_error_limit": 0.5,
+        "authority": "candidate governance convention, not biological calibration",
+        "rationale": "Stricter population contrasts or paired changes; native-scale policy with half/twice sensitivity"
+      },
+      "source_ids": [
+        "NHANES-BIOPRO"
+      ],
+      "source_support": "Base measurement support only; design-specific linkage and identifying assumptions not inferred",
+      "operator_admission": "Full joint design including covariance, selection, assignment and independent units; no reuse as independent evidence of base task",
+      "aliases": [
+        "albumin transfer gap"
+      ],
+      "task_ready": false
+    }
+  ],
+  "source_ledger": [
+    {
+      "id": "PMC6666404",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6666404/",
+      "sha256": "710919f3ff5fd4cfb1dc8bab4a76234fdc85fddd20586a5bcb005e06cf5f1a9e",
+      "file": "public-seed/PMC6666404.json"
+    },
+    {
+      "id": "PMC12341816",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12341816/",
+      "sha256": "a2ce8d6646637658363e4efae30a22c8c05bb9fd3dff648d87f3ee513b7f3c08",
+      "file": "public-seed/PMC12341816.json"
+    },
+    {
+      "id": "PMC4380465",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4380465/",
+      "sha256": "1a72d655696c959ee5a5f76ed8099c714fba24c32da09ab669bfd9e4bf076612",
+      "file": "public-seed/PMC4380465.json"
+    },
+    {
+      "id": "PMC10567551",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10567551/",
+      "sha256": "dbf50d8d006d4c26d702856890cc0a408954e2a6b873d721d5bc6ebe607e0fe9",
+      "file": "public-seed/PMC10567551.json"
+    },
+    {
+      "id": "PMC12443626",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12443626/",
+      "sha256": "72b874b6e0ab0636e360298d0850dd9189c2922e34915e99e29d82caae08bb42",
+      "file": "public-seed/PMC12443626.json"
+    },
+    {
+      "id": "PMC7250878",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7250878/",
+      "sha256": "28653c29252d05752660540fa1d0e487e07f45a734df137a76899ec31b27b254",
+      "file": "public-seed/PMC7250878.json"
+    },
+    {
+      "id": "UKB_FIELD_30600",
+      "url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=30600",
+      "sha256": "a0e6a6f7a58ad2f2f5708f13ffec25be4c52e53bedb3e8b6aa349387cad4ad24",
+      "file": "public-seed/UKB_FIELD_30600.html"
+    },
+    {
+      "id": "UKB_FIELD_30740",
+      "url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=30740",
+      "sha256": "220bbf11a4fa5c39f692acef3b5b5eceeaa8c2dc12532432bd9fe1f1c6959236",
+      "file": "public-seed/UKB_FIELD_30740.html"
+    },
+    {
+      "id": "UKB_FIELD_46",
+      "url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=46",
+      "sha256": "faa29697e66a629a06c1147a8e346d43ad1a6ab91141feced41ca63661465541",
+      "file": "public-seed/UKB_FIELD_46.html"
+    },
+    {
+      "id": "UKB_FIELD_90012",
+      "url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=90012",
+      "sha256": "c4cca1a6464845adef676ece41a3926ab79fc5ae8d267313d4520876d87c1d5a",
+      "file": "public-seed/UKB_FIELD_90012.html"
+    },
+    {
+      "id": "UKB_FIELD_20023",
+      "url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=20023",
+      "sha256": "21362c7b707714f6d649a0a9fbd972e8e8ccaa866c51d9d26e5a1df2692bbb2a",
+      "file": "public-seed/UKB_FIELD_20023.html"
+    },
+    {
+      "id": "HPP_NATURE",
+      "url": "https://www.nature.com/articles/s41591-025-03790-9",
+      "sha256": "a91d15ab53ff3c680bc651092c3695054fe194b50d2586af9527a051a0b1b8c8",
+      "file": "public-seed/HPP_NATURE.html"
+    },
+    {
+      "id": "HPP_CATALOG",
+      "url": "https://data-browser.humanphenotypeproject.org/",
+      "sha256": "a0f83b2f8a681a29ab1227893274aee038e4b8941fcc8e8461d56cb809a46f1a",
+      "file": "public-seed/HPP_CATALOG.html"
+    },
+    {
+      "id": "TPE_REGISTRY",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT06534450",
+      "sha256": "1dcb427e3f7c5d0138ea0de8d6fc231b37c902f1dd1f3dd8f32c01fc8aaf1a22",
+      "file": "public-seed/TPE_REGISTRY.json"
+    },
+    {
+      "id": "HPP_SLEEP",
+      "url": "https://www.nature.com/articles/s41591-024-03481-x",
+      "sha256": "05d7e4a7411d08c5267aef992ef2c393659cbf896411d23ba47d9e3f287abfe2",
+      "file": "public-seed/HPP_SLEEP.html"
+    },
+    {
+      "id": "ctgov-nct00427193",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT00427193",
+      "sha256": "d6f3d7e7e43745553990fec683d4ce69ecc94e5225e73d101bca8c61d2df36b8",
+      "file": "public-seed-batch2/ctgov-nct00427193.json"
+    },
+    {
+      "id": "pmc10148951",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10148951/",
+      "sha256": "7c73637279d5f788ed7969c6a90dbd5ff3e2cff2e75b3e8cac7b9c8cd3bfa730",
+      "file": "public-seed-batch2/pmc10148951.json"
+    },
+    {
+      "id": "pmc11370476",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11370476/",
+      "sha256": "b0a71913c9cf59406b968bdc3d407764c5a12a7bd943a03251305813ec70e30b",
+      "file": "public-seed-batch2/pmc11370476.json"
+    },
+    {
+      "id": "ctgov-nct03960827",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT03960827",
+      "sha256": "028b3268dda5644fb3d50e2a8cdc1d9b57e4943c5b1f86e23f5b48e43cd77de7",
+      "file": "public-seed-batch2/ctgov-nct03960827.json"
+    },
+    {
+      "id": "pmc13184684",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13184684/",
+      "sha256": "3346f808b917ffc2cda58eca1a6d74b1b4a3daac370918563f2cccd774099f31",
+      "file": "public-seed-batch2/pmc13184684.json"
+    },
+    {
+      "id": "ctgov-nct03479866",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT03479866",
+      "sha256": "c992c3486b9aca798be0136ca6ad1032bfe59504be5f7a48666dcb620927439e",
+      "file": "public-seed-batch2/ctgov-nct03479866.json"
+    },
+    {
+      "id": "pmc8265154",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8265154/",
+      "sha256": "db59483efc24be0c34df9cd9d6e2189f2c84051a98fba16d25faf64e8c911a44",
+      "file": "public-seed-batch2/pmc8265154.json"
+    },
+    {
+      "id": "ctgov-nct01072500",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT01072500",
+      "sha256": "0d3c5633a296b8bd8a1aa6b15d82846d86051a4d1aa9d72eb3968ef9a35b6ec5",
+      "file": "public-seed-batch2/ctgov-nct01072500.json"
+    },
+    {
+      "id": "pmc4266388",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4266388/",
+      "sha256": "8b9e52a1863de7c495dbdba71c86e92c32a21080291ff477c21fbb7cb44cad47",
+      "file": "public-seed-batch2/pmc4266388.json"
+    },
+    {
+      "id": "ctgov-nct01038583",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT01038583",
+      "sha256": "8d9b2c75a8df40d56cd6dd1dd9c87001ced9db908ac4734a262daccd2918e310",
+      "file": "public-seed-batch2/ctgov-nct01038583.json"
+    },
+    {
+      "id": "pmc6426126",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6426126/",
+      "sha256": "da9724a6b420234493c81edad40b9a086267765d64ccb792f7db645cabcdd207",
+      "file": "public-seed-batch2/pmc6426126.json"
+    },
+    {
+      "id": "ctgov-nct01745263",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT01745263",
+      "sha256": "64b227d8dc9f644a302e69061ad6fa72471dc69000b4c0d6ece0e68678040c0b",
+      "file": "public-seed-batch2/ctgov-nct01745263.json"
+    },
+    {
+      "id": "ctgov-nct04488601",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT04488601",
+      "sha256": "2d427e33c3ecf58cc32a124bd0d7685eb47f83264def8e79ccef41254f9938d0",
+      "file": "public-seed-batch2/ctgov-nct04488601.json"
+    },
+    {
+      "id": "pmc12074816",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12074816/",
+      "sha256": "18697a5ed9b6ebe7b2c59606c14157200f4c978b9d9f06345a567963fae53849",
+      "file": "public-seed-batch2/pmc12074816.json"
+    },
+    {
+      "id": "pmc6826138",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6826138/",
+      "sha256": "c8123080a5d5fab153c28fd07af0d96e144371700bd8d4e39dd6e3df1639f449",
+      "file": "public-seed-batch2/pmc6826138.json"
+    },
+    {
+      "id": "pmc11922767",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11922767/",
+      "sha256": "316332a2acab00fda07a31fb431fac4102c48c47486e70203da2b53a674f3057",
+      "file": "public-seed-batch2/pmc11922767.json"
+    },
+    {
+      "id": "pmc4698980",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4698980/",
+      "sha256": "1056e69a6a5041aff8cb02c13146c31634c8b01300770724a2764e51d6c3f40a",
+      "file": "public-seed-batch2/pmc4698980.json"
+    },
+    {
+      "id": "pmc12479048",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12479048/",
+      "sha256": "3fa9c10b488fba02124a26f55c7df503f96e1e85d26b6fc2f1807c13cfc5bce2",
+      "file": "public-seed-batch2/pmc12479048.json"
+    },
+    {
+      "id": "pmc9927855",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9927855/",
+      "sha256": "b9a422344acd4867f07bee5406824f8cd02e735f93ad7f86aac026fc3714f31d",
+      "file": "public-seed-batch2/pmc9927855.json"
+    },
+    {
+      "id": "pmc12180030",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12180030/",
+      "sha256": "0c0166705371013da862acee051e13d4e60b1cfa5bbc685f6f7879402523fa00",
+      "file": "public-seed-batch2/pmc12180030.json"
+    }
+  ],
+  "scope": "32 observed quantities plus8 distinct scientific functionals; finite research portfolio, not a complete description of biology",
+  "score_policy": {
+    "denominator": "Only a ratified immutable profile fixes unique task IDs and weights; this catalogue is not a40-vote score",
+    "views": "Question families and biological domains are alternate partitions/overlapping labels, never added together",
+    "hierarchy": "Proposed AB1 current-state+population+longitudinal portfolio; AB2 inherits all AB1 with no weaker limits and adds controlled effects/heterogeneity/transfer; final profile must identify exact subset and weights",
+    "neural": "Direct neural observation can satisfy observational neural tasks; intervention required only for named neural-causal target; TMS is not universal gate",
+    "unknown": "Unqualified operator/noise/linkage stays unknown, known absent required role fails; never0variance",
+    "aliases": "Alias/unit conversion binds canonical target; distinct assay platform requires bridge, not extra target weight",
+    "genomics": "Germline variants are immutable modifier/linkage context; not mutable response targets"
+  },
+  "not_covered": [
+    "development/pediatrics",
+    "all tissue/cell states",
+    "absolute microbial load",
+    "full proteome/metabolome",
+    "spatial cellular interactions",
+    "whole-brain causal connectivity",
+    "rare events and multiyear outcomes"
+  ]
+}

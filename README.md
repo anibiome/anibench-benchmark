@@ -1,5 +1,12 @@
 # AniBench
 
+The current development candidate adds a [local workbench](docs/LOCAL_WORKBENCH.md)
+with a five-domain conditional design explorer, source-qualified precision
+comparisons, and reproducible chart exports. Start it with `anibench workbench`.
+Its hypothetical reference and single-task source comparisons are research
+tools; broad real-study capability coverage and final release acceptance remain
+unfinished. Earlier public release receipts do not establish their completion.
+
 AniBench is an open benchmark and trial-design instrument for one question:
 
 > If this human study were the biological record available to a future

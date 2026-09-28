@@ -21,6 +21,15 @@ def _parser() -> argparse.ArgumentParser:
     studio.add_argument("--port", type=int, default=8765)
     studio.add_argument("--unsafe-nonloopback", action="store_true")
 
+    workbench = sub.add_parser("workbench", help="Open local comparisons and the reference design planner")
+    workbench.add_argument("--port", type=int, default=8795)
+    workbench.add_argument("--ttl", type=int, default=1800,
+                           help="Automatic stop after 1–3600 seconds")
+
+    plan = sub.add_parser("plan", help="Evaluate before/after designs against the conditional reference")
+    plan.add_argument("input", type=Path)
+    plan.add_argument("--out", type=Path, required=True)
+
     evaluation = sub.add_parser(
         "eval", help="Run the canonical six-task AniBench trial evaluation"
     )
@@ -223,6 +232,22 @@ def _protect_collection_inputs(inputs: list[Path], outputs: list[Path]) -> None:
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     try:
+        if args.command == "workbench":
+            from .workbench import serve_workbench
+
+            serve_workbench(args.port, args.ttl)
+            return 0
+        if args.command == "plan":
+            from .reference_planner import evaluate_plan
+
+            _protect_collection_inputs([args.input], [args.out])
+            result = evaluate_plan(_load_object(args.input, label="reference design"))
+            args.out.parent.mkdir(parents=True, exist_ok=True)
+            with args.out.open("x", encoding="utf-8") as handle:
+                json.dump(result, handle, indent=2, sort_keys=True, allow_nan=False)
+                handle.write("\n")
+            print(json.dumps({"written": str(args.out), "contract": result["contract"]}))
+            return 0
         if args.command == "studio":
             from .studio import serve_studio
 
