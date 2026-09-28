@@ -187,3 +187,236 @@ def test_fine_keeps_targets_and_tightens_resolution():
         np.testing.assert_allclose(np.array(left["variance_limits"]) / 4, right["variance_limits"])
     for left, right in zip(standard["randomized_window_rules"], fine["randomized_window_rules"]):
         assert right["criterion_se_reference_scale"] == left["criterion_se_reference_scale"] / 2
+
+
+def scalar_roster():
+    panel = copy.deepcopy(next(p for p in c.registry()["panels"] if p["id"] == "blood_proteins"))
+    panel["coordinates"] = [a for a in panel["coordinates"] if a["id"] == "albumin"]
+    design = example()
+    design["cohort_n"] = 200
+    design["gates"].update(sampling_frame=True, measurement_semantics=True)
+    supplied = {
+        "status": "present",
+        "operator_qualified": True,
+        "time_frame": {"unit": "days", "origin": "registered_baseline", "source_qualified": True},
+        "coordinate_status": {"albumin": "present"},
+        "groups": [],
+    }
+    group = {
+        "group_id": "observed",
+        "n": 2,
+        "site": None,
+        "arm": None,
+        "modifier": None,
+        "timing_qualified": True,
+        "events": [
+            {"physical_id": "reading", "coordinate": "albumin", "time": 0, "session_id": "occasion"}
+        ],
+    }
+    supplied["groups"] = [group]
+    design["panels"] = {panel["id"]: supplied}
+    return panel, design, supplied, group
+
+
+def test_omitted_native_state_is_unknown_but_documented_empty_is_not():
+    panel, design, supplied, group = scalar_roster()
+    omitted = linked_workload.native_state_component(
+        panel, supplied, None, [True], design, "reference", 0.25, 1
+    )
+    assert (omitted["lower"], omitted["upper"]) == (0, 1)
+    empty = {**group, "events": []}
+    confirmed = linked_workload.native_state_component(
+        panel, supplied, empty, [True], design, "reference", 0.25, 1
+    )
+    assert (confirmed["lower"], confirmed["upper"]) == (0, 0)
+    known = linked_workload.native_state_component(
+        panel, supplied, group, [True], design, "reference", 0.25, 1
+    )
+    assert (known["lower"], known["upper"]) == (1, 1)
+    assert known["joint_worst_variance_ratio"] == pytest.approx(0.25 / 0.75**2)
+
+
+@pytest.mark.parametrize("failure", ["common", "coordinate", "clock"])
+def test_omitted_state_preserves_known_failures(failure):
+    panel, design, supplied, _ = scalar_roster()
+    common = [False] if failure == "common" else [True]
+    if failure == "coordinate":
+        supplied["coordinate_status"]["albumin"] = "absent"
+    if failure == "clock":
+        supplied["time_frame"]["source_qualified"] = False
+    result = linked_workload.native_state_component(
+        panel, supplied, None, common, design, "reference", 0.25, 1
+    )
+    assert (result["lower"], result["upper"]) == (0, 0)
+
+
+def test_population_omitted_roster_has_finite_noiseless_outer_bound():
+    panel, design, supplied, group = scalar_roster()
+    observed = c.population_information(panel, [group], 0.25)
+    # For two independent people: Var(sample variance) = 2*(4+q)^2/(n-1).
+    assert 1 / observed[0, 0] == pytest.approx(36.125)
+    bound = linked_workload.aggregate_upper_bound(
+        panel, "population_variation", supplied, design, 1, "reference"
+    )
+    assert bound["upper_percent"] == 100
+    comp = bound["bound_components"][0]
+    assert comp["joint_worst_variance_ratio"] == pytest.approx((32 / 199) / 0.25)
+    # Filling the roster with a documented empty pattern does not add acquisitions.
+    supplied["groups"].append({**group, "group_id": "empty", "n": 198, "events": []})
+    explicit = linked_workload.aggregate_upper_bound(
+        panel, "population_variation", supplied, design, 1, "reference"
+    )
+    assert explicit["upper_percent"] == 0
+    assert explicit["bound_components"][0]["joint_worst_variance_ratio"] == pytest.approx(128)
+
+
+@pytest.mark.parametrize("n", [1, 2, 129, 130])
+def test_population_unknown_support_cannot_escape_independent_person_floor(n):
+    panel, design, supplied, _ = scalar_roster()
+    design["cohort_n"] = n
+    supplied["groups"] = []
+    result = linked_workload.aggregate_upper_bound(
+        panel, "population_variation", supplied, design, 1, "reference"
+    )
+    assert result["upper_percent"] == (100 if n >= 129 else 0)
+    if n > 1:
+        assert result["bound_components"][0]["joint_worst_variance_ratio"] == pytest.approx(
+            (32 / (n - 1)) / 0.25
+        )
+
+
+@pytest.mark.parametrize("failure", ["operator", "sampling", "collection", "clock", "coordinate"])
+def test_population_unknown_support_retains_false_gates(failure):
+    panel, design, supplied, _ = scalar_roster()
+    supplied["groups"] = []
+    if failure == "operator":
+        supplied["operator_qualified"] = False
+    elif failure == "sampling":
+        design["gates"]["sampling_frame"] = False
+    elif failure == "collection":
+        design["lifecycle"] = "collected"
+        design["gates"]["collection_verified"] = False
+    elif failure == "clock":
+        supplied["time_frame"]["source_qualified"] = False
+    else:
+        supplied["coordinate_status"]["albumin"] = "absent"
+    result = linked_workload.aggregate_upper_bound(
+        panel, "population_variation", supplied, design, 1, "reference"
+    )
+    assert result["upper_percent"] == result["continuous_upper_percent"] == 0
+
+
+def test_population_off_baseline_readings_remain_possible_information():
+    panel, design, supplied, group = scalar_roster()
+    group["n"] = design["cohort_n"]
+    group["events"][0]["time"] = panel["horizon_days"]
+    # Reading = baseline + independent change + noise; its covariance still
+    # informs baseline variance in the declared model. An upper bound cannot
+    # discard it merely because it was acquired after baseline.
+    observed = c.population_information(panel, [group], 0.25)
+    assert 1 / observed[0, 0] == pytest.approx(2 * (4 + 1 + 0.25) ** 2 / 199)
+    ideal = linked_workload.optimistic_population_groups(panel, supplied, design["cohort_n"])
+    assert 1 / c.population_information(panel, ideal, 0)[0, 0] == pytest.approx(32 / 199)
+    group["timing_qualified"] = False
+    excluded = linked_workload.optimistic_population_groups(panel, supplied, design["cohort_n"])
+    assert c.population_information(panel, excluded, 0)[0, 0] == 0
+
+
+def test_global_failed_clock_is_not_overridden_but_opaque_occasion_is_separate():
+    panel, design, supplied, group = scalar_roster()
+    supplied["time_frame"]["source_qualified"] = False
+    assert group["timing_qualified"] is True
+    state = linked_workload.native_state_component(
+        panel, supplied, group, [True], design, "reference", 0.25, 1
+    )
+    assert (state["lower"], state["upper"]) == (0, 0)
+    population = linked_workload.aggregate_upper_bound(
+        panel, "population_variation", supplied, design, 1, "reference"
+    )
+    assert population["upper_percent"] == 0
+    # A qualified source-selected occasion establishes native state without
+    # asserting a valid calendar anchor for population/longitudinal tasks.
+    group["state_occasion"] = {"occasion_id": "recorded", "source_qualified": True}
+    group["events"][0]["occasion_id"] = "recorded"
+    group["events"][0]["time"] = None
+    opaque = linked_workload.native_state_component(
+        panel, supplied, group, [True], design, "reference", 0.25, 1
+    )
+    assert (opaque["lower"], opaque["upper"]) == (1, 1)
+
+
+def test_unknown_clock_does_not_invent_acquisitions_in_a_documented_pattern():
+    panel, design, supplied, group = scalar_roster()
+    group.update(n=200, timing_qualified=None, events=[])
+    empty = linked_workload.native_state_component(
+        panel, supplied, group, [True], design, "reference", 0.25, 1
+    )
+    assert (empty["lower"], empty["upper"]) == (0, 0)
+    bound = linked_workload.aggregate_upper_bound(
+        panel, "population_variation", supplied, design, 1, "reference"
+    )
+    assert bound["upper_percent"] == 0
+    group["events"] = [
+        {"coordinate": "albumin", "time": None, "physical_id": "known-reading", "session_id": "one"}
+    ]
+    acquired = linked_workload.native_state_component(
+        panel, supplied, group, [True], design, "reference", 0.25, 1
+    )
+    assert (acquired["lower"], acquired["upper"]) == (0, 1)
+    bound = linked_workload.aggregate_upper_bound(
+        panel, "population_variation", supplied, design, 1, "reference"
+    )
+    assert bound["upper_percent"] == 100
+    group["events"] = []
+    supplied["coordinate_status"]["albumin"] = "unknown"
+    unresolved = linked_workload.native_state_component(
+        panel, supplied, group, [True], design, "reference", 0.25, 1
+    )
+    assert (unresolved["lower"], unresolved["upper"]) == (0, 1)
+
+
+def test_population_optimism_retains_partial_coordinate_support():
+    panel, design, supplied, group = scalar_roster()
+    second = {**panel["coordinates"][0], "id": "unacquired"}
+    panel["coordinates"].append(second)
+    supplied["coordinate_status"][second["id"]] = "present"
+    group.update(n=200, timing_qualified=None)
+    ideal = linked_workload.optimistic_population_groups(panel, supplied, design["cohort_n"])
+    assert [{e["coordinate"] for e in g["events"]} for g in ideal] == [{"albumin"}]
+    assert sum(g["n"] for g in ideal) == 200
+    # The unacquired second coordinate and its covariance cannot become identified.
+    information = c.population_information(panel, ideal, 0)
+    np.testing.assert_allclose(information, np.diag([199 / 32, 0, 0]), atol=1e-12)
+
+
+def test_omitted_roster_reaches_native_population_bound_in_linked_evaluation(monkeypatch):
+    manifest = copy.deepcopy(c.registry())
+    panel, design, supplied, group = scalar_roster()
+    second = copy.deepcopy(panel["coordinates"][0])
+    second["id"] = "second_synthetic_quantity"
+    panel["coordinates"].append(second)
+    supplied["coordinate_status"][second["id"]] = "present"
+    group["events"].append(
+        {**group["events"][0], "physical_id": "second", "coordinate": second["id"]}
+    )
+    manifest["panels"] = [panel]
+    monkeypatch.setattr(c, "registry", lambda: copy.deepcopy(manifest))
+    monkeypatch.setattr(c, "SCENARIOS", {"reference": 0.25})
+    relations = [
+        [
+            "synthetic_pair",
+            [panel["id"], "albumin"],
+            [panel["id"], second["id"]],
+            "Synthetic paired quantities",
+        ]
+    ]
+    result, _ = linked_workload.evaluate(design, relations=relations)
+    rows = {r["family"]: r for r in result["scenarios"][0]["rows"]}
+    state = rows["individual_state"]
+    assert state["lower_percent"] == 1  # Two acquired of the full 200-person cohort.
+    assert state["upper_percent"] == 100
+    assert sum(p["n"] for p in state["parts"]) == design["cohort_n"]
+    population = rows["population_variation"]
+    assert population["lower_percent"] == 0
+    assert population["upper_percent"] == 100
+    assert "upper_canonical_receipt_sha256" in population["parts"][0]

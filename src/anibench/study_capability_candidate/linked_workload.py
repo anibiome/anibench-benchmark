@@ -241,7 +241,12 @@ def selected_occasion(panel, group, target):
         mode = "source_selected_occasion_without_calendar_imputation"
     else:
         frame = panel.get("time_frame", {})
-        qualified = strict_tri(group.get("timing_qualified", frame.get("source_qualified")))
+        qualified = c.tri(
+            [
+                strict_tri(frame.get("source_qualified")),
+                strict_tri(group.get("timing_qualified", frame.get("source_qualified"))),
+            ]
+        )
         events = [e for e in group["events"] if e["coordinate"] == target and e.get("time") == 0]
         mode = "qualified_registered_baseline"
         if any(e["coordinate"] == target and e.get("time") is None for e in group["events"]):
@@ -586,6 +591,67 @@ def relation_budgets(relations, manifest):
     }
 
 
+def optimistic_population_groups(panel, supplied, cohort_n):
+    """Relax precision, never turn a known empty baseline into an acquisition.
+
+    Only possibly acquired coordinates receive noiseless baseline measurements.
+    Documented people retain their count; an omitted roster has unknown support.
+    A shared nuisance mean is an optimistic relaxation, not acquired information.
+    In this model, off-baseline readings add independent trajectory variation to
+    the baseline state. Observing that state directly is an optimistic channel.
+    """
+    groups = []
+    source_groups = [(g, False) for g in supplied.get("groups", [])]
+    missing = cohort_n - sum(g["n"] for g, _ in source_groups)
+    if missing < 0:
+        raise ValueError("Documented groups exceed the full cohort")
+    if missing:
+        source_groups.append(
+            (
+                {
+                    "group_id": "upper-omitted",
+                    "n": missing,
+                    "events": [],
+                    "timing_qualified": c.tri(
+                        [strict_tri(supplied.get("time_frame", {}).get("source_qualified")), None]
+                    ),
+                },
+                True,
+            )
+        )
+    for source, omitted in source_groups:
+        frame_qualified = supplied.get("time_frame", {}).get("source_qualified")
+        timing = c.tri(
+            [
+                strict_tri(frame_qualified),
+                strict_tri(source.get("timing_qualified", frame_qualified)),
+            ]
+        )
+        possible = []
+        for coordinate in panel["coordinates"]:
+            native = coordinate["id"]
+            status = supplied.get("coordinate_status", {}).get(native, "unknown")
+            if status == "absent" or timing is False:
+                continue
+            events = [e for e in source["events"] if e["coordinate"] == native]
+            if status == "unknown" or omitted or events:
+                possible.append(native)
+        groups.append(
+            {
+                "group_id": source["group_id"],
+                "n": source["n"],
+                "site": None,
+                "arm": None,
+                "modifier": None,
+                "events": [
+                    {"physical_id": native, "coordinate": native, "time": 0, "session_id": native}
+                    for native in possible
+                ],
+            }
+        )
+    return groups
+
+
 def aggregate_upper_bound(panel, family, supplied, design, factor, scenario_id):
     from .multiscale import MODEL, TIMES, effect_information
 
@@ -632,36 +698,8 @@ def aggregate_upper_bound(panel, family, supplied, design, factor, scenario_id):
         for a in panel["coordinates"]
     }
     if family == "population_variation":
-        eligible_n = design["cohort_n"] - sum(
-            g["n"]
-            for g in supplied.get("groups", [])
-            if strict_tri(
-                g.get(
-                    "timing_qualified",
-                    supplied.get("time_frame", {}).get("source_qualified"),
-                )
-            )
-            is False
-        )
-        if eligible_n < 2:
-            return {"upper_percent": 0.0, "continuous_upper_percent": 0.0}
-        ideal = {
-            "group_id": "upper-only",
-            "n": eligible_n,
-            "site": None,
-            "arm": None,
-            "modifier": None,
-            "events": [
-                {
-                    "physical_id": a["id"],
-                    "coordinate": a["id"],
-                    "time": 0,
-                    "session_id": a["id"],
-                }
-                for a in panel["coordinates"]
-            ],
-        }
-        J = c.population_information(panel, [ideal], 0.0)
+        groups = optimistic_population_groups(panel, supplied, design["cohort_n"])
+        J = c.population_information(panel, groups, 0.0)
         comp = c.canonical(
             panel, family, J, [True], design, scenario_id, {}, factor, optimistic_status
         )
@@ -741,6 +779,53 @@ def aggregate_upper_bound(panel, family, supplied, design, factor, scenario_id):
         "continuous_upper_percent": 100 * sum(x["continuous_upper"] for x in bounds) / len(bounds),
         "bound_components": bounds,
     }
+
+
+def native_state_component(panel, supplied, group, common, design, scenario, q, factor):
+    """Evaluate a documented occasion or an explicitly unresolved roster remainder."""
+    omitted = group is None
+    if group is None:
+        group = {
+            "events": [],
+            "timing_qualified": c.tri(
+                [strict_tri(supplied.get("time_frame", {}).get("source_qualified")), None]
+            ),
+        }
+    local_status = dict(
+        supplied.get("coordinate_status", {a["id"]: "unknown" for a in panel["coordinates"]})
+    )
+    events = []
+    for coordinate in panel["coordinates"]:
+        native = coordinate["id"]
+        if local_status[native] != "present":
+            continue
+        if not omitted and not any(e["coordinate"] == native for e in group["events"]):
+            local_status[native] = "absent"
+            continue
+        selected, valid, _mode = selected_occasion(supplied, group, native)
+        if valid is not True:
+            local_status[native] = "absent" if valid is False else "unknown"
+        else:
+            events += [{**e, "time": 0} for e in selected]
+    H, R, _, _ = c.event_model(panel, {**group, "events": events}, q)
+    task, L, limits = c.definition(panel, "individual_state", factor)
+    task["task_version"] = "source-selected-occasion-v1"
+    task["horizon"] = "Qualified acquired occasion, not an imputed calendar date"
+    task["estimand"] = (
+        "Per-person registered native quantities at their explicitly selected acquisition occasion; linked cross-panel simultaneous state is a separate source-qualified relation task."
+    )
+    return c.canonical(
+        panel,
+        "individual_state",
+        c.fisher(H, R),
+        common,
+        design,
+        scenario,
+        {},
+        factor,
+        local_status,
+        (task, L, limits),
+    )
 
 
 def evaluate(design, factor=1.0, relations=None, scenario_registry=None):
@@ -828,45 +913,8 @@ def evaluate(design, factor=1.0, relations=None, scenario_registry=None):
                 # can support native state without pretending its calendar date is0.
                 for part in row["parts"]:
                     group = groups.get(part.get("group_id"))
-                    if group is None:
-                        group = {
-                            "group_id": part["group_id"],
-                            "n": part["n"],
-                            "site": None,
-                            "arm": None,
-                            "modifier": None,
-                            "timing_qualified": True,
-                            "events": [],
-                        }
-                    events = []
-                    local_status = dict(status)
-                    for a in panel["coordinates"]:
-                        if local_status[a["id"]] != "present":
-                            continue
-                        selected, valid, _mode = selected_occasion(supplied, group, a["id"])
-                        if valid is not True:
-                            local_status[a["id"]] = "absent" if valid is False else "unknown"
-                        else:
-                            events += [{**e, "time": 0} for e in selected]
-                    gg = {**group, "events": events}
-                    H, R, _, _ = c.event_model(panel, gg, q)
-                    task, L, limits = c.definition(panel, "individual_state", factor)
-                    task["task_version"] = "source-selected-occasion-v1"
-                    task["horizon"] = "Qualified acquired occasion, not an imputed calendar date"
-                    task["estimand"] = (
-                        "Per-person registered native quantities at their explicitly selected acquisition occasion; linked cross-panel simultaneous state is a separate source-qualified relation task."
-                    )
-                    comp = c.canonical(
-                        panel,
-                        "individual_state",
-                        c.fisher(H, R),
-                        common,
-                        design,
-                        scenario["scenario_id"],
-                        {},
-                        factor,
-                        local_status,
-                        (task, L, limits),
+                    comp = native_state_component(
+                        panel, supplied, group, common, design, scenario["scenario_id"], q, factor
                     )
                     extra.append(comp)
                     part.update(
@@ -933,7 +981,10 @@ def evaluate(design, factor=1.0, relations=None, scenario_registry=None):
                         )
                 for key in scores:
                     row[key] = sum(h[key] * h["temporal_weight"] for h in row["parts"])
-            elif any(uncertain.get((panel["id"], g)) for g in groups):
+            elif any(uncertain.get((panel["id"], g)) for g in groups) or (
+                row["family"] == "population_variation"
+                and sum(g["n"] for g in groups.values()) < design["cohort_n"]
+            ):
                 bound = aggregate_upper_bound(
                     panel,
                     row["family"],
@@ -958,7 +1009,7 @@ def evaluate(design, factor=1.0, relations=None, scenario_registry=None):
                     row["continuous_lower_percent"], bound["continuous_upper_percent"]
                 )
                 row["uncertainty"] = (
-                    "Unresolved-time acquisitions retain a conservative noiseless-acquisition outer bound with known failed family gates and finite roster retained; not an acquired precision or attainability certificate."
+                    "Unresolved acquisitions or timing retain a conservative noiseless-acquisition outer bound with known failed family gates and finite roster retained; not an acquired precision or attainability certificate."
                 )
         relational = [evaluate_relation(design, r, q, factor) for r in relations]
         for relation in relational:

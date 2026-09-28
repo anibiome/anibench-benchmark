@@ -511,9 +511,7 @@ def draw(data, out):
         fontsize=10,
     )
     reference_context = (
-        data["basis"]["catalogue_profile"]
-        + " / "
-        + data["basis"]["resolution"]
+        data["basis"]["profile_id"]
         + " / "
         + data["scenario"]
         + " (q="

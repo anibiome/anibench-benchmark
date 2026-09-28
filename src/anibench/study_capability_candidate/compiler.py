@@ -702,7 +702,8 @@ def evaluate(design, resolution_factor=1.0, model_variant="coherent_absolute_v1"
                             }
                         )
                     missing = design["cohort_n"] - sum(g["n"] for g in groups)
-                    # present group list is exhaustive by linkage gate; no undeclared observations assumed.
+                    # Disjoint documented groups need not exhaust the cohort.
+                    # The remainder has unknown acquisitions, not a qualified empty record.
                     if missing:
                         task, _, _ = definition(panel, family, resolution_factor)
                         zero = np.zeros((len(task["parameter_units"]),) * 2)
@@ -710,7 +711,7 @@ def evaluate(design, resolution_factor=1.0, model_variant="coherent_absolute_v1"
                             panel,
                             family,
                             zero,
-                            common,
+                            common + [None],
                             design,
                             scenario,
                             cache,
