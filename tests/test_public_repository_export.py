@@ -162,7 +162,8 @@ def test_public_export_is_allowlisted_scanned_and_one_root_commit(tmp_path: Path
 
     # The scanner remains replayable after Git initialization; Git objects are
     # ignored because the one-root history is audited separately.
-    assert inspect_public_repository(output)["passed"] is True
+    scanned = inspect_public_repository(output)
+    assert scanned["passed"] is True, scanned["findings"]
     history_report = inspect_public_git_history(output)
     assert history_report["passed"] is True, history_report["findings"]
     assert history_report["root_commit_count"] == 1

@@ -1,12 +1,13 @@
 # SPDX-FileCopyrightText: 2026 AniBench contributors
 # SPDX-License-Identifier: Apache-2.0
-import copy
 import contextlib
+import copy
 import io
 import json
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
+
 from anibench.source_bindings_v1 import BindingError, bind_design, derive, digest, pointer
 
 
