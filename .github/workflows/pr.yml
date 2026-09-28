@@ -14,6 +14,7 @@ concurrency:
 
 jobs:
   python:
+    timeout-minutes: 30
     name: Python ${{ matrix.python-version }}
     strategy:
       fail-fast: false
@@ -51,6 +52,7 @@ jobs:
           --out /tmp/anibench-optimizer-result.json --pretty
 
   web:
+    timeout-minutes: 10
     name: Studio JavaScript
     runs-on: ubuntu-latest
     steps:
@@ -63,6 +65,7 @@ jobs:
       - run: node --test web/compare.test.js web/v2.test.js web/explore.test.js web/benchmark.test.js web/release-charts.test.js web/collection-viewer.test.js web/broad-reference.test.js web/registry-architecture.test.js
 
   public-boundary:
+    timeout-minutes: 30
     name: Fresh-history public export
     runs-on: ubuntu-latest
     env:

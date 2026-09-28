@@ -417,7 +417,12 @@ def _structured_source_findings(root: Path) -> list[dict[str, str]]:
     return findings
 
 
-def inspect_public_repository(root: Path) -> dict[str, Any]:
+def inspect_public_repository(
+    root: Path,
+    *,
+    reviewed_allowlist: tuple[str, ...] | None = None,
+    require_complete: bool = True,
+) -> dict[str, Any]:
     root = root.resolve()
     boundary = _public_boundary_violations(root)
     all_relative = {path.relative_to(root).as_posix() for path in _files(root)}
@@ -438,15 +443,16 @@ def inspect_public_repository(root: Path) -> dict[str, Any]:
     findings.extend({"path": finding.path, "rule_id": finding.rule_id} for finding in scan.findings)
     findings.extend(structured)
     expected = {
-        *_load_public_allowlist(root),
+        *(reviewed_allowlist if reviewed_allowlist is not None else _load_public_allowlist(root)),
         "data/source_projections/v2/SOURCE_COORDINATE_TABLE.csv",
         PUBLIC_EXPORT_RECEIPT,
     }
     actual = audited
     for path in sorted(actual - expected):
         findings.append({"path": path, "rule_id": "unallowlisted_public_member"})
-    for path in sorted(expected - actual - {PUBLIC_EXPORT_RECEIPT}):
-        findings.append({"path": path, "rule_id": "required_public_member_missing"})
+    if require_complete:
+        for path in sorted(expected - actual - {PUBLIC_EXPORT_RECEIPT}):
+            findings.append({"path": path, "rule_id": "required_public_member_missing"})
     return {
         "contract": "anibench.public-repository-scan.v1",
         "files_scanned": scan.files_scanned,
@@ -564,9 +570,13 @@ def inspect_public_git_history(repo: Path) -> dict[str, Any]:
     """Replay the public boundary against every tree reachable from every ref."""
 
     repo = repo.resolve()
-    commits = tuple(line for line in _git(repo, "rev-list", "--all").splitlines() if line)
+    authority_commit = _git(repo, "rev-parse", "HEAD")
+    authority_body = _git_blob(repo, authority_commit, PUBLIC_ALLOWLIST_PATH)
+    reviewed_allowlist = _parse_public_allowlist(authority_body.decode("utf-8"))
+    commits = tuple(line for line in _git(repo, "rev-list", "--all", "HEAD").splitlines() if line)
     roots = tuple(
-        line for line in _git(repo, "rev-list", "--max-parents=0", "--all").splitlines() if line
+        line for line in _git(repo, "rev-list", "--max-parents=0", "--all", "HEAD").splitlines()
+        if line
     )
     findings: list[dict[str, Any]] = []
     if len(roots) != 1:
@@ -586,7 +596,11 @@ def inspect_public_git_history(repo: Path) -> dict[str, Any]:
             tree.mkdir()
             try:
                 scanned_files += _materialize_commit_tree(repo, commit_sha, tree)
-                report = inspect_public_repository(tree)
+                report = inspect_public_repository(
+                    tree,
+                    reviewed_allowlist=reviewed_allowlist,
+                    require_complete=commit_sha == authority_commit,
+                )
             except Exception as exc:  # noqa: BLE001 -- Any scanner failure blocks publication.
                 findings.append(
                     {
@@ -602,7 +616,12 @@ def inspect_public_git_history(repo: Path) -> dict[str, Any]:
                 shutil.rmtree(tree, ignore_errors=True)
     return {
         "contract": "anibench.public-git-history-scan.v1",
+        "review_authority_commit": authority_commit,
+        "review_authority_allowlist_sha256": hashlib.sha256(authority_body).hexdigest(),
+        "historical_membership_policy": "subset_of_pinned_release_reviewed_paths",
+        "current_head_completeness_required": True,
         "commit_count": len(commits),
+        "scanned_commits": list(commits),
         "root_commit_count": len(roots),
         "reachable_tree_files_scanned": scanned_files,
         "findings": findings,

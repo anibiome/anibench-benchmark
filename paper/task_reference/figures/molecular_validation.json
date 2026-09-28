@@ -1,0 +1,86 @@
+{
+  "source_result_sha256": "1eb4e68d91fe8df5589ac79a6cef769fa9ffe951cc32e0a55c1e759566220f81",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6650278/",
+  "scope": "M04 frozen inverse-estimator validation on two released microbial outputs; no study-quality ranking",
+  "uncertainty": "Person bootstrap, independently resampling/refitting train/calibration/test, percentile95%; observational complete-case scope",
+  "people": {
+    "train": 53,
+    "calibration": 21,
+    "test": 32
+  },
+  "formal_significance_claim": false,
+  "rows": [
+    {
+      "target": "faecalibacterium_prausnitzii_relative_abundance",
+      "display_name": "F. prausnitzii abundance",
+      "unit": "Organismal relative fraction",
+      "method": "Training mean",
+      "rmse": 0.08999725265862138,
+      "bootstrap_95_lower": 0.06274767925766735,
+      "bootstrap_95_upper": 0.12219598652673462,
+      "test_people": 32,
+      "bootstrap_attempts": 1000,
+      "successful_refits": 1000
+    },
+    {
+      "target": "faecalibacterium_prausnitzii_relative_abundance",
+      "display_name": "F. prausnitzii abundance",
+      "unit": "Organismal relative fraction",
+      "method": "Ridge regression",
+      "rmse": 0.08182968946863285,
+      "bootstrap_95_lower": 0.054621616824750835,
+      "bootstrap_95_upper": 0.14831379132741113,
+      "test_people": 32,
+      "bootstrap_attempts": 1000,
+      "successful_refits": 1000
+    },
+    {
+      "target": "faecalibacterium_prausnitzii_relative_abundance",
+      "display_name": "F. prausnitzii abundance",
+      "unit": "Organismal relative fraction",
+      "method": "Inverse estimator",
+      "rmse": 0.3349906958255029,
+      "bootstrap_95_lower": 0.12354005399268714,
+      "bootstrap_95_upper": 0.7658438660198643,
+      "test_people": 32,
+      "bootstrap_attempts": 1000,
+      "successful_refits": 1000
+    },
+    {
+      "target": "acetyl_coa_to_butanoate_II_relative_pathway_abundance",
+      "display_name": "Butanoate pathway abundance",
+      "unit": "Released relative pathway abundance",
+      "method": "Training mean",
+      "rmse": 0.0006586825039959918,
+      "bootstrap_95_lower": 0.00044548825395234593,
+      "bootstrap_95_upper": 0.0008516146802050285,
+      "test_people": 32,
+      "bootstrap_attempts": 1000,
+      "successful_refits": 1000
+    },
+    {
+      "target": "acetyl_coa_to_butanoate_II_relative_pathway_abundance",
+      "display_name": "Butanoate pathway abundance",
+      "unit": "Released relative pathway abundance",
+      "method": "Ridge regression",
+      "rmse": 0.0007926903468347573,
+      "bootstrap_95_lower": 0.0004839089249528209,
+      "bootstrap_95_upper": 0.0012457852335952357,
+      "test_people": 32,
+      "bootstrap_attempts": 1000,
+      "successful_refits": 1000
+    },
+    {
+      "target": "acetyl_coa_to_butanoate_II_relative_pathway_abundance",
+      "display_name": "Butanoate pathway abundance",
+      "unit": "Released relative pathway abundance",
+      "method": "Inverse estimator",
+      "rmse": 0.0035195856209185488,
+      "bootstrap_95_lower": 0.0011037862446777091,
+      "bootstrap_95_upper": 0.005701847994112587,
+      "test_people": 32,
+      "bootstrap_attempts": 1000,
+      "successful_refits": 1000
+    }
+  ]
+}

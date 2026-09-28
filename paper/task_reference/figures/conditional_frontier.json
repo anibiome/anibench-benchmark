@@ -1,0 +1,266 @@
+{
+  "source_result_sha256": "582fe7b0965e32fb21cf7ffcdc7225814d1abbe72d097809249df2736987d72f",
+  "scope": "Hypothetical v0.4 reference; conditional retained-person boundary, not biological calibration",
+  "rows": [
+    {
+      "level": "AB1",
+      "depth": 128,
+      "technical_repeats": 4,
+      "repeat_correlation": 0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1292
+    },
+    {
+      "level": "AB1",
+      "depth": 256,
+      "technical_repeats": 4,
+      "repeat_correlation": 0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1286
+    },
+    {
+      "level": "AB1",
+      "depth": 512,
+      "technical_repeats": 4,
+      "repeat_correlation": 0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1284
+    },
+    {
+      "level": "AB1",
+      "depth": 1024,
+      "technical_repeats": 4,
+      "repeat_correlation": 0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1284
+    },
+    {
+      "level": "AB1",
+      "depth": 2048,
+      "technical_repeats": 4,
+      "repeat_correlation": 0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1282
+    },
+    {
+      "level": "AB1",
+      "depth": 8192,
+      "technical_repeats": 4,
+      "repeat_correlation": 0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1282
+    },
+    {
+      "level": "AB1",
+      "depth": 128,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.2,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1298
+    },
+    {
+      "level": "AB1",
+      "depth": 256,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.2,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1290
+    },
+    {
+      "level": "AB1",
+      "depth": 512,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.2,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1286
+    },
+    {
+      "level": "AB1",
+      "depth": 1024,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.2,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1284
+    },
+    {
+      "level": "AB1",
+      "depth": 2048,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.2,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1282
+    },
+    {
+      "level": "AB1",
+      "depth": 8192,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.2,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1282
+    },
+    {
+      "level": "AB1",
+      "depth": 512,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.8,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1290
+    },
+    {
+      "level": "AB1",
+      "depth": 1024,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.8,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1286
+    },
+    {
+      "level": "AB1",
+      "depth": 2048,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.8,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1284
+    },
+    {
+      "level": "AB1",
+      "depth": 8192,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.8,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1282
+    },
+    {
+      "level": "AB1",
+      "depth": 512,
+      "technical_repeats": 4,
+      "repeat_correlation": 1.0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1292
+    },
+    {
+      "level": "AB1",
+      "depth": 1024,
+      "technical_repeats": 4,
+      "repeat_correlation": 1.0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1286
+    },
+    {
+      "level": "AB1",
+      "depth": 2048,
+      "technical_repeats": 4,
+      "repeat_correlation": 1.0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1284
+    },
+    {
+      "level": "AB1",
+      "depth": 8192,
+      "technical_repeats": 4,
+      "repeat_correlation": 1.0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 1282
+    },
+    {
+      "level": "AB2",
+      "depth": 512,
+      "technical_repeats": 4,
+      "repeat_correlation": 0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 5140
+    },
+    {
+      "level": "AB2",
+      "depth": 1024,
+      "technical_repeats": 4,
+      "repeat_correlation": 0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 5132
+    },
+    {
+      "level": "AB2",
+      "depth": 2048,
+      "technical_repeats": 4,
+      "repeat_correlation": 0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 5128
+    },
+    {
+      "level": "AB2",
+      "depth": 8192,
+      "technical_repeats": 4,
+      "repeat_correlation": 0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 5124
+    },
+    {
+      "level": "AB2",
+      "depth": 512,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.2,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 5140
+    },
+    {
+      "level": "AB2",
+      "depth": 1024,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.2,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 5132
+    },
+    {
+      "level": "AB2",
+      "depth": 2048,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.2,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 5128
+    },
+    {
+      "level": "AB2",
+      "depth": 8192,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.2,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 5124
+    },
+    {
+      "level": "AB2",
+      "depth": 2048,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.8,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 5132
+    },
+    {
+      "level": "AB2",
+      "depth": 8192,
+      "technical_repeats": 4,
+      "repeat_correlation": 0.8,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 5124
+    },
+    {
+      "level": "AB2",
+      "depth": 2048,
+      "technical_repeats": 4,
+      "repeat_correlation": 1.0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 5132
+    },
+    {
+      "level": "AB2",
+      "depth": 8192,
+      "technical_repeats": 4,
+      "repeat_correlation": 1.0,
+      "tolerance_factor": 1,
+      "minimum_balanced_N": 5124
+    }
+  ],
+  "continuous_large_depth_floors": {
+    "AB1": 1281,
+    "AB2": 5121
+  }
+}

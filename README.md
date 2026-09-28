@@ -1,11 +1,15 @@
 # AniBench
 
-The current development candidate adds a [local workbench](docs/LOCAL_WORKBENCH.md)
-with a five-domain conditional design explorer, source-qualified precision
-comparisons, and reproducible chart exports. Start it with `anibench workbench`.
-Its hypothetical reference and single-task source comparisons are research
-tools; broad real-study capability coverage and final release acceptance remain
-unfinished. Earlier public release receipts do not establish their completion.
+The current task-reference candidate evaluates planned studies and qualified
+collected-data summaries against explicit precision requirements. Start with the
+[methods paper (PDF)](paper/task_reference/AniBench_task_reference.pdf), the
+[complete mathematical recipe](docs/REFERENCE_RECIPE_V04.md), and the
+[reproduction guide](docs/REPRODUCING_TASK_REFERENCE.md).
+`anibench plan` compares hypothetical designs; `anibench benchmark` evaluates
+frozen workloads. Two public examples reproduce real-source precision
+calculations without participant uploads. The optional local workbench consumes
+those same results. The reference is conditional; it is not a calibrated measure
+of all biology or a universally optimal trial.
 
 AniBench is an open benchmark and trial-design instrument for one question:
 
@@ -58,10 +62,13 @@ AniBench 1/2 candidate levels: explicit synthetic coordinates, precision ceiling
 make the proposed ladder testable; these are not calibrated biological sufficiency
 thresholds. Run `python examples/broad_reference/replay.py --out output/reference`.
 
-Read the [research manuscript](paper/AniBench_open_benchmark.md) for the
-mathematical derivation, limitations, source examples and reproducible figures.
-Build its PDF with `python -m pip install -e '.[paper]'` followed by
-`python scripts/build_manuscript.py --out output/pdf/AniBench_open_benchmark.pdf`.
+Read the [task-reference manuscript](paper/task_reference/AniBench_task_reference.md)
+for every current reference formula, derivations, source examples, adversarial
+properties and retained negative empirical findings. The
+[reproduction guide](docs/REPRODUCING_TASK_REFERENCE.md) includes exact installation,
+public example replay and PDF-building commands. The earlier
+[open-benchmark manuscript](paper/AniBench_open_benchmark.md) and its builder remain
+historical documentation of the preceding formulation.
 
 Current source also includes [candidate AniBench 1/2 task scopes](docs/CANDIDATE_LEVELS.md),
 a [public protocol-card workflow](docs/PUBLIC_PROTOCOL_CARDS.md), and a runnable
@@ -446,7 +453,7 @@ ruff check .
 python scripts/export_public_repository.py --help
 python -m build
 python scripts/verify_installed_studio.py \
-  --wheel dist/anibench-2.0.0rc5-py3-none-any.whl --pretty
+  --wheel dist/anibench-2.0.0rc6.dev0-py3-none-any.whl --pretty
 ```
 
 Every result binds the protocol hash, formula version, source state, scenario
@@ -454,9 +461,10 @@ envelope, and replay identity. Release archives are deterministic and scanned
 for private paths, controlled source bodies, legacy score surfaces, and nested
 archives.
 
-The private authority checkout is not made public in place because its history
-retains controlled source and ANI study material. Release engineering creates a
-new, one-root public repository from the executable allowlist:
+The existing public repository uses normal additive commits and releases; its
+history is preserved. The separate exporter below is for preparing an isolated
+public tree from a private authority checkout whose history contains controlled
+material. It is not a command to reset or replace this public repository:
 
 ```bash
 make public-export OUTPUT=/absolute/path/to/new/anibench-public

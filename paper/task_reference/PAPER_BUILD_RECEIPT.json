@@ -1,0 +1,13 @@
+{
+  "schema": "anibench.methods-paper-build.v1",
+  "source_sha256": "a0b5360ac97787a0cbb4ec601a59aa61ee6be52482fc506c7ffd9a9055e25583",
+  "builder_sha256": "d8d1f7aa68cf445af69b56d81739ba3bab1b417132ba08346b5cef4692ef915a",
+  "pdf_sha256": "fc3266ed2993f48e5823691b4b0f17eceff339806cfb132796313f2793fc71f5",
+  "figure_receipt_sha256": "b019a46f92ed369392acdb029388387748fc2445001252723df110d0586f78bf",
+  "runtime": {
+    "reportlab": "5.0.1",
+    "matplotlib": "3.11.0"
+  },
+  "python": "3.12.13",
+  "scope": "Paper rendering and aggregate-figure replay, not participant-level fitting"
+}

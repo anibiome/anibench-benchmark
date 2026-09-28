@@ -1,0 +1,29 @@
+{
+  "canonical_suites": 24,
+  "canonical_task_scenarios": 144,
+  "files": {
+    "README.md": "265dc2bbf053defc347057a7493a8ccb3f10c35bd54c0b42429b21f552aaeaff",
+    "expected-results.json": "c4a6124d55a19a49f83fb370a797643550a0fb8f29d4366996c5a3ba463bb2e9",
+    "inputs.json": "2e20a2f9eab8e873de882b78096803d17b0959e8de48b71cbcd0ca154ce23ca6",
+    "replay.py": "e795599f330a019b7b4ad862613f4ea72b3e97d6e09d65f7f7df1a3c0ecc099f",
+    "sources.json": "9a7319770f3c20875a29d1a29e373d2e97ce7ba789c2f07c9f300df0c73aadc0"
+  },
+  "native_diagnostics": 72,
+  "records": 12,
+  "reference_environment": {
+    "contract": "anibench.finite-task-implementation.v1",
+    "jsonschema_version": "4.26.0",
+    "numpy_version": "2.5.1",
+    "python_version": "3.12.13",
+    "sha256": {
+      "evaluation-input.schema.json": "sha256:e3f5265c6a748f492affa81e136fff02bad30530565044b5d08f3d7e334e68e4",
+      "evaluation-result.schema.json": "sha256:603ad9725ab20e7631e151d77dbd70c298083272268f5512a8b17e16e848f229",
+      "finite_tasks_v1.py": "sha256:6787037d2f92f992252d93ddd5cc7d0442b14fc033c56bedd664f584a8e287ae",
+      "information_v2.py": "sha256:9f088bf12a9fab0a6401a9f25a6c1ba837386507ae96d6c99179f12f097513e0"
+    }
+  },
+  "schema": "anibench.cognitive-neural-example-manifest.v1",
+  "scope": "Reviewed source-selected native population-mean precision; not a whole-study or AB1 score.",
+  "source_families": 7,
+  "summary_derivations": 216
+}

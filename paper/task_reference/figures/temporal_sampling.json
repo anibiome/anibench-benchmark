@@ -1,0 +1,140 @@
+{
+  "source_result_sha256": "802cbf5c797fdbd06bb2ee9ee9f7bd4607be7d6a17934b6f8491d0dea0b93b06",
+  "source_url": "https://physionet.org/content/sleep-edfx/1.0.0/",
+  "scope": "Sampling existing fixed sleep annotations, not EEG quality or latent sleep traits; point estimates",
+  "people": {
+    "train": 34,
+    "calibration": 12,
+    "test": 22
+  },
+  "eligible_people": 68,
+  "eligible_nights": 108,
+  "rows": [
+    {
+      "method": "uniform_SRS",
+      "minutes": 32.0,
+      "target": "sleep_minutes",
+      "predicted_SE": 26.163656581586466,
+      "heldout_exact_design_RMSE": 25.798468278065652
+    },
+    {
+      "method": "uniform_SRS",
+      "minutes": 32.0,
+      "target": "REM_minutes",
+      "predicted_SE": 18.975614845917182,
+      "heldout_exact_design_RMSE": 18.772725666020165
+    },
+    {
+      "method": "uniform_SRS",
+      "minutes": 64.0,
+      "target": "sleep_minutes",
+      "predicted_SE": 17.827526903989863,
+      "heldout_exact_design_RMSE": 17.578693019255965
+    },
+    {
+      "method": "uniform_SRS",
+      "minutes": 64.0,
+      "target": "REM_minutes",
+      "predicted_SE": 12.929702051792695,
+      "heldout_exact_design_RMSE": 12.791456378759056
+    },
+    {
+      "method": "uniform_SRS",
+      "minutes": 128.0,
+      "target": "sleep_minutes",
+      "predicted_SE": 11.595801412973884,
+      "heldout_exact_design_RMSE": 11.433948996330088
+    },
+    {
+      "method": "uniform_SRS",
+      "minutes": 128.0,
+      "target": "REM_minutes",
+      "predicted_SE": 8.410042409637548,
+      "heldout_exact_design_RMSE": 8.320121391465236
+    },
+    {
+      "method": "circular_block",
+      "minutes": 32.0,
+      "target": "sleep_minutes",
+      "predicted_SE": 183.32860907738868,
+      "heldout_exact_design_RMSE": 172.65765296632787
+    },
+    {
+      "method": "circular_block",
+      "minutes": 32.0,
+      "target": "REM_minutes",
+      "predicted_SE": 105.48696928691352,
+      "heldout_exact_design_RMSE": 107.88096557954512
+    },
+    {
+      "method": "circular_block",
+      "minutes": 64.0,
+      "target": "sleep_minutes",
+      "predicted_SE": 166.82986039906663,
+      "heldout_exact_design_RMSE": 155.68950022778986
+    },
+    {
+      "method": "circular_block",
+      "minutes": 64.0,
+      "target": "REM_minutes",
+      "predicted_SE": 74.9466978944085,
+      "heldout_exact_design_RMSE": 77.95828490298004
+    },
+    {
+      "method": "circular_block",
+      "minutes": 128.0,
+      "target": "sleep_minutes",
+      "predicted_SE": 136.48031135571443,
+      "heldout_exact_design_RMSE": 127.08387196486854
+    },
+    {
+      "method": "circular_block",
+      "minutes": 128.0,
+      "target": "REM_minutes",
+      "predicted_SE": 48.37089645252942,
+      "heldout_exact_design_RMSE": 48.21350459652776
+    },
+    {
+      "method": "hour_stratified_circular",
+      "minutes": 32.0,
+      "target": "sleep_minutes",
+      "predicted_SE": 34.27087169972225,
+      "heldout_exact_design_RMSE": 38.454130733310635
+    },
+    {
+      "method": "hour_stratified_circular",
+      "minutes": 32.0,
+      "target": "REM_minutes",
+      "predicted_SE": 42.08850312838692,
+      "heldout_exact_design_RMSE": 42.318831774131866
+    },
+    {
+      "method": "hour_stratified_circular",
+      "minutes": 64.0,
+      "target": "sleep_minutes",
+      "predicted_SE": 30.132432113480807,
+      "heldout_exact_design_RMSE": 33.854168997668914
+    },
+    {
+      "method": "hour_stratified_circular",
+      "minutes": 64.0,
+      "target": "REM_minutes",
+      "predicted_SE": 38.28477549792437,
+      "heldout_exact_design_RMSE": 38.73798384074027
+    },
+    {
+      "method": "hour_stratified_circular",
+      "minutes": 128.0,
+      "target": "sleep_minutes",
+      "predicted_SE": 24.26331644306228,
+      "heldout_exact_design_RMSE": 27.08216434685801
+    },
+    {
+      "method": "hour_stratified_circular",
+      "minutes": 128.0,
+      "target": "REM_minutes",
+      "predicted_SE": 31.68976780085425,
+      "heldout_exact_design_RMSE": 32.422276489847086
+    }
+  ]
+}

@@ -11,9 +11,54 @@ from pathlib import Path
 
 import pytest
 
-from scripts.verify_distribution_boundary import inspect_distribution
+from scripts.verify_distribution_boundary import (
+    _reviewed_source_members,
+    expected_distribution_members,
+    inspect_distribution,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_force_include_directories_expand_only_reviewed_files() -> None:
+    members = expected_distribution_members(kind="wheel")
+    for directory in ("examples/native_mean_pilot", "examples/cognitive_neural_precision"):
+        assert f"anibench/{directory}/replay.py" in members
+        assert f"anibench/{directory}" not in members
+    assert "anibench/paper/task_reference/AniBench_task_reference.pdf" in members
+
+
+def test_directory_expansion_does_not_trust_incidental_files(tmp_path: Path) -> None:
+    source = tmp_path / "example"
+    source.mkdir()
+    (source / "reviewed.json").write_text("{}")
+    (source / "rogue.json").write_text("{}")
+    allowlist = frozenset({"example/reviewed.json"})
+    assert _reviewed_source_members(tmp_path, "example", allowlist) == set(allowlist)
+    with pytest.raises(ValueError, match="no reviewed members"):
+        _reviewed_source_members(tmp_path, "example/rogue.json", allowlist)
+    (source / "nested").symlink_to(source, target_is_directory=True)
+    with pytest.raises(ValueError, match="unsafe"):
+        _reviewed_source_members(
+            tmp_path, "example", frozenset({"example/nested/reviewed.json"})
+        )
+
+
+@pytest.mark.parametrize("relative", ["../escape", "/absolute", "example//nested"])
+def test_reviewed_expansion_rejects_unsafe_paths(tmp_path: Path, relative: str) -> None:
+    with pytest.raises(ValueError, match="unsafe"):
+        _reviewed_source_members(tmp_path, relative, frozenset({relative}))
+
+
+def test_task_reference_figures_do_not_allow_unreviewed_source_files(tmp_path: Path) -> None:
+    wheel = tmp_path / "anibench.whl"
+    with zipfile.ZipFile(wheel, "w") as archive:
+        archive.writestr("anibench/paper/task_reference/figures/conditional_frontier.json", "{}")
+        archive.writestr("anibench/paper/task_reference/figures/participants.csv", "private")
+    report = inspect_distribution(wheel, enforce_exact=False)
+    forbidden = [row for row in report["findings"] if row["rule_id"] == "forbidden:figures/"]
+    assert len(forbidden) == 1
+    assert forbidden[0]["path"].endswith("participants.csv")
 
 
 @pytest.fixture(scope="module")

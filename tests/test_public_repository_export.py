@@ -49,6 +49,65 @@ def test_public_allowlist_rejects_noncanonical_and_git_paths(unsafe: str) -> Non
         _parse_public_allowlist(raw)
 
 
+def test_history_uses_pinned_reviewed_paths_without_ignoring_historical_content(
+    tmp_path: Path,
+) -> None:
+    output = tmp_path / "public-history"
+    output.mkdir()
+    atlas = output / "data/source_projections/v2"
+    atlas.mkdir(parents=True)
+    for name in ("EXTERNAL_SOURCE_ACQUISITION_LEDGER", *EXTERNAL_SOURCE_ATLAS_STUDY_IDS):
+        (atlas / f"{name}.json").write_text("{}\n")
+    (atlas / "SOURCE_COORDINATE_TABLE.csv").write_text(
+        "study_id\n" + "\n".join(EXTERNAL_SOURCE_ATLAS_STUDY_IDS) + "\n"
+    )
+    allowlist = output / PUBLIC_ALLOWLIST_PATH
+    allowlist.parent.mkdir(parents=True)
+    members = {path.relative_to(output).as_posix() for path in atlas.iterdir()}
+    allowlist.write_text("\n".join(sorted({*members, PUBLIC_ALLOWLIST_PATH})) + "\n")
+    _git(output, "init", "--initial-branch=main")
+    _git(output, "config", "user.name", "Synthetic audit")
+    _git(output, "config", "user.email", "audit@example.invalid")
+
+    def commit(message: str) -> None:
+        _git(output, "add", "-A")
+        _git(output, "commit", "-m", message)
+
+    commit("Synthetic public root")
+    later = output / "docs/later-reviewed.md"
+    later.parent.mkdir()
+    later.write_text("Synthetic public example.\n")
+    commit("Add public file before its allowlist correction")
+    allowlist.write_text("\n".join(sorted({
+        *allowlist.read_text().splitlines(), "docs/later-reviewed.md",
+    })) + "\n")
+    _git(output, "checkout", "--detach")
+    commit("Review additive public path")
+    report = inspect_public_git_history(output)
+    assert report["passed"], report["findings"]
+    assert report["review_authority_commit"] == _git(output, "rev-parse", "HEAD")
+    assert report["review_authority_commit"] in report["scanned_commits"]
+
+    # Dirty local edits cannot authorize an unreviewed historical member.
+    rogue = output / "docs/rogue.txt"
+    rogue.write_text("Synthetic unreviewed content.\n")
+    commit("Add unreviewed path")
+    rogue.unlink()
+    commit("Remove rogue from current tree while retaining its history")
+    allowlist.write_text(allowlist.read_text() + "docs/rogue.txt\n")
+    report = inspect_public_git_history(output)
+    assert any(row["rule_id"] == "unallowlisted_public_member"
+               and row["path"] == "docs/rogue.txt" for row in report["findings"])
+    allowlist.write_text(_git(output, "show", f"HEAD:{PUBLIC_ALLOWLIST_PATH}") + "\n")
+
+    later.write_text("gh" + "p_" + "A" * 36 + "\n")
+    commit("Synthetic credential marker in a reviewed path")
+    later.write_text("Synthetic public example.\n")
+    commit("Remove marker from current bytes while retaining history")
+    report = inspect_public_git_history(output)
+    assert any(row["rule_id"] == "github_token" for row in report["findings"])
+
+
 def test_public_export_is_allowlisted_scanned_and_one_root_commit(tmp_path: Path) -> None:
     output = tmp_path / "anibench-public"
     result = export_public_repository(

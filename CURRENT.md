@@ -1,3 +1,10 @@
+September 28 priority: mathematical specification, reproducible Git package and
+explanatory paper. UX polish is optional. The current methods manuscript is
+`paper/task_reference/AniBench_task_reference.md`; exact reproduction is in
+`docs/REPRODUCING_TASK_REFERENCE.md`. The v0.4 recipe is fully enumerated in
+`docs/REFERENCE_RECIPE_V04.md`. Empirical calibration remains limited, including
+retained negative results; this update does not claim the complete programme.
+
 # AniBench current authority
 
 September 27 development candidate: `anibench workbench` serves an installed,

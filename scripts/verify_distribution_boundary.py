@@ -199,6 +199,17 @@ def _safe_name(name: str) -> bool:
 def forbidden_fragment_applies(normalized_path: str, fragment: str) -> bool:
     if fragment == "figures/" and "/paper/v2/figures/" in f"/{normalized_path}":
         return False
+    if fragment == "figures/":
+        reviewed = {
+            "README.md", "manifest.json", "plot.py",
+            "conditional_frontier.json", "conditional_frontier.svg",
+            "temporal_sampling.json", "temporal_sampling.svg",
+            "molecular_validation.json", "molecular_validation.svg",
+            "native_mean_pilot.json", "native_mean_pilot.svg", "native_mean_pilot.png",
+        }
+        if any(normalized_path.endswith("/paper/task_reference/figures/" + name)
+               for name in reviewed):
+            return False
     return fragment in normalized_path
 
 
@@ -235,18 +246,33 @@ def _is_hatch_excluded(relative: str, patterns: list[str]) -> bool:
     return False
 
 
-def _expand_sdist_include(authority_root: Path, relative: str) -> set[str]:
+def _reviewed_source_members(
+    authority_root: Path, relative: str, allowlist: frozenset[str]
+) -> set[str]:
+    """Expand a package mapping from reviewed paths, never incidental disk files."""
+    if not _safe_name(relative):
+        raise ValueError(f"unsafe distribution source: {relative}")
     path = authority_root / relative
     if not path.exists() or path.is_symlink():
-        raise ValueError(f"sdist include is missing or unsafe: {relative}")
+        raise ValueError(f"distribution source is missing or unsafe: {relative}")
     if path.is_file():
-        return {relative}
-    members = set()
-    for candidate in path.rglob("*"):
-        if candidate.is_symlink():
-            raise ValueError(f"symlink inside sdist include: {candidate}")
-        if candidate.is_file() and "__pycache__" not in candidate.parts:
-            members.add(candidate.relative_to(authority_root).as_posix())
+        members = {relative} if relative in allowlist else set()
+    elif path.is_dir():
+        members = {member for member in allowlist if member.startswith(relative + "/")}
+    else:
+        members = set()
+    if not members:
+        raise ValueError(f"distribution source has no reviewed members: {relative}")
+    for member in members:
+        if not _safe_name(member):
+            raise ValueError(f"unsafe reviewed source: {member}")
+        candidate = authority_root / member
+        if not candidate.is_file() or any(
+            parent.is_symlink()
+            for parent in (candidate, *candidate.parents)
+            if parent != authority_root and authority_root in parent.parents
+        ):
+            raise ValueError(f"reviewed source is missing or unsafe: {member}")
     return members
 
 
@@ -259,15 +285,27 @@ def expected_distribution_members(
     configuration = _load_project(authority_root)
     name, version, sdist_root = _distribution_identity(authority_root)
     build = configuration["tool"]["hatch"]["build"]
+    allowlist = frozenset(_repository_allowlist(authority_root))
     excludes = [str(value) for value in build.get("exclude", [])]
     if kind == "wheel":
         expected = {
             relative.removeprefix("src/")
-            for relative in _repository_allowlist(authority_root)
+            for relative in allowlist
             if relative.startswith("src/anibench/")
         }
         force_include = build["targets"]["wheel"]["force-include"]
-        expected.update(str(destination) for destination in force_include.values())
+        for raw_source, raw_destination in force_include.items():
+            source, destination = str(raw_source), str(raw_destination)
+            if not _safe_name(destination):
+                raise ValueError(f"unsafe distribution destination: {destination}")
+            members = _reviewed_source_members(authority_root, source, allowlist)
+            if (authority_root / source).is_dir():
+                expected.update(
+                    destination + "/" + member.removeprefix(source + "/")
+                    for member in members
+                )
+            else:
+                expected.add(destination)
         dist_info = f"{name}-{version}.dist-info"
         expected.update(
             {
@@ -284,7 +322,9 @@ def expected_distribution_members(
         raise ValueError(f"unsupported expected member kind: {kind}")
     relative_members: set[str] = set()
     for raw in build["targets"]["sdist"]["include"]:
-        relative_members.update(_expand_sdist_include(authority_root, str(raw).lstrip("/")))
+        relative_members.update(
+            _reviewed_source_members(authority_root, str(raw).lstrip("/"), allowlist)
+        )
     # Hatch includes .gitignore as reproducible source-build metadata.
     if (authority_root / ".gitignore").is_file():
         relative_members.add(".gitignore")

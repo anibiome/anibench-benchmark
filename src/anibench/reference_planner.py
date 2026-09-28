@@ -8,9 +8,9 @@ from __future__ import annotations
 
 import copy
 import hashlib
+import runpy
 from functools import lru_cache
 from pathlib import Path
-import runpy
 from typing import Any
 
 from .benchmark_v1 import evaluate_benchmark

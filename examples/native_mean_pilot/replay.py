@@ -6,9 +6,9 @@ import argparse
 import copy
 import hashlib
 import json
-from pathlib import Path
 import shutil
 import subprocess
+from pathlib import Path
 
 import anibench
 from anibench.benchmark_v1 import evaluate_benchmark
@@ -131,7 +131,7 @@ def main() -> None:
     # Render in memory before creating output; the shared JS only projects receipts.
     chart = subprocess.run(
         [node, str(HERE / "render.mjs"), str(assets)], input=encoded,
-        stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True,
+        capture_output=True, check=True,
     ).stdout
     require(chart == (HERE / "expected-chart.svg").read_bytes(),
             "Shared renderer SVG differs from the reviewed chart")

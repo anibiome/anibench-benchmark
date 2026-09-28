@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling>=1.25"]
+requires = ["hatchling==1.32.4"]
 build-backend = "hatchling.build"
 
 [project]
@@ -99,6 +99,11 @@ exclude = [
 packages = ["src/anibench"]
 
 [tool.hatch.build.targets.wheel.force-include]
+"examples/cognitive_neural_precision" = "anibench/examples/cognitive_neural_precision"
+"paper/task_reference" = "anibench/paper/task_reference"
+"docs/REFERENCE_RECIPE_V04.md" = "anibench/docs/REFERENCE_RECIPE_V04.md"
+"docs/REPRODUCING_TASK_REFERENCE.md" = "anibench/docs/REPRODUCING_TASK_REFERENCE.md"
+"docs/LOCAL_WORKBENCH.md" = "anibench/docs/LOCAL_WORKBENCH.md"
 "examples/native_mean_pilot" = "anibench/examples/native_mean_pilot"
 "examples/broad_reference/charts/broad-reference.png" = "anibench/examples/broad_reference/charts/broad-reference.png"
 "examples/broad_reference/charts/broad-reference.svg" = "anibench/examples/broad_reference/charts/broad-reference.svg"
@@ -271,6 +276,10 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/examples/cognitive_neural_precision",
+  "/paper/task_reference",
+  "/docs/REFERENCE_RECIPE_V04.md",
+  "/docs/REPRODUCING_TASK_REFERENCE.md",
   "/examples/native_mean_pilot",
   "/src/anibench/reference_planner.py",
   "/src/anibench/workbench.py",
@@ -613,3 +622,8 @@ pythonpath = [".", "src"]
 [tool.ruff]
 line-length = 100
 target-version = "py310"
+
+[tool.ruff.lint.per-file-ignores]
+# Preserve the byte-pinned, independently audited experimental reference.
+# Maintained adapters and evaluators remain subject to the normal lint rules.
+"src/anibench/workbench_assets/reference/v0.4/replay.py" = ["I001", "F401", "PERF102"]

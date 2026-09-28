@@ -8,6 +8,10 @@ Blood pressure and body mass do not represent all physical function.
 
 ## Run
 
+For the exact Python 3.12.13, locked dependency and Node 24.18.0 setup, follow
+[the reproduction guide](../../docs/REPRODUCING_TASK_REFERENCE.md). The guide
+distinguishes ordinary package use from byte-exact receipt replay.
+
 Install the matching AniBench release and its locked dependencies, with Node.js
 available for the workbench's shared SVG renderer. From this directory:
 

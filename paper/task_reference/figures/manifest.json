@@ -1,0 +1,24 @@
+{
+  "contract": "anibench.aggregate-paper-figures.v1",
+  "data_sha256": {
+    "conditional_frontier.json": "7697469d1eac7e8262fd99d76051df12e86aa351af36c1f5f1b11e81d314de98",
+    "molecular_validation.json": "5ad43907b395af70de3f9a6fb280b4d119415785fd373a10873571de90e9ad79",
+    "temporal_sampling.json": "a265ae6e89e19dd975a55fc4f47930193c9861ce067df508f804a1e68afb4134",
+    "native_mean_pilot.json": "b99e7efad37c237d4d5bc7382a87dec67ba73bfc0d5ec3a3cccdb7df42235656"
+  },
+  "published_svg_sha256": {
+    "conditional_frontier.svg": "92677f3b379371915e1d7a85e90a80164dad24c3dadaa5013ec3a666bc3e7acf",
+    "molecular_validation.svg": "6bdc4d23b7c871f47c722bdab21679f6945b1043bfbb69c941a3271e1d05de27",
+    "temporal_sampling.svg": "190ee74497afd9e08781e5544b9da368e7be348df46cb292e68ec39212634759",
+    "native_mean_pilot.svg": "58dd7a31f7ace2eebd4137e71e3156084e5b3d917c5c2fe403db1a38245d1593"
+  },
+  "replay_environment": {
+    "python": "3.12",
+    "matplotlib": "3.11.0"
+  },
+  "empirical_fits_reexecuted": false,
+  "reproduction_scope": "Chart geometry and aggregate values; published SVG metadata and generated element IDs may differ from deterministic replay.",
+  "additional_png_sha256": {
+    "native_mean_pilot.png": "fe0524a11794b13045e9f61e555d7f93a4abb854a6d2c9ddc5c3647e790179bf"
+  }
+}

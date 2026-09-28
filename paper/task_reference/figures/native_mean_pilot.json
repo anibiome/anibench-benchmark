@@ -1,0 +1,1422 @@
+{
+  "contract": "anibench.native-mean-paper-figure.v1",
+  "source_packet": "examples/native_mean_pilot/pilot.json",
+  "source_packet_sha256": "fda5ce91a6d39a8d6fd891856072af984c7570d027d1c28849bf275fbc6676d5",
+  "se_factor": 1,
+  "scenario_count": 6,
+  "task_count": 10,
+  "tasks_per_domain": 2,
+  "scope": "Draft own-population mean precision pilot; not AB1, whole-study quality or longitudinal/causal score",
+  "percentage_meaning": "Fraction of a fixed ten-target pilot whose own-population marginal mean meets stated sampling-SE criteria; five distinct domains cannot compensate for one another.",
+  "uncertainty": "Outer envelope of all six shared scenarios and unresolved task mass; not confidence intervals or joint attainability",
+  "reference_freeze_order": "Source families and aggregate facts inspected before draft threshold selection. Thresholds frozen before numerical scoring; not blinded or independent reference calibration.",
+  "source_frame_policy": "Source-specific population, exact operator and horizon retained in every canonical task. Comparisons concern ability to estimate respective native quantities at shared explicit tolerances, never treatment efficacy or a common-population biological effect.",
+  "targets": [
+    {
+      "base_se": 0.05,
+      "domain": "molecular",
+      "id": "fasting_glucose",
+      "label": "Fasting blood glucose concentration",
+      "unit": "mmol/L"
+    },
+    {
+      "base_se": 0.05,
+      "domain": "molecular",
+      "id": "total_cholesterol",
+      "label": "Total circulating cholesterol concentration",
+      "unit": "mmol/L"
+    },
+    {
+      "base_se": 1,
+      "domain": "physiological",
+      "id": "systolic_bp",
+      "label": "Resting systolic blood pressure",
+      "unit": "mmHg"
+    },
+    {
+      "base_se": 0.5,
+      "domain": "physiological",
+      "id": "body_mass",
+      "label": "Body mass",
+      "unit": "kg"
+    },
+    {
+      "base_se": 5,
+      "domain": "digital",
+      "id": "device_mvpa",
+      "label": "Device algorithm estimated time at >=3 MET",
+      "unit": "min/day"
+    },
+    {
+      "base_se": 5,
+      "domain": "digital",
+      "id": "device_sedentary",
+      "label": "Device algorithm estimated sedentary time <1.8 MET",
+      "unit": "min/day"
+    },
+    {
+      "base_se": 5,
+      "domain": "cognitive",
+      "id": "two_choice_rt",
+      "label": "Two-choice reaction-time mean",
+      "unit": "ms"
+    },
+    {
+      "base_se": 1,
+      "domain": "cognitive",
+      "id": "antisaccade_accuracy",
+      "label": "Antisaccade accuracy",
+      "unit": "percentage point"
+    },
+    {
+      "base_se": 0.05,
+      "domain": "neural",
+      "id": "bilateral_hippocampus",
+      "label": "Bilateral structural hippocampal volume",
+      "unit": "cm^3"
+    },
+    {
+      "base_se": 0.5,
+      "domain": "neural",
+      "id": "lateral_ventricle",
+      "label": "Lateral ventricle structural volume",
+      "unit": "cm^3"
+    }
+  ],
+  "source_urls": [
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC7414690/",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC9071484/"
+  ],
+  "rows": [
+    {
+      "study": "MIPACT",
+      "domain": "molecular",
+      "tasks": 2,
+      "lower_percent": 0.0,
+      "upper_percent": 50.0,
+      "maximum_confirmed_pass_percent": 50.0,
+      "result_sha256": "sha256:36784bdef3a0c738a4fa3822ceb7e4a539cf8d26dff388bc128e21f2619a2ae6",
+      "score_profile_sha256": "sha256:8950da07682862e2a995c8a00d2e1c2dbcddb745b1424e79356f4e253e074b3d",
+      "suite_profile_sha256": "sha256:a258ebdeb0d402680ae0ba00ad3d52123b9d67805dcdb8967ce23232d4de769b",
+      "scenarios": [
+        {
+          "scenario_id": "q1",
+          "passed_percent": 50.0,
+          "upper_percent": 50.0,
+          "passed_weight": 1,
+          "unknown_weight": 0,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "fasting_glucose",
+              "attainment": "attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "total_cholesterol",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2",
+          "passed_percent": 50.0,
+          "upper_percent": 50.0,
+          "passed_weight": 1,
+          "unknown_weight": 0,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "fasting_glucose",
+              "attainment": "attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "total_cholesterol",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-low",
+          "passed_percent": 50.0,
+          "upper_percent": 50.0,
+          "passed_weight": 1,
+          "unknown_weight": 0,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "fasting_glucose",
+              "attainment": "attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "total_cholesterol",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-high",
+          "passed_percent": 50.0,
+          "upper_percent": 50.0,
+          "passed_weight": 1,
+          "unknown_weight": 0,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "fasting_glucose",
+              "attainment": "attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "total_cholesterol",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-low",
+          "passed_percent": 50.0,
+          "upper_percent": 50.0,
+          "passed_weight": 1,
+          "unknown_weight": 0,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "fasting_glucose",
+              "attainment": "attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "total_cholesterol",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "fasting_glucose",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "total_cholesterol",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "study": "MIPACT",
+      "domain": "physiological",
+      "tasks": 2,
+      "lower_percent": 0.0,
+      "upper_percent": 0.0,
+      "maximum_confirmed_pass_percent": 0.0,
+      "result_sha256": "sha256:36784bdef3a0c738a4fa3822ceb7e4a539cf8d26dff388bc128e21f2619a2ae6",
+      "score_profile_sha256": "sha256:8950da07682862e2a995c8a00d2e1c2dbcddb745b1424e79356f4e253e074b3d",
+      "suite_profile_sha256": "sha256:a258ebdeb0d402680ae0ba00ad3d52123b9d67805dcdb8967ce23232d4de769b",
+      "scenarios": [
+        {
+          "scenario_id": "q1",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "systolic_bp",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "body_mass",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "systolic_bp",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "body_mass",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "systolic_bp",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "body_mass",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "systolic_bp",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "body_mass",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "systolic_bp",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "body_mass",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "systolic_bp",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "body_mass",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "study": "MIPACT",
+      "domain": "digital",
+      "tasks": 2,
+      "lower_percent": 0.0,
+      "upper_percent": 50.0,
+      "maximum_confirmed_pass_percent": 50.0,
+      "result_sha256": "sha256:36784bdef3a0c738a4fa3822ceb7e4a539cf8d26dff388bc128e21f2619a2ae6",
+      "score_profile_sha256": "sha256:8950da07682862e2a995c8a00d2e1c2dbcddb745b1424e79356f4e253e074b3d",
+      "suite_profile_sha256": "sha256:a258ebdeb0d402680ae0ba00ad3d52123b9d67805dcdb8967ce23232d4de769b",
+      "scenarios": [
+        {
+          "scenario_id": "q1",
+          "passed_percent": 50.0,
+          "upper_percent": 50.0,
+          "passed_weight": 1,
+          "unknown_weight": 0,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "device_mvpa",
+              "attainment": "attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "device_sedentary",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "device_mvpa",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "device_sedentary",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-low",
+          "passed_percent": 50.0,
+          "upper_percent": 50.0,
+          "passed_weight": 1,
+          "unknown_weight": 0,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "device_mvpa",
+              "attainment": "attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "device_sedentary",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-high",
+          "passed_percent": 50.0,
+          "upper_percent": 50.0,
+          "passed_weight": 1,
+          "unknown_weight": 0,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "device_mvpa",
+              "attainment": "attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "device_sedentary",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "device_mvpa",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "device_sedentary",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "device_mvpa",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "device_sedentary",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "study": "MIPACT",
+      "domain": "cognitive",
+      "tasks": 2,
+      "lower_percent": 0.0,
+      "upper_percent": 100.0,
+      "maximum_confirmed_pass_percent": 0.0,
+      "result_sha256": "sha256:36784bdef3a0c738a4fa3822ceb7e4a539cf8d26dff388bc128e21f2619a2ae6",
+      "score_profile_sha256": "sha256:8950da07682862e2a995c8a00d2e1c2dbcddb745b1424e79356f4e253e074b3d",
+      "suite_profile_sha256": "sha256:a258ebdeb0d402680ae0ba00ad3d52123b9d67805dcdb8967ce23232d4de769b",
+      "scenarios": [
+        {
+          "scenario_id": "q1",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "two_choice_rt",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "antisaccade_accuracy",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "two_choice_rt",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "antisaccade_accuracy",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "two_choice_rt",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "antisaccade_accuracy",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "two_choice_rt",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "antisaccade_accuracy",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "two_choice_rt",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "antisaccade_accuracy",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "two_choice_rt",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "antisaccade_accuracy",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "study": "MIPACT",
+      "domain": "neural",
+      "tasks": 2,
+      "lower_percent": 0.0,
+      "upper_percent": 100.0,
+      "maximum_confirmed_pass_percent": 0.0,
+      "result_sha256": "sha256:36784bdef3a0c738a4fa3822ceb7e4a539cf8d26dff388bc128e21f2619a2ae6",
+      "score_profile_sha256": "sha256:8950da07682862e2a995c8a00d2e1c2dbcddb745b1424e79356f4e253e074b3d",
+      "suite_profile_sha256": "sha256:a258ebdeb0d402680ae0ba00ad3d52123b9d67805dcdb8967ce23232d4de769b",
+      "scenarios": [
+        {
+          "scenario_id": "q1",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "bilateral_hippocampus",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "lateral_ventricle",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "bilateral_hippocampus",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "lateral_ventricle",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "bilateral_hippocampus",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "lateral_ventricle",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "bilateral_hippocampus",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "lateral_ventricle",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "bilateral_hippocampus",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "lateral_ventricle",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "bilateral_hippocampus",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "lateral_ventricle",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "study": "DIRECT_PLUS",
+      "domain": "molecular",
+      "tasks": 2,
+      "lower_percent": 0.0,
+      "upper_percent": 0.0,
+      "maximum_confirmed_pass_percent": 0.0,
+      "result_sha256": "sha256:a57f224347b035445f05949c2af4f74b3e5d6e40e7b681b0a732b7987d9826e1",
+      "score_profile_sha256": "sha256:5e45c69ace29aa0ec268221903a9d1983864c2373837a368eb7e2867dbee7e38",
+      "suite_profile_sha256": "sha256:b81e13828837c9067a7cfb28c083cd12bb9fb8e84cdc47e52e14dda35dc4f186",
+      "scenarios": [
+        {
+          "scenario_id": "q1",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "fasting_glucose",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "total_cholesterol",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "fasting_glucose",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "total_cholesterol",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "fasting_glucose",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "total_cholesterol",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "fasting_glucose",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "total_cholesterol",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "fasting_glucose",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "total_cholesterol",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "fasting_glucose",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "total_cholesterol",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "study": "DIRECT_PLUS",
+      "domain": "physiological",
+      "tasks": 2,
+      "lower_percent": 0.0,
+      "upper_percent": 50.0,
+      "maximum_confirmed_pass_percent": 50.0,
+      "result_sha256": "sha256:a57f224347b035445f05949c2af4f74b3e5d6e40e7b681b0a732b7987d9826e1",
+      "score_profile_sha256": "sha256:5e45c69ace29aa0ec268221903a9d1983864c2373837a368eb7e2867dbee7e38",
+      "suite_profile_sha256": "sha256:b81e13828837c9067a7cfb28c083cd12bb9fb8e84cdc47e52e14dda35dc4f186",
+      "scenarios": [
+        {
+          "scenario_id": "q1",
+          "passed_percent": 50.0,
+          "upper_percent": 50.0,
+          "passed_weight": 1,
+          "unknown_weight": 0,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "systolic_bp",
+              "attainment": "attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "body_mass",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "systolic_bp",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "body_mass",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-low",
+          "passed_percent": 50.0,
+          "upper_percent": 50.0,
+          "passed_weight": 1,
+          "unknown_weight": 0,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "systolic_bp",
+              "attainment": "attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "body_mass",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-high",
+          "passed_percent": 50.0,
+          "upper_percent": 50.0,
+          "passed_weight": 1,
+          "unknown_weight": 0,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "systolic_bp",
+              "attainment": "attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "body_mass",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "systolic_bp",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "body_mass",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 0.0,
+          "passed_weight": 0,
+          "unknown_weight": 0,
+          "failed_weight": 2,
+          "targets": [
+            {
+              "canonical_id": "systolic_bp",
+              "attainment": "not_attained",
+              "weight": 1
+            },
+            {
+              "canonical_id": "body_mass",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "study": "DIRECT_PLUS",
+      "domain": "digital",
+      "tasks": 2,
+      "lower_percent": 0.0,
+      "upper_percent": 100.0,
+      "maximum_confirmed_pass_percent": 0.0,
+      "result_sha256": "sha256:a57f224347b035445f05949c2af4f74b3e5d6e40e7b681b0a732b7987d9826e1",
+      "score_profile_sha256": "sha256:5e45c69ace29aa0ec268221903a9d1983864c2373837a368eb7e2867dbee7e38",
+      "suite_profile_sha256": "sha256:b81e13828837c9067a7cfb28c083cd12bb9fb8e84cdc47e52e14dda35dc4f186",
+      "scenarios": [
+        {
+          "scenario_id": "q1",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "device_mvpa",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "device_sedentary",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "device_mvpa",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "device_sedentary",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "device_mvpa",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "device_sedentary",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "device_mvpa",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "device_sedentary",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "device_mvpa",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "device_sedentary",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "device_mvpa",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "device_sedentary",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "study": "DIRECT_PLUS",
+      "domain": "cognitive",
+      "tasks": 2,
+      "lower_percent": 0.0,
+      "upper_percent": 100.0,
+      "maximum_confirmed_pass_percent": 0.0,
+      "result_sha256": "sha256:a57f224347b035445f05949c2af4f74b3e5d6e40e7b681b0a732b7987d9826e1",
+      "score_profile_sha256": "sha256:5e45c69ace29aa0ec268221903a9d1983864c2373837a368eb7e2867dbee7e38",
+      "suite_profile_sha256": "sha256:b81e13828837c9067a7cfb28c083cd12bb9fb8e84cdc47e52e14dda35dc4f186",
+      "scenarios": [
+        {
+          "scenario_id": "q1",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "two_choice_rt",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "antisaccade_accuracy",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "two_choice_rt",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "antisaccade_accuracy",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "two_choice_rt",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "antisaccade_accuracy",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "two_choice_rt",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "antisaccade_accuracy",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "two_choice_rt",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "antisaccade_accuracy",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 100.0,
+          "passed_weight": 0,
+          "unknown_weight": 2,
+          "failed_weight": 0,
+          "targets": [
+            {
+              "canonical_id": "two_choice_rt",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "antisaccade_accuracy",
+              "attainment": "unknown",
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "study": "DIRECT_PLUS",
+      "domain": "neural",
+      "tasks": 2,
+      "lower_percent": 0.0,
+      "upper_percent": 50.0,
+      "maximum_confirmed_pass_percent": 0.0,
+      "result_sha256": "sha256:a57f224347b035445f05949c2af4f74b3e5d6e40e7b681b0a732b7987d9826e1",
+      "score_profile_sha256": "sha256:5e45c69ace29aa0ec268221903a9d1983864c2373837a368eb7e2867dbee7e38",
+      "suite_profile_sha256": "sha256:b81e13828837c9067a7cfb28c083cd12bb9fb8e84cdc47e52e14dda35dc4f186",
+      "scenarios": [
+        {
+          "scenario_id": "q1",
+          "passed_percent": 0.0,
+          "upper_percent": 50.0,
+          "passed_weight": 0,
+          "unknown_weight": 1,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "bilateral_hippocampus",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "lateral_ventricle",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2",
+          "passed_percent": 0.0,
+          "upper_percent": 50.0,
+          "passed_weight": 0,
+          "unknown_weight": 1,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "bilateral_hippocampus",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "lateral_ventricle",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 50.0,
+          "passed_weight": 0,
+          "unknown_weight": 1,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "bilateral_hippocampus",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "lateral_ventricle",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q1-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 50.0,
+          "passed_weight": 0,
+          "unknown_weight": 1,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "bilateral_hippocampus",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "lateral_ventricle",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-low",
+          "passed_percent": 0.0,
+          "upper_percent": 50.0,
+          "passed_weight": 0,
+          "unknown_weight": 1,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "bilateral_hippocampus",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "lateral_ventricle",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "scenario_id": "q2-rounded-high",
+          "passed_percent": 0.0,
+          "upper_percent": 50.0,
+          "passed_weight": 0,
+          "unknown_weight": 1,
+          "failed_weight": 1,
+          "targets": [
+            {
+              "canonical_id": "bilateral_hippocampus",
+              "attainment": "unknown",
+              "weight": 1
+            },
+            {
+              "canonical_id": "lateral_ventricle",
+              "attainment": "not_attained",
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

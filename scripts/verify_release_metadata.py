@@ -67,6 +67,8 @@ def verify_release_metadata(root: Path, *, tag: str | None = None) -> dict[str, 
     if project_version.pre:
         pre_name, pre_number = project_version.pre
         changelog_version += f"-{pre_name}.{pre_number}"
+    if project_version.dev is not None:
+        changelog_version += f".dev{project_version.dev}"
     if f"## {changelog_version} " not in (root / "CHANGELOG.md").read_text(encoding="utf-8"):
         findings.append("changelog_version_missing")
     if tag is not None:

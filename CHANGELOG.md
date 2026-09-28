@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.0.0-rc.6.dev0 - 2026-09-28
+
+- Specify all v0.4 variance recipes, assumptions, derived boundaries and
+  mathematical properties in an 18-page methods paper with four reproducible
+  figures. Preserve negative empirical results and numerical rank limitations.
+- Add offline native-summary and cognitive/neural examples using the canonical
+  evaluator, exact input/result identities and explicit unknown evidence.
+- Add an installed-package mathematical witness replay and precise locked-runtime
+  instructions. Include paper sources, PDF, figure data and builders in releases.
+- Fix source-export omissions and example-code license annotations; pin the
+  build backend. The reference remains conditional and is not a ratified measure
+  of whole-human biological reconstruction.
+
+
 All notable changes are recorded here. AniBench uses semantic versioning for the benchmark contract, not only the Python package.
 
 ## Unreleased
