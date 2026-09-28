@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Local AniBench chart comparison input",
+  "type": "object",
+  "required": [
+    "schema",
+    "studies"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "anibench.study-chart-comparison.v1"
+    },
+    "studies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "label",
+          "result",
+          "result_file_sha256",
+          "input",
+          "input_file_sha256",
+          "lifecycle",
+          "study_publication",
+          "ethics"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "description": "Plain single-line display label; runtime additionally rejects Unicode control and separator characters."
+          },
+          "result": {
+            "type": "string",
+            "minLength": 1
+          },
+          "input": {
+            "type": "string",
+            "minLength": 1
+          },
+          "result_file_sha256": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "input_file_sha256": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "lifecycle": {
+            "enum": [
+              "planned",
+              "collected",
+              "hypothetical"
+            ]
+          },
+          "study_publication": {
+            "enum": [
+              "peer_reviewed_results",
+              "preprint_results",
+              "protocol_only",
+              "unpublished",
+              "unknown"
+            ]
+          },
+          "ethics": {
+            "enum": [
+              "approved",
+              "exempt",
+              "not_required",
+              "not_approved",
+              "unknown"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

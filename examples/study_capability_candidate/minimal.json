@@ -1,0 +1,191 @@
+{
+  "schema": "anibench.study-capability-design.v0",
+  "design_id": "synthetic-minimal-physical-panel",
+  "lifecycle": "hypothetical",
+  "cohort_n": 200,
+  "source_sha256": "sha256:232744bed0a46e3f134befc8487b7cc1d35f83b91bd1ab211383c63cba48b75a",
+  "gates": {
+    "sampling_frame": true,
+    "group_linkage_and_disjointness": true,
+    "measurement_semantics": true,
+    "assignment_randomized": false,
+    "baseline_modifier_prespecified": false,
+    "assignment_consistency_and_followup": false,
+    "baseline_aligned_to_assignment": false,
+    "external_site_independent": false,
+    "same_intervention_operator_external": false,
+    "collection_verified": null
+  },
+  "panels": {
+    "physical_function": {
+      "status": "present",
+      "operator_qualified": true,
+      "time_frame": {
+        "unit": "days",
+        "origin": "registered_baseline",
+        "source_qualified": true
+      },
+      "coordinate_status": {
+        "grip": "present",
+        "gait": "present",
+        "systolic": "present",
+        "grip_better_hand_max": "unknown"
+      },
+      "groups": [
+        {
+          "group_id": "one-independent-population",
+          "n": 200,
+          "site": "internal",
+          "arm": null,
+          "modifier": null,
+          "events": [
+            {
+              "physical_id": "grip-0-0",
+              "session_id": "block-0",
+              "coordinate": "grip",
+              "time": 0
+            },
+            {
+              "physical_id": "grip-0-1",
+              "session_id": "block-0",
+              "coordinate": "grip",
+              "time": 0
+            },
+            {
+              "physical_id": "grip-0-2",
+              "session_id": "block-0",
+              "coordinate": "grip",
+              "time": 0
+            },
+            {
+              "physical_id": "grip-0-3",
+              "session_id": "block-0",
+              "coordinate": "grip",
+              "time": 0
+            },
+            {
+              "physical_id": "grip-90-0",
+              "session_id": "block-90",
+              "coordinate": "grip",
+              "time": 90
+            },
+            {
+              "physical_id": "grip-90-1",
+              "session_id": "block-90",
+              "coordinate": "grip",
+              "time": 90
+            },
+            {
+              "physical_id": "grip-90-2",
+              "session_id": "block-90",
+              "coordinate": "grip",
+              "time": 90
+            },
+            {
+              "physical_id": "grip-90-3",
+              "session_id": "block-90",
+              "coordinate": "grip",
+              "time": 90
+            },
+            {
+              "physical_id": "gait-0-0",
+              "session_id": "block-0",
+              "coordinate": "gait",
+              "time": 0
+            },
+            {
+              "physical_id": "gait-0-1",
+              "session_id": "block-0",
+              "coordinate": "gait",
+              "time": 0
+            },
+            {
+              "physical_id": "gait-0-2",
+              "session_id": "block-0",
+              "coordinate": "gait",
+              "time": 0
+            },
+            {
+              "physical_id": "gait-0-3",
+              "session_id": "block-0",
+              "coordinate": "gait",
+              "time": 0
+            },
+            {
+              "physical_id": "gait-90-0",
+              "session_id": "block-90",
+              "coordinate": "gait",
+              "time": 90
+            },
+            {
+              "physical_id": "gait-90-1",
+              "session_id": "block-90",
+              "coordinate": "gait",
+              "time": 90
+            },
+            {
+              "physical_id": "gait-90-2",
+              "session_id": "block-90",
+              "coordinate": "gait",
+              "time": 90
+            },
+            {
+              "physical_id": "gait-90-3",
+              "session_id": "block-90",
+              "coordinate": "gait",
+              "time": 90
+            },
+            {
+              "physical_id": "systolic-0-0",
+              "session_id": "block-0",
+              "coordinate": "systolic",
+              "time": 0
+            },
+            {
+              "physical_id": "systolic-0-1",
+              "session_id": "block-0",
+              "coordinate": "systolic",
+              "time": 0
+            },
+            {
+              "physical_id": "systolic-0-2",
+              "session_id": "block-0",
+              "coordinate": "systolic",
+              "time": 0
+            },
+            {
+              "physical_id": "systolic-0-3",
+              "session_id": "block-0",
+              "coordinate": "systolic",
+              "time": 0
+            },
+            {
+              "physical_id": "systolic-90-0",
+              "session_id": "block-90",
+              "coordinate": "systolic",
+              "time": 90
+            },
+            {
+              "physical_id": "systolic-90-1",
+              "session_id": "block-90",
+              "coordinate": "systolic",
+              "time": 90
+            },
+            {
+              "physical_id": "systolic-90-2",
+              "session_id": "block-90",
+              "coordinate": "systolic",
+              "time": 90
+            },
+            {
+              "physical_id": "systolic-90-3",
+              "session_id": "block-90",
+              "coordinate": "systolic",
+              "time": 90
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,10 +1,19 @@
 # AniBench
 
-The current task-reference candidate evaluates planned studies and qualified
-collected-data summaries against explicit precision requirements. Start with the
-[methods paper (PDF)](paper/task_reference/AniBench_task_reference.pdf), the
+Evaluate a study's measurement capabilities with
+[`anibench study-capability`](docs/STUDY_CAPABILITY.md). The native36 research
+candidate reports six category percentages against explicit biological
+measurement requirements. It handles repeated readings, missing acquisitions,
+timing, randomized contrasts and participant linkage. The supplied example is
+hypothetical; real-study comparisons and broader validation remain in progress.
+
+The earlier task-reference candidate evaluates planned studies and qualified
+collected-data summaries against explicit precision requirements. Its
+[methods paper (PDF)](paper/task_reference/AniBench_task_reference.pdf),
 [complete mathematical recipe](docs/REFERENCE_RECIPE_V04.md), and the
-[reproduction guide](docs/REPRODUCING_TASK_REFERENCE.md).
+[reproduction guide](docs/REPRODUCING_TASK_REFERENCE.md) document that earlier
+model. Native36 methods are currently described in
+[Study capability](docs/STUDY_CAPABILITY.md); the integrated manuscript is pending.
 `anibench plan` compares hypothetical designs; `anibench benchmark` evaluates
 frozen workloads. Two public examples reproduce real-source precision
 calculations without participant uploads. The optional local workbench consumes
@@ -63,7 +72,7 @@ make the proposed ladder testable; these are not calibrated biological sufficien
 thresholds. Run `python examples/broad_reference/replay.py --out output/reference`.
 
 Read the [task-reference manuscript](paper/task_reference/AniBench_task_reference.md)
-for every current reference formula, derivations, source examples, adversarial
+for the earlier reference formulas, derivations, source examples, adversarial
 properties and retained negative empirical findings. The
 [reproduction guide](docs/REPRODUCING_TASK_REFERENCE.md) includes exact installation,
 public example replay and PDF-building commands. The earlier

@@ -1,0 +1,1832 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/anibiome/anibench-benchmark/main/src/anibench/study_capability_candidate/design.schema.json",
+  "title": "AniBench finite native-panel study design",
+  "description": "Structural contract. The runtime validator also checks registered native coordinates, physical identity, disjoint independent-person counts, linkage reconciliation and strict integer/boolean types. Extra source annotations do not grant scientific credit.",
+  "type": "object",
+  "required": [
+    "schema",
+    "design_id",
+    "lifecycle",
+    "cohort_n",
+    "source_sha256",
+    "gates",
+    "panels"
+  ],
+  "properties": {
+    "schema": {
+      "const": "anibench.study-capability-design.v0"
+    },
+    "design_id": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "lifecycle": {
+      "enum": [
+        "planned",
+        "collected",
+        "hypothetical"
+      ]
+    },
+    "cohort_n": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "boolean",
+          "null"
+        ]
+      }
+    },
+    "panels": {
+      "type": "object",
+      "properties": {
+        "blood_proteins": {
+          "type": "object",
+          "required": [
+            "status",
+            "operator_qualified"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "operator_qualified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "time_frame": {
+              "type": "object",
+              "required": [
+                "unit"
+              ],
+              "properties": {
+                "unit": {
+                  "const": "days"
+                },
+                "source_qualified": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "origin": {
+                  "enum": [
+                    "first_acquisition",
+                    "intervention_assignment",
+                    "registered_baseline",
+                    null
+                  ]
+                }
+              }
+            },
+            "coordinate_status": {
+              "type": "object",
+              "properties": {
+                "albumin": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "il6": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "apob": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/group"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "present"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "time_frame",
+                  "coordinate_status"
+                ],
+                "properties": {
+                  "coordinate_status": {
+                    "required": [
+                      "albumin",
+                      "il6",
+                      "apob"
+                    ]
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "groups": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "targeted_metabolism": {
+          "type": "object",
+          "required": [
+            "status",
+            "operator_qualified"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "operator_qualified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "time_frame": {
+              "type": "object",
+              "required": [
+                "unit"
+              ],
+              "properties": {
+                "unit": {
+                  "const": "days"
+                },
+                "source_qualified": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "origin": {
+                  "enum": [
+                    "first_acquisition",
+                    "intervention_assignment",
+                    "registered_baseline",
+                    null
+                  ]
+                }
+              }
+            },
+            "coordinate_status": {
+              "type": "object",
+              "properties": {
+                "fasting_glucose": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "triglycerides": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "leucine": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "lactate": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/group"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "present"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "time_frame",
+                  "coordinate_status"
+                ],
+                "properties": {
+                  "coordinate_status": {
+                    "required": [
+                      "fasting_glucose",
+                      "triglycerides",
+                      "leucine",
+                      "lactate"
+                    ]
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "groups": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "immune_cells": {
+          "type": "object",
+          "required": [
+            "status",
+            "operator_qualified"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "operator_qualified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "time_frame": {
+              "type": "object",
+              "required": [
+                "unit"
+              ],
+              "properties": {
+                "unit": {
+                  "const": "days"
+                },
+                "source_qualified": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "origin": {
+                  "enum": [
+                    "first_acquisition",
+                    "intervention_assignment",
+                    "registered_baseline",
+                    null
+                  ]
+                }
+              }
+            },
+            "coordinate_status": {
+              "type": "object",
+              "properties": {
+                "cd4_count": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "cd4_naive_fraction": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/group"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "present"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "time_frame",
+                  "coordinate_status"
+                ],
+                "properties": {
+                  "coordinate_status": {
+                    "required": [
+                      "cd4_count",
+                      "cd4_naive_fraction"
+                    ]
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "groups": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "microbial_function": {
+          "type": "object",
+          "required": [
+            "status",
+            "operator_qualified"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "operator_qualified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "time_frame": {
+              "type": "object",
+              "required": [
+                "unit"
+              ],
+              "properties": {
+                "unit": {
+                  "const": "days"
+                },
+                "source_qualified": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "origin": {
+                  "enum": [
+                    "first_acquisition",
+                    "intervention_assignment",
+                    "registered_baseline",
+                    null
+                  ]
+                }
+              }
+            },
+            "coordinate_status": {
+              "type": "object",
+              "properties": {
+                "microbial_f_prausnitzii": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "microbial_butyrate_pathway": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/group"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "present"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "time_frame",
+                  "coordinate_status"
+                ],
+                "properties": {
+                  "coordinate_status": {
+                    "required": [
+                      "microbial_f_prausnitzii",
+                      "microbial_butyrate_pathway"
+                    ]
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "groups": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "muscle_transcription": {
+          "type": "object",
+          "required": [
+            "status",
+            "operator_qualified"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "operator_qualified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "time_frame": {
+              "type": "object",
+              "required": [
+                "unit"
+              ],
+              "properties": {
+                "unit": {
+                  "const": "days"
+                },
+                "source_qualified": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "origin": {
+                  "enum": [
+                    "first_acquisition",
+                    "intervention_assignment",
+                    "registered_baseline",
+                    null
+                  ]
+                }
+              }
+            },
+            "coordinate_status": {
+              "type": "object",
+              "properties": {
+                "muscle_ppargc1a": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/group"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "present"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "time_frame",
+                  "coordinate_status"
+                ],
+                "properties": {
+                  "coordinate_status": {
+                    "required": [
+                      "muscle_ppargc1a"
+                    ]
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "groups": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "adipose_morphology": {
+          "type": "object",
+          "required": [
+            "status",
+            "operator_qualified"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "operator_qualified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "time_frame": {
+              "type": "object",
+              "required": [
+                "unit"
+              ],
+              "properties": {
+                "unit": {
+                  "const": "days"
+                },
+                "source_qualified": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "origin": {
+                  "enum": [
+                    "first_acquisition",
+                    "intervention_assignment",
+                    "registered_baseline",
+                    null
+                  ]
+                }
+              }
+            },
+            "coordinate_status": {
+              "type": "object",
+              "properties": {
+                "adipose_adipocyte_area": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/group"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "present"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "time_frame",
+                  "coordinate_status"
+                ],
+                "properties": {
+                  "coordinate_status": {
+                    "required": [
+                      "adipose_adipocyte_area"
+                    ]
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "groups": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "physical_function": {
+          "type": "object",
+          "required": [
+            "status",
+            "operator_qualified"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "operator_qualified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "time_frame": {
+              "type": "object",
+              "required": [
+                "unit"
+              ],
+              "properties": {
+                "unit": {
+                  "const": "days"
+                },
+                "source_qualified": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "origin": {
+                  "enum": [
+                    "first_acquisition",
+                    "intervention_assignment",
+                    "registered_baseline",
+                    null
+                  ]
+                }
+              }
+            },
+            "coordinate_status": {
+              "type": "object",
+              "properties": {
+                "grip": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "gait": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "systolic": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "grip_better_hand_max": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/group"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "present"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "time_frame",
+                  "coordinate_status"
+                ],
+                "properties": {
+                  "coordinate_status": {
+                    "required": [
+                      "grip",
+                      "gait",
+                      "systolic",
+                      "grip_better_hand_max"
+                    ]
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "groups": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "daily_behavior": {
+          "type": "object",
+          "required": [
+            "status",
+            "operator_qualified"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "operator_qualified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "time_frame": {
+              "type": "object",
+              "required": [
+                "unit"
+              ],
+              "properties": {
+                "unit": {
+                  "const": "days"
+                },
+                "source_qualified": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "origin": {
+                  "enum": [
+                    "first_acquisition",
+                    "intervention_assignment",
+                    "registered_baseline",
+                    null
+                  ]
+                }
+              }
+            },
+            "coordinate_status": {
+              "type": "object",
+              "properties": {
+                "acceleration": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "sleep_duration": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "watchpat300_ahi": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "watchpat300_min_spo2": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "watchpat300_sleep_efficiency": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/group"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "present"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "time_frame",
+                  "coordinate_status"
+                ],
+                "properties": {
+                  "coordinate_status": {
+                    "required": [
+                      "acceleration",
+                      "sleep_duration",
+                      "watchpat300_ahi",
+                      "watchpat300_min_spo2",
+                      "watchpat300_sleep_efficiency"
+                    ]
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "groups": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "cognitive_psychological": {
+          "type": "object",
+          "required": [
+            "status",
+            "operator_qualified"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "operator_qualified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "time_frame": {
+              "type": "object",
+              "required": [
+                "unit"
+              ],
+              "properties": {
+                "unit": {
+                  "const": "days"
+                },
+                "source_qualified": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "origin": {
+                  "enum": [
+                    "first_acquisition",
+                    "intervention_assignment",
+                    "registered_baseline",
+                    null
+                  ]
+                }
+              }
+            },
+            "coordinate_status": {
+              "type": "object",
+              "properties": {
+                "reaction_time": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "symbol_coding": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "depressive_symptoms": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/group"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "present"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "time_frame",
+                  "coordinate_status"
+                ],
+                "properties": {
+                  "coordinate_status": {
+                    "required": [
+                      "reaction_time",
+                      "symbol_coding",
+                      "depressive_symptoms"
+                    ]
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "groups": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "evoked_neural": {
+          "type": "object",
+          "required": [
+            "status",
+            "operator_qualified"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "operator_qualified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "time_frame": {
+              "type": "object",
+              "required": [
+                "unit"
+              ],
+              "properties": {
+                "unit": {
+                  "const": "days"
+                },
+                "source_qualified": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "origin": {
+                  "enum": [
+                    "first_acquisition",
+                    "intervention_assignment",
+                    "registered_baseline",
+                    null
+                  ]
+                }
+              }
+            },
+            "coordinate_status": {
+              "type": "object",
+              "properties": {
+                "p3b": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "n170": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/group"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "present"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "time_frame",
+                  "coordinate_status"
+                ],
+                "properties": {
+                  "coordinate_status": {
+                    "required": [
+                      "p3b",
+                      "n170"
+                    ]
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "groups": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "olink_inflammatory_readout": {
+          "type": "object",
+          "required": [
+            "status",
+            "operator_qualified"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "operator_qualified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "time_frame": {
+              "type": "object",
+              "required": [
+                "unit"
+              ],
+              "properties": {
+                "unit": {
+                  "const": "days"
+                },
+                "source_qualified": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "origin": {
+                  "enum": [
+                    "first_acquisition",
+                    "intervention_assignment",
+                    "registered_baseline",
+                    null
+                  ]
+                }
+              }
+            },
+            "coordinate_status": {
+              "type": "object",
+              "properties": {
+                "olink_target96_il6_npx": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "olink_target96_tnf_npx": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/group"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "present"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "time_frame",
+                  "coordinate_status"
+                ],
+                "properties": {
+                  "coordinate_status": {
+                    "required": [
+                      "olink_target96_il6_npx",
+                      "olink_target96_tnf_npx"
+                    ]
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "groups": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "pbmc_transcription": {
+          "type": "object",
+          "required": [
+            "status",
+            "operator_qualified"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "operator_qualified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "time_frame": {
+              "type": "object",
+              "required": [
+                "unit"
+              ],
+              "properties": {
+                "unit": {
+                  "const": "days"
+                },
+                "source_qualified": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "origin": {
+                  "enum": [
+                    "first_acquisition",
+                    "intervention_assignment",
+                    "registered_baseline",
+                    null
+                  ]
+                }
+              }
+            },
+            "coordinate_status": {
+              "type": "object",
+              "properties": {
+                "pbmc_il1b_log2tpm1": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "pbmc_nfkbia_log2tpm1": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "pbmc_nfkbia_log2deseq2_count1": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/group"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "present"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "time_frame",
+                  "coordinate_status"
+                ],
+                "properties": {
+                  "coordinate_status": {
+                    "required": [
+                      "pbmc_il1b_log2tpm1",
+                      "pbmc_nfkbia_log2tpm1",
+                      "pbmc_nfkbia_log2deseq2_count1"
+                    ]
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "groups": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "whole_blood_methylation": {
+          "type": "object",
+          "required": [
+            "status",
+            "operator_qualified"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "operator_qualified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "time_frame": {
+              "type": "object",
+              "required": [
+                "unit"
+              ],
+              "properties": {
+                "unit": {
+                  "const": "days"
+                },
+                "source_qualified": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "origin": {
+                  "enum": [
+                    "first_acquisition",
+                    "intervention_assignment",
+                    "registered_baseline",
+                    null
+                  ]
+                }
+              }
+            },
+            "coordinate_status": {
+              "type": "object",
+              "properties": {
+                "whole_blood_cg16867657_beta": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "whole_blood_cg06639320_beta": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/group"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "present"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "time_frame",
+                  "coordinate_status"
+                ],
+                "properties": {
+                  "coordinate_status": {
+                    "required": [
+                      "whole_blood_cg16867657_beta",
+                      "whole_blood_cg06639320_beta"
+                    ]
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "groups": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "brain_structural_mri": {
+          "type": "object",
+          "required": [
+            "status",
+            "operator_qualified"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "operator_qualified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "time_frame": {
+              "type": "object",
+              "required": [
+                "unit"
+              ],
+              "properties": {
+                "unit": {
+                  "const": "days"
+                },
+                "source_qualified": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "origin": {
+                  "enum": [
+                    "first_acquisition",
+                    "intervention_assignment",
+                    "registered_baseline",
+                    null
+                  ]
+                }
+              }
+            },
+            "coordinate_status": {
+              "type": "object",
+              "properties": {
+                "mri_left_hippocampus_aseg6": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                },
+                "mri_right_hippocampus_aseg6": {
+                  "enum": [
+                    "present",
+                    "absent",
+                    "unknown"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/group"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "present"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "time_frame",
+                  "coordinate_status"
+                ],
+                "properties": {
+                  "coordinate_status": {
+                    "required": [
+                      "mri_left_hippocampus_aseg6",
+                      "mri_right_hippocampus_aseg6"
+                    ]
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "groups": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "cross_panel_linkage": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "source_qualified",
+        "exhaustive",
+        "partitions"
+      ],
+      "properties": {
+        "source_qualified": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "exhaustive": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "partitions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "partition_id",
+              "n",
+              "common_occasion_qualified",
+              "members"
+            ],
+            "properties": {
+              "partition_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "n": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "common_occasion_qualified": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "members": {
+                "type": "object",
+                "additionalProperties": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "status",
+                        "group_id"
+                      ],
+                      "properties": {
+                        "status": {
+                          "const": "linked"
+                        },
+                        "group_id": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "status"
+                      ],
+                      "properties": {
+                        "status": {
+                          "enum": [
+                            "absent",
+                            "unknown"
+                          ]
+                        }
+                      },
+                      "not": {
+                        "required": [
+                          "group_id"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "event": {
+      "type": "object",
+      "required": [
+        "physical_id",
+        "session_id",
+        "coordinate",
+        "time"
+      ],
+      "properties": {
+        "physical_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "session_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "coordinate": {
+          "enum": [
+            "albumin",
+            "il6",
+            "apob",
+            "fasting_glucose",
+            "triglycerides",
+            "leucine",
+            "lactate",
+            "cd4_count",
+            "cd4_naive_fraction",
+            "microbial_f_prausnitzii",
+            "microbial_butyrate_pathway",
+            "muscle_ppargc1a",
+            "adipose_adipocyte_area",
+            "grip",
+            "gait",
+            "systolic",
+            "grip_better_hand_max",
+            "acceleration",
+            "sleep_duration",
+            "watchpat300_ahi",
+            "watchpat300_min_spo2",
+            "watchpat300_sleep_efficiency",
+            "reaction_time",
+            "symbol_coding",
+            "depressive_symptoms",
+            "p3b",
+            "n170",
+            "olink_target96_il6_npx",
+            "olink_target96_tnf_npx",
+            "pbmc_il1b_log2tpm1",
+            "pbmc_nfkbia_log2tpm1",
+            "pbmc_nfkbia_log2deseq2_count1",
+            "whole_blood_cg16867657_beta",
+            "whole_blood_cg06639320_beta",
+            "mri_left_hippocampus_aseg6",
+            "mri_right_hippocampus_aseg6"
+          ]
+        },
+        "time": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "occasion_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "group": {
+      "type": "object",
+      "required": [
+        "group_id",
+        "n",
+        "site",
+        "arm",
+        "modifier",
+        "events"
+      ],
+      "properties": {
+        "group_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "n": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "site": {
+          "enum": [
+            "internal",
+            "external",
+            null
+          ]
+        },
+        "arm": {
+          "enum": [
+            0,
+            1,
+            null
+          ]
+        },
+        "modifier": {
+          "enum": [
+            0,
+            1,
+            null
+          ]
+        },
+        "timing_qualified": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "state_occasion": {
+          "type": "object",
+          "required": [
+            "occasion_id",
+            "source_qualified"
+          ],
+          "properties": {
+            "occasion_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_qualified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/event"
+          }
+        }
+      }
+    }
+  }
+}

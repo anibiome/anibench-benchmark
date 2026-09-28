@@ -1,8 +1,16 @@
+September 28 native-measurement integration: `anibench study-capability` evaluates
+the selective native36-capability-v3 reference, with corrected N170 semantics,
+shared-repeat errors, missingness bounds and six category percentages.
+See `docs/STUDY_CAPABILITY.md`. This is a conditional research candidate;
+main real-study comparisons and the full programme remain unfinished.
+
 September 28 priority: mathematical specification, reproducible Git package and
-explanatory paper. UX polish is optional. The current methods manuscript is
-`paper/task_reference/AniBench_task_reference.md`; exact reproduction is in
+explanatory paper. UX polish is optional. The earlier task-reference manuscript is
+`paper/task_reference/AniBench_task_reference.md`; its exact reproduction is in
 `docs/REPRODUCING_TASK_REFERENCE.md`. The v0.4 recipe is fully enumerated in
-`docs/REFERENCE_RECIPE_V04.md`. Empirical calibration remains limited, including
+`docs/REFERENCE_RECIPE_V04.md`. These documents do not specify native36; its current
+methods guide is `docs/STUDY_CAPABILITY.md`, with the integrated manuscript pending.
+Empirical calibration remains limited, including
 retained negative results; this update does not claim the complete programme.
 
 # AniBench current authority

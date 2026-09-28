@@ -30,6 +30,22 @@ def _parser() -> argparse.ArgumentParser:
     plan.add_argument("input", type=Path)
     plan.add_argument("--out", type=Path, required=True)
 
+    study = sub.add_parser(
+        "study-capability", help="Evaluate a study against the finite native-measurement workload"
+    )
+    from .study_capability_candidate.entrypoint import add_arguments
+
+    add_arguments(study)
+
+    study_chart = sub.add_parser(
+        "study-chart", help="Draw comparable category percentages from verified study results"
+    )
+    study_chart.add_argument("input", type=Path)
+    study_chart.add_argument("--scenario", required=True)
+    study_chart.add_argument("--published-only", action="store_true")
+    study_chart.add_argument("--irb-only", action="store_true")
+    study_chart.add_argument("--out", type=Path, required=True)
+
     evaluation = sub.add_parser(
         "eval", help="Run the canonical six-task AniBench trial evaluation"
     )
@@ -239,6 +255,24 @@ def _protect_collection_inputs(inputs: list[Path], outputs: list[Path]) -> None:
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     try:
+        if args.command == "study-capability":
+            from .study_capability_candidate.entrypoint import main as capability_main
+
+            capability_main([
+                str(args.input),
+                "--resolution", args.resolution, "--noise-profile", args.noise_profile,
+                "--study-profile", args.study_profile,
+            ] + (["--out", str(args.out)] if args.out is not None else [])
+              + (["--validate-only"] if args.validate_only else []))
+            return 0
+        if args.command == "study-chart":
+            from .study_capability_candidate.charts import main as chart_main
+
+            chart_main([
+                str(args.input), "--out", str(args.out), "--scenario", args.scenario,
+            ] + (["--published-only"] if args.published_only else [])
+              + (["--irb-only"] if args.irb_only else []))
+            return 0
         if args.command == "workbench":
             from .workbench import serve_workbench
 

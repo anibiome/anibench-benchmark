@@ -1,0 +1,657 @@
+{
+  "extension_rationale": {
+    "increments": "Transparent native question resolutions, not MCID, assay SD or empirical calibration. No named-study scores used to choose them.",
+    "nesting": "Adding native questions changes joint targets and within-panel weights. This is a separately named non-nested pilot, not native31 AB1 or its AB2 child.",
+    "omitted_unqualified": "Serum Luminex IL1B, p400HR xLeu, glycan structures and flow gates remain inventory candidates until exact native units/feature definitions qualify; acquired does not mean absent.",
+    "weight_policy": "Five domain budgets and every existing panel parent budget retained; each expanded panel redistributes its existing native/joint workload mass. No new global bonus. All comparisons use identical full native36 task catalogue."
+  },
+  "extension_source_proposal_sha256": "sha256:a73291f1b04513ae0a49d1f646d915c1df66f4d29a2db72f75d4efdd23128a6b",
+  "families": {
+    "controlled_effects": {
+      "criterion": "Joint native effect-vector SE<=0.5 reference scales; randomized assignment, consistency and followup gates.",
+      "estimand": "At fixed registered endpoint, assigned effect averaged equally over two prespecified baseline strata in internal site; nuisance trajectories retained."
+    },
+    "external_replication": {
+      "criterion": "Joint replication-difference SE<=0.5 reference scales; precision, not equality/clinical success or universal transport.",
+      "estimand": "Difference between internal and independent external-site assigned endpoint effects, each equal-stratum standardized."
+    },
+    "individual_state": {
+      "criterion": "Worst direction in reference-scaled baseline covariance <=0.75^2, not only marginal variances.",
+      "estimand": "Per-person baseline vector of named native observables, without population shrinkage. Participant-weighted fraction attaining bundle, with deep-subset distribution preserved."
+    },
+    "personalized_response": {
+      "criterion": "Joint native interaction-vector SE<=0.5 reference scales, four-cell overlap through design rank.",
+      "estimand": "Difference in assigned endpoint effects between two prespecified baseline strata; no individual causal-effect ground truth."
+    },
+    "population_variation": {
+      "criterion": "Every identified covariance functional at SE<=0.5 reference-scale-products, with joint worst-direction criterion. Fixed biological-stratum nuisance means removed across acquisition patterns by restricted Gaussian quadratic moments. Exact covariance at the declared challenge point; not uniformly over untested distributions.",
+      "estimand": "Common within-biological-stratum residual baseline covariance of native quantities, site\u00d7arm\u00d7prespecifiedmodifier mean trajectories removed using one shared nuisance space across all acquisition patterns. Not total marginal variation across strata."
+    },
+    "trajectories": {
+      "criterion": "Worst direction of joint change/curvature covariance <=0.75^2, with participant-weighted attainment.",
+      "estimand": "Per-person endpoint-minus-baseline and midpoint departure from endpoint interpolation for each native quantity at fixed registered horizon."
+    }
+  },
+  "generative_model": {
+    "all_direction": "Joint worst generalized variance ratio, alongside native functional tasks. Task attainment is binary at ratio<=1; continuous adequacy=min(1,1/ratio) retains source and structural support gates but does not reinterpret a precision failure as structural absence.",
+    "coordinate_standardization": "Fixed native reference scale a_j, never source sample SD. Native y=D x. H selects registered native reading and actual time basis.",
+    "known_challenge_covariance": "B and R are benchmark conditions, not extracted/calibrated biological facts. They must be estimated and validated to support realized precision claims.",
+    "measurement_error": "q*(0.75 I+0.25 Z ZT), where Z indexes coordinate-specific session; q=1 or2 coherent across all panels.",
+    "population_covariance_estimator": "Fixed biological strata site\u00d7arm\u00d7modifier share mean trajectory X across acquisition patterns. P=W\u2212WX(XT W X)^+XTW. qk=.5[yT P Dk P y\u2212tr(PDk)]; Ikl=.5tr(PDkP Dl). At challengeV0, P V0 P=P, PX=0, E(q)=I(theta\u2212theta0) and Cov(q)=I. theta_hat=theta0+I^-1q is unbiased in affine covariance model and has exactcovarianceI^-1 atV0. Patternaggregate traceformula avoids person\u00d7person matrices. No acquisition-specific nuisance means.",
+    "random_coefficients": "Across independent persons, nodal covariance B=C tensor K, C=.75I+.25ones. K(t,s)=4+sum over ell in {7,30,365} [exp(-abs(t-s)/ell)-exp(-t/ell)-exp(-s/ell)+1]. Persistent baseline plus independent baseline-centered OU components. These are normative benchmark conditions, not fitted biology.",
+    "time_basis": "Piecewise-linear basis on fixed absolute-day nodes; current tasks use observations within0..365. Baseline state and population covariance use actual day0 only. Endpoint effect families use actual0 and exact registered endpoint only. Post365 observations remain bound to input but explicitly unused, never warped.",
+    "trajectory": "Native scaled per-person nodal vector at days0,3.5,7,15,30,45,90,182.5,365; observations linearly interpolate adjacent fixed nodes. No study-relative rescaling. Causal estimands use free baseline/endpoint mean parameters at each horizon, randomized treatment absent from baseline, and their common nodal person covariance."
+  },
+  "genomic_context_extension": {
+    "additional_required_inputs": [
+      "Genome assembly and variant normalization",
+      "Called-genotype likelihood/error contract",
+      "Prespecified genotype stratum definition and enrolled support",
+      "Qualified linkage to downstream measurements/assignment"
+    ],
+    "estimand": "Treatment-by-prespecified carrier status interaction on named downstream native observables, not genotype treatment response",
+    "implementation_status": "Not implemented in Gaussian prototype; ordinary modifier labels do not establish genotype qualification.",
+    "proposal": "Variant-resolved baseline modifier tasks",
+    "reference_variant": "rs7903146 TCF7L2 C>T, coordinate/build and allele harmonization required"
+  },
+  "known_scope_limits": [
+    "Sequence/genotype is immutable context: genotype quality and variant-stratified response require a separate finite categorical/reference-variant extension; no fabricated Gaussian state credit. This remains an explicit missing task family rather than an implied absence of genomic value.",
+    "No full nonlinear mechanistic recovery, ex vivo perturbation, spatial tissue map, adaptive treatment regime, causal transport to unobserved populations, or all biological information claim.",
+    "Fixed finite nodal contrasts cannot establish arbitrary trajectory reconstruction; unsampled paths and misspecification remain open. Causal endpoint families deliberately omit off-endpoint readings rather than assume a treatment-response curve.",
+    "An identical conditional score for two panels with the same native measurement geometry is deliberate common-noise capability, not proof equal real assay reliability."
+  ],
+  "measurement_equivalence_policy": {
+    "not_equivalent": [
+      "Serum vs plasma without qualified bridge",
+      "Interstitial CGM vs venous plasma",
+      "NPX vs absolute concentration",
+      "WGBS read fraction vs EPIC beta",
+      "Cognitive performance vs direct neural acquisition",
+      "Pathway gene abundance vs metabolic flux"
+    ],
+    "planned": "A source-supported alternative quantitative assay for the same native quantity, specimen compartment and unit may map under an explicitly declared common-unbiased-measurement challenge. Keep actual method and source-qualified compatibility decision.",
+    "realized": "Conditional mapping does not establish equal bias/noise or actual calibration; empirical claims require applicable QC/calibration."
+  },
+  "model_variant": "coherent_absolute_v1",
+  "normative_sensitivity": {
+    "interpretation": "Multiply every SElimit coherently; frozen sensitivity, not choose winning factor after ranks. Defaultstate .75 times fixednativeincrement means one noisyreadingwithunitvariance fails; factor1.5passes it. Neither number is biologicaltruth.",
+    "needed_before_adoption": "Comparative decision rationale and calibrated achievable resolutions across assay-native tasks, not study-ranking tuning.",
+    "resolution_factors": [
+      0.5,
+      1.0,
+      1.5,
+      2.0
+    ]
+  },
+  "panels": [
+    {
+      "active_temporal_horizons_days": [
+        7,
+        30,
+        90,
+        365
+      ],
+      "coordinates": [
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "albumin",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Venous serum albumin, calibrated quantitative concentration g/L; assay-specific bias qualification required.",
+          "reference_scale": 1.0,
+          "unit": "g/L"
+        },
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "il6",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Venous plasma IL6 absolute concentration pg/mL; quantitative calibrated immunoassay, above registered LOQ; NPX is ineligible.",
+          "reference_scale": 0.5,
+          "unit": "pg/mL"
+        },
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "apob",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Venous serum apolipoprotein B quantitative concentration g/L; immunoassay calibration declared.",
+          "reference_scale": 0.05,
+          "unit": "g/L"
+        }
+      ],
+      "domain": "molecular",
+      "historical_quadratic_horizon_days": 365,
+      "horizon_days": 365,
+      "id": "blood_proteins",
+      "task_frame_version": "native-operator-draft0"
+    },
+    {
+      "active_temporal_horizons_days": [
+        7,
+        30,
+        90,
+        365
+      ],
+      "coordinates": [
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "fasting_glucose",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Venous plasma glucose after >=8h fast, calibrated quantitative mmol/L; hexokinase or source-supported quantitative enzymatic method admitted only under declared common-unbiased-measurement compatibility. Interstitial CGM is different.",
+          "reference_scale": 0.25,
+          "unit": "mmol/L"
+        },
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "triglycerides",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Venous serum total triglyceride concentration after >=8h fast, quantitative enzymatic mmol/L.",
+          "reference_scale": 0.15,
+          "unit": "mmol/L"
+        },
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "leucine",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Venous plasma L-leucine concentration, isotope-dilution targeted LC-MS/MS, micromol/L; untargeted intensity is ineligible.",
+          "reference_scale": 10.0,
+          "unit": "umol/L"
+        },
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "lactate",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Venous plasma L-lactate concentration mmol/L; source-qualified collection/processing interval and calibrated quantitative assay.",
+          "reference_scale": 0.2,
+          "unit": "mmol/L"
+        }
+      ],
+      "domain": "molecular",
+      "historical_quadratic_horizon_days": 365,
+      "horizon_days": 365,
+      "id": "targeted_metabolism",
+      "task_frame_version": "native-operator-draft0"
+    },
+    {
+      "active_temporal_horizons_days": [
+        7,
+        30,
+        90,
+        365
+      ],
+      "coordinates": [
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "cd4_count",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Absolute CD3+CD4+ lymphocytes per microliter whole blood, bead-counted flow cytometry; sequencing cell count is not equivalent.",
+          "reference_scale": 50.0,
+          "unit": "cells/uL"
+        },
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "cd4_naive_fraction",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "CD45RA+CCR7+ proportion among CD3+CD4+ cells, flow-cytometry gate pinned; percentage points.",
+          "reference_scale": 5.0,
+          "unit": "percentage_points"
+        }
+      ],
+      "domain": "molecular",
+      "historical_quadratic_horizon_days": 365,
+      "horizon_days": 365,
+      "id": "immune_cells",
+      "task_frame_version": "native-operator-draft0"
+    },
+    {
+      "active_temporal_horizons_days": [
+        7,
+        30,
+        90,
+        365
+      ],
+      "coordinates": [
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "microbial_f_prausnitzii",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Stool metagenomic F. prausnitzii relative fraction under a pinned taxonomic database and microbial denominator; version bridge required.",
+          "reference_scale": 0.01,
+          "unit": "fraction_of_assigned_microbes"
+        },
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "microbial_butyrate_pathway",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Stool metagenomic PWY-5676 normalized gene-copy abundance per million with HUMAnN version/database/normalization pinned; not metabolic flux.",
+          "reference_scale": 10.0,
+          "unit": "copies_per_million_microbial_gene_copies"
+        }
+      ],
+      "domain": "molecular",
+      "historical_quadratic_horizon_days": 365,
+      "horizon_days": 365,
+      "id": "microbial_function",
+      "task_frame_version": "native-operator-draft0"
+    },
+    {
+      "active_temporal_horizons_days": [
+        7,
+        30,
+        90,
+        365
+      ],
+      "coordinates": [
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "muscle_ppargc1a",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Vastus lateralis bulk RNA sequencing PPARGC1A log2TPM with transcript annotation and count floor pinned; PBMC is different compartment.",
+          "reference_scale": 0.5,
+          "unit": "log2_TPM"
+        }
+      ],
+      "domain": "molecular",
+      "historical_quadratic_horizon_days": 365,
+      "horizon_days": 365,
+      "id": "muscle_transcription",
+      "task_frame_version": "native-operator-draft0"
+    },
+    {
+      "active_temporal_horizons_days": [
+        7,
+        30,
+        90,
+        365
+      ],
+      "coordinates": [
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "adipose_adipocyte_area",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Abdominal subcutaneous adipose histology mean segmented adipocyte cross-sectional area, square micrometers; sampling/segmentation pipeline pinned.",
+          "reference_scale": 100.0,
+          "unit": "um2"
+        }
+      ],
+      "domain": "molecular",
+      "historical_quadratic_horizon_days": 365,
+      "horizon_days": 365,
+      "id": "adipose_morphology",
+      "task_frame_version": "native-operator-draft0"
+    },
+    {
+      "active_temporal_horizons_days": [
+        7,
+        30,
+        90,
+        365
+      ],
+      "coordinates": [
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "grip",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Dominant-hand maximal isometric grip kg-force, calibrated Jamar dynamometer, seated standardized elbow90degrees, best of3trials.",
+          "reference_scale": 2.0,
+          "unit": "kg_force"
+        },
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "gait",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Usual-pace gait speed m/s over4m from static start, prespecified assistive-device convention.",
+          "reference_scale": 0.05,
+          "unit": "m/s"
+        },
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "systolic",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Seated brachial systolic pressure mmHg after5minrest; calibrated cuff, mean last2of3readings, no ambulatory substitution.",
+          "reference_scale": 5.0,
+          "unit": "mmHg"
+        },
+        {
+          "acquisition_mapping": "Exact acquired native quantity and explicit source protocol; unresolved historical operator remains unknown. Conditional common-noise assumption does not prove empirical equivalence.",
+          "id": "grip_better_hand_max",
+          "operator_status": "Distinct normative native question; no substitution for an existing target.",
+          "quantity_operator_contract": "Maximum measured handgrip across both hands, calibrated dynamometer in kg-force; source protocol, posture, repetitions, and best-hand aggregation pinned. Not dominant-hand best-of-three Jamar equivalence.",
+          "reference_scale": 5.0,
+          "unit": "kg_force"
+        }
+      ],
+      "domain": "functional",
+      "historical_quadratic_horizon_days": 365,
+      "horizon_days": 365,
+      "id": "physical_function",
+      "task_frame_version": "native36-operator-pilot-v1"
+    },
+    {
+      "active_temporal_horizons_days": [
+        7,
+        30,
+        90,
+        365
+      ],
+      "coordinates": [
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "acceleration",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "Non-dominant wrist ENMO milli-g mean over7days with >=16validwearhours each day, same raw-signal processing and calibration.",
+          "reference_scale": 5.0,
+          "unit": "milli_g"
+        },
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "sleep_duration",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "PSG annotated total sleep minutes in fixed22:00\u201306:00window, AASM-scored stages, no unscored gaps; wearable prediction is different operator.",
+          "reference_scale": 20.0,
+          "unit": "minutes"
+        },
+        {
+          "acquisition_mapping": "Exact acquired native quantity and explicit source protocol; unresolved historical operator remains unknown. Conditional common-noise assumption does not prove empirical equivalence.",
+          "id": "watchpat300_ahi",
+          "operator_status": "Distinct normative native question; no substitution for an existing target.",
+          "quantity_operator_contract": "WatchPAT300 peripheral arterial tone derived apnea-hypopnea index events per hour of device-estimated sleep; algorithm/version, apnea/hypopnea criteria, valid-night QC and aggregation pinned. Not PSG AHI or direct EEG.",
+          "reference_scale": 5.0,
+          "unit": "events_per_hour"
+        },
+        {
+          "acquisition_mapping": "Exact acquired native quantity and explicit source protocol; unresolved historical operator remains unknown. Conditional common-noise assumption does not prove empirical equivalence.",
+          "id": "watchpat300_min_spo2",
+          "operator_status": "Distinct normative native question; no substitution for an existing target.",
+          "quantity_operator_contract": "WatchPAT300 minimum sleep-period peripheral oxygen saturation in percent; source sensor/algorithm, artifact rejection, valid-night definition and night aggregation pinned. Not waking SpO2 or generic device minimum.",
+          "reference_scale": 2.0,
+          "unit": "percent"
+        },
+        {
+          "acquisition_mapping": "Exact acquired native quantity and explicit source protocol; unresolved historical operator remains unknown. Conditional common-noise assumption does not prove empirical equivalence.",
+          "id": "watchpat300_sleep_efficiency",
+          "operator_status": "Distinct normative native question; no substitution for an existing target.",
+          "quantity_operator_contract": "WatchPAT300 device-estimated sleep efficiency in percent; source sleep/time-in-bed denominator, algorithm version, valid-night QC and night aggregation pinned. Not PSG sleep efficiency.",
+          "reference_scale": 5.0,
+          "unit": "percent"
+        }
+      ],
+      "domain": "digital",
+      "historical_quadratic_horizon_days": 7,
+      "horizon_days": 7,
+      "id": "daily_behavior",
+      "task_frame_version": "native36-operator-pilot-v1"
+    },
+    {
+      "active_temporal_horizons_days": [
+        7,
+        30,
+        90,
+        365
+      ],
+      "coordinates": [
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "reaction_time",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "10minute psychomotor vigilance test median valid response latency ms; lapse/anticipation thresholds and device latency frozen.",
+          "reference_scale": 20.0,
+          "unit": "ms"
+        },
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "symbol_coding",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "WAIS-IV Digit Symbol Coding raw correct count in120seconds under standard administration; alternate forms require bridge.",
+          "reference_scale": 3.0,
+          "unit": "correct_symbols"
+        },
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "depressive_symptoms",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "PHQ-9 original nineitems scored0\u20133 and summed0\u201327, past2weeks, acquired self-report; predicted/cumulative scores ineligible.",
+          "reference_scale": 2.0,
+          "unit": "scale_points"
+        }
+      ],
+      "domain": "cognitive",
+      "historical_quadratic_horizon_days": 365,
+      "horizon_days": 365,
+      "id": "cognitive_psychological",
+      "task_frame_version": "native-operator-draft0"
+    },
+    {
+      "active_temporal_horizons_days": [
+        7,
+        30,
+        90,
+        365
+      ],
+      "coordinates": [
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "p3b",
+          "operator_status": "Explicit candidate convention; exact study mapping requires source evidence, not unit/name match.",
+          "quantity_operator_contract": "ERP CORE visual oddball P3b mean amplitude300\u2013600ms Pz target-minus-nontarget, microvolts; montage/reference/filter/artifact pipeline pinned.",
+          "reference_scale": 1.0,
+          "unit": "uV"
+        },
+        {
+          "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+          "id": "n170_face_car_po8_mean110_150",
+          "measurement_script_sha256": "b1514c759e60bf239f8d98fac47b17c4d5cee5267d650356e9beda510aa7cafd",
+          "native_observable": {
+            "baseline_ms": [
+              -200,
+              0
+            ],
+            "channel_index_policy": "Require header label PO8. The index is specific to pinned processed channel order, not a portable raw-data mapping.",
+            "component_label": "N170",
+            "contrast": "face_minus_car",
+            "electrode": "PO8",
+            "original_processed_channel_index": 26,
+            "statistic": "window_mean_amplitude",
+            "unit": "uV",
+            "window_ms": [
+              110,
+              150
+            ]
+          },
+          "operator_status": "Primary paper and pinned author-script quantity corrected; exact study mapping still requires montage/reference/filter/artifact/epoch and averaging semantics. Common q remains normative, not empirically calibrated.",
+          "quantity_operator_contract": "ERP CORE face-minus-car mean amplitude at PO8 over110\u2013150ms, baseline\u2212200\u20130ms, microvolts. Pinned original ERP CORE processing and measurement contract; confirm processed channel label PO8 rather than assuming raw channel index26.",
+          "reference_scale": 1.0,
+          "source_commit": "c18b43d70d791ca914d90410afe4ff06d6f7f429",
+          "unit": "uV"
+        }
+      ],
+      "domain": "neural",
+      "historical_quadratic_horizon_days": 7,
+      "horizon_days": 7,
+      "id": "evoked_neural",
+      "task_frame_version": "native-operator-erp-core-correction-v1"
+    },
+    {
+      "active_temporal_horizons_days": [
+        7,
+        30,
+        90,
+        365
+      ],
+      "coordinates": [
+        {
+          "acquisition_mapping": "Exact compartment, readout, operator version and units only. Source-qualified bridge required for alternatives.",
+          "id": "olink_target96_il6_npx",
+          "operator_status": "Candidate specified native readout; common-noise assumption is not empirical assay reliability.",
+          "quantity_operator_contract": "EDTA plasma Olink Target96 Inflammation IL6 (P05231) normalized NPX log2readout; panel assay/protocol/normalization version pinned, no absolute-concentration equivalence.",
+          "reference_scale": 0.5,
+          "unit": "NPX_log2"
+        },
+        {
+          "acquisition_mapping": "Exact compartment, readout, operator version and units only. Source-qualified bridge required for alternatives.",
+          "id": "olink_target96_tnf_npx",
+          "operator_status": "Candidate specified native readout; common-noise assumption is not empirical assay reliability.",
+          "quantity_operator_contract": "EDTA plasma Olink Target96 Inflammation TNF (P01375) normalized NPX log2readout; panel assay/protocol/normalization version pinned.",
+          "reference_scale": 0.5,
+          "unit": "NPX_log2"
+        }
+      ],
+      "domain": "molecular",
+      "historical_quadratic_horizon_days": 365,
+      "horizon_days": 365,
+      "id": "olink_inflammatory_readout",
+      "task_frame_version": "native-operator-draft0"
+    },
+    {
+      "active_temporal_horizons_days": [
+        7,
+        30,
+        90,
+        365
+      ],
+      "coordinates": [
+        {
+          "acquisition_mapping": "Exact compartment, readout, operator version and units only. Source-qualified bridge required for alternatives.",
+          "id": "pbmc_il1b_log2tpm1",
+          "operator_status": "Candidate specified native readout; common-noise assumption is not empirical assay reliability.",
+          "quantity_operator_contract": "Freshly isolated PBMC bulk RNA-seq IL1B, GENCODEv44 gene-level TPM, log2(TPM+1); cell-mixture readout, not single-cell expression.",
+          "reference_scale": 0.5,
+          "unit": "log2(TPM+1)"
+        },
+        {
+          "acquisition_mapping": "Exact compartment, readout, operator version and units only. Source-qualified bridge required for alternatives.",
+          "id": "pbmc_nfkbia_log2tpm1",
+          "operator_status": "Candidate specified native readout; common-noise assumption is not empirical assay reliability.",
+          "quantity_operator_contract": "Freshly isolated PBMC bulk RNA-seq NFKBIA, GENCODEv44 gene-level TPM, log2(TPM+1); cell-mixture readout.",
+          "reference_scale": 0.5,
+          "unit": "log2(TPM+1)"
+        },
+        {
+          "acquisition_mapping": "Exact acquired native quantity and explicit source protocol; unresolved historical operator remains unknown. Conditional common-noise assumption does not prove empirical equivalence.",
+          "id": "pbmc_nfkbia_log2deseq2_count1",
+          "operator_status": "Distinct normative native question; no substitution for an existing target.",
+          "quantity_operator_contract": "PBMC bulk RNA-seq NFKBIA gene counts normalized by a fixed DESeq2 size-factor export, transformed log2(normalized_count+1); exact gene reference, counting pipeline, size-factor reference cohort/method/version and export pinned. Not TPM or absolute transcript concentration.",
+          "reference_scale": 1.0,
+          "unit": "log2(DESeq2_normalized_count+1)"
+        }
+      ],
+      "domain": "molecular",
+      "historical_quadratic_horizon_days": 365,
+      "horizon_days": 365,
+      "id": "pbmc_transcription",
+      "task_frame_version": "native36-operator-pilot-v1"
+    },
+    {
+      "active_temporal_horizons_days": [
+        7,
+        30,
+        90,
+        365
+      ],
+      "coordinates": [
+        {
+          "acquisition_mapping": "Exact compartment, readout, operator version and units only. Source-qualified bridge required for alternatives.",
+          "id": "whole_blood_cg16867657_beta",
+          "operator_status": "Candidate specified native readout; common-noise assumption is not empirical assay reliability.",
+          "quantity_operator_contract": "Whole-blood Illumina MethylationEPICv1 cg16867657 beta, pinned probe manifest/background/dye normalization; not WGBS read fraction.",
+          "reference_scale": 0.05,
+          "unit": "methylation_beta"
+        },
+        {
+          "acquisition_mapping": "Exact compartment, readout, operator version and units only. Source-qualified bridge required for alternatives.",
+          "id": "whole_blood_cg06639320_beta",
+          "operator_status": "Candidate specified native readout; common-noise assumption is not empirical assay reliability.",
+          "quantity_operator_contract": "Whole-blood Illumina MethylationEPICv1 cg06639320 beta, pinned probe manifest/background/dye normalization.",
+          "reference_scale": 0.05,
+          "unit": "methylation_beta"
+        }
+      ],
+      "domain": "molecular",
+      "historical_quadratic_horizon_days": 365,
+      "horizon_days": 365,
+      "id": "whole_blood_methylation",
+      "task_frame_version": "native-operator-draft0"
+    },
+    {
+      "active_temporal_horizons_days": [
+        7,
+        30,
+        90,
+        365
+      ],
+      "coordinates": [
+        {
+          "acquisition_mapping": "Exact compartment, readout, operator version and units only. Source-qualified bridge required for alternatives.",
+          "id": "mri_left_hippocampus_aseg6",
+          "operator_status": "Candidate specified native readout; common-noise assumption is not empirical assay reliability.",
+          "quantity_operator_contract": "T1MRI FreeSurfer6.0 standard recon-all aseg.stats Left-Hippocampus volume; hemisphere explicit, not hippocampal-subfield module total.",
+          "reference_scale": 100.0,
+          "unit": "mm3"
+        },
+        {
+          "acquisition_mapping": "Exact compartment, readout, operator version and units only. Source-qualified bridge required for alternatives.",
+          "id": "mri_right_hippocampus_aseg6",
+          "operator_status": "Candidate specified native readout; common-noise assumption is not empirical assay reliability.",
+          "quantity_operator_contract": "T1MRI FreeSurfer6.0 standard recon-all aseg.stats Right-Hippocampus volume; same acquisition/QC and no bilateral collapse.",
+          "reference_scale": 100.0,
+          "unit": "mm3"
+        }
+      ],
+      "domain": "neural",
+      "historical_quadratic_horizon_days": 365,
+      "horizon_days": 365,
+      "id": "brain_structural_mri",
+      "task_frame_version": "native-operator-draft0"
+    }
+  ],
+  "profile_id": "native36-operator-pilot-v2",
+  "reference_conventions": "Native scales inherited as draft round biological increments, no clinical importance/calibration claim; molecular panel breadth prevents a routine fasting blood test from impersonating tissue/cellular/microbial depth.",
+  "registry_assessment": "Expanded36nativecoordinates/14panels is a bounded candidate catalogue, not representative coverage of all multiomics. Native platform readouts and physiological quantities are different task frames. A single gene/CpG does not establish transcriptome/methylome depth. Catalogue and weights require independent biological coverage adjudication before main-benchmark adoption.",
+  "schema": "anibench.native-operator-expanded-workload.v1",
+  "source_correction": {
+    "id": "erp-core-n170-po8-110-150-v1",
+    "meaning": "Different native observable; no alias, conversion, old-result relabeling or empirical validation transfer.",
+    "measurement_script_sha256": "b1514c759e60bf239f8d98fac47b17c4d5cee5267d650356e9beda510aa7cafd",
+    "measurement_script_url": "https://raw.githubusercontent.com/lucklab/ERP_CORE/c18b43d70d791ca914d90410afe4ff06d6f7f429/N170/EEG_ERP_Processing/ERP_Measurements/12_Measure_ERPs.m",
+    "nested_with_previous": false,
+    "paper_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7909723/",
+    "previous_profile_id": "native36-operator-pilot-v1",
+    "rereference_script_sha256": "6b03d660ba824d9f992dd176258ff1ec89faebdfab13e4e20e2576eecab6e051",
+    "source_commit": "c18b43d70d791ca914d90410afe4ff06d6f7f429",
+    "source_repository": "https://github.com/lucklab/ERP_CORE"
+  },
+  "status": "Separately named native36 pilot reference; non-nested with native31 AB1/AB2",
+  "temporal_workload": {
+    "beyond_window": "Finite nonnegative actual times are accepted and bound. Current<=365day tasks ignore later events and report their pattern-event count. Longer-horizon child workload is not implemented or implied; adding it must preserve parent tasks, models and criteria.",
+    "days": [
+      7,
+      30,
+      90,
+      365
+    ],
+    "families": [
+      "trajectories",
+      "controlled_effects",
+      "personalized_response",
+      "external_replication"
+    ],
+    "integration": "Main compiler default coherent_absolute_v1 emits canonical finite-task components for all four horizons, preserving each panel and biological-domain total budget.",
+    "knots_days": [
+      0,
+      3.5,
+      7,
+      15,
+      30,
+      45,
+      90,
+      182.5,
+      365
+    ],
+    "rationale": "Acute, recovery, intermediate and annual followup are separate finite questions; horizons are conventions, not universal biological transition times.",
+    "weights": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ]
+  },
+  "weighting": "Six separate capability percentages, equal five domain budgets, equal panel budgets within domains. Each panel devotes half its mass to fixed native targets and half to joint all-direction resolution; singleton usesfullmass. Perperson families integrate overselectedcohort and retainacquisitiongroupdistribution. Nooverallscalar."
+}

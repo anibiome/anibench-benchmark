@@ -17,7 +17,9 @@ from pathlib import Path
 from typing import Any
 from xml.etree import ElementTree
 
-MAX_TEXT_SCAN_BYTES = 5_000_000
+# The complete native36 machine profiles are about 7 MB each. Inspect their
+# entire text; never exempt an oversized scientific resource from the scan.
+MAX_TEXT_SCAN_BYTES = 8_000_000
 MAX_PDF_SCAN_BYTES = 50_000_000
 
 TEXT_SUFFIXES = {
