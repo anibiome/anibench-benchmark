@@ -52,12 +52,30 @@ class CalerieDesignTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             example.feasible_supports(4, {"CR": 1, "AL": 1}, {"CR": 1, "AL": 1}, union_complete=1)
 
-    def test_published_support_and_144_requests(self):
+    def test_caption_conditional_support_and_144_requests(self):
         self.assertEqual(self.support["pooled_intersection_bound"], [179, 185])
         self.assertEqual(self.support["arm_conditioned_intersection_bound"], [179, 183])
         self.assertEqual(len(self.support["feasible_arm_counts"]), 15)
         self.assertEqual(len(self.requests), 144)
         self.assertEqual(len({r["payload_sha256"] for r in self.requests}), 144)
+
+    def test_conflicting_source_counts_cannot_be_promoted_to_realized_support(self):
+        finding = example.source_adjudication(self.manifest)
+        self.assertEqual(finding["caption_and_table_minimum_complete_by_arm"], {"CR": 114, "AL": 65})
+        self.assertEqual(finding["results_reported_complete_by_arm"], {"CR": 105, "AL": 59})
+        self.assertFalse(finding["realized_support_qualified"])
+        self.assertIsNone(finding["realized_complete_people"])
+        for field, value in [("realized_support_qualified", True), ("realized_complete_people", 179)]:
+            bad = copy.deepcopy(self.requests[0])
+            bad.pop("payload_sha256")
+            bad["source_adjudication"][field] = value
+            with self.assertRaises(ValueError):
+                example.evaluate(example.seal(bad))
+        bad = copy.deepcopy(self.requests[0])
+        bad.pop("payload_sha256")
+        bad.pop("source_adjudication")
+        with self.assertRaises(ValueError):
+            example.evaluate(example.seal(bad))
 
     def test_existing_apis_analytic_checks_and_count_selection_tradeoff(self):
         receipts = [example.evaluate(r) for r in self.requests]

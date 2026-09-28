@@ -18,6 +18,11 @@ All notable changes are recorded here. AniBench uses semantic versioning for the
 
 ## Unreleased
 
+- Correct CALERIE source qualification: the article's complete-series count of
+  164 conflicts with the caption/Table 1 minimum of 179. Bind the conflict into
+  requests, reports, paper and figures; retain earlier arithmetic only as a
+  caption-only conditional scenario, never a verified realized-support interval.
+
 ## 2.0.0-rc.5 - 2026-09-19
 
 - Add native architecture comparison with typed source quantities, denominators,

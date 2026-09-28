@@ -12,6 +12,13 @@ test("CALERIE figure table shows conditional uncertainty and preserves unidentif
   assert.match(html, /Not identifiable/);
   assert.match(html, /185 people/);
   assert.match(html, /179–183/);
+  assert.match(html, /Results report 164/);
+  const promoted = JSON.parse(JSON.stringify(packet));
+  promoted.rows[0].realized_support_qualified = true;
+  assert.throws(() => c.calerieExample(promoted), /source conflict/);
+  const unsupportedCount = JSON.parse(JSON.stringify(packet));
+  unsupportedCount.source_adjudication.realized_complete_people = 179;
+  assert.throws(() => c.calerieExample(unsupportedCount), /source\/model/);
   assert.match(html, /not confidence intervals/);
   assert.match(html, /two analyses of one study/);
   assert.match(html, /<caption>Conditional standard errors/);

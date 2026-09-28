@@ -1,11 +1,13 @@
 <!-- SPDX-FileCopyrightText: 2026 AniBench contributors -->
 <!-- SPDX-License-Identifier: CC-BY-4.0 -->
-# CALERIE: source-supported temporal and intervention geometry
+# CALERIE: conditional geometry with a source-count conflict
 
-This worked example compares two analysis designs from published CALERIE
-collection counts using existing AniBench APIs. It demonstrates conditional
-design precision, not treatment effects, calibrated biological information or a
-complete AniBench study score. No participant data or article body is included.
+This worked example demonstrates conditional geometry using one passage of the
+CALERIE paper. A later source review found that its follow-up counts conflict with
+the complete-series counts in the Results. **The actual three-visit denominator
+is unresolved.** The executable example preserves caption-only arithmetic with
+this conflict bound into every request; it cannot certify realized CALERIE
+precision. No participant data or article body is included.
 
 ## Run
 
@@ -38,7 +40,18 @@ follow-up; change-analysis counts are 125 CR / 66 AL at 12 months and 117 CR /
 68 AL at 24 months. These are endpoint-specific analysis denominators, not a
 claim that all 197 have every observation.
 
-The common-universe intersection bound for both follow-ups is **179–185** people.
+The same paper's Table 1 reports an analysis parent of 128 CR and 69 AL, while
+its Results report complete three-timepoint data for 105 CR and 59 AL (**164**).
+In contrast, the caption counts together with the Table 1 parent require at least
+125 + 117 − 128 = **114 CR** and 66 + 68 − 69 = **65 AL**, totaling **179**.
+These statements cannot all describe the same participant sets. Different
+eligibility definitions or corrected counts could resolve the conflict, but
+neither is established here. The source manifest binds all three passages.
+`source_adjudication()` independently derives the contradiction and reports
+`realized_support_qualified: false` with no adopted realized denominator.
+
+The remaining example is explicitly conditional on the Figure 1 caption alone.
+Its common-universe intersection bound for both follow-ups is **179–185** people.
 Disjoint arm membership sharpens it to **179–183**: the maximum CR overlap is 117
 and the maximum AL overlap is 66. The algorithm derives all 15 feasible paired
 arm supports from the marginals and parent count; it does not hardcode bounds
@@ -47,13 +60,13 @@ These support intervals are not confidence intervals. They are feasible under a
 **weaker common-parent-universe interpretation**, not a claim that the paper
 establishes every support combination as possible. If the 197 are exactly the
 union of the two change-analysis subsets, inclusion–exclusion instead gives
-**179 complete cases exactly**, with five possible arm splits. The paper's
-baseline-plus-follow-up wording supports considering that interpretation; assay
-availability and change-analysis eligibility must coincide to make the equality.
+**179 complete cases exactly**, with five possible arm splits. The caption's
+baseline-plus-follow-up wording supports this interpretation in isolation; it
+does not resolve the contradictory Results.
 Output also includes this explicit `union_complete_sensitivity`. The main replay
-retains the conservative 15-support envelope rather than silently choosing a
-source interpretation. Actual timestamps and exact individual joins remain
-unavailable.
+retains the 15-support caption-only envelope. It is not a bound on the realized
+study while the source conflict remains unresolved. Actual timestamps and exact
+individual joins remain unavailable.
 
 ## Fixed comparison frame and explicit assumptions
 
@@ -95,7 +108,7 @@ linear and curvature directions information-orthogonal; the code checks this
 numerically before using scalar reciprocals. Unidentified curvature is `null`,
 not zero variance or a pseudoinverse result.
 
-## What the example shows
+## What the caption-only model shows
 
 At residual variance 1 and correlation 0:
 
@@ -119,7 +132,7 @@ Hashes establish integrity, not independent scientific approval.
 
 ## Publication figure
 
-![Two CALERIE analysis designs: a midpoint identifies curvature but selecting complete cases reduces endpoint precision under the declared model.](comparison.svg)
+![CALERIE has incompatible complete-record counts. Caption-only conditional calculations do not establish the realized study's precision.](comparison.svg)
 
 Reproduce the figure and all numerical receipts in a new directory:
 

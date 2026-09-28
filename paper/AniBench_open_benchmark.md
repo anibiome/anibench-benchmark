@@ -562,28 +562,36 @@ the source measurement schedule, and hypothetical visits are not observed
 retests. Neither frontier certifies an optimal biological study or normative
 AniBench attainment.
 
-### 6.9 A source-supported temporal design comparison
+### 6.9 A temporal design example with conflicting source counts
 
 The [CALERIE example](../examples/design_geometry/calerie/README.md) compares
 two analysis designs using public collection counts from
 [Waziry et al. (2023)](https://doi.org/10.1038/s43587-022-00357-y).
 The reported change-analysis denominators are 125/66 participants in the
 restriction/control arms at 12 months and 117/68 at 24 months, within a
-197-person baseline-plus-follow-up population. Disjoint-arm constraints imply
-179–183 people in both endpoint-analysis subsets under the conservative common
-universe interpretation. If those subsets exactly cover the 197, their overlap
-is 179. The code retains both interpretations explicitly.
+197-person baseline-plus-follow-up population. The same article's Table 1
+reports 128 CR and 69 AL in the analysis parent, while its Results report only
+105 CR and 59 AL with all three timepoints (164 total). The caption counts and
+Table 1 instead require at least 114 CR and 65 AL (179 total). These cannot all
+describe the same participant sets. The actual complete-series denominator is
+unresolved pending corrected counts or distinct eligibility definitions.
+
+The code preserves the earlier caption-only conditional arithmetic as a
+counterfactual: without adopting the Table 1 arm denominators, the caption's
+common-parent constraint gives 179–183; an exact-union assumption gives 179.
+Neither is a verified bound on realized CALERIE support while the source conflict
+remains unresolved. Every request and exported row carries this qualification.
 
 For an illustrative common scalar with residual variance one and independent
 annual errors, existing AniBench information APIs evaluate a two-year endpoint
 change and midpoint curvature. Baseline plus 24-month data give endpoint-change
-variance 0.046505782 and cannot identify curvature. Complete three-visit records
+variance 0.046505782 and cannot identify curvature. Caption-implied three-visit records
 give endpoint-change variance 0.047397047–0.049352082 and curvature variance
 0.035547786–0.037014061. These are conditional model predictions, not observed
 clock uncertainty or treatment effects. The source does not estimate the
 assumed covariance or establish retained-subset exchangeability.
 
-The example illustrates why visit counts are insufficient: added temporal
+The conditional example illustrates why visit counts are insufficient: added temporal
 support can identify another question, while selecting complete cases reduces
 population support. Nine noise scenarios produce 144 bound evaluations, kept
 separate by model; the support ranges are not confidence intervals. All feasible

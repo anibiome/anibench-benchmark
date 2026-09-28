@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2026 AniBench contributors
 # SPDX-License-Identifier: Apache-2.0
-"""Source-supported CALERIE design scenarios through existing AniBench APIs.
+"""Caption-only CALERIE scenarios with an unresolved source-count conflict.
 
 Uses public aggregate counts only. Optional source verification is read-only;
 there is no network access. Output directories must not already exist.
@@ -23,8 +23,9 @@ import numpy as np
 from anibench.causal_v2 import contrast_information
 from anibench.information_v2 import EventContribution, event_information
 
-MANIFEST_SHA256 = "592d014e034f4e440ae26c9b6d9d3fe6d71ca6265918db9b48210ebf4a8a32cb"
-VERSION = "anibench.calerie-design-example.v1"
+MANIFEST_SHA256 = "a418c3f179983a18fd78d63b74d044320c7d8a06470382da26c3eea24fc37123"
+VERSION = "anibench.calerie-design-example.v2"
+SOURCE_INTERPRETATION = "figure_1_caption_only_conflicts_with_results"
 FRAME = {
     "observable_id": "illustrative_standardized_DNAm_scalar_not_calibrated_clock",
     "population_id": "CALERIE_197_baseline_plus_followup_reference",
@@ -34,6 +35,7 @@ FRAME = {
     "horizon_years": 2.0,
 }
 ASSUMPTIONS = [
+    "Caption-only counterfactual: reported complete-series counts elsewhere in the article conflict; realized support is unresolved.",
     "The same illustrative scalar and mean-trajectory model apply in both designs and arms.",
     "Independent participants; residual covariance is variance*rho**abs(year_difference).",
     "Nominal collection months stand in for actual timestamps, which are unavailable here.",
@@ -87,6 +89,38 @@ def verify_source(raw, manifest):
     }
     if extracted != manifest["reported_facts"]:
         raise ValueError("source literals disagree with manifest")
+    passages = json.loads(raw)[0]["documents"][0]["passages"]
+    for claim in manifest["conflicting_source_claims"]:
+        passage = passages[claim["passage_index"]]["text"]
+        if hashlib.sha256(passage.encode()).hexdigest() != claim["passage_utf8_sha256"]:
+            raise ValueError("conflicting source passage hash mismatch")
+
+
+def source_adjudication(manifest):
+    """Expose mutually incompatible set claims instead of picking a denominator.
+
+    The scenario calculations retain the caption's hypothetical set geometry.
+    They cannot establish the realized intersection reported by the study.
+    """
+    facts = manifest["reported_facts"]
+    claims = {r["claim_id"]: r["arm_counts"] for r in manifest["conflicting_source_claims"]}
+    parent, complete = claims["analysis_parent"], claims["complete_series"]
+    implied = {
+        arm: facts["12mo_change_people"][arm] + facts["24mo_change_people"][arm] - parent[arm]
+        for arm in ["CR", "AL"]
+    }
+    conflict = any(complete[arm] < implied[arm] for arm in implied)
+    if not conflict:
+        raise ValueError("frozen source-conflict adjudication no longer applies")
+    return {
+        "status": "unresolved_incompatible_source_counts",
+        "caption_and_table_minimum_complete_by_arm": implied,
+        "results_reported_complete_by_arm": complete,
+        "source_interpretation_used_for_arithmetic": SOURCE_INTERPRETATION,
+        "realized_support_qualified": False,
+        "realized_complete_people": None,
+        "resolution_needed": "Corrected participant-by-occasion counts or documented distinct eligibility definitions.",
+    }
 
 
 def integer(value, minimum=0):
@@ -146,6 +180,7 @@ def validate_model(variance, correlation):
 
 
 def build_requests(manifest):
+    adjudication = source_adjudication(manifest)
     facts = manifest["reported_facts"]
     support = feasible_supports(
         facts["baseline_and_at_least_one_followup_people"],
@@ -168,6 +203,7 @@ def build_requests(manifest):
                                 "frame": copy.deepcopy(FRAME),
                                 "source_sha256": manifest["source"]["sha256"],
                                 "source_manifest_sha256": MANIFEST_SHA256,
+                                "source_adjudication": adjudication,
                                 "model": {"residual_variance": variance, "yearly_correlation": rho},
                                 "design_id": design,
                                 "time_years": times,
@@ -195,6 +231,7 @@ def evaluate(request):
         "frame",
         "source_sha256",
         "source_manifest_sha256",
+        "source_adjudication",
         "model",
         "design_id",
         "time_years",
@@ -210,6 +247,7 @@ def evaluate(request):
         or request["source_manifest_sha256"] != MANIFEST_SHA256
         or request["source_sha256"] != manifest["source"]["sha256"]
         or request["assumptions"] != ASSUMPTIONS
+        or request["source_adjudication"] != source_adjudication(manifest)
     ):
         raise ValueError("request source or estimand frame mismatch")
     model = request["model"]
@@ -364,6 +402,8 @@ def comparison_rows(requests, receipts):
                         if any(v is None for v in values)
                         else "conditional_model",
                         "interval_semantics": "support_envelope_not_confidence_interval",
+                        "source_interpretation": SOURCE_INTERPRETATION,
+                        "realized_support_qualified": False,
                         "request_sha256": [r["payload_sha256"] for r, _ in matched],
                     }
                 )
@@ -391,6 +431,7 @@ def replay(out, source=None):
             "manifest_sha256": MANIFEST_SHA256,
             "source_replayed": source is not None,
             "facts": manifest["reported_facts"],
+            "source_adjudication": source_adjudication(manifest),
             "support": support,
         },
         "requests.json": requests,

@@ -25,8 +25,9 @@ def render(output, source=None):
     model = {"residual_variance": 1.0, "yearly_correlation": 0.0}
     selected = [row for row in rows if row["model"] == model]
     metadata = {
-        "version": "anibench.calerie-figure.v1",
-        "evidence_kind": "published_collection_counts_with_hypothetical_noise_model",
+        "version": "anibench.calerie-figure.v2",
+        "evidence_kind": "caption_only_counterfactual_with_unresolved_source_count_conflict",
+        "source_adjudication": replay.source_adjudication(replay.load_manifest()),
         "source_manifest_sha256": replay.MANIFEST_SHA256,
         "source_sha256": replay.load_manifest()["source"]["sha256"],
         "chart_results_sha256": hashlib.sha256(
@@ -61,18 +62,18 @@ def render(output, source=None):
         fig.text(
             0.045,
             0.94,
-            "ANIBENCH / REAL-STUDY DESIGN EXAMPLE",
+            "ANIBENCH / CONDITIONAL DESIGN EXAMPLE",
             fontsize=10,
             weight="bold",
             color="#39716B",
         )
         fig.text(
-            0.045, 0.875, "More visits answer a different question", fontsize=24, weight="bold"
+            0.045, 0.875, "Conflicting counts prevent a verified comparison", fontsize=22, weight="bold"
         )
         fig.text(
             0.045,
             0.825,
-            "CALERIE collection counts · Two analysis designs · One explicit noise scenario",
+            "CALERIE caption-only scenario · Realized participant overlap remains unresolved",
             fontsize=12,
             color="#475569",
         )
@@ -116,8 +117,8 @@ def render(output, source=None):
         fig.text(
             0.045,
             0.208,
-            "A midpoint identifies curvature. Requiring complete visits loses some participants;\n"
-            "under this symmetric model it does not improve endpoint-change precision.",
+            "The caption implies at least 179 complete records; the Results report 164.\n"
+            "These bars illustrate caption-only arithmetic, not verified CALERIE precision.",
             fontsize=12,
             linespacing=1.5,
             va="top",
