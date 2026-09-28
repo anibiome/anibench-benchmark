@@ -1,0 +1,70 @@
+{
+  "lifecycle": "hypothetical",
+  "measurement_error": "q*(.25 shared block + .75 independent reading); q1 and q2 normative, not ERP-calibrated",
+  "new_target": {
+    "acquisition_mapping": "Exact registered native quantity and operator only; no assay-name latent substitution.",
+    "id": "n170_face_car_po8_mean110_150",
+    "measurement_script_sha256": "b1514c759e60bf239f8d98fac47b17c4d5cee5267d650356e9beda510aa7cafd",
+    "native_observable": {
+      "baseline_ms": [
+        -200,
+        0
+      ],
+      "channel_index_policy": "Require header label PO8. The index is specific to pinned processed channel order, not a portable raw-data mapping.",
+      "component_label": "N170",
+      "contrast": "face_minus_car",
+      "electrode": "PO8",
+      "original_processed_channel_index": 26,
+      "statistic": "window_mean_amplitude",
+      "unit": "uV",
+      "window_ms": [
+        110,
+        150
+      ]
+    },
+    "operator_status": "Primary paper and pinned author-script quantity corrected; exact study mapping still requires montage/reference/filter/artifact/epoch and averaging semantics. Common q remains normative, not empirically calibrated.",
+    "quantity_operator_contract": "ERP CORE face-minus-car mean amplitude at PO8 over110\u2013150ms, baseline\u2212200\u20130ms, microvolts. Pinned original ERP CORE processing and measurement contract; confirm processed channel label PO8 rather than assuming raw channel index26.",
+    "reference_scale": 1.0,
+    "source_commit": "c18b43d70d791ca914d90410afe4ff06d6f7f429",
+    "unit": "uV"
+  },
+  "original_results_role": "Historical hypotheses only; never new expected-result certificates",
+  "preserved_geometry": {
+    "allocation": "Equal eight cells:2site x2assigned arm x2prespecified baseline modifier. Every person measured on all36 native coordinates at allnine actual nodes; complete cross-panel overlap.",
+    "cases": [
+      {
+        "N": 2048,
+        "id": "standard_candidate",
+        "repeats": 4,
+        "sessions": 4
+      },
+      {
+        "N": 8192,
+        "id": "fine_candidate",
+        "repeats": 4,
+        "sessions": 16
+      }
+    ],
+    "error_assumption": "At each exact node and coordinate, S independent instrument-error blocks each have4 correlated technical reads. .25 block plus.75 residual variance times q. Error-block independence is explicitly hypothetical, not inferred from cost, date or labels.",
+    "intent": "Current native36-capability-v2 finite conditional feasibility; neither empirical saturation nor minimal/global optimal trial.",
+    "nodes_days": [
+      0.0,
+      3.5,
+      7.0,
+      15.0,
+      30.0,
+      45.0,
+      90.0,
+      182.5,
+      365.0
+    ],
+    "run_budget": "Three full evaluations at most: standard_candidate standard/fine; fine_candidate fine. Preserve failures; no target-driven changes.",
+    "schema": "anibench.conditional-witness-recipe.v1",
+    "selection": "No outcomes used. All source/assignment/operator/linkage gates hypothetical true. All absent biological/calibration limitations remain."
+  },
+  "profile": "native36-capability-v3",
+  "replaced_target": "n170",
+  "runtime_wheel_sha256": "79a36e3080b6663837dbce1f85c194eef81f2f87eb9b4f9e4bcb7a13d922dca2",
+  "schema": "anibench.corrected-witness-semantics.v1",
+  "source_kind": "New explicitly declared synthetic acquisition design, not relabeled empirical data or prior certificates"
+}

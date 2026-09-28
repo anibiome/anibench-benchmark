@@ -22,6 +22,12 @@ SPDX-FileCopyrightText = "2026 ANI"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
+path = ["examples/reference_witnesses/*.py"]
+precedence = "override"
+SPDX-FileCopyrightText = "2026 AniBench contributors"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
 path = [
   ".zenodo.json",
   "PUBLIC_EXPORT_RECEIPT.json",

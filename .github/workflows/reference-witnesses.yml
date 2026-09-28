@@ -1,0 +1,70 @@
+name: Frozen native36 reference witnesses
+
+on:
+  push:
+    tags: [anibench-native36-reference-run-20260928]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: native36-reference-witnesses
+  cancel-in-progress: false
+
+jobs:
+  replay:
+    name: ${{ matrix.case }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        case: [standard_candidate-fine, fine_candidate-fine]
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONHASHSEED: "0"
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      NUMEXPR_NUM_THREADS: "1"
+      VECLIB_MAXIMUM_THREADS: "1"
+      MPLBACKEND: Agg
+      TZ: UTC
+      LC_ALL: C.UTF-8
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12.13"
+      - name: Install exact dependencies and build the public runtime
+        timeout-minutes: 10
+        run: |
+          python -m pip install --require-hashes --only-binary=:all: -r examples/reference_witnesses/requirements.lock
+          python -m pip wheel --no-deps --wheel-dir "$RUNNER_TEMP/wheel" .
+          python -m pip install --no-deps --no-compile --target "$RUNNER_TEMP/runtime" "$RUNNER_TEMP"/wheel/anibench-*.whl
+      - name: Verify frozen inputs and runtime
+        timeout-minutes: 5
+        run: |
+          python -B examples/reference_witnesses/replay.py verify
+          python -B examples/reference_witnesses/replay.py check-runtime --runtime "$RUNNER_TEMP/runtime"
+      - name: Compute one fresh reference certificate
+        timeout-minutes: 100
+        env:
+          REFERENCE_CASE: ${{ matrix.case }}
+        run: >-
+          python -B examples/reference_witnesses/replay.py run
+          --runtime "$RUNNER_TEMP/runtime"
+          --case "$REFERENCE_CASE"
+          --out "$RUNNER_TEMP/reference-result"
+      - name: Save this completed synthetic result
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: native36-${{ matrix.case }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/reference-result/
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 0

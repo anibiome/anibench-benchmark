@@ -1,0 +1,22 @@
+{
+  "fine_candidate": {
+    "case": "fine_candidate",
+    "cohort_n": 8192,
+    "new_compressed_sha256": "82a214c645a3489bbbaa7756f1127a9fe0bcffc89d01573116eccc4b48ffce34",
+    "new_raw_sha256": "947479861f0da6383106b398017c2527eaf17f0e1fe9899dd3e66960592597d1",
+    "original_input_sha256": "59d33a2e5169ba99b874631f40aef383514a8d4049684b959a254e037da0219b",
+    "other_geometry_exactly_preserved": true,
+    "panel_count": 14,
+    "raw_event_rows": 165888
+  },
+  "standard_candidate": {
+    "case": "standard_candidate",
+    "cohort_n": 2048,
+    "new_compressed_sha256": "af2a26d993e5cc64ebd084d79b0cc9ef3cf410bd41af486fe36e3f4c469c65dc",
+    "new_raw_sha256": "53812dedbe9f023a0f0d7ba438a0462735783c9259591ad718dd8869d93ab602",
+    "original_input_sha256": "a582c14fc994b15d4d386e26911ff101e5a9b6a95f21cb0b4af6fe08757575b7",
+    "other_geometry_exactly_preserved": true,
+    "panel_count": 14,
+    "raw_event_rows": 41472
+  }
+}

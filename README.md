@@ -7,6 +7,10 @@ measurement requirements. It handles repeated readings, missing acquisitions,
 timing, randomized contrasts and participant linkage. The supplied example is
 hypothetical; real-study comparisons and broader validation remain in progress.
 
+The [reference reproduction example](examples/reference_witnesses/README.md)
+supplies exact synthetic designs, pinned inputs and a one-command calculation
+after installation. It tests the standard and finer-resolution profiles.
+
 The earlier task-reference candidate evaluates planned studies and qualified
 collected-data summaries against explicit precision requirements. Its
 [methods paper (PDF)](paper/task_reference/AniBench_task_reference.pdf),

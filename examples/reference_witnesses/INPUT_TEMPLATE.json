@@ -1,0 +1,1783 @@
+{
+  "event_recipes": {
+    "adipose_morphology": {
+      "coordinates": [
+        "adipose_adipocyte_area"
+      ],
+      "dates": [
+        0.0,
+        3.5,
+        7.0,
+        15.0,
+        30.0,
+        45.0,
+        90.0,
+        182.5,
+        365.0
+      ]
+    },
+    "blood_proteins": {
+      "coordinates": [
+        "albumin",
+        "il6",
+        "apob"
+      ],
+      "dates": [
+        0.0,
+        3.5,
+        7.0,
+        15.0,
+        30.0,
+        45.0,
+        90.0,
+        182.5,
+        365.0
+      ]
+    },
+    "brain_structural_mri": {
+      "coordinates": [
+        "mri_left_hippocampus_aseg6",
+        "mri_right_hippocampus_aseg6"
+      ],
+      "dates": [
+        0.0,
+        3.5,
+        7.0,
+        15.0,
+        30.0,
+        45.0,
+        90.0,
+        182.5,
+        365.0
+      ]
+    },
+    "cognitive_psychological": {
+      "coordinates": [
+        "reaction_time",
+        "symbol_coding",
+        "depressive_symptoms"
+      ],
+      "dates": [
+        0.0,
+        3.5,
+        7.0,
+        15.0,
+        30.0,
+        45.0,
+        90.0,
+        182.5,
+        365.0
+      ]
+    },
+    "daily_behavior": {
+      "coordinates": [
+        "acceleration",
+        "sleep_duration",
+        "watchpat300_ahi",
+        "watchpat300_min_spo2",
+        "watchpat300_sleep_efficiency"
+      ],
+      "dates": [
+        0.0,
+        3.5,
+        7.0,
+        15.0,
+        30.0,
+        45.0,
+        90.0,
+        182.5,
+        365.0
+      ]
+    },
+    "evoked_neural": {
+      "coordinates": [
+        "p3b",
+        "n170_face_car_po8_mean110_150"
+      ],
+      "dates": [
+        0.0,
+        3.5,
+        7.0,
+        15.0,
+        30.0,
+        45.0,
+        90.0,
+        182.5,
+        365.0
+      ]
+    },
+    "immune_cells": {
+      "coordinates": [
+        "cd4_count",
+        "cd4_naive_fraction"
+      ],
+      "dates": [
+        0.0,
+        3.5,
+        7.0,
+        15.0,
+        30.0,
+        45.0,
+        90.0,
+        182.5,
+        365.0
+      ]
+    },
+    "microbial_function": {
+      "coordinates": [
+        "microbial_f_prausnitzii",
+        "microbial_butyrate_pathway"
+      ],
+      "dates": [
+        0.0,
+        3.5,
+        7.0,
+        15.0,
+        30.0,
+        45.0,
+        90.0,
+        182.5,
+        365.0
+      ]
+    },
+    "muscle_transcription": {
+      "coordinates": [
+        "muscle_ppargc1a"
+      ],
+      "dates": [
+        0.0,
+        3.5,
+        7.0,
+        15.0,
+        30.0,
+        45.0,
+        90.0,
+        182.5,
+        365.0
+      ]
+    },
+    "olink_inflammatory_readout": {
+      "coordinates": [
+        "olink_target96_il6_npx",
+        "olink_target96_tnf_npx"
+      ],
+      "dates": [
+        0.0,
+        3.5,
+        7.0,
+        15.0,
+        30.0,
+        45.0,
+        90.0,
+        182.5,
+        365.0
+      ]
+    },
+    "pbmc_transcription": {
+      "coordinates": [
+        "pbmc_il1b_log2tpm1",
+        "pbmc_nfkbia_log2tpm1",
+        "pbmc_nfkbia_log2deseq2_count1"
+      ],
+      "dates": [
+        0.0,
+        3.5,
+        7.0,
+        15.0,
+        30.0,
+        45.0,
+        90.0,
+        182.5,
+        365.0
+      ]
+    },
+    "physical_function": {
+      "coordinates": [
+        "grip",
+        "gait",
+        "systolic",
+        "grip_better_hand_max"
+      ],
+      "dates": [
+        0.0,
+        3.5,
+        7.0,
+        15.0,
+        30.0,
+        45.0,
+        90.0,
+        182.5,
+        365.0
+      ]
+    },
+    "targeted_metabolism": {
+      "coordinates": [
+        "fasting_glucose",
+        "triglycerides",
+        "leucine",
+        "lactate"
+      ],
+      "dates": [
+        0.0,
+        3.5,
+        7.0,
+        15.0,
+        30.0,
+        45.0,
+        90.0,
+        182.5,
+        365.0
+      ]
+    },
+    "whole_blood_methylation": {
+      "coordinates": [
+        "whole_blood_cg16867657_beta",
+        "whole_blood_cg06639320_beta"
+      ],
+      "dates": [
+        0.0,
+        3.5,
+        7.0,
+        15.0,
+        30.0,
+        45.0,
+        90.0,
+        182.5,
+        365.0
+      ]
+    }
+  },
+  "template": {
+    "cohort_n": 2048,
+    "cross_panel_linkage": {
+      "exhaustive": true,
+      "partitions": [
+        {
+          "common_occasion_qualified": true,
+          "members": {
+            "adipose_morphology": {
+              "group_id": "internal-0-0",
+              "status": "linked"
+            },
+            "blood_proteins": {
+              "group_id": "internal-0-0",
+              "status": "linked"
+            },
+            "brain_structural_mri": {
+              "group_id": "internal-0-0",
+              "status": "linked"
+            },
+            "cognitive_psychological": {
+              "group_id": "internal-0-0",
+              "status": "linked"
+            },
+            "daily_behavior": {
+              "group_id": "internal-0-0",
+              "status": "linked"
+            },
+            "evoked_neural": {
+              "group_id": "internal-0-0",
+              "status": "linked"
+            },
+            "immune_cells": {
+              "group_id": "internal-0-0",
+              "status": "linked"
+            },
+            "microbial_function": {
+              "group_id": "internal-0-0",
+              "status": "linked"
+            },
+            "muscle_transcription": {
+              "group_id": "internal-0-0",
+              "status": "linked"
+            },
+            "olink_inflammatory_readout": {
+              "group_id": "internal-0-0",
+              "status": "linked"
+            },
+            "pbmc_transcription": {
+              "group_id": "internal-0-0",
+              "status": "linked"
+            },
+            "physical_function": {
+              "group_id": "internal-0-0",
+              "status": "linked"
+            },
+            "targeted_metabolism": {
+              "group_id": "internal-0-0",
+              "status": "linked"
+            },
+            "whole_blood_methylation": {
+              "group_id": "internal-0-0",
+              "status": "linked"
+            }
+          },
+          "n": 256,
+          "partition_id": "global-internal-0-0"
+        },
+        {
+          "common_occasion_qualified": true,
+          "members": {
+            "adipose_morphology": {
+              "group_id": "internal-0-1",
+              "status": "linked"
+            },
+            "blood_proteins": {
+              "group_id": "internal-0-1",
+              "status": "linked"
+            },
+            "brain_structural_mri": {
+              "group_id": "internal-0-1",
+              "status": "linked"
+            },
+            "cognitive_psychological": {
+              "group_id": "internal-0-1",
+              "status": "linked"
+            },
+            "daily_behavior": {
+              "group_id": "internal-0-1",
+              "status": "linked"
+            },
+            "evoked_neural": {
+              "group_id": "internal-0-1",
+              "status": "linked"
+            },
+            "immune_cells": {
+              "group_id": "internal-0-1",
+              "status": "linked"
+            },
+            "microbial_function": {
+              "group_id": "internal-0-1",
+              "status": "linked"
+            },
+            "muscle_transcription": {
+              "group_id": "internal-0-1",
+              "status": "linked"
+            },
+            "olink_inflammatory_readout": {
+              "group_id": "internal-0-1",
+              "status": "linked"
+            },
+            "pbmc_transcription": {
+              "group_id": "internal-0-1",
+              "status": "linked"
+            },
+            "physical_function": {
+              "group_id": "internal-0-1",
+              "status": "linked"
+            },
+            "targeted_metabolism": {
+              "group_id": "internal-0-1",
+              "status": "linked"
+            },
+            "whole_blood_methylation": {
+              "group_id": "internal-0-1",
+              "status": "linked"
+            }
+          },
+          "n": 256,
+          "partition_id": "global-internal-0-1"
+        },
+        {
+          "common_occasion_qualified": true,
+          "members": {
+            "adipose_morphology": {
+              "group_id": "internal-1-0",
+              "status": "linked"
+            },
+            "blood_proteins": {
+              "group_id": "internal-1-0",
+              "status": "linked"
+            },
+            "brain_structural_mri": {
+              "group_id": "internal-1-0",
+              "status": "linked"
+            },
+            "cognitive_psychological": {
+              "group_id": "internal-1-0",
+              "status": "linked"
+            },
+            "daily_behavior": {
+              "group_id": "internal-1-0",
+              "status": "linked"
+            },
+            "evoked_neural": {
+              "group_id": "internal-1-0",
+              "status": "linked"
+            },
+            "immune_cells": {
+              "group_id": "internal-1-0",
+              "status": "linked"
+            },
+            "microbial_function": {
+              "group_id": "internal-1-0",
+              "status": "linked"
+            },
+            "muscle_transcription": {
+              "group_id": "internal-1-0",
+              "status": "linked"
+            },
+            "olink_inflammatory_readout": {
+              "group_id": "internal-1-0",
+              "status": "linked"
+            },
+            "pbmc_transcription": {
+              "group_id": "internal-1-0",
+              "status": "linked"
+            },
+            "physical_function": {
+              "group_id": "internal-1-0",
+              "status": "linked"
+            },
+            "targeted_metabolism": {
+              "group_id": "internal-1-0",
+              "status": "linked"
+            },
+            "whole_blood_methylation": {
+              "group_id": "internal-1-0",
+              "status": "linked"
+            }
+          },
+          "n": 256,
+          "partition_id": "global-internal-1-0"
+        },
+        {
+          "common_occasion_qualified": true,
+          "members": {
+            "adipose_morphology": {
+              "group_id": "internal-1-1",
+              "status": "linked"
+            },
+            "blood_proteins": {
+              "group_id": "internal-1-1",
+              "status": "linked"
+            },
+            "brain_structural_mri": {
+              "group_id": "internal-1-1",
+              "status": "linked"
+            },
+            "cognitive_psychological": {
+              "group_id": "internal-1-1",
+              "status": "linked"
+            },
+            "daily_behavior": {
+              "group_id": "internal-1-1",
+              "status": "linked"
+            },
+            "evoked_neural": {
+              "group_id": "internal-1-1",
+              "status": "linked"
+            },
+            "immune_cells": {
+              "group_id": "internal-1-1",
+              "status": "linked"
+            },
+            "microbial_function": {
+              "group_id": "internal-1-1",
+              "status": "linked"
+            },
+            "muscle_transcription": {
+              "group_id": "internal-1-1",
+              "status": "linked"
+            },
+            "olink_inflammatory_readout": {
+              "group_id": "internal-1-1",
+              "status": "linked"
+            },
+            "pbmc_transcription": {
+              "group_id": "internal-1-1",
+              "status": "linked"
+            },
+            "physical_function": {
+              "group_id": "internal-1-1",
+              "status": "linked"
+            },
+            "targeted_metabolism": {
+              "group_id": "internal-1-1",
+              "status": "linked"
+            },
+            "whole_blood_methylation": {
+              "group_id": "internal-1-1",
+              "status": "linked"
+            }
+          },
+          "n": 256,
+          "partition_id": "global-internal-1-1"
+        },
+        {
+          "common_occasion_qualified": true,
+          "members": {
+            "adipose_morphology": {
+              "group_id": "external-0-0",
+              "status": "linked"
+            },
+            "blood_proteins": {
+              "group_id": "external-0-0",
+              "status": "linked"
+            },
+            "brain_structural_mri": {
+              "group_id": "external-0-0",
+              "status": "linked"
+            },
+            "cognitive_psychological": {
+              "group_id": "external-0-0",
+              "status": "linked"
+            },
+            "daily_behavior": {
+              "group_id": "external-0-0",
+              "status": "linked"
+            },
+            "evoked_neural": {
+              "group_id": "external-0-0",
+              "status": "linked"
+            },
+            "immune_cells": {
+              "group_id": "external-0-0",
+              "status": "linked"
+            },
+            "microbial_function": {
+              "group_id": "external-0-0",
+              "status": "linked"
+            },
+            "muscle_transcription": {
+              "group_id": "external-0-0",
+              "status": "linked"
+            },
+            "olink_inflammatory_readout": {
+              "group_id": "external-0-0",
+              "status": "linked"
+            },
+            "pbmc_transcription": {
+              "group_id": "external-0-0",
+              "status": "linked"
+            },
+            "physical_function": {
+              "group_id": "external-0-0",
+              "status": "linked"
+            },
+            "targeted_metabolism": {
+              "group_id": "external-0-0",
+              "status": "linked"
+            },
+            "whole_blood_methylation": {
+              "group_id": "external-0-0",
+              "status": "linked"
+            }
+          },
+          "n": 256,
+          "partition_id": "global-external-0-0"
+        },
+        {
+          "common_occasion_qualified": true,
+          "members": {
+            "adipose_morphology": {
+              "group_id": "external-0-1",
+              "status": "linked"
+            },
+            "blood_proteins": {
+              "group_id": "external-0-1",
+              "status": "linked"
+            },
+            "brain_structural_mri": {
+              "group_id": "external-0-1",
+              "status": "linked"
+            },
+            "cognitive_psychological": {
+              "group_id": "external-0-1",
+              "status": "linked"
+            },
+            "daily_behavior": {
+              "group_id": "external-0-1",
+              "status": "linked"
+            },
+            "evoked_neural": {
+              "group_id": "external-0-1",
+              "status": "linked"
+            },
+            "immune_cells": {
+              "group_id": "external-0-1",
+              "status": "linked"
+            },
+            "microbial_function": {
+              "group_id": "external-0-1",
+              "status": "linked"
+            },
+            "muscle_transcription": {
+              "group_id": "external-0-1",
+              "status": "linked"
+            },
+            "olink_inflammatory_readout": {
+              "group_id": "external-0-1",
+              "status": "linked"
+            },
+            "pbmc_transcription": {
+              "group_id": "external-0-1",
+              "status": "linked"
+            },
+            "physical_function": {
+              "group_id": "external-0-1",
+              "status": "linked"
+            },
+            "targeted_metabolism": {
+              "group_id": "external-0-1",
+              "status": "linked"
+            },
+            "whole_blood_methylation": {
+              "group_id": "external-0-1",
+              "status": "linked"
+            }
+          },
+          "n": 256,
+          "partition_id": "global-external-0-1"
+        },
+        {
+          "common_occasion_qualified": true,
+          "members": {
+            "adipose_morphology": {
+              "group_id": "external-1-0",
+              "status": "linked"
+            },
+            "blood_proteins": {
+              "group_id": "external-1-0",
+              "status": "linked"
+            },
+            "brain_structural_mri": {
+              "group_id": "external-1-0",
+              "status": "linked"
+            },
+            "cognitive_psychological": {
+              "group_id": "external-1-0",
+              "status": "linked"
+            },
+            "daily_behavior": {
+              "group_id": "external-1-0",
+              "status": "linked"
+            },
+            "evoked_neural": {
+              "group_id": "external-1-0",
+              "status": "linked"
+            },
+            "immune_cells": {
+              "group_id": "external-1-0",
+              "status": "linked"
+            },
+            "microbial_function": {
+              "group_id": "external-1-0",
+              "status": "linked"
+            },
+            "muscle_transcription": {
+              "group_id": "external-1-0",
+              "status": "linked"
+            },
+            "olink_inflammatory_readout": {
+              "group_id": "external-1-0",
+              "status": "linked"
+            },
+            "pbmc_transcription": {
+              "group_id": "external-1-0",
+              "status": "linked"
+            },
+            "physical_function": {
+              "group_id": "external-1-0",
+              "status": "linked"
+            },
+            "targeted_metabolism": {
+              "group_id": "external-1-0",
+              "status": "linked"
+            },
+            "whole_blood_methylation": {
+              "group_id": "external-1-0",
+              "status": "linked"
+            }
+          },
+          "n": 256,
+          "partition_id": "global-external-1-0"
+        },
+        {
+          "common_occasion_qualified": true,
+          "members": {
+            "adipose_morphology": {
+              "group_id": "external-1-1",
+              "status": "linked"
+            },
+            "blood_proteins": {
+              "group_id": "external-1-1",
+              "status": "linked"
+            },
+            "brain_structural_mri": {
+              "group_id": "external-1-1",
+              "status": "linked"
+            },
+            "cognitive_psychological": {
+              "group_id": "external-1-1",
+              "status": "linked"
+            },
+            "daily_behavior": {
+              "group_id": "external-1-1",
+              "status": "linked"
+            },
+            "evoked_neural": {
+              "group_id": "external-1-1",
+              "status": "linked"
+            },
+            "immune_cells": {
+              "group_id": "external-1-1",
+              "status": "linked"
+            },
+            "microbial_function": {
+              "group_id": "external-1-1",
+              "status": "linked"
+            },
+            "muscle_transcription": {
+              "group_id": "external-1-1",
+              "status": "linked"
+            },
+            "olink_inflammatory_readout": {
+              "group_id": "external-1-1",
+              "status": "linked"
+            },
+            "pbmc_transcription": {
+              "group_id": "external-1-1",
+              "status": "linked"
+            },
+            "physical_function": {
+              "group_id": "external-1-1",
+              "status": "linked"
+            },
+            "targeted_metabolism": {
+              "group_id": "external-1-1",
+              "status": "linked"
+            },
+            "whole_blood_methylation": {
+              "group_id": "external-1-1",
+              "status": "linked"
+            }
+          },
+          "n": 256,
+          "partition_id": "global-external-1-1"
+        }
+      ],
+      "source_qualified": true
+    },
+    "design_id": "hypothetical-native36-capability-v3-standard_candidate",
+    "gates": {
+      "assignment_consistency_and_followup": true,
+      "assignment_randomized": true,
+      "baseline_aligned_to_assignment": true,
+      "baseline_modifier_prespecified": true,
+      "collection_verified": true,
+      "external_site_independent": true,
+      "group_linkage_and_disjointness": true,
+      "measurement_semantics": true,
+      "same_intervention_operator_external": true,
+      "sampling_frame": true
+    },
+    "lifecycle": "hypothetical",
+    "panels": {
+      "adipose_morphology": {
+        "coordinate_status": {
+          "adipose_adipocyte_area": "present"
+        },
+        "groups": [
+          {
+            "arm": 0,
+            "group_id": "internal-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "internal-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          }
+        ],
+        "operator_qualified": true,
+        "status": "present",
+        "time_frame": {
+          "origin": "intervention_assignment",
+          "source_qualified": true,
+          "unit": "days"
+        }
+      },
+      "blood_proteins": {
+        "coordinate_status": {
+          "albumin": "present",
+          "apob": "present",
+          "il6": "present"
+        },
+        "groups": [
+          {
+            "arm": 0,
+            "group_id": "internal-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "internal-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          }
+        ],
+        "operator_qualified": true,
+        "status": "present",
+        "time_frame": {
+          "origin": "intervention_assignment",
+          "source_qualified": true,
+          "unit": "days"
+        }
+      },
+      "brain_structural_mri": {
+        "coordinate_status": {
+          "mri_left_hippocampus_aseg6": "present",
+          "mri_right_hippocampus_aseg6": "present"
+        },
+        "groups": [
+          {
+            "arm": 0,
+            "group_id": "internal-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "internal-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          }
+        ],
+        "operator_qualified": true,
+        "status": "present",
+        "time_frame": {
+          "origin": "intervention_assignment",
+          "source_qualified": true,
+          "unit": "days"
+        }
+      },
+      "cognitive_psychological": {
+        "coordinate_status": {
+          "depressive_symptoms": "present",
+          "reaction_time": "present",
+          "symbol_coding": "present"
+        },
+        "groups": [
+          {
+            "arm": 0,
+            "group_id": "internal-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "internal-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          }
+        ],
+        "operator_qualified": true,
+        "status": "present",
+        "time_frame": {
+          "origin": "intervention_assignment",
+          "source_qualified": true,
+          "unit": "days"
+        }
+      },
+      "daily_behavior": {
+        "coordinate_status": {
+          "acceleration": "present",
+          "sleep_duration": "present",
+          "watchpat300_ahi": "present",
+          "watchpat300_min_spo2": "present",
+          "watchpat300_sleep_efficiency": "present"
+        },
+        "groups": [
+          {
+            "arm": 0,
+            "group_id": "internal-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "internal-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          }
+        ],
+        "operator_qualified": true,
+        "status": "present",
+        "time_frame": {
+          "origin": "intervention_assignment",
+          "source_qualified": true,
+          "unit": "days"
+        }
+      },
+      "evoked_neural": {
+        "coordinate_status": {
+          "n170_face_car_po8_mean110_150": "present",
+          "p3b": "present"
+        },
+        "groups": [
+          {
+            "arm": 0,
+            "group_id": "internal-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "internal-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          }
+        ],
+        "operator_qualified": true,
+        "status": "present",
+        "time_frame": {
+          "origin": "intervention_assignment",
+          "source_qualified": true,
+          "unit": "days"
+        }
+      },
+      "immune_cells": {
+        "coordinate_status": {
+          "cd4_count": "present",
+          "cd4_naive_fraction": "present"
+        },
+        "groups": [
+          {
+            "arm": 0,
+            "group_id": "internal-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "internal-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          }
+        ],
+        "operator_qualified": true,
+        "status": "present",
+        "time_frame": {
+          "origin": "intervention_assignment",
+          "source_qualified": true,
+          "unit": "days"
+        }
+      },
+      "microbial_function": {
+        "coordinate_status": {
+          "microbial_butyrate_pathway": "present",
+          "microbial_f_prausnitzii": "present"
+        },
+        "groups": [
+          {
+            "arm": 0,
+            "group_id": "internal-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "internal-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          }
+        ],
+        "operator_qualified": true,
+        "status": "present",
+        "time_frame": {
+          "origin": "intervention_assignment",
+          "source_qualified": true,
+          "unit": "days"
+        }
+      },
+      "muscle_transcription": {
+        "coordinate_status": {
+          "muscle_ppargc1a": "present"
+        },
+        "groups": [
+          {
+            "arm": 0,
+            "group_id": "internal-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "internal-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          }
+        ],
+        "operator_qualified": true,
+        "status": "present",
+        "time_frame": {
+          "origin": "intervention_assignment",
+          "source_qualified": true,
+          "unit": "days"
+        }
+      },
+      "olink_inflammatory_readout": {
+        "coordinate_status": {
+          "olink_target96_il6_npx": "present",
+          "olink_target96_tnf_npx": "present"
+        },
+        "groups": [
+          {
+            "arm": 0,
+            "group_id": "internal-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "internal-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          }
+        ],
+        "operator_qualified": true,
+        "status": "present",
+        "time_frame": {
+          "origin": "intervention_assignment",
+          "source_qualified": true,
+          "unit": "days"
+        }
+      },
+      "pbmc_transcription": {
+        "coordinate_status": {
+          "pbmc_il1b_log2tpm1": "present",
+          "pbmc_nfkbia_log2deseq2_count1": "present",
+          "pbmc_nfkbia_log2tpm1": "present"
+        },
+        "groups": [
+          {
+            "arm": 0,
+            "group_id": "internal-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "internal-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          }
+        ],
+        "operator_qualified": true,
+        "status": "present",
+        "time_frame": {
+          "origin": "intervention_assignment",
+          "source_qualified": true,
+          "unit": "days"
+        }
+      },
+      "physical_function": {
+        "coordinate_status": {
+          "gait": "present",
+          "grip": "present",
+          "grip_better_hand_max": "present",
+          "systolic": "present"
+        },
+        "groups": [
+          {
+            "arm": 0,
+            "group_id": "internal-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "internal-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          }
+        ],
+        "operator_qualified": true,
+        "status": "present",
+        "time_frame": {
+          "origin": "intervention_assignment",
+          "source_qualified": true,
+          "unit": "days"
+        }
+      },
+      "targeted_metabolism": {
+        "coordinate_status": {
+          "fasting_glucose": "present",
+          "lactate": "present",
+          "leucine": "present",
+          "triglycerides": "present"
+        },
+        "groups": [
+          {
+            "arm": 0,
+            "group_id": "internal-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "internal-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          }
+        ],
+        "operator_qualified": true,
+        "status": "present",
+        "time_frame": {
+          "origin": "intervention_assignment",
+          "source_qualified": true,
+          "unit": "days"
+        }
+      },
+      "whole_blood_methylation": {
+        "coordinate_status": {
+          "whole_blood_cg06639320_beta": "present",
+          "whole_blood_cg16867657_beta": "present"
+        },
+        "groups": [
+          {
+            "arm": 0,
+            "group_id": "internal-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "internal-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 1,
+            "group_id": "internal-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "internal"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 0,
+            "group_id": "external-0-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-0",
+            "modifier": 0,
+            "n": 256,
+            "site": "external"
+          },
+          {
+            "arm": 1,
+            "group_id": "external-1-1",
+            "modifier": 1,
+            "n": 256,
+            "site": "external"
+          }
+        ],
+        "operator_qualified": true,
+        "status": "present",
+        "time_frame": {
+          "origin": "intervention_assignment",
+          "source_qualified": true,
+          "unit": "days"
+        }
+      }
+    },
+    "schema": "anibench.study-capability-design.v0",
+    "source_sha256": "sha256:ab4293582bcd60afebe01689e2d7ebc17be4ccc170ffcd3947c751826c407c30"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "anibench.portable-reference-reproduction.v1",
+  "original_preparation_manifest_sha256": "b12ffc9f9dcb43d32a5d8323f21c5fddc004789a7ea1cd24a64b15f6885e59d1",
+  "files": {
+    "DEPENDENCY_VERSIONS.json": "b1d1dce0fc0cf4e1cbc6c992ee344d0c51b8b7555f38007d0012644a14df6673",
+    "EXPECTED_INPUTS.json": "8de734eb877765e0e57266afe53a9f57816f27d1d083a841e351c9035a052c3c",
+    "INPUT_TEMPLATE.json": "dba6c6fe2e79f3673c81dd52af5f5ade3f8eaf13c02a9b6d21235a57bd024dd3",
+    "README.md": "a5fc0c45a08a618e32cdbf2298a230c4acef2e119c903df232a25a4387a98d73",
+    "REFERENCE_BINDINGS.json": "b5d27729924f8d59be3e4a1e82a68e2cf35401bc87309476bbf2dcac81b3f944",
+    "RUNTIME_MEMBERS.json": "ce1dcac7ae558c21e3208b19ef4ecc70f6e1757ad0eaf0eea07d69d0207a2cbd",
+    "SEMANTIC_DECLARATION.json": "ab4293582bcd60afebe01689e2d7ebc17be4ccc170ffcd3947c751826c407c30",
+    "make_input.py": "bc7e37d44cd9dccdc84db5f37337847e225fc11084f7ca57506a20542db6a59f",
+    "replay.py": "2cfa0123279a684056f9007ad2fb9f5012fca2fadff419b5b568709831fc60d0",
+    "requirements.lock": "712413a368fbea87faa96ec76d777aab4aea99ca05b32593d801a9b422e446f1"
+  },
+  "scope": "Frozen hypothetical v3 reproduction; preparation does not establish numerical outcomes."
+}

@@ -1,4 +1,3 @@
-
 .github/CODEOWNERS
 .github/ISSUE_TEMPLATE/evidence-challenge.yml
 .github/ISSUE_TEMPLATE/methods-rfc.yml
@@ -8,6 +7,7 @@
 .github/workflows/codeql.yml
 .github/workflows/pr.yml
 .github/workflows/publish-verified-rc3.yml
+.github/workflows/reference-witnesses.yml
 .github/workflows/release.yml
 .gitignore
 .zenodo.json
@@ -193,6 +193,17 @@ examples/paper_charts/06-reference-sensitivity.svg
 examples/paper_charts/README.md
 examples/paper_charts/metadata.json
 examples/paper_charts/plot_paper_plates.py
+examples/reference_witnesses/DEPENDENCY_VERSIONS.json
+examples/reference_witnesses/EXPECTED_INPUTS.json
+examples/reference_witnesses/INPUT_TEMPLATE.json
+examples/reference_witnesses/README.md
+examples/reference_witnesses/REFERENCE_BINDINGS.json
+examples/reference_witnesses/REPRO_MANIFEST.json
+examples/reference_witnesses/RUNTIME_MEMBERS.json
+examples/reference_witnesses/SEMANTIC_DECLARATION.json
+examples/reference_witnesses/make_input.py
+examples/reference_witnesses/replay.py
+examples/reference_witnesses/requirements.lock
 examples/registry_architecture/README.md
 examples/registry_architecture/SHA256SUMS
 examples/registry_architecture/adapter.py

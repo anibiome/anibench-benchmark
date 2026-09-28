@@ -279,6 +279,7 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/examples/reference_witnesses",
   "/examples/study_capability_candidate",
   "/docs/STUDY_CAPABILITY.md",
   "/tests/test_study_capability_candidate.py",
