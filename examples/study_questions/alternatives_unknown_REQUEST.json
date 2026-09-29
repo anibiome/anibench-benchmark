@@ -1,0 +1,16 @@
+{
+  "contract": "anibench.study-questions-request.v3",
+  "lifecycle": "hypothetical",
+  "profile_sha256": "sha256:769af4d8aa5c7d6dfb8f22c94eefd97ee589c01096bd7cf1f0ec072a56b7eb48",
+  "scenarios": [
+    {
+      "inputs": {},
+      "scenario_id": "reference"
+    },
+    {
+      "inputs": {},
+      "scenario_id": "second"
+    }
+  ],
+  "study_id": "fictional-unknown"
+}

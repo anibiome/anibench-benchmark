@@ -1,0 +1,204 @@
+{
+  "categories": [
+    {
+      "category_id": "digital_state",
+      "label": "Activity resolution",
+      "question": "Can linked activity and cognitive measurements resolve their individual changes and population relationship?",
+      "questions": [
+        {
+          "outcomes": [
+            "observer_state"
+          ],
+          "question_id": "activity_cognition",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "category_id": "cognitive_state",
+      "label": "Reaction-time resolution",
+      "question": "Can linked activity and cognitive measurements resolve their individual changes and population relationship?",
+      "questions": [
+        {
+          "outcomes": [
+            "function_state"
+          ],
+          "question_id": "activity_cognition",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "category_id": "individual_change",
+      "label": "Individual change",
+      "question": "Can linked activity and cognitive measurements resolve their individual changes and population relationship?",
+      "questions": [
+        {
+          "outcomes": [
+            "observer_individual_change",
+            "function_individual_change"
+          ],
+          "question_id": "activity_cognition",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "category_id": "population_change",
+      "label": "Population change",
+      "question": "Can linked activity and cognitive measurements resolve their individual changes and population relationship?",
+      "questions": [
+        {
+          "outcomes": [
+            "observer_mean_change",
+            "function_mean_change"
+          ],
+          "question_id": "activity_cognition",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "category_id": "linked_change",
+      "label": "Linked activity and reaction-time change",
+      "question": "Can linked activity and cognitive measurements resolve their individual changes and population relationship?",
+      "questions": [
+        {
+          "outcomes": [
+            "observer_function_change_relation"
+          ],
+          "question_id": "activity_cognition",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "category_id": "exposure_response",
+      "label": "Exposure-aligned change",
+      "question": "Can linked activity and cognitive measurements resolve their individual changes and population relationship?",
+      "questions": [
+        {
+          "outcomes": [
+            "exposure_aligned_function_change"
+          ],
+          "question_id": "activity_cognition",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "category_id": "controlled_effect",
+      "label": "Controlled effect",
+      "question": "Can linked activity and cognitive measurements resolve their individual changes and population relationship?",
+      "questions": [
+        {
+          "outcomes": [
+            "controlled_function_effect"
+          ],
+          "question_id": "activity_cognition",
+          "weight": 1
+        }
+      ]
+    }
+  ],
+  "contract": "anibench.study-question-profile.v2",
+  "profile_id": "hypothetical-activity-cognition-integration.v1",
+  "questions": [
+    {
+      "biological_identity": "activity-reaction-two-occasion",
+      "definition": {
+        "contract": "anibench.cross-domain-question.v1",
+        "coordinates": [
+          {
+            "biological_domain": "digital",
+            "definition": "Overall wrist acceleration average using the UK Biobank field90012 definition and its calibration/wear-time eligibility; each occasion summarizes its specified monitoring window",
+            "id": "activity",
+            "role": "observer",
+            "unit": "milli-gravity"
+          },
+          {
+            "biological_domain": "cognitive",
+            "definition": "UK Biobank field20023 matching-card reaction-time summary: exclude training rounds0-4 and responses outside50-2000ms, retain matching-card responses, round mean to wholems; not general intelligence",
+            "id": "reaction_time",
+            "role": "function",
+            "unit": "ms"
+          }
+        ],
+        "functional_operator": "Separate computerized reaction measurement with a declared additive-error approximation to the occasion summary. Validity of that approximation is stipulated, not calibrated from the source.",
+        "occasions_days": [
+          0,
+          365
+        ],
+        "population_scope": "Hypothetical independent adult sample; not UK Biobank participant data",
+        "question": "Can linked activity and cognitive measurements resolve their individual changes and population relationship?",
+        "question_id": "source_inspired_activity_and_reaction.v1",
+        "tolerance_authority": "Illustrative native resolutions chosen for a reproducible software example; not clinical thresholds or adopted AniBench level. Joint observer/function criteria retain separate units.",
+        "tolerances": {
+          "change_cross_covariance": [
+            300
+          ],
+          "controlled_function_effect": [
+            20
+          ],
+          "function_change": [
+            35
+          ],
+          "function_mean_change": [
+            10
+          ],
+          "function_state": [
+            25
+          ],
+          "observer_change": [
+            4
+          ],
+          "observer_mean_change": [
+            1
+          ],
+          "observer_state": [
+            3
+          ]
+        }
+      },
+      "engine": "cross_domain_collection",
+      "question_id": "activity_cognition"
+    }
+  ],
+  "scenarios": [
+    {
+      "paired_biological_covariance": {
+        "activity_cognition": [
+          [
+            100,
+            0,
+            70,
+            500
+          ],
+          [
+            0,
+            10000,
+            0,
+            5000
+          ],
+          [
+            70,
+            0,
+            100,
+            350
+          ],
+          [
+            500,
+            5000,
+            350,
+            10000
+          ]
+        ]
+      },
+      "rationale": "Unchanged illustrative additive Gaussian reference",
+      "scenario_id": "reference"
+    }
+  ],
+  "scope": "One source-inspired hypothetical question; not a UKB score or adopted broad reference",
+  "selection_rationale": "Checks linked digital and independently measured cognitive observations",
+  "weighting_rationale": "One fixed question budget per category, no overall aggregate"
+}

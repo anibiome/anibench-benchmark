@@ -67,6 +67,7 @@ docs/CANDIDATE_LEVELS.md
 docs/COLLECTION_COMPARISONS.md
 docs/COLLECTION_PROFILE.md
 docs/CONDITIONAL_POSTERIOR_REFERENCE.md
+docs/CROSS_DOMAIN_COLLECTION.md
 docs/CTGOV_50_TRIAL_STRESS_TEST.md
 docs/DATA_GOVERNANCE.md
 docs/DESIGN_STUDIO.md
@@ -94,6 +95,7 @@ docs/SOURCE_BINDINGS.md
 docs/STUDY_CAPABILITY.md
 docs/STUDY_CONTEXT.md
 docs/STUDY_EXPLORER.md
+docs/STUDY_QUESTIONS.md
 docs/SUMMARY_GEOMETRY.md
 docs/V2_METHODS_CANDIDATE.md
 docs/V2_OPTIMIZER.md
@@ -149,6 +151,8 @@ examples/collection/assays.csv
 examples/collection/comparison-basis.json
 examples/collection/synthetic-record.json
 examples/collection/table-map.json
+examples/cross_domain_collection/README.md
+examples/cross_domain_collection/input.json
 examples/design_geometry/calerie/README.md
 examples/design_geometry/calerie/chart-results.json
 examples/design_geometry/calerie/comparison.png
@@ -219,6 +223,23 @@ examples/registry_architecture/replay.py
 examples/registry_architecture/test_adapter.py
 examples/study_capability_candidate/README.md
 examples/study_capability_candidate/minimal.json
+examples/study_questions/ALTERNATIVES_EXPECTED.json
+examples/study_questions/ALTERNATIVES_PROFILE.json
+examples/study_questions/EXPECTED_RECEIPTS.json
+examples/study_questions/LEGACY_PROFILE.json
+examples/study_questions/PROFILE.json
+examples/study_questions/README.md
+examples/study_questions/alternatives_complete_REQUEST.json
+examples/study_questions/alternatives_mosaic_REQUEST.json
+examples/study_questions/alternatives_switching_REQUEST.json
+examples/study_questions/alternatives_unknown_REQUEST.json
+examples/study_questions/baseline256_REQUEST.json
+examples/study_questions/duplicates256_REQUEST.json
+examples/study_questions/legacy_REQUEST.json
+examples/study_questions/paired256_REQUEST.json
+examples/study_questions/paired2_REQUEST.json
+examples/study_questions/unknown_noise256_REQUEST.json
+examples/study_questions/unlinked256_REQUEST.json
 examples/v2/illustrative-design.json
 examples/v2/illustrative-protocol-source.json
 openapi/anibench-v2-candidate.yaml
@@ -265,6 +286,7 @@ schemas/collection/comparison-basis.schema.json
 schemas/collection/record.schema.json
 schemas/collection/study-context.schema.json
 schemas/collection/table-map.schema.json
+schemas/cross_domain_collection/v1/input.schema.json
 schemas/finite_precision/v1/evaluation-input.schema.json
 schemas/finite_precision/v1/evaluation-result.schema.json
 schemas/finite_suites/v1/input.schema.json
@@ -341,6 +363,7 @@ src/anibench/comparison_v1.py
 src/anibench/contracts/__init__.py
 src/anibench/contracts/identifiers.py
 src/anibench/contracts_v2.py
+src/anibench/cross_domain_collection_v1.py
 src/anibench/design_v2.py
 src/anibench/explorer.py
 src/anibench/finite_suites_v1.py
@@ -355,6 +378,7 @@ src/anibench/paired_question_v1.py
 src/anibench/paths.py
 src/anibench/protocol_capacity_v2.py
 src/anibench/protocol_cards.py
+src/anibench/question_routes_v1.py
 src/anibench/reference_planner.py
 src/anibench/release/__init__.py
 src/anibench/release/redact.py
@@ -388,6 +412,7 @@ src/anibench/study_capability_candidate/study_profile.py
 src/anibench/study_capability_candidate/sufficient_statistics.py
 src/anibench/study_capability_candidate/temporal_prediction.py
 src/anibench/study_context.py
+src/anibench/study_questions_v2.py
 src/anibench/summary_geometry_v1.py
 src/anibench/uncertainty_v2.py
 src/anibench/v2.py
@@ -414,6 +439,7 @@ tests/test_collection_compare.py
 tests/test_collection_ingest.py
 tests/test_collection_v1.py
 tests/test_council_protocol_adversaries.py
+tests/test_cross_domain_collection_v1.py
 tests/test_ctgov_50_stress_test.py
 tests/test_depth_population_tradeoff.py
 tests/test_distribution_boundary.py
@@ -457,6 +483,10 @@ tests/test_studio_product.py
 tests/test_study_capability_candidate.py
 tests/test_study_context.py
 tests/test_study_context_cli.py
+tests/test_study_questions_alternatives.py
+tests/test_study_questions_cli.py
+tests/test_study_questions_native.py
+tests/test_study_questions_v2.py
 tests/test_summary_geometry_v1.py
 tests/test_uncertainty_v2.py
 tests/test_v2_contract_semantics.py

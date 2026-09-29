@@ -1,3 +1,24 @@
+Study-question profiles v3 support explicitly registered alternative native
+frames. Each requirement needs one complete witness; robust attainment keeps
+that witness fixed across scenarios. Values, participant counts and information
+are not pooled across different native targets. The four new software examples
+are fictional; no actual-study admission or reference ratification follows.
+Existing v1/v2 receipts remain unchanged.
+
+The additive `anibench study-questions` path now executes fixed biological
+question profiles through the observation-route and paired collection engines.
+It preserves original receipts, category weights and unknown bounds. Portable
+hypothetical examples are in `examples/study_questions`; the interface and limits
+are in `docs/STUDY_QUESTIONS.md`. Broad reference ratification and actual-study
+comparisons remain unfinished. This working-tree addition is not a release.
+
+The additive `anibench cross-domain-collection` path separates native biological
+domains from computational observer/function roles. It reuses the paired
+estimator for digital, neural and other continuous observations linked to a
+separately measured functional target. See `docs/CROSS_DOMAIN_COLLECTION.md`.
+Its example is hypothetical and supplies no actual-study score or broad level
+certificate. The main biological workload integration remains unfinished.
+
 The additive `anibench paired-question` path now evaluates an explicit linked
 molecular/function question. Its estimator precision and conditional OLS risk
 remain separate from likelihood information and observed held-out learning.

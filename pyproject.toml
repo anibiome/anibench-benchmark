@@ -99,6 +99,11 @@ exclude = [
 packages = ["src/anibench"]
 
 [tool.hatch.build.targets.wheel.force-include]
+"examples/study_questions" = "anibench/examples/study_questions"
+"docs/STUDY_QUESTIONS.md" = "anibench/docs/STUDY_QUESTIONS.md"
+"examples/cross_domain_collection" = "anibench/examples/cross_domain_collection"
+"schemas/cross_domain_collection" = "anibench/schemas/cross_domain_collection"
+"docs/CROSS_DOMAIN_COLLECTION.md" = "anibench/docs/CROSS_DOMAIN_COLLECTION.md"
 "examples/paired_collection" = "anibench/examples/paired_collection"
 "schemas/paired_collection" = "anibench/schemas/paired_collection"
 "docs/PAIRED_COLLECTION.md" = "anibench/docs/PAIRED_COLLECTION.md"
@@ -286,6 +291,19 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/examples/study_questions",
+  "/docs/STUDY_QUESTIONS.md",
+  "/examples/cross_domain_collection",
+  "/schemas/cross_domain_collection",
+  "/docs/CROSS_DOMAIN_COLLECTION.md",
+  "/src/anibench/question_routes_v1.py",
+  "/src/anibench/study_questions_v2.py",
+  "/src/anibench/cross_domain_collection_v1.py",
+  "/tests/test_study_questions_v2.py",
+  "/tests/test_study_questions_native.py",
+  "/tests/test_study_questions_alternatives.py",
+  "/tests/test_study_questions_cli.py",
+  "/tests/test_cross_domain_collection_v1.py",
   "/examples/paired_collection",
   "/schemas/paired_collection",
   "/docs/PAIRED_COLLECTION.md",

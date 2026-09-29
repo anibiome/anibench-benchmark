@@ -1,0 +1,34 @@
+{
+  "alternatives_complete_REQUEST.json": {
+    "receipt_sha256": "sha256:e915b01b7f52dec856b054bbce1d6326ae213f7a7e8cdb499450b716c7e4da8d",
+    "robust_reference_attainment": "attained",
+    "scenario_reference_attainment": [
+      "attained",
+      "attained"
+    ]
+  },
+  "alternatives_mosaic_REQUEST.json": {
+    "receipt_sha256": "sha256:29e0cfdc9a01381e9bd5b3aba286a45b662cd6abad016b9e061c07fb19289fb2",
+    "robust_reference_attainment": "not_attained",
+    "scenario_reference_attainment": [
+      "not_attained",
+      "not_attained"
+    ]
+  },
+  "alternatives_switching_REQUEST.json": {
+    "receipt_sha256": "sha256:4d8f93f0e5549b31f6519349b293103e325d974766efbd644da034a6fde10f20",
+    "robust_reference_attainment": "not_attained",
+    "scenario_reference_attainment": [
+      "attained",
+      "attained"
+    ]
+  },
+  "alternatives_unknown_REQUEST.json": {
+    "receipt_sha256": "sha256:376c34e2f574594c182b6c0d078972e29b52735a332eb7b5c5a45597b543a07e",
+    "robust_reference_attainment": "unknown",
+    "scenario_reference_attainment": [
+      "unknown",
+      "unknown"
+    ]
+  }
+}

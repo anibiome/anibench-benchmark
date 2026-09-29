@@ -49,6 +49,19 @@ def _parser() -> argparse.ArgumentParser:
     collection.add_argument("input", type=Path)
     collection.add_argument("--out", type=Path, required=True)
 
+    cross_domain = sub.add_parser(
+        "cross-domain-collection", help="Evaluate linked native observers and a functional target"
+    )
+    cross_domain.add_argument("input", type=Path)
+    cross_domain.add_argument("--out", type=Path, required=True)
+
+    questions = sub.add_parser(
+        "study-questions", help="Evaluate biological questions against an explicit fixed reference"
+    )
+    questions.add_argument("profile", type=Path, help="Reference profile to trust for this run")
+    questions.add_argument("input", type=Path, help="Original study inputs, not precomputed scores")
+    questions.add_argument("--out", type=Path, required=True)
+
     study_chart = sub.add_parser(
         "study-chart", help="Draw comparable category percentages from verified study results"
     )
@@ -254,10 +267,16 @@ def _write_snapshot(snapshot: Any, out: Path) -> None:
 
 def _protect_collection_inputs(inputs: list[Path], outputs: list[Path]) -> None:
     """Do not let a result path overwrite its private source or other output."""
+    def resolve(path: Path) -> Path:
+        try:
+            return path.resolve()
+        except (OSError, RuntimeError) as exc:
+            raise ValueError("Unable to resolve input or output paths") from exc
+
     protected = list(inputs)
     for output in outputs:
         for source in protected:
-            if output.resolve() == source.resolve() or (
+            if resolve(output) == resolve(source) or (
                 output.exists() and source.exists() and output.samefile(source)
             ):
                 raise ValueError("Outputs must be distinct from inputs and each other")
@@ -267,9 +286,37 @@ def _protect_collection_inputs(inputs: list[Path], outputs: list[Path]) -> None:
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     try:
-        if args.command in ("paired-question", "paired-collection"):
+        if args.command == "study-questions":
+            import os
+
+            from .question_routes_v1 import digest
+            from .study_questions_v2 import evaluate_study_questions
+
+            try:
+                _protect_collection_inputs([args.profile, args.input], [args.out])
+                if args.out.exists():
+                    raise ValueError("Destination already exists")
+                profile = _load_object(args.profile, label="biological reference")
+                request = _load_object(args.input, label="study question inputs")
+                result = evaluate_study_questions(request, trusted_profiles={digest(profile): profile})
+                content = json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n"
+                args.out.parent.mkdir(parents=True, exist_ok=True)
+                descriptor = os.open(args.out, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+                with os.fdopen(descriptor, "w", encoding="utf-8") as handle:
+                    handle.write(content)
+            except (OSError, ValueError, TypeError, KeyError, RuntimeError):
+                print("Evaluation failed; check the input contracts and choose a new output path.",
+                      file=sys.stderr)
+                return 2
+            print(json.dumps({"contract": result["contract"], "receipt_sha256": result["receipt_sha256"]}))
+            return 0
+        if args.command in ("paired-question", "paired-collection", "cross-domain-collection"):
             if args.command == "paired-question":
                 from .paired_question_v1 import evaluate_paired_question as evaluate_paired
+            elif args.command == "cross-domain-collection":
+                from .cross_domain_collection_v1 import (
+                    evaluate_cross_domain_collection as evaluate_paired,
+                )
             else:
                 from .paired_collection_v1 import evaluate_paired_collection as evaluate_paired
 
@@ -614,7 +661,7 @@ def main(argv: list[str] | None = None) -> int:
             _write_snapshot(snapshot, args.out)
             return 0
     except (ValueError, FileNotFoundError, OSError, json.JSONDecodeError, KeyError) as exc:
-        if args.command in ("paired-question", "paired-collection") and isinstance(exc, OSError):
+        if args.command in ("paired-question", "paired-collection", "cross-domain-collection") and isinstance(exc, OSError):
             print("Unable to read input or create a new result file", file=sys.stderr)
         else:
             print(str(exc), file=sys.stderr)

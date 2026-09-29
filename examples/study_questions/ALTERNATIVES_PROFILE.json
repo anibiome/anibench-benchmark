@@ -1,0 +1,387 @@
+{
+  "categories": [
+    {
+      "category_id": "complete_state",
+      "label": "Complete native state",
+      "question": "Can one registered specimen provide both the molecular and functional requirements?",
+      "requirements": [
+        {
+          "alternatives": [
+            {
+              "outcomes": [
+                "molecular_state",
+                "function_state"
+              ],
+              "question_id": "specimen_a"
+            },
+            {
+              "outcomes": [
+                "molecular_state",
+                "function_state"
+              ],
+              "question_id": "specimen_b"
+            }
+          ],
+          "rationale": "Fictional alternative-capability requirement; no specimen equivalence claimed",
+          "requirement_id": "native_molecular_function_state",
+          "weight": 7
+        }
+      ]
+    }
+  ],
+  "contract": "anibench.study-question-profile.v3",
+  "profile_id": "fictional-complete-native-alternatives.v1",
+  "questions": [
+    {
+      "biological_identity": "fictional-specimen_a",
+      "definition": {
+        "contract": "anibench.paired-biological-question.v1",
+        "coordinates": [
+          {
+            "definition": "Fictional circulating molecular concentration A; native specimen specimen_a",
+            "domain": "molecular",
+            "id": "molecule_a",
+            "unit": "mmol/L"
+          },
+          {
+            "definition": "Fictional circulating molecular concentration B; native specimen specimen_a",
+            "domain": "molecular",
+            "id": "molecule_b",
+            "unit": "mmol/L"
+          },
+          {
+            "definition": "Independently measured scalar grip force in this fictional experiment",
+            "domain": "functional",
+            "id": "grip_force",
+            "unit": "kg-force"
+          }
+        ],
+        "functional_operator": "Direct scalar force reading with stipulated additive unbiased error",
+        "occasions_days": [
+          0,
+          365
+        ],
+        "population_scope": "Independent people from an invented homogeneous Gaussian population",
+        "question": "Resolve two fictional native molecules and independent grip in specimen_a",
+        "question_id": "fictional-specimen_a",
+        "tolerance_authority": "Invented software example; no clinical threshold or adopted AB reference",
+        "tolerances": {
+          "change_cross_covariance": [
+            0.075,
+            0.075
+          ],
+          "controlled_function_effect": [
+            1.0
+          ],
+          "function_change": [
+            3.0
+          ],
+          "function_mean_change": [
+            0.5
+          ],
+          "function_state": [
+            2.0
+          ],
+          "molecular_change": [
+            0.025,
+            0.025
+          ],
+          "molecular_mean_change": [
+            0.005,
+            0.005
+          ],
+          "molecular_state": [
+            0.02,
+            0.02
+          ]
+        }
+      },
+      "engine": "paired_collection",
+      "question_id": "specimen_a"
+    },
+    {
+      "biological_identity": "fictional-specimen_b",
+      "definition": {
+        "contract": "anibench.paired-biological-question.v1",
+        "coordinates": [
+          {
+            "definition": "Fictional circulating molecular concentration A; native specimen specimen_b",
+            "domain": "molecular",
+            "id": "molecule_a",
+            "unit": "mmol/L"
+          },
+          {
+            "definition": "Fictional circulating molecular concentration B; native specimen specimen_b",
+            "domain": "molecular",
+            "id": "molecule_b",
+            "unit": "mmol/L"
+          },
+          {
+            "definition": "Independently measured scalar grip force in this fictional experiment",
+            "domain": "functional",
+            "id": "grip_force",
+            "unit": "kg-force"
+          }
+        ],
+        "functional_operator": "Direct scalar force reading with stipulated additive unbiased error",
+        "occasions_days": [
+          0,
+          365
+        ],
+        "population_scope": "Independent people from an invented homogeneous Gaussian population",
+        "question": "Resolve two fictional native molecules and independent grip in specimen_b",
+        "question_id": "fictional-specimen_b",
+        "tolerance_authority": "Invented software example; no clinical threshold or adopted AB reference",
+        "tolerances": {
+          "change_cross_covariance": [
+            0.075,
+            0.075
+          ],
+          "controlled_function_effect": [
+            1.0
+          ],
+          "function_change": [
+            3.0
+          ],
+          "function_mean_change": [
+            0.5
+          ],
+          "function_state": [
+            2.0
+          ],
+          "molecular_change": [
+            0.025,
+            0.025
+          ],
+          "molecular_mean_change": [
+            0.005,
+            0.005
+          ],
+          "molecular_state": [
+            0.02,
+            0.02
+          ]
+        }
+      },
+      "engine": "paired_collection",
+      "question_id": "specimen_b"
+    }
+  ],
+  "scenarios": [
+    {
+      "paired_biological_covariance": {
+        "specimen_a": [
+          [
+            0.0025000000000000005,
+            0.0,
+            0.0,
+            0.0017499999999999998,
+            0.0,
+            0.25
+          ],
+          [
+            0.0,
+            0.0025000000000000005,
+            0.0,
+            0.0,
+            0.0017499999999999998,
+            0.15
+          ],
+          [
+            0.0,
+            0.0,
+            100.0,
+            0.0,
+            0.0,
+            60.0
+          ],
+          [
+            0.0017499999999999998,
+            0.0,
+            0.0,
+            0.0025000000000000005,
+            0.0,
+            0.175
+          ],
+          [
+            0.0,
+            0.0017499999999999998,
+            0.0,
+            0.0,
+            0.0025000000000000005,
+            0.10500000000000001
+          ],
+          [
+            0.25,
+            0.15000000000000002,
+            60.0,
+            0.17500000000000002,
+            0.10500000000000001,
+            100.0
+          ]
+        ],
+        "specimen_b": [
+          [
+            0.0025000000000000005,
+            0.0,
+            0.0,
+            0.0017499999999999998,
+            0.0,
+            0.25
+          ],
+          [
+            0.0,
+            0.0025000000000000005,
+            0.0,
+            0.0,
+            0.0017499999999999998,
+            0.15
+          ],
+          [
+            0.0,
+            0.0,
+            100.0,
+            0.0,
+            0.0,
+            60.0
+          ],
+          [
+            0.0017499999999999998,
+            0.0,
+            0.0,
+            0.0025000000000000005,
+            0.0,
+            0.175
+          ],
+          [
+            0.0,
+            0.0017499999999999998,
+            0.0,
+            0.0,
+            0.0025000000000000005,
+            0.10500000000000001
+          ],
+          [
+            0.25,
+            0.15000000000000002,
+            60.0,
+            0.17500000000000002,
+            0.10500000000000001,
+            100.0
+          ]
+        ]
+      },
+      "rationale": "One shared synthetic convention",
+      "scenario_id": "reference"
+    },
+    {
+      "paired_biological_covariance": {
+        "specimen_a": [
+          [
+            0.0025000000000000005,
+            0.0,
+            0.0,
+            0.0017499999999999998,
+            0.0,
+            0.25
+          ],
+          [
+            0.0,
+            0.0025000000000000005,
+            0.0,
+            0.0,
+            0.0017499999999999998,
+            0.15
+          ],
+          [
+            0.0,
+            0.0,
+            100.0,
+            0.0,
+            0.0,
+            60.0
+          ],
+          [
+            0.0017499999999999998,
+            0.0,
+            0.0,
+            0.0025000000000000005,
+            0.0,
+            0.175
+          ],
+          [
+            0.0,
+            0.0017499999999999998,
+            0.0,
+            0.0,
+            0.0025000000000000005,
+            0.10500000000000001
+          ],
+          [
+            0.25,
+            0.15000000000000002,
+            60.0,
+            0.17500000000000002,
+            0.10500000000000001,
+            100.0
+          ]
+        ],
+        "specimen_b": [
+          [
+            0.0025000000000000005,
+            0.0,
+            0.0,
+            0.0017499999999999998,
+            0.0,
+            0.25
+          ],
+          [
+            0.0,
+            0.0025000000000000005,
+            0.0,
+            0.0,
+            0.0017499999999999998,
+            0.15
+          ],
+          [
+            0.0,
+            0.0,
+            100.0,
+            0.0,
+            0.0,
+            60.0
+          ],
+          [
+            0.0017499999999999998,
+            0.0,
+            0.0,
+            0.0025000000000000005,
+            0.0,
+            0.175
+          ],
+          [
+            0.0,
+            0.0017499999999999998,
+            0.0,
+            0.0,
+            0.0025000000000000005,
+            0.10500000000000001
+          ],
+          [
+            0.25,
+            0.15000000000000002,
+            60.0,
+            0.17500000000000002,
+            0.10500000000000001,
+            100.0
+          ]
+        ]
+      },
+      "rationale": "Same biological reference; hypothetical measurement-error sensitivity",
+      "scenario_id": "second"
+    }
+  ],
+  "scope": "Invented two-specimen software example, not a human study or biological reference",
+  "selection_rationale": "Exercise a declared disjunction without treating native specimen values as interchangeable",
+  "weighting_rationale": "One fixed requirement budget, regardless of native alternatives"
+}

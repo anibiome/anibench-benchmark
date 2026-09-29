@@ -1,0 +1,354 @@
+{
+  "categories": [
+    {
+      "category_id": "state",
+      "label": "State",
+      "question": "Can the frozen questions be resolved?",
+      "questions": [
+        {
+          "outcomes": [
+            "target"
+          ],
+          "question_id": "route",
+          "weight": 2
+        },
+        {
+          "outcomes": [
+            "molecular_state",
+            "function_state"
+          ],
+          "question_id": "paired",
+          "weight": 1
+        }
+      ]
+    }
+  ],
+  "contract": "anibench.study-question-profile.v1",
+  "profile_id": "synthetic-integration",
+  "questions": [
+    {
+      "biological_identity": "fictional-native-state",
+      "definition": {
+        "contract": "anibench.question-routes.v1",
+        "model_rationale": "Synthetic Gaussian algebra only; independent zero-mean errors are declared, not inferred from assay names.",
+        "parameters": [
+          {
+            "compartment": "declared blood specimen",
+            "context": "same fasting occasion",
+            "quantity": "Fictional molecule A",
+            "unit": "mmol/L"
+          },
+          {
+            "compartment": "declared blood specimen",
+            "context": "same fasting occasion",
+            "quantity": "Fictional molecule B",
+            "unit": "mmol/L"
+          }
+        ],
+        "question": "Can both declared molecular quantities be resolved?",
+        "routes": [
+          {
+            "assumptions": [
+              "Exact native quantities in the declared compartment and context"
+            ],
+            "design_operator": [
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "outputs": [
+              {
+                "output_id": "a",
+                "signature": {
+                  "compartment": "declared blood specimen",
+                  "context": "same fasting occasion",
+                  "quantity": "Fictional molecule A",
+                  "unit": "mmol/L"
+                }
+              },
+              {
+                "output_id": "b",
+                "signature": {
+                  "compartment": "declared blood specimen",
+                  "context": "same fasting occasion",
+                  "quantity": "Fictional molecule B",
+                  "unit": "mmol/L"
+                }
+              }
+            ],
+            "route_id": "resolved_assay"
+          },
+          {
+            "assumptions": [
+              "Additive response; cannot separate its constituents alone"
+            ],
+            "design_operator": [
+              [
+                1,
+                1
+              ]
+            ],
+            "outputs": [
+              {
+                "output_id": "sum",
+                "signature": {
+                  "compartment": "declared blood specimen",
+                  "context": "same fasting occasion",
+                  "quantity": "A plus B",
+                  "unit": "mmol/L"
+                }
+              }
+            ],
+            "route_id": "combined_assay"
+          },
+          {
+            "assumptions": [
+              "Fictional calibrated contrast; no actual assay claimed"
+            ],
+            "design_operator": [
+              [
+                1,
+                -1
+              ]
+            ],
+            "outputs": [
+              {
+                "output_id": "contrast",
+                "signature": {
+                  "compartment": "declared blood specimen",
+                  "context": "same fasting occasion",
+                  "quantity": "A minus B",
+                  "unit": "mmol/L"
+                }
+              }
+            ],
+            "route_id": "contrast_assay"
+          },
+          {
+            "assumptions": [
+              "Exact 1000-fold unit conversion; no compartment conversion"
+            ],
+            "design_operator": [
+              [
+                1000,
+                0
+              ],
+              [
+                0,
+                1000
+              ]
+            ],
+            "outputs": [
+              {
+                "output_id": "a_umol",
+                "signature": {
+                  "compartment": "declared blood specimen",
+                  "context": "same fasting occasion",
+                  "quantity": "Fictional molecule A",
+                  "unit": "umol/L"
+                }
+              },
+              {
+                "output_id": "b_umol",
+                "signature": {
+                  "compartment": "declared blood specimen",
+                  "context": "same fasting occasion",
+                  "quantity": "Fictional molecule B",
+                  "unit": "umol/L"
+                }
+              }
+            ],
+            "route_id": "alternative_units"
+          }
+        ],
+        "task": {
+          "claim_lane": "conditional_design",
+          "comparison_scope": "finite_functionals_only",
+          "contract": "anibench.finite-task-definition.v1",
+          "estimand": "Two molecular concentrations, no downstream relationship claim",
+          "functionals": [
+            {
+              "coefficients": [
+                1,
+                0
+              ],
+              "functional_id": "a",
+              "unit": "mmol/L",
+              "variance_limit": 1.0
+            },
+            {
+              "coefficients": [
+                0,
+                1
+              ],
+              "functional_id": "b",
+              "unit": "mmol/L",
+              "variance_limit": 1.0
+            }
+          ],
+          "horizon": "one occasion",
+          "model_sha256": "sha256:50f6171fbe610d718c8377c4d3e6d6649f93649efc69b9d1563c68018d88b187",
+          "parameter_units": [
+            "mmol/L",
+            "mmol/L"
+          ],
+          "prior_precision": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "required_support": [
+            {
+              "domain_id": "molecular",
+              "role": "observation"
+            }
+          ],
+          "source_sha256": "sha256:1c5650545f3c2a129ed92a5dafe5d55051664906eee78a8c103ec25f27b8e66d",
+          "target_population": "One fictional person, one occasion",
+          "task_id": "two-native-quantities",
+          "task_version": "synthetic-1"
+        }
+      },
+      "engine": "question_routes",
+      "question_id": "route"
+    },
+    {
+      "biological_identity": "fictional-linked-state-change",
+      "definition": {
+        "contract": "anibench.paired-biological-question.v1",
+        "coordinates": [
+          {
+            "definition": "Fictional circulating molecular concentration A",
+            "domain": "molecular",
+            "id": "molecule_a",
+            "unit": "mmol/L"
+          },
+          {
+            "definition": "Fictional circulating molecular concentration B",
+            "domain": "molecular",
+            "id": "molecule_b",
+            "unit": "mmol/L"
+          },
+          {
+            "definition": "Independently measured scalar grip force in this fictional experiment",
+            "domain": "functional",
+            "id": "grip_force",
+            "unit": "kg-force"
+          }
+        ],
+        "functional_operator": "Direct scalar force reading with stipulated additive unbiased error",
+        "occasions_days": [
+          0,
+          365
+        ],
+        "population_scope": "Independent people from an invented homogeneous Gaussian population",
+        "question": "What do linked molecular observations add to measurement of grip and its change?",
+        "question_id": "synthetic_molecular_context_and_grip.v1",
+        "tolerance_authority": "Invented software example; no clinical threshold or adopted AB reference",
+        "tolerances": {
+          "change_cross_covariance": [
+            0.075,
+            0.075
+          ],
+          "controlled_function_effect": [
+            1.0
+          ],
+          "function_change": [
+            3.0
+          ],
+          "function_mean_change": [
+            0.5
+          ],
+          "function_state": [
+            2.0
+          ],
+          "molecular_change": [
+            0.025,
+            0.025
+          ],
+          "molecular_mean_change": [
+            0.005,
+            0.005
+          ],
+          "molecular_state": [
+            0.02,
+            0.02
+          ]
+        }
+      },
+      "engine": "paired_collection",
+      "question_id": "paired"
+    }
+  ],
+  "scenarios": [
+    {
+      "paired_biological_covariance": {
+        "paired": [
+          [
+            0.0025000000000000005,
+            0.0,
+            0.0,
+            0.0017499999999999998,
+            0.0,
+            0.25
+          ],
+          [
+            0.0,
+            0.0025000000000000005,
+            0.0,
+            0.0,
+            0.0017499999999999998,
+            0.15
+          ],
+          [
+            0.0,
+            0.0,
+            100.0,
+            0.0,
+            0.0,
+            60.0
+          ],
+          [
+            0.0017499999999999998,
+            0.0,
+            0.0,
+            0.0025000000000000005,
+            0.0,
+            0.175
+          ],
+          [
+            0.0,
+            0.0017499999999999998,
+            0.0,
+            0.0,
+            0.0025000000000000005,
+            0.10500000000000001
+          ],
+          [
+            0.25,
+            0.15000000000000002,
+            60.0,
+            0.17500000000000002,
+            0.10500000000000001,
+            100.0
+          ]
+        ]
+      },
+      "rationale": "One shared synthetic convention",
+      "scenario_id": "reference"
+    }
+  ],
+  "scope": "Two fictional questions; no biological reference ratification",
+  "selection_rationale": "Exercise both existing engines, no representativeness claim",
+  "weighting_rationale": "2:1 arithmetic witness; not adopted scientific weights"
+}

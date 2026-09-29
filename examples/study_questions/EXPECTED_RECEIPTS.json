@@ -1,0 +1,9 @@
+{
+  "baseline256_REQUEST.json": "sha256:6f9163ee0c28708e1508765fb444a571a8fc28eae7db6221bb506200accbe31d",
+  "duplicates256_REQUEST.json": "sha256:98b5637112f76ff9f74f0b06a80f25aa6d505826c6539233ed467d0dbe8910fc",
+  "legacy_REQUEST.json": "sha256:a53d6ba08eac44f38918e4451d3eb82d22976d1cd4b2630cb7504c377f5d1752",
+  "paired256_REQUEST.json": "sha256:631c41397121f93049337698ee1f5e0d6aa3ae45493eb26c7c12455d30e43dce",
+  "paired2_REQUEST.json": "sha256:b02ac5c46ce201cf61f3fb54fd2c8a0f5f6e2388c9995acbefba5efa6dc31a93",
+  "unknown_noise256_REQUEST.json": "sha256:a896463fcca87b870c6b179155ebdb10c5a060a293dc4a0ea4d3a60c7a86bf25",
+  "unlinked256_REQUEST.json": "sha256:8267555961124fb69216df5e6af261a20bf89097785fb33438a54de32680ed06"
+}

@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 from collections.abc import Mapping
 from fractions import Fraction
 from pathlib import Path
@@ -140,20 +141,81 @@ def _adequacy(row: dict, target: dict) -> tuple[float, float]:
     return (0.0 if "unknown" in gates else min(lower), min(upper))
 
 
-def _category(category: dict, outcomes: dict, targets: dict) -> dict:
-    total = sum(t["weight"] for t in category["targets"])
-    passed = unknown = 0
-    precision_lower = precision_upper = 0.0
-    rows = []
-    for declaration in category["targets"]:
-        identity, weight = declaration["canonical_id"], declaration["weight"]
-        row = outcomes[identity]
-        state = row["attainment"]
+def summarize_attainment(targets: list[dict]) -> dict:
+    """Summarize evaluated requirements against their full frozen denominator.
+
+    This is arithmetic over evaluator decisions, not an evidence validator.
+    Public evaluation entry points must compute decisions from bound inputs;
+    they must never accept these rows as a substitute for executing an evaluator.
+    Dependence between requirements does not change this weighted fraction.
+    Its unresolved upper endpoint is an outer bound, not a joint certificate.
+    """
+    if not isinstance(targets, list) or not targets:
+        raise BenchmarkError("A nonempty frozen requirement set is required")
+    identities = set()
+    total = passed = unknown = 0
+    for row in targets:
+        if not isinstance(row, dict) or set(row) != {"canonical_id", "weight", "attainment"}:
+            raise BenchmarkError("Expected canonical_id, weight and attainment")
+        identity, weight, state = row["canonical_id"], row["weight"], row["attainment"]
+        if not isinstance(identity, str) or not identity.strip() or identity in identities:
+            raise BenchmarkError("Requirement identities must be nonempty and unique")
+        if type(weight) is not int or weight <= 0:
+            raise BenchmarkError("Weights must be positive integer units of workload mass")
+        if not isinstance(state, str) or state not in {"attained", "not_attained", "unknown"}:
+            raise BenchmarkError("Unknown requirement attainment state")
+        identities.add(identity)
+        total += weight
         passed += weight if state == "attained" else 0
         unknown += weight if state == "unknown" else 0
+    return {
+        "task_count": len(targets),
+        "weight_total": total,
+        "passed_weight": passed,
+        "unknown_weight": unknown,
+        "failed_weight": total - passed - unknown,
+        "passed_percent": float(100 * Fraction(passed, total)),
+        "unknown_percent": float(100 * Fraction(unknown, total)),
+        "upper_percent": float(100 * Fraction(passed + unknown, total)),
+        "uncertainty_kind": "unresolved_task_mass_outer_bound",
+    }
+
+
+def summarize_precision(targets: list[dict]) -> dict:
+    """Average evaluated [0, 1] adequacy bounds using fixed requirement weights.
+
+    These bounds describe progress toward declared precision, not attainment or
+    a probability. Evidence validation belongs to the calling evaluator.
+    """
+    if not isinstance(targets, list) or not targets:
+        raise BenchmarkError("A nonempty frozen requirement set is required")
+    for row in targets:
+        if not isinstance(row, dict) or set(row) != {"canonical_id", "weight", "lower", "upper"}:
+            raise BenchmarkError("Expected weighted precision bounds")
+        if any(type(row[key]) not in (int, float) or not math.isfinite(row[key])
+               for key in ("lower", "upper")) or not 0 <= row["lower"] <= row["upper"] <= 1:
+            raise BenchmarkError("Precision bounds must be finite and ordered within [0, 1]")
+    total = summarize_attainment([
+        {"canonical_id": row["canonical_id"], "weight": row["weight"], "attainment": "unknown"}
+        for row in targets
+    ])["weight_total"]
+    precision_lower = precision_upper = 0.0
+    for row in targets:
+        precision_lower += float(Fraction(row["weight"], total)) * row["lower"]
+        precision_upper += float(Fraction(row["weight"], total)) * row["upper"]
+    return {"lower_percent": min(100.0, 100 * precision_lower),
+            "upper_percent": min(100.0, 100 * precision_upper)}
+
+
+def _category(category: dict, outcomes: dict, targets: dict) -> dict:
+    precision = []
+    rows = []
+    for declaration in category["targets"]:
+        identity = declaration["canonical_id"]
+        row = outcomes[identity]
+        state = row["attainment"]
         lower, upper = _adequacy(row, targets[identity])
-        precision_lower += float(Fraction(weight, total)) * lower
-        precision_upper += float(Fraction(weight, total)) * upper
+        precision.append({**declaration, "lower": lower, "upper": upper})
         rows.append(
             {
                 **declaration,
@@ -168,19 +230,11 @@ def _category(category: dict, outcomes: dict, targets: dict) -> dict:
         "category_id": category["category_id"],
         "label": category["label"],
         "question": category["question"],
-        "task_count": len(rows),
-        "weight_total": total,
-        "passed_weight": passed,
-        "unknown_weight": unknown,
-        "failed_weight": total - passed - unknown,
-        "passed_percent": float(100 * Fraction(passed, total)),
-        "unknown_percent": float(100 * Fraction(unknown, total)),
-        "upper_percent": float(100 * Fraction(passed + unknown, total)),
-        "precision_toward_targets": {
-            "lower_percent": min(100.0, 100 * precision_lower),
-            "upper_percent": min(100.0, 100 * precision_upper),
-        },
-        "uncertainty_kind": "unresolved_task_mass_outer_bound",
+        **summarize_attainment([
+            {key: row[key] for key in ("canonical_id", "weight", "attainment")}
+            for row in rows
+        ]),
+        "precision_toward_targets": summarize_precision(precision),
         "targets": rows,
     }
 

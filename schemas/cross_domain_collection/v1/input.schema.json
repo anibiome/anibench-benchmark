@@ -1,0 +1,526 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "contract": {
+      "const": "anibench.cross-domain-collection-input.v1"
+    },
+    "question": {
+      "type": "object",
+      "properties": {
+        "contract": {
+          "const": "anibench.cross-domain-question.v1"
+        },
+        "question_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "population_scope": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "coordinates": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "definition": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "biological_domain": {
+                "enum": [
+                  "molecular",
+                  "cellular",
+                  "microbial",
+                  "physiological",
+                  "digital",
+                  "functional",
+                  "cognitive",
+                  "neural",
+                  "psychological",
+                  "context"
+                ]
+              },
+              "role": {
+                "enum": [
+                  "observer",
+                  "function"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "unit",
+              "definition",
+              "biological_domain",
+              "role"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "occasions_days": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          }
+        },
+        "tolerances": {
+          "type": "object",
+          "properties": {
+            "observer_state": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "function_state": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "observer_change": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "function_change": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "observer_mean_change": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "function_mean_change": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "change_cross_covariance": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "controlled_function_effect": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            }
+          },
+          "required": [
+            "observer_state",
+            "function_state",
+            "observer_change",
+            "function_change",
+            "observer_mean_change",
+            "function_mean_change",
+            "change_cross_covariance",
+            "controlled_function_effect"
+          ],
+          "additionalProperties": false
+        },
+        "tolerance_authority": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "functional_operator": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "contract",
+        "question_id",
+        "question",
+        "population_scope",
+        "coordinates",
+        "occasions_days",
+        "tolerances",
+        "tolerance_authority",
+        "functional_operator"
+      ],
+      "additionalProperties": false
+    },
+    "scenario": {
+      "type": "object",
+      "properties": {
+        "question_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "biological_covariance": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "minItems": 1,
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "measurement_error_covariance": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "minItems": 1,
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "error_covariance_treated_as_known": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "assumptions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        }
+      },
+      "required": [
+        "question_sha256",
+        "biological_covariance",
+        "measurement_error_covariance",
+        "error_covariance_treated_as_known",
+        "assumptions"
+      ],
+      "additionalProperties": false
+    },
+    "design": {
+      "type": "object",
+      "properties": {
+        "question_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "lifecycle": {
+          "enum": [
+            "planned",
+            "hypothetical",
+            "realized"
+          ]
+        },
+        "n_people": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "closed_pattern_roster": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "patterns_are_disjoint": {
+          "const": true
+        },
+        "homogeneous_reference_across_patterns": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "acquisition_independent_of_state": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "patterns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pattern_id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "n_people": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "closed_acquisition_inventory": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "controlled_arm_counts": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "acquisitions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "physical_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    },
+                    "occasion_index": {
+                      "type": "integer",
+                      "enum": [
+                        0,
+                        1
+                      ]
+                    },
+                    "outputs": {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "coordinate_id": {
+                            "type": "string",
+                            "minLength": 1,
+                            "pattern": "\\S"
+                          },
+                          "qualified": {
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "coordinate_id",
+                          "qualified"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "physical_id",
+                    "occasion_index",
+                    "outputs"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "pattern_id",
+              "n_people",
+              "closed_acquisition_inventory",
+              "controlled_arm_counts",
+              "acquisitions"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "support": {
+          "type": "object",
+          "properties": {
+            "operator_valid": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "zero_mean_measurement_error": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "independent_measurement_error": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "reference_model_applicable": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "independent_people": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "declared_population": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "paired_occasions": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "cross_domain_linkage": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "independently_measured_function": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "gaussian_reference": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "prediction_time_order": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "documented_exposure": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "exposure_aligned_window": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "controlled_assignment_identified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "collection_verified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "operator_valid",
+            "zero_mean_measurement_error",
+            "independent_measurement_error",
+            "reference_model_applicable",
+            "independent_people",
+            "declared_population",
+            "paired_occasions",
+            "cross_domain_linkage",
+            "independently_measured_function",
+            "gaussian_reference",
+            "prediction_time_order",
+            "documented_exposure",
+            "exposure_aligned_window",
+            "controlled_assignment_identified",
+            "collection_verified"
+          ],
+          "additionalProperties": false
+        },
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "question_sha256",
+        "lifecycle",
+        "n_people",
+        "closed_pattern_roster",
+        "patterns_are_disjoint",
+        "homogeneous_reference_across_patterns",
+        "acquisition_independent_of_state",
+        "patterns",
+        "support"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "contract",
+    "question",
+    "scenario",
+    "design"
+  ],
+  "additionalProperties": false
+}
