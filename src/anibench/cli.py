@@ -334,7 +334,7 @@ def main(argv: list[str] | None = None) -> int:
 
                     result = evaluate_study_questions(request, trusted_profiles={digest(profile): profile})
                 else:
-                    from .estimator_moments_v1 import evaluate_estimator_moments
+                    from .estimator_moments_v2 import evaluate_estimator_moments
 
                     result = evaluate_estimator_moments(request, trusted_definitions={digest(profile): profile})
                 content = json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n"

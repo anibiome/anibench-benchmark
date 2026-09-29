@@ -298,6 +298,8 @@ include = [
   "/schemas/estimator_moments",
   "/docs/ESTIMATOR_MOMENTS.md",
   "/src/anibench/estimator_moments_v1.py",
+  "/src/anibench/estimator_moments_v2.py",
+  "/tests/test_estimator_moments_v2.py",
   "/tests/test_estimator_moments_v1.py",
   "/tests/test_estimator_moments_cli.py",
   "/tests/test_study_questions_moments.py",

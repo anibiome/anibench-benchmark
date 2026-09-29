@@ -1,0 +1,129 @@
+{
+  "categories": [
+    {
+      "category_id": "state",
+      "label": "Native state",
+      "question": "Does the complete call meet its joint error criterion?",
+      "requirements": [
+        {
+          "alternatives": [
+            {
+              "outcomes": [
+                "target"
+              ],
+              "question_id": "joint-call"
+            }
+          ],
+          "rationale": "Fixed complete criterion",
+          "requirement_id": "call",
+          "weight": 1
+        }
+      ]
+    }
+  ],
+  "contract": "anibench.study-question-profile.v4",
+  "profile_id": "fictional-joint-loss",
+  "questions": [
+    {
+      "biological_identity": "fictional-categorical-call",
+      "definition": {
+        "assumptions": [
+          "Fixed truth class0; all four hard-call coordinates retained; moments conditional on the declared mechanism"
+        ],
+        "context": "fixed categorical process",
+        "contract": "anibench.estimator-moment-definition.v2",
+        "definition_id": "fictional-four-class-call",
+        "estimators": [
+          {
+            "estimator": "Coordinate of the single one-hot hard call",
+            "estimator_id": "0",
+            "independent_unit": "Complete call at one occasion, not its four coordinates",
+            "method_sha256": "sha256:8fef83eda75a583b3e806a6e12908d9bab8e08ba1707effe3b9ef007b2302708",
+            "target": {
+              "compartment": "synthetic",
+              "context": "fixed categorical process",
+              "quantity": "class_0_indicator",
+              "unit": "indicator"
+            }
+          },
+          {
+            "estimator": "Coordinate of the single one-hot hard call",
+            "estimator_id": "1",
+            "independent_unit": "Complete call at one occasion, not its four coordinates",
+            "method_sha256": "sha256:8fef83eda75a583b3e806a6e12908d9bab8e08ba1707effe3b9ef007b2302708",
+            "target": {
+              "compartment": "synthetic",
+              "context": "fixed categorical process",
+              "quantity": "class_1_indicator",
+              "unit": "indicator"
+            }
+          },
+          {
+            "estimator": "Coordinate of the single one-hot hard call",
+            "estimator_id": "2",
+            "independent_unit": "Complete call at one occasion, not its four coordinates",
+            "method_sha256": "sha256:8fef83eda75a583b3e806a6e12908d9bab8e08ba1707effe3b9ef007b2302708",
+            "target": {
+              "compartment": "synthetic",
+              "context": "fixed categorical process",
+              "quantity": "class_2_indicator",
+              "unit": "indicator"
+            }
+          },
+          {
+            "estimator": "Coordinate of the single one-hot hard call",
+            "estimator_id": "3",
+            "independent_unit": "Complete call at one occasion, not its four coordinates",
+            "method_sha256": "sha256:8fef83eda75a583b3e806a6e12908d9bab8e08ba1707effe3b9ef007b2302708",
+            "target": {
+              "compartment": "synthetic",
+              "context": "fixed categorical process",
+              "quantity": "class_3_indicator",
+              "unit": "indicator"
+            }
+          }
+        ],
+        "functionals": [
+          {
+            "estimand": "Joint misclassification probability of the hard call",
+            "functional_id": "miscall",
+            "loss_weights": [
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ],
+            "mse_limit": 0.01,
+            "unit": "probability"
+          }
+        ],
+        "population_scope": "One fictional target at one occasion",
+        "question": "Does this hard categorical call meet the declared joint error limit?",
+        "sources": [
+          {
+            "locator": "examples/estimator_moments/quadratic/METHODS.json (canonical JSON SHA256)",
+            "role": "Finite probability law and native joint loss",
+            "sha256": "sha256:8fef83eda75a583b3e806a6e12908d9bab8e08ba1707effe3b9ef007b2302708",
+            "source_id": "finite-law"
+          }
+        ],
+        "support_requirements": [
+          "one_hot_hard_call",
+          "qualified_moment_derivation"
+        ]
+      },
+      "engine": "estimator_moments",
+      "question_id": "joint-call"
+    }
+  ],
+  "scenarios": [
+    {
+      "paired_biological_covariance": {},
+      "rationale": "Declared finite law",
+      "scenario_id": "reference"
+    }
+  ],
+  "scope": "Software example only",
+  "selection_rationale": "Joint call error cannot be replaced by arbitrary coordinate allocation",
+  "weighting_rationale": "One indivisible requirement, no votes for individual coordinates"
+}

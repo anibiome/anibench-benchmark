@@ -1,0 +1,38 @@
+{
+  "cases": {
+    "constant-wrong": {
+      "p": 1
+    },
+    "joint-failure": {
+      "p": 0.03
+    },
+    "joint-pass": {
+      "p": 0.008
+    },
+    "unknown-moments": {
+      "assumption": "No qualified numerical bounds; lower PSD zero only"
+    },
+    "unverified-collection": {
+      "collection_verified": null,
+      "p": 0.008
+    }
+  },
+  "estimator": "One hard categorical call, encoded as exactly one 1 and three 0 values",
+  "law": "Call equals class0 with probability1-p, class1 with probabilityp, and never classes2/3.",
+  "limit": 0.01,
+  "limit_authority": "Normative software example; not a clinical or empirical standard",
+  "loss": "Half the sum of four squared errors is exactly the indicator of a wrong hard call. Expected loss=p.",
+  "moments": "Bias=(-p,p,0,0); covariance=p(1-p)dd^T with d=(-1,1,0,0).",
+  "not_established": [
+    "Soft probability vectors do not have this misclassification identity",
+    "No uniform error guarantee across contexts",
+    "No population precision from one call"
+  ],
+  "scope": "Fictional finite categorical observation, no human study or biological calibration",
+  "target": [
+    1,
+    0,
+    0,
+    0
+  ]
+}

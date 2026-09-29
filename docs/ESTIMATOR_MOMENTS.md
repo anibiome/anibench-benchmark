@@ -80,3 +80,45 @@ dimension, binding, PSD, identity and bound-order checks are enforced at runtime
 Hashes bind inputs and code; they do not certify calibration, biological truth,
 causal identification or source validity. The evaluator computes no Gaussian
 Fisher information, posterior, empirical learning curve or study ranking.
+
+## Joint separable loss (definition/request v2)
+
+Some biological criteria concern total error across a vector. Definition v2
+replaces each functional's `coefficients` with nonnegative `loss_weights`, at
+least one of which is positive. It evaluates
+
+```
+E[sum_j w_j (T_j - theta_j)^2] = sum_j w_j (V_jj + b_j^2).
+```
+
+The loss weights and `mse_limit` must use one declared loss unit. For targets
+with unlike native units, the definition must justify the associated weight
+units and scaling. Merely adding unlike measurements is not a valid biological
+criterion. The evaluator checks structure and arithmetic, not dimensional or
+biological truth of the supplied definition.
+
+Nonnegative weights preserve lower and upper variance bounds under Loewner
+order. On a Cartesian bias box, each squared bias has minimum zero if its
+interval contains zero, otherwise the smaller squared endpoint; its maximum is
+the larger squared endpoint. Weighted sums give the exact extrema on that box.
+Covariance and bias bounds may be jointly conservative because a particular
+estimator law can further couple them. Complete covariance matrices must still
+be PSD and consistently ordered, even though this loss uses their diagonals.
+
+Pass, fail, unknown, physical identity and evidence rules are unchanged.
+Unknown bias is not zero bias. A constant biased estimator can fail with zero
+variance. An excessively loose upper bound cannot by itself establish failure.
+This finite registered loss does not imply an all-direction error guarantee.
+
+Use the same CLI, or import the dispatching API from
+`anibench.estimator_moments_v2`. It accepts matching v1 or v2 requests and
+preserves the v1 result exactly. The v1 API remains available. V2 structural
+schemas are in `schemas/estimator_moments/v2`; study-question profile v4 accepts
+both versions. Equivalent rank-one and diagonal loss representations cannot
+create an extra reference budget by renaming the same target frame.
+
+The [categorical call example](../examples/estimator_moments/quadratic/README.md)
+shows why a joint misclassification criterion should be evaluated directly.
+Arbitrarily allocated coordinate error limits can be sufficient for its success
+without their failure proving that the joint criterion failed. The example
+also demonstrates retained bias and missing acquisition verification.

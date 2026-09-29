@@ -1,0 +1,168 @@
+{
+  "contract": "anibench.estimator-moments-request.v2",
+  "definition_sha256": "sha256:160b2695e0ceb9ad67f5cdcf1c55796476702404daf1f1b2637933478f14e920",
+  "design": {
+    "acquisitions": [
+      {
+        "physical_acquisition_id": "one-call",
+        "physical_output_id": "0",
+        "signature": {
+          "compartment": "synthetic",
+          "context": "fixed categorical process",
+          "quantity": "class_0_indicator",
+          "unit": "indicator"
+        }
+      },
+      {
+        "physical_acquisition_id": "one-call",
+        "physical_output_id": "1",
+        "signature": {
+          "compartment": "synthetic",
+          "context": "fixed categorical process",
+          "quantity": "class_1_indicator",
+          "unit": "indicator"
+        }
+      },
+      {
+        "physical_acquisition_id": "one-call",
+        "physical_output_id": "2",
+        "signature": {
+          "compartment": "synthetic",
+          "context": "fixed categorical process",
+          "quantity": "class_2_indicator",
+          "unit": "indicator"
+        }
+      },
+      {
+        "physical_acquisition_id": "one-call",
+        "physical_output_id": "3",
+        "signature": {
+          "compartment": "synthetic",
+          "context": "fixed categorical process",
+          "quantity": "class_3_indicator",
+          "unit": "indicator"
+        }
+      }
+    ],
+    "collection_verified": null,
+    "context": "fixed categorical process",
+    "estimator_inputs": [
+      {
+        "estimable": true,
+        "estimator_id": "0",
+        "physical_outputs": [
+          [
+            "one-call",
+            "0"
+          ]
+        ]
+      },
+      {
+        "estimable": true,
+        "estimator_id": "1",
+        "physical_outputs": [
+          [
+            "one-call",
+            "1"
+          ]
+        ]
+      },
+      {
+        "estimable": true,
+        "estimator_id": "2",
+        "physical_outputs": [
+          [
+            "one-call",
+            "2"
+          ]
+        ]
+      },
+      {
+        "estimable": true,
+        "estimator_id": "3",
+        "physical_outputs": [
+          [
+            "one-call",
+            "3"
+          ]
+        ]
+      }
+    ],
+    "support": {
+      "one_hot_hard_call": true,
+      "qualified_moment_derivation": true
+    }
+  },
+  "lifecycle": "hypothetical",
+  "moments": {
+    "assumptions": [
+      "One-hot call under the registered finite law; no empirical calibration"
+    ],
+    "bias_lower": [
+      -0.03,
+      0.03,
+      0.0,
+      0.0
+    ],
+    "bias_upper": [
+      -0.03,
+      0.03,
+      0.0,
+      0.0
+    ],
+    "covariance_lower": [
+      [
+        0.0291,
+        -0.0291,
+        0.0,
+        0.0
+      ],
+      [
+        -0.0291,
+        0.0291,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "covariance_upper": [
+      [
+        0.0291,
+        -0.0291,
+        0.0,
+        0.0
+      ],
+      [
+        -0.0291,
+        0.0291,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "justification": "Exact finite law in METHODS.json: joint-failure",
+    "source_sha256": "sha256:8fef83eda75a583b3e806a6e12908d9bab8e08ba1707effe3b9ef007b2302708"
+  }
+}

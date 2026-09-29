@@ -170,6 +170,16 @@ examples/estimator_moments/exact-failure.json
 examples/estimator_moments/exact-pass.json
 examples/estimator_moments/loose-bound-unknown.json
 examples/estimator_moments/missing-support.json
+examples/estimator_moments/quadratic/METHODS.json
+examples/estimator_moments/quadratic/README.md
+examples/estimator_moments/quadratic/constant-wrong.json
+examples/estimator_moments/quadratic/definition.json
+examples/estimator_moments/quadratic/joint-failure.json
+examples/estimator_moments/quadratic/joint-pass.json
+examples/estimator_moments/quadratic/profile.json
+examples/estimator_moments/quadratic/study.json
+examples/estimator_moments/quadratic/unknown-moments.json
+examples/estimator_moments/quadratic/unverified-collection.json
 examples/finite_suites/README.md
 examples/finite_suites/replay_erp.py
 examples/finite_tasks/synthetic-provenance.json
@@ -300,6 +310,8 @@ schemas/collection/table-map.schema.json
 schemas/cross_domain_collection/v1/input.schema.json
 schemas/estimator_moments/v1/definition.schema.json
 schemas/estimator_moments/v1/request.schema.json
+schemas/estimator_moments/v2/definition.schema.json
+schemas/estimator_moments/v2/request.schema.json
 schemas/finite_precision/v1/evaluation-input.schema.json
 schemas/finite_precision/v1/evaluation-result.schema.json
 schemas/finite_suites/v1/input.schema.json
@@ -379,6 +391,7 @@ src/anibench/contracts_v2.py
 src/anibench/cross_domain_collection_v1.py
 src/anibench/design_v2.py
 src/anibench/estimator_moments_v1.py
+src/anibench/estimator_moments_v2.py
 src/anibench/explorer.py
 src/anibench/finite_suites_v1.py
 src/anibench/finite_tasks_v1.py
@@ -462,6 +475,7 @@ tests/test_erp_design_planner.py
 tests/test_erp_design_sensitivity.py
 tests/test_estimator_moments_cli.py
 tests/test_estimator_moments_v1.py
+tests/test_estimator_moments_v2.py
 tests/test_eval_cli.py
 tests/test_eval_comparison.py
 tests/test_explorer.py

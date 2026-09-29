@@ -1,0 +1,249 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Structural schema; runtime additionally checks exact hashes, dimensions, PSD bounds, native identity and support.",
+  "properties": {
+    "contract": {
+      "const": "anibench.estimator-moments-request.v2"
+    },
+    "definition_sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "design": {
+      "additionalProperties": false,
+      "properties": {
+        "acquisitions": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "physical_acquisition_id": {
+                "pattern": "\\S",
+                "type": "string"
+              },
+              "physical_output_id": {
+                "pattern": "\\S",
+                "type": "string"
+              },
+              "signature": {
+                "additionalProperties": false,
+                "properties": {
+                  "compartment": {
+                    "pattern": "\\S",
+                    "type": "string"
+                  },
+                  "context": {
+                    "pattern": "\\S",
+                    "type": "string"
+                  },
+                  "quantity": {
+                    "pattern": "\\S",
+                    "type": "string"
+                  },
+                  "unit": {
+                    "pattern": "\\S",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "quantity",
+                  "unit",
+                  "compartment",
+                  "context"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "physical_acquisition_id",
+              "physical_output_id",
+              "signature"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "collection_verified": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "context": {
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "estimator_inputs": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "estimable": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "estimator_id": {
+                "pattern": "\\S",
+                "type": "string"
+              },
+              "physical_outputs": {
+                "items": {
+                  "items": {
+                    "pattern": "\\S",
+                    "type": "string"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "estimator_id",
+              "physical_outputs",
+              "estimable"
+            ],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "support": {
+          "additionalProperties": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "context",
+        "acquisitions",
+        "estimator_inputs",
+        "support",
+        "collection_verified"
+      ],
+      "type": "object"
+    },
+    "lifecycle": {
+      "enum": [
+        "planned",
+        "hypothetical",
+        "realized"
+      ]
+    },
+    "moments": {
+      "additionalProperties": false,
+      "properties": {
+        "assumptions": {
+          "items": {
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "bias_lower": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 128,
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bias_upper": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 128,
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "covariance_lower": {
+          "anyOf": [
+            {
+              "items": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 128,
+                "minItems": 1,
+                "type": "array"
+              },
+              "maxItems": 128,
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "covariance_upper": {
+          "anyOf": [
+            {
+              "items": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 128,
+                "minItems": 1,
+                "type": "array"
+              },
+              "maxItems": 128,
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "justification": {
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "source_sha256": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "covariance_lower",
+        "covariance_upper",
+        "bias_lower",
+        "bias_upper",
+        "justification",
+        "source_sha256",
+        "assumptions"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "contract",
+    "definition_sha256",
+    "lifecycle",
+    "design",
+    "moments"
+  ],
+  "type": "object"
+}

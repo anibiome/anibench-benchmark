@@ -10,6 +10,7 @@ from __future__ import annotations
 import copy
 import json
 from collections.abc import Mapping
+from fractions import Fraction
 
 from jsonschema import Draft202012Validator
 
@@ -27,10 +28,10 @@ from anibench.estimator_moments_v1 import (
 from anibench.estimator_moments_v1 import (
     _matrix as moment_matrix,
 )
-from anibench.estimator_moments_v1 import (
+from anibench.estimator_moments_v2 import (
     evaluate_estimator_moments,
 )
-from anibench.estimator_moments_v1 import (
+from anibench.estimator_moments_v2 import (
     validate_definition as validate_moment_definition,
 )
 from anibench.finite_suites_v1 import scientific_frame_sha256
@@ -178,6 +179,16 @@ def _alternative_category(category, scenario_questions):
             "requirements": details, "precision_toward_targets": summarize_precision(precision)}
 
 
+def _moment_loss_matrix(functional, order):
+    # Canonical exact quadratic loss prevents an identical one-coordinate MSE
+    # from receiving another budget under the diagonal-loss representation.
+    if "loss_weights" in functional:
+        w = [Fraction(str(functional["loss_weights"][i])) for i in order]
+        return [[str(w[i] if i == j else 0) for j in range(len(w))] for i in range(len(w))]
+    c = [Fraction(str(functional["coefficients"][i])) for i in order]
+    return [[str(x * y) for y in c] for x in c]
+
+
 def _semantic_frame(question):
     """Reject renamed exact frames; this does not resolve biological synonyms.
 
@@ -191,7 +202,7 @@ def _semantic_frame(question):
         return digest({"engine": "estimator_moments",
                        "targets": [definition["estimators"][i]["target"] for i in order],
                        "population_scope": definition["population_scope"], "context": definition["context"],
-                       "functionals": sorted([{"coefficients": [f["coefficients"][i] for i in order],
+                       "functionals": sorted([{"loss_matrix": _moment_loss_matrix(f, order),
                                                 "unit": f["unit"]}
                                                for f in definition["functionals"]], key=digest)})
     if question["engine"] == "question_routes":

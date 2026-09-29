@@ -234,3 +234,9 @@ Per-question participant subsets are not added into a whole-study roster.
 Broader biological reference selection, calibration, source-qualified real-study
 comparisons and empirical learning validation remain separate unfinished work.
 The existing `eval` and `compare` compatibility contracts are unchanged.
+
+Estimator-moment inputs also accept matching definition/request v2 for a registered
+nonnegative separable quadratic loss. This checks a joint error criterion directly,
+with the same support and shared-moment consistency rules. V1 inputs retain their
+original receipts. See `ESTIMATOR_MOMENTS.md` and the fictional categorical-call
+example in `examples/estimator_moments/quadratic`.
