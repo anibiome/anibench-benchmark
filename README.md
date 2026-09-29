@@ -18,6 +18,9 @@ molecular/function question under a declared reference. It distinguishes
 measurement and relationship precision, exposure-aligned change, identified
 assignment effects and conditional linear-learning error. Its example is wholly
 synthetic; it supplies neither observed prediction accuracy nor a whole-study rank.
+[`anibench paired-collection`](docs/PAIRED_COLLECTION.md) applies those equations
+when measurements cover different participant subsets. Marginal measurements
+retain their value; joint relationships use only jointly supported observations.
 
 The [reference reproduction example](examples/reference_witnesses/README.md)
 supplies exact synthetic designs, pinned inputs and a one-command calculation

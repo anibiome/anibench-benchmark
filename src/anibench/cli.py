@@ -43,6 +43,12 @@ def _parser() -> argparse.ArgumentParser:
     paired.add_argument("input", type=Path)
     paired.add_argument("--out", type=Path, required=True)
 
+    collection = sub.add_parser(
+        "paired-collection", help="Evaluate a linked question with different measurement subsets"
+    )
+    collection.add_argument("input", type=Path)
+    collection.add_argument("--out", type=Path, required=True)
+
     study_chart = sub.add_parser(
         "study-chart", help="Draw comparable category percentages from verified study results"
     )
@@ -261,11 +267,14 @@ def _protect_collection_inputs(inputs: list[Path], outputs: list[Path]) -> None:
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     try:
-        if args.command == "paired-question":
-            from .paired_question_v1 import evaluate_paired_question
+        if args.command in ("paired-question", "paired-collection"):
+            if args.command == "paired-question":
+                from .paired_question_v1 import evaluate_paired_question as evaluate_paired
+            else:
+                from .paired_collection_v1 import evaluate_paired_collection as evaluate_paired
 
             _protect_collection_inputs([args.input], [args.out])
-            result = evaluate_paired_question(_load_object(args.input, label="paired question"))
+            result = evaluate_paired(_load_object(args.input, label="paired biological input"))
             args.out.parent.mkdir(parents=True, exist_ok=True)
             with args.out.open("x", encoding="utf-8") as handle:
                 json.dump(result, handle, indent=2, sort_keys=True, allow_nan=False)
@@ -605,7 +614,7 @@ def main(argv: list[str] | None = None) -> int:
             _write_snapshot(snapshot, args.out)
             return 0
     except (ValueError, FileNotFoundError, OSError, json.JSONDecodeError, KeyError) as exc:
-        if args.command == "paired-question" and isinstance(exc, OSError):
+        if args.command in ("paired-question", "paired-collection") and isinstance(exc, OSError):
             print("Unable to read input or create a new result file", file=sys.stderr)
         else:
             print(str(exc), file=sys.stderr)

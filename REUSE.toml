@@ -22,7 +22,7 @@ SPDX-FileCopyrightText = "2026 ANI"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
-path = ["examples/reference_witnesses/*.py", "examples/paired_question/*.py"]
+path = ["examples/reference_witnesses/*.py", "examples/paired_question/*.py", "examples/paired_collection/*.py"]
 precedence = "override"
 SPDX-FileCopyrightText = "2026 AniBench contributors"
 SPDX-License-Identifier = "Apache-2.0"

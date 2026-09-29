@@ -1,0 +1,511 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "const": "anibench.paired-collection-input.v1"
+    },
+    "design": {
+      "additionalProperties": false,
+      "properties": {
+        "acquisition_independent_of_state": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "closed_pattern_roster": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "homogeneous_reference_across_patterns": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "lifecycle": {
+          "enum": [
+            "planned",
+            "hypothetical",
+            "realized"
+          ]
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "n_people": {
+          "maximum": 9007199254740991,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "patterns": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "acquisitions": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "occasion_index": {
+                      "enum": [
+                        0,
+                        1
+                      ],
+                      "type": "integer"
+                    },
+                    "outputs": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "coordinate_id": {
+                            "minLength": 1,
+                            "pattern": "\\S",
+                            "type": "string"
+                          },
+                          "qualified": {
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "coordinate_id",
+                          "qualified"
+                        ],
+                        "type": "object"
+                      },
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "physical_id": {
+                      "minLength": 1,
+                      "pattern": "\\S",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "physical_id",
+                    "occasion_index",
+                    "outputs"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "closed_acquisition_inventory": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "controlled_arm_counts": {
+                "items": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": [
+                  "array",
+                  "null"
+                ]
+              },
+              "n_people": {
+                "maximum": 9007199254740991,
+                "minimum": 0,
+                "type": "integer"
+              },
+              "pattern_id": {
+                "minLength": 1,
+                "pattern": "\\S",
+                "type": "string"
+              }
+            },
+            "required": [
+              "pattern_id",
+              "n_people",
+              "closed_acquisition_inventory",
+              "controlled_arm_counts",
+              "acquisitions"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "patterns_are_disjoint": {
+          "const": true
+        },
+        "question_sha256": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "support": {
+          "additionalProperties": false,
+          "properties": {
+            "collection_verified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "controlled_assignment_identified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "cross_domain_linkage": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "declared_population": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "documented_exposure": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "exposure_aligned_window": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "gaussian_reference": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "independent_measurement_error": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "independent_people": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "independently_measured_function": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "operator_valid": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "paired_occasions": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "prediction_time_order": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "reference_model_applicable": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "zero_mean_measurement_error": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "operator_valid",
+            "zero_mean_measurement_error",
+            "independent_measurement_error",
+            "reference_model_applicable",
+            "independent_people",
+            "declared_population",
+            "paired_occasions",
+            "cross_domain_linkage",
+            "independently_measured_function",
+            "gaussian_reference",
+            "prediction_time_order",
+            "documented_exposure",
+            "exposure_aligned_window",
+            "controlled_assignment_identified",
+            "collection_verified"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "question_sha256",
+        "lifecycle",
+        "n_people",
+        "closed_pattern_roster",
+        "patterns_are_disjoint",
+        "homogeneous_reference_across_patterns",
+        "acquisition_independent_of_state",
+        "patterns",
+        "support"
+      ],
+      "type": "object"
+    },
+    "question": {
+      "additionalProperties": false,
+      "properties": {
+        "contract": {
+          "const": "anibench.paired-biological-question.v1"
+        },
+        "coordinates": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "definition": {
+                "minLength": 1,
+                "pattern": "\\S",
+                "type": "string"
+              },
+              "domain": {
+                "enum": [
+                  "molecular",
+                  "functional"
+                ]
+              },
+              "id": {
+                "minLength": 1,
+                "pattern": "\\S",
+                "type": "string"
+              },
+              "unit": {
+                "minLength": 1,
+                "pattern": "\\S",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "unit",
+              "definition",
+              "domain"
+            ],
+            "type": "object"
+          },
+          "minItems": 2,
+          "type": "array"
+        },
+        "functional_operator": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "occasions_days": {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "population_scope": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "question": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "question_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "tolerance_authority": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "tolerances": {
+          "additionalProperties": false,
+          "properties": {
+            "change_cross_covariance": {
+              "items": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "controlled_function_effect": {
+              "items": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "function_change": {
+              "items": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "function_mean_change": {
+              "items": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "function_state": {
+              "items": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "molecular_change": {
+              "items": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "molecular_mean_change": {
+              "items": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "molecular_state": {
+              "items": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "molecular_state",
+            "function_state",
+            "molecular_change",
+            "function_change",
+            "molecular_mean_change",
+            "function_mean_change",
+            "change_cross_covariance",
+            "controlled_function_effect"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "contract",
+        "question_id",
+        "question",
+        "population_scope",
+        "coordinates",
+        "occasions_days",
+        "tolerances",
+        "tolerance_authority",
+        "functional_operator"
+      ],
+      "type": "object"
+    },
+    "scenario": {
+      "additionalProperties": false,
+      "properties": {
+        "assumptions": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "biological_covariance": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "minItems": 1,
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "error_covariance_treated_as_known": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "measurement_error_covariance": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "minItems": 1,
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "question_sha256": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "question_sha256",
+        "biological_covariance",
+        "measurement_error_covariance",
+        "error_covariance_treated_as_known",
+        "assumptions"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "contract",
+    "question",
+    "scenario",
+    "design"
+  ],
+  "type": "object"
+}

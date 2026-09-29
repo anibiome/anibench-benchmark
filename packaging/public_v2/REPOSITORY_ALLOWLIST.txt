@@ -79,6 +79,7 @@ docs/HOW_TO_READ_ANIBENCH.md
 docs/INTAKE_AND_ADJUDICATION.md
 docs/LEVELS_AND_SATURATION.md
 docs/LOCAL_WORKBENCH.md
+docs/PAIRED_COLLECTION.md
 docs/PAIRED_QUESTION.md
 docs/PRODUCT_ACCEPTANCE_MATRIX.md
 docs/PRODUCT_CONTRACT.md
@@ -180,6 +181,8 @@ examples/native_repeat_validation/run.py
 examples/native_repeat_validation/source/PRE_READ_RECEIPT.json
 examples/native_repeat_validation/source/SOURCE_MANIFEST.json
 examples/optimizer_protocol_v2_example.py
+examples/paired_collection/input.json
+examples/paired_collection/make_example.py
 examples/paired_question/input.json
 examples/paired_question/make_example.py
 examples/paper_charts/01-population.png
@@ -266,6 +269,7 @@ schemas/finite_precision/v1/evaluation-input.schema.json
 schemas/finite_precision/v1/evaluation-result.schema.json
 schemas/finite_suites/v1/input.schema.json
 schemas/finite_suites/v1/result.schema.json
+schemas/paired_collection/v1/input.schema.json
 schemas/paired_question/v1/input.schema.json
 schemas/protocol_cards/v1/packet.schema.json
 schemas/v2/conditional-posterior-reference.schema.json
@@ -346,6 +350,7 @@ src/anibench/intake.py
 src/anibench/level1_assessment_v3.py
 src/anibench/level1_target_v3.py
 src/anibench/optimizer_protocol_v2.py
+src/anibench/paired_collection_v1.py
 src/anibench/paired_question_v1.py
 src/anibench/paths.py
 src/anibench/protocol_capacity_v2.py
@@ -430,6 +435,7 @@ tests/test_level1_assessment_v3.py
 tests/test_level1_target_v3.py
 tests/test_manuscript_build.py
 tests/test_optimizer_protocol_v2.py
+tests/test_paired_collection_v1.py
 tests/test_paired_question_v1.py
 tests/test_posterior_reference_diagnostic.py
 tests/test_protocol_capacity_v2.py

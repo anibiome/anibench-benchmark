@@ -35,6 +35,11 @@ or multiple outputs sharing one physical assay. Such inputs need an explicit
 adapter, not invented complete cases. Acquisition IDs identify slots in this
 aggregate design; the input contains no participant rows.
 
+For disjoint subsets with different acquisitions or a molecular assay with
+multiple outputs, use [`anibench paired-collection`](PAIRED_COLLECTION.md).
+It applies these same equations to each question's supported people and retains
+unresolved acquisition bounds. It still requires a homogeneous reference model.
+
 Each support flag is explicitly `true`, `false` or `null`. A known failed
 requirement dominates an unresolved one. A closed inventory distinguishes an
 absent acquisition from one whose presence is unknown. Repeated copies of the
