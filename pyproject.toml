@@ -99,6 +99,10 @@ exclude = [
 packages = ["src/anibench"]
 
 [tool.hatch.build.targets.wheel.force-include]
+"examples/paired_question" = "anibench/examples/paired_question"
+"schemas/paired_question" = "anibench/schemas/paired_question"
+"docs/PAIRED_QUESTION.md" = "anibench/docs/PAIRED_QUESTION.md"
+"docs/PRODUCT_CONTRACT.md" = "anibench/docs/PRODUCT_CONTRACT.md"
 "examples/study_capability_candidate" = "anibench/examples/study_capability_candidate"
 "docs/STUDY_CAPABILITY.md" = "anibench/docs/STUDY_CAPABILITY.md"
 "examples/native_repeat_validation" = "anibench/examples/native_repeat_validation"
@@ -279,6 +283,12 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/examples/paired_question",
+  "/schemas/paired_question",
+  "/docs/PAIRED_QUESTION.md",
+  "/docs/PRODUCT_CONTRACT.md",
+  "/src/anibench/paired_question_v1.py",
+  "/tests/test_paired_question_v1.py",
   "/examples/reference_witnesses",
   "/examples/study_capability_candidate",
   "/docs/STUDY_CAPABILITY.md",

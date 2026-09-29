@@ -1,3 +1,9 @@
+The additive `anibench paired-question` path now evaluates an explicit linked
+molecular/function question. Its estimator precision and conditional OLS risk
+remain separate from likelihood information and observed held-out learning.
+See `docs/PAIRED_QUESTION.md`; the included numerical example is synthetic.
+Partial-overlap and calibrated real-study adapters remain unfinished.
+
 September 28 native-measurement integration: `anibench study-capability` evaluates
 the selective native36-capability-v3 reference, with corrected N170 semantics,
 shared-repeat errors, missingness bounds and six category percentages.

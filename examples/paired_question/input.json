@@ -1,0 +1,244 @@
+{
+  "contract": "anibench.paired-question-input.v1",
+  "design": {
+    "closed_acquisition_inventory": true,
+    "controlled_arm_counts": [
+      128,
+      128
+    ],
+    "lifecycle": "hypothetical",
+    "metadata": {
+      "ethics": "unknown",
+      "name": "Synthetic example",
+      "publication": "unpublished"
+    },
+    "n_independent_complete": 256,
+    "observations": [
+      {
+        "coordinate_id": "molecule_a",
+        "occasion_index": 0,
+        "physical_id": "synthetic-molecule_a-0",
+        "qualified": true
+      },
+      {
+        "coordinate_id": "molecule_b",
+        "occasion_index": 0,
+        "physical_id": "synthetic-molecule_b-0",
+        "qualified": true
+      },
+      {
+        "coordinate_id": "grip_force",
+        "occasion_index": 0,
+        "physical_id": "synthetic-grip_force-0",
+        "qualified": true
+      },
+      {
+        "coordinate_id": "molecule_a",
+        "occasion_index": 1,
+        "physical_id": "synthetic-molecule_a-1",
+        "qualified": true
+      },
+      {
+        "coordinate_id": "molecule_b",
+        "occasion_index": 1,
+        "physical_id": "synthetic-molecule_b-1",
+        "qualified": true
+      },
+      {
+        "coordinate_id": "grip_force",
+        "occasion_index": 1,
+        "physical_id": "synthetic-grip_force-1",
+        "qualified": true
+      }
+    ],
+    "question_sha256": "sha256:c9fff262bdbd8b2167bddead10e2b7dec50cd72fdfea577b57dd572221c444b4",
+    "support": {
+      "collection_verified": true,
+      "controlled_assignment_identified": true,
+      "cross_domain_linkage": true,
+      "declared_population": true,
+      "documented_exposure": true,
+      "exposure_aligned_window": true,
+      "gaussian_reference": true,
+      "independent_measurement_error": true,
+      "independent_people": true,
+      "independently_measured_function": true,
+      "operator_valid": true,
+      "paired_occasions": true,
+      "prediction_time_order": true,
+      "reference_model_applicable": true,
+      "zero_mean_measurement_error": true
+    }
+  },
+  "question": {
+    "contract": "anibench.paired-biological-question.v1",
+    "coordinates": [
+      {
+        "definition": "Fictional circulating molecular concentration A",
+        "domain": "molecular",
+        "id": "molecule_a",
+        "unit": "mmol/L"
+      },
+      {
+        "definition": "Fictional circulating molecular concentration B",
+        "domain": "molecular",
+        "id": "molecule_b",
+        "unit": "mmol/L"
+      },
+      {
+        "definition": "Independently measured scalar grip force in this fictional experiment",
+        "domain": "functional",
+        "id": "grip_force",
+        "unit": "kg-force"
+      }
+    ],
+    "functional_operator": "Direct scalar force reading with stipulated additive unbiased error",
+    "occasions_days": [
+      0,
+      365
+    ],
+    "population_scope": "Independent people from an invented homogeneous Gaussian population",
+    "question": "What do linked molecular observations add to measurement of grip and its change?",
+    "question_id": "synthetic_molecular_context_and_grip.v1",
+    "tolerance_authority": "Invented software example; no clinical threshold or adopted AB reference",
+    "tolerances": {
+      "change_cross_covariance": [
+        0.075,
+        0.075
+      ],
+      "controlled_function_effect": [
+        1.0
+      ],
+      "function_change": [
+        3.0
+      ],
+      "function_mean_change": [
+        0.5
+      ],
+      "function_state": [
+        2.0
+      ],
+      "molecular_change": [
+        0.025,
+        0.025
+      ],
+      "molecular_mean_change": [
+        0.005,
+        0.005
+      ],
+      "molecular_state": [
+        0.02,
+        0.02
+      ]
+    }
+  },
+  "scenario": {
+    "assumptions": [
+      "Wholly invented Gaussian reference, not a named human study",
+      "Independent people; additive error independent of biological state",
+      "Known error covariance; homogeneous paired measurements and common arm covariance"
+    ],
+    "biological_covariance": [
+      [
+        0.0025000000000000005,
+        0.0,
+        0.0,
+        0.0017499999999999998,
+        0.0,
+        0.25
+      ],
+      [
+        0.0,
+        0.0025000000000000005,
+        0.0,
+        0.0,
+        0.0017499999999999998,
+        0.15
+      ],
+      [
+        0.0,
+        0.0,
+        100.0,
+        0.0,
+        0.0,
+        60.0
+      ],
+      [
+        0.0017499999999999998,
+        0.0,
+        0.0,
+        0.0025000000000000005,
+        0.0,
+        0.175
+      ],
+      [
+        0.0,
+        0.0017499999999999998,
+        0.0,
+        0.0,
+        0.0025000000000000005,
+        0.10500000000000001
+      ],
+      [
+        0.25,
+        0.15000000000000002,
+        60.0,
+        0.17500000000000002,
+        0.10500000000000001,
+        100.0
+      ]
+    ],
+    "error_covariance_treated_as_known": true,
+    "measurement_error_covariance": [
+      [
+        0.00010000000000000005,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.00010000000000000005,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        4.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.00010000000000000005,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.00010000000000000005,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.0
+      ]
+    ],
+    "question_sha256": "sha256:c9fff262bdbd8b2167bddead10e2b7dec50cd72fdfea577b57dd572221c444b4"
+  }
+}

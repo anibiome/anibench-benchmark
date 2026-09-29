@@ -1,11 +1,23 @@
 # AniBench
 
-Evaluate a study's measurement capabilities with
+AniBench evaluates what completed human studies and proposed designs can teach
+us about biology: relevant measurement depth, linked molecular and functional
+observations, change, perturbation and population context. The
+[product contract](docs/PRODUCT_CONTRACT.md) defines the intended benchmark;
+the current research components have narrower, explicit scopes.
+
+Evaluate a selected measurement reference with
 [`anibench study-capability`](docs/STUDY_CAPABILITY.md). The native36 research
 candidate reports six category percentages against explicit biological
 measurement requirements. It handles repeated readings, missing acquisitions,
 timing, randomized contrasts and participant linkage. The supplied example is
 hypothetical; real-study comparisons and broader validation remain in progress.
+
+[`anibench paired-question`](docs/PAIRED_QUESTION.md) evaluates a linked
+molecular/function question under a declared reference. It distinguishes
+measurement and relationship precision, exposure-aligned change, identified
+assignment effects and conditional linear-learning error. Its example is wholly
+synthetic; it supplies neither observed prediction accuracy nor a whole-study rank.
 
 The [reference reproduction example](examples/reference_witnesses/README.md)
 supplies exact synthetic designs, pinned inputs and a one-command calculation
