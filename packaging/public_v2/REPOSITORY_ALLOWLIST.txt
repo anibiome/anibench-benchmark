@@ -71,6 +71,7 @@ docs/CROSS_DOMAIN_COLLECTION.md
 docs/CTGOV_50_TRIAL_STRESS_TEST.md
 docs/DATA_GOVERNANCE.md
 docs/DESIGN_STUDIO.md
+docs/ESTIMATOR_MOMENTS.md
 docs/EVALUATION.md
 docs/EVIDENCE_POLICY.md
 docs/FINITE_SUITES_V1.md
@@ -161,6 +162,14 @@ examples/design_geometry/calerie/figure-metadata.json
 examples/design_geometry/calerie/plot.py
 examples/design_geometry/calerie/replay.py
 examples/design_geometry/calerie/source_manifest.json
+examples/estimator_moments/METHODS.json
+examples/estimator_moments/README.md
+examples/estimator_moments/biased-failure.json
+examples/estimator_moments/definition.json
+examples/estimator_moments/exact-failure.json
+examples/estimator_moments/exact-pass.json
+examples/estimator_moments/loose-bound-unknown.json
+examples/estimator_moments/missing-support.json
 examples/finite_suites/README.md
 examples/finite_suites/replay_erp.py
 examples/finite_tasks/synthetic-provenance.json
@@ -227,6 +236,7 @@ examples/study_questions/ALTERNATIVES_EXPECTED.json
 examples/study_questions/ALTERNATIVES_PROFILE.json
 examples/study_questions/EXPECTED_RECEIPTS.json
 examples/study_questions/LEGACY_PROFILE.json
+examples/study_questions/MOMENTS_PROFILE.json
 examples/study_questions/PROFILE.json
 examples/study_questions/README.md
 examples/study_questions/alternatives_complete_REQUEST.json
@@ -236,6 +246,7 @@ examples/study_questions/alternatives_unknown_REQUEST.json
 examples/study_questions/baseline256_REQUEST.json
 examples/study_questions/duplicates256_REQUEST.json
 examples/study_questions/legacy_REQUEST.json
+examples/study_questions/moments_REQUEST.json
 examples/study_questions/paired256_REQUEST.json
 examples/study_questions/paired2_REQUEST.json
 examples/study_questions/unknown_noise256_REQUEST.json
@@ -287,6 +298,8 @@ schemas/collection/record.schema.json
 schemas/collection/study-context.schema.json
 schemas/collection/table-map.schema.json
 schemas/cross_domain_collection/v1/input.schema.json
+schemas/estimator_moments/v1/definition.schema.json
+schemas/estimator_moments/v1/request.schema.json
 schemas/finite_precision/v1/evaluation-input.schema.json
 schemas/finite_precision/v1/evaluation-result.schema.json
 schemas/finite_suites/v1/input.schema.json
@@ -365,6 +378,7 @@ src/anibench/contracts/identifiers.py
 src/anibench/contracts_v2.py
 src/anibench/cross_domain_collection_v1.py
 src/anibench/design_v2.py
+src/anibench/estimator_moments_v1.py
 src/anibench/explorer.py
 src/anibench/finite_suites_v1.py
 src/anibench/finite_tasks_v1.py
@@ -446,6 +460,8 @@ tests/test_distribution_boundary.py
 tests/test_erp_calibration_recipe.py
 tests/test_erp_design_planner.py
 tests/test_erp_design_sensitivity.py
+tests/test_estimator_moments_cli.py
+tests/test_estimator_moments_v1.py
 tests/test_eval_cli.py
 tests/test_eval_comparison.py
 tests/test_explorer.py
@@ -485,6 +501,7 @@ tests/test_study_context.py
 tests/test_study_context_cli.py
 tests/test_study_questions_alternatives.py
 tests/test_study_questions_cli.py
+tests/test_study_questions_moments.py
 tests/test_study_questions_native.py
 tests/test_study_questions_v2.py
 tests/test_summary_geometry_v1.py

@@ -21,6 +21,18 @@ from anibench.cross_domain_collection_v1 import (
     evaluate_cross_domain_collection,
     native_key,
 )
+from anibench.estimator_moments_v1 import (
+    _design as moment_design,
+)
+from anibench.estimator_moments_v1 import (
+    _matrix as moment_matrix,
+)
+from anibench.estimator_moments_v1 import (
+    evaluate_estimator_moments,
+)
+from anibench.estimator_moments_v1 import (
+    validate_definition as validate_moment_definition,
+)
 from anibench.finite_suites_v1 import scientific_frame_sha256
 from anibench.paired_collection_v1 import evaluate_paired_collection
 from anibench.paired_question_v1 import INPUT_SCHEMA as PAIRED_SCHEMA
@@ -51,7 +63,7 @@ COLLECTION_ENGINES = {
 
 
 def _outcome_names(engine):
-    return {"target"} if engine == "question_routes" else COLLECTION_ENGINES[engine][1]
+    return {"target"} if engine in {"question_routes", "estimator_moments"} else COLLECTION_ENGINES[engine][1]
 
 
 class StudyQuestionError(ValueError):
@@ -173,6 +185,15 @@ def _semantic_frame(question):
     representations and engines. Its correctness requires scientific review.
     """
     definition = question["definition"]
+    if question["engine"] == "estimator_moments":
+        order = sorted(range(len(definition["estimators"])),
+                       key=lambda i: digest(definition["estimators"][i]["target"]))
+        return digest({"engine": "estimator_moments",
+                       "targets": [definition["estimators"][i]["target"] for i in order],
+                       "population_scope": definition["population_scope"], "context": definition["context"],
+                       "functionals": sorted([{"coefficients": [f["coefficients"][i] for i in order],
+                                                "unit": f["unit"]}
+                                               for f in definition["functionals"]], key=digest)})
     if question["engine"] == "question_routes":
         # Route catalogues, provenance, prior, task labels and precision cutoffs
         # cannot create another biological question for the same target frame.
@@ -207,9 +228,9 @@ def _validate_profile(profile):
     _keys(profile, {"contract", "profile_id", "scope", "selection_rationale",
                     "weighting_rationale", "questions", "categories", "scenarios"})
     if profile["contract"] not in {"anibench.study-question-profile.v1", "anibench.study-question-profile.v2",
-                                   "anibench.study-question-profile.v3"}:
+                                   "anibench.study-question-profile.v3", "anibench.study-question-profile.v4"}:
         raise StudyQuestionError("Unknown study-question profile")
-    alternatives_version = profile["contract"] == "anibench.study-question-profile.v3"
+    alternatives_version = profile["contract"] in {"anibench.study-question-profile.v3", "anibench.study-question-profile.v4"}
     for name in ("profile_id", "scope", "selection_rationale", "weighting_rationale"):
         _text(profile[name])
     questions = _indexed(profile["questions"], "question_id")
@@ -221,7 +242,11 @@ def _validate_profile(profile):
             raise StudyQuestionError("Duplicate biological question identity")
         identities.add(question["biological_identity"])
         definition = question["definition"]
-        if question["engine"] == "question_routes":
+        if question["engine"] == "estimator_moments":
+            if profile["contract"] != "anibench.study-question-profile.v4":
+                raise StudyQuestionError("Estimator moments require a v4 profile")
+            validate_moment_definition(definition)
+        elif question["engine"] == "question_routes":
             compile_question_routes({
                 "contract": "anibench.question-routes-request.v1",
                 "definition_sha256": digest(definition), "observations": [],
@@ -329,6 +354,8 @@ def _design_frame(question, payload):
     """Freeze acquisition geometry across uncertainty scenarios, not quality assumptions."""
     if payload is None:
         return None
+    if question["engine"] == "estimator_moments":
+        return moment_design(payload["design"], question["definition"])[0]
     if question["engine"] == "question_routes":
         return {"closed_inventory": payload["closed_inventory"],
                 "observations": _unique_json([
@@ -358,9 +385,13 @@ def _check_shared_routes(inputs, questions):
     Reusing their names across engines is ambiguous and is rejected.
     """
     physical, route_frames, route_ids, template_ids = {}, [], set(), set()
+    moment_ids = set()
     for identity, question in questions.items():
         payload = inputs.get(identity)
         if payload is None:
+            continue
+        if question["engine"] == "estimator_moments":
+            moment_ids.update(a["physical_acquisition_id"] for a in payload["design"]["acquisitions"])
             continue
         if question["engine"] in COLLECTION_ENGINES:
             template_ids.update(a["physical_id"] for p in payload["design"]["patterns"]
@@ -411,6 +442,75 @@ def _check_shared_routes(inputs, questions):
             raise StudyQuestionError("Shared physical noise model is not jointly valid") from exc
     if route_ids & template_ids:
         raise StudyQuestionError("Cross-engine physical identity needs an explicit template mapping")
+    if moment_ids & (route_ids | template_ids):
+        raise StudyQuestionError("Shared moment/raw acquisitions need an explicit cross-engine mapping")
+
+
+def _check_shared_moments(inputs, questions):
+    """Keep shared native outputs and estimator moments coherent, without pooling."""
+    physical, estimators, frames = {}, {}, []
+    for identity, question in questions.items():
+        payload = inputs.get(identity)
+        if question["engine"] != "estimator_moments" or payload is None:
+            continue
+        definition = question["definition"]
+        design, moments = payload["design"], payload["moments"]
+        input_map = {row["estimator_id"]: row for row in design["estimator_inputs"]}
+        for row in design["acquisitions"]:
+            key = (row["physical_acquisition_id"], row["physical_output_id"])
+            if key in physical and physical[key] != row["signature"]:
+                raise StudyQuestionError("Conflicting shared moment physical output signature")
+            physical[key] = row["signature"]
+        order = []
+        for i, estimator in enumerate(definition["estimators"]):
+            mapped = input_map[estimator["estimator_id"]]
+            key = digest({"estimator": {k: v for k, v in estimator.items() if k != "estimator_id"},
+                          "population_scope": definition["population_scope"], "context": definition["context"],
+                          "inputs": sorted({tuple(p) for p in mapped["physical_outputs"]})})
+            bias = (None if moments["bias_lower"] is None else moments["bias_lower"][i],
+                    None if moments["bias_upper"] is None else moments["bias_upper"][i])
+            value = (bias, mapped["estimable"])
+            if key in estimators and estimators[key] != value:
+                raise StudyQuestionError("Conflicting shared estimator bias or qualification")
+            estimators[key] = value
+            order.append(key)
+        frames.append((set(order), {name: None if moments[name] is None else {
+            (a, b): moments[name][i][j] for i, a in enumerate(order) for j, b in enumerate(order)}
+            for name in ("covariance_lower", "covariance_upper")}))
+    pending = list(frames)
+    while pending:
+        keys, frame = pending.pop()
+        keys, members = set(keys), [frame]
+        while True:
+            joined = [item for item in pending if keys & item[0]]
+            if not joined:
+                break
+            for item in joined:
+                pending.remove(item)
+                keys.update(item[0])
+                members.append(item[1])
+        if len(members) == 1:
+            continue
+        complete = {}
+        for name in ("covariance_lower", "covariance_upper"):
+            known = {}
+            for member in members:
+                for pair, value in (member[name] or {}).items():
+                    if pair in known and known[pair] != value:
+                        raise StudyQuestionError("Conflicting shared estimator covariance bound")
+                    known[pair] = value
+            if not known:
+                complete[name] = None
+                continue
+            order = sorted(keys)
+            if any((a, b) not in known for a in order for b in order):
+                raise StudyQuestionError("Shared estimator bounds require a complete joint covariance frame")
+            complete[name] = moment_matrix([[known[a, b] for b in order] for a in order], len(order))
+        if all(complete[name] is not None for name in complete):
+            from anibench.estimator_moments_v1 import _psd
+
+            low, high = complete["covariance_lower"], complete["covariance_upper"]
+            _psd([[high[i][j] - low[i][j] for j in range(len(keys))] for i in range(len(keys))])
 
 
 def evaluate_study_questions(request: Mapping, *, trusted_profiles: Mapping):
@@ -423,7 +523,7 @@ def evaluate_study_questions(request: Mapping, *, trusted_profiles: Mapping):
     request, registry = _snapshot(request), _snapshot(trusted_profiles)
     _keys(request, {"contract", "profile_sha256", "study_id", "lifecycle", "scenarios"})
     if request["contract"] not in {"anibench.study-questions-request.v1", "anibench.study-questions-request.v2",
-                                   "anibench.study-questions-request.v3"}:
+                                   "anibench.study-questions-request.v3", "anibench.study-questions-request.v4"}:
         raise StudyQuestionError("Unknown study-question request")
     key = request["profile_sha256"]
     if not isinstance(key, str) or key not in registry or digest(registry[key]) != key:
@@ -469,7 +569,15 @@ def evaluate_study_questions(request: Mapping, *, trusted_profiles: Mapping):
                     raise StudyQuestionError("Scenario changed acquisition geometry; use a separate design request")
                 design_frames[identity] = None
                 continue
-            if question["engine"] == "question_routes":
+            if question["engine"] == "estimator_moments":
+                if not isinstance(payload, dict) or payload.get("definition_sha256") != digest(definition):
+                    raise StudyQuestionError("Moment input changed the registered estimator definition")
+                if payload.get("lifecycle") != lifecycle:
+                    raise StudyQuestionError("Moment claim lane differs from study lifecycle")
+                receipt = evaluate_estimator_moments(payload, trusted_definitions={digest(definition): definition})
+                outcomes = {"target": {"attainment": receipt["attainment"],
+                                      "precision_toward_target": receipt["precision_toward_target"]}}
+            elif question["engine"] == "question_routes":
                 if not isinstance(payload, dict) or payload.get("definition_sha256") != digest(definition):
                     raise StudyQuestionError("Route input changed the registered question")
                 receipt = evaluate_question_routes(payload, trusted_definitions={digest(definition): definition})
@@ -496,9 +604,10 @@ def evaluate_study_questions(request: Mapping, *, trusted_profiles: Mapping):
             design_frames[identity] = frame
             question_results[identity] = {"outcomes": outcomes, "receipt": receipt}
         _check_shared_routes(inputs, questions)
+        _check_shared_moments(inputs, questions)
         category_results = []
         for category in categories.values():
-            if version == "v3":
+            if version in {"v3", "v4"}:
                 category_results.append(_alternative_category(category, [question_results]))
                 continue
             rows, details, precision = [], [], []
@@ -525,7 +634,7 @@ def evaluate_study_questions(request: Mapping, *, trusted_profiles: Mapping):
                         "questions": question_results,
                         "reference_attainment": _conjunction(
                             row["attainment"] for c in category_results
-                            for row in c["requirements" if version == "v3" else "questions"]),
+                            for row in c["requirements" if version in {"v3", "v4"} else "questions"]),
                         "assumption_scope": frozen["rationale"]})
     envelope = []
     for i, category in enumerate(categories.values()):
@@ -552,7 +661,7 @@ def evaluate_study_questions(request: Mapping, *, trusted_profiles: Mapping):
         "biological_calibration_established": False, "public_rank_emission_permitted": False,
         "whole_benchmark_complete": False,
     }
-    if version == "v3":
+    if version in {"v3", "v4"}:
         robust_categories = [_alternative_category(category, [s["questions"] for s in results])
                              for category in categories.values()]
         result.update({

@@ -1,0 +1,90 @@
+{
+  "categories": [
+    {
+      "category_id": "state",
+      "label": "Native state",
+      "question": "Is the native error target met?",
+      "requirements": [
+        {
+          "alternatives": [
+            {
+              "outcomes": [
+                "target"
+              ],
+              "question_id": "moment"
+            }
+          ],
+          "rationale": "Complete registered target",
+          "requirement_id": "probability",
+          "weight": 40
+        }
+      ]
+    }
+  ],
+  "contract": "anibench.study-question-profile.v4",
+  "profile_id": "fictional-moments",
+  "questions": [
+    {
+      "biological_identity": "synthetic-probability",
+      "definition": {
+        "assumptions": [
+          "Fictional binary reading process with separately declared observation mechanism and dependence; no study facts"
+        ],
+        "context": "fixed process",
+        "contract": "anibench.estimator-moment-definition.v1",
+        "definition_id": "synthetic",
+        "estimators": [
+          {
+            "estimator": "Arithmetic mean of n registered binary readings, estimating the underlying registered process probability. The observation mechanism and its bias are declared separately.",
+            "estimator_id": "0",
+            "independent_unit": "Complete trial sequence at a fixed occasion; within-sequence dependence declared",
+            "method_sha256": "sha256:20a57e86a9cbf616d7f729b858460ab2c3a9dc7e8cfb22891dd12585677a6bb1",
+            "target": {
+              "compartment": "synthetic",
+              "context": "registered binary process",
+              "quantity": "registered_probability_0",
+              "unit": "probability"
+            }
+          }
+        ],
+        "functionals": [
+          {
+            "coefficients": [
+              1
+            ],
+            "estimand": "First probability",
+            "functional_id": "first",
+            "mse_limit": 0.0025,
+            "unit": "probability"
+          }
+        ],
+        "population_scope": "Hypothetical one-person occasion",
+        "question": "Can this registered estimator resolve a probability?",
+        "sources": [
+          {
+            "locator": "examples/estimator_moments/METHODS.json (canonical JSON SHA256)",
+            "role": "Explicit finite-law construction and sample-mean method",
+            "sha256": "sha256:20a57e86a9cbf616d7f729b858460ab2c3a9dc7e8cfb22891dd12585677a6bb1",
+            "source_id": "fictional"
+          }
+        ],
+        "support_requirements": [
+          "fixed_denominator",
+          "qualified_moment_derivation"
+        ]
+      },
+      "engine": "estimator_moments",
+      "question_id": "moment"
+    }
+  ],
+  "scenarios": [
+    {
+      "paired_biological_covariance": {},
+      "rationale": "Declared moments",
+      "scenario_id": "reference"
+    }
+  ],
+  "scope": "Software test only",
+  "selection_rationale": "Finite hypothetical task",
+  "weighting_rationale": "One indivisible requirement"
+}

@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Structural schema; runtime additionally checks exact hashes, dimensions, PSD bounds, native identity and support.",
+  "properties": {
+    "assumptions": {
+      "items": {
+        "pattern": "\\S",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "context": {
+      "pattern": "\\S",
+      "type": "string"
+    },
+    "contract": {
+      "const": "anibench.estimator-moment-definition.v1"
+    },
+    "definition_id": {
+      "pattern": "\\S",
+      "type": "string"
+    },
+    "estimators": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "estimator": {
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "estimator_id": {
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "independent_unit": {
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "method_sha256": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "target": {
+            "additionalProperties": false,
+            "properties": {
+              "compartment": {
+                "pattern": "\\S",
+                "type": "string"
+              },
+              "context": {
+                "pattern": "\\S",
+                "type": "string"
+              },
+              "quantity": {
+                "pattern": "\\S",
+                "type": "string"
+              },
+              "unit": {
+                "pattern": "\\S",
+                "type": "string"
+              }
+            },
+            "required": [
+              "quantity",
+              "unit",
+              "compartment",
+              "context"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "estimator_id",
+          "target",
+          "estimator",
+          "method_sha256",
+          "independent_unit"
+        ],
+        "type": "object"
+      },
+      "maxItems": 128,
+      "minItems": 1,
+      "type": "array"
+    },
+    "functionals": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "coefficients": {
+            "items": {
+              "type": "number"
+            },
+            "maxItems": 128,
+            "minItems": 1,
+            "type": "array"
+          },
+          "estimand": {
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "functional_id": {
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "mse_limit": {
+            "exclusiveMinimum": 0,
+            "type": "number"
+          },
+          "unit": {
+            "pattern": "\\S",
+            "type": "string"
+          }
+        },
+        "required": [
+          "functional_id",
+          "estimand",
+          "coefficients",
+          "unit",
+          "mse_limit"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "population_scope": {
+      "pattern": "\\S",
+      "type": "string"
+    },
+    "question": {
+      "pattern": "\\S",
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "locator": {
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "role": {
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "source_id": {
+            "pattern": "\\S",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "sha256",
+          "locator",
+          "role"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "support_requirements": {
+      "items": {
+        "pattern": "\\S",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "contract",
+    "definition_id",
+    "question",
+    "population_scope",
+    "context",
+    "estimators",
+    "functionals",
+    "support_requirements",
+    "sources",
+    "assumptions"
+  ],
+  "type": "object"
+}

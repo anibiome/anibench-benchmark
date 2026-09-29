@@ -62,6 +62,13 @@ def _parser() -> argparse.ArgumentParser:
     questions.add_argument("input", type=Path, help="Original study inputs, not precomputed scores")
     questions.add_argument("--out", type=Path, required=True)
 
+    moments = sub.add_parser(
+        "estimator-moments", help="Check a registered estimator against native error targets"
+    )
+    moments.add_argument("definition", type=Path, help="Estimator definition to trust for this run")
+    moments.add_argument("input", type=Path, help="Qualified moments, support and physical inputs")
+    moments.add_argument("--out", type=Path, required=True)
+
     study_chart = sub.add_parser(
         "study-chart", help="Draw comparable category percentages from verified study results"
     )
@@ -226,8 +233,27 @@ def _parser() -> argparse.ArgumentParser:
     return parser
 
 
-def _load_object(path: Path, *, label: str) -> dict[str, Any]:
-    payload = json.loads(path.read_text(encoding="utf-8"))
+def _load_object(path: Path, *, label: str, strict_decimals: bool = False) -> dict[str, Any]:
+    options = {}
+    if strict_decimals:
+        from decimal import Decimal
+
+        def parse_number(text):
+            value = float(text)
+            if not Decimal(text).is_finite() or Decimal(str(value)) != Decimal(text):
+                raise ValueError("JSON number loses decimal precision")
+            return value
+
+        def unique_object(pairs):
+            result = {}
+            for key, value in pairs:
+                if key in result:
+                    raise ValueError("Duplicate JSON member")
+                result[key] = value
+            return result
+
+        options = {"parse_float": parse_number, "object_pairs_hook": unique_object}
+    payload = json.loads(path.read_text(encoding="utf-8"), **options)
     if not isinstance(payload, dict):
         # Malformed file content is a value error in the public CLI contract.
         raise ValueError(f"{label} must be one JSON object")  # noqa: TRY004
@@ -286,19 +312,31 @@ def _protect_collection_inputs(inputs: list[Path], outputs: list[Path]) -> None:
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     try:
-        if args.command == "study-questions":
+        if args.command in ("study-questions", "estimator-moments"):
             import os
 
             from .question_routes_v1 import digest
-            from .study_questions_v2 import evaluate_study_questions
 
             try:
-                _protect_collection_inputs([args.profile, args.input], [args.out])
+                reference_path = args.profile if args.command == "study-questions" else args.definition
+                _protect_collection_inputs([reference_path, args.input], [args.out])
                 if args.out.exists():
                     raise ValueError("Destination already exists")
-                profile = _load_object(args.profile, label="biological reference")
-                request = _load_object(args.input, label="study question inputs")
-                result = evaluate_study_questions(request, trusted_profiles={digest(profile): profile})
+                strict = args.command == "estimator-moments"
+                profile = _load_object(reference_path, label="biological reference", strict_decimals=strict)
+                if (args.command == "study-questions"
+                        and profile.get("contract") == "anibench.study-question-profile.v4"):
+                    strict = True
+                    profile = _load_object(reference_path, label="biological reference", strict_decimals=True)
+                request = _load_object(args.input, label="study question inputs", strict_decimals=strict)
+                if args.command == "study-questions":
+                    from .study_questions_v2 import evaluate_study_questions
+
+                    result = evaluate_study_questions(request, trusted_profiles={digest(profile): profile})
+                else:
+                    from .estimator_moments_v1 import evaluate_estimator_moments
+
+                    result = evaluate_estimator_moments(request, trusted_definitions={digest(profile): profile})
                 content = json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n"
                 args.out.parent.mkdir(parents=True, exist_ok=True)
                 descriptor = os.open(args.out, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)

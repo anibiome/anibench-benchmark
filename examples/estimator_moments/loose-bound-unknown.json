@@ -1,0 +1,57 @@
+{
+  "contract": "anibench.estimator-moments-request.v1",
+  "definition_sha256": "sha256:ec7ee795d5b00cbebda2811721bf01fb5f7d70f5766080530f63d64d951e3404",
+  "design": {
+    "acquisitions": [
+      {
+        "physical_acquisition_id": "trial-sequence-100",
+        "physical_output_id": "0",
+        "signature": {
+          "compartment": "synthetic",
+          "context": "registered binary process",
+          "quantity": "registered_probability_0",
+          "unit": "probability"
+        }
+      }
+    ],
+    "collection_verified": null,
+    "context": "fixed process",
+    "estimator_inputs": [
+      {
+        "estimable": true,
+        "estimator_id": "0",
+        "physical_outputs": [
+          [
+            "trial-sequence-100",
+            "0"
+          ]
+        ]
+      }
+    ],
+    "support": {
+      "fixed_denominator": true,
+      "qualified_moment_derivation": true
+    }
+  },
+  "lifecycle": "hypothetical",
+  "moments": {
+    "assumptions": [
+      "The exact case in METHODS.json: loose-bound-unknown",
+      "Conditional finite-law example, not empirical calibration"
+    ],
+    "bias_lower": [
+      0
+    ],
+    "bias_upper": [
+      0
+    ],
+    "covariance_lower": null,
+    "covariance_upper": [
+      [
+        0.25
+      ]
+    ],
+    "justification": "Each reading has marginal Bernoulli(0.5), with unrestricted dependence. The bounded mean has variance between0 and0.25; both endpoints attainable with balanced-total and all-equal laws respectively.",
+    "source_sha256": "sha256:20a57e86a9cbf616d7f729b858460ab2c3a9dc7e8cfb22891dd12585677a6bb1"
+  }
+}

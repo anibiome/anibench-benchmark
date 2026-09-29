@@ -99,6 +99,9 @@ exclude = [
 packages = ["src/anibench"]
 
 [tool.hatch.build.targets.wheel.force-include]
+"examples/estimator_moments" = "anibench/examples/estimator_moments"
+"schemas/estimator_moments" = "anibench/schemas/estimator_moments"
+"docs/ESTIMATOR_MOMENTS.md" = "anibench/docs/ESTIMATOR_MOMENTS.md"
 "examples/study_questions" = "anibench/examples/study_questions"
 "docs/STUDY_QUESTIONS.md" = "anibench/docs/STUDY_QUESTIONS.md"
 "examples/cross_domain_collection" = "anibench/examples/cross_domain_collection"
@@ -291,6 +294,13 @@ packages = ["src/anibench"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+  "/examples/estimator_moments",
+  "/schemas/estimator_moments",
+  "/docs/ESTIMATOR_MOMENTS.md",
+  "/src/anibench/estimator_moments_v1.py",
+  "/tests/test_estimator_moments_v1.py",
+  "/tests/test_estimator_moments_cli.py",
+  "/tests/test_study_questions_moments.py",
   "/examples/study_questions",
   "/docs/STUDY_QUESTIONS.md",
   "/examples/cross_domain_collection",

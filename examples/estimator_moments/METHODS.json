@@ -1,0 +1,44 @@
+{
+  "cases": {
+    "biased-failure": {
+      "bias": 0.1,
+      "latent_probability": 0.9,
+      "n": 100,
+      "observation": "Faulty recorder maps every latent binary outcome to one. The recorded mean is identically one; it targets latent probability0.9, so variance0 and bias0.1.",
+      "variance": 0
+    },
+    "exact-failure": {
+      "bias": 0,
+      "latent_probability": 0.5,
+      "n": 25,
+      "observation": "Independent Bernoulli(0.5) readings, exact unbiased mean",
+      "variance": 0.01
+    },
+    "exact-pass": {
+      "bias": 0,
+      "latent_probability": 0.5,
+      "n": 100,
+      "observation": "Independent Bernoulli(0.5) readings, exact unbiased mean",
+      "variance": 0.0025
+    },
+    "loose-bound-unknown": {
+      "bias": 0,
+      "latent_probability": 0.5,
+      "n": 100,
+      "observation": "Each reading has marginal Bernoulli(0.5), with unrestricted dependence. The bounded mean has variance between0 and0.25; both endpoints attainable with balanced-total and all-equal laws respectively.",
+      "variance_lower": 0,
+      "variance_upper": 0.25
+    },
+    "missing-support": {
+      "bias": 0,
+      "latent_probability": 0.5,
+      "n_assumed_for_moments": 100,
+      "observation": "Conditional iid Bernoulli calculation as exact-pass; qualification of the actual fixed denominator is unresolved. This is not a verified realized acquisition.",
+      "variance": 0.0025
+    }
+  },
+  "contract": "anibench.fictional-moment-example-methods.v1",
+  "estimator": "Arithmetic mean of n registered binary readings, estimating the underlying registered process probability. The observation mechanism and its bias are declared separately.",
+  "numerical_derivation": "Unbiased iid sample mean has variance p(1-p)/n. A constant observed value has variance zero and bias equal to that value minus the target. A variable in[0,1] with mean0.5 has variance at most0.25.",
+  "scope": "Fictional finite probability laws; no study data or calibration"
+}

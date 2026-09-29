@@ -40,8 +40,8 @@ defines different biological questions and allocates their weights.
 For total weight W, passed weight P and unresolved weight U, the result is
 100P/W through 100(P+U)/W. Known failures remain in W. This is an evidence bound,
 not a confidence interval or the percentage of all human biology understood.
-The separate `precision_toward_targets` field reports capped variance-ratio
-progress; it is not a success probability. Exact reference attainment uses
+The separate `precision_toward_targets` field reports capped variance- or
+estimator-error-ratio progress; it is not a success probability. Exact reference attainment uses
 unrounded question outcomes.
 
 Each scenario evaluates one coherent set of assumptions. Its acquisition design
@@ -62,15 +62,16 @@ Closed, qualified inventories can establish absent measurements. Realized
 collection requires the existing engines' collection-verification conditions;
 planned designs are conditional on their declared acquisition.
 
-Three existing engines are supported:
+The following engines are supported:
 
 | Engine | Question it can calculate |
 |---|---|
 | `question_routes` | Whether registered physical observations resolve a fixed native target through a declared observation operator and joint error model. |
 | `paired_collection` | Molecular and functional state, change and selected relationships from linked acquisition patterns. |
 | `cross_domain_collection` | The same paired calculations with explicit biological domains, such as digital observations linked to independently measured cognitive performance. |
+| `estimator_moments` (v4) | Whether a registered estimator meets native mean-squared-error targets under declared covariance and bias bounds, without assuming Gaussian raw observations. |
 
-Native-domain inputs require v2 or v3 profiles and matching requests. Existing
+Native-domain inputs require v2, v3 or v4 profiles and matching requests. Existing
 v1 and v2 profiles retain their original result contracts and calculations.
 A native-domain label does not establish measurement
 validity, a Gaussian likelihood or biological relevance.
@@ -149,6 +150,37 @@ trusted profile that selects only molecules in one alternative and only function
 in another has defined a weaker disjunction; the runtime cannot recover the
 intended molecules-and-function requirement from a prose rationale. Reference
 review must reject that mismatch before admitting a study comparison.
+
+## Finite estimator moments (v4)
+
+Use matching `anibench.study-question-profile.v4` and
+`anibench.study-questions-request.v4` contracts. V4 preserves v3's complete-frame
+alternatives, fixed weights and robust witness rule. An `estimator_moments`
+question embeds an `anibench.estimator-moment-definition.v1` definition, takes an
+original moment-engine request, and exposes its conjunctive `target` outcome.
+The original receipt remains attached without conversion to Gaussian information.
+See `docs/ESTIMATOR_MOMENTS.md` for native error semantics and limitations.
+
+A loose upper error bound cannot establish failure. Known lower error bounds can
+establish failure; qualified upper bounds can certify a pass. The question keeps
+its whole weight when support or error remains unresolved. Capability-specific
+questions retain their own support requirements; missing causal identification
+does not erase supported native-state evidence.
+
+Shared physical outputs must retain one native signature. The same estimator
+over the same physical inputs must retain consistent bias, qualification and
+covariance bounds. Overlapping estimator frames require a complete joint bound
+with PSD covariance and Loewner order; missing cross terms are not filled with
+zero. This validation does not pool estimators across questions. Cross-engine
+sharing between estimator-moment acquisitions and raw-route/pattern acquisitions
+currently requires an explicit mapping that this adapter does not yet support;
+ambiguous sharing is rejected. Renaming an actual shared acquisition to bypass
+that rejection is not a valid source adapter.
+
+V4 CLI inputs reject duplicate JSON keys and decimal literals that would lose
+decimal precision during parsing. Legacy v1–v3 CLI parsing and receipts remain
+unchanged. API callers receive the numerical semantics documented by the moment
+engine: exact rationals derived from the supplied Python numbers.
 
 ## Reproduce the software examples
 

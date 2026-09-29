@@ -1,3 +1,9 @@
+Study-question profiles v4 now accept registered estimator moments alongside
+the existing engines. Finite native error targets retain bias, dependence and
+unknown bounds without assuming Gaussian raw data. The standalone command is
+`anibench estimator-moments`; see `docs/ESTIMATOR_MOMENTS.md`. These conditional
+software calculations do not establish whole-benchmark completion.
+
 Study-question profiles v3 support explicitly registered alternative native
 frames. Each requirement needs one complete witness; robust attainment keeps
 that witness fixed across scenarios. Values, participant counts and information
