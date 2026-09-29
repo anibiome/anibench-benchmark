@@ -15,6 +15,17 @@ retained negative results; this update does not claim the complete programme.
 
 # AniBench current authority
 
+The product objective is to compare what completed human studies and proposed
+study designs can reveal about biology: measurement resolution, complementary
+molecular/digital/functional observations, change, measured perturbation,
+population coverage, context and personalization. The current selective native36
+reference and its precision certificates are supporting calculations. They do
+not yet constitute that complete benchmark. See
+[`docs/PRODUCT_CONTRACT.md`](docs/PRODUCT_CONTRACT.md) before choosing further
+scientific implementation work. Preserve legacy API behavior, but do not treat
+its coordinate catalogue, formula families or thresholds as an immutable
+definition of biological relevance.
+
 September 27 development candidate: `anibench workbench` serves an installed,
 loopback-only comparison interface and conditional reference planner;
 `anibench plan` writes reproducible before/after results. See

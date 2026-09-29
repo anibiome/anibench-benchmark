@@ -3,6 +3,11 @@
 Start with `CURRENT.md`, then follow its v2 authority order. Older v1 and alpha or
 beta artifacts are archival pointers, not facts to inherit.
 
+Read `docs/PRODUCT_CONTRACT.md` before selecting scientific work. Existing APIs
+are compatibility contracts; their selected targets and formulas do not define
+the complete product objective. A scoped numerical or release check cannot close
+the broader study-benchmark requirements.
+
 When changing AniBench:
 
 - preserve `anibench eval` as the canonical public benchmark entry point and
