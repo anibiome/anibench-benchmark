@@ -330,7 +330,12 @@ def main(argv: list[str] | None = None) -> int:
                     profile = _load_object(reference_path, label="biological reference", strict_decimals=True)
                 request = _load_object(args.input, label="study question inputs", strict_decimals=strict)
                 if args.command == "study-questions":
-                    from .study_questions_v2 import evaluate_study_questions
+                    if request.get("contract") == "anibench.study-collection-request.v1":
+                        from .study_collection_scope_v1 import (
+                            evaluate_study_collection as evaluate_study_questions,
+                        )
+                    else:
+                        from .study_questions_v2 import evaluate_study_questions
 
                     result = evaluate_study_questions(request, trusted_profiles={digest(profile): profile})
                 else:

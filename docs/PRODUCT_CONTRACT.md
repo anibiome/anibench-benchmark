@@ -12,6 +12,14 @@ Population coverage, context, controls and personalization answer additional
 questions. File size, assay names, participant counts and expenditure are inputs
 or descriptors; none alone measures the intended capability.
 
+The collection includes images, video, voice, movement, spectral measurements
+and microbial communities at distinct body sites when acquired or planned.
+Biological targets and compartments, physical channels, and inferential roles
+are separate. Native microbial or molecular depth must not disappear because a
+particular host-function endpoint is missing. A finite reference must expose
+useful acquisitions outside its scope instead of implying equivalent overall
+depth whenever selected targets tie.
+
 Complementary observations can enable questions that neither observation can
 answer alone. Repeated copies cannot create that benefit. A method restricted
 to covariance cannot establish all nonlinear predictive relationships. Each

@@ -94,6 +94,7 @@ docs/REPRODUCING_TASK_REFERENCE.md
 docs/SCIENTIFIC_FOUNDATIONS.md
 docs/SOURCE_BINDINGS.md
 docs/STUDY_CAPABILITY.md
+docs/STUDY_COLLECTION_SCOPE.md
 docs/STUDY_CONTEXT.md
 docs/STUDY_EXPLORER.md
 docs/STUDY_QUESTIONS.md
@@ -254,6 +255,7 @@ examples/study_questions/alternatives_mosaic_REQUEST.json
 examples/study_questions/alternatives_switching_REQUEST.json
 examples/study_questions/alternatives_unknown_REQUEST.json
 examples/study_questions/baseline256_REQUEST.json
+examples/study_questions/collection_scope_REQUEST.json
 examples/study_questions/duplicates256_REQUEST.json
 examples/study_questions/legacy_REQUEST.json
 examples/study_questions/moments_REQUEST.json
@@ -438,6 +440,7 @@ src/anibench/study_capability_candidate/population_reml.py
 src/anibench/study_capability_candidate/study_profile.py
 src/anibench/study_capability_candidate/sufficient_statistics.py
 src/anibench/study_capability_candidate/temporal_prediction.py
+src/anibench/study_collection_scope_v1.py
 src/anibench/study_context.py
 src/anibench/study_questions_v2.py
 src/anibench/summary_geometry_v1.py
@@ -511,6 +514,7 @@ tests/test_source_bindings_v1.py
 tests/test_studio_intake.py
 tests/test_studio_product.py
 tests/test_study_capability_candidate.py
+tests/test_study_collection_scope.py
 tests/test_study_context.py
 tests/test_study_context_cli.py
 tests/test_study_questions_alternatives.py

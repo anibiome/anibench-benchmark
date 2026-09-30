@@ -28,3 +28,11 @@ question outcomes, original engine receipts and limitations.
 `ALTERNATIVES_EXPECTED.json` binds the four fictional v3 examples separately.
 
 See `docs/STUDY_QUESTIONS.md` for percentage meaning, assumptions and API use.
+# Collection scope example
+
+`collection_scope_REQUEST.json` wraps the existing `paired256_REQUEST.json`
+calculation and retains additional fictional microbial, image, video, voice and
+spectral acquisitions. Run it with `PROFILE.json` through `anibench study-questions`.
+Those acquisitions remain explicitly outside the selected reference; their
+presence creates no automatic points. See `docs/STUDY_COLLECTION_SCOPE.md` for
+the source-qualified collection contract and its limits.

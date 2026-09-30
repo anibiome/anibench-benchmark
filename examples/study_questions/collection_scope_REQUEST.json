@@ -1,0 +1,649 @@
+{
+  "contract": "anibench.study-collection-request.v1",
+  "evaluation": {
+    "contract": "anibench.study-questions-request.v2",
+    "lifecycle": "hypothetical",
+    "profile_sha256": "sha256:4d684af8ff1bb6f690c82773d3015aa31ec1cda80c992e31b3ecd68af6a5e4e9",
+    "scenarios": [
+      {
+        "inputs": {
+          "activity_cognition": {
+            "contract": "anibench.cross-domain-collection-input.v1",
+            "design": {
+              "acquisition_independent_of_state": true,
+              "closed_pattern_roster": true,
+              "homogeneous_reference_across_patterns": true,
+              "lifecycle": "hypothetical",
+              "metadata": {
+                "actual_study_score": false,
+                "name": "Hypothetical activity/cognition design",
+                "source_definitions": [
+                  "https://biobank.ndph.ox.ac.uk/ukb/field.cgi?id=90012",
+                  "https://biobank.ndph.ox.ac.uk/ukb/field.cgi?id=20023"
+                ]
+              },
+              "n_people": 256,
+              "patterns": [
+                {
+                  "acquisitions": [
+                    {
+                      "occasion_index": 0,
+                      "outputs": [
+                        {
+                          "coordinate_id": "activity",
+                          "qualified": true
+                        }
+                      ],
+                      "physical_id": "activity-0"
+                    },
+                    {
+                      "occasion_index": 0,
+                      "outputs": [
+                        {
+                          "coordinate_id": "reaction_time",
+                          "qualified": true
+                        }
+                      ],
+                      "physical_id": "reaction_time-0"
+                    },
+                    {
+                      "occasion_index": 1,
+                      "outputs": [
+                        {
+                          "coordinate_id": "activity",
+                          "qualified": true
+                        }
+                      ],
+                      "physical_id": "activity-1"
+                    },
+                    {
+                      "occasion_index": 1,
+                      "outputs": [
+                        {
+                          "coordinate_id": "reaction_time",
+                          "qualified": true
+                        }
+                      ],
+                      "physical_id": "reaction_time-1"
+                    }
+                  ],
+                  "closed_acquisition_inventory": true,
+                  "controlled_arm_counts": null,
+                  "n_people": 256,
+                  "pattern_id": "complete"
+                }
+              ],
+              "patterns_are_disjoint": true,
+              "question_sha256": "sha256:2dea72a3b5a60ee22e716e0909071ce24ae5d88cda0972634acd47bdf9a17c48",
+              "support": {
+                "collection_verified": null,
+                "controlled_assignment_identified": false,
+                "cross_domain_linkage": true,
+                "declared_population": true,
+                "documented_exposure": false,
+                "exposure_aligned_window": false,
+                "gaussian_reference": true,
+                "independent_measurement_error": true,
+                "independent_people": true,
+                "independently_measured_function": true,
+                "operator_valid": true,
+                "paired_occasions": true,
+                "prediction_time_order": true,
+                "reference_model_applicable": true,
+                "zero_mean_measurement_error": true
+              }
+            },
+            "question": {
+              "contract": "anibench.cross-domain-question.v1",
+              "coordinates": [
+                {
+                  "biological_domain": "digital",
+                  "definition": "Overall wrist acceleration average using the UK Biobank field90012 definition and its calibration/wear-time eligibility; each occasion summarizes its specified monitoring window",
+                  "id": "activity",
+                  "role": "observer",
+                  "unit": "milli-gravity"
+                },
+                {
+                  "biological_domain": "cognitive",
+                  "definition": "UK Biobank field20023 matching-card reaction-time summary: exclude training rounds0-4 and responses outside50-2000ms, retain matching-card responses, round mean to wholems; not general intelligence",
+                  "id": "reaction_time",
+                  "role": "function",
+                  "unit": "ms"
+                }
+              ],
+              "functional_operator": "Separate computerized reaction measurement with a declared additive-error approximation to the occasion summary. Validity of that approximation is stipulated, not calibrated from the source.",
+              "occasions_days": [
+                0,
+                365
+              ],
+              "population_scope": "Hypothetical independent adult sample; not UK Biobank participant data",
+              "question": "Can linked activity and cognitive measurements resolve their individual changes and population relationship?",
+              "question_id": "source_inspired_activity_and_reaction.v1",
+              "tolerance_authority": "Illustrative native resolutions chosen for a reproducible software example; not clinical thresholds or adopted AniBench level. Joint observer/function criteria retain separate units.",
+              "tolerances": {
+                "change_cross_covariance": [
+                  300
+                ],
+                "controlled_function_effect": [
+                  20
+                ],
+                "function_change": [
+                  35
+                ],
+                "function_mean_change": [
+                  10
+                ],
+                "function_state": [
+                  25
+                ],
+                "observer_change": [
+                  4
+                ],
+                "observer_mean_change": [
+                  1
+                ],
+                "observer_state": [
+                  3
+                ]
+              }
+            },
+            "scenario": {
+              "assumptions": [
+                "Invented joint Gaussian deviations around unspecified means, independent people, known additive error independent of biological variation.",
+                "B is a synthetic covariance generated by independent baseline states and independent follow-up innovations: standardized observer1=.7observer0+sqrt(.51)e; function1=.5observer0+.5function0+sqrt(.5)e.",
+                "The two source-native measurement definitions are combined in a hypothetical aligned two-occasion design. The sources do not establish this joint roster, cadence, covariance, sample size, error model or predicted gain.",
+                "The Gaussian approximation to averaged activity and reaction-time summaries needs empirical checking; these calculations do not establish actual support or tails."
+              ],
+              "biological_covariance": [
+                [
+                  100,
+                  0,
+                  70,
+                  500
+                ],
+                [
+                  0,
+                  10000,
+                  0,
+                  5000
+                ],
+                [
+                  70,
+                  0,
+                  100,
+                  350
+                ],
+                [
+                  500,
+                  5000,
+                  350,
+                  10000
+                ]
+              ],
+              "error_covariance_treated_as_known": true,
+              "measurement_error_covariance": [
+                [
+                  4,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  400,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  4,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  400
+                ]
+              ],
+              "question_sha256": "sha256:2dea72a3b5a60ee22e716e0909071ce24ae5d88cda0972634acd47bdf9a17c48"
+            }
+          }
+        },
+        "scenario_id": "reference"
+      }
+    ],
+    "study_id": "hypothetical_paired256"
+  },
+  "collection": {
+    "contract": "anibench.study-collection.v1",
+    "study_id": "hypothetical_paired256",
+    "source_scope": "Fictional design extensions. Not a real study, actual acquisition or complete biology reference.",
+    "inventory_status": "open",
+    "sources": [],
+    "acquisitions": [
+      {
+        "acquisition_id": "activity",
+        "acquisition_state": "declared_plan",
+        "biology": {
+          "state": "declared",
+          "description": "Movement",
+          "source_ids": []
+        },
+        "compartment": {
+          "state": "declared",
+          "description": "Wrist",
+          "source_ids": []
+        },
+        "channel": {
+          "state": "declared",
+          "description": "Inertial sensor",
+          "source_ids": []
+        },
+        "observable": {
+          "state": "declared",
+          "description": "Registered activity summary",
+          "source_ids": []
+        },
+        "resolution": {
+          "state": "unknown",
+          "description": "No resolution supplied; no precision credited",
+          "source_ids": []
+        },
+        "timing": {
+          "state": "unknown",
+          "description": "No acquired timestamps supplied",
+          "source_ids": []
+        },
+        "population": {
+          "state": "declared",
+          "description": "Fictional design; no actual people",
+          "source_ids": []
+        },
+        "quality": {
+          "state": "unknown",
+          "description": "No acquired quality evidence",
+          "source_ids": []
+        },
+        "raw_and_derived": {
+          "state": "declared",
+          "description": "Retention of raw acquisitions is a proposed design property",
+          "source_ids": []
+        }
+      },
+      {
+        "acquisition_id": "cognition",
+        "acquisition_state": "declared_plan",
+        "biology": {
+          "state": "declared",
+          "description": "Processing speed",
+          "source_ids": []
+        },
+        "compartment": {
+          "state": "declared",
+          "description": "Behavior",
+          "source_ids": []
+        },
+        "channel": {
+          "state": "declared",
+          "description": "Computer task",
+          "source_ids": []
+        },
+        "observable": {
+          "state": "declared",
+          "description": "Registered reaction-time summary",
+          "source_ids": []
+        },
+        "resolution": {
+          "state": "unknown",
+          "description": "No resolution supplied; no precision credited",
+          "source_ids": []
+        },
+        "timing": {
+          "state": "unknown",
+          "description": "No acquired timestamps supplied",
+          "source_ids": []
+        },
+        "population": {
+          "state": "declared",
+          "description": "Fictional design; no actual people",
+          "source_ids": []
+        },
+        "quality": {
+          "state": "unknown",
+          "description": "No acquired quality evidence",
+          "source_ids": []
+        },
+        "raw_and_derived": {
+          "state": "declared",
+          "description": "Retention of raw acquisitions is a proposed design property",
+          "source_ids": []
+        }
+      },
+      {
+        "acquisition_id": "oral_dna",
+        "acquisition_state": "declared_plan",
+        "biology": {
+          "state": "declared",
+          "description": "Microbial community",
+          "source_ids": []
+        },
+        "compartment": {
+          "state": "declared",
+          "description": "Oral cavity",
+          "source_ids": []
+        },
+        "channel": {
+          "state": "declared",
+          "description": "Shotgun DNA sequencing",
+          "source_ids": []
+        },
+        "observable": {
+          "state": "declared",
+          "description": "Native community and gene content; no host glucose endpoint required for acquisition presence",
+          "source_ids": []
+        },
+        "resolution": {
+          "state": "unknown",
+          "description": "No resolution supplied; no precision credited",
+          "source_ids": []
+        },
+        "timing": {
+          "state": "unknown",
+          "description": "No acquired timestamps supplied",
+          "source_ids": []
+        },
+        "population": {
+          "state": "declared",
+          "description": "Fictional design; no actual people",
+          "source_ids": []
+        },
+        "quality": {
+          "state": "unknown",
+          "description": "No acquired quality evidence",
+          "source_ids": []
+        },
+        "raw_and_derived": {
+          "state": "declared",
+          "description": "Retention of raw acquisitions is a proposed design property",
+          "source_ids": []
+        }
+      },
+      {
+        "acquisition_id": "skin_dna",
+        "acquisition_state": "declared_plan",
+        "biology": {
+          "state": "declared",
+          "description": "Microbial community",
+          "source_ids": []
+        },
+        "compartment": {
+          "state": "declared",
+          "description": "Skin sampling site not specified",
+          "source_ids": []
+        },
+        "channel": {
+          "state": "declared",
+          "description": "Shotgun DNA sequencing",
+          "source_ids": []
+        },
+        "observable": {
+          "state": "declared",
+          "description": "Native skin community",
+          "source_ids": []
+        },
+        "resolution": {
+          "state": "unknown",
+          "description": "No resolution supplied; no precision credited",
+          "source_ids": []
+        },
+        "timing": {
+          "state": "unknown",
+          "description": "No acquired timestamps supplied",
+          "source_ids": []
+        },
+        "population": {
+          "state": "declared",
+          "description": "Fictional design; no actual people",
+          "source_ids": []
+        },
+        "quality": {
+          "state": "unknown",
+          "description": "No acquired quality evidence",
+          "source_ids": []
+        },
+        "raw_and_derived": {
+          "state": "declared",
+          "description": "Retention of raw acquisitions is a proposed design property",
+          "source_ids": []
+        }
+      },
+      {
+        "acquisition_id": "voice",
+        "acquisition_state": "declared_plan",
+        "biology": {
+          "state": "declared",
+          "description": "Speech production",
+          "source_ids": []
+        },
+        "compartment": {
+          "state": "declared",
+          "description": "Vocal system",
+          "source_ids": []
+        },
+        "channel": {
+          "state": "declared",
+          "description": "Audio waveform",
+          "source_ids": []
+        },
+        "observable": {
+          "state": "declared",
+          "description": "Standardized speech task waveform",
+          "source_ids": []
+        },
+        "resolution": {
+          "state": "unknown",
+          "description": "No resolution supplied; no precision credited",
+          "source_ids": []
+        },
+        "timing": {
+          "state": "unknown",
+          "description": "No acquired timestamps supplied",
+          "source_ids": []
+        },
+        "population": {
+          "state": "declared",
+          "description": "Fictional design; no actual people",
+          "source_ids": []
+        },
+        "quality": {
+          "state": "unknown",
+          "description": "No acquired quality evidence",
+          "source_ids": []
+        },
+        "raw_and_derived": {
+          "state": "declared",
+          "description": "Retention of raw acquisitions is a proposed design property",
+          "source_ids": []
+        }
+      },
+      {
+        "acquisition_id": "movement_video",
+        "acquisition_state": "declared_plan",
+        "biology": {
+          "state": "declared",
+          "description": "Movement",
+          "source_ids": []
+        },
+        "compartment": {
+          "state": "declared",
+          "description": "Whole-body view",
+          "source_ids": []
+        },
+        "channel": {
+          "state": "declared",
+          "description": "Video",
+          "source_ids": []
+        },
+        "observable": {
+          "state": "declared",
+          "description": "Recorded movement task",
+          "source_ids": []
+        },
+        "resolution": {
+          "state": "unknown",
+          "description": "No resolution supplied; no precision credited",
+          "source_ids": []
+        },
+        "timing": {
+          "state": "unknown",
+          "description": "No acquired timestamps supplied",
+          "source_ids": []
+        },
+        "population": {
+          "state": "declared",
+          "description": "Fictional design; no actual people",
+          "source_ids": []
+        },
+        "quality": {
+          "state": "unknown",
+          "description": "No acquired quality evidence",
+          "source_ids": []
+        },
+        "raw_and_derived": {
+          "state": "declared",
+          "description": "Retention of raw acquisitions is a proposed design property",
+          "source_ids": []
+        }
+      },
+      {
+        "acquisition_id": "retinal_image",
+        "acquisition_state": "declared_plan",
+        "biology": {
+          "state": "declared",
+          "description": "Retinal structure",
+          "source_ids": []
+        },
+        "compartment": {
+          "state": "declared",
+          "description": "Retina",
+          "source_ids": []
+        },
+        "channel": {
+          "state": "declared",
+          "description": "Image",
+          "source_ids": []
+        },
+        "observable": {
+          "state": "declared",
+          "description": "Retinal view",
+          "source_ids": []
+        },
+        "resolution": {
+          "state": "unknown",
+          "description": "No resolution supplied; no precision credited",
+          "source_ids": []
+        },
+        "timing": {
+          "state": "unknown",
+          "description": "No acquired timestamps supplied",
+          "source_ids": []
+        },
+        "population": {
+          "state": "declared",
+          "description": "Fictional design; no actual people",
+          "source_ids": []
+        },
+        "quality": {
+          "state": "unknown",
+          "description": "No acquired quality evidence",
+          "source_ids": []
+        },
+        "raw_and_derived": {
+          "state": "declared",
+          "description": "Retention of raw acquisitions is a proposed design property",
+          "source_ids": []
+        }
+      },
+      {
+        "acquisition_id": "reflectance",
+        "acquisition_state": "declared_plan",
+        "biology": {
+          "state": "declared",
+          "description": "Optical tissue response",
+          "source_ids": []
+        },
+        "compartment": {
+          "state": "declared",
+          "description": "Skin",
+          "source_ids": []
+        },
+        "channel": {
+          "state": "declared",
+          "description": "Spectral reflectance",
+          "source_ids": []
+        },
+        "observable": {
+          "state": "declared",
+          "description": "Calibrated wavelengths and optical response not yet specified",
+          "source_ids": []
+        },
+        "resolution": {
+          "state": "unknown",
+          "description": "No resolution supplied; no precision credited",
+          "source_ids": []
+        },
+        "timing": {
+          "state": "unknown",
+          "description": "No acquired timestamps supplied",
+          "source_ids": []
+        },
+        "population": {
+          "state": "declared",
+          "description": "Fictional design; no actual people",
+          "source_ids": []
+        },
+        "quality": {
+          "state": "unknown",
+          "description": "No acquired quality evidence",
+          "source_ids": []
+        },
+        "raw_and_derived": {
+          "state": "declared",
+          "description": "Retention of raw acquisitions is a proposed design property",
+          "source_ids": []
+        }
+      }
+    ],
+    "links": [],
+    "reference_mappings": [
+      {
+        "acquisition_id": "activity",
+        "question_id": "activity_cognition",
+        "definition_sha256": "sha256:2dea72a3b5a60ee22e716e0909071ce24ae5d88cda0972634acd47bdf9a17c48",
+        "extent": "selected_observables",
+        "addressed": "Only the registered activity or reaction-time summary under its exact hypothetical contract",
+        "unaddressed": "Raw signal information beyond registered summaries; no broad digital or cognitive coverage",
+        "qualification": {
+          "state": "declared",
+          "description": "Fictional interpretation example; collection-to-input provenance not verified",
+          "source_ids": []
+        }
+      },
+      {
+        "acquisition_id": "cognition",
+        "question_id": "activity_cognition",
+        "definition_sha256": "sha256:2dea72a3b5a60ee22e716e0909071ce24ae5d88cda0972634acd47bdf9a17c48",
+        "extent": "selected_observables",
+        "addressed": "Only the registered activity or reaction-time summary under its exact hypothetical contract",
+        "unaddressed": "Raw signal information beyond registered summaries; no broad digital or cognitive coverage",
+        "qualification": {
+          "state": "declared",
+          "description": "Fictional interpretation example; collection-to-input provenance not verified",
+          "source_ids": []
+        }
+      }
+    ]
+  }
+}

@@ -104,6 +104,7 @@ packages = ["src/anibench"]
 "docs/ESTIMATOR_MOMENTS.md" = "anibench/docs/ESTIMATOR_MOMENTS.md"
 "examples/study_questions" = "anibench/examples/study_questions"
 "docs/STUDY_QUESTIONS.md" = "anibench/docs/STUDY_QUESTIONS.md"
+"docs/STUDY_COLLECTION_SCOPE.md" = "anibench/docs/STUDY_COLLECTION_SCOPE.md"
 "examples/cross_domain_collection" = "anibench/examples/cross_domain_collection"
 "schemas/cross_domain_collection" = "anibench/schemas/cross_domain_collection"
 "docs/CROSS_DOMAIN_COLLECTION.md" = "anibench/docs/CROSS_DOMAIN_COLLECTION.md"
@@ -305,6 +306,9 @@ include = [
   "/tests/test_study_questions_moments.py",
   "/examples/study_questions",
   "/docs/STUDY_QUESTIONS.md",
+  "/docs/STUDY_COLLECTION_SCOPE.md",
+  "/src/anibench/study_collection_scope_v1.py",
+  "/tests/test_study_collection_scope.py",
   "/examples/cross_domain_collection",
   "/schemas/cross_domain_collection",
   "/docs/CROSS_DOMAIN_COLLECTION.md",

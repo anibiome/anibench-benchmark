@@ -1,3 +1,13 @@
+Collection scope correction: selected measurement tests do not represent a
+study's full biological depth. The working `anibench.study-collection-request.v1`
+path retains the source-defined collection beside the original finite-reference
+calculation through the existing `study-questions` command. Biological targets,
+body sites, channels, resolution, timing and linkage remain distinct; acquisitions
+outside the reference stay visible. See `docs/STUDY_COLLECTION_SCOPE.md`.
+This preservation boundary is not a new whole-study score or a completed release.
+Representative reference construction and meaningful real-study comparisons
+remain the scientific integration priority.
+
 Study-question profiles v4 now accept registered estimator moments alongside
 the existing engines. Finite native error targets retain bias, dependence and
 unknown bounds without assuming Gaussian raw data. The standalone command is
